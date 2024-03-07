@@ -7,11 +7,11 @@ contributors:
 
 # Getting started with Firefly Services
 
-The first step in accessing the Firefly Services APIs is getting authenticated. For that, you will need an Authorization Token and an API Key. The steps below will show you how to generate an access token and make your first hello world call.
+The first step in accessing Firefly Services is getting authenticated. For that, you will need an Authorization Token and an API Key. The steps below will show you how to generate an access token and make your first hello world call.
 
 ## Steps
 
-Follow these steps to get started with the Firefly Services APIs.
+Follow these steps to get started with Firefly Services.
 
 ### Generate an API Key and access token from the Adobe Developer Console
 

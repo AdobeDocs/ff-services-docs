@@ -20,22 +20,22 @@ module.exports = {
         path: "https://developer.adobe.com/firefly-services",
       },            
       {
-        title: 'Guides',
+        title: 'Overview',
         path: '/guides/'
       },
       {
-        title: 'Firefly APIs',
-        description: 'Docs and references for Firefly APIs',
+        title: 'Firefly API',
+        description: 'Docs and references for Firefly API',
         path: 'https://developer.adobe.com/firefly-api/' // TODO: this needs to get content from transclusion
       },
       {
-        title: 'Photoshop APIs',
-        description: 'Docs and references for Photoshop APIs',
+        title: 'Photoshop API',
+        description: 'Docs and references for Photoshop API',
         path: 'https://developer.adobe.com/photoshop/photoshop-api-docs/'
       },
       {
-        title: 'Lightroom APIs',
-        description: 'Docs and references for Lightroom APIs',
+        title: 'Lightroom API',
+        description: 'Docs and references for Lightroom API',
         path: 'https://developer.adobe.com/photoshop/photoshop-api-docs/'
       },
       {
