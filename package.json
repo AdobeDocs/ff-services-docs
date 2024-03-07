@@ -13,11 +13,11 @@
   },
   "dependencies": {
     "@adobe/gatsby-theme-aio": "^4.11.0",
+    "cis-photoshop-api": "github:adobedocs/cis-photoshop-api-docs",
     "gatsby": "4.22.0",
+    "lightroom-api": "github:adobedocs/lightroom-public-apis",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "cis-photoshop-api": "github:adobedocs/cis-photoshop-api",
-    "lightroom-api": "github:adobedocs/lightroom-public-apis"
+    "react-dom": "^17.0.2"
   },
   "resolutions": {
     "sharp": "0.33.0",
