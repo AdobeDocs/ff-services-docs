@@ -12,99 +12,105 @@
 
 module.exports = {
   pathPrefix: process.env.PATH_PREFIX || '/dev-site-documentation-template/',
-  siteMetadata: {
-    versions: [
-      {
-        title: 'v2.0',
-        selected: true
-      },
-      {
-        title: 'v1.4',
-        path: 'https://github.com/AdobeDocs/dev-site'
-      }
-    ],
+  
+  siteMetadata: {    
     pages: [
       {
-        title: 'Cat Analytics',
-        path: '/'
-      },
+        title: "Firefly Services", // Links back to microsite (mkt pages)
+        path: "https://developer.adobe.com/firefly-services",
+      },            
       {
         title: 'Guides',
         path: '/guides/'
       },
       {
-        title: 'API Reference',
-        menu: [
-          {
-            title: 'Cat Reference v2.0',
-            description: 'Cat Reporting API',
-            path: '/api/index.md'
-          },
-          {
-            title: 'Cat Reference v1.4',
-            description: 'Cat API Spec',
-            path: '/api/1.4.md'
-          }
-        ]
+        title: 'Firefly APIs',
+        description: 'Docs and references for Firefly APIs',
+        path: 'https://developer.adobe.com/firefly-api/' // TODO: this needs to get content from transclusion
       },
       {
-        title: 'Support',
-        path: '/support/'
-      }
+        title: 'Photoshop APIs',
+        description: 'Docs and references for Photoshop APIs',
+        path: 'https://developer.adobe.com/photoshop/photoshop-api-docs/'
+      },
+      {
+        title: 'Lightroom APIs',
+        description: 'Docs and references for Lightroom APIs',
+        path: 'https://developer.adobe.com/photoshop/photoshop-api-docs/'
+      },
+      {
+        title: 'Content Tagging',
+        description: 'Docs and references for Content Tagging services',
+        path: 'https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html'
+      },
     ],
-    subPages: [
-      {
-        title: 'Get Started',
-        path: '/guides/',
-        pages: [
-          {
-            title: 'Dummy an OAuth Client',
-            path: '/guides/dummy_oauth_client/'
-          },
-          {
-            title: 'Dummy OAuth using POSTMAN',
-            path: '/guides/dummy_using_postman/'
-          }
-        ]
-      },
-      {
-        title: 'Cat Metrics API',
-        path: '/guides/dummy_metrics_api/'
-      },
-      {
-        title: 'Migrating',
-        path: '/guides/migrating/'
-      },
+    subPages: [      
       {
         title: 'Overview',
-        path: '/support/',
-        header: true,
+        path: '/guides/',
+      },
+      {
+        title: 'Getting Started',
+        path: '/guides/get-started.md',        
+      },
+      {
+        title: 'Tutorials',
+        path: '/guides/tutorials',        
         pages: [
           {
-            title: 'Help',
-            path: '/support/'
+            title: 'x-API tutorial 1',
+            path: '/guides/tutorials/tut1.md'
           },
           {
-            title: 'FAQ',
-            path: '/support/FAQ/'
+            title: 'x-API tutorial 2',
+            path: '/guides/tutorials/tut2.md'
+          }
+        ]
+      },                 
+      {
+        title: 'SDKs',
+        path: '/guides/sdks',       
+        pages: [
+          {
+            title: 'JavaScript SDK',
+            path: '/guides/sdks/sdk1.md'
           },
           {
-            title: 'How to contribute',
-            path: '/support/contribute/'
+            title: 'SDK 2',
+            path: '/guides/sdks/sdk2.md'
           }
         ]
       },
-      {
-        title: 'Community',
-        path: '/support/community/',
-        header: true,
-        pages: [
-          {
-            title: 'Information',
-            path: '/support/community/'
-          }
-        ]
-      }
+      // {
+      //   title: 'Overview',
+      //   path: '/support/',
+      //   header: true,
+      //   pages: [
+      //     {
+      //       title: 'Help',
+      //       path: '/support/'
+      //     },
+      //     {
+      //       title: 'FAQ',
+      //       path: '/support/FAQ/'
+      //     },
+      //     {
+      //       title: 'How to contribute',
+      //       path: '/support/contribute/'
+      //     }
+      //   ]
+      // },
+      // {
+      //   title: 'Community',
+      //   path: '/support/community/',
+      //   header: true,
+      //   pages: [
+      //     {
+      //       title: 'Information',
+      //       path: '/support/community/'
+      //     }
+      //   ]
+      // }
     ]
   },
   plugins: [`@adobe/gatsby-theme-aio`]

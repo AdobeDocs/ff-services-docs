@@ -1,26 +1,24 @@
 ---
-title: Guides - Cat Analytics
-description: This is the guides overview page of Cat Analytics 
+title: Adobe Firefly Services Guides
+description: Find the most recent documentation, code samples and resources for using Firefly Services.
+contributors:
+  - https://github.com/hollyschinsky
 ---
 
-# Get Started
+# Overview
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam malesuada feugiat enim vel facilisis. Nunc eget enim eu lacus lobortis tincidunt a nec est. Nunc quis sapien quis orci rutrum sollicitudin. Nullam vehicula ultricies mauris, id aliquam justo aliquam vitae. Nam quis tincidunt ante. Curabitur sagittis aliquam elit, at auctor enim maximus et. Praesent in lectus facilisis, tempor magna eget, bibendum est. In quis ornare mi. Donec vestibulum viverra magna, non mollis leo vestibulum sit amet. Aenean euismod nulla augue, sit amet vehicula nibh faucibus vel. Fusce at est lacus. Nullam ante nulla, elementum nec ornare in, placerat luctus enim. Suspendisse vitae lacinia nibh. Pellentesque porta accumsan est at volutpat. Nulla aliquam dictum faucibus.
+Build amazing apps with Adobe's Firefly Services that transform your workflows using our cutting-edge creative APIs.
 
-## Authentication
+## Introduction
 
-Mauris pellentesque ornare nulla. Proin fermentum elementum velit non consequat. Donec euismod nisl sed tellus sagittis, a consequat leo rhoncus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse neque justo, porttitor eget volutpat sed, suscipit nec mauris. Etiam nec egestas purus. Praesent suscipit in elit cursus consectetur. Duis blandit pulvinar odio, eget volutpat magna vestibulum interdum. Ut sed ultrices risus, vel gravida nisi. Sed vitae rutrum felis. Aliquam at eros molestie, sagittis augue sed, venenatis erat. Praesent at consectetur tellus, ut vehicula nunc. Pellentesque aliquet condimentum neque, fermentum consequat neque viverra vel. Aliquam accumsan dignissim turpis vitae consequat. Aenean id justo vel diam sollicitudin posuere. Sed eu mauris ac elit porta commodo et varius sem.
+Here you will find content to help you learn how to build apps that combine industry-leading creative technology with groundbreaking AI and automation to cost-effectively scale content production with Firefly and Creative Cloud APIs.
 
-## OAuth
+## Build something cool
 
-Donec imperdiet tempus ligula, sit amet pellentesque justo pharetra quis. Duis sed lacus diam. Maecenas sollicitudin diam sit amet pharetra placerat. Aliquam egestas lectus et tellus sagittis, venenatis finibus nisi volutpat. Cras laoreet, nisl sed faucibus laoreet, nibh arcu pretium enim, eget elementum ligula tellus vitae lorem. Aenean consequat in lorem at venenatis. Phasellus consequat dolor in libero vulputate rutrum. Nulla sit amet augue fringilla, elementum libero eget, accumsan velit. Suspendisse et lorem ornare, congue justo vel, ultrices felis. Ut et aliquet eros. Nulla facilisi. Nulla vitae velit a enim egestas eleifend. Etiam malesuada orci non mollis vulputate. Praesent id augue eget sapien lobortis bibendum. Praesent placerat tellus dui, vel facilisis magna condimentum in.
+Use APIs like [Text-to-Image]() to create an image, then transform it with any number of APIs available across our API offerings, like [Auto Tone](), [Depth Blur]() or choose to [Apply a Lightroom preset]().
 
-[Adobe I/O Console](https://console.adobe.io).
+## Ready to get started?
 
-<InlineAlert variant="info" slots="text"/>
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna tellus, fringilla sit amet lorem eget, dignissim pellentesque ligula. Donec nec dolor vitae leo laoreet aliquam vehicula at dui. Integer in tortor lacus. Aliquam convallis, lorem ac consectetur sodales, tellus.
-
-## JWT
-
-Donec imperdiet tempus ligula, sit amet pellentesque justo pharetra quis. Duis sed lacus diam. Maecenas sollicitudin diam sit amet pharetra placerat. Aliquam egestas lectus et tellus sagittis, venenatis finibus nisi volutpat. Cras laoreet, nisl sed faucibus laoreet, nibh arcu pretium enim, eget elementum ligula tellus vitae lorem. Aenean consequat in lorem at venenatis. Phasellus consequat dolor in libero vulputate rutrum. Nulla sit amet augue fringilla, elementum libero eget, accumsan velit. Suspendisse et lorem ornare, congue justo vel, ultrices felis. Ut et aliquet eros. Nulla facilisi. Nulla vitae velit a enim egestas eleifend. Etiam malesuada orci non mollis vulputate. Praesent id augue eget sapien lobortis bibendum. Praesent placerat tellus dui, vel facilisis magna condimentum in.
+- Begin by navigating to the [Getting Started guide](./get-started.md) to get set up and obtain your credentials.
+- Next, check out our [in-depth tutorials](./tutorials/) to walk you step-by-step through building your first amazing app.
+- Check out our [SDKs](sdks.md) options available to help you build your app in your language of choice.
