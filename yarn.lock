@@ -8160,7 +8160,6 @@ __metadata:
     cis-photoshop-api: "github:adobedocs/cis-photoshop-api-docs"
     firfly-api-docs: "github:adobedocs/firefly-api-docs"
     gatsby: 4.22.0
-    lightroom-api: "github:adobedocs/lightroom-public-apis"
     react: ^17.0.2
     react-dom: ^17.0.2
     remark-cli: ^11.0.0
@@ -13053,18 +13052,6 @@ __metadata:
   dependencies:
     immediate: ~3.0.5
   checksum: 33102302cf19766f97919a6a98d481e01393288b17a6aa1f030a3542031df42736edde8dab29ffdbf90bebeffc48c761eb1d064dc77592ca3ba3556f9fe6d2a8
-  languageName: node
-  linkType: hard
-
-"lightroom-api@github:adobedocs/lightroom-public-apis":
-  version: 1.0.0
-  resolution: "lightroom-api@https://github.com/adobedocs/lightroom-public-apis.git#commit=f1239ec83507614a3d03aa40f88efd4193bf5494"
-  dependencies:
-    "@adobe/gatsby-theme-aio": ^4.11.0
-    gatsby: 4.22.0
-    react: ^17.0.2
-    react-dom: ^17.0.2
-  checksum: d8771e3469e1644a1f0c0728120f008d772ced9b035be30b3691f729fd888a72f67da13d65782c164045698e96039aae4f98b222b6e32819c136d1b145208a19
   languageName: node
   linkType: hard
 
