@@ -17,7 +17,7 @@ module.exports = {
     pages: [
       {
         title: "Firefly Services", // Links back to microsite (mkt pages)
-        path: "https://developer.adobe.com/firefly-services?aio_internal",
+        path: "https://developer.adobe.com/firefly-services/",
       },            
       {
         title: 'Overview',
@@ -26,22 +26,23 @@ module.exports = {
       {
         title: 'Firefly API',
         description: 'Docs and references for Firefly API',
-        path: 'https://developer.adobe.com/firefly-api/?aio_internal' // TODO: this needs to get content from transclusion
+        path: 'https://developer.adobe.com/firefly-api/' // TODO: this needs to get content from transclusion
       },
       {
         title: 'Photoshop API',
         description: 'Docs and references for Photoshop API',
-        path: 'https://developer.adobe.com/photoshop/photoshop-api-docs/?aio_internal'
+        path: 'https://developer.adobe.com/photoshop/photoshop-api-docs/'
       },
       {
         title: 'Lightroom API',
         description: 'Docs and references for Lightroom API',
-        path: 'https://developer.adobe.com/lightroom/lightroom-api-docs/?aio_internal'
+        path: 'https://developer.adobe.com/lightroom/lightroom-api-docs/'
       },
       {
         title: 'Content Tagging',
         description: 'Docs and references for Content Tagging services',
-        path: 'https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html?aio_internal'
+        // path: 'https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html?aio_internal'
+        path: 'https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html'
       },
     ],
     subPages: [      
