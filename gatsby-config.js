@@ -36,7 +36,7 @@ module.exports = {
       {
         title: 'Lightroom API',
         description: 'Docs and references for Lightroom API',
-        path: 'https://developer.adobe.com/photoshop/photoshop-api-docs/?aio_internal'
+        path: 'https://developer.adobe.com/lightroom/lightroom-api-docs/?aio_internal'
       },
       {
         title: 'Content Tagging',
