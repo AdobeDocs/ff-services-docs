@@ -14,7 +14,7 @@
   "dependencies": {
     "@adobe/gatsby-theme-aio": "^4.11.0",
     "cis-photoshop-api": "github:adobedocs/cis-photoshop-api-docs",
-    "firfly-api-docs": "github:adobedocs/firefly-api-docs",
+    "firefly-api-docs": "github:adobedocs/firefly-api-docs",
     "gatsby": "4.22.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
@@ -28,8 +28,9 @@
     "start:prefix": "gatsby build --prefix-paths && gatsby serve --prefix-paths",
     "dev": "gatsby develop",
     "dev:https": "gatsby develop --https --host localhost.corp.adobe.com --port 9000",
+    "_copy_firefly_docs": "rm -rf src/pages/guides/firefly && cp -r node_modules/firefly-api-docs/src/pages src/pages/guides/firefly",
     "_copy_cis_photoshop_docs": "rm -rf src/pages/guides/photoshop && cp -r node_modules/cis-photoshop-api/src/pages src/pages/guides/photoshop",
-    "_copy_docs": "npm run _copy_cis_photoshop_docs",
+    "_copy_docs": "npm run _copy_cis_photoshop_docs  && npm run _copy_firefly_docs",
     "prepare-docs": "npm run _copy_docs",
     "prebuild": "npm run prepare-docs",
     "build": "gatsby build",
