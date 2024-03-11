@@ -5,6 +5,8 @@ contributors:
   - https://github.com/hollyschinsky
 ---
 
+<Hero slots="heading, text" background="rgb(233, 80, 80)"/>
+
 # Overview
 
 Build amazing apps with Adobe's Firefly Services that transform your workflows using our cutting-edge creative APIs.
