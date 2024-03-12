@@ -50,14 +50,15 @@ module.exports = {
         path: '/guides/',
       },
       {
+        title: 'Firefly API Overview',
+        path: '/guides/firefly/',
+      },  
+      {
         title: 'Photoshop API Overview',
-        path: '/guides/photoshop/index.md',     
+        path: '/guides/photoshop/',     
         pages: require("./reference-photoshop.js"),   
       },
-      {
-        title: 'Firefly API Overview',
-        path: '/guides/firefly/index.md',
-      },    
+  
     ]
   },
   plugins: [`@adobe/gatsby-theme-aio`]
