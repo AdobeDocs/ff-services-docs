@@ -26,17 +26,17 @@ module.exports = {
       {
         title: 'Firefly API',
         description: 'Docs and references for Firefly API',
-        path: 'https://developer.adobe.com/firefly-api/' // TODO: this needs to get content from transclusion
+        path: '/guides/firefly-api/' // TODO: this needs to get content from transclusion
       },
       {
         title: 'Photoshop API',
         description: 'Docs and references for Photoshop API',
-        path: 'https://developer.adobe.com/photoshop/photoshop-api-docs/'
+        path: '/guides/photoshop/'
       },
       {
         title: 'Lightroom API',
         description: 'Docs and references for Lightroom API',
-        path: 'https://developer.adobe.com/photoshop/photoshop-api-docs/'
+        path: '/guides/photoshop/'
       },
       {
         title: 'Content Tagging',
@@ -50,7 +50,7 @@ module.exports = {
         path: '/guides/',
       },
       {
-        title: 'Getting Started',
+        title: 'Photoshop API Overview',
         path: '/guides/get-started.md',        
       },
       {
