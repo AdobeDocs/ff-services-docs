@@ -51,66 +51,13 @@ module.exports = {
       },
       {
         title: 'Photoshop API Overview',
-        path: '/guides/get-started.md',        
+        path: '/guides/photoshop/index.md',     
+        pages: require("./reference-photoshop.js"),   
       },
       {
-        title: 'Tutorials',
-        path: '/guides/tutorials',        
-        pages: [
-          {
-            title: 'x-API tutorial 1',
-            path: '/guides/tutorials/tut1.md'
-          },
-          {
-            title: 'x-API tutorial 2',
-            path: '/guides/tutorials/tut2.md'
-          }
-        ]
-      },                 
-      {
-        title: 'SDKs',
-        path: '/guides/sdks',       
-        pages: [
-          {
-            title: 'JavaScript SDK',
-            path: '/guides/sdks/sdk1.md'
-          },
-          {
-            title: 'SDK 2',
-            path: '/guides/sdks/sdk2.md'
-          }
-        ]
-      },
-      // {
-      //   title: 'Overview',
-      //   path: '/support/',
-      //   header: true,
-      //   pages: [
-      //     {
-      //       title: 'Help',
-      //       path: '/support/'
-      //     },
-      //     {
-      //       title: 'FAQ',
-      //       path: '/support/FAQ/'
-      //     },
-      //     {
-      //       title: 'How to contribute',
-      //       path: '/support/contribute/'
-      //     }
-      //   ]
-      // },
-      // {
-      //   title: 'Community',
-      //   path: '/support/community/',
-      //   header: true,
-      //   pages: [
-      //     {
-      //       title: 'Information',
-      //       path: '/support/community/'
-      //     }
-      //   ]
-      // }
+        title: 'Firefly API Overview',
+        path: '/guides/firefly/index.md',
+      },    
     ]
   },
   plugins: [`@adobe/gatsby-theme-aio`]
