@@ -136,7 +136,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adobe/gatsby-theme-aio@npm:^4.11.0, @adobe/gatsby-theme-aio@npm:^4.11.3":
+"@adobe/gatsby-theme-aio@npm:^4.11.0":
   version: 4.11.4
   resolution: "@adobe/gatsby-theme-aio@npm:4.11.4"
   dependencies:
@@ -8411,7 +8411,7 @@ __metadata:
   dependencies:
     "@adobe/gatsby-theme-aio": ^4.11.0
     cis-photoshop-api: "github:adobedocs/cis-photoshop-api-docs"
-    firefly-api-docs: "github:adobedocs/firefly-api-docs"
+    firefly-api-docs: "github:adobedocs/firefly-api-docs#nimitha"
     gatsby: 4.22.0
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -10080,15 +10080,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"firefly-api-docs@github:adobedocs/firefly-api-docs":
+"firefly-api-docs@github:adobedocs/firefly-api-docs#nimitha":
   version: 1.0.0
-  resolution: "firefly-api-docs@https://github.com/adobedocs/firefly-api-docs.git#commit=5fbf6c122230b3de99dc7d7a9161afd3e75cf9ad"
+  resolution: "firefly-api-docs@https://github.com/adobedocs/firefly-api-docs.git#commit=a09e7e95b375d651a2343c2ac515f886d45670ff"
   dependencies:
-    "@adobe/gatsby-theme-aio": ^4.11.3
+    "@adobe/gatsby-theme-aio": ^4.11.0
     gatsby: 4.22.0
     react: ^17.0.2
     react-dom: ^17.0.2
-  checksum: 91e41843e492b6fdbe11c26467095677922504df893dbbf4f63d0435fe25816ba4e6d7cbac045db4867f00da15a4ae91328efdbcf1de96d4720ed225f0ef0c52
+  checksum: 0e91f3337b1a3bc190d9fae749a1650cb168288b8cc2b1528b5382ada6072163817c002a89cc5919605c474742e51440ffe98c0fdd1bb2b8669b275bebc08b19
   languageName: node
   linkType: hard
 

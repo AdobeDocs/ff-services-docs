@@ -52,6 +52,7 @@ module.exports = {
       {
         title: 'Firefly API Overview',
         path: '/firefly-api/',
+        pages: require("./reference-firefly.js"),   
       },  
       {
         title: 'Photoshop API Overview',

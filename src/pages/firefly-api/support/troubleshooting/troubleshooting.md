@@ -1,0 +1,42 @@
+---
+title: Best Practices
+description: This guide explains rate limiting for the Adobe Firefly API.
+contributors:
+  - https://github.com/nimithajalal
+---
+
+# Firefly API Troubleshooting Guide
+
+This guide provides solutions to common issues encountered when using the Adobe Firefly API. If you encounter any problems not covered here, please refer to the API documentation or contact Adobe support for assistance.
+
+## Issue: Authentication Failure
+### Solution:
+- Verify that you are using the correct client ID and client secret for authentication.
+- Ensure that your OAuth 2.0 token is valid and has not expired.
+- Check that the API endpoint URL is correct and supports the authentication method you are using.
+
+## Issue: Rate Limit Exceeded
+### Solution:
+- Implement exponential backoff and retry logic to handle rate limiting.
+- Reduce the frequency of API calls or optimize your code to make fewer requests.
+- Contact Adobe support to request a rate limit increase if necessary.
+
+## Issue: Unexpected API Response
+### Solution:
+- Check the API documentation for the correct request format and parameters.
+- Verify that your request is correctly formatted and includes all required parameters.
+- Use logging and debugging tools to inspect the API response and identify any issues.
+
+## Issue: Internal Server Error (HTTP 500)
+### Solution:
+- This error indicates a problem on the server side. Wait a few minutes and try your request again.
+- If the issue persists, check the Adobe status page for any reported service disruptions.
+
+## Issue: Slow API Response Times
+### Solution:
+- Check your network connection and ensure that it is stable and fast.
+- Optimize your code to reduce the amount of data sent in API requests.
+- Consider using a CDN or caching strategy to reduce latency for static resources.
+
+## Conclusion
+By following the solutions provided in this guide, you should be able to resolve common issues encountered when using the Adobe Firefly API. If you continue to experience problems, please refer to the API documentation or contact Adobe support for assistance.

@@ -1,0 +1,20 @@
+type: object
+description: Advanced settings that will be applied if the specified or detected contentClass is photo
+properties:
+  aperture:
+    type: number
+    format: float
+    minimum: 1.2
+    maximum: 22
+    description: Aperture
+  shutterSpeed:
+    type: number
+    format: float
+    minimum: 0.0005
+    maximum: 10
+    description: Shutter speed (seconds)
+  fieldOfView:
+    type: integer
+    minimum: 14
+    maximum: 300
+    description: Field of view (millimeters)

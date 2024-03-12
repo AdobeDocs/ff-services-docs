@@ -1,0 +1,9 @@
+type: string
+description: >
+  The content class determines the image style for the generated images. When the `x-api-variant` header is set to `v1`, you are targeting an older version of our image model and get an additional class `graphic`.
+    | Value  |  Description
+    |:---------- |:------
+    | photo      | Photorealistic style
+    | art    | Artistic style
+    | [v1 only] graphic        | Vector/graphic style
+default: null

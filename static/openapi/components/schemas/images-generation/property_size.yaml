@@ -1,0 +1,11 @@
+type: string
+description: >
+  Aspect ratio for generated image.
+    | Value | Aspect Ratio | 
+    | -----------| ----- |
+    | 1408x1024 | Landscape (4:3) |
+    | 1024x1408 | Portrait (3:4) | 
+    | 1024x1024 | Square (1:1) |
+    | 1792x1024 | Widescreen (16:9) |
+    | 1024x1792 | Vertical (9:16) |
+default: 1024x1024

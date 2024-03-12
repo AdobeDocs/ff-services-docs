@@ -1,0 +1,7 @@
+in: header
+name: x-accept-mimetype
+required: true
+description: Header that can be provided to indicate output image format
+schema:
+  type: string
+  example: image/jpeg

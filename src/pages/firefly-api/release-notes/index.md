@@ -7,34 +7,21 @@ contributors:
 <!-- TODO: Update with latest prod details, elaborate on API descriptions -->
 # Release Notes
 
-## February 1, 2024
-
-### Added
-
-APIs released in production:
-
-  * Text-to-image API with generative match
-  * Generative Expand API
-  * Generative Fill API
-  * Upload API
-
 ## December 13, 2023
 
 ### Added
 
-APIs released in beta:
-
-  * Text-to-image API with generative match
-  * Generative Expand API
-  * Generative Fill API
-  * Upload API
+* Text-to-image API with generative match
+* Generative Expand API
+* Generative Fill API
+* Upload API
 
 ## November 20, 2023
 
 ### Added
 
 * You can now use the latest image model (clio v2) by setting header `x-api-variant` to `v2`. It will be set to `v2` by default.
-* Styles are documented in the API references as well as the new [styles guide](../guides/styles/index.md).
+* Styles are documented in the API references as well as the new [styles guide](../guides/concepts/styles/index.md)
   
 ## October 26, 2023
 
@@ -47,3 +34,11 @@ We're excited to announce the release of our text-to-image API v1.0, the first m
 * Output types:
   * `application/json` (base64-encoded representation of the image data)
   * `multipart/mixed` (multi-part form data - binary representation of the image data)
+
+### Known Issues and Limitations
+
+* Offer Async API pattern
+* Generate a tempUrl for each response
+* Introduce defaults for `accept` and `mimetype` headers
+* Add ability to specify JPG quality
+* Rendering image in API References sandbox

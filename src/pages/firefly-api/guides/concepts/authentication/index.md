@@ -9,7 +9,7 @@ contributors:
 
 Server-to-server authentication credentials lets your application’s server generate access tokens and make API calls on behalf of your application. This is sometimes referred to as “two-legged OAuth”.
 
-For your application to generate an access token, an end-user does not need to sign in or provide consent to your application. Instead, your application can use its credentials (client id and secrets) to authenticate itself and generate access tokens. Your application can then use the generated access token to call Adobe APIs and services on its behalf.
+For your application to generate an access token, an end-user does not need to sign in or provide consent to your application. Instead, your application can use its credentials (client id and secrets) to authenticate itself and generate access tokens. Your application can then use the generated access token to call Adobe API and services on its behalf.
 
 ## Access tokens
 
@@ -20,14 +20,14 @@ To generate access tokens programmatically, send a POST request to the following
 ```bash
 curl -X POST 'https://ims-na1.adobelogin.com/ims/token/v3' \
 -H 'Content-Type: application/x-www-form-urlencoded' \
--d 'grant_type=client_credentials&client_id={client_id}&client_secret={client_secret}&scope=openid,AdobeID,firefly_enterprise,firefly_api,ff_apis'
+-d 'grant_type=client_credentials&client_id={client_id}&client_secret={client_secret}&scope=openid,AdobeID,firefly_enterprise,firefly_api'
 ```
 
 The required parameters are:
 
 * `client_id`: Client ID from Console
 * `client_secret`: Client secret from Console
-* `scope`: `firefly_api`, `firefly_enterprise`, `ff_apis`, `openid`, `AdobeID`
+* `scope`: `firefly_api`, `openid`, `AdobeID`
 
 Automate your token generation by calling the IMS endpoint above using standard OAuth2 libraries. Using industry-standard libraries is the quickest and most secure way of integrating with OAuth. We recommend developers diligently pick the OAuth 2.0 library that works best for their application. Your teams' projects are likely leveraging OAuth libraries already to connect with other APIs. Use these libraries to automatically generate tokens when they expire.
 

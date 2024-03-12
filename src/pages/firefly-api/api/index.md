@@ -1,1 +1,1 @@
-<RedoclyAPIBlock src="https://developer.adobe.com/firefly-api/openapi/openapi.yaml" />
+<RedoclyAPIBlock src="https://developer-stage.adobe.com/firefly-api/openapi.json" />
