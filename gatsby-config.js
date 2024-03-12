@@ -51,7 +51,7 @@ module.exports = {
       },
       {
         title: 'Firefly API Overview',
-        path: '/guides/firefly/',
+        path: '/guides/firefly-api/',
       },  
       {
         title: 'Photoshop API Overview',
