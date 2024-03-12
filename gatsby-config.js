@@ -59,8 +59,8 @@ module.exports = {
         path: '/guides/tutorials',        
         pages: [
           {
-            title: 'x-API tutorial 1',
-            path: '/guides/tutorials/tut1.md'
+            title: 'Creating Product Images at Scale with Firefly Services',
+            path: '/guides/tutorials/create-product-images-with-ff.md'
           },
           {
             title: 'x-API tutorial 2',
