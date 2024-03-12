@@ -1,22 +1,22 @@
 module.exports=[
     {
         title: 'Getting Started',
-        path: '/guides/photoshop/getting-started/'
+        path: '/photoshop/getting-started/'
       },
       {
         title: 'General Workflow',
-        path: '/guides/photoshop/general-workflow/'
+        path: '/photoshop/general-workflow/'
       },
       {
         title: 'Features',
-        path: '/guides/photoshop/features/'
+        path: '/photoshop/features/'
       },
       {
         title: 'Code Samples',
-        path: '/guides/photoshop/code-sample/'
+        path: '/photoshop/code-sample/'
       },
       {
         title: 'Support',
-        path: '/guides/photoshop/code-sample/'
+        path: '/photoshop/code-sample/'
       },     
   ]
