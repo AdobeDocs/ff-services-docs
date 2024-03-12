@@ -7,6 +7,10 @@ contributors:
 
 # Creating Product Images at Scale with Firefly Services
 
+Discover how to generate images of different sizes, for various regional markets, and with different themes. Build workflows that combine product images, generative AI prompts, output sizes, and text copy translations to streamline content creation.
+
+## Overview
+
 Firefly Services encompass many APIs that allow for robust and complex workflows. One of the most valuable workflows possible supports content creation at scale. As a marketer, you may need to generate product images for:
 
 * Different sizes
@@ -44,18 +48,18 @@ Before digging into the code, let's break down the process.
 2. Get Access Token and Connect to Dropbox: 
     - Obtain access token for Firefly Services.
     - Connect to Dropbox using credentials.
-3.  Remove Background from Product Images: For each product image, remove the background.
+3. Remove Background from Product Images: For each product image, remove the background.
 4. Generate Images Based on Prompts: For each prompt, generate an image.
 5. Expand Images to Desired Sizes: For each prompt-generated image, expand to the desired sizes.
-6. Use Photoshop API and PSD Template:
+6. Use Photoshop API and PSD(Photoshop Document) template:
     -   For each language and product shot:
         - Input resized images from step 5.
         - Input product without background from step 3.
         - Input text from prompts in the desired language from step 1.
 
-## Initialization and defining Step
+## Step 1: Importing the dependencies 
 
-Our script begins by importing the required dependencies and reading in our credentials from the local environment:
+Our script begins by importing the required dependencies and reading in our credentials from the local environment. 
 
 ```python
 import os
@@ -71,6 +75,7 @@ db_refresh_token = os.environ.get('DROPBOX_REFRESH_TOKEN')
 db_app_key = os.environ.get('DROPBOX_APP_KEY')
 db_app_secret = os.environ.get('DROPBOX_APP_SECRET')
 ```
+
 
 Next, we're going to set up a bunch of variables that the workflow will use:
 
@@ -118,7 +123,7 @@ de,Geil!
 
 ![Three products, all bottles](../images/products.png)
 
-## Connecting to Firefly Services and Dropbox
+## Step 2: Connect to Firefly Services and Dropbox
 
 As the rest of the code will need to access both Firefly and Dropbox, our code then needs to authenticate and get access tokens.
 
@@ -129,7 +134,9 @@ ff_access_token = getFFAccessToken(ff_client_id, ff_client_secret)
 print("Connected to Firefly and Dropbox APIs.")
 ```
 
-Both of these functions are defined earlier in the script. For Dropbox, here's our method:
+Both of these functions are defined earlier in the script. 
+
+For Dropbox, here's our method:
 
 ```python
 def dropbox_connect(app_key, app_secret, refresh_token):
@@ -140,7 +147,7 @@ def dropbox_connect(app_key, app_secret, refresh_token):
 	return dbx
 ```
 
-This is pretty much straight from the documentation for the Dropbox Python SDK.
+This is pretty much straight from the documentation for the [Dropbox Python SDK](https://github.com/dropbox/dropbox-sdk-python).
 
 For Firefly Services, the method looks like so:
 
@@ -150,13 +157,13 @@ def getFFAccessToken(id, secret):
 	return response.json()['access_token']
 ```
 
-The client id and secret from our Firefly Services credentials are passed to the authentication endpoint and exchanged for an access token. The response includes other data, including the lifetime of the token, but for our needs, we just need the token.
+The `client_id` and `client_secret` from our Firefly Services credentials are passed to the authentication endpoint and exchanged for an access token. The response includes other data, including the lifetime of the token, but for our needs, we just need the token. 
 
-## Specifying a Reference Image
+## Step 3: Specify a reference image
 
-Later in our workflow, we will be using a prompt to generate a new image. However, we also want that image to be based on a source image. This is one of the powerful ways the Firefly API lets you guide the content it creates. 
+Later in our workflow, we will use a prompt to generate a new image. However, we also want that image to be based on a source image. This is one of the powerful ways the Firefly API lets you guide the content it creates. 
 
-By using the [Upload API](https://developer.adobe.com/firefly-api/api/#operation/v2/storage/image) endpoint, we can provide a source image for reference later. 
+By using the [Upload image API](https://developer.adobe.com/firefly-api/api/#operation/v2/storage/image) endpoint, we can provide a source image for reference later. 
 
 Here's a utility method that wraps that endpoint:
 
@@ -185,7 +192,7 @@ For our workflow, here's our source:
 
 ![Source image](../images/source.jpg)
 
-## Generating Product Images with a Removed Background
+## Step 4: Remove background from product images with Photoshop API
 
 Next up we need to take our source products and remove the background from each. The Photoshop API requires the use of cloud storage so this process will require three things:
 
@@ -271,9 +278,11 @@ rbProducts[product] = readableLink
 
 Earlier our code made an empty Python object, `rbProducts`. The purpose of this is to create a collection of key/value pairs where the key represents a product and the value is a readable link to the version with the background removed.
 
-## Generating Images Based on Prompts
+## Step 5: Generate and expand images using Firefly API
 
 Now we're beginning a rather large and complex loop, so we'll try to take it bit by bit. Don't forget the complete script may be found at the end of the article.
+
+### Generate images based on prompts
 
 First, we loop over each prompt (remember, this was sourced from a text file);
 
@@ -319,6 +328,8 @@ def textToImage(text, imageId, id, token):
 
 This method is passed two main arguments (ignoring the credentials) - `text` and `imageId`, representing our prompt and reference image. You can see in `data` where these values are passed in. Finally, this is passed to the Firefly [Text-to-image](https://developer.adobe.com/firefly-api/api/#operation/v2/images/generate) API endpoint. The result, in this case only the ID of the image, is returned. We ignore the actual result URL as we just need the ID. You'll see why soon.
 
+### Expand images to desired sizes 
+
 After generating the image for the prompt, we then need to resize it once for each of our desired sizes:
 
 ```python
@@ -361,16 +372,16 @@ def generativeExpand(imageId, size, id, token):
 
 This method wraps the [Generative Expand API](https://developer.adobe.com/firefly-api/api/#operation/v1/images/expand). It needs both the image resource to expand (which we got from the initial text-to-image prompt) and the desired size. In this case, we need a link to the result so the URL is returned.
 
-As an example, given the prompt "placed on a futuristic table, blue orange and neon cyberpunk backgrounds, gradients, blurry background out of focus", the original Firefly generated image was expanded for all four sizes. Here are two examples:
+As an example, given the prompt `placed on a futuristic table, blue orange and neon cyberpunk backgrounds, gradients, blurry background out of focus`, the original Firefly generated image was expanded for all four sizes. Here are two examples:
 
 ![One example of the expanded image](../images/expand1.png)
 ![Another example of the expanded image](../images/expand2.png)
 
-## Generating the Results
+## Step 6: Generate final product images
 
 We're almost there! Remember that we're inside a loop based on our prompt. We generated a new image based on the prompt and then expanded it to a list of sizes. The final section of the workflow will do the following:
 
-As a one-time operation we will reference a Photoshop template to cloud storage. This PSD has four different blocks that match up with our desired sizes. It has layers for the products in each desired size as well as a text layer with default text. Here's how that PSD:
+We will reference a Photoshop template for cloud storage as a one-time operation. This PSD has four different blocks that match up with our desired sizes. It has layers for the products in each desired size and a text layer with default text. Here's how that PSD:
 
 ![PSD template](../images/psd.png)
 
@@ -479,7 +490,11 @@ def createOutput(psd, koProduct, sizes, sizeUrls, outputs, text, id, token):
 	return response.json()
 ```
 
-This is a fairly hefty method. As a whole, this code wraps calls to the [Apply PSD Edits](https://developer.adobe.com/photoshop/photoshop-api-docs/api/#tag/Photoshop/operation/documentOperations) Photoshop API. In order to do that, it creates a fairly large JSON object that includes information on the new images for backgrounds and products. It also passes information about the text layers. Lastly, it adds a set of output values that map to the 'sized' layers containing our results. What's incredible is that all of this is handled in one simple call while generating multiple results. 
+This is a reasonably hefty method. As a whole, this code wraps calls to the [Apply PSD Edits](https://developer.adobe.com/photoshop/photoshop-api-docs/api/#tag/Photoshop/operation/documentOperations) Photoshop API. 
+
+It creates a reasonably large JSON object that includes information on the new images for backgrounds and products. 
+
+It also passes information about the text layers. Lastly, it adds a set of output values that map to the `sized` layers containing our results. What's incredible is that all of this is handled in a straightforward call while generating multiple results. 
 
 As mentioned earlier, each run of this process should create 72 unique images. Here's one set of four sizes for one product, prompt, and language:
 
