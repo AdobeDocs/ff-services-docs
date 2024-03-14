@@ -7,8 +7,7 @@ contributors:
 
 # Image Model Styles
 
-These are visual representations of the content classes and image styles/presets available. The `Preset ID` value is a string and is used with the text-to-image API. 
-
+These are visual representations of the content classes and image styles/presets available. The `Preset ID` value is a string and is used with the text-to-image API.
 
 | Preset                     | Preset ID                   |
 |:---------------------------|:-------------------| :--------:

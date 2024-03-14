@@ -12,10 +12,8 @@
   ],
   "security": [
       {
-          "AccessToken": []
-      },
-      {
-          "X-Api-Key": []
+        "X-ApiKey": [],
+        "Access token": []
       }
   ],
   "paths": {
@@ -580,16 +578,16 @@
       }
   },
   "components": {
-      "securitySchemes": {
-          "AccessToken": {
-              "type": "http",
-              "scheme": "bearer"
-          },
-          "X-Api-Key": {
-              "type": "apiKey",
-              "name": "x-api-key",
-              "in": "header"
-          }
+    "securitySchemes": {
+        "X-ApiKey": {
+          "type": "apiKey",
+          "name": "x-api-key",
+          "in": "header"
+        },
+        "Access token": {
+          "type": "http",
+          "scheme": "bearer"
+        }
       },
       "parameters": {
           "x-accept-mimetype": {

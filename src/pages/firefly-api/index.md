@@ -1,11 +1,11 @@
 ---
-title: Overview - Cat Analytics
-description: This is the overview page of Cat Analytics
+title: Overview - Adobe Firefly API
+description: This is the overview page for Adobe Firefly API
 contributors:
-  - https://github.com/icaraps 
+  - https://github.com/amandahuarng
 ---
 
-<Hero slots="heading, text"/>
+<Hero slots="heading, text" background="rgb(233, 80, 80)"/>
 
 # Adobe Firefly API
 
@@ -16,7 +16,6 @@ Integrate generative AI into your creative workflows.
 #### Resources
 
 * [Quickstart Guide](./guides/)
-
 
 ## Overview
 
@@ -31,21 +30,20 @@ Try out the API today to:
 - Tweak your images by replacing sections of images using fill.
 - Use expand to adapt to different sizes for different marketing channels.
 
-
 ## Discover
 
-<DiscoverBlock width="100%" slots="heading, link, text"/>
+<DiscoverBlock slots="link, text"/>
 
-### Get Started
+<!-- ### Get Started -->
 
 [Quickstart Guide](guides/)
 
 Get started with the Adobe Firefly API.
 
-<DiscoverBlock width="100%" slots="heading, link, text"/>
+<DiscoverBlock slots="link, text"/>
 
-### API References
+<!-- ### API References -->
 
-[Try the API](api/)
+[Try the API](guides/api/upload_image/)
 
 Try the Adobe Firefly API. Explore, make calls, with full endpoint descriptions.

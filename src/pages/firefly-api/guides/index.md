@@ -17,18 +17,18 @@ To call the Firefly text-to-image endpoint, you need a valid API key and an acce
 ```bash
 curl -X POST 'https://ims-na1.adobelogin.com/ims/token/v3' \
 -H 'Content-Type: application/x-www-form-urlencoded' \
--d 'grant_type=client_credentials&client_id={client_id}&client_secret={client_secret}&scope=openid,AdobeID,firefly_enterprise,firefly_api'
+-d 'grant_type=client_credentials&client_id={client_id}&client_secret={client_secret}&scope=openid,AdobeID,firefly_enterprise,firefly_api,ff_apis'
 ```
 
-Access tokens expire every 24 hours and it is wise that you rotate them programmatically before they expire. The token endpoint above returns expiry information alongside the token itself. Read more about this in our [auth guide](../guides/concepts/authentication/index.md). Once you have this token, you are ready to make your first request to the text-to-image endpoint.
+Access tokens expire every 24 hours and it is wise that you rotate them programmatically before they expire. The token endpoint above returns expiry information alongside the token itself. Read more about this in our [auth guide](./authentication/index.md). Once you have this token, you are ready to make your first request to the text-to-image endpoint.
 
 Now, replace your API key and access token in the example below, and you're all set to make your first request to the text-to-image endpoint.
 
 ## Request Headers
 
-- `X-Api-Key`: This is a required parameter -- provide your client ID from Console.
-- `Authorization`: This is a required header -- provide your access token.
-- `Content-Type`: Specifies the media type of the request body.
+* `X-Api-Key`: This is a required parameter -- provide your client ID from Console.
+* `Authorization`: This is a required header -- provide your access token.
+* `Content-Type`: Specifies the media type of the request body.
 
 ## Example Request
 
@@ -79,15 +79,15 @@ Got a 200 response code? Great! Your API call was successful. Here is an example
 }
 ```
 
-![Horse on a field, photo, concept_art](./images/horse_t2i_sample.jpg)
+![Horse on a field, photo, concept_art](../images/horse_t2i_sample.jpg)
 
 ### Error Codes
 
-To learn more about each response code, head over to the [__Try it__ (Responses)](../api/) section.
+To learn more about each response code, head over to the [**Try it** (Responses)](./guides/api/upload_image/) section.
 
 ### Rate Limits
 
-Read more about the text-to-image API's throttling limits [here](../guides/concepts/usage_limits/index.md)
+Read more about the text-to-image API's throttling limits [here](./usage_limits/)
 
 ## Try it yourself
 
