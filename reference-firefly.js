@@ -1,90 +1,84 @@
-module.exports=[
+module.exports = [
+    {
+        title: 'Overview',
+        path: '/firefly-api/',
+    },
     {
         title: 'Quickstart',
         path: '/firefly-api/guides/',
-      },
-      {
-        title: 'Concepts',
-        path: '/firefly-api/guides/concepts/',
         pages: [
-          {
-            title: 'Access Tokens',
-            path: '/firefly-api/guides/concepts/acess-token.md'
-          },
-          {
-            title: 'Get Credentials',
-            path: '/firefly-api/guides/concepts/create-credentials/'
-          },
-          {
-            title: 'Authentication',
-            path: '/firefly-api/guides/concepts/authentication/'
-          },
-          {
-            title: 'Image Model Styles',
-            path: '/firefly-api/guides/concepts/styles/'
-          },
-          {
-            title: 'Rate limits',
-            path: '/firefly-api/guides/concepts/usage_limits/'
-          }
-        ]
-        }, 
-        {
-          title: 'Tutorials',
-          path: '/firefly-api/guides/tutorials/sample-tutorial-one.md',
-          pages: [
             {
-              title: 'Sample Tutorial One',
-              path: '/firefly-api/guides/tutorials/sample-tutorial-one.md'
+                title: 'Concepts',
+                path: '/firefly-api/guides/concepts/',
+                pages: [
+                    {
+                        title: 'Get Credentials',
+                        path: '/firefly-api/guides/concepts/create-credentials/'
+                    },
+                    {
+                        title: 'Authentication',
+                        path: '/firefly-api/guides/concepts/authentication/'
+                    },
+                    {
+                        title: 'Image Model Styles',
+                        path: '/firefly-api/guides/concepts/styles/'
+                    },
+                    {
+                        title: 'Rate limits',
+                        path: '/firefly-api/guides/concepts/rate-limits/'
+                    }
+                ]
             },
-          ]
-        },
-        {
-          title: 'How-Tos',
-          path: '/firefly-api/guides/how_tos/create-your-first-ff-application.md',
-          pages:[
             {
-              title: 'Create Your First Firefly API Implementation using Node.JS/Python',
-              path: '/firefly-api/guides/how_tos/create-your-first-ff-application.md'
+                title: 'How-Tos',
+                path: '/firefly-api/guides/how-tos/create-your-first-ff-application.md',
+                pages: [
+                    {
+                        title: 'Create Your First Firefly API Implementation using Node.JS/Python',
+                        path: '/firefly-api/guides/how_tos/create-your-first-ff-application.md'
+                    }
+                ]
+            },
+            {
+                title: 'API Reference',
+                path: '/firefly-api/guides/api/upload_image',
+                pages: [
+                    {
+                        title: "Upload Image",
+                        path: "/firefly-api/guides/api/upload_image/"
+                    },
+                    {
+                        title: "Text to Image",
+                        path: "/firefly-api/guides/api/image_generation/"
+                    },
+                    {
+                        title: "Generative Expand",
+                        path: "/firefly-api/guides/api/generative_expand/"
+                    },
+                    {
+                        title: "Generative Fill",
+                        path: "/firefly-api/guides/api/generative_fill/"
+                    }
+                ]
+            },
+            {
+                title: 'Release Notes',
+                path: '/firefly-api/guides/release-notes/',
+            },
+            {
+                title: 'Help',
+                path: '/firefly-api/guides/help/best-practices/',
+                pages: [
+                    {
+                        title: 'Best Practices',
+                        path: '/firefly-api/guides/help/best-practices/'
+                    },
+                    {
+                        title: 'Troubleshooting',
+                        path: '/firefly-api/guides/help/troubleshooting'
+                    }
+                ]
             }
-          ]
-        },
-      {
-        title: 'Overview',
-        path: '/firefly-api/support/',
-        header: true,
-        pages: [
-          {
-            title: 'Help',
-            path: '/firefly-api/support/'
-          },
-          {
-            title: 'FAQ',
-            path: '/firefly-api/support/FAQ/'
-          },
-          {
-            title: 'How to contribute',
-            path: '/firefly-api/support/contribute/'
-          },
-          {
-            title: 'Best practices',
-            path: '/firefly-api/support/best-practices'
-          },
-          {
-            title: 'Troubleshooting',
-            path: '/firefly-api/support/troubleshooting'
-          }
         ]
-      },
-      {
-        title: 'Community',
-        path: '/firefly-api/support/community/',
-        header: true,
-        pages: [
-          {
-            title: 'Information',
-            path: '/firefly-api/support/community/'
-          }
-        ]
-      } 
-  ]
+    },
+]

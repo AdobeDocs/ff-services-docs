@@ -26,7 +26,7 @@ module.exports = {
       {
         title: 'Firefly API',
         description: 'Docs and references for Firefly API',
-        path: '/firefly-api/' // TODO: this needs to get content from transclusion
+        path: '/firefly-api/' 
       },
       {
         title: 'Photoshop API',
