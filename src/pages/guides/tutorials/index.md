@@ -30,6 +30,13 @@ Unlock the potential of Photoshop, Lightroom, and cutting edge Sensei services t
 
 <DiscoverBlock slots="link, text"/>
 
+[Lightroom API](https://developer.adobe.com/lightroom/lightroom-api-docs/)
+
+Store user assets, with their associated metadata and media renditions, in a catalog in the cloud.
+
+
+<DiscoverBlock slots="link, text"/>
+
 [Content Tagging API](https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html)
 
 Content Tagging APIs extract intelligent features from your content, organize content flow, and deliver personalized experiences to your customers.
