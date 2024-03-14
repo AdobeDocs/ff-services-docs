@@ -11,7 +11,7 @@ The first step in accessing the Firefly Services API is getting authenticated. F
 
 ## Overview
 
-Here are the steps to get started with the creative generation services APIs. If you have already got your API key, you can skip these steps and proceed to [Generate access Token](./get-started.md#step-5-generate-access-token) and [make your first API call](./get-started.md#make-your-first-api-call) with Firefly Services.
+Here are the steps to get started with the Firefly services APIs. If you have already got your API key, you can skip these steps and proceed to [Generate access Token](./get-started.md#step-5-generate-access-token) and [make your first API call](./get-started.md#make-your-first-api-call) with Firefly Services.
 
 ## Generate an API Key and access token
 
@@ -40,6 +40,8 @@ If you have already been provisioned with access through your organization, you 
 
 ### Step 4: Select Product Profiles
 
+Depending on the API you add, you may be asked to select product profiles to assign to your credential. These product profiles govern what data your application can/cannot access in your organization.
+
 Select the **Product Profiles** and click **Save Configured API**. 
 
 ![Product profile](../guides/images/product-profile.png)
@@ -51,13 +53,22 @@ Click **Add to Project** to add more APIs to the product profile in the same pro
 Repeat [Step 2](.//get-started.md#step-2-add-api-to-your-project) until you have added all these APIs:
 
  * Firefly – Firefly and Creative Cloud Automation
- * Remove Background - Firefly and Creative Cloud Automation
  * Lightroom - Firefly and Creative Cloud Automation
  * Photoshop - Firefly and Creative Cloud Automation
+ * Content Tagging - Firefly and Creative Cloud Automation
 
 ### Step 5: Generate access token
 
 You can click **Generate an access token** for quick experimentation or click view the cURL command to learn how to generate access tokens programmatically. [Learn more](https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/implementation/) about how to do it. 
+
+#### Scopes
+
+Scopes that are added for your application define what actions or data the clients are allowed to access. Security best practices recommend that your application generates an access token with the least number of scopes it needs to work correctly. 
+
+Click **View scopes per service** to understand the services and scopes associated with it. 
+
+![scopes](..//guides/images/scopes.png)
+
 
 Sample cURL command:
 
@@ -74,14 +85,6 @@ Grab your **API KEY (Client ID)** from the same screen.
 ![Generate Access Token](..//guides/images/generate-access-token.png)
 
 Congratulations! You have just generated an access token.
-
-## Scopes
-
-Scopes that are added for your application define what actions or data the clients are allowed to access. Security best practices recommend that your application generates an access token with the least number of scopes it needs to work correctly. 
-
-Click **View scopes per service** to understand the services and scopes associated with it. 
-
-![scopes](..//guides/images/scopes.png)
 
 ## Make your first API call
 
@@ -104,9 +107,9 @@ curl -X POST \
 }'
 ```
 
-Congratulations! You just made your first request to the creative generation services API.
+Congratulations! You just made your first request to the Firefly services API.
 
-## Automate Token
+<<InlineAlert slots="text" />
 
 Note that your token will expire every 24 hours and will need to be refreshed after it expires.
 
@@ -114,7 +117,7 @@ Note that your token will expire every 24 hours and will need to be refreshed af
 
 You have now Access Token and Client Id. 
 
-You can use it to build your application using Creative Generation Services APIs.
+You can use it to build your application using Firefly services APIs.
 
 ## Explore more
 
@@ -141,3 +144,9 @@ Unlock the potential of Lightroom API.
 [Firefly API](https://developer.adobe.com/firefly-api/)
 
 Integrate generative AI into your creative workflows.
+
+<DiscoverBlock slots="link, text"/>
+
+[Content Tagging](https://experienceleague.adobe.com/en/docs/experience-platform/intelligent-services/content-commerce-ai/overview)
+
+Extract intelligent features from your content, organize and streamline content flow, and deliver more impactful, personalized customer experiences.
