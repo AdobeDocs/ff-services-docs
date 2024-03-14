@@ -62,10 +62,6 @@ module.exports = {
             title: 'Creating Product Images at Scale with Firefly Services',
             path: '/guides/tutorials/create-product-images-with-ff.md'
           },
-          {
-            title: 'x-API tutorial 2',
-            path: '/guides/tutorials/tut2.md'
-          }
         ]
       },                 
       {
