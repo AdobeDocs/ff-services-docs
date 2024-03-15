@@ -416,6 +416,7 @@ Inside our two loops, we first have to figure out where the Photoshop API is goi
 
 * The current language
 * The current prompt
+* The current product
 * The size
 * And the time (the variable `theTime` was set earlier in our script and simply references the current date and time)
 
