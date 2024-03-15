@@ -77,17 +77,7 @@ module.exports = {
       },                 
       {
         title: 'SDKs',
-        path: '/guides/sdks',       
-        pages: [
-          {
-            title: 'JavaScript SDK',
-            path: '/guides/sdks/sdk1.md'
-          },
-          {
-            title: 'SDK 2',
-            path: '/guides/sdks/sdk2.md'
-          }
-        ]
+        path: '/guides/sdks'
       },
       // {
       //   title: 'Overview',
