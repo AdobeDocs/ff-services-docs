@@ -1,0 +1,17 @@
+type: object
+description: >
+  Dimensions of the generated image
+    | Dimensions | Description | 
+    | -----------| ----- |
+    | { "width": 2048, "height": 2048} | Square (1:1) |
+    | { "width": 2304, "height": 1792 } | Landscape (4:3) |
+    | { "width": 1792, "height": 2304 } | Portrait (3:4) | 
+    | { "width": 2688, "height": 1536 } | Widescreen (16:9) |
+properties:
+  width:
+    type: integer
+    default: 2048
+  height:
+    type: integer
+    default: 2048
+default: { width: 2048, height: 2048 }

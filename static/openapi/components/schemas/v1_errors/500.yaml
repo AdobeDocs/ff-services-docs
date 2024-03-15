@@ -1,0 +1,11 @@
+description: Internal Server Error
+content:
+  application/json:
+    schema:
+      $ref: error_body.yaml
+
+    example:
+      {
+        "message": "Internal Server Error",
+        "error_code": "10002"
+      }

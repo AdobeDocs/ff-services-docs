@@ -1,0 +1,8 @@
+in: header
+name: x-session-id
+required: false
+description: Optional identifier that can be provided to represent an unique browser session for an user.
+schema:
+  type: string
+  format: UUID
+  example: c6ecde5a-3235-4a0e-9c95-70a5aa516ace

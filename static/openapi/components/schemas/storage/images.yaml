@@ -1,0 +1,8 @@
+type: object
+properties:
+  id: 
+    type: string
+    description: ID associated with the asset that was uploaded to temp storage
+  # presignedUrl: 
+  #   type: string
+  #   description: Signed URL of the generated image

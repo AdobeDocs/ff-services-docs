@@ -1,0 +1,34 @@
+description: text-to-image response
+content:
+  Response:
+    schema:
+      type: object
+      properties:
+        version:
+          type: string
+          description: Unique identifier indicating the model and pipeline version with which the images were generated.
+          examples:
+            - 1.0.5-beta.1-1.2_1.2-main-1424-284190d-0.1.27.1r10
+        promptHasDeniedWords:
+          type: boolean
+          description: Flag to indicate if denied words were detected in the prompt.
+          examples:
+            - false
+        promptHasBlockedArtists:
+          type: boolean
+          description: Flag to indicate if artist names were detected in the prompt.
+          examples:
+            - false
+        size:
+          allOf:
+            - $ref: ./size.yaml
+        predictedPhotoSettings:
+          allOf:
+            - $ref: ./photo_settings.yaml
+        predictedContentClass:
+          allOf:
+            - $ref: ./content_class.yaml
+        outputs:
+          allOf:
+            - $ref: ./output.yaml
+  

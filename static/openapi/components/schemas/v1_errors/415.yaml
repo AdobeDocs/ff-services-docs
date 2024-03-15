@@ -1,0 +1,11 @@
+description: Unsupported Media Type
+content:
+  application/json:
+    schema:
+      $ref: error_body.yaml
+
+    example:
+      {
+        "message": "Unsupported Media Type",
+        "error_code": "10011"
+      }

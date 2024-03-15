@@ -1,0 +1,11 @@
+description: Payload Too Large
+content:
+  application/json:
+    schema:
+      $ref: error_body.yaml
+
+    example:
+      {
+        "message": "Payload Too Large. The input image exceeds the allowed limit (currently 10MB).",
+        "error_code": "10011"
+      }

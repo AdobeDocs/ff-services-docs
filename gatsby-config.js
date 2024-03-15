@@ -26,17 +26,18 @@ module.exports = {
       {
         title: 'Firefly API',
         description: 'Docs and references for Firefly API',
-        path: 'https://developer.adobe.com/firefly-api/' // TODO: this needs to get content from transclusion
+        path: '/firefly-api/' 
       },
       {
         title: 'Photoshop API',
         description: 'Docs and references for Photoshop API',
-        path: 'https://developer.adobe.com/photoshop/photoshop-api-docs/'
+        path: '/photoshop/'
       },
       {
         title: 'Lightroom API',
         description: 'Docs and references for Lightroom API',
         path: 'https://developer.adobe.com/lightroom/lightroom-api-docs/'
+        path: '/photoshop/'
       },
       {
         title: 'Content Tagging',
@@ -51,6 +52,16 @@ module.exports = {
         path: '/guides/',
       },
       {
+        title: 'Firefly API Overview',
+        path: '/firefly-api/',
+        pages: require("./reference-firefly.js"),   
+      },  
+      {
+        title: 'Photoshop API Overview',
+        path: '/photoshop/',     
+        pages: require("./reference-photoshop.js"),   
+      },
+  
         title: 'Getting Started',
         path: '/guides/get-started.md',        
       },

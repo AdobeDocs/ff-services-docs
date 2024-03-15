@@ -1,0 +1,9 @@
+# type: object
+# title: Upload image API request
+# required:
+# - image
+# properties:
+#   image:
+#     type: string
+#     format: binary
+#     description: The PNG/JPEG/WEBP image to be stored (binary data)
