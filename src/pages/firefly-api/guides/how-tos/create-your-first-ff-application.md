@@ -1,14 +1,22 @@
 ---
-title: Create Your First Firefly API Implementation Node.JS/Python - Adobe Firefly API
+title: Create Your First Firefly API Implementatio - Adobe Firefly API
 description: This how-to guides you through the process of integrating Adobe's Firefly workflows into your applications.
 contributors:
   - https://github.com/nimithajalal
   - https://github.com/cfjedimaster
 ---
 
-# Create your first Firefly API implementation using Node.JS/Python
+# Create your first Firefly API implementation
 
-Welcome to Adobe's Firefly APIs! These APIs offer a seamless way to integrate powerful creative workflows into your applications using a simple REST-based API. In this tutorial, we'll guide you through creating your first implementation of the Firefly APIs using Node.js. Let's get started!
+Welcome to Adobe's Firefly APIs! These APIs offer a seamless way to integrate powerful creative workflows into your applications using a simple REST-based API. 
+
+In this tutorial, we'll guide you through creating your first implementation of the Firefly API. 
+
+<InlineAlert slots="text" />
+
+This tutorial provides code snippets in both `Node.js` and `Python` for your convenience. Feel free to use the language of your choice to complete the implementation of your first Firefly API.
+
+Let's get started!
 
 ## Prerequisites
 
