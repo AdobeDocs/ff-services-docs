@@ -34,9 +34,9 @@ module.exports = [
                 path: '/firefly-api/guides/how-tos/create-your-first-ff-application.md',
                 pages: [
                     {
-                        title: 'Create Your First Firefly API Implementation using Node.JS/Python',
-                        path: '/firefly-api/guides/how_tos/create-your-first-ff-application.md'
-                    }
+                        title: 'Create Your First Firefly API Implementation',
+                        path: '/firefly-api/guides/how-tos/create-your-first-ff-application.md'
+                      }
                 ]
             },
             {
