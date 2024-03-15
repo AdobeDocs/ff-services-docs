@@ -21,7 +21,7 @@ contributors:
 ### Added
 
 * You can now use the latest image model (clio v2) by setting header `x-api-variant` to `v2`. It will be set to `v2` by default.
-* Styles are documented in the API references as well as the new [styles guide](../guides/concepts/styles/index.md)
+* Styles are documented in the API references as well as the new [styles guide](../concepts/styles/index.md)
   
 ## October 26, 2023
 

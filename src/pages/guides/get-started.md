@@ -7,7 +7,7 @@ contributors:
 
 # Getting started with Firefly Services
 
-The first step in accessing the Firefly Services API is getting authenticated. For that, you will need an Authorization Token and an API Key. The steps below will show you how to generate an access token and make your first API call. 
+The first step in accessing the Firefly Services API is getting authenticated. For that, you will need an access token and an API Key. The steps below will show you how to generate an access token and make your first API call. 
 
 ## Overview
 
@@ -59,7 +59,7 @@ Repeat [Step 2](.//get-started.md#step-2-add-api-to-your-project) until you have
 
 ### Step 5: Generate access token
 
-You can click **Generate an access token** for quick experimentation or click view the cURL command to learn how to generate access tokens programmatically. [Learn more](https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/implementation/) about how to do it. 
+You can click **Generate an access token** for quick experimentation or click **view the cURL command** to learn how to generate access tokens programmatically. [Learn more](https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/implementation/) about how to do it. 
 
 #### Scopes
 
@@ -88,7 +88,7 @@ Congratulations! You have just generated an access token.
 
 ## Make your first API call
 
-Once you have created your token, you can follow the steps below to make your first API call.
+Once you have created your access token, you can follow the steps below to make your first API call.
 
 1.	Open your terminal and paste the code below.
 2.	Replace the variables <YOUR_ACCESS_TOKEN> with the token you generated on Adobe I/O Console.
@@ -123,13 +123,13 @@ You can use it to build your application using Firefly services APIs.
 
 <DiscoverBlock slots="link, text"/>
 
-[SDK](guides/sdks/)
+[SDK](../guides/sdks/)
 
 Explore our unified client SDKs. 
 
 <DiscoverBlock slots="link, text"/>
 
-[Photoshop API](https://developer.adobe.com/photoshop/photoshop-api-docs/api/)
+[Photoshop API](../photoshop/)
 
 Unlock the potential of Photoshop API.
 
@@ -141,7 +141,7 @@ Unlock the potential of Lightroom API.
 
 <DiscoverBlock slots="link, text"/>
 
-[Firefly API](https://developer.adobe.com/firefly-api/)
+[Firefly API](../firefly-api/)
 
 Integrate generative AI into your creative workflows.
 

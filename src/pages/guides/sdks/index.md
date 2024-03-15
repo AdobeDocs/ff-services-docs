@@ -34,7 +34,13 @@ Download the SDK from our website (placeholder link). The SDK is currently avail
 * Node.js
 * TypeScript.
 
-For detailed instructions, refer to the `README` file (insert location) and explore our sample code (insert location) to quickly get started with integrating our SDK into your projects.
+For detailed instructions, refer to the [`README` file](https://git.corp.adobe.com/cc-apis/firefly-services-sdk-js) and explore our [sample code](https://git.corp.adobe.com/cc-apis/firefly-services-sdk-js/tree/main/samples) to quickly get started with integrating our SDK into your projects.
+
+### SDK API references
+
+* [Firefly](https://git.corp.adobe.com/cc-apis/firefly-services-sdk-js/blob/main/docs/firefly/index.md)
+* [Photoshop](https://git.corp.adobe.com/cc-apis/firefly-services-sdk-js/blob/main/docs/photoshop/index.md)
+* [Lightroom](https://git.corp.adobe.com/cc-apis/firefly-services-sdk-js/blob/main/docs/lightroom/index.md)
 
 
 
