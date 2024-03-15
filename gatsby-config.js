@@ -17,7 +17,7 @@ module.exports = {
     pages: [
       {
         title: "Firefly Services", // Links back to microsite (mkt pages)
-        path: "https://developer.adobe.com/firefly-services",
+        path: "https://developer.adobe.com/firefly-services/",
       },            
       {
         title: 'Overview',
@@ -36,11 +36,13 @@ module.exports = {
       {
         title: 'Lightroom API',
         description: 'Docs and references for Lightroom API',
+        path: 'https://developer.adobe.com/lightroom/lightroom-api-docs/'
         path: '/photoshop/'
       },
       {
         title: 'Content Tagging',
         description: 'Docs and references for Content Tagging services',
+        // path: 'https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html?aio_internal'
         path: 'https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html'
       },
     ],
@@ -60,6 +62,63 @@ module.exports = {
         pages: require("./reference-photoshop.js"),   
       },
   
+        title: 'Getting Started',
+        path: '/guides/get-started.md',        
+      },
+      {
+        title: 'Tutorials',
+        path: '/guides/tutorials',        
+        pages: [
+          {
+            title: 'Creating Product Images at Scale with Firefly Services',
+            path: '/guides/tutorials/create-product-images-with-ff.md'
+          },
+        ]
+      },                 
+      {
+        title: 'SDKs',
+        path: '/guides/sdks',       
+        pages: [
+          {
+            title: 'JavaScript SDK',
+            path: '/guides/sdks/sdk1.md'
+          },
+          {
+            title: 'SDK 2',
+            path: '/guides/sdks/sdk2.md'
+          }
+        ]
+      },
+      // {
+      //   title: 'Overview',
+      //   path: '/support/',
+      //   header: true,
+      //   pages: [
+      //     {
+      //       title: 'Help',
+      //       path: '/support/'
+      //     },
+      //     {
+      //       title: 'FAQ',
+      //       path: '/support/FAQ/'
+      //     },
+      //     {
+      //       title: 'How to contribute',
+      //       path: '/support/contribute/'
+      //     }
+      //   ]
+      // },
+      // {
+      //   title: 'Community',
+      //   path: '/support/community/',
+      //   header: true,
+      //   pages: [
+      //     {
+      //       title: 'Information',
+      //       path: '/support/community/'
+      //     }
+      //   ]
+      // }
     ]
   },
   plugins: [`@adobe/gatsby-theme-aio`]
