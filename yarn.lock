@@ -136,7 +136,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adobe/gatsby-theme-aio@npm:^4.11.7-rc4":
+"@adobe/gatsby-theme-aio@npm:^4.11.7, @adobe/gatsby-theme-aio@npm:^4.11.7-rc4":
   version: 4.11.7
   resolution: "@adobe/gatsby-theme-aio@npm:4.11.7"
   dependencies:
@@ -4178,9 +4178,9 @@ __metadata:
   linkType: hard
 
 "@redocly/config@npm:^0.1.1":
-  version: 0.1.2
-  resolution: "@redocly/config@npm:0.1.2"
-  checksum: d702db581dc491296fcce951a4fa86d06033e82dd040a73adc95e2801c0c7463bb5edaf51d39dfa3b8a26bb81eedb185f74bb6fb3fdc312d22bd5be7de84daf3
+  version: 0.1.3
+  resolution: "@redocly/config@npm:0.1.3"
+  checksum: fe8cba2d762091a3a5ab412727357e4981576b8ab2bfa4b48e6a7b7a01fef0da55454dc82155ac56636b7e4974c73cbc1b0450811b84823c756da965807397a2
   languageName: node
   linkType: hard
 
@@ -4885,11 +4885,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*, @types/node@npm:>=10.0.0":
-  version: 20.11.27
-  resolution: "@types/node@npm:20.11.27"
+  version: 20.11.28
+  resolution: "@types/node@npm:20.11.28"
   dependencies:
     undici-types: ~5.26.4
-  checksum: 24a134a3c18e7261b6d6385c2b7714b6cf93663f30d5df8ca95c649f9cef917a422d77bfd4a18b2c7d190d3a39f445b345ecd9ef6f994e61c7e92f400ecbe80f
+  checksum: 83fe7e649c6439103872a292f7b9808233e1eea4bf7d5afa6fce71729e3f7a06933cd792543db84cf65b89ca985fb6f44efaeb748e2ce51a6525ade030338af8
   languageName: node
   linkType: hard
 
@@ -6358,9 +6358,9 @@ __metadata:
   linkType: hard
 
 "binary-extensions@npm:^2.0.0":
-  version: 2.2.0
-  resolution: "binary-extensions@npm:2.2.0"
-  checksum: ccd267956c58d2315f5d3ea6757cf09863c5fc703e50fbeb13a7dc849b812ef76e3cf9ca8f35a0c48498776a7478d7b4a0418e1e2b8cb9cb9731f2922aaad7f8
+  version: 2.3.0
+  resolution: "binary-extensions@npm:2.3.0"
+  checksum: bcad01494e8a9283abf18c1b967af65ee79b0c6a9e6fcfafebfe91dbe6e0fc7272bafb73389e198b310516ae04f7ad17d79aacf6cb4c0d5d5202a7e2e52c7d98
   languageName: node
   linkType: hard
 
@@ -8417,7 +8417,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "dev-site-documentation-template@workspace:."
   dependencies:
-    "@adobe/gatsby-theme-aio": ^4.11.7-rc4
+    "@adobe/gatsby-theme-aio": ^4.11.7
     cis-photoshop-api: "github:adobedocs/cis-photoshop-api-docs"
     firefly-api-docs: "github:adobedocs/firefly-api-docs"
     gatsby: 4.22.0
@@ -8783,9 +8783,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.668":
-  version: 1.4.705
-  resolution: "electron-to-chromium@npm:1.4.705"
-  checksum: c5c87e2953b32511037a9d84b2e0895003bfbf65c6291c313bd5437222af3b395e8dd547ed456d9cfc3cbe331c28e7c9605d50e4a2f995168c208aba105c53cc
+  version: 1.4.707
+  resolution: "electron-to-chromium@npm:1.4.707"
+  checksum: be31085fc4c7c63565bff46024fff4ac425f489467c5a12c75c5d2b98fb5c6dc7303ad7fcd4719f09cba3d3a98341fb73b8448b0b6499d83af353f600610006d
   languageName: node
   linkType: hard
 
@@ -10090,13 +10090,13 @@ __metadata:
 
 "firefly-api-docs@github:adobedocs/firefly-api-docs":
   version: 1.0.0
-  resolution: "firefly-api-docs@https://github.com/adobedocs/firefly-api-docs.git#commit=ce35f1ce87a5ef10abe31b0517d9c98bdca96ab4"
+  resolution: "firefly-api-docs@https://github.com/adobedocs/firefly-api-docs.git#commit=55e7bd4dc06170680f993850d884659a30a112cd"
   dependencies:
     "@adobe/gatsby-theme-aio": ^4.11.7-rc4
     gatsby: 4.22.0
     react: ^17.0.2
     react-dom: ^17.0.2
-  checksum: 989de127c10b5b0e8ff9859b9a1b9c0ef9d1c8cf3026b10e9b7ae1b5ff2cbc9330bd81c5368522072242102d1bcb97e51627de381e843d5f5d03b7723333ec73
+  checksum: c690d77b67a4bc762bb2f10999177fe32eb0507c72775f0a5b4406d46447f85d1651f240b6ffb167021e3df298c755f285b445a3e032c8a3c0ed5cb5b66d4fa7
   languageName: node
   linkType: hard
 

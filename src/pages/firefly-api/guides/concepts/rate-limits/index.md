@@ -3,16 +3,35 @@ title: Rate Limits - Adobe Firefly API
 description: This guide explains rate limiting for the Adobe Firefly API.
 contributors:
   - https://github.com/amandahuarng
+  - https://github.com/nimithajalal
 ---
 # Rate Limits
 
-To ensure our customers enjoy equitable peak performance with Firefly APIs, Adobe places limits on the volume, frequency, and concurrency of API calls, and monitors your API usage to proactively contact you and resolve any risks to API performance.
+To ensure our customers enjoy equitable peak performance with Firefly APIs, Adobe places limits on the volume, frequency, and concurrency of API calls, and monitors your API usage to proactively contact you and resolve any risks to API performance. 
+
+## Overview
+
+Our API imposes rate limits on how often a user or client can access our services within a specified period.
+
+## Why do we have rate limits?
+
+Rate limits are standard practice for APIs, and they serve several important purposes:
+
+- **Preventing abuse**: Limiting the number of requests from a user prevents malicious users or bots from overwhelming the API, maintaining stability and avoiding disruptions.
+- **Ensuring fair usage**: Setting limits provides all users equal access to resources, preventing any user or organization from monopolizing the API's capacity.
+- **Managing server load**: Control over the request processing rate prevents server overload and ensures consistent user performance.
+- **Protecting against downtime**: Limiting excessive usage helps avoid server downtime, keeping the API available and responsive to legitimate users.
+- **Controlling costs**: Limiting resource consumption helps control costs for users, organizations, or applications, especially when API usage is tied to a pricing plan.
+
+## How do these rate limits work?
+
+Rate limits are measured in two ways: requests per minute (RPM) and requests per day (RPD). 
 
 We limit the rate of API requests by the minute, and day.
 
 <InlineAlert variant="info" slots="text1, text2, text3" />
 
-Bear in mind that the following usage limits apply to **your entire organization**:
+It's important to note that rate limits are imposed at the organization level, not the user level. This means that all users within an organization share the same rate limits. The limits are as follows:
 
 **4** requests **per minute**
 

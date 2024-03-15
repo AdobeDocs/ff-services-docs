@@ -5,85 +5,83 @@ module.exports = [
     },
     {
         title: 'Quickstart',
-        path: '/firefly-api/guides/',
+        path: '/firefly-api/guides/'
+    },
+    {
+        title: 'Concepts',
+        path: '/firefly-api/guides/concepts/',
         pages: [
             {
-                title: 'Concepts',
-                path: '/firefly-api/guides/concepts/',
-                pages: [
-                    {
-                        title: 'Get Credentials',
-                        path: '/firefly-api/guides/concepts/create-credentials/'
-                    },
-                    {
-                        title: 'Authentication',
-                        path: '/firefly-api/guides/concepts/authentication/'
-                    },
-                    {
-                        title: 'Image Model Styles',
-                        path: '/firefly-api/guides/concepts/styles/'
-                    },
-                    {
-                        title: 'Rate limits',
-                        path: '/firefly-api/guides/concepts/rate-limits/'
-                    },
-                    {
-                      title: ' Seed ID',
-                      path: '/guides/concepts/seed-id'
-          
-                    }
-                ]
+                title: 'Get Credentials',
+                path: '/firefly-api/guides/concepts/create-credentials/'
             },
             {
-                title: 'How-Tos',
-                path: '/firefly-api/guides/how-tos/create-your-first-ff-application.md',
-                pages: [
-                    {
-                        title: 'Create Your First Firefly API Implementation',
-                        path: '/firefly-api/guides/how-tos/create-your-first-ff-application.md'
-                      }
-                ]
+                title: 'Authentication',
+                path: '/firefly-api/guides/concepts/authentication/'
             },
             {
-                title: 'API Reference',
-                path: '/firefly-api/guides/api/upload_image',
-                pages: [
-                    {
-                        title: "Upload Image",
-                        path: "/firefly-api/guides/api/upload_image/"
-                    },
-                    {
-                        title: "Text to Image",
-                        path: "/firefly-api/guides/api/image_generation/"
-                    },
-                    {
-                        title: "Generative Expand",
-                        path: "/firefly-api/guides/api/generative_expand/"
-                    },
-                    {
-                        title: "Generative Fill",
-                        path: "/firefly-api/guides/api/generative_fill/"
-                    }
-                ]
+                title: 'Image Model Styles',
+                path: '/firefly-api/guides/concepts/styles/'
             },
             {
-                title: 'Release Notes',
-                path: '/firefly-api/guides/release-notes/',
+                title: 'Rate limits',
+                path: '/firefly-api/guides/concepts/rate-limits/'
             },
             {
-                title: 'Help',
-                path: '/firefly-api/guides/help/best-practices/',
-                pages: [
-                    {
-                        title: 'Best Practices',
-                        path: '/firefly-api/guides/help/best-practices/'
-                    },
-                    {
-                        title: 'Troubleshooting',
-                        path: '/firefly-api/guides/help/troubleshooting'
-                    }
-                ]
+                title: ' Seed ID',
+                path: '/firefly-api/guides/concepts/seed-id'
+
             }
         ]
     },
+    {
+        title: 'How-Tos',
+        path: '/firefly-api/guides/how-tos/create-your-first-ff-application.md',
+        pages: [
+            {
+                title: 'Create Your First Firefly API Implementation',
+                path: '/firefly-api/guides/how-tos/create-your-first-ff-application.md'
+            }
+        ]
+    },
+    {
+        title: 'API Reference',
+        path: '/firefly-api/guides/api/upload_image',
+        pages: [
+            {
+                title: "Upload Image",
+                path: "/firefly-api/guides/api/upload_image/"
+            },
+            {
+                title: "Text to Image",
+                path: "/firefly-api/guides/api/image_generation/"
+            },
+            {
+                title: "Generative Expand",
+                path: "/firefly-api/guides/api/generative_expand/"
+            },
+            {
+                title: "Generative Fill",
+                path: "/firefly-api/guides/api/generative_fill/"
+            }
+        ]
+    },
+    {
+        title: 'Release Notes',
+        path: '/firefly-api/guides/release-notes/',
+    },
+    {
+        title: 'Help',
+        path: '/firefly-api/guides/help/best-practices/',
+        pages: [
+            {
+                title: 'Best Practices',
+                path: '/firefly-api/guides/help/best-practices/'
+            },
+            {
+                title: 'Troubleshooting',
+                path: '/firefly-api/guides/help/troubleshooting'
+            }
+        ]
+    }
 ]
