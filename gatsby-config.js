@@ -36,7 +36,7 @@ module.exports = {
       {
         title: 'Lightroom API',
         description: 'Docs and references for Lightroom API',
-        path: 'https://developer.adobe.com/lightroom/lightroom-api-docs/'
+        path: 'https://developer.adobe.com/lightroom/lightroom-api-docs/',
         path: '/photoshop/'
       },
       {
@@ -61,7 +61,7 @@ module.exports = {
         path: '/photoshop/',     
         pages: require("./reference-photoshop.js"),   
       },
-  
+      {
         title: 'Getting Started',
         path: '/guides/get-started.md',        
       },
