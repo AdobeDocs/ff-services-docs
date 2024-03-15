@@ -16,7 +16,11 @@ module.exports=[
         path: '/photoshop/code-sample/'
       },
       {
+        title: 'API Documentation',
+        path: '/photoshop/api/'
+      },    
+      {
         title: 'Support',
-        path: '/photoshop/code-sample/'
-      },     
+        path: '/photoshop/support'
+      }
   ]

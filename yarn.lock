@@ -7141,13 +7141,13 @@ __metadata:
 
 "cis-photoshop-api@github:adobedocs/cis-photoshop-api-docs":
   version: 1.0.0
-  resolution: "cis-photoshop-api@https://github.com/adobedocs/cis-photoshop-api-docs.git#commit=5e073194daf489281ced7a8ab267c2a665ea6512"
+  resolution: "cis-photoshop-api@https://github.com/adobedocs/cis-photoshop-api-docs.git#commit=d74be75d1d68b6b275a6a244d4ed5d087789dbf2"
   dependencies:
     "@adobe/gatsby-theme-aio": 4.9.8
     gatsby: 4.22.0
     react: 17.0.2
     react-dom: 17.0.2
-  checksum: 565349dd814f3a5cfa992d6a24cd939a4b1521aa0921d4469aa90ce82568ae28d6600cbe12976a2857f30afa2066f05bdbcaacc9ae70ed19b6ea62df612f41c9
+  checksum: e0a45d25c57daf65edb221c8f2aa953277f07f5a38c49ecbe4ca98d7ca5a8b92336be3ed3cccd108545d1277d40fc1b1dad94d8eab6179fd264422e91276017c
   languageName: node
   linkType: hard
 
