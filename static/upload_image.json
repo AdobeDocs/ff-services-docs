@@ -12,8 +12,10 @@
   ],
   "security": [
     {
-      "X-ApiKey": [],
-      "Access token": []
+      "X-Api-Key": []
+    },
+    {
+      "AccessToken": []
     }
   ],
   "paths": {

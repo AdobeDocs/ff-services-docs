@@ -11,10 +11,12 @@
       }
   ],
   "security": [
-      {
-        "X-ApiKey": [],
-        "Access token": []
-      }
+    {
+      "X-Api-Key": []
+    },
+    {
+      "AccessToken": []
+    }
   ],
   "paths": {
       "/v2/images/generate": {
