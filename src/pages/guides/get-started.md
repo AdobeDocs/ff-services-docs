@@ -123,13 +123,13 @@ You can use it to build your application using Firefly services APIs.
 
 <DiscoverBlock slots="link, text"/>
 
-[SDK](guides/sdks/)
+[SDK](../guides/sdks/)
 
 Explore our unified client SDKs. 
 
 <DiscoverBlock slots="link, text"/>
 
-[Photoshop API](https://developer.adobe.com/photoshop/photoshop-api-docs/api/)
+[Photoshop API](../photoshop/)
 
 Unlock the potential of Photoshop API.
 
@@ -141,7 +141,7 @@ Unlock the potential of Lightroom API.
 
 <DiscoverBlock slots="link, text"/>
 
-[Firefly API](https://developer.adobe.com/firefly-api/)
+[Firefly API](../firefly-api/)
 
 Integrate generative AI into your creative workflows.
 

@@ -18,13 +18,13 @@ Get started with the Adobe Firefly serivices.
 
 ### API References
 
-[Firefly API References](https://developer.adobe.com/firefly-api/)
+[Firefly API References](../../firefly-api/guides/api/)
 
 Integrate generative AI into your creative workflows.
 
 <DiscoverBlock slots="link, text"/>
 
-[Photoshop API](https://developer.adobe.com/photoshop/photoshop-api-docs/)
+[Photoshop API](../../photoshop/)
 
 Unlock the potential of Photoshop, Lightroom, and cutting edge Sensei services through an easy-to-use RESTful API.
 
@@ -33,7 +33,6 @@ Unlock the potential of Photoshop, Lightroom, and cutting edge Sensei services t
 [Lightroom API](https://developer.adobe.com/lightroom/lightroom-api-docs/)
 
 Store user assets, with their associated metadata and media renditions, in a catalog in the cloud.
-
 
 <DiscoverBlock slots="link, text"/>
 

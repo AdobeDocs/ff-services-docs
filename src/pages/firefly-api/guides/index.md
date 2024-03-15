@@ -20,7 +20,7 @@ curl -X POST 'https://ims-na1.adobelogin.com/ims/token/v3' \
 -d 'grant_type=client_credentials&client_id={client_id}&client_secret={client_secret}&scope=openid,AdobeID,firefly_enterprise,firefly_api,ff_apis'
 ```
 
-Access tokens expire every 24 hours and it is wise that you rotate them programmatically before they expire. The token endpoint above returns expiry information alongside the token itself. Read more about this in our [auth guide](./authentication/index.md). Once you have this token, you are ready to make your first request to the text-to-image endpoint.
+Access tokens expire every 24 hours and it is wise that you rotate them programmatically before they expire. The token endpoint above returns expiry information alongside the token itself. Read more about this in our [auth guide](./concepts/authentication/index.md). Once you have this token, you are ready to make your first request to the text-to-image endpoint.
 
 Now, replace your API key and access token in the example below, and you're all set to make your first request to the text-to-image endpoint.
 
@@ -83,11 +83,11 @@ Got a 200 response code? Great! Your API call was successful. Here is an example
 
 ### Error Codes
 
-To learn more about each response code, head over to the [**Try it** (Responses)](./guides/api/upload_image/) section.
+To learn more about each response code, head over to the [**Try it** (Responses)](../guides/api/upload_image/index.md) section.
 
 ### Rate Limits
 
-Read more about the text-to-image API's throttling limits [here](./usage_limits/)
+Read more about the text-to-image API's throttling limits [here](./concepts/rate-limits/index.md)
 
 ## Try it yourself
 
