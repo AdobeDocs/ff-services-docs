@@ -41,10 +41,3 @@ For detailed instructions, refer to the [`README` file](https://git.corp.adobe.c
 * [Firefly](https://git.corp.adobe.com/cc-apis/firefly-services-sdk-js/blob/main/docs/firefly/index.md)
 * [Photoshop](https://git.corp.adobe.com/cc-apis/firefly-services-sdk-js/blob/main/docs/photoshop/index.md)
 * [Lightroom](https://git.corp.adobe.com/cc-apis/firefly-services-sdk-js/blob/main/docs/lightroom/index.md)
-
-
-
-
-
-
-
