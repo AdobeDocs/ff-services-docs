@@ -109,7 +109,7 @@ curl -X POST \
 
 Congratulations! You just made your first request to the Firefly services API.
 
-<<InlineAlert slots="text" />
+<InlineAlert slots="text" />
 
 Note that your token will expire every 24 hours and will need to be refreshed after it expires.
 
