@@ -13,13 +13,12 @@
   "security": [
     {
       "X-ApiKey": [],
-      "Access-token": []
+      "Access token": []
     }
   ],
   "paths": {
     "/v1/images/fill": {
       "post": {
-        "tags": ["public"],
         "summary": "Generative fill",
         "description": "This API gives you access to Firefly's multidiffusion in-painting feature.",
         "operationId": "fillImagesV1",
