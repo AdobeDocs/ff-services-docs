@@ -19,9 +19,6 @@
   "paths": {
     "/v2/storage/image": {
       "post": {
-        "tags": [
-          "public"
-        ],
         "summary": "Upload image",
         "description": "This API allows you to store content on temporary storage. The API will create an object on S3 and return the asset ID of the uploaded content in response.",
         "operationId": "storageImageV2",
@@ -155,7 +152,7 @@
         "name": "x-api-key",
         "in": "header"
       },
-      "Access-token": {
+      "Access token": {
         "type": "http",
         "scheme": "bearer"
       }
