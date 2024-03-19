@@ -12,10 +12,10 @@
   ],
   "security": [
     {
-      "X-ApiKey": [],
-      "Access token": []
+        "X-ApiKey": [],
+        "Access token": []
     }
-  ],
+],
   "paths": {
     "/v2/storage/image": {
       "post": {

@@ -12,10 +12,10 @@
   ],
   "security": [
     {
-      "X-ApiKey": [],
-      "Access token": []
+        "X-ApiKey": [],
+        "Access token": []
     }
-  ],
+],
   "paths": {
     "/v2/images/generate": {
       "post": {
@@ -180,7 +180,7 @@
         "name": "x-api-key",
         "in": "header"
       },
-      "Access -oken": {
+      "Access token": {
         "type": "http",
         "scheme": "bearer"
       }
