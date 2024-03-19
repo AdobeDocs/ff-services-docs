@@ -13,7 +13,15 @@ The first step in accessing the Firefly Services API is getting authenticated. F
 
 Here are the steps to get started with the Firefly services APIs. If you have already got your API key, you can skip these steps and proceed to [Generate access Token](./get-started.md#step-5-generate-access-token) and [make your first API call](./get-started.md#make-your-first-api-call) with Firefly Services.
 
-## Generate an API Key and access token
+## Gaining access to the Adobe Developer Console 
+ 
+Enterprise customers must be assigned the _System Administrator_ or _Developer_ role in the Adobe Admin Console to access the Developer Console. 
+
+- Identify an Adobe Admin in your Enterprise. This may be as simple as checking the notes in your Adobe account. Adobe’s Solution Consultants will also typically have an administrator contact for the organization. 
+- Have the Admin set up either _System Administrator_ or _Developer_ roles for users who will need to generate API keys. Alternatively, you may ask your Admin to generate the keys for you if they feel elevating roles is too risky. If your Admin does this for you, skip to the [Make your first API Call](get-started.md#make-your-first-api-call) section.
+- If your Admin allows you to generate your API keys, the Admin will also need to assign Firefly to you as a product in the Admin Console. 
+
+## Generate an API Key and access token from the Adobe Developer Console
 
 If you have already been provisioned with access through your organization, you will need to create a project in developer console.
 
