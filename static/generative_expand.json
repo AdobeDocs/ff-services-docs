@@ -171,7 +171,7 @@
         "name": "x-api-key",
         "in": "header"
       },
-      "Access-token": {
+      "Access token": {
         "type": "http",
         "scheme": "bearer"
       }
