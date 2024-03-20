@@ -34,7 +34,7 @@ Use APIs like [Text-to-Image]() to create an image, then transform it with any n
 
 [Quickstart Guide](../guides/get-started.md)
 
-Get started with the Adobe Firefly serivices.
+Get started with the Adobe Firefly Services.
 
 <DiscoverBlock width="100%" slots="heading, link, text"/>
 
@@ -42,4 +42,4 @@ Get started with the Adobe Firefly serivices.
 
 [Adobe Firefly Services SDK](./sdks/)
 
-The Adobe Firefly Services SDK is a comprehensive toolkit designed to streamline your integration with Adobe Firefly Services
+The Adobe Firefly Services SDK is a comprehensive toolkit designed to streamline your integration with Adobe Firefly Services.
