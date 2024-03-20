@@ -29,12 +29,12 @@ To begin, use the authentication `util` to set up your credentials. This ensures
 
 ### Installation 
 
-Download the SDK from our website (placeholder link). The SDK is currently available in: 
+Download the [SDK](https://git.corp.adobe.com/cc-apis/firefly-services-sdk-js) from our website. The SDK is currently available in: 
 
 * Node.js
 * TypeScript.
 
-For detailed instructions, refer to the [`README` file](https://git.corp.adobe.com/cc-apis/firefly-services-sdk-js) and explore our [sample code](https://git.corp.adobe.com/cc-apis/firefly-services-sdk-js/tree/main/samples) to quickly get started with integrating our SDK into your projects.
+For detailed instructions, refer to the [`README` file](https://git.corp.adobe.com/cc-apis/firefly-services-sdk-js#readme) and explore our [sample code](https://git.corp.adobe.com/cc-apis/firefly-services-sdk-js/tree/main/samples) to quickly get started with integrating our SDK into your projects.
 
 ### SDK API references
 
