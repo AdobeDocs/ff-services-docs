@@ -6,24 +6,24 @@ contributors:
   - https://github.com/cfjedimaster
 ---
 
-# Harnassing the Firefly Services APIs in PowerAutomate
+# Integrating Firefly Services with Microsoft Power Automate
 
 Microsoft's [Power Automate](https://make.powerautomate.com) is a powerful no-code solution that lets developers and non-developers alike create flexible workflows to automate processing using multiple different services. Firefly Services can be employed in the Power Automate platform and in this article, we'll walk you through the process of creating a sample workflow. Keep in mind that Power Automate is incredibly flexible and the example shown here is just one possible use of the platform.
 
-## Prereqs
+## Prerequisites
 
 In order to complete this tutorial, you will need:
 
 * Firefly API credentials. You can sign up for [free trial credentials](https://developer.adobe.com/firefly-api) and use them for this tutorial. You will need two values: `client_id` and `client_secret`. 
 * An account with Microsoft and access to Power Automate. 
 
-## Our Workflow
+## Workflow
 
 Our workflow will use the Firefly API to generate images. The steps involved are:
 
-* Reading a set of prompts from a Microsoft List
-* Sending each prompt to Firefly
-* Taking the result and sending an email
+* Reading a set of prompts from a Microsoft list.
+* Sending each prompt to Firefly.
+* Taking the result and sending an email.
 
 For simplicity's sake, this flow will be manually triggered, but certainly, you could create a workflow that was dynamically triggered.
 
