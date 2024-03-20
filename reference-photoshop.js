@@ -17,7 +17,13 @@ module.exports=[
       },
       {
         title: 'API Documentation',
-        path: '/photoshop/api/'
+        path: '/photoshop/api/',
+        pages: [
+            {
+                title: 'Lightroom AutoStraighten',
+                path: '/firefly-api/guides/photoshop/api/lightroom_autoStraighten/'
+            },
+        ]
       },    
       {
         title: 'Support',
