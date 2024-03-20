@@ -21,7 +21,7 @@ module.exports=[
         pages: [
             {
                 title: 'Lightroom AutoStraighten',
-                path: '/firefly-api/guides/photoshop/api/lightroom_autoStraighten/'
+                path: '/photoshop/api/lightroom_autoStraighten.md'
             },
         ]
       },    
