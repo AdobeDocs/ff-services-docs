@@ -32,8 +32,7 @@ module.exports = {
       {
         title: 'Lightroom API',
         description: 'Docs and references for Lightroom API',
-        path: 'https://developer.adobe.com/lightroom/lightroom-api-docs/',
-        path: '/photoshop/'
+        path: '/lightroom/'
       },
       {
         title: 'Content Tagging',
@@ -186,6 +185,51 @@ module.exports = {
         path: '/photoshop/api/',
         pages: [
           {
+            title: 'Photoshop API',
+            path: '/photoshop/api/'
+          },
+          {
+            title: 'Lightroom AutoStraighten',
+            path: '/photoshop/api/lightroom_autoStraighten.md'
+          }
+        ]
+      },    
+      {
+        title: 'Support',
+        path: '/photoshop/support'
+      },
+      ///////////////////////////////////////////////
+      // Lightroom API-specific left side nav
+      /////////////////////////////////////////////// 
+      {
+        title: 'Overview',
+        path: '/lightroom/',
+      },        
+      {
+        title: 'Getting Started',
+        path: '/lightroom/getting-started/'
+      },
+      {
+        title: 'General Workflow',
+        path: '/lightroom/general-workflow/'
+      },
+      {
+        title: 'Features',
+        path: '/lightroom/features/'
+      },
+      {
+        title: 'Code Samples',
+        path: '/lightroom/code-sample/'
+      },
+      {
+        title: 'API Documentation',
+        path: '/lightroom/api/',
+        pages: [
+          {
+            title: 'Lightroom API',
+            path: '/lightroom/api/'
+          },
+          {
             title: 'Lightroom AutoStraighten',
             path: '/photoshop/api/lightroom_autoStraighten.md'
           },
@@ -193,7 +237,7 @@ module.exports = {
       },    
       {
         title: 'Support',
-        path: '/photoshop/support'
+        path: '/lightroom/support'
       }
       // END PS API left nav
       /////////////////////////////////////////////////////

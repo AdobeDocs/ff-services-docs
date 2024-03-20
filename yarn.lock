@@ -5815,15 +5815,16 @@ __metadata:
   linkType: hard
 
 "array-includes@npm:^3.1.6, array-includes@npm:^3.1.7":
-  version: 3.1.7
-  resolution: "array-includes@npm:3.1.7"
+  version: 3.1.8
+  resolution: "array-includes@npm:3.1.8"
   dependencies:
-    call-bind: ^1.0.2
-    define-properties: ^1.2.0
-    es-abstract: ^1.22.1
-    get-intrinsic: ^1.2.1
+    call-bind: ^1.0.7
+    define-properties: ^1.2.1
+    es-abstract: ^1.23.2
+    es-object-atoms: ^1.0.0
+    get-intrinsic: ^1.2.4
     is-string: ^1.0.7
-  checksum: 06f9e4598fac12a919f7c59a3f04f010ea07f0b7f0585465ed12ef528a60e45f374e79d1bddbb34cdd4338357d00023ddbd0ac18b0be36964f5e726e8965d7fc
+  checksum: eb39ba5530f64e4d8acab39297c11c1c5be2a4ea188ab2b34aba5fb7224d918f77717a9d57a3e2900caaa8440e59431bdaf5c974d5212ef65d97f132e38e2d91
   languageName: node
   linkType: hard
 
@@ -7206,6 +7207,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cis-lightroom-api@github:adobedocs/cis-photoshop-api-docs#lr_docs":
+  version: 1.0.0
+  resolution: "cis-lightroom-api@https://github.com/adobedocs/cis-photoshop-api-docs.git#commit=bba107a76b3bdeaafe19f06f6f6695d005d51123"
+  dependencies:
+    "@adobe/gatsby-theme-aio": 4.9.8
+    gatsby: 4.22.0
+    react: 17.0.2
+    react-dom: 17.0.2
+  checksum: 945ea878c1ba365227c4d6d60a9e6d7e079aeee213d559806ef36c4bde2fff4e4a57d7659d271888b2384ac8d2ccdd0a6d60ba9b8b929aa1942e1c6887be4396
+  languageName: node
+  linkType: hard
+
 "cis-photoshop-api@github:adobedocs/cis-photoshop-api-docs#sudipta/summitPS":
   version: 1.0.0
   resolution: "cis-photoshop-api@https://github.com/adobedocs/cis-photoshop-api-docs.git#commit=6a5c4ad130d0bf16686a46a90e11495e89a6e1c9"
@@ -8485,6 +8498,7 @@ __metadata:
   resolution: "dev-site-documentation-template@workspace:."
   dependencies:
     "@adobe/gatsby-theme-aio": ^4.11.8-rc3
+    cis-lightroom-api: "github:adobedocs/cis-photoshop-api-docs#lr_docs"
     cis-photoshop-api: "github:adobedocs/cis-photoshop-api-docs#sudipta/summitPS"
     firefly-api-docs: "github:adobedocs/firefly-api-docs"
     gatsby: 4.22.0
