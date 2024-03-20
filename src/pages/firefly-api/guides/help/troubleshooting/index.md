@@ -3,6 +3,7 @@ title: Best Practices
 description: This guide explains troubleshooting for the Adobe Firefly API.
 contributors:
   - https://github.com/nimithajalal
+hideBreadcrumbNav: true
 ---
 
 # Firefly API Troubleshooting Guide

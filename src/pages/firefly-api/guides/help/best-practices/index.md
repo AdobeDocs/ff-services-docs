@@ -3,6 +3,7 @@ title: Best Practices
 description: This guide explains best practices for the Adobe Firefly API.
 contributors:
   - https://github.com/nimithajalal
+hideBreadcrumbNav: true
 ---
 
 # Best Practices for Adobe Firefly API

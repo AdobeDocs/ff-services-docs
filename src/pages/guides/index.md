@@ -4,6 +4,7 @@ description: Find the most recent documentation, code samples and resources for 
 contributors:
   - https://github.com/hollyschinsky
   - https://github.com/nimithajalal
+hideBreadcrumbNav: true
 ---
 
 <Hero slots="heading, text" background="rgb(233, 80, 80)"/>

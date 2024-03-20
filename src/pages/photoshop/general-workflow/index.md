@@ -1,6 +1,7 @@
 ---
 title: General Workflow of Photoshop API
 description: General Workflow of Photoshop API
+hideBreadcrumbNav: true
 ---
 # General Workflow for our API
 

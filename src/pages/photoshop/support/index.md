@@ -3,6 +3,7 @@ title: Support
 description: Page for Support
 contributors:
   - https://github.com/khound
+hideBreadcrumbNav: true
 ---
 
 ## Support Channel

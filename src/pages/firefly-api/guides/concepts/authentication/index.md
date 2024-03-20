@@ -3,6 +3,7 @@ title: Authentication
 description: This is the authentication guide for Adobe Firefly API
 contributors:
   - https://github.com/amandahuarng
+hideBreadcrumbNav: true
 ---
 <!-- TODO: Update -->
 # Authentication

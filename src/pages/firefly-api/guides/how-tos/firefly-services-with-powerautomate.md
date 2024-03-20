@@ -4,6 +4,7 @@ description: This how-to guides you through the process of harnassing the Firefl
 contributors:
   - https://github.com/nimithajalal
   - https://github.com/cfjedimaster
+hideBreadcrumbNav: true
 ---
 
 # Integrating Firefly Services with Microsoft Power Automate

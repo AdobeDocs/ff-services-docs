@@ -3,6 +3,7 @@ title: Concepts
 description: This is a sample concept 
 contributors:
   - https://github.com/nimithajalal
+hideBreadcrumbNav: true
 ---
 
 # Resources

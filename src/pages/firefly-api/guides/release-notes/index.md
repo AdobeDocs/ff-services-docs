@@ -3,6 +3,7 @@ title: Release Notes - Adobe Firefly API
 description: This is the changelog for Adobe Firefly API
 contributors:
   - https://github.com/amandahuarng
+hideBreadcrumbNav: true
 ---
 <!-- TODO: Update with latest prod details, elaborate on API descriptions -->
 # Release Notes

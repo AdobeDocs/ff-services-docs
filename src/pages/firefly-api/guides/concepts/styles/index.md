@@ -3,6 +3,7 @@ title: Style Guide - Adobe Firefly API
 description: This is the style guide for Adobe Firefly API
 contributors:
   - https://github.com/amandahuarng
+hideBreadcrumbNav: true
 ---
 
 # Image Model Styles

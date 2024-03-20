@@ -1,3 +1,7 @@
+---
+hideBreadcrumbNav: true
+---
+
 # Tutorials
 
 Welcome to the Adobe Firefly Services API tutorials.

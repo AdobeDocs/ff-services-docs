@@ -4,6 +4,7 @@ description: This guide explains rate limiting for the Adobe Firefly API.
 contributors:
   - https://github.com/amandahuarng
   - https://github.com/nimithajalal
+hideBreadcrumbNav: true
 ---
 # Rate Limits
 

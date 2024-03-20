@@ -3,6 +3,7 @@ title: Seed IDs - Adobe Firefly API
 description: This guide explains usage of Seed IDs for the Adobe Firefly API.
 contributors:
   - https://github.com/nimithajalal
+hideBreadcrumbNav: true
 ---
 # Understanding Seed IDs in Firefly Services API
 

@@ -1,6 +1,7 @@
 ---
 title: Code Examples
 description: Code Examples.
+hideBreadcrumbNav: true
 ---
 # Sample Code
 

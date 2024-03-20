@@ -3,6 +3,7 @@ title: Quickstart guide
 description: This is the quickstart guide for Adobe Firefly API
 contributors:
   - https://github.com/amandahuarng
+hideBreadcrumbNav: true
 ---
 <!-- TODO: Update -->
 # Quickstart Guide

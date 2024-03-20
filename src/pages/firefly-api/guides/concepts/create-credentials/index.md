@@ -1,3 +1,7 @@
+---
+hideBreadcrumbNav: true
+---
+
 # [Admins only] Get Credentials
 
 <InlineAlert variant="warning" slots="text" />

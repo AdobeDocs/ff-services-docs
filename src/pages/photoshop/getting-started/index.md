@@ -3,6 +3,7 @@ title: Authentication
 description: Page for Authentication
 contributors:
   - https://github.com/khound
+hideBreadcrumbNav: true
 ---
 # Getting started with Photoshop and Lightroom API
 

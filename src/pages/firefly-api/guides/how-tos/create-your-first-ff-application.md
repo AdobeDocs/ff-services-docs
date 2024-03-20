@@ -4,6 +4,7 @@ description: This how-to guides you through the process of integrating Adobe's F
 contributors:
   - https://github.com/nimithajalal
   - https://github.com/cfjedimaster
+hideBreadcrumbNav: true
 ---
 
 # Create your first Firefly API implementation
