@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@adobe/gatsby-theme-aio": "^4.11.8-rc3",
-    "cis-photoshop-api": "github:adobedocs/cis-photoshop-api-docs",
+    "cis-photoshop-api": "github:adobedocs/cis-photoshop-api-docs#sudipta/summitPS",
     "firefly-api-docs": "github:adobedocs/firefly-api-docs",
     "gatsby": "4.22.0",
     "react": "^17.0.2",
