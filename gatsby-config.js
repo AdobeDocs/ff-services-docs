@@ -16,13 +16,9 @@ module.exports = {
   siteMetadata: {    
     pages: [
       {
-        title: "Firefly Services", // Links back to microsite (mkt pages)
-        path: "https://developer.adobe.com/firefly-services/",
-      },            
-      {
-        title: 'Overview',
+        title: 'Firefly Services',
         path: '/guides/'
-      },
+      },                  
       {
         title: 'Firefly API',
         description: 'Docs and references for Firefly API',

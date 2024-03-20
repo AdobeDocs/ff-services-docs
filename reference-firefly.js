@@ -1,8 +1,8 @@
 module.exports = [
-    {
-        title: 'Overview',
-        path: '/firefly-api/',
-    },
+    // {
+    //     title: 'Overview',
+    //     path: '/firefly-api/',
+    // },
     {
         title: 'Quickstart',
         path: '/firefly-api/guides/'

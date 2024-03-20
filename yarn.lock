@@ -136,7 +136,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adobe/gatsby-theme-aio@npm:^4.11.7, @adobe/gatsby-theme-aio@npm:^4.11.7-rc4":
+"@adobe/gatsby-theme-aio@npm:^4.11.7":
   version: 4.11.7
   resolution: "@adobe/gatsby-theme-aio@npm:4.11.7"
   dependencies:
@@ -10057,13 +10057,13 @@ __metadata:
 
 "firefly-api-docs@github:adobedocs/firefly-api-docs":
   version: 1.0.0
-  resolution: "firefly-api-docs@https://github.com/adobedocs/firefly-api-docs.git#commit=e7b24c64b506ec004ba318f9b4b4b1b599076320"
+  resolution: "firefly-api-docs@https://github.com/adobedocs/firefly-api-docs.git#commit=e79314365307b35868ab22d74e9696b83fe71a0a"
   dependencies:
-    "@adobe/gatsby-theme-aio": ^4.11.7-rc4
+    "@adobe/gatsby-theme-aio": ^4.11.7
     gatsby: 4.22.0
     react: ^17.0.2
     react-dom: ^17.0.2
-  checksum: 77206a436dbf24e1193c3880ffb15e9ab313e8ad08096401d13b6e9306b10b5b89cdd9fe36ec4311d0e89042ed2b99ba7fef584ff3e6ea22ee0b50661606c600
+  checksum: f2bc2a1b5c4d93e1d3b4eb2102a818ce533eb145395582e6272209b332cb62628c3e0b6b62373eed783b0f684b7ad652111cd947c7ed5d344fcbb322c425b93c
   languageName: node
   linkType: hard
 

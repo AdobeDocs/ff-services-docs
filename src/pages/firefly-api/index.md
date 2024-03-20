@@ -9,13 +9,13 @@ contributors:
 
 # Adobe Firefly API
 
-Integrate generative AI into your creative workflows.
+The Adobe Firefly API makes it easy for you to integrate generative AI into your creative workflows.
 
-<Resources slots="heading, links"/>
+<!-- <Resources slots="heading, links"/>
 
 #### Resources
 
-* [Quickstart Guide](./guides/)
+* [Quickstart Guide](./guides/) -->
 
 ## Overview
 
@@ -38,7 +38,7 @@ Try out the API today to:
 
 [Quickstart Guide](guides/)
 
-Get started with the Adobe Firefly API.
+A quickstart guide to making your first successful Firefly API call.
 
 <DiscoverBlock slots="link, text"/>
 
@@ -47,3 +47,5 @@ Get started with the Adobe Firefly API.
 [Try the API](guides/api/upload_image/)
 
 Try the Adobe Firefly API. Explore, make calls, with full endpoint descriptions.
+
+<br/><br/><br/><br/>
