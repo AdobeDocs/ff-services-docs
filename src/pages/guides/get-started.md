@@ -18,7 +18,7 @@ Here are the steps to get started with the Firefly services APIs. If you have al
 Enterprise customers must be assigned the _System Administrator_ or _Developer_ role in the Adobe Admin Console to access the Developer Console. 
 
 - Identify an Adobe Admin in your Enterprise. This may be as simple as checking the notes in your Adobe account. Adobe’s Solution Consultants will also typically have an administrator contact for the organization. 
-- Have the Admin set up either _System Administrator_ or _Developer_ roles for users who will need to generate API keys. Alternatively, you may ask your Admin to generate the keys for you if they feel elevating roles is too risky. If your Admin does this for you, skip to the [Make your first API Call](get-started.md#make-your-first-api-call) section.
+- Have the Admin set up either _System Administrator_ or _Developer_ roles for users who will need to generate API keys. Alternatively, ask your Admin to generate the keys if they feel elevating roles is too risky. If your Admin does this for you, skip to the [Make your first API Call](get-started.md#make-your-first-api-call) section.
 - If your Admin allows you to generate your API keys, the Admin will also need to assign Firefly to you as a product in the Admin Console. 
 
 ## Generate an API Key and access token from the Adobe Developer Console
@@ -106,8 +106,8 @@ Once you have created your access token, you can follow the steps below to make 
 ```bash
 curl -X POST \
   https://firefly-api.adobe.io/v2/images/generate \
-  -H 'x-api-key: <YOUR_CLIENT_ID> \
-  -H 'Authorization: <YOUR_ACCESS_TOKEN> \
+  -H 'x-api-key: <YOUR_CLIENT_ID>' \
+  -H 'Authorization: <YOUR_ACCESS_TOKEN>' \
   -H 'Content-Type: application/json' \
   -d '{
     "parameter1": "value1",
@@ -119,13 +119,13 @@ Congratulations! You just made your first request to the Firefly services API.
 
 <InlineAlert slots="text" />
 
-Note that your token will expire every 24 hours and will need to be refreshed after it expires.
+Note that your access token will expire every 24 hours and will need to be refreshed after it expires.
 
 ## Start building your applications
 
-You have now Access Token and Client Id. 
+Now that you have obtained an Access Token and Client ID, you can utilize them to develop your application with Firefly services APIs.
 
-You can use it to build your application using Firefly services APIs.
+Explore our [tutorials](./tutorials/) for comprehensive guidance. 
 
 ## Explore more
 
