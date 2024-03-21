@@ -226,15 +226,15 @@ module.exports = {
             path: '/lightroom/api/'
           },
           {
-            title: 'Lightroom AutoStraighten',
+            title: 'Lightroom Auto Straighten',
             path: '/lightroom/api/lightroom_autoStraighten.md'
           },
           {
-            title: 'Lightroom AutoStraighten',
+            title: 'Lightroom Apply Presets',
             path: '/lightroom/api/lightroom_applyPresets.md'
           },
           {
-            title: 'Lightroom AutoStraighten',
+            title: 'Lightroom Apply XMP',
             path: '/lightroom/api/lightroom_applyXMP.md'
           },
         ]
