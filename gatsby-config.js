@@ -187,10 +187,6 @@ module.exports = {
           {
             title: 'Photoshop API',
             path: '/photoshop/api/'
-          },
-          {
-            title: 'Lightroom AutoStraighten',
-            path: '/photoshop/api/lightroom_autoStraighten.md'
           }
         ]
       },    
@@ -231,7 +227,15 @@ module.exports = {
           },
           {
             title: 'Lightroom AutoStraighten',
-            path: '/photoshop/api/lightroom_autoStraighten.md'
+            path: '/lightroom/api/lightroom_autoStraighten.md'
+          },
+          {
+            title: 'Lightroom AutoStraighten',
+            path: '/lightroom/api/lightroom_applyPresets.md'
+          },
+          {
+            title: 'Lightroom AutoStraighten',
+            path: '/lightroom/api/lightroom_applyXMP.md'
           },
         ]
       },    
