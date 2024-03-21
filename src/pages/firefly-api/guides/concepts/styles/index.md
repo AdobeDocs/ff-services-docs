@@ -7,7 +7,10 @@ contributors:
 
 # Image Model Styles
 
-These are visual representations of the content classes and image styles/presets available. The `Preset ID` value is a string and is used with the text-to-image API.
+You can specify content classes and image style while using text-to-image API. These styles influence the output images.
+
+The below table exemplifies the visual representations of each of content classes and image styles/presets available. Use the `Preset ID` as a string and while calling the [text-to-image API](../../api/image_generation/).
+
 
 | Preset                     | Preset ID                   |
 |:---------------------------|:-------------------| :--------:

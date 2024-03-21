@@ -43,7 +43,7 @@ module.exports = [
                 path: '/firefly-api/guides/how-tos/create-your-first-ff-application.md'
             },
             {
-                title: 'Harnassing the Firefly Services APIs in PowerAutomate',
+                title: 'Integrating Firefly Services with Microsoft Power Automate',
                 path: '/firefly-api/guides/how-tos/firefly-services-with-powerautomate'
             }
         ]
