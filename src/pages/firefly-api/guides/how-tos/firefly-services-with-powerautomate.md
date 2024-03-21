@@ -12,9 +12,9 @@ Microsoft's [Power Automate](https://make.powerautomate.com) is a powerful no-co
 
 ## Prerequisites
 
-In order to complete this tutorial, you will need:
+To complete this tutorial, you will need:
 
-* Firefly API credentials. You can sign up for [free trial credentials](https://developer.adobe.com/firefly-api) and use them for this tutorial. You will need two values: `client_id` and `client_secret`. 
+* Firefly API credentials. You can sign up for the [credentials](https://developer.adobe.com/firefly-api) and use them for this tutorial. You will need two values: `client_id` and `client_secret`. 
 * An account with Microsoft and access to Power Automate. 
 
 ## Workflow
@@ -23,61 +23,63 @@ Our workflow will use the Firefly API to generate images. The steps involved are
 
 * Reading a set of prompts from a Microsoft list.
 * Sending each prompt to Firefly.
-* Taking the result and sending an email.
+* Take the result and send an email.
 
-For simplicity's sake, this flow will be manually triggered, but certainly, you could create a workflow that was dynamically triggered.
+For simplicity's sake, this flow will be manually triggered, but certainly, but you could create a dynamically triggered workflow.
 
-## Step One - Defining our Prompts
+## Step 1: Defining our prompts
 
-As described earlier, a Microsoft List will be used to define our prompts. We created a new list, named it "Prompts", and added two simple values in the first column.
+As described earlier, we will use Microsoft List to define our prompts. We created a new list, named it _Prompts_, and added two simple values in the first column.
 
 ![Microsoft List with two prompts](../images/shot1.png)
 
-## Step Two - Create the Flow
+## Step 2: Create the flow
 
-Next, create a new "Instant" Power Automate flow. This will let us test as needed and won't be tied to any automatic process. Everything demonstrated in this article absolutely *could* run in that type of scenario. 
+Next, create a new _Instant_ Power Automate flow. This will let us test as needed without being tied to any automatic process. Everything demonstrated in this article absolutely *could* run in that scenario. 
 
-## Step Three - Read our List
+## Step 3: Read our list
 
-PowerAutomate has steps that automatically integrate with Lists, so the next step will be to add the "Get items" action from Sharepoint. This will require you to configure the Sharepoint site hosting the list and then select the list. 
+PowerAutomate has steps that automatically integrate with Lists, so the next step will be to add the "Get items" action from Sharepoint. This will require you to configure the Sharepoint site hosting and select the list. 
 
 ![Step configured to read list values](../images/shot2.png)
 
-Note that we've renamed the action to "Get Prompts"
+Note that we've renamed the action to _Get Prompts_.
 
-## Step Four - Define Variables
+## Step 4: Define Variables
 
-The next two actions aren't technically required, but help us out later in the flow. Create two actions to initialize variables. We're going to create two string values to store our Firefly authentication. The first one should use these values:
+The following two actions are optional but help us out later in the flow. Create two actions to initialize variables. We're going to create two string values to store our Firefly authentication. The first one should use these values:
 
-* Name: FIREFLY_CLIENT_ID
-* Type: String
-* Value: Your client id
+* Name: `FIREFLY_CLIENT_ID`
+* Type: `String`
+* Value: `Your client id`
 
-Name this step, "Set Firefly Client ID".
+Name this step, _Set Firefly Client ID_.
 
 The next one will use these values:
 
-* Name: FIREFLY_CLIENT_SECRET
-* Type: String
-* Value: Your client secret
+* Name: `FIREFLY_CLIENT_SECRET`
+* Type: `String`
+* Value: `Your client secret`
 
-Name this step, "Set Firefly Client Secret".
+Name this step, _Set Firefly Client Secret_.
 
-At this point, your flow should look like so:
+At this point, your flow should look like this:
 
 ![The flow, so far](../images/shot3.png)
 
-## Step Five - Exchange Credentials
+## Step 6: Exchange Credentials
 
 The next step will use the HTTP action to exchange our credentials for an access token. Add a new step, HTTP, and use the following URI:
 
-```
+```bash
 https://ims-na1.adobelogin.com/ims/token/v3?grant_type=client_credentials&client_id=@{variables('FIREFLY_CLIENT_ID')}&client_secret=@{variables('FIREFLY_CLIENT_SECRET')}&scope=openid,AdobeID,firefly_enterprise,firefly_api,ff_apis
 ```
 
-Note that as soon as you enter that value, the two `variables` section will change to reference the two earlier steps we defined. Set the method to POST and name the action, "Get Access Token".
+<InlineAlert slots="text" />
 
-Follow this with a "Parse JSON" step. The content value will point to the body of the previous step. The schema will be the following:
+As soon as you enter that value, the two `variables` section will change to reference the two earlier steps we defined. Set the method to POST and name the action, _Get Access Token_.
+
+Follow this with a _Parse JSON_ step. The content value will point to the body of the previous step. The schema will be the following:
 
 ```json
 {
@@ -100,35 +102,37 @@ This was created by using the "Use sample payload to generate schema" support in
 
 The net result of these two steps is to get an access token for Firefly calls and parse the result so Power Automate can make use of it. 
 
-## Step Six - Initialize Image String
+## Step 6: Initialize Image String
 
-Before we start using the API, we need to define a variable, "images", that we'll use for our results. Add a new step to initialize a variable with these values:
+Before we start using the API, we need to define a variable, _images_, that we'll use for our results. Add a new step to initialize a variable with these values:
 
-* name: images
-* type: String
-* value: Leave blank
+* name: `images`
+* type: `String`
+* value: `Leave blank`
 
 Name this step, "Initialize Image String".
 
-At this point, your flow should look like so:
+At this point, your flow should look like this:
 
 ![The flow, so far](../images/shot4.png)
 
-## Step Seven - Beginning the Loop
+## Step 7: Beginning the Loop
 
-Our workflow will generate results for each prompt and email them, so now we add a new action, "Apply to each" (found in the "Control" section when adding a new action). You will be prompted to select an output to drive the looping. If you remember we read in our Microsoft List value in the beginning, so select that: 
+OOur workflow will generate results for each prompt and email them, so now we add a new action, _Apply to each_ (found in the _Control_ section when adding a new action). You will be prompted to select an output to drive the looping. If you remember, we read in our Microsoft List value in the beginning, so choose that:
 
 ![Defining the loop variable](../images/shot5.png)
 
 All of the next steps will be defined inside this loop. 
 
-## Step Eight - Resetting the Images Variable
+## Step 8: Resetting the Images Variable
 
-Back in step six, we created an image variable named, `images`. The point of this variable is to hold the results from Firefly so that it can be emailed. For each prompt we need to reset this value back to an empty string. So the first step inside our "Apply to each" loop is a "Set the variable value" action. It sets the variable, `images`, to null. You can do this by entering: `@{null}`
+In step six, we created an image variable named `images`. The point of this variable is to hold the results from Firefly so that it can be emailed. We need to reset this value for each prompt to an empty string. So, the first step inside our _Apply to each_ loop is a _Set the variable value_ action. It sets the variable, `images`, to null. 
 
-## Step Nine - Calling Firefly's Text-to-Image API
+You can do this by entering: `@{null}`
 
-Now for the fun part. We'll add another HTTP action that will call the [Text-to-Image](https://developer.adobe.com/firefly-api/api/#operation/v2/images/generate) API. This API call requires just a few parameters, including the prompt and size, as well as the number of desired images if you want more than one. 
+## Step 9: Calling Firefly's Text-to-Image API
+
+We'll add another HTTP action that will call the [Text-to-Image](../api/image_generation/) API. This API call requires a few parameters, including the prompt and number of desired images if you want more than one. 
 
 Begin by setting the URI to the API endpoint, as specified in the documentation: `https://firefly-api.adobe.io/v2/images/generate`. 
 
@@ -149,7 +153,7 @@ The last thing required is the actual body of the request. The number of images 
 }
 ```
 
-This step should then be followed with a Parse JSON action again. Add that step and name it "Parse Firefly Result JSON". Point it to the Body of the previous step, and use this schema:
+You should follow this step with a Parse JSON action again. Add that step and name it _Parse Firefly Result JSON_. Point it to the body of the previous step and use this schema:
 
 ```json
 {
@@ -204,11 +208,11 @@ This step should then be followed with a Parse JSON action again. Add that step 
 
 As before, the net result of these two steps is to make an HTTP call and parse the result into usable data. 
 
-## Step Ten - Defining Image HTML
+## Step 10: Defining Image HTML
 
-The next step will be twofold. We want to create a string variable for email that will include all the results from the Firefly call, but we want to define this in HTML. To do this, create another "Apply to each" step. This will use the output from the previous step that parsed the JSON result of the Firefly call: `@{body('Parse_Firefly_Result_JSON')?['outputs']}` Notice we're specifically using the `outputs` portion of the result which will contain one object per image result. 
+The next step will be twofold. We want to create a string variable for email that will include all the results from the Firefly call, but we want to define this in HTML. To do this, create another "Apply to each" step. This will use the output from the previous step that parsed the JSON result of the Firefly call: `@{body('Parse_Firefly_Result_JSON')?['outputs']}` Notice we're explicitly using the `outputs` portion of the result which will contain one object per image result. 
 
-Within this loop, add an "Append to String variable" step. The variable will be `images`, and the value, this little bit of complex logic: 
+Within this loop, add an _Append to String variable_ step. The variable will be `images`, and the value, this little bit of complex logic: 
 
 ```
 @{concat('<img src="',items('For_each')?['image']['presignedUrl'],'">')}
@@ -217,12 +221,12 @@ Within this loop, add an "Append to String variable" step. The variable will be 
 This value uses the `contact` function to join three strings:
 
 * First, the beginning of an HTML image tag.
-* Then, the current image from the `outputs` loop, specifying the `presignedUrl` value
+* Then, the current image from the `outputs` loop, specifying the `presignedUrl` value.
 * A closing bracket.
 
-## Step Eleven - Email the Result
+## Step 11: Email the Result
 
-The final step will handle emailing the result. You want to ensure it's in the loop for our prompts, but *not* the previous loop that iterated over the image results. 
+The final step will handle emailing the result. You want to ensure it's in the loop for our prompts but *not* the previous loop that iterated over the image results. 
 
 For the `To` field, specify your email and pick anything appropriate for the `Subject`. 
 
@@ -236,6 +240,6 @@ Here are your generated images for the prompt, @{items('Apply_to_each')?['Title'
 
 ## Results
 
-With the flow complete, we can now save and test. As it processes, it will fire off one email as each prompt is done. The images are somewhat large so the screenshot below only shows one, but the additional results are directly beneath it:
+With the flow complete, we can save and test it. As it processes, it will fire off one email as each prompt is done. The images are somewhat large, so the screenshot below only shows one, but the additional results are directly beneath it:
 
 ![Email example](../images/shot6.png)
