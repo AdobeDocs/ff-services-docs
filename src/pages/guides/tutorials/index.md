@@ -10,9 +10,9 @@ Here, you will find a collection of comprehensive tutorials designed to help you
 
 ### Get Started
 
-[Quickstart Guide](../guides/get-started.md)
+[Getting Started Guide](../get-started.md)
 
-Get started with the Adobe Firefly serivices.
+Get started with the Adobe Firefly services.
 
 <DiscoverBlock slots="heading, link, text"/>
 

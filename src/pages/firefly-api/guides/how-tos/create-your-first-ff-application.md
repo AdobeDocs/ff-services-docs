@@ -22,7 +22,7 @@ Let's get started!
 
 Before we begin, make sure you have the following:
 
--   Firefly API credentials. If you don't have them yet, you can [sign up](https://developer.adobe.com/firefly-api) for a free trial and obtain your `client_id` and `client_secret`.
+-   Firefly API credentials. If you don't have them yet, first visit the [Firefly Services Getting Started guide](https://developer.adobe.com/firefly-services/docs/guides/get-started/) to obtain a `client_id` and `client_secret`.
 -   `Node.js` or `Python` installed on your machine and basic familiarity with `JavaScript` or `Python`.
 
 ## Step 1: Set Up Your Environment

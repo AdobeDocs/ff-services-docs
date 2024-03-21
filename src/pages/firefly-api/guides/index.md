@@ -1,22 +1,24 @@
 ---
-title: Quickstart guide
-description: This is the quickstart guide for Adobe Firefly API
+title: Quickstart
+description: A quickstart guide to using the Adobe Firefly API
 contributors:
   - https://github.com/amandahuarng
+  - https://github.com/nimithajalal
+  - https://github.com/hollyschinsky
 ---
-<!-- TODO: Update -->
+
 # Quickstart Guide
 
 This guide will show you how to make your first successful call to the Firefly Text-to-Image API.
 
-Log into [Adobe Developer Console](https://developer.adobe.com/console) using the profile that your admin created for you and create an access token. [Learn more](https://developer.adobe.com/firefly-services/docs/guides/get-started/#generate-an-api-key-and-access-token) about creating an access token.
+Log into the [Adobe Developer Console](https://developer.adobe.com/console) using the profile that your admin created for you and create an access token. [Learn more](https://developer.adobe.com/firefly-services/docs/guides/get-started/#generate-an-api-key-and-access-token) about creating an access token.
 
-To call the Firefly text-to-image endpoint, you need a valid API key and an access token. To get an access token, use the following command:
+To call the Firefly text-to-image endpoint, you need a valid API key (aka: client_id) and an access token. To get an access token, use the following command:
 
 ```bash
 curl -X POST 'https://ims-na1.adobelogin.com/ims/token/v3' \
 -H 'Content-Type: application/x-www-form-urlencoded' \
--d 'grant_type=client_credentials&client_id={client_id}&client_secret={client_secret}&scope=openid,AdobeID,firefly_enterprise,firefly_api,ff_apis'
+-d 'grant_type=client_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&scope=openid,AdobeID,firefly_enterprise,firefly_api,ff_apis'
 ```
 
 Access tokens expire every 24 hours and it is wise that you rotate them programmatically before they expire. The token endpoint above returns expiry information alongside the token itself. Read more about this in our [auth guide](./concepts/authentication/index.md). Once you have this token, you are ready to make your first request to the text-to-image endpoint.

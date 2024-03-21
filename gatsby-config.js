@@ -80,10 +80,10 @@ module.exports = {
         title: 'Concepts',
         path: '/firefly-api/guides/concepts/',
         pages: [
-          {
-            title: 'Get Credentials',
-            path: '/firefly-api/guides/concepts/create-credentials/'
-          },
+          // {
+          //   title: 'Get Credentials',
+          //   path: '/firefly-api/guides/concepts/create-credentials/'
+          // },
           {
             title: 'Authentication',
             path: '/firefly-api/guides/concepts/authentication/'

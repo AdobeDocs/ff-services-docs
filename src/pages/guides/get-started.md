@@ -11,15 +11,15 @@ The first step in accessing the Firefly Services API is getting authenticated. F
 
 ## Overview
 
-Here are the steps to get started with the Firefly services APIs. If you have already got your API key, you can skip these steps and proceed to [Generate access Token](./get-started.md#step-5-generate-access-token) and [make your first API call](./get-started.md#make-your-first-api-call) with Firefly Services.
+Here are the steps to get started with the Firefly Services APIs. If you have already received your API key, you can skip these steps and proceed to the [generate access token](./get-started.md#step-5-generate-access-token) step and [make your first API call](./get-started.md#make-your-first-api-call) with Firefly Services.
 
 ## Gaining access to the Adobe Developer Console 
  
-Enterprise customers must be assigned the _System Administrator_ or _Developer_ role in the Adobe Admin Console to access the Developer Console. 
+Enterprise customers must be assigned the _System Administrator_ or _Developer_ role in the Adobe Admin Console to access the Adobe Developer Console. 
 
 - Identify an Adobe Admin in your Enterprise. This may be as simple as checking the notes in your Adobe account. Adobe’s Solution Consultants will also typically have an administrator contact for the organization. 
 - Have the Admin set up either _System Administrator_ or _Developer_ roles for users who will need to generate API keys. Alternatively, ask your Admin to generate the keys if they feel elevating roles is too risky. If your Admin does this for you, skip to the [Make your first API Call](get-started.md#make-your-first-api-call) section.
-- If your Admin allows you to generate your API keys, the Admin will also need to assign Firefly to you as a product in the Admin Console. 
+- If your Admin allows you to generate your API keys, the Admin will also need to assign Firefly and Creative Cloud Automation to you as a product in the Admin Console. 
 
 ## Generate an API Key and access token from the Adobe Developer Console
 
@@ -83,7 +83,7 @@ Sample cURL command:
 ``` bash
 curl -X POST 'https://ims-na1.adobelogin.com/ims/token/v3' \
 -H 'Content-Type: application/x-www-form-urlencoded' \
--d 'grant_type=client_credentials&client_id=<YOUR_CLIENT_ID>&scope=openid,AdobeID,read_organizations,firefly_api,ff_apis'
+-d 'grant_type=client_credentials&client_id=<YOUR_CLIENT_ID>&client_secret=<YOUR_CLIENT_SECRET>&scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
 ```
 
 The selected APIs will be listed in the left-hand side under **APIS**. 
@@ -99,7 +99,7 @@ Congratulations! You have just generated an access token.
 Once you have created your access token, you can follow the steps below to make your first API call.
 
 1.	Open your terminal and paste the code below.
-2.	Replace the variables <YOUR_ACCESS_TOKEN> with the token you generated on Adobe I/O Console.
+2.	Replace the variables <YOUR_ACCESS_TOKEN> with the token you generated on the Adobe Developer Console.
 3.	Replace <YOUR_CLIENT_ID>. You can find this on the same page you generated your token on.
 4.	Once all variables have been replaced you can run the command.
 
