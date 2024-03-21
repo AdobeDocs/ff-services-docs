@@ -136,7 +136,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adobe/gatsby-theme-aio@npm:^4.11.7":
+"@adobe/gatsby-theme-aio@npm:^4.11.7, @adobe/gatsby-theme-aio@npm:^4.11.8-rc3":
   version: 4.11.9
   resolution: "@adobe/gatsby-theme-aio@npm:4.11.9"
   dependencies:
@@ -7107,25 +7107,25 @@ __metadata:
 
 "cis-lightroom-api@github:adobedocs/cis-photoshop-api-docs#lr_docs":
   version: 1.0.0
-  resolution: "cis-lightroom-api@https://github.com/adobedocs/cis-photoshop-api-docs.git#commit=bba107a76b3bdeaafe19f06f6f6695d005d51123"
+  resolution: "cis-lightroom-api@https://github.com/adobedocs/cis-photoshop-api-docs.git#commit=67bc9d97974a40f0385029b5b552dad902de84d9"
   dependencies:
     "@adobe/gatsby-theme-aio": 4.9.8
     gatsby: 4.22.0
     react: 17.0.2
     react-dom: 17.0.2
-  checksum: 945ea878c1ba365227c4d6d60a9e6d7e079aeee213d559806ef36c4bde2fff4e4a57d7659d271888b2384ac8d2ccdd0a6d60ba9b8b929aa1942e1c6887be4396
+  checksum: 591f9f06e113ceb71b7904e4de130f12afdb921c143e0414ffa884b6cabba95304c93f48c722a717f873867c462af32c7581c050d675ac9ffb135f60567a3768
   languageName: node
   linkType: hard
 
 "cis-photoshop-api@github:adobedocs/cis-photoshop-api-docs#sudipta/summitPS":
   version: 1.0.0
-  resolution: "cis-photoshop-api@https://github.com/adobedocs/cis-photoshop-api-docs.git#commit=6a5c4ad130d0bf16686a46a90e11495e89a6e1c9"
+  resolution: "cis-photoshop-api@https://github.com/adobedocs/cis-photoshop-api-docs.git#commit=e63e100051dc23075e76f5df554cc2c06759c515"
   dependencies:
     "@adobe/gatsby-theme-aio": 4.9.8
     gatsby: 4.22.0
     react: 17.0.2
     react-dom: 17.0.2
-  checksum: d643eb3db6c1ef7c90c103394daabd996db37cbfae2be017ec5a1319fca45ea55fe229f583be109923de6e6f0485831bee5f9a0754129cff870e43a9f4fafd81
+  checksum: 9d71aa404ec14f6cb43bc3c75a8191e2b2567f5b662011797665a03dd37b90da620d27e1233995a567c25dbb6a17a7aef8e955a50723bc9d1f2e141b1bda95e5
   languageName: node
   linkType: hard
 
@@ -8395,8 +8395,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "dev-site-documentation-template@workspace:."
   dependencies:
-    "@adobe/gatsby-theme-aio": ^4.11.7
-    cis-photoshop-api: "github:adobedocs/cis-photoshop-api-docs"
+    "@adobe/gatsby-theme-aio": ^4.11.8-rc3
+    cis-lightroom-api: "github:adobedocs/cis-photoshop-api-docs#lr_docs"
+    cis-photoshop-api: "github:adobedocs/cis-photoshop-api-docs#sudipta/summitPS"
     firefly-api-docs: "github:adobedocs/firefly-api-docs"
     gatsby: 4.22.0
     react: ^17.0.2
@@ -8761,9 +8762,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.668":
-  version: 1.4.713
-  resolution: "electron-to-chromium@npm:1.4.713"
-  checksum: cffeff470a73c47763463fdc8f58854544102b572afe417defca6f511fa88dbe7e0b1720f0e64cf0cf92053aa3b086f5de24899a68a12a346f6b9b74ff1c0768
+  version: 1.4.714
+  resolution: "electron-to-chromium@npm:1.4.714"
+  checksum: a60a2b769e1a11bb1830a7da39fc7da9fcfdb68456f957eab6ff7163361de0c7af8d2ff95ed8deec18f6dc839e17ef87b8af6858a4f38e39a854f96348124e3f
   languageName: node
   linkType: hard
 
@@ -19425,13 +19426,13 @@ __metadata:
   linkType: hard
 
 "string.prototype.trimstart@npm:^1.0.7":
-  version: 1.0.7
-  resolution: "string.prototype.trimstart@npm:1.0.7"
+  version: 1.0.8
+  resolution: "string.prototype.trimstart@npm:1.0.8"
   dependencies:
-    call-bind: ^1.0.2
-    define-properties: ^1.2.0
-    es-abstract: ^1.22.1
-  checksum: 13d0c2cb0d5ff9e926fa0bec559158b062eed2b68cd5be777ffba782c96b2b492944e47057274e064549b94dd27cf81f48b27a31fee8af5b574cff253e7eb613
+    call-bind: ^1.0.7
+    define-properties: ^1.2.1
+    es-object-atoms: ^1.0.0
+  checksum: df1007a7f580a49d692375d996521dc14fd103acda7f3034b3c558a60b82beeed3a64fa91e494e164581793a8ab0ae2f59578a49896a7af6583c1f20472bce96
   languageName: node
   linkType: hard
 
@@ -19796,8 +19797,8 @@ __metadata:
   linkType: hard
 
 "tar@npm:^6.1.11, tar@npm:^6.1.2":
-  version: 6.2.0
-  resolution: "tar@npm:6.2.0"
+  version: 6.2.1
+  resolution: "tar@npm:6.2.1"
   dependencies:
     chownr: ^2.0.0
     fs-minipass: ^2.0.0
@@ -19805,7 +19806,7 @@ __metadata:
     minizlib: ^2.1.1
     mkdirp: ^1.0.3
     yallist: ^4.0.0
-  checksum: db4d9fe74a2082c3a5016630092c54c8375ff3b280186938cfd104f2e089c4fd9bad58688ef6be9cf186a889671bf355c7cda38f09bbf60604b281715ca57f5c
+  checksum: f1322768c9741a25356c11373bce918483f40fa9a25c69c59410c8a1247632487edef5fe76c5f12ac51a6356d2f1829e96d2bc34098668a2fc34d76050ac2b6c
   languageName: node
   linkType: hard
 
@@ -20272,8 +20273,8 @@ __metadata:
   linkType: hard
 
 "typed-array-length@npm:^1.0.5":
-  version: 1.0.5
-  resolution: "typed-array-length@npm:1.0.5"
+  version: 1.0.6
+  resolution: "typed-array-length@npm:1.0.6"
   dependencies:
     call-bind: ^1.0.7
     for-each: ^0.3.3
@@ -20281,7 +20282,7 @@ __metadata:
     has-proto: ^1.0.3
     is-typed-array: ^1.1.13
     possible-typed-array-names: ^1.0.0
-  checksum: 82f5b666155cff1b345a1f3ab018d3f7667990f525435e4c8448cc094ab0f8ea283bb7cbde4d7bc82ea0b9b1072523bf31e86620d72615951d7fa9ccb4f42dfa
+  checksum: f0315e5b8f0168c29d390ff410ad13e4d511c78e6006df4a104576844812ee447fcc32daab1f3a76c9ef4f64eff808e134528b5b2439de335586b392e9750e5c
   languageName: node
   linkType: hard
 

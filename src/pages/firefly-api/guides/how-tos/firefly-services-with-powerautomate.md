@@ -16,7 +16,6 @@ To complete this tutorial, you will need:
 
 * Firefly API credentials. You can sign up for the [credentials](https://developer.adobe.com/firefly-api) and use them for this tutorial. You will need two values: `client_id` and `client_secret`. 
 * An account with Microsoft and access to Power Automate. 
-
 ## Workflow
 
 Our workflow will use the Firefly API to generate images. The steps involved are:
