@@ -35,9 +35,8 @@ module.exports = {
         path: '/lightroom/'
       },
       {
-        title: 'Content Tagging',
-        description: 'Docs and references for Content Tagging services',
-        // path: 'https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html?aio_internal'
+        title: 'Content Tagging API',
+        description: 'Docs and references for Content Tagging services',        
         path: 'https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html'
       },
     ],
@@ -139,8 +138,8 @@ module.exports = {
         ]
       },
       {
-        title: 'Release Notes',
-        path: '/firefly-api/guides/release-notes/',
+        title: 'Changelog',
+        path: '/firefly-api/guides/changelog/',
       },
       {
         title: 'Help',
@@ -164,10 +163,10 @@ module.exports = {
         title: 'Overview',
         path: '/photoshop/',
       },        
-      {
-        title: 'Getting Started',
-        path: '/photoshop/getting-started/'
-      },
+      // {
+      //   title: 'Getting Started',
+      //   path: '/photoshop/getting-started/'
+      // },
       {
         title: 'General Workflow',
         path: '/photoshop/general-workflow/'
@@ -181,7 +180,7 @@ module.exports = {
         path: '/photoshop/code-sample/'
       },
       {
-        title: 'API Documentation',
+        title: 'API Reference',
         path: '/photoshop/api/photoshop_actionJSON.md',
         pages: [
           {
@@ -261,10 +260,10 @@ module.exports = {
         title: 'Overview',
         path: '/lightroom/',
       },        
-      {
-        title: 'Getting Started',
-        path: '/lightroom/getting-started/'
-      },
+      // {
+      //   title: 'Getting Started',
+      //   path: '/lightroom/getting-started/'
+      // },
       {
         title: 'General Workflow',
         path: '/lightroom/general-workflow/'
@@ -278,7 +277,7 @@ module.exports = {
         path: '/lightroom/code-sample/'
       },
       {
-        title: 'API Documentation',
+        title: 'API Reference',
         path: '/lightroom/api/lightroom_applyPresets.md',
         pages: [
           {

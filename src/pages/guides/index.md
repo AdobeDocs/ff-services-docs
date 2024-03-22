@@ -22,24 +22,25 @@ Use APIs like [Text-to-Image]() to create an image, then transform it with any n
 
 ## Ready to get started?
 
-- Begin by navigating to the [Getting Started guide](./get-started.md) to get set up and obtain your credentials.
+- Begin by navigating to [Getting Started](./get-started.md) to get set up and obtain your credentials.
 - Next, check out our [in-depth tutorials](./tutorials/) to walk you step-by-step through building your first amazing app.
 - Check out our [SDKs](./sdks/) options available to help you build your app in your language of choice.
 
 ## Discover
 
-<DiscoverBlock width="100%" slots="heading, link, text"/>
+<DiscoverBlock slots="heading, link, text"/>
 
 ### Get Started
 
-[Quickstart Guide](../guides/get-started.md)
+[Getting Started Guide](../guides/get-started.md)
 
 Get started with the Adobe Firefly Services.
 
-<DiscoverBlock width="100%" slots="heading, link, text"/>
+<DiscoverBlock slots="heading, link, text"/>
 
 ### SDK
 
 [Adobe Firefly Services SDK](./sdks/)
 
 The Adobe Firefly Services SDK is a comprehensive toolkit designed to streamline your integration with Adobe Firefly Services.
+<br/><br/><br/><br/>

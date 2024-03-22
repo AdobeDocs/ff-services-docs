@@ -155,6 +155,6 @@ Integrate generative AI into your creative workflows.
 
 <DiscoverBlock slots="link, text"/>
 
-[Content Tagging](https://experienceleague.adobe.com/en/docs/experience-platform/intelligent-services/content-commerce-ai/overview)
+[Content Tagging API](https://experienceleague.adobe.com/en/docs/experience-platform/intelligent-services/content-commerce-ai/overview)
 
 Extract intelligent features from your content, organize and streamline content flow, and deliver more impactful, personalized customer experiences.

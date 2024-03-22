@@ -18,7 +18,7 @@ Get started with the Adobe Firefly services.
 
 ### API References
 
-[Firefly API References](../../firefly-api/guides/api/)
+[Firefly API](../../firefly-api/)
 
 Integrate generative AI into your creative workflows.
 
@@ -30,7 +30,7 @@ Unlock the potential of Photoshop, Lightroom, and cutting edge Sensei services t
 
 <DiscoverBlock slots="link, text"/>
 
-[Lightroom API](https://developer.adobe.com/lightroom/lightroom-api-docs/)
+[Lightroom API](../../lightroom/)
 
 Store user assets, with their associated metadata and media renditions, in a catalog in the cloud.
 
