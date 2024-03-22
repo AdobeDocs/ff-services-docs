@@ -185,9 +185,69 @@ module.exports = {
         path: '/photoshop/api/',
         pages: [
           {
-            title: 'Photoshop API',
-            path: '/photoshop/api/'
-          }
+            title: 'Photoshop Action JSON',
+            path: '/photoshop/api/photoshop_actionJSON.md'
+          },
+          {
+            title: 'Photoshop Action JSON Create',
+            path: '/photoshop/api/photoshop_actionJSONCreate.md'
+          },
+          {
+            title: 'Photoshop Artboard Create',
+            path: '/photoshop/api/photoshop_artboardCreate.md'
+          },
+          {
+            title: 'Photoshop Artboard Cutout',
+            path: '/photoshop/api/photoshop_cutout.md'
+          },
+          {
+            title: 'Photoshop Depth Blur',
+            path: '/photoshop/api/photoshop_depthBlur.md'
+          },
+          {
+            title: 'Photoshop Document Create',
+            path: '/photoshop/api/photoshop_documentCreate.md'
+          },
+          {
+            title: 'Photoshop Document Manifest',
+            path: '/photoshop/api/photoshop_documentManifest.md'
+          },
+          {
+            title: 'Photoshop Document Operations',
+            path: '/photoshop/api/photoshop_documentOperations.md'
+          },
+          {
+            title: 'Photoshop Masks',
+            path: '/photoshop/api/photoshop_mask.md'
+          },
+          {
+            title: 'Photoshop Actions',
+            path: '/photoshop/api/photoshop_photoshopActions.md'
+          },
+          {
+            title: 'Photoshop Product Crop',
+            path: '/photoshop/api/photoshop_productCrop.md'
+          },
+          {
+            title: 'Photoshop Rendition Create',
+            path: '/photoshop/api/photoshop_renditionCreate.md'
+          },
+          {
+            title: 'Photoshop Smart Object',
+            path: '/photoshop/api/photoshop_smartObject.md'
+          },
+          {
+            title: 'Photoshop Status Document Manifest',
+            path: '/photoshop/api/photoshop_status_documentManifest.md'
+          },
+          {
+            title: 'Photoshop Status RGB Create Mask',
+            path: '/photoshop/api/photoshop_status_rbg_createMask.md'
+          },
+          {
+            title: 'Photoshop Text',
+            path: '/photoshop/api/photoshop_text.md'
+          },
         ]
       },    
       {
@@ -222,14 +282,6 @@ module.exports = {
         path: '/lightroom/api/',
         pages: [
           {
-            title: 'Lightroom API',
-            path: '/lightroom/api/'
-          },
-          {
-            title: 'Lightroom Auto Straighten',
-            path: '/lightroom/api/lightroom_autoStraighten.md'
-          },
-          {
             title: 'Lightroom Apply Presets',
             path: '/lightroom/api/lightroom_applyPresets.md'
           },
@@ -237,6 +289,22 @@ module.exports = {
             title: 'Lightroom Apply XMP',
             path: '/lightroom/api/lightroom_applyXMP.md'
           },
+          {
+            title: 'Lightroom Auto Straighten',
+            path: '/lightroom/api/lightroom_autoStraighten.md'
+          },
+          {
+            title: 'Lightroom Auto Tone',
+            path: '/lightroom/api/lightroom_autoTone.md'
+          },
+          {
+            title: 'Lightroom Edits',
+            path: '/lightroom/api/lightroom_edits.md'
+          },
+          {
+            title: 'Lightroom Get Status',
+            path: '/lightroom/api/lightroom_getStatus.md'
+          }
         ]
       },    
       {
