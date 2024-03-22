@@ -137,8 +137,8 @@ __metadata:
   linkType: hard
 
 "@adobe/gatsby-theme-aio@npm:^4.11.7, @adobe/gatsby-theme-aio@npm:^4.11.8-rc3":
-  version: 4.11.9
-  resolution: "@adobe/gatsby-theme-aio@npm:4.11.9"
+  version: 4.11.10
+  resolution: "@adobe/gatsby-theme-aio@npm:4.11.10"
   dependencies:
     "@adobe/focus-ring-polyfill": ^0.1.5
     "@adobe/gatsby-source-github-file-contributors": ^0.3.1
@@ -234,7 +234,7 @@ __metadata:
     gatsby: ^4.22.0
     react: ^17.0.2
     react-dom: ^17.0.2
-  checksum: 57693d220f785d6ffa8c81c09fce1b15240de6ce483df835b5b5b373124e1b1349c99f170b2694c25b2271aff84b16eef8e5975c1f7b33f24a297a3b03e8e871
+  checksum: a18fc9b2ee86fdbb8f7f1d92f25f8190f3eb307581d32bd865d7ffa7d77c2bc60db23ff5a1e740238678332d7a4ecbffaeab606a2ab5502162223e02ca95eb3f
   languageName: node
   linkType: hard
 
@@ -4916,9 +4916,9 @@ __metadata:
   linkType: hard
 
 "@types/prop-types@npm:*":
-  version: 15.7.11
-  resolution: "@types/prop-types@npm:15.7.11"
-  checksum: 7519ff11d06fbf6b275029fe03fff9ec377b4cb6e864cac34d87d7146c7f5a7560fd164bdc1d2dbe00b60c43713631251af1fd3d34d46c69cd354602bc0c7c54
+  version: 15.7.12
+  resolution: "@types/prop-types@npm:15.7.12"
+  checksum: ac16cc3d0a84431ffa5cfdf89579ad1e2269549f32ce0c769321fdd078f84db4fbe1b461ed5a1a496caf09e637c0e367d600c541435716a55b1d9713f5035dfe
   languageName: node
   linkType: hard
 
@@ -4932,13 +4932,13 @@ __metadata:
   linkType: hard
 
 "@types/react@npm:*":
-  version: 18.2.67
-  resolution: "@types/react@npm:18.2.67"
+  version: 18.2.68
+  resolution: "@types/react@npm:18.2.68"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 9e48122b0e8d0ae20601f613aca32289eeb94d55c58ff03a7dc532d80ed289a1ba9715f14b773bd926ccdd63e503717f14264143ef531dc370063abe09dee0b2
+  checksum: 76786df04f4c45ee8812f86d44f09e0d8adc122ab9468ec3577fdef924ad7ab948a4eeb32c5281656b4bf17a9017be7e9c79b98da3f8d01b22dbfdf507a7510b
   languageName: node
   linkType: hard
 
@@ -6802,9 +6802,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001587, caniuse-lite@npm:^1.0.30001599":
-  version: 1.0.30001599
-  resolution: "caniuse-lite@npm:1.0.30001599"
-  checksum: d7e619e2e723547b7311ba0ca5134d9cd55df548e93dbedcf8a6e4ec74c7db91969c4272fb1ab2fd94cddeac6a8176ebf05853eb06689d5e76bb97d979a214b0
+  version: 1.0.30001600
+  resolution: "caniuse-lite@npm:1.0.30001600"
+  checksum: 1aae03be0e9f96163e88b9305531ef8db0e01f224aff545c61a32ce0b0ca323e22531bf680bacac3e34f98e23f71ac31a21b328fa0fcbbecea65a2c2638c70c4
   languageName: node
   linkType: hard
 
@@ -7107,25 +7107,25 @@ __metadata:
 
 "cis-lightroom-api@github:adobedocs/cis-photoshop-api-docs#lr_docs":
   version: 1.0.0
-  resolution: "cis-lightroom-api@https://github.com/adobedocs/cis-photoshop-api-docs.git#commit=67bc9d97974a40f0385029b5b552dad902de84d9"
+  resolution: "cis-lightroom-api@https://github.com/adobedocs/cis-photoshop-api-docs.git#commit=8a5ad7220888a0ae3b2e0b08ccc7428ca1b47753"
   dependencies:
     "@adobe/gatsby-theme-aio": 4.9.8
     gatsby: 4.22.0
     react: 17.0.2
     react-dom: 17.0.2
-  checksum: 591f9f06e113ceb71b7904e4de130f12afdb921c143e0414ffa884b6cabba95304c93f48c722a717f873867c462af32c7581c050d675ac9ffb135f60567a3768
+  checksum: 2d8d6480f64b5bb32ed6c015d6fb1f9efe346df054918cb6cbd628e509466d2f50d248cbd6eda04618c5c4cf3e96eebf8366884d6cce589b002f7128a91faad0
   languageName: node
   linkType: hard
 
 "cis-photoshop-api@github:adobedocs/cis-photoshop-api-docs#sudipta/summitPS":
   version: 1.0.0
-  resolution: "cis-photoshop-api@https://github.com/adobedocs/cis-photoshop-api-docs.git#commit=e63e100051dc23075e76f5df554cc2c06759c515"
+  resolution: "cis-photoshop-api@https://github.com/adobedocs/cis-photoshop-api-docs.git#commit=e57c33e846caa33cf21e24f0d0ed0e16dc9faeba"
   dependencies:
     "@adobe/gatsby-theme-aio": 4.9.8
     gatsby: 4.22.0
     react: 17.0.2
     react-dom: 17.0.2
-  checksum: 9d71aa404ec14f6cb43bc3c75a8191e2b2567f5b662011797665a03dd37b90da620d27e1233995a567c25dbb6a17a7aef8e955a50723bc9d1f2e141b1bda95e5
+  checksum: 6f31f7ec495cc21dac458db78fb8b332e90362070880545fcc7f71136f163acc7c4192ffa8732a814ffaafbab276428274ef89f3500a94934030b62339b8c478
   languageName: node
   linkType: hard
 
@@ -8762,9 +8762,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.668":
-  version: 1.4.714
-  resolution: "electron-to-chromium@npm:1.4.714"
-  checksum: a60a2b769e1a11bb1830a7da39fc7da9fcfdb68456f957eab6ff7163361de0c7af8d2ff95ed8deec18f6dc839e17ef87b8af6858a4f38e39a854f96348124e3f
+  version: 1.4.715
+  resolution: "electron-to-chromium@npm:1.4.715"
+  checksum: b3ccbd571ecaa3b74b2c098b705416e15e36f9338f75fea062ba48397ac379972f915c29437286914d05ea9d3454b0fa74e9606becd6c221879c6fc139a09284
   languageName: node
   linkType: hard
 
@@ -10071,13 +10071,13 @@ __metadata:
 
 "firefly-api-docs@github:adobedocs/firefly-api-docs":
   version: 1.0.0
-  resolution: "firefly-api-docs@https://github.com/adobedocs/firefly-api-docs.git#commit=83ed9fee1ad7e211e847aad0be85bdf14e257208"
+  resolution: "firefly-api-docs@https://github.com/adobedocs/firefly-api-docs.git#commit=b5dda2cd63f8fca7084700bc10a3130308c5fae3"
   dependencies:
     "@adobe/gatsby-theme-aio": ^4.11.7
     gatsby: 4.22.0
     react: ^17.0.2
     react-dom: ^17.0.2
-  checksum: 323b1dc129d26d01cb8471ac2f1ad0aefac5fb5c0d4f67567b0c2b642159e9cd208bd6ebe5cc490b47ae67b17c9d57acf0a0341597ef38677b92a37235910840
+  checksum: be1cfdcc03ef5fe9b08111d93ff3bbea60e45c7cff9117c85d43aea46d2af17e691f29b54ec8cc71fe5b5dc3092eb7fdbc982e25198925c23ee42cea44916f16
   languageName: node
   linkType: hard
 
@@ -15099,9 +15099,9 @@ __metadata:
   linkType: hard
 
 "mobx@npm:^6.3.2, mobx@npm:^6.6.2":
-  version: 6.12.0
-  resolution: "mobx@npm:6.12.0"
-  checksum: 482914d39199cadc8808907a2b9dbc634c74534d6c6d6cb34984c199aa94665ce07e7d183c0e97d54f4b06c8e42fec0a48c79484f4bbeac04a4dfd0f160290c6
+  version: 6.12.1
+  resolution: "mobx@npm:6.12.1"
+  checksum: 102ac3a62a79451640ee47baaec6ae710157597d432bf9547c085da8d901ec767bd09e5f751adbb674d904f0a0e1b89a9f5654fd3f47c65dad137bab9254bc38
   languageName: node
   linkType: hard
 

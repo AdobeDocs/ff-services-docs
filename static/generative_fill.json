@@ -19,8 +19,8 @@
   "paths": {
     "/v1/images/fill": {
       "post": {
-        "summary": "Generative fill",
-        "description": "This API gives you access to Firefly's multidiffusion in-painting feature.",
+        "summary": "Fill Image API",
+        "description": "Fill the masked area of an image with an optional prompt.",
         "operationId": "fillImagesV1",
         "requestBody": {
           "content": {
