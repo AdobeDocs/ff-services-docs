@@ -182,7 +182,7 @@ module.exports = {
       },
       {
         title: 'API Documentation',
-        path: '/photoshop/api/',
+        path: '/photoshop/api/photoshop_actionJSON.md',
         pages: [
           {
             title: 'Photoshop Action JSON',
@@ -279,7 +279,7 @@ module.exports = {
       },
       {
         title: 'API Documentation',
-        path: '/lightroom/api/',
+        path: '/lightroom/api/lightroom_applyPresets.md',
         pages: [
           {
             title: 'Lightroom Apply Presets',
