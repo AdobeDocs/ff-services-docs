@@ -1,30 +1,36 @@
 ---
 title: Adobe Firefly Services Guides
-description: Find the most recent documentation, code samples and resources for using Adobe Firefly Services.
+description: Find the most recent documentation, code samples and resources for using Firefly Services.
 contributors:
   - https://github.com/hollyschinsky
-  - https://github.com/nimithajalal
 ---
 
-<Hero slots="heading, text" background="rgb(233, 80, 80)"/>
+# Adobe Firefly Services
 
-# Overview
+Unleash boundless potential with Firefly Services' advanced AI and Creative Cloud APIs.
 
-Build amazing apps with Adobe Firefly Services that transform your workflows using our cutting-edge creative APIs.
+## Overview
 
-## Introduction
+Welcome to Firefly Services, your ultimate solution for seamless content generation! Our suite of APIs combines the power of Adobe's legendary creative toolslike Photoshop and Lightroom with cutting-edge AI features like Content Tagging and our very own Firefly API.
 
-Here you will find content to help you learn how to build apps that combine industry-leading creative technology with groundbreaking AI and automation to cost-effectively scale content production with Firefly and Creative Cloud APIs.
+With Firefly Services, you're not just creating – you're automating, scaling your content production, and harnessing the latest AI/ML technologies to supercharge your workflows. 
 
-## Build something cool
+This guide will assist you in:
 
-Use APIs like [Text-to-Image]() to create an image, then transform it with any number of APIs available across our API offerings, like [Auto Tone](), [Depth Blur]() or choose to [Apply a Lightroom preset]().
+- Creating a project in the Adobe Developer Console and gain access to the complete suite of Firefly Services APIs.
+
+- How to obtain and authenticate your credentials 
+
+- Validating your credentials
+
+- Constructing personalized workflows by chaining API calls to various endpoints within the Firefly Services APIs
 
 ## Ready to get started?
 
-- Begin by navigating to [Getting Started](./get-started.md) to get set up and obtain your credentials.
-- Next, check out our [in-depth tutorials](./tutorials/) to walk you step-by-step through building your first amazing app.
-- Check out our [SDKs](./sdks/) options available to help you build your app in your language of choice.
+- Begin by navigating to the [Getting Started guide](./get-started.md) to get set up and obtain your credentials.
+- Next, check out our [in-depth tutorials](./tutorials/) to walk you step-by-step through building your first amazing application.
+- Check out our [SDKs](sdks.md) options available to help you build your app in your language of choice.
+
 
 ## Discover
 

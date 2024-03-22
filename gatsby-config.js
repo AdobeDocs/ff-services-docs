@@ -184,75 +184,71 @@ module.exports = {
         path: '/photoshop/api/photoshop_actionJSON.md',
         pages: [
           {
-            title: 'Photoshop Action JSON',
+            title: 'Action JSON',
             path: '/photoshop/api/photoshop_actionJSON.md'
           },
           {
-            title: 'Photoshop Action JSON Create',
+            title: 'Create Action JSON',
             path: '/photoshop/api/photoshop_actionJSONCreate.md'
           },
           {
-            title: 'Photoshop Artboard Create',
+            title: 'Create Artboard ',
             path: '/photoshop/api/photoshop_artboardCreate.md'
           },
           {
-            title: 'Photoshop Artboard Cutout',
+            title: 'Remove Background',
             path: '/photoshop/api/photoshop_cutout.md'
           },
           {
-            title: 'Photoshop Depth Blur',
+            title: 'Depth Blur',
             path: '/photoshop/api/photoshop_depthBlur.md'
           },
           {
-            title: 'Photoshop Document Create',
+            title: 'Create Document',
             path: '/photoshop/api/photoshop_documentCreate.md'
           },
           {
-            title: 'Photoshop Document Manifest',
+            title: 'Document Manifest',
             path: '/photoshop/api/photoshop_documentManifest.md'
           },
           {
-            title: 'Photoshop Document Operations',
+            title: 'Document Operations',
             path: '/photoshop/api/photoshop_documentOperations.md'
           },
           {
-            title: 'Photoshop Masks',
+            title: 'Create Mask',
             path: '/photoshop/api/photoshop_mask.md'
           },
           {
-            title: 'Photoshop Actions',
+            title: 'Actions',
             path: '/photoshop/api/photoshop_photoshopActions.md'
           },
           {
-            title: 'Photoshop Product Crop',
+            title: 'Product Crop',
             path: '/photoshop/api/photoshop_productCrop.md'
           },
           {
-            title: 'Photoshop Rendition Create',
+            title: 'Create Rendition',
             path: '/photoshop/api/photoshop_renditionCreate.md'
           },
           {
-            title: 'Photoshop Smart Object',
+            title: 'Replace Smart Object',
             path: '/photoshop/api/photoshop_smartObject.md'
           },
           {
-            title: 'Photoshop Status Document Manifest',
+            title: 'Get Document Manifest',
             path: '/photoshop/api/photoshop_status_documentManifest.md'
           },
           {
-            title: 'Photoshop Status RGB Create Mask',
+            title: 'Get status of Remove background and Create Mask',
             path: '/photoshop/api/photoshop_status_rbg_createMask.md'
           },
           {
-            title: 'Photoshop Text',
+            title: 'Edit Text Layers',
             path: '/photoshop/api/photoshop_text.md'
           },
         ]
       },    
-      {
-        title: 'Support',
-        path: '/photoshop/support'
-      },
       ///////////////////////////////////////////////
       // Lightroom API-specific left side nav
       /////////////////////////////////////////////// 
@@ -281,35 +277,31 @@ module.exports = {
         path: '/lightroom/api/lightroom_applyPresets.md',
         pages: [
           {
-            title: 'Lightroom Apply Presets',
+            title: 'Apply Presets',
             path: '/lightroom/api/lightroom_applyPresets.md'
           },
           {
-            title: 'Lightroom Apply XMP',
+            title: 'Apply XMP',
             path: '/lightroom/api/lightroom_applyXMP.md'
           },
           {
-            title: 'Lightroom Auto Straighten',
+            title: 'Auto Straighten',
             path: '/lightroom/api/lightroom_autoStraighten.md'
           },
           {
-            title: 'Lightroom Auto Tone',
+            title: 'Auto Tone',
             path: '/lightroom/api/lightroom_autoTone.md'
           },
           {
-            title: 'Lightroom Edits',
+            title: 'Edits',
             path: '/lightroom/api/lightroom_edits.md'
           },
           {
-            title: 'Lightroom Get Status',
+            title: 'Get Status',
             path: '/lightroom/api/lightroom_getStatus.md'
           }
         ]
       },    
-      {
-        title: 'Support',
-        path: '/lightroom/support'
-      }
       // END PS API left nav
       /////////////////////////////////////////////////////
       // TODO: Revisit including a file but one that's flattened, these roll to the API overview root
