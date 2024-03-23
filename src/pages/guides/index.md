@@ -38,15 +38,11 @@ This guide will assist you in:
 
 ## Discover
 
-<DiscoverBlock slots="heading, link, text"/>
-
 ### Get Started
 
 [Getting Started Guide](../guides/get-started.md)
 
 Get started with the Adobe Firefly Services.
-
-<DiscoverBlock slots="heading, link, text"/>
 
 ### SDK
 
