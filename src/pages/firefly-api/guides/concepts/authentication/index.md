@@ -20,14 +20,14 @@ To generate access tokens programmatically, send a POST request to the following
 ```bash
 curl -X POST 'https://ims-na1.adobelogin.com/ims/token/v3' \
 -H 'Content-Type: application/x-www-form-urlencoded' \
--d 'grant_type=client_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&scope=openid,AdobeID,firefly_enterprise,firefly_api'
+-d 'grant_type=client_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
 ```
 
 The required parameters are:
 
 * `client_id`: Client ID from Console
 * `client_secret`: Client secret from Console
-* `scope`: `firefly_api`, `openid`, `AdobeID`
+* `scope`: `firefly_api`, `ff_apis`, `openid`, `AdobeID`, `session`, `additional_info`, `read_organizations`
 
 Automate your token generation by calling the IMS endpoint above using standard OAuth2 libraries. Using industry-standard libraries is the quickest and most secure way of integrating with OAuth. We recommend developers diligently pick the OAuth 2.0 library that works best for their application. Your teams' projects are likely leveraging OAuth libraries already to connect with other APIs. Use these libraries to automatically generate tokens when they expire.
 

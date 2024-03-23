@@ -1,5 +1,5 @@
 ---
-title: Create Your First Firefly API Implementatio - Adobe Firefly API
+title: Create Your First Firefly API Implementation - Adobe Firefly API
 description: This how-to guides you through the process of integrating Adobe's Firefly workflows into your applications.
 contributors:
   - https://github.com/nimithajalal
@@ -75,7 +75,7 @@ async function getAccessToken(id, secret) {
 	params.append('grant_type', 'client_credentials');
 	params.append('client_id', id);
 	params.append('client_secret', secret);
-	params.append('scope', 'openid,AdobeID,firefly_enterprise,firefly_api');
+	params.append('scope', 'scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis');
 	
 	let resp = await fetch('https://ims-na1.adobelogin.com/ims/token/v3', 
 		{ 
@@ -95,7 +95,7 @@ let token = await getAccessToken(CLIENT_ID, CLIENT_SECRET);
 
 ```python
 def getAccessToken(id, secret):
-	response = requests.post(f"https://ims-na1.adobelogin.com/ims/token/v3?client_id={id}&client_secret={secret}&grant_type=client_credentials&scope=openid,AdobeID,firefly_enterprise,firefly_api,ff_apis")
+	response = requests.post(f"https://ims-na1.adobelogin.com/ims/token/v3?client_id={id}&client_secret={secret}&grant_type=client_credentials&scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis")
 	return response.json()["access_token"]
 
 token = getAccessToken(CLIENT_ID, CLIENT_SECRET)
@@ -314,7 +314,9 @@ After running these steps, you'll see four images output in the same directory.
 
 ## Complete Code
 
-Here's the entire code sample. As a reminder, feel free to modify and change the prompt:
+Here's the entire code sample. As a reminder, feel free to modify and change the prompt.
+
+**IMPORTANT:** Note that this Node.js code uses imports and top-level `await`, so you must either use the `.mjs` extension on your script file or ensure you have a `package.json` with `type: "module"`.
 
 <CodeBlock slots="heading, code" repeat="2" languages="JavaScript, PYTHON" />
 
@@ -339,7 +341,7 @@ async function getAccessToken(id, secret) {
 	params.append('grant_type', 'client_credentials');
 	params.append('client_id', id);
 	params.append('client_secret', secret);
-	params.append('scope', 'openid,AdobeID,firefly_enterprise,firefly_api,ff_apis');
+	params.append('scope', 'openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis');
 	
 	let resp = await fetch('https://ims-na1.adobelogin.com/ims/token/v3', 
 		{ 
@@ -404,7 +406,7 @@ CLIENT_ID = os.environ.get('CLIENT_ID')
 CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
 
 def getAccessToken(id, secret):
-	response = requests.post(f"https://ims-na1.adobelogin.com/ims/token/v3?client_id={id}&client_secret={secret}&grant_type=client_credentials&scope=openid,AdobeID,firefly_enterprise,firefly_api,ff_apis")
+	response = requests.post(f"https://ims-na1.adobelogin.com/ims/token/v3?client_id={id}&client_secret={secret}&grant_type=client_credentials&scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis")
 	return response.json()["access_token"]
 
 token = getAccessToken(CLIENT_ID, CLIENT_SECRET)

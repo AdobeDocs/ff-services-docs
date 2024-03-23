@@ -77,7 +77,7 @@ module.exports = {
       },
       {
         title: 'Concepts',
-        path: '/firefly-api/guides/concepts/',
+        path: '/firefly-api/guides/concepts/authentication',
         pages: [
           // {
           //   title: 'Get Credentials',

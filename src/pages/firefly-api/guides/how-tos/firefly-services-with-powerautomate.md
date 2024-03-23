@@ -72,7 +72,7 @@ At this point, your flow should look like this:
 The next step will use the HTTP action to exchange our credentials for an access token. Add a new step, HTTP, and use the following URI:
 
 ```bash
-https://ims-na1.adobelogin.com/ims/token/v3?grant_type=client_credentials&client_id=@{variables('FIREFLY_CLIENT_ID')}&client_secret=@{variables('FIREFLY_CLIENT_SECRET')}&scope=openid,AdobeID,firefly_enterprise,firefly_api,ff_apis
+https://ims-na1.adobelogin.com/ims/token/v3?grant_type=client_credentials&client_id=@{variables('FIREFLY_CLIENT_ID')}&client_secret=@{variables('FIREFLY_CLIENT_SECRET')}&scope=openid,AdobeID,firefly_api,ff_apis
 ```
 
 <InlineAlert slots="text" />

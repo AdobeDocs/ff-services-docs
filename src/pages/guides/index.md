@@ -48,5 +48,6 @@ Get started with the Adobe Firefly Services.
 
 [Adobe Firefly Services SDK](./sdks/)
 
-The Adobe Firefly Services SDK is a comprehensive toolkit designed to streamline your integration with Adobe Firefly Services.
+The Adobe Firefly Services SDK is a comprehensive toolkit designed to streamline your development journey. All of the APIs included in Firefly Services can be accessed with this one SDK, all in one easy to find place. 
+
 <br/><br/><br/><br/>
