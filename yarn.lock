@@ -7107,25 +7107,25 @@ __metadata:
 
 "cis-lightroom-api@github:adobedocs/cis-photoshop-api-docs#lr_docs":
   version: 1.0.0
-  resolution: "cis-lightroom-api@https://github.com/adobedocs/cis-photoshop-api-docs.git#commit=8a5ad7220888a0ae3b2e0b08ccc7428ca1b47753"
+  resolution: "cis-lightroom-api@https://github.com/adobedocs/cis-photoshop-api-docs.git#commit=5ff8ccba68afaceb548c092df4fb40b8ab0eab38"
   dependencies:
     "@adobe/gatsby-theme-aio": 4.9.8
     gatsby: 4.22.0
     react: 17.0.2
     react-dom: 17.0.2
-  checksum: 2d8d6480f64b5bb32ed6c015d6fb1f9efe346df054918cb6cbd628e509466d2f50d248cbd6eda04618c5c4cf3e96eebf8366884d6cce589b002f7128a91faad0
+  checksum: ccc117911f0a6c9acdbc825001805aa3203f081b835b30acbd50a7d3bc5fb81b04f35ac57e777590e5d74b7e3748bf445c67a6b4a85298c8b36a6c01f81dc537
   languageName: node
   linkType: hard
 
 "cis-photoshop-api@github:adobedocs/cis-photoshop-api-docs#sudipta/summitPS":
   version: 1.0.0
-  resolution: "cis-photoshop-api@https://github.com/adobedocs/cis-photoshop-api-docs.git#commit=a851844058b2fde166a3183805d144cc05800be5"
+  resolution: "cis-photoshop-api@https://github.com/adobedocs/cis-photoshop-api-docs.git#commit=b6a643602333b3095fc1af69dfae9217032c8212"
   dependencies:
     "@adobe/gatsby-theme-aio": 4.9.8
     gatsby: 4.22.0
     react: 17.0.2
     react-dom: 17.0.2
-  checksum: 958cc179f5c71ab9317b5d31bfa13d48851e1638a9da1980009c7bb938310f5d3e5027712cc010e2cd3e278b3f5bbd145504eacbc9356803bcfb90b5b08a297d
+  checksum: b171881266afc49d22b57d25b400ab1aafcbc528cd59935387402b59e51a0d2e3d60a9e3effe89022d06e2ee0b45f8ce5d02a86e3154a0df67e97ccb951ebcb8
   languageName: node
   linkType: hard
 
@@ -16981,9 +16981,9 @@ __metadata:
   linkType: hard
 
 "preact@npm:^10.11.0":
-  version: 10.20.0
-  resolution: "preact@npm:10.20.0"
-  checksum: cf8057538457564dae79e885fc8d7786618018e2e826e00b8959be711403f0dd3855f13c55ce94fda0fe404a5cccc746d11c7172800c1737f61baa22fc18abdd
+  version: 10.20.1
+  resolution: "preact@npm:10.20.1"
+  checksum: af5ed9bdf44bfa5487479c09fa971a32902987f277c74d6244f9d9466ccd5c1efd3a0949e7dc2227177623878b1adafcc5c50cee6617a84f72d1cebe55ff76ba
   languageName: node
   linkType: hard
 

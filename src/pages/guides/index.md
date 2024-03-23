@@ -5,28 +5,28 @@ contributors:
   - https://github.com/hollyschinsky
 ---
 
+<Hero slots="heading, text" background="rgb(233, 80, 80)"/>
+
 # Adobe Firefly Services
 
 Unleash boundless potential with Firefly Services' advanced AI and Creative Cloud APIs.
 
 ## Overview
 
-Welcome to Firefly Services, your ultimate solution for seamless content generation! Our suite of APIs combines the power of Adobe's legendary creative toolslike Photoshop and Lightroom with cutting-edge AI features like Content Tagging and our very own Firefly API.
+Welcome to Firefly Services, your solution for seamless content generation at scale. Our suite of APIs combines the power of Adobe's creative tools like Photoshop and Lightroom with cutting-edge AI/ML features like Content Tagging, Generative Fill, and Text to Image and more.
 
 With Firefly Services, you're not just creating – you're automating, scaling your content production, and harnessing the latest AI/ML technologies to supercharge your workflows. 
 
 This guide will assist you in:
 
 - Creating a project in the Adobe Developer Console and gain access to the complete suite of Firefly Services APIs.
-
 - How to obtain and authenticate your credentials 
-
 - Validating your credentials
-
 - Constructing personalized workflows by chaining API calls to various endpoints within the Firefly Services APIs
 
 <Media slots="video" width="750" height="500"/>
 
+placeholder video
 <https://youtu.be/giFJ6qbez_I?feature=shared>
 
 ## Ready to get started?
@@ -40,14 +40,18 @@ This guide will assist you in:
 
 ### Get Started
 
+<DiscoverBlock slots="link, text"/>
+
 [Getting Started Guide](../guides/get-started.md)
 
-Get started with the Adobe Firefly Services.
+A step by step guide to help you create a project, obtain credentials, and make your first call. 
 
 ### SDK
 
+<DiscoverBlock slots="link, text"/>
+
 [Adobe Firefly Services SDK](./sdks/)
 
-The Adobe Firefly Services SDK is a comprehensive toolkit designed to streamline your development journey. All of the APIs included in Firefly Services can be accessed with this one SDK, all in one easy to find place. 
+ A comprehensive toolkit designed to streamline your development journey. Access all of the APIs included in Firefly Services with this one SDK. 
 
 <br/><br/><br/><br/>
