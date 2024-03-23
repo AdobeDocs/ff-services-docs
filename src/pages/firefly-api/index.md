@@ -8,6 +8,7 @@ contributors:
 <Hero slots="heading, text" background="rgb(233, 80, 80)"/>
 
 # Adobe Firefly API - Firefly Services
+
 The Adobe Firefly API makes it easy for you to integrate generative AI into your creative workflows.
 
 <!-- <Resources slots="heading, links"/>
