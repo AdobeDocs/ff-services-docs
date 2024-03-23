@@ -181,72 +181,76 @@ module.exports = {
       },
       {
         title: 'API Reference',
-        path: '/photoshop/api/photoshop_actionJSON.md',
+        path: '/photoshop/api/photoshop_actions.md',
         pages: [
+          {
+            title: 'Actions',
+            path: '/photoshop/api/photoshop_actions.md'
+          },
           {
             title: 'Action JSON',
             path: '/photoshop/api/photoshop_actionJSON.md'
           },
           {
+            title: 'Apply PSD Edits',
+            path: '/photoshop/api/photoshop_applyPsdEdits.md'
+          },
+          {
             title: 'Create Action JSON',
-            path: '/photoshop/api/photoshop_actionJSONCreate.md'
+            path: '/photoshop/api/photoshop_createActionJson.md'
           },
           {
-            title: 'Create Artboard ',
-            path: '/photoshop/api/photoshop_artboardCreate.md'
+            title: 'Create Artboard',
+            path: '/photoshop/api/photoshop_createArtboard.md'
           },
           {
-            title: 'Remove Background',
-            path: '/photoshop/api/photoshop_cutout.md'
+            title: 'Create Mask',
+            path: '/photoshop/api/photoshop_createMask.md'
+          },
+          {
+            title: 'Create PSD',
+            path: '/photoshop/api/photoshop_createPSD.md'
+          },
+          {
+            title: 'Create Rendition',
+            path: '/photoshop/api/photoshop_createRendition.md'
           },
           {
             title: 'Depth Blur',
             path: '/photoshop/api/photoshop_depthBlur.md'
           },
           {
-            title: 'Create Document',
-            path: '/photoshop/api/photoshop_documentCreate.md'
+            title: 'Edit Text',
+            path: '/photoshop/api/photoshop_editText.md'
           },
           {
-            title: 'Document Manifest',
-            path: '/photoshop/api/photoshop_documentManifest.md'
-          },
-          {
-            title: 'Document Operations',
-            path: '/photoshop/api/photoshop_documentOperations.md'
-          },
-          {
-            title: 'Create Mask',
-            path: '/photoshop/api/photoshop_mask.md'
-          },
-          {
-            title: 'Actions',
-            path: '/photoshop/api/photoshop_photoshopActions.md'
+            title: 'Get Manifest',
+            path: '/photoshop/api/photoshop_getManifest.md'
           },
           {
             title: 'Product Crop',
             path: '/photoshop/api/photoshop_productCrop.md'
           },
           {
-            title: 'Create Rendition',
-            path: '/photoshop/api/photoshop_renditionCreate.md'
+            title: 'Remove Background',
+            path: '/photoshop/api/photoshop_removeBackground.md'
           },
           {
             title: 'Replace Smart Object',
-            path: '/photoshop/api/photoshop_smartObject.md'
+            path: '/photoshop/api/photoshop_replaceSmartObject.md'
           },
           {
-            title: 'Get Document Manifest',
-            path: '/photoshop/api/photoshop_status_documentManifest.md'
+            title: 'Get Status - Manifest',
+            path: '/photoshop/api/photoshop_status_manifest.md'
           },
           {
-            title: 'Get status of Remove background and Create Mask',
-            path: '/photoshop/api/photoshop_status_rbg_createMask.md'
+            title: 'Get Status - Mask',
+            path: '/photoshop/api/photoshop_mask.md'
           },
           {
-            title: 'Edit Text Layers',
-            path: '/photoshop/api/photoshop_text.md'
-          },
+            title: 'Get Status',
+            path: '/photoshop/api/photoshop_status.md'
+          }, 
         ]
       },    
       ///////////////////////////////////////////////
