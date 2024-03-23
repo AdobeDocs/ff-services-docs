@@ -25,6 +25,10 @@ This guide will assist you in:
 
 - Constructing personalized workflows by chaining API calls to various endpoints within the Firefly Services APIs
 
+<Media slots="video" width="750" height="500"/>
+
+<https://youtu.be/giFJ6qbez_I?feature=shared>
+
 ## Ready to get started?
 
 - Begin by navigating to the [Getting Started guide](./get-started.md) to get set up and obtain your credentials.
