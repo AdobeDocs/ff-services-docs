@@ -26,13 +26,13 @@ Integrate generative AI into your creative workflows.
 
 [Photoshop API](../../photoshop/)
 
-Unlock the potential of Photoshop, Lightroom, and cutting edge Sensei services through an easy-to-use RESTful API.
+Unlock the potential of Photoshop and cutting edge AI/ML services through an easy-to-use RESTful API.
 
 <DiscoverBlock slots="link, text"/>
 
 [Lightroom API](../../lightroom/)
 
-Store user assets, with their associated metadata and media renditions, in a catalog in the cloud.
+Unlock the potential of Photoshop and cutting edge AI/ML services through an easy-to-use RESTful API.
 
 <DiscoverBlock slots="link, text"/>
 

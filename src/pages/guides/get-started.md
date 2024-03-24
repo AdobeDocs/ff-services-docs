@@ -5,7 +5,7 @@ contributors:
   - https://github.com/nimithajalal
 ---
 
-# Getting started with Firefly Services
+# Getting started with Adobe Firefly Services
 
 The first step in accessing the Firefly Services API is getting authenticated. For that, you will need an access token and an API Key. The steps below will show you how to generate an access token and make your first API call. 
 
@@ -19,7 +19,7 @@ Enterprise customers must be assigned the _System Administrator_ or _Developer_ 
 
 - Identify an Adobe Admin in your Enterprise. This may be as simple as checking the notes in your Adobe account. Adobe’s Solution Consultants will also typically have an administrator contact for the organization. 
 - Have the Admin set up either _System Administrator_ or _Developer_ roles for users who will need to generate API keys. Alternatively, ask your Admin to generate the keys if they feel elevating roles is too risky. If your Admin does this for you, skip to the [Make your first API Call](get-started.md#make-your-first-api-call) section.
-- If your Admin allows you to generate your API keys, the Admin will also need to assign Firefly and Creative Cloud Automation to you as a product in the Admin Console. 
+- If your Admin allows you to generate your API keys, the Admin will also need to assign Firefly - Firefly Services to you as a product in the Admin Console. 
 
 ## Generate an API Key and access token from the Adobe Developer Console
 
@@ -35,7 +35,7 @@ If you have already been provisioned with access through your organization, you 
 
 1. Choose **Add API**.
 ![Add API](../guides/images/add-api.png)
-2. Select one of the required APIs, say, **Firefly- Firefly and Creative Cloud Automation** and click **Next**:
+2. Select one of the required APIs, say, **Firefly- Firefly Services** and click **Next**:
 ![Add Firefly API](../guides/images/add-ff-api.png)
 
 ### Step 3: Set Credentials
@@ -60,10 +60,10 @@ Click **Add to Project** to add more APIs to the product profile in the same pro
 
 Repeat [Step 2](.//get-started.md#step-2-add-api-to-your-project) until you have added all these APIs:
 
- * Firefly – Firefly and Creative Cloud Automation
- * Lightroom - Firefly and Creative Cloud Automation
- * Photoshop - Firefly and Creative Cloud Automation
- * Content Tagging - Firefly and Creative Cloud Automation
+ * Firefly – Firefly Services
+ * Lightroom - Firefly Services
+ * Photoshop - Firefly Services
+ * Content Tagging - Firefly Services
 
 ### Step 5: Generate access token
 
@@ -143,7 +143,7 @@ Unlock the potential of Photoshop API.
 
 <DiscoverBlock slots="link, text"/>
 
-[Lightroom API](https://developer.adobe.com/photoshop/photoshop-api-docs/api/#tag/Lightroom)
+[Lightroom API](../lightroom/)
 
 Unlock the potential of Lightroom API.
 
@@ -157,4 +157,10 @@ Integrate generative AI into your creative workflows.
 
 [Content Tagging API](https://experienceleague.adobe.com/en/docs/experience-platform/intelligent-services/content-commerce-ai/overview)
 
-Extract intelligent features from your content, organize and streamline content flow, and deliver more impactful, personalized customer experiences.
+Content Tagging APIs can help you deliver personalized experiences to your customers.
+
+<DiscoverBlock slots="link, text"/>
+
+[Tutorials](./tutorials/) 
+
+Explore our tutorials page for comprehensive guidance.  

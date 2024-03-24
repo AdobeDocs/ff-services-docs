@@ -202,7 +202,7 @@ It enables users to
 
 ### Usage Recommendations
 - Ensure that the input file is a PSD and that it contains one or more text layers.
-- Please refer to [Font Handling](/features/#font-handling) and [Handle Missing Fonts](/features/#handle-missing-fonts-in-the-document) for better understanding.
+- Please refer to [Font Handling](../photosshop/features/#font-handling) and [Handle Missing Fonts](/features/#handle-missing-fonts-in-the-document) for better understanding.
 
 ### Known Limitations
 The following are known limitations:
