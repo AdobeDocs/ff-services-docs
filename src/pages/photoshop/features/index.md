@@ -1,6 +1,7 @@
 ---
 title: Features in Photoshop API
 description: Learn about the available features in Photoshop API.
+hideBreadcrumbNav: true
 ---
 
 # Supported Features
@@ -179,8 +180,7 @@ The Photoshop APIs currently support creating and editing of Embedded Smart Obje
 
 - If your document contains transparent pixels (e.g some .png) for the smart object layer, you may not get consistent bounds.
 
-The APIs are documented [here](../api/#operation/smartObject).
-We also have an [example](../code-sample/#replacing-a-smartobject) of replacing a Smart Object within a layer.
+Here is an [example](../code-sample/#replacing-a-smartobject) of replacing a Smart Object within a layer.
 For better performance, we rasterize our smart objects that are bigger than  2000 pixels * 2000 pixels.
 For optimal processing, please make sure the embedded smart object that you want to replace only contains alphanumeric characters in it's name.
 
@@ -189,7 +189,7 @@ Example of Smart Object replacement with a sample image.
 
 ## Text
 
-The /text API supports editing one or more text layers from a Photoshop document. The APIs are documented [here](./api/#operation/text).
+The Edit Text endpoint supports editing one or more text layers from in a PSD.
 
 It enables users to
 - Format text properties such as antialias, orientation and be able to edit text contents. (Note: Changing only the text properties will not change any character/paragraph styling).
@@ -202,7 +202,7 @@ It enables users to
 
 ### Usage Recommendations
 - Ensure that the input file is a PSD and that it contains one or more text layers.
-- Please refer to [Font Handling](../photosshop/features/#font-handling) and [Handle Missing Fonts](/features/#handle-missing-fonts-in-the-document) for better understanding.
+- Please refer to [Font Handling](../photoshop/features/#font-handling) and [Handle Missing Fonts](/features/#handle-missing-fonts-in-the-document) for better understanding.
 
 ### Known Limitations
 The following are known limitations:
@@ -290,8 +290,6 @@ The Photoshop API currently supports creating and editing of Text Layer with dif
 - Change the font color in the following formats: rgb, cmyk, gray, lab
 - Edit the text orientation (horizontal/vertical)
 - Edit the paragraph alignment (left, center, right, justify, justifyLeft, justifyCenter, justifyRight)
-
-The APIs are documented [here](../api/#operation/documentOperations).
 
 We also have an example of making a simple text layer edit.
 

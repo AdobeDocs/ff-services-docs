@@ -31,22 +31,7 @@ This guide will assist you in:
 - Next, check out our [in-depth tutorials](./tutorials/) to walk you step-by-step through building your first amazing application.
 - Check out our [SDKs](sdks.md) options available to help you build your app in your language of choice.
 
-
 ## Discover
-
-### Get Started
-
-<DiscoverBlock slots="link, text"/>
-
-[Getting Started Guide](../guides/get-started.md)
-
-A step by step guide to help you create a project, obtain credentials, and make your first call. 
-
-
-
-## Discover
-
-<DiscoverBlock width="100%" slots="heading, link, text"/>
 
 ### Get Started
 
@@ -64,7 +49,7 @@ Explore our tutorials page for comprehensive guidance.
 
 [Adobe Firefly Services SDK](./sdks/)
 
- A comprehensive toolkit designed to streamline your development journey. 
+ Access all of the Fireflye Services in one SDK.
 
  <DiscoverBlock slots="heading, link, text"/>
 
@@ -78,19 +63,19 @@ Integrate generative AI into your creative workflows.
 
 [Lightroom API](../../lightroom/)
 
-Unlock the potential of Lightroom and cutting edge AI/ML services through an easy-to-use RESTful API.
+Unleash the power of Lightroom alongside cutting-edge AI/ML services.
 
 <DiscoverBlock slots="link, text"/>
 
 [Photoshop API](../../photoshop/)
 
-Unlock the potential of Photoshop and cutting edge AI/ML services through an easy-to-use RESTful API.
+Unlock the potential of Photoshop and cutting edge AI/ML services.
 
 <DiscoverBlock slots="link, text"/>
 
 [Content Tagging API](https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html)
 
-Content Tagging APIs can help you deliver personalized experiences to your customers.
+Let Content Tagging APIs help you deliver personalized experiences.
 
 <DiscoverBlock slots="link, text"/>
 

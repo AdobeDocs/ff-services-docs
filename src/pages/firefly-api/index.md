@@ -3,6 +3,7 @@ title: Overview - Adobe Firefly API
 description: This is the overview page for Adobe Firefly API
 contributors:
   - https://github.com/amandahuarng
+  hideBreadcrumbNav: true
 ---
 
 <Hero slots="heading, text" background="rgb(233, 80, 80)"/>
