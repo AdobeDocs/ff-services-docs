@@ -209,7 +209,7 @@ module.exports = {
           },
           {
             title: 'Create PSD',
-            path: '/photoshop/api/photoshop_createPSD.md'
+            path: '/photoshop/api/photoshop_createPsd.md'
           },
           {
             title: 'Create Rendition',
