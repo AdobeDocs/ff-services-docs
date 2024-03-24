@@ -289,16 +289,16 @@ module.exports = {
             path: '/lightroom/api/lightroom_applyXMP.md'
           },
           {
+            title: 'Apply Edits',
+            path: '/lightroom/api/lightroom_edits.md'
+          },
+          {
             title: 'Auto Straighten',
             path: '/lightroom/api/lightroom_autoStraighten.md'
           },
           {
             title: 'Auto Tone',
             path: '/lightroom/api/lightroom_autoTone.md'
-          },
-          {
-            title: 'Edits',
-            path: '/lightroom/api/lightroom_edits.md'
           },
           {
             title: 'Get Status',

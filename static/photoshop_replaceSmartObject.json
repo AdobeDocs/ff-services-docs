@@ -10,21 +10,13 @@
       "url": "https://image.adobe.io"
     }
   ],
-  "tags": [
-    {
-      "name": "Photoshop"
-    }
-  ],
   "security": [],
   "paths": {
-    "/pie/psdService/actionJsonCreate": {
+    "/pie/psdService/smartObject": {
       "post": {
-        "tags": [
-          "Photoshop"
-        ],
-        "summary": "Create actionJSON",
-        "description": " Converts an atn file to actionJSON.\nTo get status of this job, call [Status API](./#operation/pitsstatus)",
-        "operationId": "actionJsonCreate",
+        "summary": "Replace Smart Object",
+        "description": "This endpoint allows you to replace a Smart Object within a PSD layer and generate new renditions. To get status of this job, call the 'Get Status' endpoint.",
+        "operationId": "smartObject",
         "parameters": [
           {
             "name": "Authorization",
@@ -67,7 +59,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "./PITS/post_action_json_create.schema.json"
+                "$ref": "./PITS/post_smart_object.schema.json"
               }
             }
           },
@@ -124,6 +116,16 @@
               }
             }
           },
+          "409": {
+            "description": "File Overwrite Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./api_response_409_error_schema.json"
+                }
+              }
+            }
+          },
           "410": {
             "description": "Asset Link Invalid",
             "content": {
@@ -141,7 +143,7 @@
         "x-codeSamples": [
           {
             "lang": "shell",
-            "source": "curl --request POST \\\n --url https://image.adobe.io/pie/psdService/actioJsonCreate \\\n --header 'Authorization: Bearer $token' \\\n --header 'content-type: application/json' \\\n --header 'x-api-key: $x-api-key' \\\n --data '{\"inputs\": [{\"storage\": \"external\",\"href\": \"string\"}] \\\n,\"options\": {\"actions\": [{\"actionName\": \"string\"}]}}'"
+            "source": "curl --request POST \\\n  --url https://image.adobe.io/pie/psdService/smartObject \\\n  --header 'Authorization: Bearer $token' \\\n  --header 'content-type: application/json' \\\n  --header 'x-api-key: $x-api-key' \\\n  --data '{\"inputs\":[{\"href\":\"get_presigned_url\",\"storage\":\"external\"}],\\\n \"options\":{\"layers\":[{\"name\":\"New\",\\\n \"input\":{\"href\":\"get_presigned_url\",\"storage\":\"external\"},\\\n \"bounds\":{\"width\":602,\"height\":400}}]},\\\n \"outputs\":[{\"storage\":\"external\",\"href\":\"put_presigned_url\",\\\n \"type\":\"image/vnd.adobe.photoshop\"}]}'"
           }
         ]
       }

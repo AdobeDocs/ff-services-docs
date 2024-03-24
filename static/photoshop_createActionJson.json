@@ -10,21 +10,13 @@
       "url": "https://image.adobe.io"
     }
   ],
-  "tags": [
-    {
-      "name": "Photoshop"
-    }
-  ],
   "security": [],
   "paths": {
-    "/pie/psdService/artboardCreate": {
+    "/pie/psdService/actionJsonCreate": {
       "post": {
-        "tags": [
-          "Photoshop"
-        ],
-        "summary": "Create an artboard",
-        "description": " Creates an artboard.\nTo get status of this job, call [Status API](./#operation/pitsstatus).",
-        "operationId": "artboardCreate",
+        "summary": "Create actionJSON",
+        "description": "This endpoint converts an atn file to actionJSON. This allows you to make dynamic changes to the Photoshop Action without having to go back into desktop. To get status of this job, call the 'Get Status' endpoint.",
+        "operationId": "actionJsonCreate",
         "parameters": [
           {
             "name": "Authorization",
@@ -67,7 +59,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "./PITS/post_artboard_create.schema.json"
+                "$ref": "./PITS/post_action_json_create.schema.json"
               }
             }
           },
@@ -124,16 +116,6 @@
               }
             }
           },
-          "409": {
-            "description": "File Overwrite Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "./api_response_409_error_schema.json"
-                }
-              }
-            }
-          },
           "410": {
             "description": "Asset Link Invalid",
             "content": {
@@ -151,7 +133,7 @@
         "x-codeSamples": [
           {
             "lang": "shell",
-            "source": "curl --request POST \\\n  --url https://image.adobe.io/pie/psdService/artboardCreate \\\n  --header 'Authorization: Bearer $token' \\\n  --header 'content-type: application/json' \\\n  --header 'x-api-key: $x-api-key' \\\n  --data '{\"options\":{\"artboard\":[{\"href\":\"some_presigned_geturl\",\"storage\":\"external\"},\\\n {\"href\":\"some_presigned_geturl\",\"storage\":\"external\"}, {\"href\":\"some_presigned_geturl\",\"storage\":\"external\"}],\\\n \"outputs\":[{\"href\":\"some_presigned_puturl\",\"storage\":\"external\"}]}'"
+            "source": "curl --request POST \\\n --url https://image.adobe.io/pie/psdService/actioJsonCreate \\\n --header 'Authorization: Bearer $token' \\\n --header 'content-type: application/json' \\\n --header 'x-api-key: $x-api-key' \\\n --data '{\"inputs\": [{\"storage\": \"external\",\"href\": \"string\"}] \\\n,\"options\": {\"actions\": [{\"actionName\": \"string\"}]}}'"
           }
         ]
       }

@@ -10,21 +10,13 @@
       "url": "https://image.adobe.io"
     }
   ],
-  "tags": [
-    {
-      "name": "Photoshop"
-    }
-  ],
   "security": [],
   "paths": {
-    "/sensei/mask": {
+    "/pie/psdService/photoshopActions": {
       "post": {
-        "tags": [
-          "Photoshop"
-        ],
-        "summary": "Create Mask",
-        "description": " Generates a mask PNG.\nTo get status of this job, call [Status API](./#operation/icstatus).",
-        "operationId": "mask",
+        "summary": "Playback Photoshop Actions",
+        "description": "This endpoint executes Photoshop Actions playback on supported input files. To get the status of this job call the 'Get Status' endpoint.",
+        "operationId": "photoshopActions",
         "parameters": [
           {
             "name": "Authorization",
@@ -67,7 +59,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "./ic/post_cutout.schema.json"
+                "$ref": "./PITS/post_photoshop_actions.schema.json"
               }
             }
           },
@@ -79,7 +71,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "./ic/api_response_success_schema.json"
+                  "$ref": "./PITS/api_response_success_schema.json"
                 }
               }
             }
@@ -151,7 +143,7 @@
         "x-codeSamples": [
           {
             "lang": "shell",
-            "source": "curl --request POST \\\n  --url https://image.adobe.io/sensei/mask \\\n  --header 'Authorization: Bearer $token' \\\n  --header 'content-type: application/json' \\\n  --header 'x-api-key: $x-api-key' \\\n  --data '{\"input\":{\"href\":\"string\",\"storage\":\"external\"},\\\n \"output\":{\"href\":\"string\",\"storage\":\"external\",\"mask\":{\"format\":\"soft\"}}}'"
+            "source": "curl --request POST \\\n  --url https://image.adobe.io/pie/psdService/photoshopActions \\\n  --header 'Authorization: Bearer $token' \\\n  --header 'content-type: application/json' \\\n  --header 'x-api-key: $x-api-key' \\\n  --data '{\"inputs\":[{\"href\":\"get_presigned_url\",\"storage\":\"external\"}],\\\n \"options\":{\"actions\":[{\"href\":\"https://get-presigned-url.com/Oil-paint.atn\",\"storage\":\"string\"}]}\\\n \"outputs\":[{\"href\":\"https://put-presigned-url.com/output.jpg\",\"storage\":\"external\",\"type\":\"image/jpeg\"}]}'"
           }
         ]
       }

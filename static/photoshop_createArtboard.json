@@ -10,21 +10,13 @@
       "url": "https://image.adobe.io"
     }
   ],
-  "tags": [
-    {
-      "name": "Photoshop"
-    }
-  ],
   "security": [],
   "paths": {
-    "/sensei/cutout": {
+    "/pie/psdService/artboardCreate": {
       "post": {
-        "tags": [
-          "Photoshop"
-        ],
-        "summary": "Remove Background",
-        "description": " Generates a PNG file in 4 channel RGBA format with the cutout operation applied to the input image \\\n Generates a PNG file in 3 channel RGB format with the mask operation applied to the input image.\\\n To get status of this job, call [Status API](./#operation/icstatus)",
-        "operationId": "cutout",
+        "summary": "Create Artboard",
+        "description": " This endpoint allows you to create an Artboard from multipe input files and returns the Artboard information in the JSON manifest. To get status of this job, call the 'Get Status' endpoint.",
+        "operationId": "artboardCreate",
         "parameters": [
           {
             "name": "Authorization",
@@ -67,7 +59,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "./ic/post_cutout.schema.json"
+                "$ref": "./PITS/post_artboard_create.schema.json"
               }
             }
           },
@@ -79,7 +71,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "./ic/api_response_success_schema.json"
+                  "$ref": "./PITS/api_response_success_schema.json"
                 }
               }
             }
@@ -151,7 +143,7 @@
         "x-codeSamples": [
           {
             "lang": "shell",
-            "source": "curl --request POST \\\n  --url https://image.adobe.io/sensei/cutout \\\n  --header 'Authorization: Bearer $token' \\\n  --header 'content-type: application/json' \\\n  --header 'x-api-key: $x-api-key' \\\n  --data '{\"input\":{\"href\":\"string\",\"storage\":\"external\"},\\\n \"output\":{\"href\":\"string\",\"storage\":\"external\",\"mask\":{\"format\":\"soft\"}}}'"
+            "source": "curl --request POST \\\n  --url https://image.adobe.io/pie/psdService/artboardCreate \\\n  --header 'Authorization: Bearer $token' \\\n  --header 'content-type: application/json' \\\n  --header 'x-api-key: $x-api-key' \\\n  --data '{\"options\":{\"artboard\":[{\"href\":\"some_presigned_geturl\",\"storage\":\"external\"},\\\n {\"href\":\"some_presigned_geturl\",\"storage\":\"external\"}, {\"href\":\"some_presigned_geturl\",\"storage\":\"external\"}],\\\n \"outputs\":[{\"href\":\"some_presigned_puturl\",\"storage\":\"external\"}]}'"
           }
         ]
       }

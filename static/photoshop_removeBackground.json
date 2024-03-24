@@ -10,21 +10,13 @@
       "url": "https://image.adobe.io"
     }
   ],
-  "tags": [
-    {
-      "name": "Photoshop"
-    }
-  ],
   "security": [],
   "paths": {
-    "/pie/psdService/documentManifest": {
+    "/sensei/cutout": {
       "post": {
-        "tags": [
-          "Photoshop"
-        ],
-        "summary": "Get manifest",
-        "description": " Get information about the PSD document, including metadata about the file as a whole as well as detailed information about the layers included in the file.\nTo get status of this job, call [Manifest Status API](./#operation/documentManifestStatus).",
-        "operationId": "documentManifest",
+        "summary": "Remove Background",
+        "description": "This endpoint will identify the main subject of your image and removes the background automatically. It also provides options to return a PNG file in 4 channel RGBA or 3 channel RGB format. To get status of this job, call the 'Get Status - Mask' endpoint.",
+        "operationId": "cutout",
         "parameters": [
           {
             "name": "Authorization",
@@ -67,7 +59,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "./PITS/post_document_manifest.schema.json"
+                "$ref": "./ic/post_cutout.schema.json"
               }
             }
           },
@@ -79,7 +71,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "./PITS/api_response_success_schema.json"
+                  "$ref": "./ic/api_response_success_schema.json"
                 }
               }
             }
@@ -124,6 +116,26 @@
               }
             }
           },
+          "409": {
+            "description": "File Overwrite Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./api_response_409_error_schema.json"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Asset Link Invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./api_response_410_error_schema.json"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -131,7 +143,7 @@
         "x-codeSamples": [
           {
             "lang": "shell",
-            "source": "curl --request POST \\\n  --url https://image.adobe.io/pie/psdService/documentManifest \\\n  --header 'Authorization: Bearer $token' \\\n  --header 'content-type: application/json' \\\n  --header 'x-api-key: $x-api-key' \\\n  --data '{\"inputs\":[{\"href\":\"get_presigned_url\",\"storage\":\"external\"}],\\\n \"options\":{\"thumbnails\":{\"type\": \"images/png\"}}}'"
+            "source": "curl --request POST \\\n  --url https://image.adobe.io/sensei/cutout \\\n  --header 'Authorization: Bearer $token' \\\n  --header 'content-type: application/json' \\\n  --header 'x-api-key: $x-api-key' \\\n  --data '{\"input\":{\"href\":\"string\",\"storage\":\"external\"},\\\n \"output\":{\"href\":\"string\",\"storage\":\"external\",\"mask\":{\"format\":\"soft\"}}}'"
           }
         ]
       }
