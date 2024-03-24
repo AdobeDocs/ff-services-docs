@@ -1,7 +1,6 @@
 ---
 title: Features in Photoshop API
 description: Learn about the available features in Photoshop API.
-hideBreadcrumbNav: true
 ---
 
 # Supported Features
