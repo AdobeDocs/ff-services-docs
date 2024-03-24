@@ -201,7 +201,7 @@ It enables users to
 
 ### Usage Recommendations
 - Ensure that the input file is a PSD and that it contains one or more text layers.
-- Please refer to [Font Handling](../photoshop/features/#font-handling) and [Handle Missing Fonts](/features/#handle-missing-fonts-in-the-document) for better understanding.
+- Please refer to [Font Handling](../photoshop/features/#font-handling) and [Handle Missing Fonts](../photoshop/features/#handle-missing-fonts-in-the-document) for better understanding.
 
 ### Known Limitations
 The following are known limitations:
@@ -215,7 +215,7 @@ Here is an example where the font was changed from the original image on the lef
 
 ## ProductCrop
 
-The ProductCrop API supports applying smart crop to your image. The APIs are documented [here](./api/#operation/productCrop).
+The ProductCrop API supports applying smart crop to your image. 
 
 It enables user to
 - Identify the product and get it cropped smartly.
@@ -229,7 +229,7 @@ We intend to correct this issue in future releases.
 
 ## DepthBlur
 
-The DepthBlur API supports applying depth blur to your image. The APIs are documented [here](./api/#operation/depthBlur).
+The DepthBlur API supports applying depth blur to your image.
 
 Depth Blur is part of the Neural Filters gallery in Photoshop. It allows you to target the area and range of blur in photos, creating wide-aperture depth of field blur effects. You may choose different focal points or remove the focal point and control the depth blur through manipulating the focal range slider. Setting focusSubject to true will select the most prominent subject in the image and apply depth blur around that subject.
 
@@ -294,7 +294,7 @@ We also have an example of making a simple text layer edit.
 
 [Text layer Example Code](../code-sample/#edit-text-layers)
 
-## Font handling
+### Font handling
 
 In order to be able to correctly operate on text layers in the PSD, the corresponding fonts needed for these layers will need to be available when the server is processing the PSD. These include fonts from the following cases:
 1. The font that is in the text layer being edited, but the font itself is not being changed
@@ -320,7 +320,7 @@ The Photoshop APIs supports using the following category of fonts:
 Here is an example usage of a custom font
 [Custom font](../code-sample/#custom-font-in-a-text-layer)
 
-##### Handle missing fonts in the document.
+#### Handle missing fonts in the document.
 
 The API provides two options to control the behavior when there are missing fonts, as the request is being processed:
 - Specify a global font which would act as a default font for the current request: The `globalFont` field in the `options` section of the request can be used to specify the full postscript name of this font.
@@ -334,9 +334,79 @@ For any textLayer edit/add operation, if the font used specifically for that lay
 
 Here is an example usage of `manageMissingFonts` and `globalFont`. [Handle missing fonts](../code-sample/#example-5-dictating-actions-for-missing-fonts)
 
-#### Limitations
+### Limitations
 
-- Most of the text attributes retain their respective original values. There are some attributes however that do not retain their original values. For example (and not limited to): tracking, leading, kerning
+- Most of the text attributes retain their respective original values. There are some attributes however that do not retain their original values. For example (and not limited to): tracking, leading, kerning.
+
+### Supported Fonts 
+
+This is a list of all of the supported Postscript fonts for Photoshop API. We currently do not support custom fonts. 
+
+### Photoshop CC
+|                                   |
+|---------------------------------- |
+| AcuminVariableConcept             |
+| AdobeArabic-Bold                  |
+| AdobeArabic-BoldItalic            |
+| AdobeArabic-Italic                |
+| AdobeArabic-Regular               |
+| AdobeDevanagari-Bold              |
+| AdobeDevanagari-BoldItalic        |
+| AdobeDevanagari-Italic            |
+| AdobeDevanagari-Regular           |
+| AdobeFanHeitiStd-Bold             |
+| AdobeGothicStd-Bold               |
+| AdobeGurmukhi-Bold                |
+| AdobeGurmukhi-Regular             |
+| AdobeHebrew-Bold                  |
+| AdobeHebrew-BoldItalic            |
+| AdobeHebrew-Italic                |
+| AdobeHebrew-Regular               |
+| AdobeHeitiStd-Regular             |
+| AdobeMingStd-Light                |
+| AdobeMyungjoStd-Medium            |
+| AdobePiStd                        |
+| AdobeSongStd-Light                |
+| AdobeThai-Bold                    |
+| AdobeThai-BoldItalic              |
+| AdobeThai-Italic                  |
+| AdobeThai-Regular                 |
+| CourierStd                        |
+| CourierStd-Bold                   |
+| CourierStd-BoldOblique            |
+| CourierStd-Oblique                |
+| EmojiOneColor                     |
+| KozGoPr6N-Bold                    |
+| KozGoPr6N-Medium                  |
+| KozGoPr6N-Regular                 |
+| KozMinPr6N-Regular                |
+| MinionPro-Regular                 |
+| MinionVariableConcept-Italic      |
+| MinionVariableConcept-Roman       |
+| MyriadArabic-Bold                 |
+| MyriadArabic-BoldIt               |
+| MyriadArabic-It                   |
+| MyriadArabic-Regular              |
+| MyriadHebrew-Bold                 |
+| MyriadHebrew-BoldIt               |
+| MyriadHebrew-It                   |
+| MyriadHebrew-Regular              |
+| MyriadPro-Bold                    |
+| MyriadPro-BoldIt                  |
+| MyriadPro-It                      |
+| MyriadPro-Regular                 |
+| MyriadVariableConcept-Italic      |
+| MyriadVariableConcept-Roman       |
+| NotoSansKhmer-Regular             |
+| NotoSansLao-Regular               |
+| NotoSansMyanmar-Regular           |
+| NotoSansSinhala-Regular           |
+| SourceCodeVariable-Italic         |
+| SourceCodeVariable-Roman          |
+| SourceSansVariable-Italic         |
+| SourceSansVariable-Roman          |
+| SourceSerifVariable-Roman         |
+| TrajanColor-Concept               |
 
 ## Document level edits
 - Crop a PSD
@@ -360,8 +430,6 @@ Example of Image mask with a sample image.
 ![alt image](./imagecutout_mask_example.png?raw=true "Original Image")
 
 Remove Background and Image Mask APIs are powered by Adobe’s Artificial Intelligence Technology and Photoshop. The APIs can identify the main subject of an image and produce two types of outputs. You can create a greyscale [mask](https://en.wikipedia.org/wiki/Layers_(digital_image_editing)#Layer_mask) png file that you can composite onto the original image (or any other).  You can also create remove background where the mask has already composited onto your original image so that everything except the main subject has been removed.
-
-The APIs are documented at [Photoshop API Reference](../api/#tag/Photoshop)
 
 
 ## Customized Workflow

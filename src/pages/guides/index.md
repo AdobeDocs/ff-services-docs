@@ -39,19 +39,19 @@ This guide will assist you in:
 
 Get started with the Adobe Firefly Services.
 
-<DiscoverBlock slots="heading, link, text"/>
+<DiscoverBlock slots="link, text"/>
 
 [Tutorials](./tutorials/) 
 
 Explore our tutorials page for comprehensive guidance.  
 
-<DiscoverBlock slots="heading, link, text"/>
+<DiscoverBlock slots="link, text"/>
 
 [Adobe Firefly Services SDK](./sdks/)
 
  Access all of the Fireflye Services in one SDK.
 
- <DiscoverBlock slots="heading, link, text"/>
+ <DiscoverBlock slots="link, text"/>
 
 ### API References
 
