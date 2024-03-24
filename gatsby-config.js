@@ -245,7 +245,7 @@ module.exports = {
           },
           {
             title: 'Get Status - Mask',
-            path: '/photoshop/api/photoshop_mask.md'
+            path: '/photoshop/api/photoshop_status_mask.md'
           },
           {
             title: 'Get Status',
