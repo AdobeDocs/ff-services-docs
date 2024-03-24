@@ -25,12 +25,6 @@ This guide will assist you in:
 - Constructing personalized workflows by chaining API calls to various endpoints within the Firefly Services APIs
 
 
-<Media slots="video" width="750" height="500"/>
-
-placeholder video
-<https://youtube/giFJ6qbez_I?feature=shared>
-
-
 ## Ready to get started?
 
 - Begin by navigating to the [Getting Started guide](./get-started.md) to get set up and obtain your credentials.
@@ -54,6 +48,6 @@ A step by step guide to help you create a project, obtain credentials, and make 
 
 [Adobe Firefly Services SDK](./sdks/)
 
- A comprehensive toolkit designed to streamline your development journey. Access all of the APIs included in Firefly Services with this one SDK. 
+ A comprehensive toolkit designed to streamline your development journey. 
 
 <br/><br/><br/><br/>
