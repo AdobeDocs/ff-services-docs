@@ -25,7 +25,6 @@ Unlock the potential of Adobe Photoshop and cutting edge AI/ML services through 
 Welcome to the Adobe Photoshop API, now integrated into Firefly Services. Our API follows REST-like principles, utilizing standard HTTP response codes, verbs, and authentication methods that return JSON-encoded responses. While the examples provided are in cURL, feel free to develop your application in any preferred language.
 
 This guide will assist you in:
-
 - Creating a project within the Adobe Developer Console
 
 - Obtaining and authenticating your credentials
@@ -35,6 +34,8 @@ This guide will assist you in:
 - Developing event-driven applications through Adobe I/O Events
 
 ## Discover
+
+<DiscoverBlock slots="heading, link, text"/>
 
 ### Get Started
 
@@ -48,7 +49,7 @@ Get started with the Adobe Firefly Services.
 
 Explore our tutorials page for comprehensive guidance.  
 
-<DiscoverBlock slots="link, text"/>
+<DiscoverBlock slots="heading, link, text"/>
 
 ### API References
 
@@ -60,10 +61,18 @@ Integrate generative AI into your creative workflows.
 
 [Lightroom API](../../lightroom/)
 
-Unlock the potential of Lightroom and cutting edge AI/ML services through an easy-to-use RESTful API.
+Unlock the potential of Lightroom in the cloud.
+
+<DiscoverBlock slots="link, text"/>
+
+[Photoshop API](../../photoshop/)
+
+Unlock the potential of Photoshop in the cloud.
 
 <DiscoverBlock slots="link, text"/>
 
 [Content Tagging API](https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html)
 
-Let Content Tagging APIs help you deliver personalized experiences. 
+Leverage Content Tagging API to craft personalized experiences. 
+
+<br/><br/><br/><br/>

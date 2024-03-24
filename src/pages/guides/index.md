@@ -33,6 +33,8 @@ This guide will assist you in:
 
 ## Discover
 
+<DiscoverBlock slots="heading, link, text"/>
+
 ### Get Started
 
 [Getting Started Guide](../get-started.md)
@@ -45,13 +47,7 @@ Get started with the Adobe Firefly Services.
 
 Explore our tutorials page for comprehensive guidance.  
 
-<DiscoverBlock slots="link, text"/>
-
-[Adobe Firefly Services SDK](./sdks/)
-
- Access all of the Fireflye Services in one SDK.
-
- <DiscoverBlock slots="link, text"/>
+<DiscoverBlock slots="heading, link, text"/>
 
 ### API References
 
@@ -63,20 +59,18 @@ Integrate generative AI into your creative workflows.
 
 [Lightroom API](../../lightroom/)
 
-Unleash the power of Lightroom alongside cutting-edge AI/ML services.
+Unlock the potential of Lightroom in the cloud.
 
 <DiscoverBlock slots="link, text"/>
 
 [Photoshop API](../../photoshop/)
 
-Unlock the potential of Photoshop and cutting edge AI/ML services.
+Unlock the potential of Photoshop in the cloud.
 
 <DiscoverBlock slots="link, text"/>
 
 [Content Tagging API](https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html)
 
-Let Content Tagging APIs help you deliver personalized experiences.
-
-<DiscoverBlock slots="link, text"/>
+Leverage Content Tagging API to craft personalized experiences. 
 
 <br/><br/><br/><br/>
