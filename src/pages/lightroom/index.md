@@ -50,13 +50,13 @@ This guide will assist you in:
 
 ### Get Started
 
-[Getting Started Guide](../guides/get-started.md)
+[Getting Started Guide](./get-started.md)
 
 Get started with the Adobe Firefly Services.
 
 <DiscoverBlock slots="link, text"/>
 
-[Tutorials](../guides/tutorials/index.md) 
+[Tutorials](./tutorials/) 
 
 Explore our tutorials page for comprehensive guidance.  
 
@@ -64,9 +64,15 @@ Explore our tutorials page for comprehensive guidance.
 
 ### API References
 
-[Firefly API](..firefly-api/guides/api/generative_expand/index.md)
+[Firefly API](../firefly-api/guides/api/generative_expand/index.md)
 
 Integrate generative AI into your creative workflows.
+
+<DiscoverBlock slots="link, text"/>
+
+[Lightroom API](../lightroom/api/lightroom_applyPresets.md)
+
+Unlock the potential of Lightroom in the cloud.
 
 <DiscoverBlock slots="link, text"/>
 

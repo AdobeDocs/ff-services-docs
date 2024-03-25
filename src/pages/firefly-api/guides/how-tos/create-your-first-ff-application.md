@@ -48,9 +48,9 @@ hideBreadcrumbNav: true
 
 # Create your first Firefly API implementation
 
-Welcome to Adobe's Firefly APIs! These APIs offer a seamless way to integrate powerful creative workflows into your applications using a simple REST-based API.
+A step-by-step guide to creating your first implementation of the Firefly API.
 
-In this tutorial, we'll guide you through creating your first implementation of the Firefly API.
+The Adobe Firefly API offers a seamless way to integrate powerful creative workflows into your applications using a simple REST-based API. In this tutorial, we'll guide you through creating your first implementation of the Firefly API.
 
 <InlineAlert slots="text" />
 
@@ -67,7 +67,7 @@ Before we begin, make sure you have the following:
 
 ## Step 1: Set Up Your Environment
 
-Begin by creating a new script, named `firefly.js` (or `firefly.py`), and save it anywhere on your computer., and save it anywhere on your computer. This will be the script we use to test our integration with Firefly APIs.
+Begin by creating a new script, named `firefly.js` (or `firefly.py`), and save it anywhere on your computer., and save it anywhere on your computer. This will be the script we use to test our integration with Firefly API endpoints.
 
 Next, set your `client_id` and `client_secret` as environment variables. For example, on a Mac or in Windows Subsystem for Linux (WSL), you can do the following:
 
