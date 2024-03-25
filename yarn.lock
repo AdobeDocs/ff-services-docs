@@ -4163,9 +4163,9 @@ __metadata:
   linkType: hard
 
 "@redocly/config@npm:^0.1.4":
-  version: 0.1.4
-  resolution: "@redocly/config@npm:0.1.4"
-  checksum: 7595e04dc29865ffcb9e9c166dc59e1e7331d4dfd31776e57ea1ae8cbd76f17976007db190275d89c0cc7de93291a0974ac9e73a0ebb39bbc52895ac75a34285
+  version: 0.1.5
+  resolution: "@redocly/config@npm:0.1.5"
+  checksum: 9f8963927688f445d26a12b47b21a221eb7718db1d17ad8c4cd30e9b916bbecdbda0a3ce9777d3192da4d5f3f1b628fa8706b760a238dcece7ecc11f98d908f2
   languageName: node
   linkType: hard
 
@@ -4932,13 +4932,13 @@ __metadata:
   linkType: hard
 
 "@types/react@npm:*":
-  version: 18.2.69
-  resolution: "@types/react@npm:18.2.69"
+  version: 18.2.70
+  resolution: "@types/react@npm:18.2.70"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 7657978c4bbca41f566481b5507cdf571575e6631d0f8105ec2f6eea4029c315f9381182369bd5c700f3f2ea247dd2d12005381b937c9ad1771f86acd7201768
+  checksum: 4d1160ad2449ce5e96aa795f24f9e3902975cd59e6ce3c79eb674acb1262a54cdb0bc9c9b0aeb858da24e20148a09ec1822c8ed12f70c1c87b779ac2baf72ebd
   languageName: node
   linkType: hard
 
@@ -7119,13 +7119,13 @@ __metadata:
 
 "cis-photoshop-api@github:adobedocs/cis-photoshop-api-docs#sudipta/summitPS":
   version: 1.0.0
-  resolution: "cis-photoshop-api@https://github.com/adobedocs/cis-photoshop-api-docs.git#commit=a1e40e0fcf4875d31ba354f729e828f7062065ef"
+  resolution: "cis-photoshop-api@https://github.com/adobedocs/cis-photoshop-api-docs.git#commit=e6245e9bcc859274a938ba8d2480ff4e954aa1ca"
   dependencies:
     "@adobe/gatsby-theme-aio": 4.9.8
     gatsby: 4.22.0
     react: 17.0.2
     react-dom: 17.0.2
-  checksum: 5c4a51e85022af770f4a8ac57bdeb2ddcca86c08b3a84b379c9d7be1e4c4492e06056f2db8a175962f2cf8e65761cdec25c71579a5802697ae627f09836caa2c
+  checksum: e6854b368dbf5684b40501e7442d3771d0781647ff8b7be6b98fbf89703083f7435bde69f4de2bf6d8cbafe70eb8328f65f11c84fe0cb6692b9e7a26ae3712c2
   languageName: node
   linkType: hard
 

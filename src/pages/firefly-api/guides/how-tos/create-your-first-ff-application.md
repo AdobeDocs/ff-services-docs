@@ -356,7 +356,11 @@ After running these steps, you'll see four images output in the same directory.
 
 Here's the entire code sample. As a reminder, feel free to modify and change the prompt.
 
-**IMPORTANT:** Note that this Node.js code uses imports and top-level `await`, so you must either use the `.mjs` extension on your script file or ensure you have a `package.json` with `type: "module"`.
+<InlineAlert variant="warning" slots="title, text" />
+
+IMPORTANT
+
+Note that this Node.js code uses imports and top-level `await`, so you must either use the `.mjs` extension on your script file or ensure you have a `package.json` with `type: "module"`.
 
 <CodeBlock slots="heading, code" repeat="2" languages="JavaScript, PYTHON" />
 
