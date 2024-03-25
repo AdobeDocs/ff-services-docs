@@ -54,8 +54,6 @@ hideBreadcrumbNav: true
 
 Unleash boundless potential with Firefly Services' advanced AI and Creative Cloud APIs.
 
-<br/><br/>
-
 <div style="display: flex; justify-content: center;"> <iframe width="560" height="315" src="https://adobe.ly/ffs-overview" title="Introduction to Adobe Express Add-ons" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> </div>
 
 ## Overview
