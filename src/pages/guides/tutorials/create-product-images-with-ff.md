@@ -1,8 +1,42 @@
 ---
-title: Firefly Services - Tutorials
+title: Firefly Services - Tutorial
 description: Streamline your application integration with Firefly Services using our comprehensive SDK.
+keywords:
+  - Adobe Firefly Services
+  - Firefly guides
+  - Firefly Services
+  - Overview
+  - Firefly API documentation
+  - Firefly usage examples
+  - Firefly SDK
+  - Generative AI
+  - Firefly APIs
+  - Firefly API
+  - Tutorial
+  - Guide
+  - Product images
+  - Image creation
+  - Developer documentation
+  - Tutorial walkthrough
+  - Image manipulation
+  - Image generation
+  - Image editing
+  - Product visualization
+  - API usage
+  - Image rendering
+  - Image processing
+  - Graphic design
+  - Product photography
+  - Digital assets
+  - Image generation with Firefly Services
+  - Tutorial steps
+  - Photoshop API
+  - Lightroom API
+  - Content Tagging
 contributors:
   - https://github.com/nimithajalal
+  - https://github.com/hollyschinsky
+hideBreadcrumbNav: true
 ---
 
 # Creating Product Images at Scale with Firefly Services

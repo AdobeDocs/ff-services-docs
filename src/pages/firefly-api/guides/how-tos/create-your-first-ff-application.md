@@ -1,9 +1,49 @@
 ---
 title: Create Your First Firefly API Implementation - Adobe Firefly API
 description: This how-to guides you through the process of integrating Adobe's Firefly workflows into your applications.
+keywords:
+  - Adobe Firefly Services
+  - Firefly API
+  - Integrating Firefly Services
+  - Developer documentation
+  - How-to guides
+  - Tutorial
+  - Firefly tutorial
+  - Firefly API tutorial
+  - Get started
+  - Environment setup
+  - Setup
+  - Workflow
+  - Credentials
+  - Authentication
+  - Sample code
+  - Generate image
+  - Call firefly
+  - Sample call
+  - Application development
+  - First Firefly application
+  - Firefly implementation
+  - Prompts
+  - Getting started with Firefly API
+  - Application creation tutorial
+  - Step-by-step guide
+  - Development workflow
+  - Application setup
+  - API integration
+  - User interface development
+  - Backend implementation
+  - Frontend development
+  - SDK usage
+  - Code examples
+  - Automate processing
+  - Development environment
+  - Application deployment
+  - Testing and debugging
+  - Styles
 contributors:
   - https://github.com/nimithajalal
   - https://github.com/cfjedimaster
+hideBreadcrumbNav: true
 ---
 
 # Create your first Firefly API implementation

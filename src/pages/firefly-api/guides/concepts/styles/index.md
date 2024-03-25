@@ -1,8 +1,29 @@
 ---
 title: Style Guide - Adobe Firefly API
-description: This is the style guide for Adobe Firefly API
+description: The style guide for Adobe Firefly API
+keywords:
+  - Styles
+  - Adobe Firefly Services
+  - Firefly API
+  - Developer documentation
+  - text-to-image
+  - Style concepts
+  - UI styling
+  - CSS
+  - Design system
+  - Styling guidelines
+  - Theme customization
+  - User interface design
+  - Responsive design
+  - Custom styles
+  - Style overrides
+  - Design tokens
+  - CSS variables
 contributors:
   - https://github.com/amandahuarng
+  - https://github.com/nimithajalal
+  - https://github.com/hollyschinsky
+hideBreadcrumbNav: true
 ---
 
 # Image Model Styles

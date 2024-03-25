@@ -1,8 +1,51 @@
 ---
-title: Adobe Firefly Services Guides
-description: Find the most recent documentation, code samples and resources for using Firefly Services.
+title: Adobe Firefly Services
+description: Developer documentation for Adobe Firefly Services. Includes getting started guides, tutorials and SDK details.
+keywords:
+  - Adobe Firefly Services
+  - Firefly guides
+  - Firefly Services
+  - Overview
+  - Firefly API documentation
+  - Firefly usage examples
+  - Firefly SDK
+  - Generative AI
+  - Firefly APIs
+  - Firefly API
+  - Photoshop API
+  - Lightroom API
+  - Content Tagging
+  - Firefly Services APIs
+  - SDK
+  - Node.js SDK
+  - Typescript SDK
+  - Firefly tutorials
+  - Firefly example
+  - Firefly content
+  - Firefly generate
+  - How-to guides  
+  - Code sample
+  - Tutorials
+  - Developer documentation
+  - Firefly API documentation
+  - Firefly usage examples
+  - How-to guides
+  - Code samples
+  - Getting started with Firefly API
+  - API reference
+  - Access token
+  - Client ID
+  - API Key
+  - Firefly scope
+  - Firefly configuration guides
+  - Text to image
+  - Generate
+  - Automate
+  - Firefly endpoint
 contributors:
+  - https://github.com/nimithajalal
   - https://github.com/hollyschinsky
+hideBreadcrumbNav: true
 ---
 
 <Hero slots="heading, text" background="rgb(233, 80, 80)"/>
@@ -11,25 +54,28 @@ contributors:
 
 Unleash boundless potential with Firefly Services' advanced AI and Creative Cloud APIs.
 
+<br/><br/>
+
+<div style="display: flex; justify-content: center;"> <iframe width="560" height="315" src="https://adobe.ly/ffs-overview" title="Introduction to Adobe Express Add-ons" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> </div>
+
 ## Overview
 
-Welcome to Firefly Services, your solution for seamless content generation at scale. Our suite of APIs combines the power of Adobe's creative tools like Photoshop and Lightroom with cutting-edge AI/ML features like Content Tagging, Generative Fill, and Text to Image and more.
+Welcome to Firefly Services, your solution for seamless content generation at scale. Our suite of APIs combines the power of Adobe's creative tools like Photoshop and Lightroom with cutting-edge AI/ML features like Content Tagging, Generative Fill, Text to Image and more.
 
 With Firefly Services, you're not just creating – you're automating, scaling your content production, and harnessing the latest AI/ML technologies to supercharge your workflows. 
 
 This guide will assist you in:
 
-- Creating a project in the Adobe Developer Console and gain access to the complete suite of Firefly Services APIs.
-- How to obtain and authenticate your credentials 
-- Validating your credentials
-- Constructing personalized workflows by chaining API calls to various endpoints within the Firefly Services APIs
-
+- Creating a project in the Adobe Developer Console to gain access to the complete suite of Firefly Services APIs.
+- Obtaining and authenticating with your credentials.
+- Validating your credentials.
+- Constructing personalized workflows by chaining API calls to various endpoints within the Firefly Services APIs.
 
 ## Ready to get started?
 
 - Begin by navigating to the [Getting Started guide](./get-started.md) to get set up and obtain your credentials.
-- Next, check out our [in-depth tutorials](./tutorials/) to walk you step-by-step through building your first amazing application.
-- Check out our [SDKs](sdks.md) options available to help you build your app in your language of choice.
+- Next, check out our [in-depth tutorial](./tutorials/create-product-images-with-ff.md) which will walk you step-by-step through creating your first app leveraging the Firefly Services APIs.
+- Check out our [SDKs](sdks.md), which provide a comprehensive toolkit to streamline your integration with Firefly Services.
 
 ## Discover
 

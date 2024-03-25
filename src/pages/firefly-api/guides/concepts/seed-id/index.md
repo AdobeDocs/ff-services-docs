@@ -1,9 +1,35 @@
 ---
 title: Seed IDs - Adobe Firefly API
 description: This guide explains usage of Seed IDs for the Adobe Firefly API.
+keywords:
+  - Adobe Firefly Services
+  - Seed ID
+  - Firefly API
+  - Developer documentation
+  - Seed ID concepts
+  - Data seeding
+  - Test data generation
+  - Seed data management
+  - Seed ID usage
+  - Seed ID generation
+  - Test environments
+  - Development environments
+  - Mock data
+  - Data initialization
+  - Data seeding strategies
+  - Seed ID best practices
+  - Data population
+  - Test automation
+  - Seed data generation tools
+  - Data integrity testing
+  - Firefly data
 contributors:
+  - https://github.com/amandahuarng
   - https://github.com/nimithajalal
+  - https://github.com/hollyschinsky
+hideBreadcrumbNav: true
 ---
+
 # Understanding Seed IDs in Firefly Services API
 
 Seed IDs in Firefly services API are the unique identifiers that drive the API's request and response mechanisms. 

@@ -1,8 +1,14 @@
 ---
 title: Best Practices
 description: This guide explains troubleshooting for the Adobe Firefly API.
+keywords:
+  - Adobe Firefly Services
+  - Firefly API
+  - Integrating Firefly Services
+
 contributors:
   - https://github.com/nimithajalal
+hideBreadcrumbNav: true
 ---
 
 # Firefly API Troubleshooting Guide

@@ -1,8 +1,46 @@
 ---
 title: Firefly Services - Getting Started Guide
 description: Get started building your first app with Firefly Services quickly.
+keywords:
+  - Adobe Firefly Services
+  - Firefly guides
+  - Firefly Services
+  - Firefly
+  - Adobe Firefly
+  - Getting started with Firefly
+  - Overview
+  - Get Started 
+  - Get Started with Adobe Firefly Services
+  - Getting Started with Adobe Firefly Services
+  - Quickstart
+  - Developer documentation
+  - Firefly API documentation
+  - Firefly usage examples
+  - Firefly SDK
+  - Generative AI
+  - Firefly APIs
+  - Firefly API
+  - Photoshop API
+  - Lightroom API
+  - Content Tagging
+  - Firefly Services APIs
+  - Add API
+  - SDK
+  - Node.js SDK
+  - Typescript SDK
+  - Firefly tutorials
+  - Firefly example
+  - Firefly content
+  - Firefly generate
+  - How-to guides  
+  - Code sample
+  - Tutorials
+  - Steps
+  - Step by step
 contributors:
   - https://github.com/nimithajalal
+  - https://github.com/hollyschinsky
+hideBreadcrumbNav: true
 ---
 
 # Getting started with Adobe Firefly Services
@@ -35,7 +73,7 @@ If you have already been provisioned with access through your organization, you 
 
 1. Choose **Add API**.
 ![Add API](../guides/images/add-api.png)
-2. Select one of the required APIs, say, **Firefly- Firefly Services** and click **Next**:
+2. Select one of the required APIs, say, **Firefly - Firefly Services** and click **Next**:
 ![Add Firefly API](../guides/images/add-ff-api.png)
 
 ### Step 3: Set Credentials
@@ -76,7 +114,6 @@ Scopes that are added for your application define what actions or data the clien
 Click **View scopes per service** to understand the services and scopes associated with it. 
 
 ![scopes](..//guides/images/scopes.png)
-
 
 Sample cURL command:
 

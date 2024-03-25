@@ -1,8 +1,32 @@
 ---
 title: Changelog - Adobe Firefly API
 description: This is the changelog for Adobe Firefly API
+keywords:
+  - Adobe Firefly Services
+  - Firefly API
+  - Developer documentation
+  - API documentation
+  - Integration
+  - User interface components
+  - Component library
+  - UI/UX design
+  - Web development
+  - Application development
+  - Software development kit (SDK)
+  - JavaScript framework
+  - Front-end development
+  - Back-end development
+  - Adobe Experience Platform
+  - Cross-platform compatibility
+  - Interactive experiences
+  - User interface customization
+  - API endpoints
+  - Authentication and authorization
 contributors:
   - https://github.com/amandahuarng
+  - https://github.com/nimithajalal
+  - https://github.com/hollyschinsky
+hideBreadcrumbNav: true
 ---
 <!-- TODO: Update with latest prod details, elaborate on API descriptions -->
 # Changelog

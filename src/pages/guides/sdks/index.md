@@ -1,13 +1,42 @@
 ---
 title: Firefly Services - SDKs
-description: Streamline your application integration with Firefly Services using our comprehensive SDK.
+description: The Firefly Services SDK is a comprehensive toolkit designed to streamline your integration with Firefly Services.
+keywords:
+  - Adobe Firefly Services
+  - SDKs
+  - Firefly
+  - Firefly SDK
+  - Firefly Services SDK
+  - Firefly API
+  - Software Development Kits
+  - Developer documentation
+  - SDK guides
+  - SDK documentation
+  - Integration
+  - API integration
+  - Development tools
+  - SDK usage
+  - Platform support
+  - SDK installation
+  - SDK setup
+  - SDK features
+  - SDK functionalities
+  - SDK libraries
+  - SDK development
+  - SDK customization
+  - SDK compatibility
+  - Typescript
+  - Node.js
+  - JavaScript
 contributors:
   - https://github.com/nimithajalal
+  - https://github.com/hollyschinsky
+hideBreadcrumbNav: true
 ---
 
 # SDKs
 
-Welcome to the Firefly Services SDKs. 
+Everything you need to know to get started with the Firefly Services SDK.
 
 ## Overview
 
@@ -18,7 +47,6 @@ The Firefly Services SDK is a comprehensive toolkit designed to streamline your 
 * Lightweight wrapper: The SDK offers a lightweight wrapper that simplifies the integration process, allowing you to focus on building great applications. Our SDK saves you valuable time and effort by handling the complex implementation details.
 
 * Comprehensive modules: From text-to-image generation, the SDK covers a wide range of capabilities. 
-
 
 ## Get started 
 
@@ -31,12 +59,10 @@ The SDK currently comprises four main modules.
 - Photoshop APIs 
 - Lightroom APIs 
 
-
 To begin, get your clientId, clientSecret from the Developer Console, follow the instructions provided in [getting started](../get-started.md) page for assistance. Once you have the clientId, clientSecret, use the Common API `util` to set up your credentials and generate server-to-server Oauth token from your application. 
-
 
 ### Installation 
 
-For detailed instructions, refer to the [`README`](https://git.corp.adobe.com/cc-apis/firefly-services-sdk-js#readme) and explore the [SDK API references](https://git.corp.adobe.com/cc-apis/firefly-services-sdk-js/tree/github/1.0.0#adding-firefly-services-sdk-packages-into-the-project) or use our sample code(Add the link) to quickly get started with integrating our SDK into your projects. 
+For detailed instructions, refer to the [`README`](https://github.com/Firefly-Services/firefly-services-sdk-js) and explore the [SDK API references](https://github.com/Firefly-Services/firefly-services-sdk-js?tab=readme-ov-file#adding-firefly-services-sdk-packages-into-the-project) or use our [sample code](https://github.com/Firefly-Services/firefly-services-sdk-js/tree/main/examples/javascript) to quickly get started with integrating our SDK into your projects. 
 
 The SDK is currently available for `Node.js` and `TypeScript`.

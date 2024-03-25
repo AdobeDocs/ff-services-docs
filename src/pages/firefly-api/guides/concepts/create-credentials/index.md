@@ -1,3 +1,21 @@
+---
+title: Create Credentials - Adobe Firefly API
+description: This guide explains how to create credentials for the Adobe Firefly API.
+keywords:
+  - Adobe Firefly Services
+  - Create Credentials
+  - Credentials
+  - Authentication
+  - Authorization
+  - Firefly API
+  - Developer documentation
+contributors:
+  - https://github.com/amandahuarng
+  - https://github.com/nimithajalal
+  - https://github.com/hollyschinsky
+hideBreadcrumbNav: true
+---
+
 # [Admins only] Get Credentials
 
 <InlineAlert variant="warning" slots="text" />

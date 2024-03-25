@@ -1,8 +1,28 @@
 ---
 title: Overview - Adobe Firefly API
-description: This is the overview page for Adobe Firefly API
+description: An overview of the Adobe Firefly API
+keywords:
+  - Adobe Firefly Services
+  - Firefly API
+  - Firefly Developer documentation
+  - Firefly API documentation
+  - Creative workflows
+  - Generative AI
+  - Adobe workflows
+  - Firefly automation
+  - Firefly code example
+  - Application development with Firefly
+  - Adobe Firefly
+  - Firefly software development kit (SDK)
+  - JavaScript framework
+  - Adobe Experience Platform
+  - Firefly API endpoints
+  - Firefly authentication and authorization
 contributors:
   - https://github.com/amandahuarng
+  - https://github.com/nimithajalal
+  - https://github.com/hollyschinsky
+hideBreadcrumbNav: true
 ---
 
 <Hero slots="heading, text" background="rgb(233, 80, 80)"/>
@@ -21,7 +41,7 @@ The Adobe Firefly API makes it easy for you to integrate generative AI into your
 
 This documentation provides instructions for Adobe Firefly API. Firefly is the natural extension of the technology Adobe has produced over the past 40 years, driven by the belief that people should be empowered to bring their ideas into the world precisely as they imagine them. Describe your creative vision in your own words and we will bring it to life, saving you time and effort.
 
-With the Firefly API, you can ideate, create, and communicate while significantly improving creative workflows using generative AI. You might have already tried out the Firefly web app, along with features powered by Firefly in Adobe’s flagship apps and Adobe Stock. And now it is available to you as an API.
+With Firefly, you can ideate, create, and communicate while significantly improving creative workflows using generative AI. You might have already tried out the Firefly web app, along with features powered by Firefly in Adobe’s flagship apps and Adobe Stock. And now it is available to you as an API. Integrate them with your workflow as it suits your needs.
 
 Try out the API today to:
 

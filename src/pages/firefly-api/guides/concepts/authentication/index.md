@@ -1,10 +1,38 @@
 ---
 title: Authentication
-description: This is the authentication guide for Adobe Firefly API
+description: A guide to authentication for Adobe Firefly API
+keywords:
+  - Adobe Firefly Services
+  - Authentication
+  - Firefly API
+  - Credentials
+  - Server-to-server
+  - Developer documentation
+  - Authentication concepts
+  - Authorization
+  - Identity verification
+  - OAuth
+  - API security
+  - Access tokens
+  - Authentication methods
+  - User authentication
+  - Client authentication
+  - Authentication flow
+  - Token-based authentication
+  - Single sign-on (SSO)
+  - Generate token
+  - Firefly access
+  - Identity management
+  - Secure API access
+  - Authentication protocols
+  - Authentication best practices
 contributors:
   - https://github.com/amandahuarng
+  - https://github.com/nimithajalal
+  - https://github.com/hollyschinsky
+hideBreadcrumbNav: true
 ---
-<!-- TODO: Update -->
+
 # Authentication
 
 Server-to-server authentication credentials lets your application’s server generate access tokens and make API calls on behalf of your application. This is sometimes referred to as “two-legged OAuth”.

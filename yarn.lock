@@ -7119,13 +7119,13 @@ __metadata:
 
 "cis-photoshop-api@github:adobedocs/cis-photoshop-api-docs#sudipta/summitPS":
   version: 1.0.0
-  resolution: "cis-photoshop-api@https://github.com/adobedocs/cis-photoshop-api-docs.git#commit=3f4d40d08ba99c7138fc5cce5d7909cf2076beb7"
+  resolution: "cis-photoshop-api@https://github.com/adobedocs/cis-photoshop-api-docs.git#commit=a1e40e0fcf4875d31ba354f729e828f7062065ef"
   dependencies:
     "@adobe/gatsby-theme-aio": 4.9.8
     gatsby: 4.22.0
     react: 17.0.2
     react-dom: 17.0.2
-  checksum: a6f5b13e5e626aa2ad2aad19fcf3ea66044306ee46f0835006c10a1b83bbf07562b4a36399f9ca1aacf77d8bd625b151fb6f050ea1c89bd4d7289dddfcb17ca7
+  checksum: 5c4a51e85022af770f4a8ac57bdeb2ddcca86c08b3a84b379c9d7be1e4c4492e06056f2db8a175962f2cf8e65761cdec25c71579a5802697ae627f09836caa2c
   languageName: node
   linkType: hard
 
@@ -10071,13 +10071,13 @@ __metadata:
 
 "firefly-api-docs@github:adobedocs/firefly-api-docs":
   version: 1.0.0
-  resolution: "firefly-api-docs@https://github.com/adobedocs/firefly-api-docs.git#commit=ed22e9cd03221355f50de55028c8f620f4da7000"
+  resolution: "firefly-api-docs@https://github.com/adobedocs/firefly-api-docs.git#commit=bbf881131ce82be5c532714de51b0ea0c082d70b"
   dependencies:
     "@adobe/gatsby-theme-aio": ^4.11.7
     gatsby: 4.22.0
     react: ^17.0.2
     react-dom: ^17.0.2
-  checksum: 19942cae4d9530c1167601375c6d9703a9a21b578e7039160ceeba24692bac295d1bd14a7171871e2374d456cdcbb8d11de69d18eb47624a9a62a9b16ebe633c
+  checksum: 8db0aef69b782b71a7009e5ec8d3c1700813f6593abda45f916702c99283d13f6fb527b314a4878e7c0d483029075f98ef4f3d949bf8d136fddb04e1a42abf56
   languageName: node
   linkType: hard
 
