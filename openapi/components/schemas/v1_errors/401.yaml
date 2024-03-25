@@ -1,0 +1,11 @@
+description: Unauthorized
+content:
+  application/json:
+    schema:
+      $ref: error_body.yaml
+
+    example:
+      {
+        "message": "Oauth token is not valid",
+        "error_code": "401013"
+      }

@@ -1,0 +1,58 @@
+type: object
+title: Scalars
+required: 
+- prompt
+properties:
+  prompt:
+    type: string
+    description: Text prompt for image generation.
+    writeOnly: true
+    minLength: 1
+    maxLength: 1024
+    examples:
+      - Horses in a field.
+  negativePrompt:
+    type: string
+    description: The model will avoid these words in the generated content.
+    minLength: 1
+    maxLength: 1024
+    examples:
+      - Flowers, people.
+  contentClass:
+    allOf:
+      - $ref: ./content_class.yaml
+  n:
+    type: integer
+    description: The number of variations to generate. If seeds array is specified, "n" does not have to be specified.
+    default: 1
+    minimum: 1
+    maximum: 4
+    example: 2
+  seeds:
+    description: Array of seed(s) that will provide generation stability across multiple API calls. E.g. You can use the same seed to generate a similar image with different styles. If "n" is specified, the number of elements in the array must be equal to "n".
+    type: array
+    minItems: 1
+    maxItems: 4
+    items:
+      type: integer
+      format: int32
+    example: [23442, 783432]
+  size:
+    allOf:
+      - $ref: ./size.yaml
+  photoSettings: 
+    allOf: 
+      - $ref: ./photo_settings.yaml
+  styles:
+    allOf:
+      - $ref: ./styles.yaml
+  visualIntensity:
+    description: Adjusts the overall intensity of your photo's existing visual characteristics
+    type: number
+    minItems: 2
+    maxItems: 10
+    default: 6
+  locale:
+    description: A hyphen separated string, combining the ISO 639-1 language code and the ISO 3166-1 region, such as "en-US". When a locale is set, the prompt will be debiased to generated more relevant content to that region. If not specified, the locale will be auto detected, based on user's profile and Accept-Language header.
+    type: string
+    default: en-US

@@ -1,0 +1,254 @@
+type: array
+description: |
+  Select appropriate styles depending upon the image model, set by header `x-api-variant`. <br>
+  `styles-v1` can be applied to v1 and v2. <br>
+    <details>
+      <summary>styles-v1</summary>
+    | Style ID              |
+    |-----------------------|
+    | Concept art           |
+    | Painting              |
+    | Splattering           |
+    | Pixel art             |
+    | 3D art                |
+    | Product photo         |
+    | Hyper realistic       |
+    | Cartoon               |
+    | Stamp                 |
+    | Vector look           |
+    | Low poly              |
+    | Pencil drawing        |
+    | Stippling             |
+    | Line drawing          |
+    | Doodle                |
+    | Bold lines            |
+    | Backlighting          |
+    | Blurry background     |
+    | Bokeh effect          |
+    | Fisheye               |
+    | Black and white       |
+    | Close up              |
+    | Wide angle            |
+    | Narrow depth of field |
+    | Shot from below       |
+    | Shot from above       |
+    | Misty                 |
+    | Macrophotography      |
+    | Antique photo         |
+    | Isometric             |
+    | Digital art           |
+    | Steampunk             |
+    | Synthwave             |
+    | Vaporwave             |
+    | Science fiction       |
+    | Psychedelic           |
+    | Fantasy               |
+    | Oil paint             |
+    | Acrylic paint         |
+    | Palette knife         |
+    | Muted color           |
+    | Pop art               |
+    | Graffiti              |
+    | Minimalism            |
+    | Maximalism            |
+    | Layered paper         |
+    | Clay                  |  
+    | Origami               |  
+    | Fur                   |
+    | Yarn                  |
+    | Metal                 |
+    | Marble                |
+    | Wood carving          |
+    | Fabric                |
+    | Watercolor            |
+    | Geometric             |
+    | Wireframe             |
+    | Flat colors           |
+    | Collage               |
+    | Cubism                |
+    | Cyberpunk             |
+    | Baroque               |
+    | Linocut               |
+    | Dramatic lighting     |
+    | Golden hour           |
+    | Studio lighting       |
+    | Dark                  |
+    | Neon                  |
+    | Iridescent            |
+    | Bioluminescent        |
+    | Warm tone             |
+    | Cool tone             |
+    | Vibrant color         |
+    | Pastel color          |
+    | Low lighting          |
+    | Chaotic               |
+    | Kitschy               |
+    | Nostalgic             |
+    | Beautiful             |
+    | Divine                |
+    | Simple                |
+  </details>
+
+  `styles-v2` includes additional styles that can be applied only to the v2 image model.
+    <details>
+      <summary>styles-v2</summary>
+    | Style ID                   |
+    |----------------------------|
+    | Photo                  	   |
+    | Graphic                	   |
+    | Art                    	   |
+    | Black and white        	   |
+    | Cool tone              	   |
+    | Golden                 	   |
+    | Monochromatic          	   |
+    | Muted color            	   |
+    | Pastel color           	   |
+    | Toned image            	   |
+    | Vibrant colors         	   |
+    | Warm tone                  |
+    | Closeup	                   |
+    | Knolling	                 |
+    | Landscape photography	     |
+    | Macrophotography	         |
+    | Photographed through window|
+    | Shallow depth of field	   |
+    | Shot from above	           |
+    | Shot from below	           |
+    | Surface detail	           |
+    | Wide angle	               |
+    | Beautiful	                 |
+    | Bohemian	                 |
+    | Chaotic	                   |
+    | Dais	                     |
+    | Divine	                   |
+    | Eclectic	                 |
+    | Futuristic	               |
+    | Kitschy	                   |
+    | Nostalgic	                 |
+    | Simple	                   |
+    | Antique photo	             |
+    | Bioluminescent	           |
+    | Bokeh effect	             |
+    | Color explosion	           |
+    | Dark	                     |
+    | Faded image	               |
+    | Fisheye	                   |
+    | Gomori photography	       |
+    | Grainy film	               |
+    | Iridescent	               |
+    | Isometric	                 |
+    | Misty	                     |
+    | Neon	                     |
+    | Otherworldly depiction	   |
+    | Ultraviolet	               |
+    | Underwater	               |
+    | Backlighting	             |
+    | Dramatic light	           |
+    | Golden hour	               |
+    | Harsh light	               |
+    | Long-time exposure	       |
+    | Low lighting	             |
+    | Multiexposure	             |
+    | Studio light	             |
+    | Surreal lighting	         |
+    | 3d patterns	               |
+    | Charcoal	                 |
+    | Claymation	               |
+    | Fabric	                   |
+    | Fur	                       |
+    | Guilloche patterns	       |
+    | Layered paper	             |
+    | Marble	                   |
+    | Made of metal	             |
+    | Origami	                   |
+    | Paper mache	               |
+    | Polka-dot pattern	         |
+    | Strange patterns	         |
+    | Wood carving	             |
+    | Yarn	                     |
+    | Art deco	                 |
+    | Art nouveau	               |
+    | Baroque	                   |
+    | Bauhaus	                   |
+    | Constructivism	           |
+    | Cubism	                   |
+    | Cyberpunk	                 |
+    | Fantasy	                   |
+    | Fauvism	                   |
+    | Film noir	                 |
+    | Glitch art	               |
+    | Impressionism	             |
+    | Industrial	               |
+    | Maximalism	               |
+    | Minimalism	               |
+    | Modern art	               |
+    | Modernism	                 |
+    | Neo-expressionism	         |
+    | Pointillism	               |
+    | Psychedelic	               |
+    | Science fiction	           |
+    | Steampunk	                 |
+    | Surrealism	               |
+    | Synthetism	               |
+    | Synthwave	                 |
+    | Vaporwave	                 |
+    | Acrylic paint	             |
+    | Bold lines	               |
+    | Chiaroscuro	               |
+    | Color shift art	           |
+    | Daguerreotype	             |
+    | Digital fractal	           |
+    | Doodle drawing	           |
+    | Double exposure portrait	 |
+    | Fresco	                   |
+    | Geometric pen	             |
+    | Halftone	                 |
+    | Ink	                       |
+    | Light painting	           |
+    | Line drawing	             |
+    | Linocut	                   |
+    | Oil paint	                 |
+    | Paint splattering	         |
+    | Painting	                 |
+    | Palette knife	             |
+    | Photo manipulation	       |
+    | Scribble texture	         |
+    | Sketch	                   |
+    | Splattering	               |
+    | Stippling	                 |
+    | Watercolor	               |
+    | 3d	                       |
+    | Anime	                     |
+    | Cartoon     	             |
+    | Cinematic	                 |
+    | Comic book	               |
+    | Concept art	               |
+    | Cyber matrix	             |
+    | Digital art	               |
+    | Flat design	               |
+    | Geometric	                 |
+    | Glassmorphism	             |
+    | Glitch graphic	           |
+    | Graffiti	                 |
+    | Hyper realistic	           |
+    | Interior design	           |
+    | Line gradient	             |
+    | Low poly	                 |
+    | Newspaper collage	         |
+    | Optical illusion	         |
+    | Pattern pixel	             |
+    | Pixel art	                 |
+    | Pop art	                   |
+    | Product photo	             |
+    | Psychedelic background	   |
+    | Psychedelic wonderland	   |
+    | Scandinavian	             |
+    | Splash images	             |
+    | Stamp	                     |
+    | Trompe l'oeil	             |
+    | Vector look	               |
+    | Wireframe	                 | 
+  </details>
+  Read the styles guide to see visual examples of each style.
+default: null
+example: ["concept art", "splattering"]

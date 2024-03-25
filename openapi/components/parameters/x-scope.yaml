@@ -1,0 +1,7 @@
+in: header
+name: x-gw-ims-scope
+required: false
+schema:
+  type: string
+  format: UUID
+  example: firefly_api

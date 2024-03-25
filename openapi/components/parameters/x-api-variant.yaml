@@ -1,0 +1,8 @@
+in: header
+name: x-api-variant
+required: false
+description: Optional header that can be provided to indicate Firefly image model
+schema:
+  type: string
+  enum: [v1, v2]
+  default: v2

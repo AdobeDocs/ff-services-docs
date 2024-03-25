@@ -1,0 +1,8 @@
+in: header
+name: x-accept-mimetype
+required: false
+description: Requested encoded format for output images
+schema:
+  type: string
+  enum: [image/jpeg, image/webp, image/png]   
+  default: image/jpeg

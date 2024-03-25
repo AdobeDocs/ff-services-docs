@@ -1,0 +1,61 @@
+description: The 'Accept' header determines the response format. If "Accept" header is "application/json" then images are available as base64 encoded image in json response. If "Accept" header is "multipart/mixed", then images are streamed in the multipart body as binary.
+content:
+  application/json+base64:
+    schema:
+      type: object
+      properties:
+        prompt:
+          type: string
+          description: Text prompt for image generation.
+          examples:
+            - Horse on a field.
+        promptHasDeniedWords:
+          type: boolean
+          description: Flag to indicate if denied words were removed from prompt to generate image.
+          examples:
+            - true|false
+        pipelineVersion:
+          type: string
+          description: Firefly image model detail
+          examples:
+            - 1.0.5-beta.1-1.2_1.2-main-1424-284190d-0.1.27.1r10
+        size:
+          allOf:
+            - $ref: ./property_size.yaml
+        contentClass:
+          allOf:
+            - $ref: ./property_content_class.yaml
+        styles:
+          allOf:
+            - $ref: ./property_style.yaml
+        images:
+          allOf:
+            - $ref: ./property_images_base64.yaml
+  multipart/mixed:
+    schema:
+      type: object
+      properties:
+        image:
+          type: string
+          format: binary
+          # examples: "string<binary>"
+    example:
+      {
+        "result":
+          {
+            "status": "success",
+            "values":
+              {
+                "property1":
+                  {
+                    "id": "string",
+                    "uri": "string",
+                    "type": "string",
+                    "value": 0,
+                  },
+              },
+          },
+
+        "image": "string<binary>",
+      }
+

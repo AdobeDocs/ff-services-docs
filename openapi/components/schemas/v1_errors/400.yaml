@@ -1,0 +1,11 @@
+description: Bad Request
+content:
+  application/json:
+    schema:
+      $ref: error_body.yaml
+
+    example:
+      {
+        "message": "Bad Request",
+        "error_code": "10075"
+      }

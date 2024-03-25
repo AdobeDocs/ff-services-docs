@@ -1,0 +1,16 @@
+type: object
+description: Array of objects with details on output images
+properties:
+  image:
+    type: object
+    description: A valid Storage Item containing both an internal ID and a pre-signed URL
+    properties: 
+      presignedUrl: 
+        type: string
+        description: Signed URL of the generated image
+      id: 
+        type: string
+        description: Unique ID associated with the generated image
+  seed:
+    type: integer
+    description: seed used to generate the image

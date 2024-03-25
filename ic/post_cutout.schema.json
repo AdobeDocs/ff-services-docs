@@ -1,0 +1,169 @@
+{
+  "$schema":"http://json-schema.org/draft-07/schema#",
+  "$id":"post_cutout.schema.json",
+  "title":"post_cutout",
+  "type":"object",
+  "required":[
+    "input",
+    "output"
+  ],
+  "properties":{
+    "input":{
+      "type":"object",
+      "description": "Maximum supported input file resolution is 10k by 10k",
+      "required":["href","storage"],
+      "properties":{
+        "href": {
+          "type": "string",
+          "minLength": 1
+        },
+        "storage": {
+          "type": "string",
+          "enum": [
+            "external",
+            "azure",
+            "dropbox",
+            "adobe"
+          ],
+          "default": "external"
+        }
+      },
+      "if": {
+        "properties": {
+          "storage": {
+            "pattern": "(^azure|external|dropbox$)",
+            "description": "Asset stored on an external service (like AWS S3, Azure, Dropbox). If you are using presigned url for dropbox or azure, use `storage=\"dropbox\"` or `storage=\"azure\"` else it is `storage=\"external\"`"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "href": {
+            "type": "string",
+            "pattern": "^https://",
+            "description": "Any public url or a presignedURL for the asset input"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "href": {
+            "pattern": "^/?(temp|cloud-content|assets)/.+",
+            "description": "A string representing the path to the input file stored on Adobe's cloud.</br> Not available for the integrations created with JWT authentication or Service Principle."
+          },
+          "storage": {
+            "description" : "Asset stored on Adobe's cloud. </br> Not available for the integrations created with JWT authentication or Service Principle."
+          }
+        }
+      }
+    },
+    "options":{
+      "type":"object",
+      "properties":{
+        "optimize": {
+          "type": "string",
+          "enum":["performance","batch"],
+          "default": "performance",
+          "description": "The value 'performance' optimizes for speed. 'batch' ensures the job will ultimately run regardless of wait time"
+        },
+        "process": {
+          "type": "object",
+          "x-internal": true,
+          "description": "process is not available for the integrations created with JWT authentication or Service Principle.",
+          "properties": {
+            "postprocess": {
+              "type": "boolean"
+            }
+          }
+        },
+        "service": {
+          "type": "object",
+          "properties": {
+            "version": {
+              "type":"string",
+              "default": "4.0",
+              "description": "Version of the service"
+            }
+          }
+        }
+      }
+    },
+    "output":{
+      "type":"object",
+      "required":["href","storage"],
+      "properties":{
+        "href": {
+          "type": "string",
+          "minLength": 1
+        },
+        "storage": {
+          "type": "string",
+          "enum": [
+            "external",
+            "azure",
+            "dropbox",
+            "adobe"
+          ],
+          "default": "external"
+        },
+        "overwrite": {
+          "description": "If the file already exists, indicates if the output file should be overwritten. Only applies to files stored in Adobe storage.",
+          "type": "boolean",
+          "default": true
+        },
+        "color": {
+          "type":"object",
+          "required":["space"],
+          "properties":{
+            "space":{
+              "type":"string",
+              "enum":["rgba","rgb"],
+              "description": "Color space for the output image. Defaults to 'rgba for /cutout and 'rgb' for a /mask",
+              "example": "rgb"
+            }
+          }
+        },
+        "mask": {
+          "type":"object",
+          "required":["format"],
+          "properties":{
+            "format":{
+              "type":"string",
+              "enum":["soft","binary"],
+              "default": "soft",
+              "description": "A soft (feathered) mask or binary mask"
+            }
+          }
+        }
+      },
+      "if": {
+        "properties": {
+          "storage": {
+            "pattern": "(^azure|external|dropbox$)",
+            "description": "Asset stored on an external service (like AWS S3, Azure, Dropbox). If you are using presigned url for dropbox or azure, use `storage=\"dropbox\"` or `storage=\"azure\"` else it is `storage=\"external\"`"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "href": {
+            "type": "string",
+            "pattern": "^https://",
+            "description": "Any public url or a presignedURL for the asset output"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "href": {
+            "pattern": "^/?(temp|cloud-content|assets)/.+",
+            "description": "A string representing the path to the output file stored on Adobe's cloud.</br> Not available for the integrations created with JWT authentication or Service Principle."
+          },
+          "storage": {
+            "description" : "Asset stored on Adobe's cloud. </br> Not available for the integrations created with JWT authentication or Service Principle."
+          }
+        }
+      }
+    }
+  }
+}

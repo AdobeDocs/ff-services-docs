@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "api_response_402.schema.json",
+  "title": "api_response_402",
+  "description": "Provides API response",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "format": "string",
+      "description": "A short, human-readable summary of the problem",
+      "example": "Trial Limit Exceeded Error"
+    },
+    "type": {
+      "type": "string",
+      "format": "string",
+      "description": "A machine-readable error type",
+      "example": "TrialLimitExceededError"
+    },
+    "code": {
+      "type": "string",
+      "format": "string",
+      "description": "A machine-readable error code",
+      "example": 402
+    },
+    "details": {
+      "type": "string",
+      "description": "Further descriptions of the exact error where details is substituted for a specific issue.",
+      "example" : "You have exceeded the limit for the free trial.
+      To subscribe and get more API calls, check out our pricing page at https://developer.adobe.com/photoshop/api/pricing/"
+    }
+  }
+}
