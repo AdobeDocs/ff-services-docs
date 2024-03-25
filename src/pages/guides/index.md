@@ -49,7 +49,7 @@ contributors:
 hideBreadcrumbNav: true
 ---
 
-<Hero slots="heading, text" background="rgb(233, 80, 80)"/>
+<Hero slots="heading, text" background="rgb(233, 80, 80)"/> 
 
 # Adobe Firefly Services
 
@@ -68,7 +68,7 @@ This guide will assist you in:
 - Validating your credentials.
 - Constructing personalized workflows by chaining API calls to various endpoints within the Firefly Services APIs.
 
-<br/><br/><
+<br/><br/>
 <div style="display: flex; justify-content: center;"> <iframe width="560" height="315" src="https://adobe.ly/ffs-overview" title="Introduction to Adobe Express Add-ons" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> </div>
 
 ## Ready to get started?
