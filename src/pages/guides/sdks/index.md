@@ -56,7 +56,7 @@ The Firefly Services SDK is a comprehensive toolkit designed to streamline your 
 
 ## Get started 
 
-The SDK currently comprises four main modules.  
+The SDK currently comprises of four main modules.  
 
 - Common APIs 
 - Firefly APIs 
