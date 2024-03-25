@@ -41,11 +41,13 @@ hideBreadcrumbNav: true
 
 # Quickstart Guide
 
-This guide will show you how to make your first successful call to the Firefly Text-to-Image API.
+This guide will show you how to make your first successful call to the Firefly [Text to Image API](./api/image_generation/).
 
-Log into the [Adobe Developer Console](https://developer.adobe.com/console) using the profile that your admin created for you and create an access token. [Learn more](https://developer.adobe.com/firefly-services/docs/guides/get-started/#generate-an-api-key-and-access-token) about creating an access token.
+You need a valid API key and an access token to call the Firefly Text To Image endpoint. If you don't have an API key (aka: client id) or access token yet, visit the [Getting Started guide](https://developer.adobe.com/firefly-services/docs/guides/get-started/) for instructions.
 
-To call the Firefly text-to-image endpoint, you need a valid API key (aka: client_id) and an access token. To get an access token, use the following command:
+If you already have a project configured with Firefly Services in the [Adobe Developer Console](https://developer.adobe.com/console), you can generate an access token there, or use the credentials from it (client ID and client secret) to generate an access token with the following `curl` command, replacing the`{CLIENT_ID}` and `{CLIENT_SECRET}` values with your own.
+
+<!-- Log into the [Adobe Developer Console](https://developer.adobe.com/console) using the profile that your admin created for you and create an access token. [Learn more](https://developer.adobe.com/firefly-services/docs/guides/get-started/#generate-an-api-key-and-access-token-from-the-adobe-developer-console) about creating an access token. -->
 
 ```bash
 curl -X POST 'https://ims-na1.adobelogin.com/ims/token/v3' \
@@ -53,13 +55,15 @@ curl -X POST 'https://ims-na1.adobelogin.com/ims/token/v3' \
 -d 'grant_type=client_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
 ```
 
+<InlineAlert variant="warning" slots="text" />
+
 Access tokens expire every 24 hours and it is wise that you rotate them programmatically before they expire. The token endpoint above returns expiry information alongside the token itself. Read more about this in our [auth guide](./concepts/authentication/index.md). Once you have this token, you are ready to make your first request to the text-to-image endpoint.
 
 Now, replace your API key and access token in the example below, and you're all set to make your first request to the text-to-image endpoint.
 
 ## Request Headers
 
-* `X-Api-Key`: This is a required parameter -- provide your client ID from Console.
+* `X-Api-Key`: This is a required parameter -- provide your client ID from the Developer Console project.
 * `Authorization`: This is a required header -- provide your access token.
 * `Content-Type`: Specifies the media type of the request body.
 

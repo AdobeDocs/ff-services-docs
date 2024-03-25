@@ -98,14 +98,17 @@ Click **Add to Project** to add more APIs to the product profile in the same pro
 
 Repeat [Step 2](.//get-started.md#step-2-add-api-to-your-project) until you have added all these APIs:
 
- * Firefly – Firefly Services
- * Lightroom - Firefly Services
- * Photoshop - Firefly Services
- * Content Tagging - Firefly Services
+ - Firefly – Firefly Services
+ - Lightroom - Firefly Services
+ - Photoshop - Firefly Services
+ - Content Tagging - Firefly Services
 
 ### Step 5: Generate access token
 
-You can click **Generate an access token** for quick experimentation or click **view the cURL command** to learn how to generate access tokens programmatically. [Learn more](https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/implementation/) about how to do it. 
+Access tokens can be generated or refreshed in two ways:
+
+- Manual generation: Click **Generate an access token** for quick experimentation using the Developer Console
+- Programmatic generation: Click **view the cURL command** to learn how to generate access tokens programmatically. [Learn more](https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/implementation/) about how to do it. 
 
 #### Scopes
 
@@ -115,7 +118,7 @@ Click **View scopes per service** to understand the services and scopes associat
 
 ![scopes](..//guides/images/scopes.png)
 
-Sample cURL command:
+Sample cURL command for generating an access token programmatically:
 
 ``` bash
 curl -X POST 'https://ims-na1.adobelogin.com/ims/token/v3' \
@@ -123,9 +126,11 @@ curl -X POST 'https://ims-na1.adobelogin.com/ims/token/v3' \
 -d 'grant_type=client_credentials&client_id=<YOUR_CLIENT_ID>&client_secret=<YOUR_CLIENT_SECRET>&scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
 ```
 
-The selected APIs will be listed in the left-hand side under **APIS**. 
+#### API Key
 
 Grab your **API KEY (Client ID)** from the same screen. 
+
+The selected APIs will be listed in the left-hand side under **APIS**. 
 
 ![Generate Access Token](..//guides/images/generate-access-token.png)
 
@@ -137,19 +142,14 @@ Once you have created your access token, you can follow the steps below to make 
 
 1.	Open your terminal and paste the code below.
 2.	Replace the variables <YOUR_ACCESS_TOKEN> with the token you generated on the Adobe Developer Console.
-3.	Replace <YOUR_CLIENT_ID>. You can find this on the same page you generated your token on.
+3.	Replace <YOUR_CLIENT_ID>. You can find this on the [same page](get-started.md#api-key) you generated your token on.
 4.	Once all variables have been replaced you can run the command.
 
 ```bash
-curl -X POST \
-  https://firefly-api.adobe.io/v2/images/generate \
-  -H 'x-api-key: <YOUR_CLIENT_ID>' \
-  -H 'Authorization: <YOUR_ACCESS_TOKEN>' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "parameter1": "value1",
-    "parameter2": "value2"
-}'
+curl --request GET \
+  --url https://image.adobe.io/pie/psdService/hello \
+  --header "Authorization: Bearer <YOUR_ACCESS_TOKEN>" \
+  --header "x-api-key: <YOUR_CLIENT_ID>"
 ```
 
 Congratulations! You just made your first request to the Firefly services API.

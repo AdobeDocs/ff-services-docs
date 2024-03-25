@@ -14,6 +14,7 @@ keywords:
   - OAuth
   - API security
   - Access tokens
+  - Client secret
   - Authentication methods
   - User authentication
   - Client authentication
@@ -116,6 +117,6 @@ curl -X DELETE 'https://api.adobe.io/console/organizations/{orgId}/credentials/{
      -H 'x-api-key: {CLIENT ID}'
 ```
 
-:::warning
+<InlineAlert variant="warning" slots="text" />
+
 Once a client secret is deleted, you cannot restore it. So be extra sure you have replaced the old client secret with the new one in all locations.
-:::

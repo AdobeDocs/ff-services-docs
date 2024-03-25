@@ -15,7 +15,7 @@
       "/pie/psdService/status/{jobId}": {
         "get": {
           "summary": "Get Status",
-          "description": "This API is used for returning the status of a job for the following endpoints Create Rendition, Execute actionJSON, Replace SmartObject, Photoshop Actions, Product Crop, Execute Depth Blur, Edit Text, Apply PSD Edits, Create PSD, Create Artboard.Returns the status of a job. Please expand `200 Successful operation` under `Responses` to see the details of the status returned.",
+          "description": "This API is used for returning the status of a job for the following endpoints Create Rendition, Execute actionJSON, Replace SmartObject, Photoshop Actions, Product Crop, Execute Depth Blur, Edit Text, Apply PSD Edits, Create PSD, Create Artboard. Please expand `200 Successful operation` under `Responses` to see the details of the status returned.",
           "operationId": "pitsstatus",
           "parameters": [
             {
