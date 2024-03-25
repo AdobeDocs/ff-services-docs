@@ -57,9 +57,6 @@ Unleash boundless potential with Firefly Services' advanced AI and Creative Clou
 
 ## Overview
 
-<br/><br/><br/><br/>
-<div style="display: flex; justify-content: center;"> <iframe width="560" height="315" src="https://adobe.ly/ffs-overview" title="Introduction to Adobe Express Add-ons" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> </div>
-
 Welcome to Firefly Services, your solution for seamless content generation at scale. Our suite of APIs combines the power of Adobe's creative tools like Photoshop and Lightroom with cutting-edge AI/ML features like Content Tagging, Generative Fill, Text to Image and more.
 
 With Firefly Services, you're not just creating – you're automating, scaling your content production, and harnessing the latest AI/ML technologies to supercharge your workflows. 
@@ -70,6 +67,9 @@ This guide will assist you in:
 - Obtaining and authenticating with your credentials.
 - Validating your credentials.
 - Constructing personalized workflows by chaining API calls to various endpoints within the Firefly Services APIs.
+
+<br/><br/><
+<div style="display: flex; justify-content: center;"> <iframe width="560" height="315" src="https://adobe.ly/ffs-overview" title="Introduction to Adobe Express Add-ons" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> </div>
 
 ## Ready to get started?
 
