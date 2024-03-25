@@ -53,19 +53,19 @@ Explore our tutorials page for comprehensive guidance.
 
 ### API References
 
-[Firefly API](../../firefly-api/)
+[Firefly API](../firefly-api/)
 
 Integrate generative AI into your creative workflows.
 
 <DiscoverBlock slots="link, text"/>
 
-[Lightroom API](../../lightroom/)
+[Lightroom API](../lightroom/)
 
 Unlock the potential of Lightroom in the cloud.
 
 <DiscoverBlock slots="link, text"/>
 
-[Photoshop API](../../photoshop/)
+[Photoshop API](../photoshop/)
 
 Unlock the potential of Photoshop in the cloud.
 
