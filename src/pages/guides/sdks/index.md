@@ -44,13 +44,19 @@ The Firefly Services SDK is a comprehensive toolkit designed to streamline your 
 
 ## Key features
 
-* Lightweight wrapper: The SDK offers a lightweight wrapper that simplifies the integration process, allowing you to focus on building great applications. Our SDK saves you valuable time and effort by handling the complex implementation details.
+- Lightweight wrapper: The SDK offers a lightweight wrapper that simplifies the integration process, allowing you to focus on building great applications. Our SDK saves you valuable time and effort by handling the complex implementation details.
 
-* Comprehensive modules: From text-to-image generation, the SDK covers a wide range of capabilities. 
+- Unified API Access: The SDK adheres to a consistent design pattern, enhancing developer comprehension and interaction with diverse product services.
+
+- TypeScript Support: Developed in TypeScript, the JS SDK enables developers to leverage TypeScript’s capabilities, such as static type-checking and code autocomplete.
+
+- Common Utility Package: This API package offers a range of utility APIs, including authentication APIs, to facilitate interaction with various product services.
+
+- Comprehensive Documentation: Each package within the SDK is accompanied by thorough documentation and sample code, aiding developers in quick initiation and effective utilization of the SDK. 
 
 ## Get started 
 
-`Place holder insert_hierarchical_diagram`
+![Hierarchical diagram](../images/ff-services-sdk.png) 
 
 The SDK currently comprises four main modules.  
 
@@ -59,10 +65,10 @@ The SDK currently comprises four main modules.
 - Photoshop APIs 
 - Lightroom APIs 
 
-To begin, get your clientId, clientSecret from the Developer Console, follow the instructions provided in [getting started](../get-started.md) page for assistance. Once you have the clientId, clientSecret, use the Common API `util` to set up your credentials and generate server-to-server Oauth token from your application. 
+To begin, get your `clientId`, `clientSecret` from the Developer Console, follow the instructions provided in [getting started](../get-started.md) page for assistance. Once you have the `clientId`, `clientSecret`, use the Common API `util` to set up your credentials and generate server-to-server Oauth token from your application. 
 
 ### Installation 
 
-For detailed instructions, refer to the [`README`](https://github.com/Firefly-Services/firefly-services-sdk-js) and explore the [SDK API references](https://github.com/Firefly-Services/firefly-services-sdk-js?tab=readme-ov-file#adding-firefly-services-sdk-packages-into-the-project) or use our [sample code](https://github.com/Firefly-Services/firefly-services-sdk-js/tree/main/examples/javascript) to quickly get started with integrating our SDK into your projects. 
+For detailed instructions, refer to the [`README`](https://github.com/Firefly-Services/firefly-services-sdk-js) and explore the [SDK API references](https://github.com/Firefly-Services/firefly-services-sdk-js?tab=readme-ov-file#firefly-services-sdk-packages) or use our [sample code](https://github.com/Firefly-Services/firefly-services-sdk-js/tree/main/examples/javascript) to quickly get started with integrating our SDK into your projects. 
 
 The SDK is currently available for `Node.js` and `TypeScript`.
