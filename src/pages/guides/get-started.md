@@ -67,6 +67,7 @@ If you have already been provisioned with access through your organization, you 
 
 1. Go to [https://developer.adobe.com/console/home](https://developer.adobe.com/console/home) and sign in to the Developer Console.
 2. Select **Create new project** under the **Quick start** section on the middle of your screen:
+
 ![Create a new project](../guides/images/create-a-new-proj.png)
 
 ### Step 2: Add API to your project
