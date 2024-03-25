@@ -1,9 +1,8 @@
 ---
-title: Firefly Services - SDKs
+title: Firefly Services SDK
 description: The Firefly Services SDK is a comprehensive toolkit designed to streamline your integration with Firefly Services.
 keywords:
   - Adobe Firefly Services
-  - SDKs
   - Firefly
   - Firefly SDK
   - Firefly Services SDK
@@ -34,7 +33,7 @@ contributors:
 hideBreadcrumbNav: true
 ---
 
-# SDKs
+# Firefly Services SDK
 
 Everything you need to know to get started with the Firefly Services SDK.
 
