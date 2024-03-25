@@ -96,7 +96,7 @@ Click **Add to Project** to add more APIs to the product profile in the same pro
 
 ![Add to Project](..//guides/images/add-to-proj.png)
 
-Repeat [Step 2](.//get-started.md#step-2-add-api-to-your-project) until you have added all these APIs:
+Repeat [Step 2](./get-started.md#step-2-add-api-to-your-project) until you have added all these APIs:
 
  * Firefly – Firefly Services
  * Lightroom - Firefly Services
