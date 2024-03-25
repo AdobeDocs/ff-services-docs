@@ -64,7 +64,7 @@ The SDK currently comprises of four main modules.
 
 ![Hierarchical diagram](../images/ff-services-sdk.png) 
 
-To begin, get your `clientId`, `clientSecret` from the [Developer Console](https://developer.adobe.com/console/home), follow the instructions provided in [getting started](../get-started.md) page for assistance. Once you have the `clientId`, `clientSecret`, use the Common API `util` to set up your credentials and generate server-to-server Oauth token from your application. 
+To begin, get your `clientId`, `clientSecret` from the [Developer Console](https://developer.adobe.com/console/home), follow the instructions provided in [getting started](../get-started.md) page for assistance. Once you have the `clientId`, `clientSecret`, you can use authentication APIs in the common package to generate server-to-server Access token for your application.
 
 ### Installation 
 
