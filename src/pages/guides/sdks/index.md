@@ -56,14 +56,14 @@ The Firefly Services SDK is a comprehensive toolkit designed to streamline your 
 
 ## Get started 
 
-![Hierarchical diagram](../images/ff-services-sdk.png) 
-
 The SDK currently comprises four main modules.  
 
 - Common APIs 
 - Firefly APIs 
 - Photoshop APIs 
 - Lightroom APIs 
+
+![Hierarchical diagram](../images/ff-services-sdk.png) 
 
 To begin, get your `clientId`, `clientSecret` from the Developer Console, follow the instructions provided in [getting started](../get-started.md) page for assistance. Once you have the `clientId`, `clientSecret`, use the Common API `util` to set up your credentials and generate server-to-server Oauth token from your application. 
 
