@@ -170,7 +170,7 @@ Explore our [tutorials](./tutorials/) for comprehensive guidance.
 
 [SDK](../guides/sdks/)
 
-Explore our unified client SDKs. 
+Explore our Firefly Services SDK. 
 
 <DiscoverBlock slots="link, text"/>
 

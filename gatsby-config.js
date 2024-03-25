@@ -61,7 +61,7 @@ module.exports = {
         ]
       },                 
       {
-        title: 'SDKs',
+        title: 'SDK',
         path: '/guides/sdks'
       },
       ///////////////////////////////////////////////

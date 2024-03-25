@@ -74,7 +74,7 @@ This guide will assist you in:
 
 - Begin by navigating to the [Getting Started guide](./get-started.md) to get set up and obtain your credentials.
 - Next, check out our [in-depth tutorial](./tutorials/create-product-images-with-ff.md) which will walk you step-by-step through creating your first app leveraging the Firefly Services APIs.
-- Check out our [SDKs](./sdks/), which provide a comprehensive toolkit to streamline your integration with Firefly Services.
+- Check out our [SDK](./sdks/), which provide a comprehensive toolkit to streamline your integration with Firefly Services.
 
 ## Discover
 
