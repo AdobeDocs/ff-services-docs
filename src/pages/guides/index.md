@@ -75,7 +75,7 @@ This guide will assist you in:
 
 - Begin by navigating to the [Getting Started guide](./get-started.md) to get set up and obtain your credentials.
 - Next, check out our [in-depth tutorial](./tutorials/create-product-images-with-ff.md) which will walk you step-by-step through creating your first app leveraging the Firefly Services APIs.
-- Check out our [SDKs](sdks.md), which provide a comprehensive toolkit to streamline your integration with Firefly Services.
+- Check out our [SDKs](./sdks/), which provide a comprehensive toolkit to streamline your integration with Firefly Services.
 
 ## Discover
 
@@ -83,7 +83,7 @@ This guide will assist you in:
 
 ### Get Started
 
-[Getting Started Guide](../get-started.md)
+[Getting Started Guide](./get-started.md)
 
 Get started with the Adobe Firefly Services.
 
@@ -97,19 +97,19 @@ Explore our tutorials page for comprehensive guidance.
 
 ### API References
 
-[Firefly API](../../firefly-api/)
+[Firefly API](../firefly-api/)
 
 Integrate generative AI into your creative workflows.
 
 <DiscoverBlock slots="link, text"/>
 
-[Lightroom API](../../lightroom/)
+[Lightroom API](../lightroom/)
 
 Unlock the potential of Lightroom in the cloud.
 
 <DiscoverBlock slots="link, text"/>
 
-[Photoshop API](../../photoshop/)
+[Photoshop API](../photoshop/)
 
 Unlock the potential of Photoshop in the cloud.
 
