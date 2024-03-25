@@ -49,7 +49,7 @@ Microsoft's [Power Automate](https://make.powerautomate.com) is a powerful no-co
 
 To complete this tutorial, you will need:
 
-* Firefly API credentials. If you don't have them yet, first visit the [Firefly Services Getting Started guide](https://developer.adobe.com/firefly-services/docs/guides/get-started/) to obtain a `client_id` and `client_secret`.
+* Firefly API credentials. If you don't have them yet, first visit the [Firefly Services Getting Started guide](./guides/get-started.md/) to obtain a `client_id` and `client_secret`.
 * An account with Microsoft and access to Power Automate. 
 
 ## Workflow

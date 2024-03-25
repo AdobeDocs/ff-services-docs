@@ -64,10 +64,10 @@ If we start with just three products but add two prompts, four sizes, and three 
 
 Before attempting to run this demo yourself, you'll need a few things.
 
-* You will need a set of credentials for Firefly Services. You can get those [here](LINK TBA)
+* You will need a set of credentials for Firefly Services. You can get those [here](../guides/get-started.md).
 * As part of the workflow, we use cloud storage to hold files the Photoshop API uses. For this demo, we used Dropbox, so you will need credentials to work with their API, including the app key, app secret, and refresh token.
 * The code with Dropbox does all of its work under one folder named `FFProcess`. This is conveniently set as a variable that can be modified. 
-* This demo uses a few demo assets that will be described as the process is documented. Everything  required to run this demo (minus credentials, of course) can be grabbed from this [zip file](LINK TBA)
+* This demo uses a few demo assets that will be described as the process is documented. Everything  required to run this demo (minus credentials, of course) can be grabbed from this [zip file](static/process.zip).
 * The code in this demo uses Python, but any programming language can work with the REST APIs.
 
 ## The Workflow
@@ -85,7 +85,7 @@ Before digging into the code, let's break down the process.
 3. Remove Background from Product Images: For each product image, remove the background.
 4. Generate Images Based on Prompts: For each prompt, generate an image.
 5. Expand Images to Desired Sizes: For each prompt-generated image, expand to the desired sizes.
-6. Use Photoshop API and PSD(Photoshop Document) template:
+6. Use Photoshop API and PSD (Photoshop Document) template:
     -   For each language and product shot:
         - Input resized images from step 5.
         - Input product without background from step 3.
@@ -197,7 +197,7 @@ The `client_id` and `client_secret` from our Firefly Services credentials are pa
 
 Later in our workflow, we will use a prompt to generate a new image. However, we also want that image to be based on a source image. This is one of the powerful ways the Firefly API lets you guide the content it creates. 
 
-By using the [Upload image API](https://developer.adobe.com/firefly-api/api/#operation/v2/storage/image) endpoint, we can provide a source image for reference later. 
+By using the [Upload image API](../firefly-api/guides/api/upload_image/index.md) endpoint, we can provide a source image for reference later. 
 
 Here's a utility method that wraps that endpoint:
 
@@ -260,7 +260,7 @@ for product in products:
 
 For each product, we upload and create a link. As these methods just wrap calls to the Dropbox SDK we'll skip showing them here, but they are available in the full code below. Notice however we're storing the products in an `input` folder (beneath our base folder). To create the version without the background, we create a writeable link to the `knockout` folder. 
 
-Now that we have our product in the cloud storage, a link to that product, and a way to write the output, we can call the Photoshop [Remove Background API](https://developer.adobe.com/photoshop/photoshop-api-docs/api/#tag/Photoshop/operation/cutout). This is done in a utility method that accepts both links and credential information:
+Now that we have our product in the cloud storage, a link to that product, and a way to write the output, we can call the Photoshop [Remove Background API](../photoshop/api/photoshop_removeBackground.md). This is done in a utility method that accepts both links and credential information:
 
 ```python
 def createRemoveBackgroundJob(input, output, id, token):
@@ -360,7 +360,7 @@ def textToImage(text, imageId, id, token):
 	return response.json()["outputs"][0]["image"]["id"]
 ```
 
-This method is passed two main arguments (ignoring the credentials) - `text` and `imageId`, representing our prompt and reference image. You can see in `data` where these values are passed in. Finally, this is passed to the Firefly [Text-to-image](https://developer.adobe.com/firefly-api/api/#operation/v2/images/generate) API endpoint. The result, in this case only the ID of the image, is returned. We ignore the actual result URL as we just need the ID. You'll see why soon.
+This method is passed two main arguments (ignoring the credentials) - `text` and `imageId`, representing our prompt and reference image. You can see in `data` where these values are passed in. Finally, this is passed to the Firefly [Text-to-image](src/pages/firefly-api/guides/api/image_generation/index.md) API endpoint. The result, in this case only the ID of the image, is returned. We ignore the actual result URL as we just need the ID. You'll see why soon.
 
 ### Expand images to desired sizes 
 
@@ -404,7 +404,7 @@ def generativeExpand(imageId, size, id, token):
 	return response.json()["images"][0]["image"]["presignedUrl"]
 ```
 
-This method wraps the [Generative Expand API](https://developer.adobe.com/firefly-api/api/#operation/v1/images/expand). It needs both the image resource to expand (which we got from the initial text-to-image prompt) and the desired size. In this case, we need a link to the result so the URL is returned.
+This method wraps the [Generative Expand API](../firefly-api/guides/api/generative_expand/index.md). It needs both the image resource to expand (which we got from the initial text-to-image prompt) and the desired size. In this case, we need a link to the result so the URL is returned.
 
 As an example, given the prompt `placed on a futuristic table, blue orange and neon cyberpunk backgrounds, gradients, blurry background out of focus`, the original Firefly generated image was expanded for all four sizes. Here are two examples:
 
@@ -525,7 +525,7 @@ def createOutput(psd, koProduct, sizes, sizeUrls, outputs, text, id, token):
 	return response.json()
 ```
 
-This is a reasonably hefty method. As a whole, this code wraps calls to the [Apply PSD Edits](https://developer.adobe.com/photoshop/photoshop-api-docs/api/#tag/Photoshop/operation/documentOperations) Photoshop API. 
+This is a reasonably hefty method. As a whole, this code wraps calls to the [Apply PSD Edits](src/pages/photoshop/api/photoshop_applyPsdEdits.md) Photoshop API. 
 
 It creates a reasonably large JSON object that includes information on the new images for backgrounds and products. 
 

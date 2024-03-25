@@ -53,7 +53,7 @@ hideBreadcrumbNav: true
 
 # Adobe Firefly Services
 
-Unleash boundless potential with Firefly Services' advanced AI and Creative Cloud APIs.
+Unleash boundless potential with Firefly Services advanced AI and Creative Cloud APIs.
 
 ## Overview
 
