@@ -62,7 +62,7 @@ Let's get started!
 
 Before we begin, make sure you have the following:
 
--   Firefly API credentials. If you don't have them yet, first visit the [Firefly Services Getting Started guide](./guides/get-started.md/) to obtain a `client_id` and `client_secret`.
+-   Firefly API credentials. If you don't have them yet, first visit the Firefly Services [Getting Started](../../../guides/get-started.md) guide to obtain a `client_id` and `client_secret`.
 -   `Node.js` or `Python` installed on your machine and basic familiarity with `JavaScript` or `Python`.
 
 ## Step 1: Set Up Your Environment
@@ -153,7 +153,7 @@ In this case, we will focus on the Text-to-image functionality, which includes o
 
 <InlineAlert variant="help" slots="text" />
 
-Please refer to the [Text-to-image with optional generative](https://developer.adobe.com/firefly-api/api/#operation/v2/images/generate) match section in the API Reference for more details.
+Please refer to the [Text-to-image](../api/generative_expand/index.md) with optional generative match section in the API Reference for more details.
 
 Based on the docs, we can see that the only required parameter is prompt. Also, the `n` prompt specifies how many images we want. So the simplest request body we could build would look like so:
 

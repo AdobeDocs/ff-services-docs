@@ -64,10 +64,10 @@ If we start with just three products but add two prompts, four sizes, and three 
 
 Before attempting to run this demo yourself, you'll need a few things.
 
-* You will need a set of credentials for Firefly Services. You can get those [here](../guides/get-started.md).
+* You will need a set of credentials for Firefly Services. You can get those [here](../get-started.md).
 * As part of the workflow, we use cloud storage to hold files the Photoshop API uses. For this demo, we used Dropbox, so you will need credentials to work with their API, including the app key, app secret, and refresh token.
 * The code with Dropbox does all of its work under one folder named `FFProcess`. This is conveniently set as a variable that can be modified. 
-* This demo uses a few demo assets that will be described as the process is documented. Everything  required to run this demo (minus credentials, of course) can be grabbed from this [zip file](static/process.zip).
+* This demo uses a few demo assets that will be described as the process is documented. Everything  required to run this demo (minus credentials, of course) can be grabbed from this [zip file](/firefly-services/docs/process.zip).
 * The code in this demo uses Python, but any programming language can work with the REST APIs.
 
 ## The Workflow
@@ -197,7 +197,7 @@ The `client_id` and `client_secret` from our Firefly Services credentials are pa
 
 Later in our workflow, we will use a prompt to generate a new image. However, we also want that image to be based on a source image. This is one of the powerful ways the Firefly API lets you guide the content it creates. 
 
-By using the [Upload image API](../firefly-api/guides/api/upload_image/index.md) endpoint, we can provide a source image for reference later. 
+By using the [Upload image API](/firefly-api/guides/api/upload_image.md) endpoint, we can provide a source image for reference later. 
 
 Here's a utility method that wraps that endpoint:
 
@@ -260,7 +260,7 @@ for product in products:
 
 For each product, we upload and create a link. As these methods just wrap calls to the Dropbox SDK we'll skip showing them here, but they are available in the full code below. Notice however we're storing the products in an `input` folder (beneath our base folder). To create the version without the background, we create a writeable link to the `knockout` folder. 
 
-Now that we have our product in the cloud storage, a link to that product, and a way to write the output, we can call the Photoshop [Remove Background API](../photoshop/api/photoshop_removeBackground.md). This is done in a utility method that accepts both links and credential information:
+Now that we have our product in the cloud storage, a link to that product, and a way to write the output, we can call the Photoshop [Remove Background API](../api/photoshop_removeBackground.md). This is done in a utility method that accepts both links and credential information:
 
 ```python
 def createRemoveBackgroundJob(input, output, id, token):
