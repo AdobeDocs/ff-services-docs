@@ -15,7 +15,7 @@
     "/lrService/autoTone": {
       "post": {
         "summary": "Auto Tone",
-        "description": "Initiates an asynchronous job to applu Auto Tone to an image. To check the status of this process, utilize the `Get Status` endpoint.",
+        "description": "Initiates an asynchronous job to apply Auto Tone to an image. To check the status of this process, utilize the `Get Status` endpoint.",
         "operationId": "autoTone",
         "parameters": [
           {
