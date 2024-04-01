@@ -12,10 +12,10 @@
   ],
   "security": [],
   "paths": {
-    "/lrService/autoStraighten": {
+    "/lrService/autoTone": {
       "post": {
         "summary": "Auto Tone",
-        "description": "This endpoint initiates an asynchronous job to auto straighten an image. To check the status of this process, utilize the `Get Status` endpoint.",
+        "description": "Initiates an asynchronous job to applu Auto Tone to an image. To check the status of this process, utilize the `Get Status` endpoint.",
         "operationId": "autoTone",
         "parameters": [
           {
@@ -97,7 +97,7 @@
             }
           },
           "403": {
-            "description": "Unauthorized",
+            "description": "Forbidden",
             "content": {
               "application/json": {
                 "schema": {
@@ -143,7 +143,7 @@
         "x-codeSamples": [
           {
             "lang": "shell",
-            "source": "curl --request POST \\\n  --url https://image.adobe.io/lrService/autoTone \\\n  --header 'Authorization: Bearer $token' \\\n  --header 'content-type: application/json' \\\n  --header 'x-api-key: $x-api-key' \\\n  --data '{\"inputs\":{\"href\":\"string\",\"storage\":\"external\"},\\\n\"options\":{\"uprightMode\":\"full\",\"constrainCrop\":false},\"outputs\":[{\"href\":\"string\",\"storage\":\"external\",\"type\":\"image/jpeg\"}]}'"
+            "source": "curl --request POST \\\n  --url https://image.adobe.io/lrService/autoTone \\\n  --header 'Authorization: Bearer $token' \\\n  --header 'content-type: application/json' \\\n  --header 'x-api-key: $x-api-key' \\\n  --data '{\"inputs\":{\"href\":\"string\",\"storage\":\"external\"},\"outputs\":[{\"href\":\"string\",\"storage\":\"external\",\"type\":\"image/jpeg\"}]}'"
           }
         ]
       }
