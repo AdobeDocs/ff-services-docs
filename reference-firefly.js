@@ -57,15 +57,15 @@ module.exports = [
                 path: "/firefly-api/guides/api/upload_image/"
               },
               {
-                title: "generateImages",
+                title: "Generate Images",
                 path: "/firefly-api/guides/api/image_generation/"
               },
               {
-                title: "expandImage",
+                title: "Expand Image",
                 path: "/firefly-api/guides/api/generative_expand/"
               },
               {
-                title: "fillImage",
+                title: "Fill Image",
                 path: "/firefly-api/guides/api/generative_fill/"
               }
         ]

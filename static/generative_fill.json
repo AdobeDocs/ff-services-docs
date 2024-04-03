@@ -19,7 +19,7 @@
   "paths": {
     "/v1/images/fill": {
       "post": {
-        "summary": "Fill Image API",
+        "summary": "fillImage",
         "description": "Fill the masked area of an image with an optional prompt.",
         "operationId": "fillImagesV1",
         "requestBody": {
@@ -403,15 +403,15 @@
         "properties": {
           "image": {
             "type": "object",
-            "description": "A valid Storage Item containing both an internal ID and a pre-signed URL",
+            "description": "A valid Storage Item containing both an internal ID and a pre-signed URL.",
             "properties": {
               "presignedUrl": {
                 "type": "string",
-                "description": "Signed URL of the generated image"
+                "description": "Signed URL of the generated image.<br><strong>Note:</strong> This URL is valid for one hour."
               },
               "id": {
                 "type": "string",
-                "description": "Unique ID associated with the generated image"
+                "description": "Unique ID associated with the generated image.<br><strong>Note:</strong> The ID of the generated image will remain valid for 24 hours."
               }
             }
           },

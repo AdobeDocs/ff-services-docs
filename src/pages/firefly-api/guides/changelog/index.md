@@ -35,7 +35,7 @@ hideBreadcrumbNav: true
 
 ### Added
 
-* Text-to-image API with generative match
+* generateImages API with generative match
 * Generative Expand API
 * Generative Fill API
 * Upload API
@@ -44,16 +44,16 @@ hideBreadcrumbNav: true
 
 ### Added
 
-* You can now use the latest image model (clio v2) by setting header `x-api-variant` to `v2`. It will be set to `v2` by default.
-* Styles are documented in the API references as well as the new [styles guide](../concepts/styles/index.md)
+* You can now use the latest image model by setting header `x-api-variant` to `v2`. It will be set to `v2` by default.
+* Styles are documented in the API references as well as the new [styles guide](../concepts/styles/index.md).
   
 ## October 26, 2023
 
 ### Overview
 
-We're excited to announce the release of our text-to-image API v1.0, the first major Firefly API release.
+We're excited to announce the release of our generateImages API v1.0, the first major Firefly API release.
 
-* Styles and content classes using [`clio` v1](https://clio-assets.adobe.com/firefly/image-controls/v1/content.json)
+* Styles and content classes using the [v1 model](https://clio-assets.adobe.com/firefly/image-controls/v1/content.json)
 * Generate images according to a text prompt
 * Output types:
   * `application/json` (base64-encoded representation of the image data)

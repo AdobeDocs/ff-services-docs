@@ -19,7 +19,7 @@
   "paths": {
     "/v2/images/generate": {
       "post": {
-        "summary": "Text to Image API",
+        "summary": "generateImages",
         "description": "Generate images based on a prompt with optional reference image to match style.",
         "operationId": "generateImagesV2",
         "requestBody": {
@@ -435,11 +435,11 @@
             "properties": {
               "presignedUrl": {
                 "type": "string",
-                "description": "Signed URL of the generated image"
+                "description": "Signed URL of the generated image.<br><strong>Note:</strong> This URL is valid for one hour."
               },
               "id": {
                 "type": "string",
-                "description": "Unique ID associated with the generated image"
+                "description": "Unique ID associated with the generated image.<br><strong>Note:</strong> The ID of the generated image will remain valid for 24 hours."
               }
             }
           },

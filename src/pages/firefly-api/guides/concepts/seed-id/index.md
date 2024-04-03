@@ -40,7 +40,7 @@ These IDs, represented as strings of numbers, are the key to associating images 
 
 ## Generating Similar Images using Seed IDs
 
-Seed IDs are the secret sauce to generating images with similar styles. For instance, when using the [text-to-image](../../api/image_generation/index.md) feature to create multiple images, you can leverage the seed ID of a preferred image in subsequent API calls. This will result in more images that mirror its style, giving you a batch of images with a consistent aesthetic.
+Seed IDs are the secret sauce to generating images with similar styles. For instance, when using the [generateImages](../../api/image_generation/index.md) feature to create multiple images, you can leverage the seed ID of a preferred image in subsequent API calls. This will result in more images that mirror its style, giving you a batch of images with a consistent aesthetic.
 
 ## Optional Usage and Requirements
 
