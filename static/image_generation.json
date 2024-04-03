@@ -19,7 +19,7 @@
   "paths": {
     "/v2/images/generate": {
       "post": {
-        "summary": "Text to Image API",
+        "summary": "generateImages",
         "description": "Generate images based on a prompt with optional reference image to match style.",
         "operationId": "generateImagesV2",
         "requestBody": {

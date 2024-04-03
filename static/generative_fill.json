@@ -19,7 +19,7 @@
   "paths": {
     "/v1/images/fill": {
       "post": {
-        "summary": "Fill Image API",
+        "summary": "fillImage",
         "description": "Fill the masked area of an image with an optional prompt.",
         "operationId": "fillImagesV1",
         "requestBody": {
@@ -403,7 +403,7 @@
         "properties": {
           "image": {
             "type": "object",
-            "description": "A valid Storage Item containing both an internal ID and a pre-signed URL",
+            "description": "A valid Storage Item containing both an internal ID and a pre-signed URL.",
             "properties": {
               "presignedUrl": {
                 "type": "string",

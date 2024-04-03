@@ -57,9 +57,9 @@ curl -X POST 'https://ims-na1.adobelogin.com/ims/token/v3' \
 
 <InlineAlert variant="warning" slots="text" />
 
-Access tokens expire every 24 hours and it is wise that you rotate them programmatically before they expire. The token endpoint above returns expiry information alongside the token itself. Read more about this in our [auth guide](./concepts/authentication/index.md). Once you have this token, you are ready to make your first request to the text-to-image endpoint.
+Access tokens expire every 24 hours and it is wise that you rotate them programmatically before they expire. The token endpoint above returns expiry information alongside the token itself. Read more about this in our [auth guide](./concepts/authentication/index.md). Once you have this token, you are ready to make your first request to the generateImages endpoint.
 
-Now, replace your API key and access token in the example below, and you're all set to make your first request to the text-to-image endpoint.
+Now, replace your API key and access token in the example below, and you're all set to make your first request to the generateImages endpoint.
 
 ## Request Headers
 
@@ -124,7 +124,7 @@ To learn more about each response code, head over to the [**Try it** (Responses)
 
 ### Rate Limits
 
-Read more about the text-to-image API's throttling limits [here](./concepts/rate-limits/index.md)
+Read more about the generateImages API's throttling limits [here](./concepts/rate-limits/index.md)
 
 ## Try it yourself
 

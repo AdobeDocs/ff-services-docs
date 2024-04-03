@@ -35,7 +35,7 @@ hideBreadcrumbNav: true
 
 ### Added
 
-* Text-to-image API with generative match
+* generateImages API with generative match
 * Generative Expand API
 * Generative Fill API
 * Upload API
@@ -51,7 +51,7 @@ hideBreadcrumbNav: true
 
 ### Overview
 
-We're excited to announce the release of our text-to-image API v1.0, the first major Firefly API release.
+We're excited to announce the release of our generateImages API v1.0, the first major Firefly API release.
 
 * Styles and content classes using the [v1 model](https://clio-assets.adobe.com/firefly/image-controls/v1/content.json)
 * Generate images according to a text prompt

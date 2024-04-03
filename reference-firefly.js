@@ -53,21 +53,21 @@ module.exports = [
         path: '/firefly-api/guides/api/upload_image',
         pages: [
             {
-                title: "Upload Image",
+                title: "Upload",
                 path: "/firefly-api/guides/api/upload_image/"
-            },
-            {
-                title: "Text to Image",
+              },
+              {
+                title: "Generate Images",
                 path: "/firefly-api/guides/api/image_generation/"
-            },
-            {
-                title: "Generative Expand",
+              },
+              {
+                title: "Expand Image",
                 path: "/firefly-api/guides/api/generative_expand/"
-            },
-            {
-                title: "Generative Fill",
+              },
+              {
+                title: "Fill Image",
                 path: "/firefly-api/guides/api/generative_fill/"
-            }
+              }
         ]
     },
     {
