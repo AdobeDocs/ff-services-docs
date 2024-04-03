@@ -19,7 +19,7 @@
   "paths": {
     "/v2/images/generate": {
       "post": {
-        "summary": "generateImages",
+        "summary": "Generate Images",
         "description": "Generate images based on a prompt with optional reference image to match style.",
         "operationId": "generateImagesV2",
         "requestBody": {
