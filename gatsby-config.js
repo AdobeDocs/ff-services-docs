@@ -124,7 +124,7 @@ module.exports = {
             path: "/firefly-api/guides/api/upload_image/"
           },
           {
-            title: "Generate mages",
+            title: "Generate Images",
             path: "/firefly-api/guides/api/image_generation/"
           },
           {
