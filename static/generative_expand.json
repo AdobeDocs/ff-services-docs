@@ -19,7 +19,7 @@
   "paths": {
     "/v1/images/expand": {
       "post": {
-        "summary": "expandImage",
+        "summary": "Exapand Image",
         "description": "Expand an image to a new size/aspect ratio.",
         "operationId": "expandImagesV1",
         "parameters": [
