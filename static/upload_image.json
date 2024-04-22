@@ -12,8 +12,8 @@
   ],
   "security": [
     {
-        "X-ApiKey": [],
-        "Access token": []
+        "X-Api-Key": [],
+        "AccessToken": []
     }
 ],
   "paths": {
@@ -147,12 +147,12 @@
   },
   "components": {
     "securitySchemes": {
-      "X-ApiKey": {
+      "X-Api-Key": {
         "type": "apiKey",
         "name": "x-api-key",
         "in": "header"
       },
-      "Access token": {
+      "AccessToken": {
         "type": "http",
         "scheme": "bearer"
       }

@@ -15,25 +15,25 @@ Here's a compilation of the features currently supported within the Adobe Lightr
 
 ## Auto Tone
 
-The Auto Tone feature in Lightroom Classic utilizes an AI/ML model trained to adjust slider values automatically, enhancing images based on their content. It identifies elements within the image and adjusts Exposure, Contrast, Highlights, Shadows, Whites, Blacks, Saturation, and Vibrance accordingly, resulting in striking photos. You can find a code sample [here.](../code-sample/#autotone-an-image)<br />
+The Auto Tone feature in Lightroom Classic utilizes an AI/ML model trained to adjust slider values automatically, enhancing images based on their content. It identifies elements within the image and adjusts Exposure, Contrast, Highlights, Shadows, Whites, Blacks, Saturation, and Vibrance accordingly, resulting in striking photos. You can find a code sample [here.](../code-sample/index.md#auto-tone-an-image-through-the-lightroom-api)<br />
 
 In this example, we automatically adjusted the photo using the AutoTone API.
 ![alt image](./autotone_example.png?raw=true "Original Image")
 
 ## Auto Straighten
 
-This endpoint applies the Auto Upright transformation on an image. You can find a code sample [here.](../code-sample/#autostraighten-an-image)
+This endpoint applies the Auto Upright transformation on an image. You can find a code sample [here.](../code-sample/index.md#autostraighten-an-image)
 
 ## Apply Presets
 
-Apply one or more XMP Lightroom Presets to an image, by referencing Preset file(s) stored on the cloud. You can find a code sample [here.](../code-sample/#apply-presets-to-an-image)
+Apply one or more XMP Lightroom Presets to an image, by referencing Preset file(s) stored on the cloud. You can find a code sample [here.](../code-sample/index.md#apply-presets-to-an-image)
 
 A Preset file can be created by editing an image in Lightroom and exporting it as a `.xmp` file. You can learn more about creating presets [here](https://creativecloud.adobe.com/en-LU/learn/lightroom-cc/web/create-your-own-presets)
 
 ### How to create an XMP file
 If you need to create an `.xmp` file from a set of slider values obtained directly from a user, you can start with the empty `.xmp` file [here](https://github.com/AdobeDocs/cis-photoshop-api-docs/blob/main/sample-code/lr-sample-app/crs.xml) and add the corresponding slider values.
 
-You can find a code sample [here](../code-sample/#apply-edits-to-an-image).
+You can find a code sample [here](../code-sample/index.md#apply-edits-to-an-image).
 
 In this example, we are applying the Preset called "Aged Photo" to automatically make the adjustments.
 ![alt image](./preset_example.png?raw=true "Original Image")
@@ -66,7 +66,7 @@ This endpoint enables you to programmatically adjust values within the Lightroom
 | Texture                           |
 
 ## Apply XMP
-Apply a Lightroom preset to an image, by passing in the preset XMP contents inline through the API. Code sample [here](../code-sample/#apply-xmp-to-an-image)
+Apply a Lightroom preset to an image, by passing in the preset XMP contents inline through the API. Code sample [here](../code-sample/index.md#apply-xmp-to-an-image)
 
 
 ## Using Webhooks through Adobe I/O Events
@@ -84,7 +84,7 @@ As the names indicate, these event types represent events triggered by the indiv
 Prerequisites needed to use the Event Provider
 
 1. In order to use the Adobe I/O Events you will need to create a project on Adobe I/O Console.
-2. You can follow the steps listed in [Getting Started](../guides/getting-started.md) page if you haven't created one yet.
+2. You can follow the steps listed in [Getting Started](../../guides/get-started.md) page if you haven't created one yet.
 3. You can learn more about createing a Webhook application [here.](https://www.adobe.io/apis/experienceplatform/events/docs.html#!adobedocs/adobeio-events/master/intro/webhooks_intro.md) This page provides all of the details you will need to build a basic application. 
 
 
@@ -94,4 +94,4 @@ Once the above prerequisites are met, you can now proceed to register the webhoo
 After the webhook has been successfully registered, you will start to receive the events for any submitted job that either succeeded or failed, from the Event Types selected. This eliminates the need for your application to poll for the status of the job using the jobID. 
 
 Here are some code samples that can you help you get sarted.  
-[Using Adobe I/O Events](../code-sample/#triggering-an-event-from-the-apis)
+[Using Adobe I/O Events](../code-sample/index.md#triggering-an-event-from-the-apis)

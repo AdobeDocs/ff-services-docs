@@ -45,7 +45,7 @@ This initiates an asynchronous job and returns a request body containing the hre
     }
 }
 ```
-To verify the completion status of the task, utilize the `Get Status` API. Refer to [this link](../code-sample/#poll-for-status-and-results) for an example demonstrating how to check the status.  
+To verify the completion status of the task, utilize the `Get Status` API. Refer to [this link](../code-sample/index.md#poll-for-status-and-results) for an example demonstrating how to check the status.  
 
 ### Autostraighten an image
 
@@ -82,7 +82,7 @@ This initiates an asynchronous job and returns a request body containing the hre
 }
 ```
 
-To verify the completion status of the task, utilize the `Get Status` API. Refer to [this link](../code-sample/#poll-for-status-and-results) for an example demonstrating how to check the status.
+To verify the completion status of the task, utilize the `Get Status` API. Refer to [this link](../code-sample/index.md#poll-for-status-and-results) for an example demonstrating how to check the status.
 
 ### Apply presets to an image
 
@@ -128,7 +128,7 @@ This initiates an asynchronous job and returns a request body containing the hre
     }
 }
 ```
-To verify the completion status of the task, utilize the `Get Status` API. Refer to [this link](../code-sample/#poll-for-status-and-results) for an example demonstrating how to check the status.
+To verify the completion status of the task, utilize the `Get Status` API. Refer to [this link](../code-sample/index.md#poll-for-status-and-results) for an example demonstrating how to check the status.
 
 ### Apply edits to an image
 
@@ -186,7 +186,7 @@ This initiates an asynchronous job and returns a request body containing the hre
 }
 ```
 
-To verify the completion status of the task, utilize the `Get Status` API. Refer to [this link](../code-sample/#poll-for-status-and-results) for an example demonstrating how to check the status.
+To verify the completion status of the task, utilize the `Get Status` API. Refer to [this link](../code-sample/index.md#poll-for-status-and-results) for an example demonstrating how to check the status.
 
 ### Apply xmp to an image
 
@@ -226,7 +226,7 @@ This initiates an asynchronous job and returns a request body containing the hre
 }
 ```
 
-To verify the completion status of the task, utilize the `Get Status` API. Refer to [this link](../code-sample/#poll-for-status-and-results) for an example demonstrating how to check the status.
+To verify the completion status of the task, utilize the `Get Status` API. Refer to [this link](../code-sample/index.md#poll-for-status-and-results) for an example demonstrating how to check the status.
 
 ### Poll for status and results
 

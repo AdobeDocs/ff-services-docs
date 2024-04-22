@@ -31,6 +31,18 @@ hideBreadcrumbNav: true
 <!-- TODO: Update with latest prod details, elaborate on API descriptions -->
 # Changelog
 
+## April 18, 2024
+
+### Added
+
+Firefly [`generateImages` API](../api/image_generation/) now accepts `url` as source for `referenceImage`. Only allow listed domains are allowed to be accepted as input `url` in the request.
+
+The allow-listed domains are as follows:
+
+* `amazonaws.com`
+* `windows.net`
+* `dropboxusercontent.com`
+
 ## December 13, 2023
 
 ### Added

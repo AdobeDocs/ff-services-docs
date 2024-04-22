@@ -6,7 +6,7 @@ description: Code Examples.
 
 ## Photoshop
 
-The code snippets are using one of our [sample psd](https://github.com/AdobeDocs/cis-photoshop-api-docs/blob/main/sample_files/Example.psd) files. Please feel free to download and use it for testing. Just remember you will need to have this file stored in one of the accepted external storages. For more information on storage please refer to the [File Storage](../general-workflow/#input-and-output-file-storage).
+The code snippets are using one of our [sample psd](https://github.com/AdobeDocs/cis-photoshop-api-docs/blob/main/sample_files/Example.psd) files. Please feel free to download and use it for testing. Just remember you will need to have this file stored in one of the accepted external storages. For more information on storage please refer to the [File Storage](../general-workflow/index.md#input-and-output-file-storage).
 
 For each of these examples to run. You first have to get your Bearer token and apikey. For ease of use, you can export your token and api key before running the examples.
 
@@ -306,7 +306,7 @@ curl -X POST \
 ]}'
 ```
 
-A call to this API initiates an asynchronous job and returns a response containing an href. Use the value in the href to poll for the status of the job. This is illustrated in [Example 12](../photoshop/code-sample/#example-12-fetch-the-status-of-an-api) and [Example 14](../photoshop/code-sample/#example-14-poll-for-job-status-for-all-other-apis)
+A call to this API initiates an asynchronous job and returns a response containing an href. Use the value in the href to poll for the status of the job. This is illustrated in [Example 12](../code-sample/index.md#fetch-the-status-of-an-api) and [Example 14](../code-sample/index.md#poll-for-job-status-for-all-other-apis)
 
 ### Making a text layer edit
 This example shows how you can edit a text layer using the `/text` endpoint. <a href="https://github.com/AdobeDocs/cis-photoshop-api-docs/tree/main/sample-code/azure-blob-text-edit">Sample Code</a>
@@ -469,7 +469,7 @@ curl -X POST \
 }'
 ```
 
-A call to this API initiates an asynchronous job and returns a response containing an href. Use the value in the href to poll for the status of the job. This is illustrated in [Example 12](../photoshop/code-sample/#example-12-fetch-the-status-of-an-api) and [Example 14](../photoshop/code-sample/#example-14-poll-for-job-status-for-all-other-apis)
+A call to this API initiates an asynchronous job and returns a response containing an href. Use the value in the href to poll for the status of the job. This is illustrated in [Example 12](../code-sample/index.md#fetch-the-status-of-an-api) and [Example 14](../code-sample/index.md#poll-for-job-status-for-all-other-apis)
 
 ### Making a simple edit
 ```shell
@@ -563,7 +563,7 @@ curl -X POST \
 }'
 ```
 
-A call to this API initiates an asynchronous job and returns a response containing an href. Use the value in the href to poll for the status of the job. This is illustrated in [Example 12](../photoshop/code-sample/#example-12-fetch-the-status-of-an-api) and [Example 14](../photoshop/code-sample/#example-14-poll-for-job-status-for-all-other-apis)
+A call to this API initiates an asynchronous job and returns a response containing an href. Use the value in the href to poll for the status of the job. This is illustrated in [Example 12](../code-sample/index.md#fetch-the-status-of-an-api) and [Example 14](../code-sample/index.md#poll-for-job-status-for-all-other-apis)
 
 ### Adding a new adjustment layer
 
@@ -611,7 +611,7 @@ curl -X POST \
 }'
 ```
 
-A call to this API initiates an asynchronous job and returns a response containing an href. Use the value in the href to poll for the status of the job. This is illustrated in [Example 12](../phothsop/code-sample/#example-12-fetch-the-status-of-an-api) and [Example 14](../photoshop/code-sample/#example-14-poll-for-job-status-for-all-other-apis)
+A call to this API initiates an asynchronous job and returns a response containing an href. Use the value in the href to poll for the status of the job. This is illustrated in [Example 12](../code-sample/index.md#fetch-the-status-of-an-api) and [Example 14](../code-sample/index.md#poll-for-job-status-for-all-other-apis)
 
 ### Editing a pixel layer
 
@@ -664,7 +664,7 @@ curl -X POST \
 '
 ```
 
-A call to this API initiates an asynchronous job and returns a response containing an href. Use the value in the href to poll for the status of the job. This is illustrated in [Example 12](../photoshop/code-sample/#example-12-fetch-the-status-of-an-api) and [Example 14](../photoshop/code-sample/#example-14-poll-for-job-status-for-all-other-apis)
+A call to this API initiates an asynchronous job and returns a response containing an href. Use the value in the href to poll for the status of the job. This is illustrated in [Example 12](../code-sample/index.md#fetch-the-status-of-an-api) and [Example 14](../code-sample/index.md#poll-for-job-status-for-all-other-apis)
 
 ### Create a document rendition
 Generate multiple output renditions with the API `renditionCreate`
@@ -698,7 +698,7 @@ curl -X POST \
 }'
 ```
 
-A call to this API initiates an asynchronous job and returns a response containing an href. Use the value in the href to poll for the status of the job. This is illustrated in [Example 12](../photoshop/code-sample/#example-12-fetch-the-status-of-an-api) and [Example 14](../photoshop/code-sample/#example-14-poll-for-job-status-for-all-other-apis)
+A call to this API initiates an asynchronous job and returns a response containing an href. Use the value in the href to poll for the status of the job. This is illustrated in [Example 12](../code-sample/index.md#fetch-the-status-of-an-api) and [Example 14](../code-sample/index.md#poll-for-job-status-for-all-other-apis)
 
 ### Retrieve a PSD's JSON manifest
 
@@ -721,7 +721,7 @@ curl -X POST \
   ]
 }'
 ```
-A call to this API initiates an asynchronous job and returns a response containing an href. Use the value in the href to poll for the status of the job and the same response will also contain the JSON manifest. This is illustrated in [Example 12](../photoshop/code-sample/#example-12-fetch-the-status-of-an-api) and [Example 14](../photoshop/code-sample/#example-14-poll-for-job-status-for-all-other-apis)
+A call to this API initiates an asynchronous job and returns a response containing an href. Use the value in the href to poll for the status of the job and the same response will also contain the JSON manifest. This is illustrated in [Example 12](../code-sample/index.md#fetch-the-status-of-an-api) and [Example 14](../code-sample/index.md#poll-for-job-status-for-all-other-apis)
 
 ###  Fetch the status of an API
 Each of our Photoshop API endpoints, when invoked, initiates an asynchronous job and returns a response body that contains the href to poll for status of the job.
@@ -746,7 +746,7 @@ curl -X GET \
 ```
 ### Poll for job status for documentManifest
 
-Once your job completes successfully (no errors/failures reported), the status response will contain your document's JSON manifest along with other metadata about the input document. The JSON Manifest is further described in the [api docs](../api/#operation/pitsstatus)
+Once your job completes successfully (no errors/failures reported), the status response will contain your document's JSON manifest along with other metadata about the input document. The JSON Manifest is further described in the [api docs](../api/photoshop_status.md)
 
 ```json
 {
@@ -1178,7 +1178,7 @@ curl -X POST \
 }'
 ```
 
-First be sure to follow the instructions in the [Authentication](../authentication/) section to get your token.
+First, be sure to follow the instructions in the [Getting Started](../../guides/get-started.md) guide to get your token.
 
 ### Remove Background
 
