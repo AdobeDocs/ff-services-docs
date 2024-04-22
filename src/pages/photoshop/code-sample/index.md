@@ -915,7 +915,7 @@ Once your job completes successfully (no errors/failures reported), the status r
 ```
 ### Poll for job status for all Other APIs
 
-Once your job completes successfully (no errors/failures reported), this will return a response body containing the job status for each requested output. For the `/renditionCreate` API call in [Example 10](/code-sample/#example-10-create-a-document-rendition) as illustrated above, a sample response containing the job status is as shown below:
+Once your job completes successfully (no errors/failures reported), this will return a response body containing the job status for each requested output. For the `/renditionCreate` API call in [Example 10](../code-sample/index.md#create-a-document-rendition) as illustrated above, a sample response containing the job status is as shown below:
 
 ```json
 {
@@ -1253,11 +1253,11 @@ Once the job is complete your successful `/status` response will look similar to
 
 ### Generate image mask
 
-The workflow is exactly the same as [creating Remove Background](/code-sample/#example-1-image-cutout) except you use the `/mask` endpoint instead of `/cutout`.  
+The workflow is exactly the same as [creating Remove Background](../code-sample/index.md#remove-background) except you use the `/mask` endpoint instead of `/cutout`.  
 
 ## Customized Workflow
 ### Generate Remove Background result as Photoshop path
-This workflow is ONLY for users who'd like to generate remove background result as Photoshop path instead of regular mask or remove background in above [example 1](/code-sample/#example-1-image-cutout) and [example 2](/code-sample/#example-2-image-mask). You will need to chain API calls to Remove Background service and Photoshop Service to achieve this goal.
+This workflow is ONLY for users who'd like to generate remove background result as Photoshop path instead of regular mask or remove background in above [example 1](../code-sample/index.md#remove-background) and [example 2](../code-sample/index.md#generate-image-mask). You will need to chain API calls to Remove Background service and Photoshop Service to achieve this goal.
 
 #### Sample Input/Output
 Sample input from [here](https://github.com/AdobeDocs/cis-photoshop-api-docs/blob/main/sample_files/ic_customized_workflow/input.jpg).
