@@ -120,12 +120,22 @@ module.exports = {
         path: '/firefly-api/guides/api/upload_image',
         pages: [
           {
-            title: "Upload",
-            path: "/firefly-api/guides/api/upload_image/"
+            title: "Generate Images",
+            path: "/firefly-api/guides/api/image_generation/V3/",
+            pages: [
+              {
+                title: "V3",
+                path: "/firefly-api/guides/api/image_generation/V3/",
+              },
+              {
+                title: "V2",
+                path: "/firefly-api/guides/api/image_generation/V2/",
+              },
+            ]
           },
           {
-            title: "Generate Images",
-            path: "/firefly-api/guides/api/image_generation/"
+            title: "Upload",
+            path: "/firefly-api/guides/api/upload_image/"
           },
           {
             title: "Expand Image",
