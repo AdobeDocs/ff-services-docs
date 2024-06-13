@@ -9,7 +9,7 @@ The [previous guide](https://wiki.corp.adobe.com/display/devex/Using+Content+Cla
 
 ## Prerequisites
 
-In order to use this guide, you will need Firefly Services credentials, consisting of a CLIENT_ID  and CLIENT_SECRET  value. The code for this guide will make use of the Firefly REST API via Node.js, but could be done in any language, or with the [SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/). The code demonstrated uses both imports and top-level await, so either save your sample as a .mjs file or use `"type":"module"` in your package.json. 
+In order to use this guide, you will need Firefly Services credentials, consisting of a CLIENT_ID  and CLIENT_SECRET  value. The code for this guide will make use of the Firefly REST API via Node.js, but could be done in any language, or with the [SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/). The code demonstrated uses both imports and top-level await, so either save your sample as a `.mjs` file or use `"type":"module"` in your `package.json`. 
 
 ## Working with Reference Images
 
@@ -19,7 +19,7 @@ First, you can place your media on cloud storage and generate temporary readable
 
 Secondly, images may be uploaded via the Upload API. This API lets you send a source image (in either PNG, JPEG, or WebP format) and returns a unique ID that can be used in later calls, like the ones we will demonstrate below. 
 
-Using the [Upload API](https://bitter-tiger-28.redoc.ly/#operation/upload) requires a file, of course, as well as the mime type. Here is an example function that demonstrates this. It assumes a previously created access token using a `CLIENT_ID` and `CLIENT_SECRET` value.
+Using the [Upload API](../api/upload_image/) requires a file, of course, as well as the mime type. Here is an example function that demonstrates this. It assumes a previously created access token using a `CLIENT_ID` and `CLIENT_SECRET` value. **Note:** This function is used again in the examples below, and the complete script for this guide is shared at the bottom of this page.
 
 ```js
 async function uploadImage(filePath, fileType, id, token) {
@@ -55,12 +55,13 @@ The result of this call will be a JSON object containing the ID of the image:
 
 ## Using a Reference Image for Style
 
-For our first example, we will be using a reference image to impact the style of our result. Given a standard prompt, we'll call the Text to Image API both with, and without this setting so you can compare the differences.
+For the first example, we will be using a reference image to impact the style of our result. Given a standard prompt, we'll call the [Generate Images API](../api/image_generation/) -- both with and without a style reference image so you can compare the differences.
 
+First, note the source image used for the style reference. Specifically, notice the color and fire attributes:
 
-First, our source image. Note the color and fire imagery:
+![Style reference image](../images/styleRef.jpg)
 
-To use this source image, we use the upload ID and retrieve the ID value. (Don't forget, you can also use cloud storage.) This ID can be passed to the Text to Image API like so, specifically the `style` portion.
+Before we can use this source image as a style reference in our Generate Images API call, we'll need to get an upload ID for it to pass in the `style.imageReference.source.uploadId` object. An example payload for the Generate Images API below for reference:
 
 ```json
 {
@@ -80,7 +81,9 @@ To use this source image, we use the upload ID and retrieve the ID value. (Don't
 }
 ```
 
-Let's look at an example of this. The following script is mostly utility methods covered before (getting the access token, uploading an image, a simple method to download results):
+**Note:** You could alternatively provide a presigned URL from an image in cloud storage in the `url` property of the `style.imageReference.source` object. See the [Generate Images API Reference](../api/image_generation/) for details.
+
+Next, we'll need utility code to get an access token, upload an image (via the [Upload API](../api/upload_image/)), and download the result. An example is below:
 
 ```js
 import fs from 'fs';
@@ -140,7 +143,7 @@ async function downloadFile(url, filePath) {
 }
 ```
 
-Now let's build a wrapper function to text to image that optionally allows you to pass the ID of an uploaded image:
+Now, let's build a wrapper function to text to image that optionally allows you to pass the ID of an uploaded image:
 
 ```js
 async function textToImage(prompt, id, token, styleReference) {
@@ -163,7 +166,7 @@ async function textToImage(prompt, id, token, styleReference) {
 		};
 	}
 
-  let req = await fetch('https://firefly-api-enterprise-stage.adobe.io/v3/images/generate', {
+    let req = await fetch('https://firefly-api-enterprise-stage.adobe.io/v3/images/generate', {
 		method:'POST',
 		headers: {
 			'X-Api-Key':id, 
@@ -200,9 +203,11 @@ await downloadFile(result.outputs[0].image.url, fileName);
 
 Given our prompt, here's the initial result with no style:
 
-
+![Without style reference image](../images/without-style-ref.jpg)
 
 And here's the result with the reference:
+
+![With style reference image](../images/with-style-ref.jpg)
 
 The difference is striking.
 
@@ -252,7 +257,7 @@ async function textToImage(prompt, id, token, structureReference) {
 		};
 	}
 
-  let req = await fetch('https://firefly-api-enterprise-stage.adobe.io/v3/images/generate', {
+    let req = await fetch('https://firefly-api-enterprise-stage.adobe.io/v3/images/generate', {
 		method:'POST',
 		headers: {
 			'X-Api-Key':id, 
@@ -266,20 +271,27 @@ async function textToImage(prompt, id, token, structureReference) {
 }
 ```
 
-
 Let's consider this as a structure reference:
 
+![Structure reference image](../images/structureRef.jpg)
 
-
-Note the position of the cat, the direction it is facing, and so forth. Now consider this prompt: "picture of a poodle with colorful fur looking majestic"
+Note the position of the cat, the direction it's facing, etc. Now consider this prompt: "picture of a poodle with colorful fur looking majestic"
 
 Without the structure reference, we get:
 
-
+![Without structure reference image](../images/without-structure-ref.jpg)
 
 Now compare it to the one where the structure reference was used:
 
-Again, the difference is striking. Here's the complete script used for this demo:
+![With structure reference image](../images/with-structure-ref.jpg)
+
+Again, the difference is striking. The complete script used for this guide is below.
+
+<InlineAlert variant="warning" slots="title, text" />
+
+IMPORTANT
+
+Since the Node.js code uses imports and top-level `await`, you must either use the `.mjs` extension on your script file, or ensure you have a `package.json` with `type: "module"`.
 
 ```js
 import fs from 'fs';
@@ -358,7 +370,7 @@ async function textToImage(prompt, id, token, structureReference) {
 		};
 	}
 
- let req = await fetch('https://firefly-api-enterprise-stage.adobe.io/v3/images/generate', {
+    let req = await fetch('https://firefly-api-enterprise-stage.adobe.io/v3/images/generate', {
 		method:'POST',
 		headers: {
 			'X-Api-Key':id, 
@@ -391,4 +403,4 @@ await downloadFile(result.outputs[0].image.url, fileName);
 
 ## Next Steps
 
-While we've now demonstrated two powerful ways to influence Firefly when generating images, there's still much more that can be tweaked in your code. Check the [API reference](https://bitter-tiger-28.redoc.ly/) for a full list of those options.
+While this guide demonstrated two powerful ways to influence Firefly when generating images, there's still more you can learn about to tweak what's generated from your API calls. Check out the other guides in this [how-tos](../how-tos/) section and the [API Reference](../api/) for more details.

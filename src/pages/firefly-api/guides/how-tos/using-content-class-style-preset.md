@@ -1,10 +1,19 @@
 # Using Content Class and Style Presets
 
-At its simplest, the Firefly API can generate an image based on your prompt alone. However, there are numerous controls that can help improve and direct the final output to better represent what you need. In this tutorial, we will walk you through the process of how to direct Firefly to better create more appropriate results.
+At its simplest, the Firefly API can generate an image based on your prompt alone. However, there are numerous parameters that can be used to specifically direct the generated output.
 
 ## Prerequisites
 
-In order to use this guide, you will need Firefly Services credentials, consisting of a `CLIENT_ID` and `CLIENT_SECRET` value. The code for this guide will make use of the Firefly REST API via Node.js, but could be done in any language, or with the SDK. The code demonstrated is using both imports and top level await, so either save your sample as a .mjs  file or use "type":"module"  in your package.json. 
+Before we begin, make sure you have the following:
+
+-  Firefly API credentials. If you don't have them yet, first visit the Firefly Services [Getting Started](../../../guides/get-started.md) guide to obtain a `client_id` and `client_secret`.
+-  `Node.js` installed on your machine and basic familiarity with `JavaScript`. **Note:** The code for this guide will make use of the Firefly REST API via Node.js, but could be done in any language, or with the SDK.
+
+<InlineAlert variant="warning" slots="title, text" />
+
+IMPORTANT
+
+The Node.js code uses imports and top-level `await`, so you must either use the `.mjs` extension on your script file, or ensure you have a `package.json` with `type: "module"`.
 
 ## Specifying a Content Class
 
@@ -87,15 +96,15 @@ Given our prompt, "A long-haired cat majestically riding a flying unicorn. The c
 
 ##### No Content Class
 
-![Result with no class specified](../images/v3_noclass.jpeg)
+![Result with no class specified](../images/v3_noclass.jpg)
 
 ##### Art Content Class
 
-![Result with art class specified](../images/v3_artClass.jpeg)
+![Result with art class specified](../images/v3_artClass.jpg)
 
 ##### Photo Content Class
 
-![Result with photo class specified](../images/v3_photoClass.jpeg)
+![Result with photo class specified](../images/v3_photoClass.jpg)
 
 #### Specifying a Style Preset
 
@@ -117,11 +126,11 @@ As with `contentClass` above, to specify a style preset, you simply include it i
 }
 ```
 
-In the above example, two presets are used, bw , for black and white, and grainy_film  for a grainy film effect. In the documentation, you'll notice that each preset has a name and ID. For the API, you want to use the ID values only.
+In the above example, two presets are used,` bw`, for black and white, and `grainy_film` for a grainy film effect. In the documentation, you'll notice that each preset has a name and ID. For the API, you want to use the ID values only.
 
-Also note that while the presets  value can be an array, Firefly will not "sanity" check these values. What that means is, if you intentionally ask Firefly to use presets that don't necessarily make sense, Firefly will try its best but the result may not be good. This is a case where artistic sense has to be applied, not developer skill.
+Also note that while the presets value can be an array, Firefly will not "sanity" check these values. What that means is, if you intentionally ask Firefly to use presets that don't necessarily make sense, Firefly will try its best but the result may not be good. This is a case where artistic sense has to be applied, not developer skill.
 
-To test this, once again we build a simple utility method:
+Once again, you can use a simple utility method like below to test this:
 
 ```js
 async function textToImage(prompt, id, token, presets) {
@@ -151,7 +160,7 @@ return await req.json();
 }
 ```
 
-Once again, the method simply adds presets  to the API call if passed. This can be tested with the following:
+Once again, the method simply adds `presets` to the API call if passed. This can be tested with the following:
 
 ```js
 result = await textToImage(prompt, CLIENT_ID, token, ["golden"]);
@@ -165,16 +174,14 @@ await downloadFile(result.outputs[0].image.url, fileName);
 
 In the example above, we've used `golden` and `pastel_color`. Here are the results:
 
-Golden Result
+##### Golden Result
 
-Golden Result
+![Result with golden](../images/v3_golden.jpg)
 
-Pastel Colors Result
+##### Pastel Colors Result
 
-Pastel Colors Result
+![Result with pastel_colors](../images/v3_pastel_color.jpg)
 
 ## Next Steps
 
-While this guide demonstrated two powerful ways to influence Firefly when generating images, there's still much more that can be tweaked in your code. 
-
-Check the API reference for a full list of those options.
+While this guide demonstrated two powerful ways to influence Firefly when generating images, there's still more you can learn about to tweak what's generated from your API calls. Check out the other guides in this [how-tos](../how-tos/) section and the [API Reference](../api/) for more details.

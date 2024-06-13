@@ -1,16 +1,15 @@
 # Using the Expand Image API
 
-Designers often struggle with taking existing media assets and repurposing them for other sizes and form factors. An original image may be too small, incorrectly oriented, and so forth. With the power of Firefly's [Generative Expand](https://bitter-tiger-28.redoc.ly/#operation/expandImage) feature, they can now take their original assets and create new variations at multiple different sizes, using generative AI to "draw out" from the source. Let's take a look at how this can be done via our APIs.
+Designers often struggle with taking existing media assets and re-purposing them for other sizes and form factors. An original image may be too small, incorrectly oriented, and so forth. With the power of Firefly's [Expand Image API](../api/generative_expand/), an original asset can be used as a source for generating new variations in multiple sizes, using generative AI to "draw out" from the source. Let's take a look at how this can be done.
 
 ## Prerequisites
 
-In order to use this guide, you will need Firefly Services credentials, consisting of a `CLIENT_ID` and `CLIENT_SECRET` value. The code for this guide will make use of the [Firefly REST API](https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/upload_image/) via **Node.js**, but could be done in any language, or with the [SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/). 
-
-**IMPORTANT:** The code demonstrated is using both imports and top-level await so either save your sample as a `.mjs` file or use `"type":"module"` in your `package.json`. Let's get started.
+-  Firefly API credentials. If you don't have them yet, first visit the Firefly Services [Getting Started](../../../guides/get-started.md) guide to obtain a `client_id` and `client_secret`.
+-  `Node.js` installed on your machine and basic familiarity with `JavaScript`. **Note:** The code for this guide will make use of the [Firefly REST API](../api/) via Node.js, but could be done in any language, or with the [SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/).
 
 ## Expand Image at a High Level
 
-Before getting into the code, let's consider how generative expand works at a high level.
+Before getting into the code, let's look at how generative expand works at a high level.
 
 * You begin with a source image, which can either be uploaded to Firefly Services, or use one of the supported cloud storage providers. For our demo, we'll be using a local image uploaded via the Firefly Upload API.
 * You then specify the desired size. This can be any combination of a height and width between 1 and 2688 pixels.
@@ -18,15 +17,15 @@ Before getting into the code, let's consider how generative expand works at a hi
 * An optional mask can be used, as long as it is the same size as specified above.
 * Finally, an optional placement parameter. By default, Firefly will center the source image in the generated new image, but an inset or alignment value can be used as well.
 
-## Our Source Image
+## Source Image
 
-Our source image is below, and will be uploaded using Firefly's Upload API. As this has been discussed in previous guides, we'll skip over that part, but you can find the complete source in the code listing at the bottom.
+The source image used in this guide is shown below, and will be uploaded using [Firefly's Upload API](../api/upload_image/). This image is 800 pixels wide by 582 pixels high.
 
-This image is 800 pixels wide by 582 pixels high.
+![Source image](../images/gen-expand-source.jpg)
 
 ## Calling the Expand Image API
 
-Let's begin with the simplest operation possible, simply requesting a larger image. From our [docs](https://bitter-tiger-28.redoc.ly/#operation/expandImage), we can see that a minimal request body should look like so:
+Let's begin with the simplest operation possible, simply requesting a larger image. From the [API Reference](../api/generative_expand/), we can see that a minimal request body should look like so:
 
 ```json
 {
@@ -74,13 +73,15 @@ async function genExpand(imageId, width, height, id, token) {
 }
 ```
 
-And then call it like so:
+And then call it with:
 
 ```js
 let result = await genExpand(sourceImage, 2048, 2048, CLIENT_ID, token);
 ```
 
-Example result from above:
+#### Generated result
+
+![Generative expand result](../images/gen-expand.jpg)
 
 ## Adding a Prompt
 
@@ -118,25 +119,25 @@ async function genExpand(imageId, width, height, id, token, prompt) {
 }
 ```
 
-And we can call it like so:
+And we can call it with:
 
 ```js
 result = await genExpand(sourceImage, 2048, 2048, CLIENT_ID, token, "The sun is rising in the background and trees are visible.");
 ```
 
-Here's one sample result:
+Here's an example result:
 
-
+![Generative expand with prompt result](../images/gen-expand-prompt.jpg)
 
 As you can see, the expansion took the prompt as a guide when expanding the source. 
 
-## Modifying the Direction of the Expansion
+### Modifying the Direction of the Expansion
 
-By default, Firefly is going to expand "outwards" treating the source image as the center. There are times, however, when that will not make sense and you need more control over the direction of the expansion. The `placement` argument can specify either an `inset` or `alignment` value. The `inset` value lets you specify displacement values for `left`, `top`, `right`, and `bottom` values while `alignment` lets you specify values for `horizontal` and `vertical` alignment. 
+By default, Firefly is going to expand "outwards" treating the source image as the center. There are times, however, when that will not make sense and you need more control over the direction of the expansion. The `placement` argument can specify either an `inset` or `alignment` value. The `inset` value lets you specify displacement values for `left`, `top`, `right`, and `bottom` values, while `alignment` lets you specify values for `horizontal` and `vertical` alignment. 
 
 As an example, if you wanted the new image to treat the source as the bottom left corner of the new image, you would add this to the request body:
 
-```
+```json
 placement: {
 	alignment: {
 		horizontal: "left",
@@ -189,11 +190,17 @@ result = await genExpand(sourceImage, 2048, 2048, CLIENT_ID, token,
 
 Here's an example result:
 
-
+![Generative expand with prompt and placement result](../images/gen-expand-prompt-placement.jpg)
 
 ## Source Code
 
-You can find the complete source code of the demo, with all three variations, below:
+Here is the complete source code of the demo, with all three variations.
+
+<InlineAlert variant="warning" slots="title, text" />
+
+IMPORTANT
+
+The Node.js code uses imports and top-level `await`, so you must either use the `.mjs` extension on your script file, or ensure you have a `package.json` with `type: "module"`.
 
 ```js
 import fs from 'fs';
@@ -305,4 +312,4 @@ await downloadFile(result.outputs[0].image.url, fileName);
 
 ## Next Steps
 
-Firefly's generative expand API is a powerful tool to help designers create new variations of their existing media at a large scale, and with the options available via the API, they have fine-grained control over the result. Check the [API reference](https://bitter-tiger-28.redoc.ly/) for a full list of Firefly APIs.
+Firefly's [Expand Image API](../api/generative_expand/) is a powerful tool to help designers create new variations of their existing media at a large scale, and to be able to have fine-grained control over the result with the options available. Check out the [API Reference](../api/generative_expand/) for more details.

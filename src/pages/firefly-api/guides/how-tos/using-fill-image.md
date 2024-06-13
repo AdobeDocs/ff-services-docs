@@ -4,7 +4,8 @@ Generative Fill is a powerful feature that lets designers modify an existing ima
 
 ## Prerequisites
 
-In order to use this guide, you will need Firefly Services credentials, consisting of a `CLIENT_ID` and `CLIENT_SECRET` value. The code for this guide will make use of the [Firefly REST API](https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/upload_image/) via Node.js, but could be done in any language, or with the [SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/). The code demonstrated is using both imports and top-level await so either save your sample as a `.mjs` file or use `"type":"module"` in your `package.json`. Let's get started.
+-  Firefly API credentials. If you don't have them yet, first visit the Firefly Services [Getting Started](../../../guides/get-started.md) guide to obtain a `client_id` and `client_secret`.
+-  `Node.js` installed on your machine and basic familiarity with `JavaScript`. **Note:** The code for this guide will make use of the [Firefly REST API](../api/) via Node.js, but could be done in any language, or with the [SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/).
 
 ## Generative Fill at a High Level
 
@@ -15,23 +16,23 @@ Before getting into the code, let's consider how generative fill works at a high
 * You then specify the desired size. This can be any combination of a height and width between 1 and 2688 pixels.
 * You can *optionally* specify a prompt to help Firefly create the filled region. If not specified, Firefly only uses the source image itself as a guide.
 
-## Our Source and Mask Images
+## Source and Mask Images
 
-Our source image is below and will be uploaded using Firefly's Upload API. As this has been discussed in previous guides, we'll skip over that part, but you can find the complete source in the code listing at the bottom.
+The source and mask images are below, and will be uploaded using Firefly's [Upload API](../api/upload_image/).
 
-Source Image:
+##### Source image
 
+![Source image](../images/gen-fill.jpg)
 
+##### Mask image
 
-And here is our mask:
+![Mask image](../images/gen-fill-mask.jpg)
 
+**Note:** The Photoshop API has a "Create Mask" endpoint that can be used to automate the creation of a mask, but at this time, the mask is created in a way that does not yet work with the Firefly Fill Image endpoint. The image mask must be inverted. That could either be done with a second Photoshop API, the ActionJSON endpoint -- or instead, use one ActionJSON call to do both. This is only a temporary limitation, however, and will be fixed soon.
 
+## Calling the Fill Image API
 
-**Note:** The Photoshop API has a "Create Mask" endpoint that can be used to automate the creation of a mask, but at this time, the mask is created in a way that does not yet work with the Firefly Generate Fill endpoint. The image mask must be inverted. That could either be done with a second Photoshop API, the ActionJSON endpoint or instead, use one ActionJSON call to do both. This is only a temporary limitation however and will be fixed soon.
-
-## Calling the Generative Fill API
-
-A simple example of the request body required to use Generative Fill may be found below:
+A simple example of the request body required to use the [Fill Image API](../api/generative_fill/) is below:
 
 ```json
 {
@@ -51,7 +52,7 @@ A simple example of the request body required to use Generative Fill may be foun
 }
 ```
 
-More options are available and may be found in the [REST documentation](https://bitter-tiger-28.redoc.ly/#operation/fillImage), also note that as with other endpoints, we can use cloud storage URLs instead of uploaded assets.
+More options are available and may be found in the [API Reference](../api/generative_fill/). Also note that you may also use cloud storage URLs instead of uploaded assets as desired.
 
 Here's a sample function that demonstrates this in action:
 
@@ -74,7 +75,6 @@ async function genFill(maskId, sourceId, width, height, prompt, id, token) {
 			}	
 		}
 	}
-
 
 	let req = await fetch('https://firefly-api-enterprise-stage.adobe.io/v3/images/fill', {
 		method:'POST',
@@ -110,10 +110,19 @@ let fileName = `./output/basic_getfill.jpg`;
 await downloadFile(result.outputs[0].image.url, fileName);
 ```
 
+##### Generated result
 
-Generated result:
+![Result with basic fill](../images/gen-fill.jpg)
 
-A more detailed prompt would provide better results, and remember that the masked region could be smaller as well, not the complete background. Here's the complete script containing utilities for authentication, uploading, and downloading.
+A more detailed prompt would provide better results, and remember that the masked region could be smaller as well, not the complete background. 
+
+Here's the complete script containing utilities for authentication, uploading, and downloading.
+
+<InlineAlert variant="warning" slots="title, text" />
+
+IMPORTANT
+
+The Node.js code uses imports and top-level `await`, so you must either use the `.mjs` extension on your script file, or ensure you have a `package.json` with `type: "module"`.
 
 ```js
 import fs from 'fs';
@@ -121,7 +130,7 @@ import { Readable } from 'stream';
 import { finished } from 'stream/promises';
 
 /*
-Set our creds based on environment variables.
+ Set our creds based on environment variables.
 */
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
@@ -222,4 +231,4 @@ await downloadFile(result.outputs[0].image.url, fileName);
 
 ## Next Steps
 
-For more examples of what's possible with Firefly Services, check the [API reference](https://bitter-tiger-28.redoc.ly/) for a full list of Firefly APIs.
+For more examples of what's possible with Firefly APIs, check out the other guides in this [how-tos](../how-tos/) section and the [API Reference](../api/) for more details.

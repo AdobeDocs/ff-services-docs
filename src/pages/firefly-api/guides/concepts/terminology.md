@@ -1,6 +1,6 @@
 # Terminology
 
-This section provides definitions and details for some terminology and parameters to be aware of when using the Firefly API references and documentation.
+This section provides definitions and details for some terminology and parameters to be aware of when using the [Firefly APIs](../api/) and documentation.
 
 ## Seed
 
