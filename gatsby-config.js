@@ -20,22 +20,22 @@ module.exports = {
         path: '/guides/'
       },                  
       {
-        title: 'Firefly API',
+        title: 'Firefly APIs',
         description: 'Docs and references for Firefly API',
         path: '/firefly-api/' 
       },
       {
-        title: 'Photoshop API',
+        title: 'Photoshop APIs',
         description: 'Docs and references for Photoshop API',
         path: '/photoshop/'
       },
       {
-        title: 'Lightroom API',
+        title: 'Lightroom APIs',
         description: 'Docs and references for Lightroom API',
         path: '/lightroom/'
       },
       {
-        title: 'Content Tagging API',
+        title: 'Content Tagging APIs',
         description: 'Docs and references for Content Tagging services',        
         path: 'https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html'
       },
@@ -78,11 +78,7 @@ module.exports = {
       {
         title: 'Concepts',
         path: '/firefly-api/guides/concepts/authentication',
-        pages: [
-          // {
-          //   title: 'Get Credentials',
-          //   path: '/firefly-api/guides/concepts/create-credentials/'
-          // },
+        pages: [          
           {
             title: 'Authentication',
             path: '/firefly-api/guides/concepts/authentication/'
@@ -98,7 +94,11 @@ module.exports = {
           {
             title: 'Seed ID',
             path: '/firefly-api/guides/concepts/seed-id'
-          }
+          },
+          {
+            title: 'Terminology',
+            path: '/firefly-api/guides/concepts/terminology.md'
+          },
         ]
       },
       {
@@ -110,6 +110,22 @@ module.exports = {
             path: '/firefly-api/guides/how-tos/create-your-first-ff-application.md'
           },
           {
+            title: 'Using the Expand Image API',
+            path: '/firefly-api/guides/how-tos/using-expand-image.md'
+          },
+          {
+            title: 'Using the Fill Image API',
+            path: '/firefly-api/guides/how-tos/using-fill-image.md'
+          },
+          {
+            title: 'Using Content Class and Style Presets',
+            path: '/firefly-api/guides/how-tos/using-content-class-style-preset.md'
+          },
+          {
+            title: 'Using Style and Structure References',
+            path: '/firefly-api/guides/how-tos/using-style-structure-refs.md'
+          },
+          {
             title: 'Integrating Firefly Services with Microsoft Power Automate',
             path: '/firefly-api/guides/how-tos/firefly-services-with-powerautomate'
           }
@@ -117,8 +133,12 @@ module.exports = {
       },
       {
         title: 'API Reference',
-        path: '/firefly-api/guides/api/upload_image',
+        path: '/firefly-api/guides/api/',
         pages: [
+          {
+            title: 'Overview',
+            path: '/firefly-api/guides/api/'
+          },
           {
             title: "Upload",
             path: "/firefly-api/guides/api/upload_image/"
