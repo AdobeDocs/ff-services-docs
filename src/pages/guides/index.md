@@ -97,25 +97,25 @@ Explore our tutorials page for comprehensive guidance.
 
 ### API References
 
-[Firefly API](../firefly-api/)
+[Firefly APIs](../firefly-api/)
 
 Integrate generative AI into your creative workflows.
 
 <DiscoverBlock slots="link, text"/>
 
-[Lightroom API](../lightroom/)
+[Lightroom APIs](../lightroom/)
 
 Unlock the potential of Lightroom in the cloud.
 
 <DiscoverBlock slots="link, text"/>
 
-[Photoshop API](../photoshop/)
+[Photoshop APIs](../photoshop/)
 
 Unlock the potential of Photoshop in the cloud.
 
 <DiscoverBlock slots="link, text"/>
 
-[Content Tagging API](https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html)
+[Content Tagging APIs](https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html)
 
 Leverage Content Tagging API to craft personalized experiences. 
 
