@@ -1,1330 +1,559 @@
 {
-    "openapi": "3.1.0",
-    "info": {
-        "version": "1.0.0",
-        "title": "Firefly APIs",
-        "description": "REST API for Adobe Firefly for enterprise usage"
-    },
-    "servers": [
-        {
-            "url": "https://firefly-api-enterprise-stage.adobe.io",
-            "description": "Stage endpoint"
-        }
-    ],
-    "security": [
-        {
-            "X-Api-Key": [],
-            "AccessToken": []
-        }
-    ],
-    "paths": {
-        "/v3/images/generate": {
-            "post": {
-                "summary": "Generate images API",
-                "operationId": "generateImages",
-                "description": "Generate images based on a prompt with optional reference image to match style.",
-                "requestBody": {
-                    "description": "image generation request body.",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/GenerateImagesRequestV3"
-                            }
-                        }
-                    },
-                    "required": true
-                },
-                "responses": {
-                  "200": {
-                      "description": "Successful Response",
-                      "content": {
-                        "application/json": {
-                          "schema": {
-                            "$ref": "#/components/schemas/GenerateImagesResponseV3"
-                          }
-                        }
-                      }
-                    },
-                    "400": {
-                      "description": "Bad Request",
-                      "content": {
-                        "application/json": {
-                          "schema": {
-                            "$ref": "#/components/schemas/ApiError"
-                          },
-                          "examples": {
-                            "bad_request": {
-                              "value": {
-                                "error_code": "bad_request"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "403": {
-                      "description": "Forbidden",
-                      "content": {
-                        "application/json": {
-                          "schema": {
-                            "$ref": "#/components/schemas/ApiError"
-                          },
-                          "examples": {
-                            "access_error": {
-                              "value": {
-                                "error_code": "access_error"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "408": {
-                      "description": "Request Timeout",
-                      "content": {
-                        "application/json": {
-                          "schema": {
-                            "$ref": "#/components/schemas/ApiError"
-                          },
-                          "examples": {
-                            "timeout_error": {
-                              "value": {
-                                "error_code": "timeout_error"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "415": {
-                      "description": "Unsupported Media Type",
-                      "content": {
-                        "application/json": {
-                          "schema": {
-                            "$ref": "#/components/schemas/ApiError"
-                          },
-                          "examples": {
-                            "invalid_content_type": {
-                              "value": {
-                                "error_code": "invalid_content_type"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "422": {
-                      "description": "Unprocessable Entity",
-                      "content": {
-                        "application/json": {
-                          "schema": {
-                            "$ref": "#/components/schemas/ApiError"
-                          },
-                          "examples": {
-                            "validation_error": {
-                              "value": {
-                                "error_code": "validation_error",
-                                "validation_errors": [
-                                  {
-                                    "loc": [
-                                      "body",
-                                      "contentClass"
-                                    ],
-                                    "msg": "value is not a valid enumeration member; permitted: 'photo', 'art'",
-                                    "type": "type_error.enum",
-                                    "ctx": {
-                                      "enum_values": [
-                                        "photo",
-                                        "art"
-                                      ]
-                                    }
-                                  }
-                                ]
-                              }
-                            },
-                            "prompt_unsafe": {
-                              "value": {
-                                "error_code": "prompt_unsafe"
-                              }
-                            },
-                            "input_media_unsafe": {
-                              "value": {
-                                "error_code": "input_media_unsafe"
-                              }
-                            },
-                            "output_media_unsafe": {
-                              "value": {
-                                "error_code": "output_media_unsafe"
-                              }
-                            },
-                            "language_not_supported": {
-                              "value": {
-                                "error_code": "language_not_supported"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "500": {
-                      "description": "Internal Server Error",
-                      "content": {
-                        "application/json": {
-                          "schema": {
-                            "$ref": "#/components/schemas/ApiError"
-                          },
-                          "examples": {
-                            "runtime_error": {
-                              "value": {
-                                "error_code": "runtime_error"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "501": {
-                      "description": "Not Implemented",
-                      "content": {
-                        "application/json": {
-                          "schema": {
-                            "$ref": "#/components/schemas/ApiError"
-                          },
-                          "examples": {
-                            "not_implemented": {
-                              "value": {
-                                "error_code": "not_implemented"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "503": {
-                      "description": "Service Unavailable",
-                      "content": {
-                        "application/json": {
-                          "schema": {
-                            "$ref": "#/components/schemas/ApiError"
-                          },
-                          "examples": {
-                            "model_not_loaded": {
-                              "value": {
-                                "error_code": "model_not_loaded"
-                              }
-                            }
-                          }
-                        }
-                      }
+  "openapi": "3.1.0",
+  "info": {
+      "version": "1.0.0",
+      "title": "Firefly API",
+      "description": "REST API for Adobe Firefly for enterprise usage"
+  },
+  "servers": [
+      {
+          "url": "https://firefly-api.adobe.io"
+      }
+  ],
+  "security": [
+    {
+        "X-Api-Key": [],
+        "AccessToken": []
+    }
+],
+"paths": {
+  "/v3/images/generate": {
+    "post": {
+        "summary": "Generate Images API",
+        "operationId": "generateImages",
+        "description": "Generate images based on a prompt with optional reference image to match style and structure.",
+        "requestBody": {
+            "description": "image generation request body.",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "$ref": "#/components/schemas/GenerateImagesRequest"
                     }
                 }
+            },
+            "required": true
+        },
+        "responses": {
+          "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/GenerateImagesResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ApiError"
+                  },
+                  "examples": {
+                    "bad_request": {
+                      "value": {
+                        "error_code": "bad_request"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Forbidden",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ApiError"
+                  },
+                  "examples": {
+                    "access_error": {
+                      "value": {
+                        "error_code": "access_error"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "408": {
+              "description": "Request Timeout",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ApiError"
+                  },
+                  "examples": {
+                    "timeout_error": {
+                      "value": {
+                        "error_code": "timeout_error"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "415": {
+              "description": "Unsupported Media Type",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ApiError"
+                  },
+                  "examples": {
+                    "invalid_content_type": {
+                      "value": {
+                        "error_code": "invalid_content_type"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "Unprocessable Entity",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ApiError"
+                  },
+                  "examples": {
+                    "validation_error": {
+                      "value": {
+                        "error_code": "validation_error",
+                        "validation_errors": [
+                          {
+                            "loc": [
+                              "body",
+                              "contentClass"
+                            ],
+                            "msg": "value is not a valid enumeration member; permitted: 'photo', 'art'",
+                            "type": "type_error.enum",
+                            "ctx": {
+                              "enum_values": [
+                                "photo",
+                                "art"
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "prompt_unsafe": {
+                      "value": {
+                        "error_code": "prompt_unsafe"
+                      }
+                    },
+                    "input_media_unsafe": {
+                      "value": {
+                        "error_code": "input_media_unsafe"
+                      }
+                    },
+                    "output_media_unsafe": {
+                      "value": {
+                        "error_code": "output_media_unsafe"
+                      }
+                    },
+                    "language_not_supported": {
+                      "value": {
+                        "error_code": "language_not_supported"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ApiError"
+                  },
+                  "examples": {
+                    "runtime_error": {
+                      "value": {
+                        "error_code": "runtime_error"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "501": {
+              "description": "Not Implemented",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ApiError"
+                  },
+                  "examples": {
+                    "not_implemented": {
+                      "value": {
+                        "error_code": "not_implemented"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "503": {
+              "description": "Service Unavailable",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ApiError"
+                  },
+                  "examples": {
+                    "model_not_loaded": {
+                      "value": {
+                        "error_code": "model_not_loaded"
+                      }
+                    }
+                  }
+                }
+              }
             }
         }
+    }
+}
+},
+"components": {
+  "securitySchemes": {
+    "AccessToken": {
+        "type": "http",
+        "scheme": "bearer"
     },
-    "components": {
-            "securitySchemes": {
-              "AccessToken": {
-                  "type": "http",
-                  "scheme": "bearer"
+    "X-Api-Key": {
+        "type": "apiKey",
+        "name": "x-api-key",
+        "in": "header"
+    }
+},
+    "schemas": {
+      "ApiError": {
+          "properties": {
+                  "message": {
+                    "type": "string",
+                    "description": "Error message"
+                  },
+                  "error_code": {
+                    "type": "string",
+                    "description": "Associated error code"
+                  }
+                },
+          "type": "object",
+          "required": [
+            "error_code"
+          ],
+          "title": "ApiError",
+          "description": "The error within the error response."
+        },
+        "ContentClass": {
+          "type": "string",
+          "enum": [
+            "photo",
+            "art"
+          ],
+          "title": "ContentClass",
+          "description": "The content class guides the overall image theme and styles can be applied on top of each content type. If no content type is specified, it is auto-detected. \n | Value | Description\n |:---------- |:------\n | photo | Photorealistic style\n | art | Artistic style\n"
+        },
+        "GenerateImagesRequest": {
+          "properties": {
+            "numVariations": {
+              "type": "integer",
+              "maximum": 4,
+              "minimum": 1,
+              "title": "The number of variations",
+              "description": "The number of variations to generate. numVariations will default to the number of seeds, or to 1 if seeds is not specified."
+            },
+            "seeds": {
+              "items": {
+                "type": "integer"
               },
-              "X-Api-Key": {
-                  "type": "apiKey",
-                  "name": "x-api-key",
-                  "in": "header"
+              "type": "array",
+              "maxItems": 4,
+              "minItems": 1,
+              "uniqueItems": true,
+              "default" : [ 0 ],
+              "title": "The seed of each variation",
+              "description": "Array of seed(s) that ensure consistent image generation across multiple API calls. For example, you can use the same seed to generate a similar image with different styles. If specified alongside with numVariations, the number of seeds must be the equal to numVariations."
+            },
+            "size": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Size"
+                }
+              ],
+              "title": "The size",
+              "description": "The size of the requested generations. The supported dimensions for image generations are: \n  | Dimensions | Description | \n  | -----------| ----- |\n  | { \"width\": 2048, \"height\": 2048} | Square (1:1) |\n  | { \"width\": 2304, \"height\": 1792 } | Landscape (4:3) |\n  | { \"width\": 1792, \"height\": 2304 } | Portrait (3:4) | \n  | { \"width\": 2688, \"height\": 1536 } | Widescreen (16:9) |  \n  | { \"width\": 1344, \"height\": 768 } |(7:4) |  \n  |{ \"width\": 1152, \"height\": 896 } |(9:7) |  \n  |{ \"width\": 896, \"height\": 1152 } |(7:9) |  \n  | { \"width\": 1024, \"height\": 1024} | Square (1:1) |",
+              "default": {
+                "width": 2048,
+                "height": 2048
+              }
+            },
+            "prompt": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1,
+              "title": "The prompt",
+              "description": "The prompt used to generate the image. The longer the prompt - the better.",
+              "examples": ["Horses in a field."]
+            },
+            "negativePrompt": {
+              "type": "string",
+              "maxLength": 1024,
+              "title": "Avoid prompt",
+              "description": "Inference will try to generate against this prompt."
+            },
+            "contentClass": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ContentClass"
+                }
+              ],
+              "title": "The content class",
+              "description": "Will guide the generation to being more photographic or more like art."
+            },
+            "visualIntensity": {
+              "type": "integer",
+              "maximum": 10,
+              "minimum": 2,
+              "title": "Visual Intensity",
+              "description": "Adjusts the overall intensity of your photo's existing visual characteristics."
+            },
+            "style": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Styles"
+                }
+              ],
+              "title": "The styles to be used for image generation",
+              "description": "You can specify a preset, a reference image or both."
+            },
+            "promptBiasingLocaleCode": {
+              "type": "string",
+              "title": "The locale used for image generations",
+              "description": "A hyphen-separated string combining the ISO 639-1 language code and the ISO 3166-1 region, such as \"en-US\". When a locale is set, the prompt will be biased to generate more relevant content for that region. The locale will be auto-detected if not specified based on the user's profile and Accept-Language header.",
+              "default": "en-US"
+            },
+            "tileable": {
+              "type": "boolean",
+              "title": "Output image tileability",
+              "description": "An image is tileable if it can be repeated infinitely in any direction without showing visible seams or edges.",
+              "default": false
+            },
+            "structure": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/StructureReference"
+                }
+              ],
+              "title": "Structure Reference",
+              "description": "Use structure to ensure the generated image maintains a similar layout and organization as the reference image, providing a cohesive and visually balanced result."
+            }
+          },
+          "type": "object",
+          "required": [
+            "prompt"
+          ],
+          "title": "Generating images from prompt"
+        },
+        "GenerateImagesResponse": {
+          "properties": {
+            "size": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Size"
+                }
+              ],
+              "title": "The actual size used for the outputs",
+              "description": "If size was passed as input, this value should be the same as the one passed as input."
+            },
+            "outputs": {
+              "items": {
+                "$ref": "#/components/schemas/OutputImage"
+              },
+              "type": "array",
+              "minItems": 1,
+              "title": "The list of images",
+              "description": "Each image will have a storage item."
+            },
+            "promptHasDeniedWords": {
+              "type": "boolean",
+              "title": "The prompt had denied words",
+              "description": "The user may see that the generation does not comply to its full prompt"
+            },
+            "promptHasBlockedArtists": {
+              "type": "boolean",
+              "title": "The prompt had artists that were blocked",
+              "description": "The user may see that the generation does not comply to its full prompt"
+            },
+            "contentClass": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ContentClass"
+                }
+              ],
+              "title": "The detected content class",
+              "description": "Will be same as input, if input was specified"
+            }
+          },
+          "type": "object",
+          "required": [
+            "size",
+            "outputs"
+          ],
+          "title": "Generating images from prompt"
+        },
+        "PublicBinaryInput": {
+          "properties": {
+              "url": {
+                  "type": "string",
+                  "maxLength": 2083,
+                  "minLength": 1,
+                  "format": "uri",
+                  "title": "The presigned url",
+                  "description": "This URL of an uploaded image."
+              },
+              "uploadId": {
+                  "type": "string",
+                  "format": "uuid4",
+                  "title": "UUID of the uploaded object",
+                  "description": "UUID of the uploaded object"
               }
           },
-              "schemas": {
-                "AlignmentHorizontal": {
-                  "enum": [
-                    "center",
-                    "left",
-                    "right"
-                  ],
-                  "title": "AlignmentHorizontal",
-                  "description": "Specifies the horizontal anchoring of the image within the available space."
-                },
-                "AlignmentVertical": {
-                  "enum": [
-                    "center",
-                    "top",
-                    "bottom"
-                  ],
-                  "title": "AlignmentVertical",
-                  "description": "Specifies the vertical anchoring of the image within the available space."
-                },
-                "ApiError": {
-                    "properties": {
-                            "message": {
-                              "type": "string",
-                              "description": "Error message"
-                            },
-                            "error_code": {
-                              "type": "string",
-                              "description": "Associated error code"
-                            }
-                          },
-                    "type": "object",
-                    "required": [
-                      "error_code"
-                    ],
-                    "title": "ApiError",
-                    "description": "The error within the error response."
-                  },
-                  "BaseInputImageV3": {
-                    "properties": {
-                      "source": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/PublicBinaryInput"
-                          }
-                        ],
-                        "title": "Source image",
-                        "description": "Source image which will be used to expand, fill or generate similar images.\n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>."
-                      }
-                    },
-                    "type": "object",
-                    "required": [
-                      "source"
-                    ],
-                    "title": "BaseInputImageV3"
-                  },
-                  "Body_expandImagesV3": {
-                    "properties": {
-                      "request": {
-                        "$ref": "#/components/schemas/ExpandImageRequestV3"
-                      },
-                      "files": {
-                        "items": {
-                          "type": "string",
-                          "format": "binary"
-                        },
-                        "type": "array",
-                        "title": "Files"
-                      }
-                    },
-                    "type": "object",
-                    "required": [
-                      "request",
-                      "files"
-                    ],
-                    "title": "Body_expandImagesV3"
-                  },
-                  "Body_fillImagesV3": {
-                    "properties": {
-                      "request": {
-                        "$ref": "#/components/schemas/FillImageRequestV3"
-                      },
-                      "files": {
-                        "items": {
-                          "type": "string",
-                          "format": "binary"
-                        },
-                        "type": "array",
-                        "title": "Files"
-                      }
-                    },
-                    "type": "object",
-                    "required": [
-                      "request",
-                      "files"
-                    ],
-                    "title": "Body_fillImagesV3"
-                  },
-                  "Body_generateImagesV3": {
-                    "properties": {
-                      "request": {
-                        "$ref": "#/components/schemas/GenerateImagesRequestV3"
-                      },
-                      "files": {
-                        "items": {
-                          "type": "string",
-                          "format": "binary"
-                        },
-                        "type": "array",
-                        "title": "Files"
-                      }
-                    },
-                    "type": "object",
-                    "required": [
-                      "request",
-                      "files"
-                    ],
-                    "title": "Body_generateImagesV3"
-                  },
-                  "Body_generateObjectCompositeV3": {
-                    "properties": {
-                      "request": {
-                        "$ref": "#/components/schemas/GenerateObjectCompositeRequestV3"
-                      },
-                      "files": {
-                        "items": {
-                          "type": "string",
-                          "format": "binary"
-                        },
-                        "type": "array",
-                        "title": "Files"
-                      }
-                    },
-                    "type": "object",
-                    "required": [
-                      "request",
-                      "files"
-                    ],
-                    "title": "Body_generateObjectCompositeV3"
-                  },
-                  "Body_generateSimilarImagesV3": {
-                    "properties": {
-                      "request": {
-                        "$ref": "#/components/schemas/GenerateSimilarImagesRequestV3"
-                      },
-                      "files": {
-                        "items": {
-                          "type": "string",
-                          "format": "binary"
-                        },
-                        "type": "array",
-                        "title": "Files"
-                      }
-                    },
-                    "type": "object",
-                    "required": [
-                      "request",
-                      "files"
-                    ],
-                    "title": "Body_generateSimilarImagesV3"
-                  },
-                  "ColligoErrorCode": {
-                    "type": "string",
-                    "enum": [
-                      "model_not_loaded",
-                      "not_implemented",
-                      "validation_error",
-                      "runtime_error",
-                      "timeout_error",
-                      "prompt_unsafe",
-                      "input_media_unsafe",
-                      "output_media_unsafe",
-                      "bad_request",
-                      "language_not_supported",
-                      "access_error",
-                      "invalid_content_type"
-                    ],
-                    "title": "ColligoErrorCode",
-                    "description": "An enumeration."
-                  },
-                  "ContentClass": {
-                    "type": "string",
-                    "enum": [
-                      "photo",
-                      "art",
-                      "vector"
-                    ],
-                    "title": "ContentClass",
-                    "description": "An enumeration."
-                  },
-                  "ExpandImageRequestV3": {
-                    "properties": {
-                      "numVariations": {
-                        "type": "integer",
-                        "maximum": 4,
-                        "minimum": 1,
-                        "title": "The number of variations",
-                        "description": "The number of variations to generate. numVariations will default to the number of seeds, or to 1 if seeds is not specified."
-                      },
-                      "seeds": {
-                        "items": {
-                          "type": "integer"
-                        },
-                        "type": "array",
-                        "maxItems": 4,
-                        "minItems": 1,
-                        "uniqueItems": true,
-                        "title": "The seed of each variation",
-                        "description": "Array of seed(s) that ensure consistent image generation across multiple API calls. For example, you can use the same seed to generate a similar image with different styles. If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
-                      },
-                      "size": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/Size"
-                          }
-                        ],
-                        "title": "The size",
-                        "description": "Specifies the desired width and height for the final, expanded image.",
-                        "default": {
-                          "width": 2048,
-                          "height": 2048
-                        }
-                      },
-                      "prompt": {
-                        "type": "string",
-                        "maxLength": 1024,
-                        "minLength": 1,
-                        "title": "Prompt"
-                      },
-                      "image": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/ExpandInputImage"
-                          }
-                        ],
-                        "title": "Input Image",
-                        "description": "The image to be expanded.\n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
-        
-                      },
-                      "placement": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/Placement"
-                          }
-                        ],
-                        "title": "Object placement",
-                        "description": "Specifies how the image will be positioned and sized in the final generation. The value should describe the placement and dimensions of the image within the output."
-                      }
-                    },
-                    "type": "object",
-                    "required": [
-                      "image"
-                    ],
-                    "title": "Images expand payload"
-                  },
-                  "ExpandImageResponseV3": {
-                    "properties": {
-                      "size": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/Size"
-                          }
-                        ],
-                        "title": "The actual size used for the outputs",
-                        "description": "If size was passed as input, this value should be the same as the one passed as input."
-                      },
-                      "outputs": {
-                        "items": {
-                          "$ref": "#/components/schemas/OutputImage"
-                        },
-                        "type": "array",
-                        "minItems": 1,
-                        "title": "The list of images",
-                        "description": "Each image will have a storage item."
-                      }
-                    },
-                    "type": "object",
-                    "required": [
-                      "size",
-                      "outputs"
-                    ],
-                    "title": "Images expand response"
-                  },
-                  "ExpandInputImage": {
-                    "properties": {
-                        "source": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/components/schemas/PublicBinaryInput"
-                                }
-                            ],
-                            "title": "Source image",
-                            "description": "The image to be expanded. Dimensions of image should not be greater than (4000px X 4000px)."
-                          },
-                        "mask": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/components/schemas/PublicBinaryInput"
-                                }
-                            ],
-                            "title": "Mask image",
-                            "description": "Mask that has to be larger than the source image, and the target size has to match the size of the mask or it will be inferred from the mask."
-                        }
-                    },
-                    "type": "object",
-                    "required": ["source"],
-                    "title": "ExpandInputImage"        },
-                  "FillImageRequestV3": {
-                    "properties": {
-                      "numVariations": {
-                        "type": "integer",
-                        "maximum": 4,
-                        "minimum": 1,
-                        "title": "The number of variations",
-                        "description": "The number of variations to generate. numVariations will default to the number of seeds, or to 1 if seeds is not specified."
-                      },
-                      "seeds": {
-                        "items": {
-                          "type": "integer"
-                        },
-                        "type": "array",
-                        "maxItems": 4,
-                        "minItems": 1,
-                        "uniqueItems": true,
-                        "title": "The seed of each variation",
-                        "description": "Array of seed(s) that ensure consistent image generation across multiple API calls. For example, you can use the same seed to generate a similar image with different styles. If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
-                      },
-                      "size": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/Size"
-                          }
-                        ],
-                        "title": "The size",
-                        "description": "The size of the requested generations",
-                        "default": {
-                          "width": 2048,
-                          "height": 2048
-                        }
-                      },
-                      "prompt": {
-                        "type": "string",
-                        "maxLength": 1024,
-                        "minLength": 1,
-                        "title": "The prompt",
-                        "description": "The prompt used to generate the image. The longer the prompt - the better"
-                      },
-                      "negativePrompt": {
-                        "type": "string",
-                        "maxLength": 1024,
-                        "title": "Avoid prompt",
-                        "description": "Inference will try to generate against this prompt"
-                      },
-                      "image": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/InputImage"
-                          }
-                        ],
-                        "title": "Input Image",
-                        "description": "Input image to fill with generative content."
-                      },
-                      "promptBiasingLocaleCode": {
-                        "type": "string",
-                        "title": "The locale used for image generations",
-                        "description": "A hyphen-separated string combining the ISO 639-1 language code and the ISO 3166-1 region, such as \"en-US\". When a locale is set, the prompt will be biased to generate more relevant content for that region. The locale will be auto-detected if not specified based on the user's profile and Accept-Language header.",
-                        "default": "en-US"
-                      }
-                    },
-                    "type": "object",
-                    "required": [
-                      "image"
-                    ],
-                    "title": "Fill images payload"
-                  },
-                  "FillImageResponseV3": {
-                    "properties": {
-                      "size": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/Size"
-                          }
-                        ],
-                        "title": "The actual size used for the outputs",
-                        "description": "If size was passed as input, this value should be the same as the one passed as input."
-                      },
-                      "outputs": {
-                        "items": {
-                          "$ref": "#/components/schemas/OutputImage"
-                        },
-                        "type": "array",
-                        "minItems": 1,
-                        "title": "The list of images",
-                        "description": "Each image will have a storage item."
-                      }
-                    },
-                    "type": "object",
-                    "required": [
-                      "size",
-                      "outputs"
-                    ],
-                    "title": "Fill images response."
-                  },
-                  "GenerateImagesRequestV3": {
-                    "properties": {
-                      "numVariations": {
-                        "type": "integer",
-                        "maximum": 4,
-                        "minimum": 1,
-                        "title": "The number of variations",
-                        "description": "The number of variations to generate. numVariations will default to the number of seeds, or to 1 if seeds is not specified."
-                      },
-                      "seeds": {
-                        "items": {
-                          "type": "integer"
-                        },
-                        "type": "array",
-                        "maxItems": 4,
-                        "minItems": 1,
-                        "uniqueItems": true,
-                        "title": "The seed of each variation",
-                        "description": "Array of seed(s) that ensure consistent image generation across multiple API calls. For example, you can use the same seed to generate a similar image with different styles. If specified alongside with numVariations, the number of seeds must be the equal to numVariations."
-                      },
-                      "size": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/Size"
-                          }
-                        ],
-                        "title": "The size",
-                        "description": "The size of the requested generations",
-                        "default": {
-                          "width": 2048,
-                          "height": 2048
-                        }
-                      },
-                      "prompt": {
-                        "type": "string",
-                        "maxLength": 1024,
-                        "minLength": 1,
-                        "title": "The prompt",
-                        "description": "The prompt used to generate the image. The longer the prompt - the better"
-                      },
-                      "negativePrompt": {
-                        "type": "string",
-                        "maxLength": 1024,
-                        "title": "Avoid prompt",
-                        "description": "Inference will try to generate against this prompt"
-                      },
-                      "contentClass": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/ContentClass"
-                          }
-                        ],
-                        "title": "The content class",
-                        "description": "Will guide the generation to being more photographic or more like art"
-                      },
-                      "visualIntensity": {
-                        "type": "integer",
-                        "maximum": 10,
-                        "minimum": 2,
-                        "title": "Visual Intensity",
-                        "description": "Adjusts the overall intensity of your photo's existing visual characteristic",
-                        "default": 6
-                      },
-                      "photoSettings": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/PhotoSettings"
-                          }
-                        ],
-                        "title": "The photo settings",
-                        "description": "This is only valid if contentClass is photo, otherwise it will be ignored"
-                      },
-                      "styleReference": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/StylesV3"
-                          }
-                        ],
-                        "title": "The styles to be used for image generation",
-                        "description": "You can specify a preset, a reference image or both"
-                      },
-                      "promptBiasingLocaleCode": {
-                        "type": "string",
-                        "title": "The locale used for image generations",
-                        "description": "A hyphen-separated string combining the ISO 639-1 language code and the ISO 3166-1 region, such as \"en-US\". When a locale is set, the prompt will be biased to generate more relevant content for that region. The locale will be auto-detected if not specified based on the user's profile and Accept-Language header."
-                      },
-                      "tileable": {
-                        "type": "boolean",
-                        "title": "If the output image should be tileable or not",
-                        "description": "Control to apply noise-rolling during diffusion (required for text2pattern, text2texture)"
-                      },
-                      "structureReference": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/StructureReferenceV3"
-                          }
-                        ],
-                        "title": "Structure Reference",
-                        "description": "Source Image which will be used for as a reference for structure to have a controlled generation"
-                      }
-                    },
-                    "type": "object",
-                    "required": [
-                      "prompt"
-                    ],
-                    "title": "Generating images from prompt"
-                  },
-                  "GenerateImagesResponseV3": {
-                    "properties": {
-                      "size": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/Size"
-                          }
-                        ],
-                        "title": "The actual size used for the outputs",
-                        "description": "If size was passed as input, this value should be the same as the one passed as input."
-                      },
-                      "outputs": {
-                        "items": {
-                          "$ref": "#/components/schemas/OutputImage"
-                        },
-                        "type": "array",
-                        "minItems": 1,
-                        "title": "The list of images",
-                        "description": "Each image will have a storage item."
-                      },
-                      "promptHasDeniedWords": {
-                        "type": "boolean",
-                        "title": "The prompt had denied words",
-                        "description": "The user may see that the generation does not comply to its full prompt"
-                      },
-                      "promptHasBlockedArtists": {
-                        "type": "boolean",
-                        "title": "The prompt had artists that were blocked",
-                        "description": "The user may see that the generation does not comply to its full prompt"
-                      },
-                      "photoSettings": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/PhotoSettings"
-                          }
-                        ],
-                        "title": "The photo settings used for generation",
-                        "description": "Only specified if content class was detected as photo"
-                      },
-                      "contentClass": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/ContentClass"
-                          }
-                        ],
-                        "title": "The detected content class",
-                        "description": "Will be same as input, if input was specified"
-                      }
-                    },
-                    "type": "object",
-                    "required": [
-                      "size",
-                      "outputs"
-                    ],
-                    "title": "Generating images from prompt"
-                  },
-                  "GenerateObjectCompositeRequestV3": {
-                    "properties": {
-                      "numVariations": {
-                        "type": "integer",
-                        "maximum": 4,
-                        "minimum": 1,
-                        "title": "The number of variations",
-                        "description": "The number of variations to generate. numVariations will default to the number of seeds, or to 1 if seeds is not specified."
-                      },
-                      "seeds": {
-                        "items": {
-                          "type": "integer"
-                        },
-                        "type": "array",
-                        "maxItems": 4,
-                        "minItems": 1,
-                        "uniqueItems": true,
-                        "title": "The seed of each variation",
-                        "description": "Array of seed(s) that ensure consistent image generation across multiple API calls. For example, you can use the same seed to generate a similar image with different styles. If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
-                      },
-                      "size": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/Size"
-                          }
-                        ],
-                        "title": "The size",
-                        "description": "The size of the requested generations",
-                        "default": {
-                          "width": 2048,
-                          "height": 2048
-                        }
-                      },
-                      "image": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/ObjectCompositeInputImageV3"
-                          }
-                        ],
-                        "title": "Input Image",
-                        "description": "An image of an object that needs to be rendered on a scene. \n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
-                      },
-                      "prompt": {
-                        "type": "string",
-                        "maxLength": 1024,
-                        "minLength": 1,
-                        "title": "The prompt",
-                        "description": "The prompt used to generate the image. The longer the prompt - the better"
-                      },
-                      "placement": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/Placement"
-                          }
-                        ],
-                        "title": "Object placement",
-                        "description": "Specifies how the image will be positioned and sized in the final generation. You can specify both inset and alignment, only inset, only alignment or none of them."
-                      }
-                    },
-                    "type": "object",
-                    "required": [
-                      "image",
-                      "prompt"
-                    ],
-                    "title": "Generate object composite from prompt request"
-                  },
-                  "GenerateObjectCompositeResponseV3": {
-                    "properties": {
-                      "size": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/Size"
-                          }
-                        ],
-                        "title": "The actual size used for the outputs",
-                        "description": "If size was passed as input, this value should be the same as the one passed as input."
-                      },
-                      "outputs": {
-                        "items": {
-                          "$ref": "#/components/schemas/OutputImage"
-                        },
-                        "type": "array",
-                        "minItems": 1,
-                        "title": "The list of images",
-                        "description": "Each image will have a storage item."
-                      }
-                    },
-                    "type": "object",
-                    "required": [
-                      "size",
-                      "outputs"
-                    ],
-                    "title": "Generate object composite from prompt response"
-                  },
-                  "GenerateSimilarImagesRequestV3": {
-                    "properties": {
-                      "numVariations": {
-                        "type": "integer",
-                        "maximum": 4,
-                        "minimum": 1,
-                        "title": "The number of variations",
-                        "description": "The number of variations to generate. numVariations will default to the number of seeds, or to 1 if seeds is not specified."
-                      },
-                      "seeds": {
-                        "items": {
-                          "type": "integer"
-                        },
-                        "type": "array",
-                        "maxItems": 4,
-                        "minItems": 1,
-                        "uniqueItems": true,
-                        "title": "The seed of each variation",
-                        "description": "Array of seed(s) that ensure consistent image generation across multiple API calls. For example, you can use the same seed to generate a similar image with different styles. If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
-                      },
-                      "size": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/Size"
-                          }
-                        ],
-                        "title": "The size",
-                        "description": "The size of the requested generations",
-                        "default": {
-                          "width": 2048,
-                          "height": 2048
-                        }
-                      },
-                      "image": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/BaseInputImageV3"
-                          }
-                        ],
-                        "title": "The reference image",
-                        "description": "Firefly will create similar variations"
-                      },
-                      "tileable": {
-                        "type": "boolean",
-                        "title": "Output image tileability",
-                        "description": "An image is tilable if it can be repeated infinitely in any direction without showing visible seams or edges."
-                      }
-                    },
-                    "type": "object",
-                    "required": [
-                      "image"
-                    ],
-                    "title": "Generating similar images from a reference image"
-                  },
-                  "GenerateSimilarImagesResponseV3": {
-                    "properties": {
-                      "size": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/Size"
-                          }
-                        ],
-                        "title": "The actual size used for the outputs",
-                        "description": "If size was passed as input, this value should be the same as the one passed as input."
-                      },
-                      "outputs": {
-                        "items": {
-                          "$ref": "#/components/schemas/OutputImage"
-                        },
-                        "type": "array",
-                        "minItems": 1,
-                        "title": "The list of images",
-                        "description": "Each image will have a storage item."
-                      }
-                    },
-                    "type": "object",
-                    "required": [
-                      "size",
-                      "outputs"
-                    ],
-                    "title": "Generating similar images response"
-                  },
-                  "ObjectCompositeInputImageV3": {
-                    "properties": {
-                      "source": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/PublicBinaryInput"
-                          }
-                        ],
-                        "title": "Source image",
-                        "description": "An image of an object that needs to be rendered on a scene."
-                      },
-                      "mask": {
-                        "allOf": [
-                          {
-                              "$ref": "#/components/schemas/PublicBinaryInput"
-                          }
-                      ],
-                        "title": "Mask image",
-                        "description": "Provide a mask that hides part of the object like the background."
-                      }
-                    },
-                    "type": "object",
-                    "required": [
-                      "source"
-                    ],
-                    "title": "ObjectCompositeInputImageV3"
-                  },
-                  "InputImage": {
-                      "properties": {
-                          "source": {
-                              "allOf": [
-                                  {
-                                      "$ref": "#/components/schemas/PublicBinaryInput"
-                                  }
-                              ],
-                              "title": "Source image",
-                              "description": "Source image which will be used to expand, fill or generate similar images.\n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
-                          },
-                          "mask": {
-                              "allOf": [
-                                  {
-                                      "$ref": "#/components/schemas/PublicBinaryInput"
-                                  }
-                              ],
-                              "title": "Mask image",
-                              "description": "Mask image which will be used replace the backgound of the image.<br><strong>Note:</strong> The minimum accepted size for the larger side of the image is 600 px."
-                          }
-                      },
-                      "type": "object",
-                      "required": ["source"],
-                      "title": "InputImage"
-                  },
-                  "PublicBinaryInput": {
-                    "properties": {
-                        "url": {
-                            "type": "string",
-                            "maxLength": 2083,
-                            "minLength": 1,
-                            "format": "uri",
-                            "title": "The presigned url",
-                            "description": "This URL of an uploaded image."
-                        },
-                        "uploadId": {
-                            "type": "string",
-                            "format": "uuid4",
-                            "title": "UUID of the uploaded object",
-                            "description": "UUID of the uploaded object"
-                        }
-                    },
-                    "type": "object",
-                    "title": "PublicBinaryInput"
-                  },
-                "PublicBinaryOutput": {
-                  "properties": {
-                      "url": {
-                          "type": "string",
-                          "maxLength": 2083,
-                          "minLength": 1,
-                          "format": "uri",
-                          "title": "The presigned url",
-                          "description": "The reference to signed url of the image."
-                      }
-                  },
-                  "type": "object",
-                  "title": "PublicBinaryOutput"
-              },
-                  "OutputImage": {
-                      "properties": {
-                          "seed": {
-                              "type": "integer",
-                              "title": "The seed used for the generation",
-                              "description": "Identifier used to customize image generation processes."
-                          },
-                          "image": {
-                              "allOf": [
-                                  {
-                                      "$ref": "#/components/schemas/PublicBinaryOutput"
-                                  }
-                              ],
-                              "description": "A valid storage item containing a pre-signed URL. The pre-signed URL will expire in one hour."
-                          }
-                      },
-                      "type": "object",
-                      "required": ["seed", "image"],
-                      "title": "OutputImage"
-                  },
-                  "PhotoSettings": {
-                    "properties": {
-                      "aperture": {
-                        "type": "number",
-                        "maximum": 22,
-                        "minimum": 1.2,
-                        "title": "The styles to be used for image generation",
-                        "description": "You can specify a preset, a reference image or both"
-                      },
-                      "shutterSpeed": {
-                        "type": "number",
-                        "maximum": 10,
-                        "minimum": 0.0005,
-                        "title": "Shutter speed, seconds",
-                        "description": "You can use fractions of a second like 1/4000 or whole seconds"
-                      },
-                      "fieldOfView": {
-                        "type": "integer",
-                        "maximum": 300,
-                        "minimum": 14,
-                        "title": "The field of view, in mm",
-                        "description": "Description TBD"
-                      }
-                    },
-                    "type": "object",
-                    "required": [
-                      "aperture",
-                      "shutterSpeed",
-                      "fieldOfView"
-                    ],
-                    "title": "PhotoSettings"
-                  },
-                  "Placement": {
-                    "properties": {
-                      "inset": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/PlacementInset"
-                          }
-                        ],
-                        "title": "Margin values in target size",
-                        "description": "Defines the inward displacement applied to the image's edges. This parameter specifies the distance by which each edge of the image will be pushed inward, thereby reducing the visible area by the specified amount on all sides."
-                      },
-                      "alignment": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/PlacementAlignment"
-                          }
-                        ],
-                        "title": "Alignment",
-                        "description": "Specifies how the image will be anchored within the available space for each direction. For horizontal, (0,1,2)=(center, left, right). For vertical, (0,1,2)=(center, top, bottom)."
-                      }
-                    },
-                    "type": "object",
-                    "title": "Placement"
-                  },
-                  "PlacementAlignment": {
-                    "properties": {
-                      "horizontal": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/AlignmentHorizontal"
-                          }
-                        ],
-                        "default": "center"
-                      },
-                      "vertical": {
-                        "allOf": [
-                          {
-                            "$ref": "#/components/schemas/AlignmentVertical"
-                          }
-                        ],
-                        "default": "center"
-                      }
-                    },
-                    "type": "object",
-                    "title": "PlacementAlignment"
-                  },
-                  "PlacementInset": {
-                    "properties": {
-                      "left": {
-                        "type": "integer",
-                        "title": "Left Inset",
-                        "description": "The space between left edge of the result image and left edge of the placed object image."
-                      },
-                      "top": {
-                        "type": "integer",
-                        "title": "Top Inset",
-                        "description": "The space between top edge of the result image and top edge of the placed object image."
-                      },
-                      "right": {
-                        "type": "integer",
-                        "title": "Right Inset",
-                        "description": "The space between right edge of the result image and right edge of the placed object image."
-                      },
-                      "bottom": {
-                        "type": "integer",
-                        "title": "Bottom Inset",
-                        "description": "The space between bottom edge of the result image and bottom edge of the placed object image."
-                      }
-                    },
-                    "type": "object",
-                    "title": "PlacementInset"
-                  },
-                  "Size": {
-                      "properties": {
-                          "width": {
-                              "type": "integer",
-                              "maximum": 2688,
-                              "minimum": 1,
-                              "title": "The width of the output image"
-                          },
-                          "height": {
-                              "type": "integer",
-                              "maximum": 2688,
-                              "minimum": 1,
-                              "title": "The height of the output image"
-                          }
-                      },
-                      "description": "Dimensions of the generated image\n  | Dimensions | Description | \n  | -----------| ----- |\n  | { \"width\": 2048, \"height\": 2048} | Square (1:1) |\n  | { \"width\": 2304, \"height\": 1792 } | Landscape (4:3) |\n  | { \"width\": 1792, \"height\": 2304 } | Portrait (3:4) | \n  | { \"width\": 2688, \"height\": 1536 } | Widescreen (16:9) |\n",
-                      "type": "object",
-                      "required": ["width", "height"],
-                      "title": "Size"
-                  },
-                  "StructureReferenceV3": {
-                      "properties": {
-                          "source": {
-                              "allOf": [
-                                  {
-                                      "$ref": "#/components/schemas/PublicBinaryInput"
-                                  }
-                              ],
-                              "title": "A structure reference image",
-                              "description": "Firefly will detect the structure in the image and apply the same in the generated image. \n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
-                          },
-                          "strength": {
-                              "type": "integer",
-                              "maximum": 2,
-                              "minimum": 0,
-                              "title": "Adherence Threshold",
-                              "description": "Adjusts adherence to structure reference image. 0 means no adherence. 2 means full adherence.",
-                              "default": 1
-                          }
-                      },
-                      "type": "object",
-                      "title": "StructureReference"
-                  },
-                  "StylesV3": {
-                      "properties": {
-                          "presets": {
-                              "items": {
-                                  "type": "string"
-                              },
-                              "type": "array",
-                              "uniqueItems": true,
-                              "title": "The style presets",
-                              "description": "You can specify an ID for a style"
-                          },
-                          "source": {
-                              "allOf": [
-                                  {
-                                      "$ref": "#/components/schemas/PublicBinaryInput"
-                                  }
-                              ],
-                              "title": "A style image reference",
-                              "description": "Firefly will detect the style in the image and apply the same style in the generated image. \n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
-                          },
-                          "strength": {
-                              "type": "integer",
-                              "maximum": 100,
-                              "exclusiveMinimum": 0,
-                              "title": "The strength of the style",
-                              "description": "Desc TBD",
-                              "default": 50
-                          }
-                      },
-                      "type": "object",
-                      "title": "Styles"
-                  },
-                  "UploadResponse": {
-                      "description": "Upload response",
-                      "type": "object",
-                      "properties": {
-                          "images": {
-                              "type": "array",
-                              "description": "Array of objects containing asset ID",
-                              "items": {
-                                  "allOf": [
-                                      {
-                                          "$ref": "#/components/schemas/UploadedResource"
-                                      }
-                                  ]
-                              }
-                          }
-                      }
-                  },
-                  "UploadedResource": {
-                      "type": "object",
-                      "description": "Uploaded Media Details",
-                      "required": ["id"],
-                      "properties": {
-                          "id": {
-                              "type": "string",
-                              "description": "ID associated with the asset (generate this ID using the upload API).",
-                              "examples": ["REPLACE WITH STRING ID GENERATED FROM UPLOAD IMAGE API"]
-                          }
-                      }
-                  },
-                  "ValidationErrorMessage": {
-                    "properties": {
-                      "loc": {
-                        "items": {
-                          "anyOf": [
-                            {
-                              "type": "integer"
-                            },
-                            {
-                              "type": "string"
-                            }
-                          ]
-                        },
-                        "type": "array",
-                        "title": "Loc"
-                      },
-                      "msg": {
-                        "type": "string",
-                        "title": "Msg"
-                      },
-                      "type": {
-                        "type": "string",
-                        "title": "Type"
-                      },
-                      "ctx": {
-                        "type": "object",
-                        "title": "Ctx"
-                      }
-                    },
-                    "type": "object",
-                    "required": [
-                      "loc",
-                      "msg",
-                      "type"
-                    ],
-                    "title": "ValidationErrorMessage"
-                  }
-              }
+          "type": "object",
+          "title": "PublicBinaryInput",
+          "description": " You can either use a <code>url</code> or an <code>uploadId</code> as the source for the uploaded image."
+        },
+      "PublicBinaryOutput": {
+        "properties": {
+            "url": {
+                "type": "string",
+                "maxLength": 2083,
+                "minLength": 1,
+                "format": "uri",
+                "title": "The presigned url",
+                "description": "The reference to signed url of the image."
             }
-          }
+        },
+        "type": "object",
+        "title": "PublicBinaryOutput"
+    },
+        "OutputImage": {
+            "properties": {
+                "seed": {
+                    "type": "integer",
+                    "title": "The seed used for the generation",
+                    "description": "Identifier used to customize image generation processes."
+                },
+                "image": {
+                    "allOf": [
+                        {
+                            "$ref": "#/components/schemas/PublicBinaryOutput"
+                        }
+                    ],
+                    "description": "A valid storage item containing a pre-signed URL. The pre-signed URL will expire in one hour."
+                }
+            },
+            "type": "object",
+            "required": ["seed", "image"],
+            "title": "OutputImage"
+        },
+        "Size": {
+            "properties": {
+                "width": {
+                    "type": "integer",
+                    "maximum": 2688,
+                    "minimum": 1,
+                    "title": "The desired width of the output image."
+                },
+                "height": {
+                    "type": "integer",
+                    "maximum": 2688,
+                    "minimum": 1,
+                    "title": "The desired height of the output image."
+                }
+            },
+            "type": "object",
+            "required": ["width", "height"],
+            "title": "Size"
+        },
+        "StructureImageReference": {
+          "properties": {
+              "source": {
+                  "$ref": "#/components/schemas/PublicBinaryInput"
+              }
+          },
+          "type": "object",
+          "title": "StructureImageReference"
+      },
+      "StructureReference": {
+          "properties": {
+              "strength": {
+                  "type": "integer",
+                  "maximum": 100,
+                  "minimum": 0,
+                  "title": "Adherence Threshold",
+                  "description": "Control the amount of adherence to the reference image when generating the image variations. 0 means no adherence. 100 means full adherence."
+              },
+              "imageReference": {
+                  "allOf": [
+                      {
+                          "$ref": "#/components/schemas/StructureImageReference"
+                      }
+                  ],
+                  "title": "A structure reference image",
+                  "description": "An image with a structure you want to use as a reference for generating image variations.  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
+              }
+          },
+          "type": "object",
+          "title": "StructureReference"
+      },
+      "StylesImageReference": {
+          "properties": {
+              "source": {
+                  "$ref": "#/components/schemas/PublicBinaryInput"
+              }
+          },
+          "type": "object",
+          "title": "StylesImageReference"
+      },
+        "Styles": {
+            "properties": {
+                "presets": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "uniqueItems": true,
+                    "title": "The style presets",
+                    "description": "You can specify a preset ID for a style. Refer to Image Model Styles under Concepts for the list of supported <code>Preset IDs</code>. "
+                },
+                "strength": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "exclusiveMinimum": 0,
+                    "title": "The strength of the style",
+                    "description": "The strength of the style to be applied."
+                },
+        "imageReference": {
+          "allOf": [
+              {
+                  "$ref": "#/components/schemas/StylesImageReference"
+              }
+          ],
+          "title": "A style image reference",
+          "description": "Firefly will detect the style in the image and apply the same style in the generated image.  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request. The allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
+      }
+    },
+  "type": "object",
+  "title": "Styles"
+}
+      }
+    }
+
+}
