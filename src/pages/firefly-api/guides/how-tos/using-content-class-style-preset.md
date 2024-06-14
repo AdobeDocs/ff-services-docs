@@ -1,13 +1,33 @@
+---
+title: Generate Images with Content Class and Style Presets
+description: A guide to generating images with specific content classes and style presets when using the Firefly APIs.
+keywords:
+  - Adobe Firefly Services
+  - Firefly API
+  - Firefly API Style Reference
+  - Firefly API Structure Reference
+  - How-to guides
+  - Firefly usage examples
+  - Firefly generate images
+  - Access token
+  - Client ID
+  - API Key
+  - Text to image
+  - Firefly endpoint
+contributors:
+  - https://github.com/cfjedimaster
+  - https://github.com/hollyschinsky
+hideBreadcrumbNav: true
+---
+
 # Using Content Class and Style Presets
 
-At its simplest, the Firefly API can generate an image based on your prompt alone. However, there are numerous parameters that can be used to specifically direct the generated output.
+Learn how to use additional parameters to direct the style of the images generated in your API calls.
 
 ## Prerequisites
 
-Before we begin, make sure you have the following:
-
 -  Firefly API credentials. If you don't have them yet, first visit the Firefly Services [Getting Started](../../../guides/get-started.md) guide to obtain a `client_id` and `client_secret`.
--  `Node.js` installed on your machine and basic familiarity with `JavaScript`. **Note:** The code for this guide will make use of the Firefly REST API via Node.js, but could be done in any language, or with the SDK.
+-  Node.js installed on your machine and basic familiarity with `JavaScript`. **Note:** The code for this guide will make use of the [Firefly REST APIs](../api/) via Node.js, but could be written in any language, or with the [SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/).
 
 <InlineAlert variant="warning" slots="title, text" />
 
@@ -48,7 +68,7 @@ async function textToImage(prompt, id, token, contentClass) {
  
     if (contentClass) body.contentClass = contentClass;
  
-    let req = await fetch('https://firefly-api-enterprise-stage.adobe.io/v3/images/generate', {
+    let req = await fetch('https://firefly-api.adobe.io/v3/images/generate', {
         method:'POST',
         headers: {
             'X-Api-Key':id,
@@ -146,7 +166,7 @@ let body = {
  
 if (presets) body.style = { presets };
  
-let req = await fetch('https://firefly-api-enterprise-stage.adobe.io/v3/images/generate', {
+let req = await fetch('https://firefly-api.adobe.io/v3/images/generate', {
   method:'POST',
   headers: {
     'X-Api-Key':id,

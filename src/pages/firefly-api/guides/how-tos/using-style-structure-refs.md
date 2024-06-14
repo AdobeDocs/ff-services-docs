@@ -1,15 +1,33 @@
+---
+title: Generate Images with Style & Structure References
+description: A guide to generating images with style and structure references when using the Firefly Generate Images API.
+keywords:
+  - Adobe Firefly Services
+  - Firefly API
+  - Firefly API Style Reference
+  - Firefly API Structure Reference
+  - How-to guides
+  - Firefly usage examples
+  - Firefly generate images
+  - Access token
+  - Client ID
+  - API Key
+  - Text to image
+  - Firefly endpoint
+contributors:
+  - https://github.com/cfjedimaster
+  - https://github.com/hollyschinsky
+hideBreadcrumbNav: true
+---
+
 # Using Style and Structure Image References
 
-## Overview
-
-The [previous guide](https://wiki.corp.adobe.com/display/devex/Using+Content+Class+and+Style+Presets) demonstrated how to use two settings that give more control over the generated assets - the `contentClass` and style `preset`. As stated there, those were only a sampling of the possible options available when generating your results. This guide will take a look at two more:
-
-* Using an existing image as a style reference
-* Using an existing image as a structure reference
+Learn how to use an existing image as a style or structure reference when generating images.
 
 ## Prerequisites
 
-In order to use this guide, you will need Firefly Services credentials, consisting of a CLIENT_ID  and CLIENT_SECRET  value. The code for this guide will make use of the Firefly REST API via Node.js, but could be done in any language, or with the [SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/). The code demonstrated uses both imports and top-level await, so either save your sample as a `.mjs` file or use `"type":"module"` in your `package.json`. 
+-  Firefly API credentials. If you don't have them yet, first visit the Firefly Services [Getting Started](../../../guides/get-started.md) guide to obtain a `client_id` and `client_secret`.
+-  Node.js installed on your machine and basic familiarity with `JavaScript`. **Note:** The code for this guide will make use of the [Firefly REST APIs](../api/) via Node.js, but could be written in any language, or with the [SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/).
 
 ## Working with Reference Images
 
@@ -27,7 +45,7 @@ async function uploadImage(filePath, fileType, id, token) {
 	let stats = fs.statSync(filePath);
 	let fileSizeInBytes = stats.size;
 
-	let upload = await fetch('https://firefly-api-enterprise-stage.adobe.io/v2/storage/image', {
+	let upload = await fetch('https://firefly-api.adobe.io/v2/storage/image', {
 		method:'POST', 
 		headers: {
 			'Authorization':`Bearer ${token}`, 
@@ -120,7 +138,7 @@ async function uploadImage(filePath, fileType, id, token) {
 	let stats = fs.statSync(filePath);
 	let fileSizeInBytes = stats.size;
 
-	let upload = await fetch('https://firefly-api-enterprise-stage.adobe.io/v2/storage/image', {
+	let upload = await fetch('https://firefly-api.adobe.io/v2/storage/image', {
 		method:'POST', 
 		headers: {
 			'Authorization':`Bearer ${token}`, 
@@ -166,7 +184,7 @@ async function textToImage(prompt, id, token, styleReference) {
 		};
 	}
 
-    let req = await fetch('https://firefly-api-enterprise-stage.adobe.io/v3/images/generate', {
+    let req = await fetch('https://firefly-api.adobe.io/v3/images/generate', {
 		method:'POST',
 		headers: {
 			'X-Api-Key':id, 
@@ -257,7 +275,7 @@ async function textToImage(prompt, id, token, structureReference) {
 		};
 	}
 
-    let req = await fetch('https://firefly-api-enterprise-stage.adobe.io/v3/images/generate', {
+    let req = await fetch('https://firefly-api.adobe.io/v3/images/generate', {
 		method:'POST',
 		headers: {
 			'X-Api-Key':id, 
@@ -328,7 +346,7 @@ async function uploadImage(filePath, fileType, id, token) {
 	let stats = fs.statSync(filePath);
 	let fileSizeInBytes = stats.size;
 
-	let upload = await fetch('https://firefly-api-enterprise-stage.adobe.io/v2/storage/image', {
+	let upload = await fetch('https://firefly-api.adobe.io/v2/storage/image', {
 		method:'POST', 
 		headers: {
 			'Authorization':`Bearer ${token}`, 
@@ -370,7 +388,7 @@ async function textToImage(prompt, id, token, structureReference) {
 		};
 	}
 
-    let req = await fetch('https://firefly-api-enterprise-stage.adobe.io/v3/images/generate', {
+    let req = await fetch('https://firefly-api.adobe.io/v3/images/generate', {
 		method:'POST',
 		headers: {
 			'X-Api-Key':id, 

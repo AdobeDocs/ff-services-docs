@@ -1,11 +1,31 @@
-# Using the Fill Image API
+---
+title: Using the Firefly Fill Image API
+description: A guide to using the Firefly Fill Image API in your code workflows.
+keywords:
+  - Adobe Firefly Services
+  - Firefly API
+  - Firefly Generative Expand
+  - Fill Images
+  - How-to guides
+  - Firefly endpoint
+contributors:
+  - https://github.com/cfjedimaster
+  - https://github.com/hollyschinsky
+hideBreadcrumbNav: true
+---
 
-Generative Fill is a powerful feature that lets designers modify an existing image by using AI to replace a portion of an image with generated content. This could be a small portion of an image or an entire background behind a central object. Let's take a look at how this can be done with Firefly Services.
+# Using the Firefly Fill Image API
+
+A guide to getting started using the Fill Image API in your code workflows. 
+
+## Overview
+
+Generative Fill is a powerful Firefly feature that lets designers modify an existing image using AI to replace a portion of an image with generated content. This could be a small portion of an image or an entire background behind a central object. Let's take a look at how this can be done with Firefly Services.
 
 ## Prerequisites
 
 -  Firefly API credentials. If you don't have them yet, first visit the Firefly Services [Getting Started](../../../guides/get-started.md) guide to obtain a `client_id` and `client_secret`.
--  `Node.js` installed on your machine and basic familiarity with `JavaScript`. **Note:** The code for this guide will make use of the [Firefly REST API](../api/) via Node.js, but could be done in any language, or with the [SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/).
+-  Node.js installed on your machine and basic familiarity with `JavaScript`. **Note:** The code for this guide will make use of the [Firefly REST APIs](../api/) via Node.js, but could be written in any language, or with the [SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/).
 
 ## Generative Fill at a High Level
 
@@ -76,7 +96,7 @@ async function genFill(maskId, sourceId, width, height, prompt, id, token) {
 		}
 	}
 
-	let req = await fetch('https://firefly-api-enterprise-stage.adobe.io/v3/images/fill', {
+	let req = await fetch('https://firefly-api.adobe.io/v3/images/fill', {
 		method:'POST',
 		headers: {
 			'X-Api-Key':id, 
@@ -161,7 +181,7 @@ async function uploadImage(filePath, fileType, id, token) {
 	let stats = fs.statSync(filePath);
 	let fileSizeInBytes = stats.size;
 
-	let upload = await fetch('https://firefly-api-enterprise-stage.adobe.io/v2/storage/image', {
+	let upload = await fetch('https://firefly-api.adobe.io/v2/storage/image', {
 		method:'POST', 
 		headers: {
 			'Authorization':`Bearer ${token}`, 
@@ -203,7 +223,7 @@ async function genFill(maskId, sourceId, width, height, prompt, id, token) {
 	}
 
 
-	let req = await fetch('https://firefly-api-enterprise-stage.adobe.io/v3/images/fill', {
+	let req = await fetch('https://firefly-api.adobe.io/v3/images/fill', {
 		method:'POST',
 		headers: {
 			'X-Api-Key':id, 

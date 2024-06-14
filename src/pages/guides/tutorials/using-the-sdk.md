@@ -45,6 +45,7 @@ contributors:
   - https://github.com/cfjedimaster
 hideBreadcrumbNav: true
 ---
+
 # Getting Started with the Firefly Services SDK
 
 As a developer, you have the flexibility to choose how you want to integrate with Firefly Services, tailoring the experience to your specific needs and preferences. 

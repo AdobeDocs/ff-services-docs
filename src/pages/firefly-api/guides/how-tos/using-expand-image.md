@@ -1,11 +1,31 @@
-# Using the Expand Image API
+---
+title: Using the Firefly Expand Image API
+description: A guide to using the Firefly Expand Image API in your code workflows.
+keywords:
+  - Adobe Firefly Services
+  - Firefly API
+  - Firefly Generative Expand
+  - Expand Images
+  - How-to guides
+  - Firefly endpoint
+contributors:
+  - https://github.com/cfjedimaster
+  - https://github.com/hollyschinsky
+hideBreadcrumbNav: true
+---
+
+# Using the Firefly Expand Image API
+
+A guide to getting started using the Expand Image API in your code workflows. 
+
+## Overview
 
 Designers often struggle with taking existing media assets and re-purposing them for other sizes and form factors. An original image may be too small, incorrectly oriented, and so forth. With the power of Firefly's [Expand Image API](../api/generative_expand/), an original asset can be used as a source for generating new variations in multiple sizes, using generative AI to "draw out" from the source. Let's take a look at how this can be done.
 
 ## Prerequisites
 
 -  Firefly API credentials. If you don't have them yet, first visit the Firefly Services [Getting Started](../../../guides/get-started.md) guide to obtain a `client_id` and `client_secret`.
--  `Node.js` installed on your machine and basic familiarity with `JavaScript`. **Note:** The code for this guide will make use of the [Firefly REST API](../api/) via Node.js, but could be done in any language, or with the [SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/).
+-  Node.js installed on your machine and basic familiarity with `JavaScript`. **Note:** The code for this guide will make use of the [Firefly REST APIs](../api/) via Node.js, but could be written in any language, or with the [SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/).
 
 ## Expand Image at a High Level
 
@@ -17,15 +37,9 @@ Before getting into the code, let's look at how generative expand works at a hig
 * An optional mask can be used, as long as it is the same size as specified above.
 * Finally, an optional placement parameter. By default, Firefly will center the source image in the generated new image, but an inset or alignment value can be used as well.
 
-## Source Image
-
-The source image used in this guide is shown below, and will be uploaded using [Firefly's Upload API](../api/upload_image/). This image is 800 pixels wide by 582 pixels high.
-
-![Source image](../images/gen-expand-source.jpg)
-
 ## Calling the Expand Image API
 
-Let's begin with the simplest operation possible, simply requesting a larger image. From the [API Reference](../api/generative_expand/), we can see that a minimal request body should look like so:
+Let's begin with the simplest operation possible, simply requesting a larger image from a provided source image. From the [API Reference](../api/generative_expand/), we can see that a minimal request body should look like this:
 
 ```json
 {
@@ -41,7 +55,13 @@ Let's begin with the simplest operation possible, simply requesting a larger ima
 }
 ```
 
-Remember that the `uploadId` will come from uploading our source image. We can wrap up a call in a simple utility function like so:
+Where the `uploadId` will come from an uploaded source image. In this guide, we'll use the following image as our source image:
+
+![Source image](../images/gen-expand-source.jpg)
+
+It will be uploaded using [Firefly's Upload API](../api/upload_image/) in the example code.
+
+We can wrap up a call in a simple utility function like so:
 
 ```js
 async function genExpand(imageId, width, height, id, token) {
@@ -59,7 +79,7 @@ async function genExpand(imageId, width, height, id, token) {
 		}
 	}
 
-	let req = await fetch('https://firefly-api-enterprise-stage.adobe.io/v3/images/expand', {
+	let req = await fetch('https://firefly-api.adobe.io/v3/images/expand', {
 		method:'POST',
 		headers: {
 			'X-Api-Key':id, 
@@ -105,7 +125,7 @@ async function genExpand(imageId, width, height, id, token, prompt) {
 
 	if(prompt) body.prompt = prompt;
 
-	let req = await fetch('https://firefly-api-enterprise-stage.adobe.io/v3/images/expand', {
+	let req = await fetch('https://firefly-api.adobe.io/v3/images/expand', {
 		method:'POST',
 		headers: {
 			'X-Api-Key':id, 
@@ -167,7 +187,7 @@ async function genExpand(imageId, width, height, id, token, prompt, alignment) {
 	if(prompt) body.prompt = prompt;
 	if(alignment) body.placement = { alignment };
 
-	let req = await fetch('https://firefly-api-enterprise-stage.adobe.io/v3/images/expand', {
+	let req = await fetch('https://firefly-api.adobe.io/v3/images/expand', {
 		method:'POST',
 		headers: {
 			'X-Api-Key':id, 
@@ -239,7 +259,7 @@ async function uploadImage(filePath, fileType, id, token) {
 	let stats = fs.statSync(filePath);
 	let fileSizeInBytes = stats.size;
 
-	let upload = await fetch('https://firefly-api-enterprise-stage.adobe.io/v2/storage/image', {
+	let upload = await fetch('https://firefly-api.adobe.io/v2/storage/image', {
 		method:'POST', 
 		headers: {
 			'Authorization':`Bearer ${token}`, 
@@ -279,7 +299,7 @@ async function genExpand(imageId, width, height, id, token, prompt, alignment) {
 	if(prompt) body.prompt = prompt;
 	if(alignment) body.placement = { alignment };
 
-	let req = await fetch('https://firefly-api-enterprise-stage.adobe.io/v3/images/expand', {
+	let req = await fetch('https://firefly-api.adobe.io/v3/images/expand', {
 		method:'POST',
 		headers: {
 			'X-Api-Key':id, 
