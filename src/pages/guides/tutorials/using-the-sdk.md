@@ -235,7 +235,7 @@ One of the benefits of having a Firefly SDK is how easy it is to build more comp
 
 In order for this to work, we first need our reference image. We'll use this:
 
-![](https://wiki.corp.adobe.com/download/attachments/3209308328/image-2024-6-6_3-31-0.png?version=1&modificationDate=1717659061540&api=v2)
+![](../images/image-2024-6-6_3-31-0.png)
 
 Skipping over the authentication bits we have already covered, the first change is to upload our reference image:
 
