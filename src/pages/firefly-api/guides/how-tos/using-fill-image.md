@@ -42,11 +42,11 @@ The source and mask images are below, and will be uploaded using Firefly's [Uplo
 
 ##### Source image
 
-![Source image](../images/gen-fill.jpg)
+![Source image](../images/gen-fill-source.png)
 
 ##### Mask image
 
-![Mask image](../images/gen-fill-mask.jpg)
+![Mask image](../images/gen-fill-mask.png)
 
 **Note:** The Photoshop API has a "Create Mask" endpoint that can be used to automate the creation of a mask, but at this time, the mask is created in a way that does not yet work with the Firefly Fill Image endpoint. The image mask must be inverted. That could either be done with a second Photoshop API, the ActionJSON endpoint -- or instead, use one ActionJSON call to do both. This is only a temporary limitation, however, and will be fixed soon.
 
@@ -115,10 +115,10 @@ Now let's consider an example of using this. First, we authenticate and then upl
 ```js
 let token = await getAccessToken(CLIENT_ID, CLIENT_SECRET);
 
-let upload = await uploadImage('./dog1_masked_inverted.png', 'image/png', CLIENT_ID, token);
+let upload = await uploadImage('./gen-fill-mask.png', 'image/png', CLIENT_ID, token);
 let maskedImage = upload.images[0].id;
 
-upload = await uploadImage('./dog1.png', 'image/png', CLIENT_ID, token);
+upload = await uploadImage('./gen-fill-source.png', 'image/png', CLIENT_ID, token);
 let sourceImage = upload.images[0].id;
 ```
 
@@ -126,7 +126,7 @@ Next, we'll call our function, and save the result (as before, using a utility m
 
 ```js
 let result = await genFill(maskedImage, sourceImage, 2048, 2048, "a beach at sunset", CLIENT_ID, token);
-let fileName = `./output/basic_getfill.jpg`;
+let fileName = `./output/gen-fill.jpg`;
 await downloadFile(result.outputs[0].image.url, fileName);
 ```
 
@@ -238,14 +238,14 @@ async function genFill(maskId, sourceId, width, height, prompt, id, token) {
 
 let token = await getAccessToken(CLIENT_ID, CLIENT_SECRET);
 
-let upload = await uploadImage('./dog1_masked_inverted.png', 'image/png', CLIENT_ID, token);
+let upload = await uploadImage('./gen-fill-mask.png', 'image/png', CLIENT_ID, token);
 let maskedImage = upload.images[0].id;
 
-upload = await uploadImage('./dog1.png', 'image/png', CLIENT_ID, token);
+upload = await uploadImage('./gen-fill-source.png', 'image/png', CLIENT_ID, token);
 let sourceImage = upload.images[0].id;
 
 let result = await genFill(maskedImage, sourceImage, 2048, 2048, "a beach at sunset", CLIENT_ID, token);
-let fileName = `./output/basic_getfill.jpg`;
+let fileName = `./output/gen-fill.jpg`;
 await downloadFile(result.outputs[0].image.url, fileName);
 ```
 

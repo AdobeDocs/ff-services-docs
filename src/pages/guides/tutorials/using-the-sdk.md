@@ -227,7 +227,7 @@ for(let output of resp.result.outputs) {
 
 And here's one of the sample results of our prompt:
 
-![Generated image](../images/shot1.jpg)
+![Prompt generated image](../images/shot1.jpeg)
 
 ## Additional workflow: Working with Reference Images
 
@@ -235,7 +235,7 @@ One of the benefits of having a Firefly SDK is how easy it is to build more comp
 
 In order for this to work, we first need our reference image. We'll use this:
 
-![](https://wiki.corp.adobe.com/download/attachments/3209308328/image-2024-6-6_3-31-0.png?version=1&modificationDate=1717659061540&api=v2)
+![Generated image](../images/shot1.jpeg)
 
 Skipping over the authentication bits we have already covered, the first change is to upload our reference image:
 
@@ -271,7 +271,7 @@ const resp = await firefly.generateImages({
 
 Compared to the previous version, we have added the `style` attribute and passed in the `imageReference` value. The changes to the generated images are immediately recognizable as being based on the style of the reference image.
 
-![Second generated image](../images/shot2.jpg)
+![Second generated image](../images/shot2.jpeg)
 
 ## Next Steps
 

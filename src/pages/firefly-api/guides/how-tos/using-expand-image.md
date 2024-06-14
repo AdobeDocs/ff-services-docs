@@ -314,19 +314,19 @@ async function genExpand(imageId, width, height, id, token, prompt, alignment) {
 
 let token = await getAccessToken(CLIENT_ID, CLIENT_SECRET);
 
-let upload = await uploadImage('./source.jpg', 'image/jpeg', CLIENT_ID, token);
+let upload = await uploadImage('./gen-expand-source.jpg', 'image/jpeg', CLIENT_ID, token);
 let sourceImage = upload.images[0].id;
 
 let result = await genExpand(sourceImage, 2048, 2048, CLIENT_ID, token);
-let fileName = `./output/basic_expand.jpg`;
+let fileName = `./output/gen-expand.jpg`;
 await downloadFile(result.outputs[0].image.url, fileName);
 
 result = await genExpand(sourceImage, 2048, 2048, CLIENT_ID, token, "The sun is rising in the background and trees are visible.");
-fileName = `./output/expand_with_prompt.jpg`;
+fileName = `./output/gen-expand-prompt.jpg`;
 await downloadFile(result.outputs[0].image.url, fileName);
 
 result = await genExpand(sourceImage, 2048, 2048, CLIENT_ID, token, "The sun is rising in the background and trees are visible.", { horizontal:"left", vertical:"bottom" });
-fileName = `./output/expand_with_prompt_and_placement.jpg`;
+fileName = `./output/gen-expand-prompt-placement.jpg`;
 await downloadFile(result.outputs[0].image.url, fileName);
 ```
 
