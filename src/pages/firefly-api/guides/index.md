@@ -68,21 +68,28 @@ Now, replace your API key and access token in the example below, and you're all 
 ## Example Request
 
 ```bash
-curl --location 'https://firefly-api.adobe.io/v2/images/generate' \
+curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header 'X-Api-Key: {CLIENT_ID}' \
 --header 'Authorization: {ACCESS_TOKEN}' \
 --header 'Content-Type: application/json' \
 --data '{
-    "n": 1,
-    "prompt": "Horse on a field.",
-    "contentClass": "photo",
-    "size": {
-        "width": 2048,
-        "height": 2048
-    },
-    "styles": {
-        "presets": ["concept_art"]
-    } 
+  "numVariations": 3,
+  "seeds": [
+    0,4999,13413
+  ],
+  "size": {
+    "width": 2048,
+    "height": 2048
+  },
+  "prompt": "Horses in a field of sunflowers",
+  "contentClass": "photo",
+  "visualIntensity": 2,
+  "style": {
+    "presets": [
+      "vibrant_colors"
+    ],    
+    "strength": 90   
+  }
 }'
 ```
 

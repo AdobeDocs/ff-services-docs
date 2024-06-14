@@ -136,24 +136,58 @@ module.exports = {
         path: '/firefly-api/guides/api/',
         pages: [
           {
-            title: 'Overview',
-            path: '/firefly-api/guides/api/'
+            title: "Generate Images",
+            path: "/firefly-api/guides/api/image_generation/V3/",
+            pages: [
+              {
+                title: "V3",
+                path: "/firefly-api/guides/api/image_generation/V3/",
+              },
+              {
+                title: "V2",
+                path: "/firefly-api/guides/api/image_generation/V2/",
+              },
+            ]
           },
           {
             title: "Upload",
             path: "/firefly-api/guides/api/upload_image/"
           },
           {
-            title: "Generate Images",
-            path: "/firefly-api/guides/api/image_generation/"
+            title: "Generate Similar Image",
+            path: "/firefly-api/guides/api/generate-similar/"
           },
           {
             title: "Expand Image",
-            path: "/firefly-api/guides/api/generative_expand/"
+            path: "/firefly-api/guides/api/generative_expand/V3/",
+            pages: [
+              {
+                title: "V3",
+                path: "/firefly-api/guides/api/generative_expand/V3/",
+              },
+              {
+                title: "V2",
+                path: "/firefly-api/guides/api/generative_expand/V2",
+              },
+            ]
           },
           {
             title: "Fill Image",
-            path: "/firefly-api/guides/api/generative_fill/"
+            path: "/firefly-api/guides/api/generative_fill/V3/",
+            pages: [
+              {
+                title: "V3",
+                path: "/firefly-api/guides/api/generative_fill/V3/",
+              },
+              {
+                title: "V2",
+                path: "/firefly-api/guides/api/generative_fill/V2",
+              },
+            ]
+          },
+          {
+            title: "Generate Object Composite",
+            path: "/firefly-api/guides/api/generate-object-composite/"
           }
         ]
       },
