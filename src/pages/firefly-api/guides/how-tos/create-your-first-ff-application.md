@@ -146,13 +146,11 @@ The provided code example does not include error handling for credentials. For p
 
 ## Step 3: Generate an Image with a Prompt
 
-For our demo, we will use Firefly to generate four images from a single prompt.
-
-In this case, we will focus on the `generateImages` functionality, which includes optional generative matching.
+For the demo, you will use Firefly to generate four images from a single prompt using the [Firefly Generate Images API](../api/image_generation/V3/), which includes optional generative matching.
 
 <InlineAlert variant="help" slots="text" />
 
-Please refer to the [generateImages](../api/image_generation/V3/) in the API Reference for more details.
+Please refer to the [Generate Images API](../api/image_generation/V3/) in the API Reference for more details.
 
 Based on the docs, we can see that the only required parameter is prompt. Also, the `numVariations` prompt specifies how many images we want. So the simplest request body we could build would look like so:
 

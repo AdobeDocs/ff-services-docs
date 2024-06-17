@@ -1,5 +1,5 @@
 ---
-title: Generate Images with Content Class and Style Presets
+title: Generating Images with Content Class and Style Presets
 description: A guide to generating images with specific content classes and style presets when using the Firefly APIs.
 keywords:
   - Adobe Firefly Services

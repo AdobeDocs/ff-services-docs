@@ -90,4 +90,4 @@ The following existing APIs were updated to use the new Image Model 3, and have 
     }
     ```
 
-  See [this link](https://helpx.adobe.com/firefly/using/generative-expand.html)for more details about the capabilities available for expanding and filling images with Firefly Image Model 3.
+  See [this link](https://helpx.adobe.com/firefly/using/generative-expand.html) for more details about the capabilities available for expanding and filling images with Firefly Image Model 3.

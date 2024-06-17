@@ -161,7 +161,7 @@ async function downloadFile(url, filePath) {
 }
 ```
 
-Now, you'll see how you can build a wrapper function to the [Generate Image API](../api/image_generation/V3/) call that optionally allows you to pass the ID of an uploaded image:
+Now, you'll see how you can build a wrapper function to the [Generate Images API](../api/image_generation/V3/) call that optionally allows you to pass the ID of an uploaded image:
 
 ```js
 async function generateImage(prompt, id, token, styleReference) {
