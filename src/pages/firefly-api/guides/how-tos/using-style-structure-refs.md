@@ -22,7 +22,7 @@ hideBreadcrumbNav: true
 
 # Using Style and Structure Image References
 
-Learn how to use an existing image as a style or structure reference when generating images.
+This guide will show you how you can pass in an existing image for a style or structure reference when generating images.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ Learn how to use an existing image as a style or structure reference when genera
 
 ## Working with Reference Images
 
-Before we get into both examples, let's discuss how to work with your existing assets as reference images. The APIs discussed today allow you to reference images in two ways.
+Before digging in, you'll need to understand how to work with your existing assets as reference images. The APIs discussed in this guide allow you to reference images in two ways.
 
 First, you can place your media on cloud storage and generate temporary readable URLs for them. However, these URLs may only be used with S3, Sharepoint, and Dropbox. 
 
@@ -73,13 +73,13 @@ The result of this call will be a JSON object containing the ID of the image:
 
 ## Using a Reference Image for Style
 
-For the first example, we will be using a reference image to impact the style of our result. Given a standard prompt, we'll call the [Generate Images API](../api/image_generation/) -- both with and without a style reference image so you can compare the differences.
+The first example uses a reference image to impact the style of the result. A standard prompt is used in a call to the [Generate Images API](../api/image_generation/) -- both with and without a style reference image to compare the differences.
 
 First, note the source image used for the style reference. Specifically, notice the color and fire attributes:
 
 ![Style reference image](../images/styleRef.jpg)
 
-Before we can use this source image as a style reference in our Generate Images API call, we'll need to get an upload ID for it to pass in the `style.imageReference.source.uploadId` object. An example payload for the Generate Images API below for reference:
+Before using this source image as a style reference in the [Generate Images API](../api/image_generation/) call, you'll need to get an upload ID for it to pass in the `style.imageReference.source.uploadId` object. An example payload for the Generate Images API is provided below for reference:
 
 ```json
 {
@@ -109,7 +109,7 @@ import { Readable } from 'stream';
 import { finished } from 'stream/promises';
 
 /*
-Set our creds based on environment variables.
+ Set the credentials based on environment variables.
 */
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
@@ -161,10 +161,10 @@ async function downloadFile(url, filePath) {
 }
 ```
 
-Now, let's build a wrapper function to text to image that optionally allows you to pass the ID of an uploaded image:
+Now, you'll see how you can build a wrapper function to the [Generate Image API](../api/image_generation/) call that optionally allows you to pass the ID of an uploaded image:
 
 ```js
-async function textToImage(prompt, id, token, styleReference) {
+async function generateImage(prompt, id, token, styleReference) {
 	let body = {
 		numVariations:1,
 		prompt,
@@ -209,12 +209,12 @@ let styleReference = upload.images[0].id;
 let prompt = 'A long-haired cat majestically riding a flying unicorn. The cat is wielding a rainbow shield and sword, pointing the swords tip outwards.';
 
 // First, no style reference
-let result = await textToImage(prompt, CLIENT_ID, token);
+let result = await generateImage(prompt, CLIENT_ID, token);
 let fileName = `./output/without_style_reference.jpg`;
 await downloadFile(result.outputs[0].image.url, fileName);
 
 // Second, with a reference
-result = await textToImage(prompt, CLIENT_ID, token, styleReference);
+result = await generateImage(prompt, CLIENT_ID, token, styleReference);
 fileName = `./output/with_style_reference.jpg`;
 await downloadFile(result.outputs[0].image.url, fileName);
 ```
@@ -254,7 +254,7 @@ The next feature we'll demonstrate is using an image as a structure reference. A
 Note that as with `style`, cloud storage URLs may be used as well. To demonstrate this, once again we'll use a simple wrapper to the Text to Image API that optionally takes the ID of an image to use as the structure reference:
 
 ```js
-async function textToImage(prompt, id, token, structureReference) {
+async function generateImage(prompt, id, token, structureReference) {
 
 	let body = {
 		numVariations:1,
@@ -368,7 +368,7 @@ async function downloadFile(url, filePath) {
 	return await finished(body.pipe(download_write_stream));
 }
 
-async function textToImage(prompt, id, token, structureReference) {
+async function generateImage(prompt, id, token, structureReference) {
 	let body = {
 		numVariations:1,
 		prompt,
@@ -409,12 +409,12 @@ let structureReference = upload.images[0].id;
 let prompt = 'picture of a poodle with colorful fur looking majestic';
 
 // First, no structure reference
-let result = await textToImage(prompt, CLIENT_ID, token);
+let result = await generateImage(prompt, CLIENT_ID, token);
 let fileName = `./output/without_structure_reference.jpg`;
 await downloadFile(result.outputs[0].image.url, fileName);
 
-// Second, with a reference
-result = await textToImage(prompt, CLIENT_ID, token, structureReference);
+// Second, with a structure reference
+result = await generateImage(prompt, CLIENT_ID, token, structureReference);
 fileName = `./output/with_structure_reference.jpg`;
 await downloadFile(result.outputs[0].image.url, fileName);
 ```
