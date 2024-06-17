@@ -60,7 +60,7 @@ And so forth. When combined with multiple different products, the amount of coll
 
 If we start with just three products but add two prompts, four sizes, and three translations, we need 3x2x4x3, or 72 different results. Let's look at what it would take to build such a workflow.
 
-## Pre-requisites
+## Prerequisites
 
 Before attempting to run this demo yourself, you'll need a few things.
 
@@ -360,7 +360,7 @@ def textToImage(text, imageId, id, token):
 	return response.json()["outputs"][0]["image"]["id"]
 ```
 
-This method is passed two main arguments (ignoring the credentials) - `text` and `imageId`, representing our prompt and reference image. You can see in `data` where these values are passed in. Finally, this is passed to the Firefly [Text-to-image](../../firefly-api/guides/api/image_generation/index.md) API endpoint. The result, in this case only the ID of the image, is returned. We ignore the actual result URL as we just need the ID. You'll see why soon.
+This method is passed two main arguments (ignoring the credentials) - `text` and `imageId`, representing our prompt and reference image. You can see in `data` where these values are passed in. Finally, this is passed to the Firefly [Generate Images](../../firefly-api/guides/api/image_generation/V2/) API endpoint. The result, in this case only the ID of the image, is returned. We ignore the actual result URL as we just need the ID. You'll see why soon.
 
 ### Expand images to desired sizes 
 

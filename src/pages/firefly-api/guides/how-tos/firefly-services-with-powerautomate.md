@@ -167,7 +167,7 @@ You can do this by entering: `@{null}`
 
 ## Step 9: Calling Firefly's generateImages API
 
-We'll add another HTTP action that will call the [generateImages](../api/image_generation/) API. This API call requires a few parameters, including the prompt and number of desired images if you want more than one. 
+We'll add another HTTP action that will call the [generateImages](../api/image_generation/V2/) API. This API call requires a few parameters, including the prompt and number of desired images if you want more than one. 
 
 Begin by setting the URI to the API endpoint, as specified in the documentation: `https://firefly-api.adobe.io/v2/images/generate`. 
 

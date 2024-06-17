@@ -77,8 +77,12 @@ module.exports = {
       },
       {
         title: 'Concepts',
-        path: '/firefly-api/guides/concepts/authentication',
-        pages: [          
+        path: '/firefly-api/guides/concepts/model-3-overview.md/',
+        pages: [
+          {
+            title: 'Firefly Image 3 Model (preview)',
+            path: '/firefly-api/guides/concepts/model-3-overview.md/'
+          },      
           {
             title: 'Authentication',
             path: '/firefly-api/guides/concepts/authentication/'
@@ -133,7 +137,7 @@ module.exports = {
       },
       {
         title: 'API Reference',
-        path: '/firefly-api/guides/api/',
+        path: '/firefly-api/guides/api/image_generation/V3/',
         pages: [
           {
             title: "Generate Images",
@@ -148,14 +152,14 @@ module.exports = {
                 path: "/firefly-api/guides/api/image_generation/V2/",
               },
             ]
-          },
+          },          
           {
-            title: "Upload",
-            path: "/firefly-api/guides/api/upload_image/"
-          },
-          {
-            title: "Generate Similar Image",
+            title: "Generate Similar Images",
             path: "/firefly-api/guides/api/generate-similar/"
+          },
+          {
+            title: "Generate Object Composite",
+            path: "/firefly-api/guides/api/generate-object-composite/"
           },
           {
             title: "Expand Image",
@@ -166,7 +170,7 @@ module.exports = {
                 path: "/firefly-api/guides/api/generative_expand/V3/",
               },
               {
-                title: "V2",
+                title: "V1",
                 path: "/firefly-api/guides/api/generative_expand/V2",
               },
             ]
@@ -180,15 +184,15 @@ module.exports = {
                 path: "/firefly-api/guides/api/generative_fill/V3/",
               },
               {
-                title: "V2",
+                title: "V1",
                 path: "/firefly-api/guides/api/generative_fill/V2",
               },
             ]
-          },
+          },          
           {
-            title: "Generate Object Composite",
-            path: "/firefly-api/guides/api/generate-object-composite/"
-          }
+            title: "Upload",
+            path: "/firefly-api/guides/api/upload_image/"
+          },
         ]
       },
       {

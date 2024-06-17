@@ -47,17 +47,15 @@ contributors:
 hideBreadcrumbNav: true
 ---
 
-# Create your first Firefly API implementation
+# Create your first Firefly APIs implementation
 
-A step-by-step guide to creating your first implementation of the Firefly API.
+A step-by-step guide to creating your first implementation with the Firefly APIs.
 
-The Adobe Firefly API offers a seamless way to integrate powerful creative workflows into your applications using a simple REST-based API. In this tutorial, we'll guide you through creating your first implementation of the Firefly API.
+The Adobe Firefly APIs offer a seamless way to integrate powerful creative workflows into your applications using a simple REST-based API. In this tutorial, we'll guide you through creating your first implementation using the [Firefly Generate Images API](../api/image_generation/V3/).
 
 <InlineAlert slots="text" />
 
 This tutorial provides code snippets in both `Node.js` and `Python` for your convenience. Feel free to use the language of your choice to complete the implementation of your first Firefly API.
-
-Let's get started!
 
 ## Prerequisites
 
@@ -154,7 +152,7 @@ In this case, we will focus on the `generateImages` functionality, which include
 
 <InlineAlert variant="help" slots="text" />
 
-Please refer to the [generateImages](../api/image_generation/index.md) in the API Reference for more details.
+Please refer to the [generateImages](../api/image_generation/V3/) in the API Reference for more details.
 
 Based on the docs, we can see that the only required parameter is prompt. Also, the `numVariations` prompt specifies how many images we want. So the simplest request body we could build would look like so:
 
@@ -175,7 +173,7 @@ It requires our previous `client_id` value and the `access_token`, and our promp
 #### Sample code
 
 ```js
-async function textToImage(prompt, id, token) {
+async function generateImage(prompt, id, token) {
 
 	let body = {
 		"numVariations":4,
@@ -200,7 +198,7 @@ async function textToImage(prompt, id, token) {
 #### Sample code
 
 ```python
-def textToImage(text, id, token):
+def generateImage(text, id, token):
 
 	data = {
 		"prompt":text,
@@ -229,7 +227,7 @@ We define a simple prompt and call the function to interact with the Firefly API
 
 ```js
 let prompt = 'a cat dancing on a rainbow';
-let result = await textToImage(prompt, CLIENT_ID, token);
+let result = await generateImage(prompt, CLIENT_ID, token);
 console.log(JSON.stringify(result, null, '\t'));
 ```
 
@@ -237,7 +235,7 @@ console.log(JSON.stringify(result, null, '\t'));
 
 ```python
 prompt = "a cat dancing on a rainbow"
-result = textToImage(prompt, CLIENT_ID, token)
+result = generateImage(prompt, CLIENT_ID, token)
 print(json.dumps(result, indent=True))
 ```
 
@@ -369,7 +367,7 @@ After running these steps, you'll see four images output in the same directory.
 
 **Sample output**
 
-![a cat dancing on a rainbow](../)
+![a cat dancing on a rainbow](../images/cat-rainbow.jpg)
 
 ## Complete Code
 
@@ -419,7 +417,7 @@ async function getAccessToken(id, secret) {
 
 let token = await getAccessToken(CLIENT_ID, CLIENT_SECRET);
 
-async function textToImage(prompt, id, token) {
+async function generateImage(prompt, id, token) {
 
 	let body = {
 		"numVariations":4,
@@ -441,7 +439,7 @@ async function textToImage(prompt, id, token) {
 }
 
 let prompt = 'a cat dancing on a rainbow';
-let result = await textToImage(prompt, CLIENT_ID, token);
+let result = await generateImage(prompt, CLIENT_ID, token);
 console.log(JSON.stringify(result,null,'\t'));
 
 async function downloadFile(url, filePath) {
@@ -474,7 +472,7 @@ def getAccessToken(id, secret):
 
 token = getAccessToken(CLIENT_ID, CLIENT_SECRET)
 
-def textToImage(text, id, token):
+def generateImage(text, id, token):
 
 	data = {
 		"prompt":text,
@@ -491,7 +489,7 @@ def textToImage(text, id, token):
 
 
 prompt = "a cat dancing on a rainbow"
-result = textToImage(prompt, CLIENT_ID, token)
+result = generateImage(prompt, CLIENT_ID, token)
 print(json.dumps(result, indent=True))
 
 def downloadFile(url, filePath):

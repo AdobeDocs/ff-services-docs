@@ -30,7 +30,7 @@ hideBreadcrumbNav: true
 
 You can specify content classes and image style while using generateImages API. These styles influence the output images.
 
-The below table exemplifies the visual representations of each of content classes and image styles/presets available. Use the `Preset ID` as a string and while calling the [generateImages API](../../api/image_generation/).
+The below table exemplifies the visual representations of each of content classes and image styles/presets available. Use the `Preset ID` as a string and while calling the [generateImages API](../../api/image_generation/V3/).
 
 
 | Preset                     | Preset ID                   |

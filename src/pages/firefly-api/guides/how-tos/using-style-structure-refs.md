@@ -73,13 +73,13 @@ The result of this call will be a JSON object containing the ID of the image:
 
 ## Using a Reference Image for Style
 
-The first example uses a reference image to impact the style of the result. A standard prompt is used in a call to the [Generate Images API](../api/image_generation/) -- both with and without a style reference image to compare the differences.
+The first example uses a reference image to impact the style of the result. A standard prompt is used in a call to the [Generate Images API](../api/image_generation/V3/) -- both with and without a style reference image to compare the differences.
 
 First, note the source image used for the style reference. Specifically, notice the color and fire attributes:
 
 ![Style reference image](../images/styleRef.jpg)
 
-Before using this source image as a style reference in the [Generate Images API](../api/image_generation/) call, you'll need to get an upload ID for it to pass in the `style.imageReference.source.uploadId` object. An example payload for the Generate Images API is provided below for reference:
+Before using this source image as a style reference in the [Generate Images API](../api/image_generation/V3/) call, you'll need to get an upload ID for it to pass in the `style.imageReference.source.uploadId` object. An example payload for the Generate Images API is provided below for reference:
 
 ```json
 {
@@ -99,7 +99,7 @@ Before using this source image as a style reference in the [Generate Images API]
 }
 ```
 
-**Note:** You could alternatively provide a presigned URL from an image in cloud storage in the `url` property of the `style.imageReference.source` object. See the [Generate Images API Reference](../api/image_generation/) for details.
+**Note:** You could alternatively provide a presigned URL from an image in cloud storage in the `url` property of the `style.imageReference.source` object. See the [Generate Images API Reference](../api/image_generation/V3/) for details.
 
 Next, we'll need utility code to get an access token, upload an image (via the [Upload API](../api/upload_image/)), and download the result. An example is below:
 
@@ -161,7 +161,7 @@ async function downloadFile(url, filePath) {
 }
 ```
 
-Now, you'll see how you can build a wrapper function to the [Generate Image API](../api/image_generation/) call that optionally allows you to pass the ID of an uploaded image:
+Now, you'll see how you can build a wrapper function to the [Generate Image API](../api/image_generation/V3/) call that optionally allows you to pass the ID of an uploaded image:
 
 ```js
 async function generateImage(prompt, id, token, styleReference) {

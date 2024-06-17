@@ -35,7 +35,7 @@ hideBreadcrumbNav: true
 
 ### Added
 
-Firefly [`generateImages` API](../api/image_generation/) now accepts `url` as source for `referenceImage`. Only allow listed domains are allowed to be accepted as input `url` in the request.
+Firefly [`generateImages` API](../api/image_generation/V2/) now accepts `url` as source for `referenceImage`. Only allow listed domains are allowed to be accepted as input `url` in the request.
 
 The allow-listed domains are as follows:
 

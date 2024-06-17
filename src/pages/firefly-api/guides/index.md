@@ -39,9 +39,9 @@ hideBreadcrumbNav: true
 
 # Quickstart Guide
 
-This guide will show you how to make your first successful call to the Firefly [Generate Images API](./api/image_generation/).
+This guide will show you how to make your first successful call to the Firefly [Generate Images API](./api/image_generation/V3/).
 
-You need a valid API key and an access token to call the Firefly [Generate Images endpoint](./api/image_generation/). If you don't have an API key (aka: `client_id`) or access token yet, visit the [Getting Started guide](../../guides/get-started.md/) for instructions on obtaining them.
+You need a valid API key and an access token to call the Firefly [Generate Images endpoint](./api/image_generation/V3/). If you don't have an API key (aka: `client_id`) or access token yet, visit the [Getting Started guide](../../guides/get-started.md/) for instructions on obtaining them.
 
 If you already have a project configured with Firefly Services in the [Adobe Developer Console](https://developer.adobe.com/console), you can generate an access token there, or use the credentials from it (client ID and client secret) to generate an access token with the following `curl` command, replacing the`{CLIENT_ID}` and `{CLIENT_SECRET}` values with your own.
 
@@ -73,9 +73,9 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header 'Authorization: {ACCESS_TOKEN}' \
 --header 'Content-Type: application/json' \
 --data '{
-  "numVariations": 3,
+  "numVariations": 2,
   "seeds": [
-    0,4999,13413
+    0,4999
   ],
   "size": {
     "width": 2048,
@@ -95,41 +95,53 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 
 ## Responses
 
-Got a 200 response code? Great! Your API call was successful. Here is an example response:
+Got a 200 response code? Great! Your API call was successful.
+
+### Response Payload
+
+Here is an example response payload:
 
 ```json
 {
-  "version": "2.10.2",
   "size": {
     "width": 2048,
     "height": 2048
   },
-  "predictedPhotoSettings": {
-    "aperture": 5.6,
-    "shutterSpeed": 0.0005,
-    "fieldOfView": 50
-  },
   "outputs": [
     {
-      "seed": 290878684,
+      "seed": 0,
       "image": {
-          "id": "{IMAGE_ID}",
-          "presignedUrl": "https://pre-signed-firefly-prod.s3.amazonaws.com/images/{IMAGE_ID}?..."
+        "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/c851e657-67e0-4a05-aa4a-91c2ab26b9a8?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDA3TX66CSNORXF4%2F20240617%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240617T165447Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=10377687205d2f3d0c199c9348633aeb48d2cbb2075c01fa9b0bc0fd545c3aff"
       }
-    }
-  ]
+    },
+    {
+      "seed": 4999,
+      "image": {
+        "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/e5f03d33-05dc-43e3-a23d-edffa6d90ff8?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDA3TX66CSNORXF4%2F20240617%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240617T165447Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=d34ffaecce34ef6f874e6fa668a27c2c8162cffc2fed0c2b71d8640be51f2764"
+      }
+    }    
+  ],
+  "contentClass": "photo"
 }
 ```
 
-![Horse on a field, photo, concept_art](../images/horse_t2i_sample.jpg)
+### Image Results
+
+- Seed 0 <br/>
+
+ ![Horses in a field of sunflowers (photo)](./images/horses-sunflowers-0.jpg)
+
+- Seed 4999 <br/>
+
+ ![Horses in a field of sunflowers (photo) - seed 4999 ](./images/horses-sunflowers-4999.jpg)
 
 ### Error Codes
 
-To learn more about each response code, head over to the [**Try it** (Responses)](../guides/api/upload_image/index.md) section.
+To learn more about each response code, head over to the [API's Responses](../guides/api/image_generation/V3/) section.
 
 ### Rate Limits
 
-Read more about the generateImages API's throttling limits [here](./concepts/rate-limits/index.md)
+Read more about the Firefly APIs throttling limits [here](./concepts/rate-limits/index.md).
 
 ## Try it yourself
 

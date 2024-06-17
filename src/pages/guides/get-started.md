@@ -153,7 +153,7 @@ curl --request GET \
   --header "x-api-key: <YOUR_CLIENT_ID>"
 ```
 
-Congratulations! You just made your first request to the Firefly services API.
+Congratulations! You just made your first request to the Firefly Services API.
 
 <InlineAlert slots="text" />
 
