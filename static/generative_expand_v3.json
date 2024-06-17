@@ -1,7 +1,7 @@
 {
     "openapi": "3.1.0",
     "info": {
-        "version": "1.0.0",
+        "version": "V3",
         "title": "Firefly API",
         "description": "REST API for Adobe Firefly for enterprise usage"
     },
@@ -19,7 +19,7 @@
   "paths": {
     "/v3/images/expand": {
         "post": {
-            "summary": "Expand Image API",
+            "summary": "Expand Image - Model 3 (preview)",
             "operationId": "expandImage",
             "description": "Change the aspect ratio or size of an image and expand its contents with or without a text prompt.",
             "requestBody": {

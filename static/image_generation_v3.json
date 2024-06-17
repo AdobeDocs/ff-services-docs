@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.0",
   "info": {
-      "version": "1.0.0",
+      "version": "V3",
       "title": "Firefly API",
       "description": "REST API for Adobe Firefly for enterprise usage"
   },
@@ -19,7 +19,7 @@
 "paths": {
   "/v3/images/generate": {
     "post": {
-        "summary": "Generate Images API",
+        "summary": "Generate Images - Model 3 (preview)",
         "operationId": "generateImages",
         "description": "Generate images based on a prompt with optional reference image to match style and structure.",
         "requestBody": {
