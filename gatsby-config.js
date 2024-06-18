@@ -135,7 +135,7 @@ module.exports = {
           },
           {
             title: 'Integrating Firefly Services with Microsoft Power Automate',
-            path: '/firefly-api/guides/how-tos/firefly-services-with-powerautomate'
+            path: '/firefly-api/guides/how-tos/firefly-services-with-powerautomate.md'
           }
         ]
       },
