@@ -47,7 +47,7 @@ contributors:
 hideBreadcrumbNav: true
 ---
 
-# Create your first Firefly APIs implementation
+# Create your first Firefly API implementation
 
 A step-by-step guide to creating your first implementation with the Firefly APIs.
 

@@ -18,7 +18,7 @@ hideBreadcrumbNav: true
 
 Learn how to use the Fill Image API in your code workflows. 
 
-## Overview
+## Introduction
 
 Generative Fill is a powerful Firefly feature that lets designers modify an existing image using AI to replace a portion of an image with generated content. The content replaced might be a small portion of an image, or an entire background behind a central object. In this guide, you will see how this can be done using the [Firefly Fill API](../api/generative_fill/V3/).
 
@@ -27,9 +27,9 @@ Generative Fill is a powerful Firefly feature that lets designers modify an exis
 -  Firefly API credentials. If you don't have them yet, first visit the Firefly Services [Getting Started](../../../guides/get-started.md) guide to obtain a `client_id` and `client_secret`.
 -  Node.js installed on your machine and basic familiarity with `JavaScript`. **Note:** The code for this guide will make use of the [Firefly REST APIs](../api/) via Node.js, but could be written in any language, or with the [SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/).
 
-## Generative Fill at a High Level
+## Fill Image API Overview
 
-Before getting into the code, let's consider how generative fill works at a high level.
+Before getting into the code, let's consider how the Fill Image API works at a high level.
 
 * You begin with a source image, which can either be uploaded to Firefly Services, or used with one of the supported cloud storage providers. For this guide, you'll use a local image uploaded via the [Firefly Upload API](../api/upload_image/).
 * You then provide a *masked* version of the image. That mask will be where Firefly adds it's generated content.

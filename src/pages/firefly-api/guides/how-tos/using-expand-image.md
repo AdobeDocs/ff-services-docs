@@ -18,18 +18,18 @@ hideBreadcrumbNav: true
 
 Learn how to use the Expand Image API in your code workflows. 
 
-## Overview
+## Introduction
 
-Designers often struggle with taking existing media assets and re-purposing them for other sizes and form factors. An original image may be too small, incorrectly oriented, and so forth. With the power of [Firefly's Expand Image API](../api/generative_expand/V3/), an original asset can be used as a source for generating new variations in multiple sizes, using generative AI to "draw out" from the source. Let's take a look at how this can be done.
+Designers often struggle with taking existing media assets and re-purposing them for other sizes and form factors. An original image may be too small, incorrectly oriented, and so forth. With the power of [Firefly's Expand Image API](../api/generative_expand/V3/), an original asset can be used as a source for generating new variations in multiple sizes, using generative AI to "draw out" from the source. In this guide, you will see how this can be done.
 
 ## Prerequisites
 
 -  Firefly API credentials. If you don't have them yet, first visit the Firefly Services [Getting Started](../../../guides/get-started.md) guide to obtain a `client_id` and `client_secret`.
 -  Node.js installed on your machine and basic familiarity with `JavaScript`. **Note:** The code for this guide will make use of the [Firefly REST APIs](../api/) via Node.js, but could be written in any language, or with the [SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/).
 
-## Expand Image at a High Level
+## Expand Image API Overview
 
-Before getting into the code, let's look at how generative expand works at a high level.
+Before getting into the code, let's look at how the Expand Image API works at a high-level.
 
 * You begin with a source image, which can either be uploaded to Firefly Services, or used with one of the supported cloud storage providers. For this guide, you'll be using a local image uploaded via the [Firefly Upload API](../api/upload_image/).
 * You then specify the desired size. This can be any combination of a `height` and `width` between `1` and `2688` pixels.
@@ -65,7 +65,7 @@ This source image will be uploaded using [Firefly's Upload API](../api/upload_im
 
 TIP
 
-We recommend you refer to the [Create your First Firefly Application](./create-your-first-ff-application.md) guide for a step-by-step walkthrough on the utility methods used in the how-to guides for authenticating (via `getAccessToken()`), uploading images for use in the calls (`uploadImage()`), and for downloading the generated results (`downloadFile()`).
+We recommend you refer to the [Create your First Firefly Application](./create-your-first-ff-application.md) guide for a step-by-step walkthrough on the utility methods used in the how-to guides for authenticating via `getAccessToken()`, uploading images for use in the calls via `uploadImage()`, and for downloading the generated results via`downloadFile()`.
 
 Now, you can wrap the [Expand Image API](../api/generative_expand/) call in a simple utility function like so:
 

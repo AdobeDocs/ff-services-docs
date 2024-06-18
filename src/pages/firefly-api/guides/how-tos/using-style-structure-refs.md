@@ -79,7 +79,7 @@ TIP
 
 We recommend you refer to the [Create your First Firefly Application](./create-your-first-ff-application.md) guide for a step-by-step walkthrough on the utility methods used in the how-to guides for authenticating (via `getAccessToken()`), uploading images for use in the calls (`uploadImage()`), and for downloading the generated results (`downloadFile()`).
 
-## Using a Reference Image for Style
+## Using a Style Reference Image
 
 The first example uses a reference image to impact the style of the result. A standard prompt is used in a call to the [Generate Images API](../api/image_generation/V3/) -- both with and without a style reference image to compare the differences.
 
@@ -237,7 +237,7 @@ And here's the result with the style reference:
 
 Note the effect that the style reference image had on the generated result.
 
-## Using a Structure Reference
+## Using a Structure Reference Image
 
 The next feature you'll see is how to use an image as a structure reference. As you can imagine, this tells Firefly to use the source not as a 'design reference' (ie: trying to match color schemes and styling), but more the actual structure of the source image itself. First, as with the style reference example, once you've uploaded your image using the [Firefly Upload API](../api/upload_image/), you can reference it in the your data sent to the API: 
 
