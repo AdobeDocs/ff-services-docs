@@ -55,9 +55,9 @@ curl -X POST 'https://ims-na1.adobelogin.com/ims/token/v3' \
 
 <InlineAlert variant="warning" slots="text" />
 
-Access tokens expire every 24 hours and it is wise that you rotate them programmatically before they expire. The token endpoint above returns expiry information alongside the token itself. Read more about this in our [auth guide](./concepts/authentication/index.md). Once you have this token, you are ready to make your first request to the [Generate Images](./api/image_generation/) endpoint.
+Access tokens expire every 24 hours and it is wise that you rotate them programmatically before they expire. The token endpoint above returns expiry information alongside the token itself. Read more about this in our [auth guide](./concepts/authentication/index.md). Once you have this token, you are ready to make your first request to the [Generate Images](./api/image_generation/V3/) endpoint.
 
-Now, replace your API key and access token in the example below, and you're all set to make your first request to the [Generate Images](./api/image_generation/) endpoint.
+Now, replace your API key and access token in the example below, and you're all set to make your first request to the [Generate Images](./api/image_generation/V3/) endpoint.
 
 ## Request Headers
 

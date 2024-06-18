@@ -67,7 +67,7 @@ TIP
 
 We recommend you refer to the [Create your First Firefly Application](./create-your-first-ff-application.md) guide for a step-by-step walkthrough on the utility methods used in the how-to guides for authenticating via `getAccessToken()`, uploading images for use in the calls via `uploadImage()`, and for downloading the generated results via`downloadFile()`.
 
-Now, you can wrap the [Expand Image API](../api/generative_expand/) call in a simple utility function like so:
+Now, you can wrap the [Expand Image API](../api/generative_expand/V3) call in a simple utility function like so:
 
 ```js
 async function genExpand(imageId, width, height, id, token) {
