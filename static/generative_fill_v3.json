@@ -1,7 +1,7 @@
 {
     "openapi": "3.1.0",
     "info": {
-        "version": "1.0.0",
+        "version": "V3",
         "title": "Firefly API",
         "description": "REST API for Adobe Firefly for enterprise usage"
     },
@@ -19,7 +19,7 @@
   "paths": {
     "/v3/images/fill": {
         "post": {
-            "summary": "Fill Image API",
+            "summary": "Fill Image - Model 3 (preview)",
             "operationId": "fillImage",
             "description": "Fill the masked area of an image with an optional prompt.",
             "requestBody": {

@@ -41,33 +41,32 @@ keywords:
   - Testing and debugging
   - Styles
 contributors:
-  - https://github.com/nimithajalal
   - https://github.com/cfjedimaster
+  - https://github.com/nimithajalal
+  - https://github.com/hollyschinsky
 hideBreadcrumbNav: true
 ---
 
 # Create your first Firefly API implementation
 
-A step-by-step guide to creating your first implementation of the Firefly API.
+A step-by-step guide to creating your first implementation with the Firefly APIs.
 
-The Adobe Firefly API offers a seamless way to integrate powerful creative workflows into your applications using a simple REST-based API. In this tutorial, we'll guide you through creating your first implementation of the Firefly API.
+The Adobe Firefly APIs offer a seamless way to integrate powerful creative workflows into your applications using a simple REST-based API. In this tutorial, you'll be guided through creating your first implementation using the [Firefly Generate Images API](../api/image_generation/V3/).
 
 <InlineAlert slots="text" />
 
 This tutorial provides code snippets in both `Node.js` and `Python` for your convenience. Feel free to use the language of your choice to complete the implementation of your first Firefly API.
 
-Let's get started!
-
 ## Prerequisites
 
-Before we begin, make sure you have the following:
+Before beginning, make sure you have the following:
 
 -   Firefly API credentials. If you don't have them yet, first visit the Firefly Services [Getting Started](../../../guides/get-started.md) guide to obtain a `client_id` and `client_secret`.
 -   `Node.js` or `Python` installed on your machine and basic familiarity with `JavaScript` or `Python`.
 
 ## Step 1: Set Up Your Environment
 
-Begin by creating a new script, named `firefly.js` (or `firefly.py`), and save it anywhere on your computer., and save it anywhere on your computer. This will be the script we use to test our integration with Firefly API endpoints.
+Begin by creating a new script, named `firefly.js` (or `firefly.py`), and save it anywhere on your computer. This will be the script used for testing your integration with the Firefly API endpoints.
 
 Next, set your `client_id` and `client_secret` as environment variables. For example, on a Mac or in Windows Subsystem for Linux (WSL), you can do the following:
 
@@ -76,11 +75,13 @@ export CLIENT_ID=YOURIDHERE
 export CLIENT_SECRET=YOURSECRETHERE
 ```
 
-Note that our code is going to assume CLIENT_ID and CLIENT_SECRET - case matters!
+<InlineAlert variant="info" slots="text" />
+
+This tutorial assumes you have set these variables in uppercase (ie: `CLIENT_ID` and `CLIENT_SECRET`), and case matters.
 
 ## Step 2: Authentication
 
-Let's begin by initializing a few variables. As previously mentioned, it is crucial to set up two environment variables, as the following code relies on them:
+Next, you will initialize a few variables. **Note:** It's crucial to have your environment variables set up from above prior to this step, as the following code relies on them:
 
 <CodeBlock slots="heading, code" repeat="2" languages="JavaScript, PYTHON" />
 
@@ -101,7 +102,7 @@ CLIENT_ID = os.environ.get('CLIENT_ID')
 CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
 ```
 
-To authenticate, we take these two variables and make a `POST` request to our authentication endpoint: `https://ims-na1.adobelogin.com/ims/token/v3`. You need to pass your credentials along with the requested scopes that allow for access to Firefly. We can wrap up the entire thing in one simple function:
+Now, these two variables will be used to make a `POST` request to the authentication endpoint: `https://ims-na1.adobelogin.com/ims/token/v3`. You need to pass your credentials along with the requested scopes that allow for access to Firefly. All of this can be done in this simple function:
 
 <CodeBlock slots="heading, code" repeat="2" languages="JavaScript, PYTHON" />
 
@@ -147,20 +148,18 @@ The provided code example does not include error handling for credentials. For p
 
 ## Step 3: Generate an Image with a Prompt
 
-For our demo, we will use Firefly to generate four images from a single prompt.
-
-In this case, we will focus on the `generateImages` functionality, which includes optional generative matching.
+For the demo, you will use Firefly to generate four images from a single prompt using the [Firefly Generate Images API](../api/image_generation/V3/), which includes optional generative matching.
 
 <InlineAlert variant="help" slots="text" />
 
-Please refer to the [generateImages](../api/image_generation/index.md) in the API Reference for more details.
+Please refer to the [Generate Images API](../api/image_generation/V3/) in the API Reference for more details.
 
-Based on the docs, we can see that the only required parameter is prompt. Also, the `n` prompt specifies how many images we want. So the simplest request body we could build would look like so:
+Based on the docs, we can see that the only required parameter is prompt. Also, the `numVariations` prompt specifies how many images we want. So the simplest request body we could build would look like so:
 
 ```js
 {
 	"prompt":"a cat dancing on a rainbow",
-	"n":4
+	"numVariations":4
 }
 ```
 
@@ -174,15 +173,14 @@ It requires our previous `client_id` value and the `access_token`, and our promp
 #### Sample code
 
 ```js
-async function textToImage(prompt, id, token) {
+async function generateImage(prompt, id, token) {
 
 	let body = {
-		"n":4,
+		"numVariations":4,
 		prompt
 	}
 
-
-	let req = await fetch('https://firefly-api.adobe.io/v2/images/generate', {
+	let req = await fetch('https://firefly-api.adobe.io/v3/images/generate', {
 		method:'POST',
 		headers: {
 			'X-Api-Key':id, 
@@ -199,13 +197,12 @@ async function textToImage(prompt, id, token) {
 #### Sample code
 
 ```python
-def textToImage(text, id, token):
+def generateImage(text, id, token):
 
 	data = {
 		"prompt":text,
-		"n":4,
+		"numVariations":4,
 	}
-
 
 	response = requests.post("https://firefly-api.adobe.io/v2/images/generate", json=data, headers = {
 		"X-API-Key":id, 
@@ -216,11 +213,11 @@ def textToImage(text, id, token):
 	return response.json()
 ```
 
-Please ensure you include the authentication headers correctly. Pass the token in the Authorization header and the `client ID` in the `X-Api-Key` header. The API will return a JSON string for you to process and return to the caller.
+Please ensure you include the authentication headers correctly; pass the token in the `Authorization` header and the `client id` in the `X-Api-Key` header. The API will return a JSON string for you to process and return to the caller.
 
 ### Executing the Firefly API Call
 
-We define a simple prompt and call the function to interact with the Firefly API, displaying the result on the screen.
+Next, define a simple prompt and call the function to interact with the Firefly API, displaying the result on the screen.
 
 <CodeBlock slots="heading, code" repeat="3" languages="JavaScript, PYTHON, JSON" />
 
@@ -228,7 +225,7 @@ We define a simple prompt and call the function to interact with the Firefly API
 
 ```js
 let prompt = 'a cat dancing on a rainbow';
-let result = await textToImage(prompt, CLIENT_ID, token);
+let result = await generateImage(prompt, CLIENT_ID, token);
 console.log(JSON.stringify(result, null, '\t'));
 ```
 
@@ -236,7 +233,7 @@ console.log(JSON.stringify(result, null, '\t'));
 
 ```python
 prompt = "a cat dancing on a rainbow"
-result = textToImage(prompt, CLIENT_ID, token)
+result = generateImage(prompt, CLIENT_ID, token)
 print(json.dumps(result, indent=True))
 ```
 
@@ -244,42 +241,60 @@ print(json.dumps(result, indent=True))
 
 ```js
 {
-        "version": "2.10.2",
-        "size": {
-                "width": 2048,
-                "height": 2048
-        },
-        "predictedContentClass": "art",
-        "outputs": [
-                {
-                        "seed": 1003577025,
-                        "image": {
-                                "id": "723779df-6388-49b7-81bc-81f735bd2423",
-                                "presignedUrl": "https://pre-signed-firefly-prod.s3.amazonaws.com/images/723779df-6388-49b7-81bc-81f735bd2423?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDA3TX66LLPDOIWV%2F20240229%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240229T212734Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=4c8cb7c08a954d1990c26308edf13992a479c7da220ae6797252c4f03ad7c39e"
-                        }
-                },
-                {
-                        "seed": 2103068358,
-                        "image": {
-                                "id": "ae302228-e6bb-435e-8e49-6db12b9a619b",
-                                "presignedUrl": "https://pre-signed-firefly-prod.s3.amazonaws.com/images/ae302228-e6bb-435e-8e49-6db12b9a619b?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDA3TX66LLPDOIWV%2F20240229%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240229T212734Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=c9dccb63e2824b69984b4717204774358ae198d9597d340a712a4563dfe607df"
-                        }
-                }
-        ]
+ "size": {
+  "width": 2048,
+  "height": 2048
+ },
+ "outputs": [
+  {
+   "seed": 295213121,
+   "image": {
+    "uploadId": "014c2235-f2e9-47be-98a9-33bc9d62568b",
+    "url": "https://pre-signed-firefly.s3.amazonaws.com/images/014c2235-f2e9-47be-98a9-33bc9d62568b?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA55EBG7KCZFCHQDZT%2F20240510%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240510T145429Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=a91dfaf608f5f539c80339778aa1bd45dc8698fc35bd32ba41e93d0d2e288632"
+   }
+  },
+  {
+   "seed": 295109025,
+   "image": {
+    "uploadId": "1c1ae898-0709-4a28-bb6d-1c677189a03b",
+    "url": "https://pre-signed-firefly.s3.amazonaws.com/images/1c1ae898-0709-4a28-bb6d-1c677189a03b?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA55EBG7KCZFCHQDZT%2F20240510%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240510T145429Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=88bf526592ef5e72e016619c470a346789403660933f05f523af467704ebb0b8"
+   }
+  },
+  {
+   "seed": 779747824,
+   "image": {
+    "uploadId": "e56845cd-bf6d-4242-b1db-2eb357c821a5",
+    "url": "https://pre-signed-firefly.s3.amazonaws.com/images/e56845cd-bf6d-4242-b1db-2eb357c821a5?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA55EBG7KCZFCHQDZT%2F20240510%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240510T145429Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=77d4b996909b04cfe1e892c12345f28d97b47a43e79bdf8ae91a36a87eac73a3"
+   }
+  },
+  {
+   "seed": 1081574056,
+   "image": {
+    "uploadId": "0985b3be-5961-409a-a6e5-8a31e44e6aed",
+    "url": "https://pre-signed-firefly.s3.amazonaws.com/images/0985b3be-5961-409a-a6e5-8a31e44e6aed?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA55EBG7KCZFCHQDZT%2F20240510%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240510T145429Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=0fc4ff2e7b0545208fc5b08f1bb18d265b429166d0e0bfbe49b411aa01142bae"
+   }
+  }
+ ],
+ "photoSettings": {
+  "aperture": 1.2,
+  "shutterSpeed": 0.0005,
+  "fieldOfView": 14
+ },
+ "contentClass": "art"
 }
 ```
 
-This function sends a POST request to the Firefly API with the prompt and retrieves the generated images. Replace `a cat dancing on a rainbow` with your desired prompt.
+This function sends a `POST` request to the Firefly API with the prompt, and retrieves the generated images. Replace `"a cat dancing on a rainbow"` with your desired prompt.
 
-You can copy and paste any of the `presignedUrl` values from the result to view the images.
+You can copy and paste any of the `url` values from the result to view the images.
 
 ## Step 4: Downloading Images from Firefly API
 
-Let's see how you can write a quick utility to download these images.
+Next, you will learn how to write a quick utility to download the resulting images.
 
 ### Import the Required Modules
 
-First, import the necessary file-related modules and the requests module for Python:
+First, import the necessary file-related modules and the requests modules for `Node` or `Python`:
 
 <CodeBlock slots="heading, code" repeat="2" languages="JavaScript, PYTHON" />
 
@@ -299,7 +314,7 @@ import requests
 
 ### Define the `downloadFile` function
 
-Create a function that takes a URL and a file path as arguments, and downloads the file from the URL to the specified path (This step is only required for Node.js).
+Next, create a function that takes a URL and a file path as arguments, and downloads the file from the URL to the specified path.
 
 <CodeBlock slots="heading, code" repeat="2" languages="JavaScript, PYTHON" />
 
@@ -325,7 +340,7 @@ def downloadFile(url, filePath):
 
 ### Iterate over the results and save each image
 
-Finally, iterate over the results (assuming result contains the response from the API call) and save each image with a unique file name using the seed value from the result:
+Finally, iterate over the results and save each image with a unique file name using the seed value from the result:
 
 <CodeBlock slots="heading, code" repeat="2" languages="JavaScript, PYTHON" />
 
@@ -334,7 +349,7 @@ Finally, iterate over the results (assuming result contains the response from th
 ```js
 for(let output of result.outputs) {
     let fileName = `./${output.seed}.jpg`;
-    await downloadFile(output.image.presignedUrl, fileName);
+    await downloadFile(output.image.url, fileName);
 }
 ```
 
@@ -343,16 +358,18 @@ for(let output of result.outputs) {
 ```python
 for output in result["outputs"]:
     fileName = f'./{output["seed"]}.jpg';
-    downloadFile(output["image"]["presignedUrl"], fileName);
+    downloadFile(output["image"]["url"], fileName);
 ```
 
 After running these steps, you'll see four images output in the same directory.
 
 **Sample output**
 
-![a cat dancing on a rainbow](../images/firefly-sample.png)
+A result of an image generated with the prompt specified above is shown here for reference.
 
-## Complete Code
+![a cat dancing on a rainbow](../images/cat-rainbow.jpg)
+
+## Complete Source Code
 
 Here's the entire code sample. As a reminder, feel free to modify and change the prompt.
 
@@ -360,7 +377,7 @@ Here's the entire code sample. As a reminder, feel free to modify and change the
 
 IMPORTANT
 
-Note that this Node.js code uses imports and top-level `await`, so you must either use the `.mjs` extension on your script file or ensure you have a `package.json` with `type: "module"`.
+Note that this Node.js code uses imports and top-level `await`, so you must either use the `.mjs` extension on your script file, or ensure you have a `package.json` with `type: "module"`.
 
 <CodeBlock slots="heading, code" repeat="2" languages="JavaScript, PYTHON" />
 
@@ -372,7 +389,7 @@ import { Readable } from 'stream';
 import { finished } from 'stream/promises';
 
 /*
-Set our creds based on environment variables.
+  Set the creds based on environment variables.
 */
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
@@ -385,9 +402,9 @@ async function getAccessToken(id, secret) {
 	params.append('grant_type', 'client_credentials');
 	params.append('client_id', id);
 	params.append('client_secret', secret);
-	params.append('scope', 'openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis');
+	params.append('scope', 'openid,AdobeID,firefly_enterprise,firefly_api,ff_apis');
 	
-	let resp = await fetch('https://ims-na1.adobelogin.com/ims/token/v3', 
+	let resp = await fetch('https://ims-na1-stg1.adobelogin.com/ims/token/v3', 
 		{ 
 			method: 'POST', 
 			body: params
@@ -400,15 +417,14 @@ async function getAccessToken(id, secret) {
 
 let token = await getAccessToken(CLIENT_ID, CLIENT_SECRET);
 
-async function textToImage(prompt, id, token) {
+async function generateImage(prompt, id, token) {
 
 	let body = {
-		"n":4,
+		"numVariations":4,
 		prompt
 	}
 
-
-	let req = await fetch('https://firefly-api.adobe.io/v2/images/generate', {
+	let req = await fetch('https://firefly-api.adobe.io/v3/images/generate', {
 		method:'POST',
 		headers: {
 			'X-Api-Key':id, 
@@ -422,7 +438,7 @@ async function textToImage(prompt, id, token) {
 }
 
 let prompt = 'a cat dancing on a rainbow';
-let result = await textToImage(prompt, CLIENT_ID, token);
+let result = await generateImage(prompt, CLIENT_ID, token);
 console.log(JSON.stringify(result,null,'\t'));
 
 async function downloadFile(url, filePath) {
@@ -434,7 +450,7 @@ async function downloadFile(url, filePath) {
 
 for(let output of result.outputs) {
 	let fileName = `./${output.seed}.jpg`;
-	await downloadFile(output.image.presignedUrl, fileName);
+	await downloadFile(output.image.url, fileName);
 }
 ```
 
@@ -450,20 +466,19 @@ CLIENT_ID = os.environ.get('CLIENT_ID')
 CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
 
 def getAccessToken(id, secret):
-	response = requests.post(f"https://ims-na1.adobelogin.com/ims/token/v3?client_id={id}&client_secret={secret}&grant_type=client_credentials&scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis")
+	response = requests.post(f"https://ims-na1-stg1.adobelogin.com/ims/token/v3?client_id={id}&client_secret={secret}&grant_type=client_credentials&scope=openid,AdobeID,firefly_enterprise,firefly_api,ff_apis")
 	return response.json()["access_token"]
 
 token = getAccessToken(CLIENT_ID, CLIENT_SECRET)
 
-def textToImage(text, id, token):
+def generateImage(text, id, token):
 
 	data = {
 		"prompt":text,
-		"n":4,
+		"numVariations":4,
 	}
 
-
-	response = requests.post("https://firefly-api.adobe.io/v2/images/generate", json=data, headers = {
+	response = requests.post("https://firefly-api.adobe.io/v3/images/generate", json=data, headers = {
 		"X-API-Key":id, 
 		"Authorization":f"Bearer {token}",
 		"Content-Type":"application/json"
@@ -473,15 +488,14 @@ def textToImage(text, id, token):
 
 
 prompt = "a cat dancing on a rainbow"
-result = textToImage(prompt, CLIENT_ID, token)
+result = generateImage(prompt, CLIENT_ID, token)
 print(json.dumps(result, indent=True))
 
 def downloadFile(url, filePath):
 	with open(filePath,'wb') as output:
-		bits = requests.get(url, stream=True).content
-		output.write(bits)
+			output.write(bits)
 
 for output in result["outputs"]:
-	fileName = f'./{output["seed"]}.jpg';
-	downloadFile(output["image"]["presignedUrl"], fileName);
+	fileName = f'./{output["seed"]}.jpg'
+	downloadFile(output["image"]["url"], fileName)
 ```
