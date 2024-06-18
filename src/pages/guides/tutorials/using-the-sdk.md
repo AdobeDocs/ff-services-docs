@@ -275,4 +275,4 @@ Compared to the previous version of the SDK, the `style` attribute has been ad
 
 ## Next Steps
 
-Now that you've seen how the SDK can \*greatly\* simplify your Firefly Services workflows, take a look over that \[Github repository\]([https://github.com/Firefly-Services/firefly-services-sdk-js](https://github.com/Firefly-Services/firefly-services-sdk-js)) and check out the docs and other samples as well.
+Now that you've seen how the SDK can \*greatly\* simplify your Firefly Services workflows, take a look over the [Github repository](https://github.com/Firefly-Services/firefly-services-sdk-jshttps://github.com/Firefly-Services/firefly-services-sdk-js) and check out the docs and other samples as well.
