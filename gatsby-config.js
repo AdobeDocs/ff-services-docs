@@ -196,6 +196,7 @@ module.exports = {
           {
             title: "Upload",
             path: "/firefly-api/guides/api/upload_image/"
+          
           },
         ]
       },
