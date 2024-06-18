@@ -30,11 +30,11 @@ hideBreadcrumbNav: true
 
 Certain Firefly APIs including the [Generate Images](../../api/image_generation/) and [Generate Object Composite](../../api/generate-object-composite/) APIs allow you to specify optional content classes and image styles which influence the generated output.
 
+The table below exemplifies the visual representations of each of the content classes and image styles/presets available. Simply specify the `Preset ID` as a string to the Firefly APIs where they are supported. 
+
 <InlineAlert variant="success" slots="text" />
 
 Check out the [Using Content Class and Style Presets](../../how-tos/using-content-class-style-preset.md) guide for more details on using content class and style presets.
-
-The table below exemplifies the visual representations of each of the content classes and image styles/presets available. Simply specify the `Preset ID` as a string to the Firefly APIs where they are supported. 
 
 | Preset                     | Preset ID                   |
 |:---------------------------|:-------------------| :--------:

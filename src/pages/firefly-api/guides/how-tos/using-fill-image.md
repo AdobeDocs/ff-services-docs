@@ -4,7 +4,7 @@ description: A guide to using the Firefly Fill Image API in your code workflows.
 keywords:
   - Adobe Firefly Services
   - Firefly API
-  - Firefly Generative Expand
+  - Firefly Generative Fill
   - Fill Images
   - How-to guides
   - Firefly endpoint
@@ -16,11 +16,11 @@ hideBreadcrumbNav: true
 
 # Using the Firefly Fill Image API
 
-A guide to getting started using the Fill Image API in your code workflows. 
+Learn how to use the Fill Image API in your code workflows. 
 
 ## Overview
 
-Generative Fill is a powerful Firefly feature that lets designers modify an existing image using AI to replace a portion of an image with generated content. This could be a small portion of an image or an entire background behind a central object. Let's take a look at how this can be done with Firefly Services.
+Generative Fill is a powerful Firefly feature that lets designers modify an existing image using AI to replace a portion of an image with generated content. The content replaced might be a small portion of an image, or an entire background behind a central object. In this guide, you will see how this can be done using the [Firefly Fill API](../api/generative_fill/V3/).
 
 ## Prerequisites
 
@@ -31,14 +31,14 @@ Generative Fill is a powerful Firefly feature that lets designers modify an exis
 
 Before getting into the code, let's consider how generative fill works at a high level.
 
-* You begin with a source image, which can either be uploaded to Firefly Services, or use one of the supported cloud storage providers. For our demo, we'll be using a local image uploaded via the Firefly Upload API.
+* You begin with a source image, which can either be uploaded to Firefly Services, or used with one of the supported cloud storage providers. For this guide, you'll use a local image uploaded via the [Firefly Upload API](../api/upload_image/).
 * You then provide a *masked* version of the image. That mask will be where Firefly adds it's generated content.
-* You then specify the desired size. This can be any combination of a height and width between 1 and 2688 pixels.
-* You can *optionally* specify a prompt to help Firefly create the filled region. If not specified, Firefly only uses the source image itself as a guide.
+* You then specify the desired size. This can be any combination of a `height` and `width` between `1` and `2688` pixels.
+* You can *optionally* specify a `prompt` to help Firefly create the filled region. If not specified, Firefly only uses the source image itself as a guide.
 
 ## Source and Mask Images
 
-The source and mask images are below, and will be uploaded using Firefly's [Upload API](../api/upload_image/).
+The source and mask images are below, and will be uploaded using [Firefly's Upload API](../api/upload_image/).
 
 ##### Source image
 
@@ -72,9 +72,9 @@ A simple example of the request body required to use the [Fill Image API](../api
 }
 ```
 
-More options are available and may be found in the [API Reference](../api/generative_fill/). Also note that you may also use cloud storage URLs instead of uploaded assets as desired.
+More options are available and may be found in the [API Reference](../api/generative_fill/V3). Please note that you could also use [cloud storage URLs (in the form of presigned URLs)](./using-style-structure-refs.md#working-with-reference-images) instead of uploaded assets as desired.
 
-Here's a sample function that demonstrates this in action:
+Below is a sample JavaScript function that could be used to call the [Fill Image API](../api/generative_fill/V3).
 
 ```js
 async function genFill(maskId, sourceId, width, height, prompt, id, token) {
@@ -110,7 +110,15 @@ async function genFill(maskId, sourceId, width, height, prompt, id, token) {
 }
 ```
 
-Now let's consider an example of using this. First, we authenticate and then upload our source and mask (again, using a wrapper to Firefly's upload API, which we'll include in the full listing below). Our prompt is, "a beach at sunset". 
+This next step requires you to use some utility functions to 1) authenticate and obtain your access token (via `getAccessToken()`), and 2) upload your source and mask images with a [Firefly Upload API](../api/upload_image/) wrapper function (ie: `uploadImage()`). The latter ensures you will have the `uploadId` needed for both the source and mask images when you are ready to make the call to `genFill()`. These utility methods are provided in the [complete source code](#complete-source-code) section for you. 
+
+<InlineAlert variant="success" slots="title, text" />
+
+TIP
+
+We recommend you refer to the [Create your First Firefly Application](./create-your-first-ff-application.md) guide for a step-by-step walkthrough on the utility methods used in the how-to guides for authenticating (via `getAccessToken()`), uploading images for use in the calls (`uploadImage()`), and for downloading the generated results (`downloadFile()`).
+
+Below is an example snippet of using the aforementioned utility functions with the necessary parameters:
 
 ```js
 let token = await getAccessToken(CLIENT_ID, CLIENT_SECRET);
@@ -122,7 +130,14 @@ upload = await uploadImage('./gen-fill-source.png', 'image/png', CLIENT_ID, toke
 let sourceImage = upload.images[0].id;
 ```
 
-Next, we'll call our function, and save the result (as before, using a utility method defined later):
+
+<!-- the rest of what you will write the rest of the code needed to actually use the above function to make the fill call. 
+
+First, you will need to authenticate and obtain your access token, then upload your source and mask images using the [Firefly Upload API](../api/upload_image/) (to ensure you have the `uploadId` needed for each).
+
+and then upload our source and mask (again, using a wrapper to Firefly's upload API, which we'll include in the full listing below). Our prompt is, "a beach at sunset".  -->
+
+Now that you have everything needed for the call parameters, make a call to the `genFill()` function with the prompt: `"a beach at sunset"`, and save the result using the `downloadFile()` utility function (also provided in the [complete source code](#complete-source-code) section). 
 
 ```js
 let result = await genFill(maskedImage, sourceImage, 2048, 2048, "a beach at sunset", CLIENT_ID, token);
@@ -134,9 +149,11 @@ await downloadFile(result.outputs[0].image.url, fileName);
 
 ![Result with basic fill](../images/gen-fill.jpg)
 
-A more detailed prompt would provide better results, and remember that the masked region could be smaller as well, not the complete background. 
+**Note:** A more detailed prompt would provide better results, and remember that the masked region could be smaller as well, rather than the complete background. 
 
-Here's the complete script containing utilities for authentication, uploading, and downloading.
+## Complete Source Code
+
+The complete source code containing utilities for authentication, uploading, and downloading is provided below.
 
 <InlineAlert variant="warning" slots="title, text" />
 
@@ -150,7 +167,7 @@ import { Readable } from 'stream';
 import { finished } from 'stream/promises';
 
 /*
- Set our creds based on environment variables.
+  Set the credentials based on environment variables.
 */
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
@@ -221,7 +238,6 @@ async function genFill(maskId, sourceId, width, height, prompt, id, token) {
 			}	
 		}
 	}
-
 
 	let req = await fetch('https://firefly-api.adobe.io/v3/images/fill', {
 		method:'POST',

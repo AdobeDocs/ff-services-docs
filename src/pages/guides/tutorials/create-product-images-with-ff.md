@@ -404,9 +404,9 @@ def generativeExpand(imageId, size, id, token):
 	return response.json()["images"][0]["image"]["presignedUrl"]
 ```
 
-This method wraps the [Generative Expand API](../../firefly-api/guides/api/generative_expand/index.md). It needs both the image resource to expand (which we got from the initial text-to-image prompt) and the desired size. In this case, we need a link to the result so the URL is returned.
+This method wraps the [Generative Expand API](../../firefly-api/guides/api/generative_expand/V2/). It needs both the image resource to expand (which we got from the initial text-to-image prompt) and the desired size. In this case, we need a link to the result so the URL is returned.
 
-As an example, given the prompt `placed on a futuristic table, blue orange and neon cyberpunk backgrounds, gradients, blurry background out of focus`, the original Firefly generated image was expanded for all four sizes. Here are two examples:
+As an example, given the prompt `"placed on a futuristic table, blue orange and neon cyberpunk backgrounds, gradients, blurry background out of focus"`, the original Firefly generated image was expanded for all four sizes. Here are two examples:
 
 ![One example of the expanded image](../images/expand1.png)
 ![Another example of the expanded image](../images/expand2.png)

@@ -22,7 +22,7 @@ hideBreadcrumbNav: true
 
 # Using Style and Structure Image References
 
-This guide will show you how you can pass in an existing image for a style or structure reference when generating images.
+Learn how to optionally pass in a source image to be used as a style or structure reference for your generated images.
 
 ## Prerequisites
 
@@ -35,9 +35,11 @@ Before digging in, you'll need to understand how to work with your existing asse
 
 First, you can place your media on cloud storage and generate temporary readable URLs for them. However, these URLs may only be used with S3, Sharepoint, and Dropbox. 
 
-Secondly, images may be uploaded via the Upload API. This API lets you send a source image (in either PNG, JPEG, or WebP format) and returns a unique ID that can be used in later calls, like the ones we will demonstrate below. 
+Secondly, images may be uploaded via the [Firefly Upload API](../api/upload_image/). This API lets you send a source image (in either PNG, JPEG, or WebP format), and returns a unique ID that can be used in later calls, like the ones demonstrated below. 
 
-Using the [Upload API](../api/upload_image/) requires a file, of course, as well as the mime type. Here is an example function that demonstrates this. It assumes a previously created access token using a `CLIENT_ID` and `CLIENT_SECRET` value. **Note:** This function is used again in the examples below, and the complete script for this guide is shared at the bottom of this page.
+Using the [Upload API](../api/upload_image/) requires a file, as well as the mime type (ie: `image/jpeg`, `image/png`, `image/webp`). Below is an example function that demonstrates this. It assumes a previously created access token using a `CLIENT_ID` and `CLIENT_SECRET` value. See the [Create Your First Firefly Application Guide](./create-your-first-ff-application.md#step-1-set-up-your-environment) for more help on using your credentials in your code to obtain an access token.
+
+**Note:** This function is used again in the examples below, and the complete code for this guide is shared at the bottom of this page.
 
 ```js
 async function uploadImage(filePath, fileType, id, token) {
@@ -71,6 +73,12 @@ The result of this call will be a JSON object containing the ID of the image:
 }
 ```
 
+<InlineAlert variant="success" slots="title, text" />
+
+TIP
+
+We recommend you refer to the [Create your First Firefly Application](./create-your-first-ff-application.md) guide for a step-by-step walkthrough on the utility methods used in the how-to guides for authenticating (via `getAccessToken()`), uploading images for use in the calls (`uploadImage()`), and for downloading the generated results (`downloadFile()`).
+
 ## Using a Reference Image for Style
 
 The first example uses a reference image to impact the style of the result. A standard prompt is used in a call to the [Generate Images API](../api/image_generation/V3/) -- both with and without a style reference image to compare the differences.
@@ -99,7 +107,7 @@ Before using this source image as a style reference in the [Generate Images API]
 }
 ```
 
-**Note:** You could alternatively provide a presigned URL from an image in cloud storage in the `url` property of the `style.imageReference.source` object. See the [Generate Images API Reference](../api/image_generation/V3/) for details.
+**Note:** You could alternatively provide a [presigned (temporary) URL](#working-with-reference-images) from an image in cloud storage in the `url` property of the `style.imageReference.source` object. See the [Generate Images API](../api/image_generation/V3/) for details.
 
 Next, we'll need utility code to get an access token, upload an image (via the [Upload API](../api/upload_image/)), and download the result. An example is below:
 
@@ -161,7 +169,7 @@ async function downloadFile(url, filePath) {
 }
 ```
 
-Now, you'll see how you can build a wrapper function to the [Generate Images API](../api/image_generation/V3/) call that optionally allows you to pass the ID of an uploaded image:
+Now, you'll see an examplf of a wrapper function for the [Generate Images API](../api/image_generation/V3/) call that optionally allows you to pass the id of an uploaded style reference image in the `uploadId` parameter:
 
 ```js
 async function generateImage(prompt, id, token, styleReference) {
@@ -198,7 +206,7 @@ async function generateImage(prompt, id, token, styleReference) {
 }
 ```
 
-Finally, our test code. It will authenticate, upload the style reference, and then make two call using the same prompt, one with the style reference and one without:
+Finally, the demo code. It will authenticate, upload the style reference, and then make two calls using the same prompt, one with a style reference and one without:
 
 ```js
 let token = await getAccessToken(CLIENT_ID, CLIENT_SECRET);
@@ -213,25 +221,25 @@ let result = await generateImage(prompt, CLIENT_ID, token);
 let fileName = `./output/without_style_reference.jpg`;
 await downloadFile(result.outputs[0].image.url, fileName);
 
-// Second, with a reference
+// Second, with a style reference
 result = await generateImage(prompt, CLIENT_ID, token, styleReference);
 fileName = `./output/with_style_reference.jpg`;
 await downloadFile(result.outputs[0].image.url, fileName);
 ```
 
-Given our prompt, here's the initial result with no style:
+Given the prompt, here's the initial result with no style:
 
 ![Without style reference image](../images/without-style-ref.jpg)
 
-And here's the result with the reference:
+And here's the result with the style reference:
 
 ![With style reference image](../images/with-style-ref.jpg)
 
-The difference is striking.
+Note the effect that the style reference image had on the generated result.
 
-## Working with Structure References
+## Using a Structure Reference
 
-The next feature we'll demonstrate is using an image as a structure reference. As you can imagine, this tells Firefly to use the source not as a 'design reference', ie, trying to match color schemes and styling, but more the actual structure of the source image itself. First, as with the style reference example, when you've uploaded your image you can reference it in the your data sent to the API: 
+The next feature you'll see is how to use an image as a structure reference. As you can imagine, this tells Firefly to use the source not as a 'design reference' (ie: trying to match color schemes and styling), but more the actual structure of the source image itself. First, as with the style reference example, once you've uploaded your image using the [Firefly Upload API](../api/upload_image/), you can reference it in the your data sent to the API: 
 
 ```json
 {
@@ -251,7 +259,7 @@ The next feature we'll demonstrate is using an image as a structure reference. A
 }
 ```
 
-Note that as with `style`, cloud storage URLs may be used as well. To demonstrate this, once again we'll use a simple wrapper to the Text to Image API that optionally takes the ID of an image to use as the structure reference:
+Note, that similar to `style`, [cloud storage URLs](#working-with-reference-images) may be used as well. To demonstrate this, you will once again use a simple wrapper to the [Generate Images](../api/image_generation/V3/) endpoint, but this time optionally accept the ID of an image to use as the structure reference:
 
 ```js
 async function generateImage(prompt, id, token, structureReference) {
@@ -289,21 +297,25 @@ async function generateImage(prompt, id, token, structureReference) {
 }
 ```
 
-Let's consider this as a structure reference:
+For example, considering this as a structure reference:
 
 ![Structure reference image](../images/structureRef.jpg)
 
-Note the position of the cat, the direction it's facing, etc. Now consider this prompt: "picture of a poodle with colorful fur looking majestic"
+Note the position of the cat, the direction it's facing, etc. Now consider this prompt: `"picture of a poodle with colorful fur looking majestic"`
 
-Without the structure reference, we get:
+Without the structure reference, you will see:
 
 ![Without structure reference image](../images/without-structure-ref.jpg)
 
-Now compare it to the one where the structure reference was used:
+Now, compare it to the following generated image from using the structure reference provided:
 
 ![With structure reference image](../images/with-structure-ref.jpg)
 
-Again, the difference is striking. The complete script used for this guide is below.
+Again, the difference is striking. 
+
+## Complete Source Code
+
+The complete source code containing the utilities for authentication, uploading, and downloading is provided below.
 
 <InlineAlert variant="warning" slots="title, text" />
 
@@ -317,7 +329,7 @@ import { Readable } from 'stream';
 import { finished } from 'stream/promises';
 
 /*
-Set our creds based on environment variables.
+  Set the credentials based on environment variables.
 */
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
@@ -421,4 +433,4 @@ await downloadFile(result.outputs[0].image.url, fileName);
 
 ## Next Steps
 
-While this guide demonstrated two powerful ways to influence Firefly when generating images, there's still more you can learn about to tweak what's generated from your API calls. Check out the other guides in this [how-tos](../how-tos/) section and the [API Reference](../api/) for more details.
+While this guide demonstrated two powerful ways to influence Firefly when generating images, there's still more you can learn about to tweak what's generated from your API calls. Check out the other guides in the How-Tos section and the [API Reference](../api/) for more details.

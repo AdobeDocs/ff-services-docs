@@ -134,7 +134,7 @@ The `placement` object adjust how the image will be positioned and sized in the 
 
 ** This parameter is currently available in the Expand Image API v3 and the Object Composite API v3, but used somewhat differently. **Note:** In the case of the Expand Image API, you cannot use `placement` along with `mask`.
 
-A visual representation of how these settings are used with different image sizes and placement settings is shown below, but please check out this wiki for more details about how these properties are interpreted when used with the Expand Image and the Object Composite APIs specifically.
+<!-- TODO: A visual representation of how these settings are used with different image sizes and placement settings is shown below, but please check out this wiki for more details about how these properties are interpreted when used with the Expand Image and the Object Composite APIs specifically. -->
 
 ## Inpainting
 

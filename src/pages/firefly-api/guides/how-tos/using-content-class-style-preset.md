@@ -22,7 +22,7 @@ hideBreadcrumbNav: true
 
 # Using Content Class and Style Presets
 
-This guide provides details on how to use certain parameters to direct the style of the images generated in your API calls.
+Learn how to use optional parameters to direct the style of the images generated in your API calls.
 
 ## Prerequisites
 
