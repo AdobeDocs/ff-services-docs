@@ -52,7 +52,7 @@ As a developer, you have the flexibility to choose how you want to integrate wit
 
 ## Overview
 
-Whether you prefer the direct control and language-specific implementations provided by [REST APIs](../../firefly-api/guides/api/) or the simplified, streamlined approach offered by our [Node SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/), Firefly Services has you covered.
+Whether you prefer the direct control and language-specific implementations provided by [REST APIs](../../firefly-api/guides/api/image_generation/V3/) or the simplified, streamlined approach offered by our [Node SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/), Firefly Services has you covered.
 
 ## Choosing the Right Approach for Your Project
 
