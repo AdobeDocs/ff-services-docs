@@ -60,14 +60,14 @@ And so forth. When combined with multiple different products, the amount of coll
 
 If we start with just three products but add two prompts, four sizes, and three translations, we need 3x2x4x3, or 72 different results. Let's look at what it would take to build such a workflow.
 
-## Prerequisites
+## Pre-requisites
 
 Before attempting to run this demo yourself, you'll need a few things.
 
 * You will need a set of credentials for Firefly Services. You can get those [here](../get-started.md).
-* As part of the workflow, we use cloud storage to hold files the Photoshop API uses. For this demo, we used Dropbox, so you will need credentials to work with their API, including the app key, app secret, and refresh token.
+* As part of the workflow, we use cloud storage to hold files the Photoshop API uses. For this demo, we used Dropbox, so you will need credentials to work with their API, including the app key, app secret, and refresh token. Python developers can find the Dropbox SDK [here](https://www.dropbox.com/developers/documentation/python).
 * The code with Dropbox does all of its work under one folder named `FFProcess`. This is conveniently set as a variable that can be modified. 
-* This demo uses a few demo assets that will be described as the process is documented. Everything  required to run this demo (minus credentials, of course) can be grabbed from this [zip file](/firefly-services/docs/process.zip).
+* This demo uses a few demo assets that will be described as the process is documented. Everything required to run this demo (minus credentials, of course) can be grabbed from this [zip file](/firefly-services/docs/process.zip).
 * The code in this demo uses Python, but any programming language can work with the REST APIs.
 
 ## The Workflow
@@ -137,7 +137,7 @@ products = os.listdir("input/products")
 From the top:
 
 * `db_base_folder` is used to supply a 'root' part of our cloud storage system that the code will use.
-* `sizes` is a hard coded list of required sizes.
+* `sizes` is a hard-coded list of required sizes.
 * `prompts` is read from a local file. Here's how it looks in our sample:
 
 ```
@@ -312,6 +312,13 @@ rbProducts[product] = readableLink
 
 Earlier our code made an empty Python object, `rbProducts`. The purpose of this is to create a collection of key/value pairs where the key represents a product and the value is a readable link to the version with the background removed.
 
+One additional thing we do before moving on to Firefly is to create a readable link to our Photoshop template. This is already on Dropbox so we just need to get that link:
+
+```python
+# I'm using this later when generating final results.
+psdOnDropbox = dropbox_get_read_link(f"{db_base_folder}genfill-banner-template-text-comp.psd")
+```
+
 ## Step 5: Generate and expand images using Firefly API
 
 Now we're beginning a rather large and complex loop, so we'll try to take it bit by bit. Don't forget the complete script may be found at the end of the article.
@@ -337,57 +344,71 @@ Let's look at `textToImage`:
 def textToImage(text, imageId, id, token):
 
 	data = {
-		"n":1,
+		"numVariations":1,
 		"prompt":text,
 		"contentClass":"photo",
 		"size":{
-			"width":2048,
-			"height":2048
+			"width":1024,
+			"height":1024
 		},
-		"styles":{
-			"referenceImage":{
-				"id":imageId
+		"style":{
+			"imageReference":{
+				"source":{
+					"uploadId":imageId
+				}
 			}
 		}
 	}
 
-	response = requests.post("https://firefly-api.adobe.io/v2/images/generate", json=data, headers = {
+	response = requests.post("https://firefly-api.adobe.io/v3/images/generate", json=data, headers = {
 		"X-API-Key":id, 
 		"Authorization":f"Bearer {token}",
 		"Content-Type":"application/json"
 	}) 
 
-	return response.json()["outputs"][0]["image"]["id"]
+	return response.json()["outputs"][0]["image"]["url"]
 ```
 
-This method is passed two main arguments (ignoring the credentials) - `text` and `imageId`, representing our prompt and reference image. You can see in `data` where these values are passed in. Finally, this is passed to the Firefly [Generate Images](../../firefly-api/guides/api/image_generation/V2/) API endpoint. The result, in this case only the ID of the image, is returned. We ignore the actual result URL as we just need the ID. You'll see why soon.
+This method is passed two main arguments (ignoring the credentials) - `text` and `imageId`, representing our prompt and reference image. You can see in `data` where these values are passed in. Finally, this is passed to the Firefly [Text-to-image](../../firefly-api/guides/api/image_generation/index.md) API endpoint. The result, in this case the URL of the image, is returned. 
 
 ### Expand images to desired sizes 
 
-After generating the image for the prompt, we then need to resize it once for each of our desired sizes:
+After generating the image for the prompt, we then need to resize it once for each of our desired sizes. If you remember, our sizes were:
+
+```python
+sizes = ["1024x1024","1792x1024","1408x1024","1024x1408"]
+```
+
+However, our initial image was 1024x1024, so we get to skip that when generating our new sizes. 
 
 ```python
 	# I store a key from size to the image
 	sizeImages = {}
 
-	for size in sizes:
-		# For each size, generate an expanded background
-		print(f"Generating an expanded one at size {size}")
-		expandedBackground = generativeExpand(newImage, size, ff_client_id, ff_access_token)
-		sizeImages[size] = expandedBackground
+	for (idx, size) in enumerate(sizes):
+		# For each size, outside of our first, expand it
+		if idx >= 1:
+			print(f"Generating an expanded one at size {size}")
+			expandedBackground = generativeExpand(newImage, size, ff_client_id, ff_access_token)
+			sizeImages[size] = expandedBackground
+		else:
+			print(f"Using original for {size}")
+			sizeImages[size] = newImage
 ```
 
 This code is using another utility method, `generativeExpand`:
 
 ```python
-def generativeExpand(imageId, size, id, token):
+def generativeExpand(imageUrl, size, id, token):
 
 	width, height = size.split('x')
 
 	data = {
-		"n":1,
+		"numVariations":1,
 		"image":{
-			"id":imageId
+			"source":{
+				"url":imageUrl
+			}
 		},
 		"size":{
 			"width":width, 
@@ -395,18 +416,19 @@ def generativeExpand(imageId, size, id, token):
 		}
 	}
 
-	response = requests.post("https://firefly-api.adobe.io/v1/images/expand", json=data, headers = {
+	response = requests.post("https://firefly-api.adobe.io/v3/images/expand", json=data, headers = {
 		"X-API-Key":id, 
 		"Authorization":f"Bearer {token}",
 		"Content-Type":"application/json"
-	}) 
+	})
 
-	return response.json()["images"][0]["image"]["presignedUrl"]
+	return response.json()["outputs"][0]["image"]["url"]
 ```
 
-This method wraps the [Generative Expand API](../../firefly-api/guides/api/generative_expand/V1/). It needs both the image resource to expand (which we got from the initial text-to-image prompt) and the desired size. In this case, we need a link to the result so the URL is returned.
+This method wraps the [Generative Expand API](../../firefly-api/guides/api/generative_expand/index.md). It needs both the image resource to expand (which we got from the initial text-to-image prompt) and the desired size. In this case, we need a link to the result so the URL is returned.
 
-As an example, given the prompt `"placed on a futuristic table, blue orange and neon cyberpunk backgrounds, gradients, blurry background out of focus"`, the original Firefly generated image was expanded for all four sizes. Here are two examples:
+
+As an example, given the prompt "placed on a futuristic table, blue orange and neon cyberpunk backgrounds, gradients, blurry background out of focus", the original Firefly generated image was expanded for all four sizes. Here are two examples:
 
 ![One example of the expanded image](../images/expand1.png)
 ![Another example of the expanded image](../images/expand2.png)
@@ -419,12 +441,8 @@ We will reference a Photoshop template for cloud storage as a one-time operation
 
 ![PSD template](../images/psd.png)
 
-The PSD was already uploaded to our Dropbox folder so all we need to do is generate the link:
+The PSD was already uploaded to our Dropbox folder and we shared earlier in the tutorial the code to get the readable link.
 
-```python
-# I'm using this later when generating final results.
-psdOnDropbox = dropbox_get_read_link(f"{db_base_folder}genfill-banner-template-text-comp.psd")
-```
 
 With that template in place, we can use the Photoshop API to dynamically replace the background, product, and text in each of the sized boxes. Here's that loop:
 
@@ -439,7 +457,7 @@ With that template in place, we can use the Photoshop API to dynamically replace
 
 			for size in sizes:
 				width, height = size.split('x')
-				outputUrls.append(dropbox_get_upload_link(f"{db_base_folder}output/{lang['language']}-{slugify(prompt)}-{width}x{height}-{theTime}.jpg"))
+				outputUrls.append(dropbox_get_upload_link(f"{db_base_folder}output/{lang['language']}-{slugify(prompt)}-{slugify(product)}-{width}x{height}-{theTime}.jpg"))
 
 			result = createOutput(psdOnDropbox, rbProducts[product], sizes, sizeImages, outputUrls, lang["text"], ff_client_id, ff_access_token)
 			print("The Photoshop API job is being run...")
@@ -704,36 +722,40 @@ def uploadImage(path, id, token):
 def textToImage(text, imageId, id, token):
 
 	data = {
-		"n":1,
+		"numVariations":1,
 		"prompt":text,
 		"contentClass":"photo",
 		"size":{
-			"width":2048,
-			"height":2048
+			"width":1024,
+			"height":1024
 		},
-		"styles":{
-			"referenceImage":{
-				"id":imageId
+		"style":{
+			"imageReference":{
+				"source":{
+					"uploadId":imageId
+				}
 			}
 		}
 	}
 
-	response = requests.post("https://firefly-api.adobe.io/v2/images/generate", json=data, headers = {
+	response = requests.post("https://firefly-api.adobe.io/v3/images/generate", json=data, headers = {
 		"X-API-Key":id, 
 		"Authorization":f"Bearer {token}",
 		"Content-Type":"application/json"
 	}) 
 
-	return response.json()["outputs"][0]["image"]["id"]
+	return response.json()["outputs"][0]["image"]["url"]
 
-def generativeExpand(imageId, size, id, token):
+def generativeExpand(imageUrl, size, id, token):
 
 	width, height = size.split('x')
 
 	data = {
-		"n":1,
+		"numVariations":1,
 		"image":{
-			"id":imageId
+			"source":{
+				"url":imageUrl
+			}
 		},
 		"size":{
 			"width":width, 
@@ -741,13 +763,13 @@ def generativeExpand(imageId, size, id, token):
 		}
 	}
 
-	response = requests.post("https://firefly-api.adobe.io/v1/images/expand", json=data, headers = {
+	response = requests.post("https://firefly-api.adobe.io/v3/images/expand", json=data, headers = {
 		"X-API-Key":id, 
 		"Authorization":f"Bearer {token}",
 		"Content-Type":"application/json"
-	}) 
+	})
 
-	return response.json()["images"][0]["image"]["presignedUrl"]
+	return response.json()["outputs"][0]["image"]["url"]
 
 
 # Connect to Firefly Services and Dropbox
@@ -779,6 +801,9 @@ for product in products:
 	# For now, we assume ok
 
 
+# I'm using this later when generating final results.
+psdOnDropbox = dropbox_get_read_link(f"{db_base_folder}genfill-banner-template-text-comp.psd")
+
 theTime = time.time()
 for prompt in prompts:
 	
@@ -789,15 +814,16 @@ for prompt in prompts:
 	# I store a key from size to the image
 	sizeImages = {}
 
-	for size in sizes:
-		# For each size, generate an expanded background
-		print(f"Generating an expanded one at size {size}")
-		expandedBackground = generativeExpand(newImage, size, ff_client_id, ff_access_token)
-		sizeImages[size] = expandedBackground
+	for (idx, size) in enumerate(sizes):
+		# For each size, outside of our first, expand it
+		if idx >= 1:
+			print(f"Generating an expanded one at size {size}")
+			expandedBackground = generativeExpand(newImage, size, ff_client_id, ff_access_token)
+			sizeImages[size] = expandedBackground
+		else:
+			print(f"Using original for {size}")
+			sizeImages[size] = newImage
 
-
-	# I'm using this later when generating final results.
-	psdOnDropbox = dropbox_get_read_link(f"{db_base_folder}genfill-banner-template-text-comp.psd")
 
 	for lang in languages:
 		
