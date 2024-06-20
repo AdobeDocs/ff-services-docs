@@ -49,7 +49,7 @@ The following existing APIs were updated to use the new Image Model 3, and have 
   - The `photoSettings` parameter has been removed.
   - The `locale` parameter has been renamed to `promptBiasingLocaleCode`.
 
-- **[Expand Image](../api/generative_expand/):**
+- **[Expand Image](../api/generative_expand/V3/):**
 
   - The `n` parameter has been renamed to `numVariations`.
   - `locale` has been renamed to `promptBiasingLocaleCode`.
@@ -70,7 +70,7 @@ The following existing APIs were updated to use the new Image Model 3, and have 
 
   - A new `placement` object parameter can be specified, with `insets` and `alignment` child parameter values that can be provided. See the placement section below for more details.
 
-- **[Fill Image](../api/generative_fill/):**
+- **[Fill Image](../api/generative_fill/V3):**
 
   - The `n` parameter has been renamed to `numVariations`.
   - `locale` has been renamed to `promptBiasingLocaleCode`.

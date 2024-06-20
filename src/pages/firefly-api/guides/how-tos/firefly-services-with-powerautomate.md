@@ -45,6 +45,10 @@ hideBreadcrumbNav: true
 
 Microsoft's [Power Automate](https://make.powerautomate.com) is a powerful no-code solution that lets developers and non-developers alike create flexible workflows to automate processing using multiple different services. Firefly Services can be employed in the Power Automate platform and in this article, we'll walk you through the process of creating a sample workflow. Keep in mind that Power Automate is incredibly flexible and the example shown here is just one possible use of the platform.
 
+<InlineAlert slots="text" variant="info"/>
+
+Please note, this tutorial uses the Firefly Image Model 2. For details on using the Firefly Image Model 3 (preview) APIs, please see [this guide](../concepts/model-3-overview.md).
+
 ## Prerequisites
 
 To complete this tutorial, you will need:

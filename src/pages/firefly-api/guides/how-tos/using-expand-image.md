@@ -25,7 +25,7 @@ Designers often struggle with taking existing media assets and re-purposing them
 ## Prerequisites
 
 -  Firefly API credentials. If you don't have them yet, first visit the Firefly Services [Getting Started](../../../guides/get-started.md) guide to obtain a `client_id` and `client_secret`.
--  Node.js installed on your machine and basic familiarity with `JavaScript`. **Note:** The code for this guide will make use of the [Firefly REST APIs](../api/) via Node.js, but could be written in any language, or with the [SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/).
+-  Node.js installed on your machine and basic familiarity with `JavaScript`. **Note:** The code for this guide will make use of the [Firefly REST APIs](../api/image_generation/V3/) via Node.js, but could be written in any language, or with the [SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/).
 
 ## Expand Image API Overview
 
@@ -67,7 +67,7 @@ TIP
 
 We recommend you refer to the [Create your First Firefly Application](./create-your-first-ff-application.md) guide for a step-by-step walkthrough on the utility methods used in the how-to guides for authenticating via `getAccessToken()`, uploading images for use in the calls via `uploadImage()`, and for downloading the generated results via`downloadFile()`.
 
-Now, you can wrap the [Expand Image API](../api/generative_expand/) call in a simple utility function like so:
+Now, you can wrap the [Expand Image API](../api/generative_expand/V3) call in a simple utility function like so:
 
 ```js
 async function genExpand(imageId, width, height, id, token) {

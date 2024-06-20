@@ -52,7 +52,7 @@ As a developer, you have the flexibility to choose how you want to integrate wit
 
 ## Overview
 
-Whether you prefer the direct control and language-specific implementations provided by [REST APIs](../../firefly-api/guides/api/) or the simplified, streamlined approach offered by our [Node SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/), Firefly Services has you covered.
+Whether you prefer the direct control and language-specific implementations provided by [REST APIs](../../firefly-api/guides/api/image_generation/V3/) or the simplified, streamlined approach offered by our [Node SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/), Firefly Services has you covered.
 
 ## Choosing the Right Approach for Your Project
 
@@ -83,14 +83,14 @@ Before digging into the code, let's break down the process.
 
 Let's begin by initializing a new `package.json` in your prompt with `npm init -y`. 
 
-Next, we need to add the SDK. As described in the SDK's [readme](https://git.corp.adobe.com/cc-apis/firefly-services-sdk-js/), there are four individual packages you _can_ install:
+Next, you need to add the SDK. As described in the SDK's [readme](https://git.corp.adobe.com/cc-apis/firefly-services-sdk-js/), there are four individual packages you _can_ install:
 
 -   The `common APIs` package is required for authentication, you'll always need this.
 -   A package for Firefly APIs.
 -   A package for Photoshop APIs.
 -   A package for Lightroom APIs.
 
-For our needs, we only require the common and Firefly APIs. Install them like so:
+For your needs, you only require the common and Firefly APIs. Install them like so:
 
 ```bash
 npm install @adobe/firefly-services-common-apis
@@ -134,7 +134,7 @@ const authOptions = {
 const firefly = await FireflyClient.createWithCredentials(process.env.CLIENT_ID, process.env.CLIENT_SECRET, authOptions);
 ```
 
-In the code above, we use two environment variables (`CLIENT_ID` and `CLIENT_SECRET`) and pass them to the `createWithCredentials` method. Note that for the bug bash, the `authOptions` object specified above is required.
+In the code above, you need to use two environment variables (`CLIENT_ID` and `CLIENT_SECRET`) and pass them to the `createWithCredentials` method. Note that for the bug bash, the `authOptions` object specified above is required.
 
 ## Step 3: Instantiate Firefly
 
@@ -148,13 +148,13 @@ const firefly = new FireflyClient(config);
 
 ## Step 4: Generating an Image with a Prompt
 
-With authentication done and the Firefly client created, how do we generate images for a prompt? It takes all of one line!
+With authentication done and the Firefly client created, how do you generate images for a prompt? It takes all of one line!
 
 ```js
 const resp = await firefly.generateImages({prompt:'a cat riding a unicorn headed into the sunset, dramatic pose'});
 ```
 
-As a reminder, the Firefly API can accept _many_ parameters, and they're all supported by the SDK, but in this case, we have passed just a prompt and the number of images required. The result of the SDK call is twofold - first a `result` JSON object that matches what the REST API returns, and secondly a set of `headers` you can inspect if needed.
+As a reminder, the Firefly API can accept _many_ parameters, and they're all supported by the SDK, but in this case, you have passed just a prompt and the number of images required. The result of the SDK call is twofold - first a `result` JSON object that matches what the REST API returns, and secondly a set of `headers` you can inspect if needed.
 
 Here's the JSON returned in the `result` key:
 
@@ -233,17 +233,17 @@ And here's one of the sample results of our prompt:
 
 One of the benefits of having a Firefly SDK is how easy it is to build more complex workflows. To demonstrate a simple example of this, let's enhance our simple text-to-image prompt example by using a reference image. Reference images help guide the visual style of the generated result.
 
-In order for this to work, we first need our reference image. We'll use this:
+In order for this to work, you first need your reference image. You can use this:
 
 ![Generated image](../images/shot1.jpeg)
 
-Skipping over the authentication bits we have already covered, the first change is to upload our reference image:
+Skipping over the authentication bits that is already covered, the first change is to upload our reference image:
 
 ```js
 const uploadResp = await firefly.upload(new Blob([await fs.readFile('./source_image.jpg')],{type:'image/jpeg'}));
 ```
 
-The `upload` SDK method requires a Blob which we have used wrapped around a file read on `./source_image.jpg`. As with the previous SDK example, the response includes a JSON result as well as the headers, with the JSON matching what you get when using the REST API. As an example:
+The `upload` SDK method requires a Blob which is wrapped around a file read on `./source_image.jpg`. As with the previous SDK example, the response includes a JSON result as well as the headers, with the JSON matching what you get when using the REST API. As an example:
 
 ```json
 {
@@ -269,10 +269,10 @@ const resp = await firefly.generateImages({
 });
 ```
 
-Compared to the previous version, we have added the `style` attribute and passed in the `imageReference` value. The changes to the generated images are immediately recognizable as being based on the style of the reference image.
+Compared to the previous version of the SDK, the `style` attribute has been added and passed in the `imageReference` value. The changes to the generated images are immediately recognizable as being based on the style of the reference image.
 
 ![Second generated image](../images/shot2.jpeg)
 
 ## Next Steps
 
-Now that you've seen how the SDK can \*greatly\* simplify your Firefly Services workflows, take a look over that \[Github repository\]([https://github.com/Firefly-Services/firefly-services-sdk-js](https://github.com/Firefly-Services/firefly-services-sdk-js)) and check out the docs and other samples as well.
+Now that you've seen how the SDK can \*greatly\* simplify your Firefly Services workflows, take a look over the [Github repository](https://github.com/Firefly-Services/firefly-services-sdk-jshttps://github.com/Firefly-Services/firefly-services-sdk-js) and check out the docs and other samples as well.

@@ -37,8 +37,8 @@ hideBreadcrumbNav: true
 
 - Firefly Image Model 3 (preview) APIs:
 
-  - New API References added for the newly introduced [Generate Similar Images](../api/generate-object-composite/) and [Generate Object Composite](../api/generate-similar/) APIs.
-  - New V3 API References added for [Generate Images](../api/image_generation/), [Expand Image](../api/generative_expand/V3/) and [Fill Image](../api/generative_fill/V3) with support for Firefly Image Model 3 (preview).
+  - New API References added for the newly introduced [Generate Similar Images](../api/generate-similar/) and [Generate Object Composite](../api/generate-object-composite/) APIs.
+  - New V3 API References added for [Generate Images](../api/image_generation/V3/), [Expand Image](../api/generative_expand/V3/) and [Fill Image](../api/generative_fill/V3) with support for Firefly Image Model 3 (preview).
   
 - Updated guides:
 
