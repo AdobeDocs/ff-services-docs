@@ -95,17 +95,22 @@ Specifies the dimensions of the generated image via a `size` parameter in the AP
 
 **Non-upsampled:**
 
-square: `{ width: 1024, height: 1024 }`
-landscape: `{ width: 1152, height: 896 }`
-portrait: `{ width: 896, height: 1152 }`
-widescreen: `{ width: 1344, height: 768 }`
+| `width` | `height` | Description |
+|---------|----------|-------------|
+| 1024    | 1024     | Square      |
+| 1152    | 896      | Landscape   |
+| 896     | 1152     | Portrait    |
+| 1344    | 768      | Widescreen  |
 
 **Upsampled (2x):**
 
-square: `{ width: 2048, height: 2048 }`
-landscape: `{ width: 2304, height: 1792 }`
-portrait: `{ width: 1792, height: 2304 }`
-widescreen: `{ width: 2688, height: 1536 }`
+| `width` | `height` | Description |
+|---------|----------|-------------|
+| 2048    | 2048     | Square      |
+| 2304    | 1792     | Landscape   |
+| 1792    | 2304     | Portrait    |
+| 2688    | 1536     | Widescreen  |
+
 
 <InlineAlert variant="help" slots="text" />
 
@@ -150,11 +155,11 @@ The `placement` object adjust how the image will be positioned and sized in the 
 }
 ```
 
-** This parameter is currently available in the Expand Image API v3 and the Object Composite API v3, but used somewhat differently. 
+<InlineAlert variant="help" slots="text1, text2" />
 
-<InlineAlert variant="help" slots="text" />
+This parameter is currently available in the [Expand Image API V3](../api/generative_expand/V3/) and the [Object Composite API V3](../api/generate-object-composite/), but used somewhat differently.
 
-In the case of the Expand Image API, you cannot use `placement` along with `mask`.
+In the case of the [Expand Image API V3](../api/generative_expand/V3/), you cannot use `placement` along with `mask`.
 
 <!-- TODO: A visual representation of how these settings are used with different image sizes and placement settings is shown below, but please check out this wiki for more details about how these properties are interpreted when used with the Expand Image and the Object Composite APIs specifically. -->
 
