@@ -45,10 +45,6 @@ Discover how to generate images of different sizes, for various regional markets
 
 ## Overview
 
-<InlineAlert slots="text" variant="info"/>
-
-Please note, this tutorial uses the Firefly Image Model 2. For details on using the Firefly Image Model 3 (preview) APIs, please see [this guide](../../firefly-api/guides/concepts/model-3-overview.md).
-
 Firefly Services encompass many APIs that allow for robust and complex workflows. One of the most valuable workflows possible supports content creation at scale. As a marketer, you may need to generate product images for:
 
 * Different sizes
