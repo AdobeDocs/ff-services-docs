@@ -138,7 +138,22 @@ The `visualIntensity` parameter adjusts the overall intensity of your photo's ex
 
 ## Placement
 
-The `placement` object adjust how the image will be positioned and sized in the final generation. You can specify both `inset` and `alignment`, only `inset`, only `alignment`, or none (omit all).
+The `placement` object adjust how the image will be positioned and sized in the final generation. You can specify only `inset`, only `alignment`, or none (omit all).
+
+<CodeBlock slots="heading, code" repeat="2" languages="JSON, JSON" />
+
+#### Placement with alignment
+
+```json
+"placement": {
+    "alignment": {
+        "horizontal": "left",
+        "vertical": "top"
+    }
+}
+```
+
+#### Placement with inset
 
 ```json
 "placement": {
@@ -147,13 +162,10 @@ The `placement` object adjust how the image will be positioned and sized in the 
         "top": 0,
         "right": 400,
         "bottom": 40
-    },
-    "alignment": {
-        "horizontal": "left",
-        "vertical": "top"
     }
 }
-```
+````
+
 
 <InlineAlert variant="help" slots="text1, text2" />
 
