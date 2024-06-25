@@ -26,7 +26,7 @@ Before diving into the API, it will be helpful to level-set on the following con
 
 ### Step 0: Obtain a valid access token
 
-Ensure you have reference to a valid access token. See the [Authentication Guide](../authentication/) for details on how to obtain such a token.
+Ensure you have reference to a valid access token. See the [Firefly Services Getting Started Guide](../../guides/get-started.md) for details on how to obtain such a token.
 
 ### Step 1: Create an asset
 
@@ -80,7 +80,7 @@ If all goes well, you'll get a `201 Created` response with a payload like the 
 
 As you can see in the API response, the `status` of this `Asset` is `waiting_for_upload`, which indicates it can't be used to  create `SpeechEnhancement`s until you upload data for the `Asset`.
 
-In the event that request parameters are structurally or semantically invalid, you'll get a `422` response. See the [API specification](../../api/) for details.
+In the event that request parameters are structurally or semantically invalid, you'll get a `422` response. See the [API specification](./api/) for details.
 
 ### Step 2: Upload data for the asset
 
@@ -127,7 +127,7 @@ curl --request GET 'https://firefly-beta.adobe.io/audio_services/v1/assets/3445d
 
 #### Checking upload validity
 
-As an API client, the best way to ensure that not only did the `PUT` request above go through successfully, but was successfully registered by the [Enhance Speech API](../../api/), is to call the `GET /audio_services/v1/assets/:id` endpoint and ensure that `status` shows `ready_for_processing`. Once the `Asset` is `ready_for_processing`, an `upload_url` will no longer be displayed:
+As an API client, the best way to ensure that not only did the `PUT` request above go through successfully, but was successfully registered by the [Enhance Speech API](./api/), is to call the `GET /audio_services/v1/assets/:id` endpoint and ensure that `status` shows `ready_for_processing`. Once the `Asset` is `ready_for_processing`, an `upload_url` will no longer be displayed:
 
 ```json
 {
