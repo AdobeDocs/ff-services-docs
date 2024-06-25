@@ -44,7 +44,7 @@ You may encounter a HTTP 429 ``Too Many Requests`` error if your usage exceeds e
 
 <InlineAlert variant="warning" slots="text1" />
 
-Bear in mind that these usage limits apply to **your entire organization**<br/>
+These usage limits apply to **your entire organization**<br/>
 
 <!-- <InlineAlert variant="info" slots="text1, text2, text3" />
 

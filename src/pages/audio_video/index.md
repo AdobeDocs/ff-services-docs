@@ -38,7 +38,7 @@ Check out the [Getting Started Guide](./audio/) for a step-by-step walkthrough o
 
 ### Video Services
 
-The Adobe Pro Video APIs are currently in private beta, with plans to be released in the near future.
+The Adobe Pro Video APIs are currently in private beta, with plans to be released soon.
 
 ## Discover
 
