@@ -1,0 +1,906 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "Audio Services: Enhance Speech API",
+      "version": "v2"
+    },
+    "paths": {
+      "/v2/assets": {
+        "post": {
+          "summary": "Create an asset",
+          "tags": [
+            "Assets"
+          ],
+          "description": "Create an asset. You will receive an `uploadUrl` in the response, which you can use to upload the asset.",
+          "operationId": "createAsset",
+          "parameters": [
+
+          ],
+          "security": [
+            {
+              "bearer_auth": [
+
+              ],
+              "api_key": [
+
+              ]
+            }
+          ],
+          "responses": {
+            "401": {
+              "description": "Unauthorized",
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "access_token_invalid": {
+                      "value": {
+                        "error_code": "401013",
+                        "message": "Oauth token is not valid"
+                      },
+                      "summary": "Access token is not valid"
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/error"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Forbidden",
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "access_token_lacks_proper_scope": {
+                      "value": {
+                        "error_code": null,
+                        "message": "Missing required scope"
+                      },
+                      "summary": "Access token lacks the proper scope"
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/error"
+                  }
+                }
+              }
+            },
+            "429": {
+              "description": "Too Many Requests",
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "too_many_requests": {
+                      "value": {
+                        "error_code": "429050",
+                        "message": "Too many requests"
+                      },
+                      "summary": "Client has made too many requests"
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/error"
+                  }
+                }
+              }
+            },
+            "201": {
+              "description": "Asset created",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/asset"
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "Request missing required parameter fileName",
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "request_missing_required_parameter": {
+                      "value": {
+                        "error_code": null,
+                        "message": "#/paths/~1v2~1assets/post/requestBody/content/application~1json/schema missing required parameters: fileName"
+                      },
+                      "summary": "Request missing a required parameter"
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/error"
+                  }
+                }
+              }
+            }
+          },
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "fileName": {
+                      "type": "string",
+                      "description": "Name of the uploaded file (including file extension)."
+                    },
+                    "byteSize": {
+                      "type": "integer",
+                      "description": "Number of bytes of the file. Must match the value of the `Content-Length` header when uploading directly to S3."
+                    },
+                    "mediaType": {
+                      "type": "string",
+                      "description": "Content type of the file. Must match the value of `Content-Type` header when uploading directly to S3.",
+                      "enum": [
+                        "audio/aac",
+                        "audio/flac",
+                        "audio/m4a",
+                        "audio/mp4",
+                        "audio/mpeg",
+                        "audio/mpeg4-generic",
+                        "audio/ogg",
+                        "audio/opus",
+                        "audio/vnd.dlna.adts",
+                        "audio/vorbis",
+                        "audio/wav",
+                        "audio/x-aac",
+                        "audio/x-aiff",
+                        "audio/x-flac",
+                        "audio/x-m4a",
+                        "audio/x-wav"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "fileName",
+                    "byteSize",
+                    "mediaType"
+                  ]
+                },
+                "examples": {
+                  "name": {
+                    "summary": "summary",
+                    "value": {
+                      "fileName": "audio-file.mp3",
+                      "byteSize": 31005,
+                      "mediaType": "audio/mpeg"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v2/assets/{id}": {
+        "get": {
+          "summary": "Show an asset",
+          "tags": [
+            "Assets"
+          ],
+          "description": "Retrieve information about a specific asset identified by its `id`. This endpoint allows you to view the details of an asset that was previously created using the `POST /v2/assets` endpoint.",
+          "operationId": "getAsset",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "description": "ID of the desired asset.",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "security": [
+            {
+              "bearer_auth": [
+
+              ],
+              "api_key": [
+
+              ]
+            }
+          ],
+          "responses": {
+            "404": {
+              "description": "Asset does not exist",
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "asset_not_found": {
+                      "value": {
+                        "error_code": null,
+                        "message": "Not found"
+                      },
+                      "summary": "Asset not found"
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/error"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "access_token_invalid": {
+                      "value": {
+                        "error_code": "401013",
+                        "message": "Oauth token is not valid"
+                      },
+                      "summary": "Access token is not valid"
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/error"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Forbidden",
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "access_token_lacks_proper_scope": {
+                      "value": {
+                        "error_code": null,
+                        "message": "Missing required scope"
+                      },
+                      "summary": "Access token lacks the proper scope"
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/error"
+                  }
+                }
+              }
+            },
+            "429": {
+              "description": "Too Many Requests",
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "too_many_requests": {
+                      "value": {
+                        "error_code": "429050",
+                        "message": "Too many requests"
+                      },
+                      "summary": "Client has made too many requests"
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/error"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "Asset found",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/asset"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "summary": "Delete an asset",
+          "tags": [
+            "Assets"
+          ],
+          "description": "Delete the asset with the specified `id`.",
+          "operationId": "deleteAsset",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "description": "ID of the desired asset.",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "security": [
+            {
+              "bearer_auth": [
+
+              ],
+              "api_key": [
+
+              ]
+            }
+          ],
+          "responses": {
+            "404": {
+              "description": "Asset does not exist",
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "asset_not_found": {
+                      "value": {
+                        "error_code": null,
+                        "message": "Not found"
+                      },
+                      "summary": "Asset not found"
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/error"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "access_token_invalid": {
+                      "value": {
+                        "error_code": "401013",
+                        "message": "Oauth token is not valid"
+                      },
+                      "summary": "Access token is not valid"
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/error"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Forbidden",
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "access_token_lacks_proper_scope": {
+                      "value": {
+                        "error_code": null,
+                        "message": "Missing required scope"
+                      },
+                      "summary": "Access token lacks the proper scope"
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/error"
+                  }
+                }
+              }
+            },
+            "429": {
+              "description": "Too Many Requests",
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "too_many_requests": {
+                      "value": {
+                        "error_code": "429050",
+                        "message": "Too many requests"
+                      },
+                      "summary": "Client has made too many requests"
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/error"
+                  }
+                }
+              }
+            },
+            "204": {
+              "description": "Asset deleted",
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "asset_deleted": {
+                      "summary": "Asset and any speech enhancements successfully deleted"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v2/speech-enhancements": {
+        "post": {
+          "summary": "Create a speech enhancement",
+          "tags": [
+            "Speech Enhancements"
+          ],
+          "description": "This endpoint allows you to run speech enhancement, at a specific `strength`, on an asset (identified by `input.uploadId`).",
+          "operationId": "createSpeechEnhancement",
+          "parameters": [
+
+          ],
+          "security": [
+            {
+              "bearer_auth": [
+
+              ],
+              "api_key": [
+
+              ]
+            }
+          ],
+          "responses": {
+            "401": {
+              "description": "Unauthorized",
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "access_token_invalid": {
+                      "value": {
+                        "error_code": "401013",
+                        "message": "Oauth token is not valid"
+                      },
+                      "summary": "Access token is not valid"
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/error"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Forbidden",
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "access_token_lacks_proper_scope": {
+                      "value": {
+                        "error_code": null,
+                        "message": "Missing required scope"
+                      },
+                      "summary": "Access token lacks the proper scope"
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/error"
+                  }
+                }
+              }
+            },
+            "429": {
+              "description": "Too Many Requests",
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "too_many_requests": {
+                      "value": {
+                        "error_code": "429050",
+                        "message": "Too many requests"
+                      },
+                      "summary": "Client has made too many requests"
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/error"
+                  }
+                }
+              }
+            },
+            "202": {
+              "description": "Speech enhancement accepted",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/speech_enhancement"
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "Speech enhancement not created",
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "speech_enhancement_already_exists": {
+                      "value": {
+                        "error_code": null,
+                        "message": "Speech enhancement already exists for specified asset, model and strength."
+                      },
+                      "summary": "Speech enhancement already exists"
+                    },
+                    "non_ready_asset": {
+                      "value": {
+                        "error_code": null,
+                        "message": "Asset has not been uploaded yet"
+                      },
+                      "summary": "Asset has not had a file uploaded"
+                    },
+                    "non_enhanceable_asset": {
+                      "value": {
+                        "error_code": null,
+                        "message": "Asset is not enhanceable"
+                      },
+                      "summary": "Asset has a file, but enhancing has failed unexpectedly",
+                      "description": "Further requests to create enhancements for the same asset will fail. If the client is sure the file is enhanceable, they can create a new asset and try again"
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/error"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Asset does not exist",
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "asset_not_found": {
+                      "value": {
+                        "error_code": null,
+                        "message": "Not found"
+                      },
+                      "summary": "Asset not found"
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/error"
+                  }
+                }
+              }
+            }
+          },
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "strength": {
+                      "type": "number",
+                      "minimum": 1,
+                      "maximum": 100,
+                      "example": 90,
+                      "description": "Percentage strength of speech enhancement."
+                    },
+                    "input": {
+                      "type": "object",
+                      "properties": {
+                        "uploadId": {
+                          "type": "string",
+                          "example": "audio-services:asset:91c8c3bf-be89-4284-a4f3-cfda5352fc4c",
+                          "description": "ID of the asset with identifying prefix to create a speech enhancement for."
+                        }
+                      },
+                      "required": [
+                        "uploadId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "strength",
+                    "input"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v2/speech-enhancements/{id}": {
+        "get": {
+          "summary": "Get a speech enhancement",
+          "tags": [
+            "Speech Enhancements"
+          ],
+          "description": "Retrieve information about a speech enhancement for an asset, identified by `id`. This endpoint allows you to view the details of a speech enhancement that was previously created using the `POST /v2/speech-enhancements` endpoint.",
+          "operationId": "getSpeechEnhancement",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "description": "ID of the desired speech enhancement.",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "security": [
+            {
+              "bearer_auth": [
+
+              ],
+              "api_key": [
+
+              ]
+            }
+          ],
+          "responses": {
+            "401": {
+              "description": "Unauthorized",
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "access_token_invalid": {
+                      "value": {
+                        "error_code": "401013",
+                        "message": "Oauth token is not valid"
+                      },
+                      "summary": "Access token is not valid"
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/error"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Forbidden",
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "access_token_lacks_proper_scope": {
+                      "value": {
+                        "error_code": null,
+                        "message": "Missing required scope"
+                      },
+                      "summary": "Access token lacks the proper scope"
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/error"
+                  }
+                }
+              }
+            },
+            "429": {
+              "description": "Too Many Requests",
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "too_many_requests": {
+                      "value": {
+                        "error_code": "429050",
+                        "message": "Too many requests"
+                      },
+                      "summary": "Client has made too many requests"
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/error"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "Speech enhancement found",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/speech_enhancement"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Speech enhancement not found",
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "speech_enhancement_not_found": {
+                      "value": {
+                        "error_code": null,
+                        "message": "Not found"
+                      },
+                      "summary": "Speech enhancement not found"
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/error"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "servers": [
+      {
+        "url": "https://firefly-api-enterprise-stage.adobe.io/audio_services"
+      }
+    ],
+    "components": {
+      "securitySchemes": {
+        "bearer_auth": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "api_key": {
+          "type": "apiKey",
+          "in": "header",
+          "name": "X-Api-Key"
+        }
+      },
+      "schemas": {
+        "asset": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "nullable": false,
+              "format": "uuid",
+              "example": "bcab9f0c-f740-41f1-990e-c21f2cae6af0",
+              "description": "Unique ID of the asset."
+            },
+            "fileName": {
+              "type": "string",
+              "nullable": false,
+              "example": "audio-file.mp3",
+              "description": "Name of uploaded file (including file extension)."
+            },
+            "uploadUrl": {
+              "type": "string",
+              "nullable": true,
+              "example": "https://bucket.s3-accelerate.amazonaws.com/Assets/...",
+              "description": "Pre-signed S3 URL to upload file to. Expires after 5 minutes. See guide and S3 [`PutObject` docs](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)"
+            },
+            "status": {
+              "type": "string",
+              "nullable": false,
+              "enum": [
+                "waiting_for_upload",
+                "ready_for_processing",
+                "invalid_upload"
+              ],
+              "example": "waiting_for_upload",
+              "description": "Indicates the upload status of the Asset. The original status is `waiting_for_upload` and, after successfully being uploaded to S3, is `ready_for_processing`. An asset is `upload_invalid` if the underlying file is deemed unacceptable."
+            },
+            "byteSize": {
+              "type": "integer",
+              "nullable": true,
+              "minimum": 0,
+              "example": 31005,
+              "description": "Number of bytes of the file."
+            },
+            "mediaType": {
+              "type": "string",
+              "nullable": true,
+              "example": "audio/mpeg",
+              "description": "Media type of the file."
+            },
+            "checksum": {
+              "type": "string",
+              "nullable": true,
+              "example": "6gH7SfirkyEWPA+QeOuJjQ==",
+              "description": "Base64 encoded MD5 checksum of the uploaded file."
+            },
+            "updatedAt": {
+              "type": "string",
+              "nullable": false,
+              "format": "date-time",
+              "description": "Datetime of when the asset was last updated."
+            },
+            "createdAt": {
+              "type": "string",
+              "nullable": false,
+              "format": "date-time",
+              "description": "Datetime of when the asset was created."
+            }
+          },
+          "required": [
+            "id",
+            "fileName",
+            "uploadUrl",
+            "status",
+            "byteSize",
+            "mediaType",
+            "checksum",
+            "updatedAt",
+            "createdAt"
+          ]
+        },
+        "error": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "nullable": false
+            },
+            "error_code": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "required": [
+            "message",
+            "error_code"
+          ]
+        },
+        "speech_enhancement": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "nullable": false,
+              "format": "uuid",
+              "example": "d7748c6d-4be9-41e7-a6a8-d4138eaa8219",
+              "description": "Unique ID of the speech enhancement."
+            },
+            "strength": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "nullable": false,
+              "example": 90,
+              "description": "Percentage strength of speech enhancement."
+            },
+            "modelId": {
+              "type": "string",
+              "nullable": false,
+              "example": "v1",
+              "description": "Unique identifier of the model that performs speech enhancement."
+            },
+            "assetId": {
+              "type": "string",
+              "nullable": false,
+              "format": "uuid",
+              "example": "bcab9f0c-f740-41f1-990e-c21f2cae6af0",
+              "description": "Unique ID of the asset of the speech enhancement."
+            },
+            "requestedProcessingAt": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": false,
+              "description": "Datetime of when the speech enhancement was created."
+            },
+            "finishedProcessingAt": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true,
+              "description": "Datetime of when the speech enhancement was completed."
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "failed",
+                "succeeded",
+                "processing",
+                "queued"
+              ],
+              "nullable": false,
+              "example": "processing",
+              "description": "Indicates the processing status of the speech enhancement."
+            },
+            "output": {
+              "type": "object",
+              "nullable": true,
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "nullable": true,
+                  "example": "https://bucket.s3-accelerate.amazonaws.com/Assets/...",
+                  "description": "URL that provides access to download the speech enhancement as a file. Only available when the status is `succeeded`."
+                }
+              }
+            }
+          },
+          "required": [
+            "id",
+            "strength",
+            "modelId",
+            "assetId",
+            "requestedProcessingAt",
+            "finishedProcessingAt",
+            "status",
+            "output"
+          ]
+        }
+      }
+    }
+  }
