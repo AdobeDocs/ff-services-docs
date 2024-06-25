@@ -20,7 +20,7 @@ contributors:
 hideBreadcrumbNav: true
 ---
 
-<Hero slots="heading, text" background="rgb(64, 61, 221)"/>
+<Hero slots="heading, text" background="rgb(88, 93, 232)"/>
 
 # Adobe Pro Audio & Video APIs - Firefly Services
 
