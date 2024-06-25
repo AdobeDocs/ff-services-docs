@@ -67,7 +67,7 @@ Before attempting to run this demo yourself, you'll need a few things.
 * You will need a set of credentials for Firefly Services. You can get those [here](../get-started.md).
 * As part of the workflow, we use cloud storage to hold files the Photoshop API uses. For this demo, we used Dropbox, so you will need credentials to work with their API, including the app key, app secret, and refresh token. Python developers can find the Dropbox SDK [here](https://www.dropbox.com/developers/documentation/python).
 * The code with Dropbox does all of its work under one folder named `FFProcess`. This is conveniently set as a variable that can be modified. 
-* This demo uses a few demo assets that will be described as the process is documented. Everything required to run this demo (minus credentials, of course) can be grabbed from this [zip file](/firefly-services/docs/process.zip).
+* This demo uses a few demo assets that will be described as the process is documented. Everything required to run this demo (minus credentials, of course) can be grabbed from this [zip file](/process.zip).
 * The code in this demo uses Python, but any programming language can work with the REST APIs.
 
 ## The Workflow
