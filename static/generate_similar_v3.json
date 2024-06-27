@@ -318,7 +318,7 @@
                   }
                 ],
                 "title": "Reference image",
-                "description": "Firefly will generate similar variations based on the reference input image."
+                "description": "Firefly will generate similar variations based on the reference input image. Supported formats are, image/jpeg, image/png, image/webp. "
               },
               "tileable": {
                 "type": "boolean",
@@ -409,7 +409,7 @@
                               "$ref": "#/components/schemas/PublicBinaryOutput"
                           }
                       ],
-                      "description": "A valid storage item containing a pre-signed URL. The pre-signed URL will expire in one hour."
+                      "description": "A valid storage item containing a pre-signed URL. The pre-signed URL will expire in one hour. The output format will be <code>image/jpeg</code>."
                   }
               },
               "type": "object",

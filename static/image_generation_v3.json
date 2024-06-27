@@ -378,7 +378,7 @@
               },
               "type": "array",
               "minItems": 1,
-              "title": "The list of images",
+              "title": "The list of images.",
               "description": "Each image will have a storage item."
             },
             "promptHasDeniedWords": {
@@ -456,7 +456,7 @@
                             "$ref": "#/components/schemas/PublicBinaryOutput"
                         }
                     ],
-                    "description": "A valid storage item containing a pre-signed URL. The pre-signed URL will expire in one hour."
+                    "description": "A valid storage item containing a pre-signed URL. The pre-signed URL will expire in one hour. The output format will be <code>image/jpeg</code>."
                 }
             },
             "type": "object",
@@ -507,7 +507,7 @@
                       }
                   ],
                   "title": "A structure reference image",
-                  "description": "An image with a structure you want to use as a reference for generating image variations.  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
+                  "description": "An image with a structure you want to use as a reference for generating image variations. Supported formats are, image/jpeg, image/png, image/webp.  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
               }
           },
           "type": "object",
@@ -547,7 +547,7 @@
               }
           ],
           "title": "A style image reference",
-          "description": "Firefly will detect the style in the image and apply the same style in the generated image.  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request. The allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
+          "description": "Firefly will detect the style in the image and apply the same style in the generated image. Supported formats are, image/jpeg, image/png, image/webp.  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request. The allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
       }
     },
   "type": "object",
