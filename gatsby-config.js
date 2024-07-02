@@ -21,23 +21,28 @@ module.exports = {
       },                  
       {
         title: 'Firefly APIs',
-        description: 'Docs and references for Firefly API',
+        description: 'Docs and references for Firefly APIs',
         path: '/firefly-api/' 
       },
       {
         title: 'Photoshop APIs',
-        description: 'Docs and references for Photoshop API',
+        description: 'Docs and references for Photoshop APIs',
         path: '/photoshop/'
       },
       {
         title: 'Lightroom APIs',
-        description: 'Docs and references for Lightroom API',
+        description: 'Docs and references for Lightroom APIs',
         path: '/lightroom/'
       },
       {
         title: 'Content Tagging APIs',
         description: 'Docs and references for Content Tagging services',        
         path: 'https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html'
+      },
+      {
+        title: 'Pro Audio & Video APIs',
+        description: 'Docs and references for Adobe Pro Audio and Video APIs',
+        path: '/audio_video/'
       },
     ],
     subPages: [  
@@ -82,11 +87,11 @@ module.exports = {
       {
         title: 'Concepts',
         path: '/firefly-api/guides/concepts/model-3-overview.md/',
-        pages: [
+        pages: [          
           {
             title: 'Firefly Image 3 Model (preview)',
             path: '/firefly-api/guides/concepts/model-3-overview.md/'
-          },      
+          },       
           {
             title: 'Authentication',
             path: '/firefly-api/guides/concepts/authentication/'
@@ -370,6 +375,106 @@ module.exports = {
         ]
       },    
       // END PS API left nav
+      ///////////////////////////////////////////////
+      // Pro Audio and Video APIs left nav
+      /////////////////////////////////////////////// 
+      {
+        title: 'Overview',    
+        path: '/audio_video/',    
+        header: true,
+        pages: [
+          {
+            title: 'Overview',
+            path: '/audio_video/',
+          },
+        ]
+      },
+      {
+        title: 'Audio Services',
+        path: '/audio_video/audio/',
+        header: true,
+        pages: [
+          {
+            title: 'Getting Started',
+            path: '/audio_video/audio/',
+          },
+          {
+            title: 'Usage Notes',
+            path: '/audio_video/audio/usage-notes.md',
+          },
+          {
+            title: 'API Reference',
+            path: '/audio_video/audio/api/create_asset.md',
+            pages: [
+              {
+                title: 'Create an asset',
+                path: '/audio_video/audio/api/create_asset.md',
+              },
+              {
+                title: 'Show an asset',
+                path: '/audio_video/audio/api/show_asset.md',
+              },
+              {
+                title: 'Delete an asset',
+                path: '/audio_video/audio/api/delete_asset.md',
+              },
+              {
+                title: 'Create a speech enhancement',
+                path: '/audio_video/audio/api/create_enhancement.md',
+              },
+              {
+                title: 'Get a speech enhancement',
+                path: '/audio_video/audio/api/get_enhancement.md'
+              },                
+            ]
+          }
+        ]        
+      },
+      {
+        title: 'Video Services',
+        path: '/audio_video/video/',
+        header: true,
+        pages: [
+          {
+            title: 'Coming soon...',
+            path: '/audio_video/video/'
+          }                    
+        ]
+      }
+      // {
+      //   title: 'Getting Started with Audio Services',
+      //   path: '/audio_video/audio/get-started.md',
+      // },
+      // {
+      //   title: 'Audio Services Usage Notes',
+      //   path: '/audio_video/audio/usage-notes.md',
+      // },
+      // {
+      //   title: 'API Reference',
+      //   path: '/audio_video/audio/api/create_asset.md',
+      //   pages: [
+      //     {
+      //       title: 'Create an asset',
+      //       path: '/audio_video/audio/api/create_asset.md',
+      //     },
+      //     {
+      //       title: 'Show an asset',
+      //       path: '/audio_video/audio/api/show_asset.md',
+      //     },
+      //     {
+      //       title: 'Delete an asset',
+      //       path: '/audio_video/audio/api/delete_asset.md',
+      //     },
+      //     {
+      //       title: 'Create a speech enhancement',
+      //       path: '/audio_video/audio/api/create_enhancement.md',
+      //     },
+      //     {
+      //       title: 'Get a speech enhancement',
+      //       path: '/audio_video/audio/api/get_enhancement.md'
+      //     },
+      //   ]
+      // }
       /////////////////////////////////////////////////////
       // TODO: Revisit including a file but one that's flattened, these roll to the API overview root
       // menu
@@ -386,6 +491,6 @@ module.exports = {
       // },
       ///////////////////////////////////////////////////// 
     ]
-  },
+  },    
   plugins: [`@adobe/gatsby-theme-aio`]
 };
