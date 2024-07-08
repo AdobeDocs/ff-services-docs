@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "version": "1.0.0",
+    "version": "V2",
     "title": "Firefly API",
     "description": "REST API for Adobe Firefly for enterprise usage"
   },
@@ -12,15 +12,15 @@
   ],
   "security": [
     {
-        "X-ApiKey": [],
-        "Access token": []
+        "X-Api-Key": [],
+        "AccessToken": []
     }
 ],
   "paths": {
     "/v2/storage/image": {
       "post": {
         "summary": "Upload",
-        "description": "Upload source image or mask for Image-to-Image operations, such as  fill, expand. This api returns an identifier that is used to refer to uploaded content.",
+        "description": "Upload source image or mask for Image-to-Image operations, such as fill, expand. This api returns an identifier that is used to refer to uploaded content.",
         "operationId": "storageImageV2",
         "requestBody": {
           "content": {
@@ -147,12 +147,12 @@
   },
   "components": {
     "securitySchemes": {
-      "X-ApiKey": {
+      "X-Api-Key": {
         "type": "apiKey",
         "name": "x-api-key",
         "in": "header"
       },
-      "Access token": {
+      "AccessToken": {
         "type": "http",
         "scheme": "bearer"
       }

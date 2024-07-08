@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "version": "1.0.0",
+    "version": "V1",
     "title": "Firefly API",
     "description": "REST API for Adobe Firefly for enterprise usage"
   },
@@ -12,14 +12,14 @@
   ],
   "security": [
     {
-        "X-ApiKey": [],
-        "Access token": []
+        "X-Api-Key": [],
+        "AccessToken": []
     }
 ],
   "paths": {
     "/v1/images/fill": {
       "post": {
-        "summary": "Fill Image API",
+        "summary": "Fill Image",
         "description": "Fill the masked area of an image with an optional prompt.",
         "operationId": "fillImagesV1",
         "requestBody": {
@@ -147,12 +147,12 @@
   },
   "components": {
     "securitySchemes": {
-      "X-ApiKey": {
+      "X-Api-Key": {
         "type": "apiKey",
         "name": "x-api-key",
         "in": "header"
       },
-      "Access token": {
+      "AccessToken": {
         "type": "http",
         "scheme": "bearer"
       }
@@ -403,7 +403,7 @@
         "properties": {
           "image": {
             "type": "object",
-            "description": "A valid Storage Item containing both an internal ID and a pre-signed URL",
+            "description": "A valid Storage Item containing both an internal ID and a pre-signed URL.",
             "properties": {
               "presignedUrl": {
                 "type": "string",

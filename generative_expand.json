@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "version": "1.0.0",
+    "version": "V1",
     "title": "Firefly API",
     "description": "REST API for Adobe Firefly for enterprise usage"
   },
@@ -12,14 +12,14 @@
   ],
   "security": [
     {
-        "X-ApiKey": [],
-        "Access token": []
+        "X-Api-Key": [],
+        "AccessToken": []
     }
 ],
   "paths": {
     "/v1/images/expand": {
       "post": {
-        "summary": "Expand Image API",
+        "summary": "Expand Image",
         "description": "Expand an image to a new size/aspect ratio.",
         "operationId": "expandImagesV1",
         "parameters": [
@@ -166,12 +166,12 @@
   },
   "components": {
     "securitySchemes": {
-      "X-ApiKey": {
+      "X-Api-Key": {
         "type": "apiKey",
         "name": "x-api-key",
         "in": "header"
       },
-      "Access token": {
+      "AccessToken": {
         "type": "http",
         "scheme": "bearer"
       }
