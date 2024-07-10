@@ -295,7 +295,7 @@
                     "$ref": "#/components/schemas/Size"
                   }
                 ],
-                "description": "Specifies the desired width and height for the final, expanded image.",
+                "description": "Specifies the desired width and height for the final, expanded image. Currently, the supported size for the output image is ≤ 2688 x 2688 px.",
                 "default": {
                   "width": 2048,
                   "height": 2048
@@ -369,7 +369,7 @@
                         }
                     ],
                     "title": "Source image",
-                    "description": "Source of the image to be expanded. Dimensions of image should not be greater than (4000px X 4000px). Supported formats are, image/jpeg, image/png, image/webp."
+                    "description": "Source of the image to be expanded. Supported formats are, image/jpeg, image/png, image/webp."
                   },
                 "mask": {
                     "allOf": [
