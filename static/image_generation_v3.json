@@ -330,7 +330,7 @@
                   "$ref": "#/components/schemas/Styles"
                 }
               ],
-              "title": "The styles to be used for image generation",
+              "title": "Style Reference",
               "description": "You can specify a preset, a reference image or both."
             },
             "promptBiasingLocaleCode": {
