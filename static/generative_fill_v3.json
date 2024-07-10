@@ -343,7 +343,7 @@
                           }
                       ],
                       "title": "Input image",
-                      "description": "Upload an image you want to fill."
+                      "description": "Upload an image you want to fill. <br><strong>Note:</strong> The input image and mask image must match in pixel dimensions and DPI."
                   },
                   "mask": {
                       "allOf": [
@@ -352,7 +352,7 @@
                           }
                       ],
                       "title": "Mask image",
-                      "description": "Mask image which will be used replace the background of the image.<br><strong>Note:</strong> The minimum accepted size for the larger side of the image is 600 px."
+                      "description": "Mask image which will be used replace the background of the image.<br><strong>Note:</strong> The minimum accepted size for the larger side of the image is 600 px. The input image and mask image must match in pixel dimensions and DPI."
                   }
               },
               "type": "object",
