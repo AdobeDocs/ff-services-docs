@@ -8,9 +8,6 @@
       "/v2/assets/{id}": {
         "get": {
           "summary": "Show an asset",
-          "tags": [
-            "Assets"
-          ],
           "description": "Retrieve information about a specific asset identified by its `id`. This endpoint allows you to view the details of an asset that was previously created using the `POST /v2/assets` endpoint.",
           "operationId": "getAsset",
           "parameters": [

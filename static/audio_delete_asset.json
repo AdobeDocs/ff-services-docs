@@ -8,9 +8,6 @@
       "/v2/assets/{id}": {
         "delete": {
           "summary": "Delete an asset",
-          "tags": [
-            "Assets"
-          ],
           "description": "Delete the asset with the specified `id`.",
           "operationId": "deleteAsset",
           "parameters": [

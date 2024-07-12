@@ -8,9 +8,6 @@
       "/v2/speech-enhancements": {
         "post": {
           "summary": "Create a speech enhancement",
-          "tags": [
-            "Speech Enhancements"
-          ],
           "description": "This endpoint allows you to run speech enhancement, at a specific `strength`, on an asset (identified by `input.uploadId`).",
           "operationId": "createSpeechEnhancement",
           "parameters": [

@@ -8,9 +8,6 @@
       "/v2/assets": {
         "post": {
           "summary": "Create an asset",
-          "tags": [
-            "Assets"
-          ],
           "description": "Create an asset. You will receive an `uploadUrl` in the response, which you can use to upload the asset.",
           "operationId": "createAsset",
           "parameters": [

@@ -8,9 +8,6 @@
       "/v2/speech-enhancements/{id}": {
         "get": {
           "summary": "Get a speech enhancement",
-          "tags": [
-            "Speech Enhancements"
-          ],
           "description": "Retrieve information about a speech enhancement for an asset, identified by `id`. This endpoint allows you to view the details of a speech enhancement that was previously created using the `POST /v2/speech-enhancements` endpoint.",
           "operationId": "getSpeechEnhancement",
           "parameters": [
