@@ -43,7 +43,7 @@
               }
             }
           },
-          "description": "The PNG/JPEG/WEBP image to be stored (binary data)",
+          "description": "The PNG/JPEG/WEBP image to be stored (binary data). The maximum file size supported for uploading an image is 15MB.",
           "required": true
         },
         "responses": {
