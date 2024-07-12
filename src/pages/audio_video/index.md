@@ -24,6 +24,10 @@ hideBreadcrumbNav: true
 
 # Adobe Pro Audio & Video APIs - Firefly Services
 
+Introducing the Adobe Pro Audio and Video APIs, a powerful suite of tools that equip developers with cutting-edge audio and video editing capabilities.
+
+## Introduction
+
 The Adobe Pro Audio and Video APIs offer a comprehensive suite of tools designed to empower developers with advanced audio and video editing capabilities. These APIs are designed to easily integrate generative AI into your audio and video editing workflows, enabling rich workflow automation. 
 
 ## Adobe Pro Audio APIs
@@ -37,36 +41,38 @@ The Adobe Pro Audio APIs from Firefly services are broadly divided into two cate
 
 Assets provide you with endpoints such as, 
 
-- Create an Asset: Create an asset, an audio file to be enhanced on Amazon S3. 
-- Show the asset: This endpoint retrieves the details of the asset created using create an asset. The endpoint also lists the status of the asset creation, such as  "waiting_for_upload", "ready_for_processing", and "invalid_upload". Once it is ready for processing, the asset can be enhanced using the Speech Enhancement APIs. 
-- Delete an asset: Allows you to delete the asset created using create an asset. This action will also delete any enhancements made using this asset from S3. 
+- **Create an Asset**: Create an asset, an audio file to be enhanced on Amazon S3. 
+- **Show the asset**: This endpoint retrieves the details of the asset created using create an asset.
+- **Delete an asset**: Allows you to delete the asset created using create an asset. This action will also delete any enhancements made using this asset from S3. 
 
 Speech enhancement provides you with endpoints such as,
 
-- Create a speech enhancement: Performs audio enhancement for the created asset. 
-- Get a speech enhancement: Retrieve information about a speech enhancement for an asset. 
+- **Create a speech enhancement**: Performs audio enhancement for the created asset. 
+- **Get a speech enhancement**: Retrieve information about a speech enhancement for an asset. 
 
 ### Features
 
 - Enhance audio
 - Support for pre-signed S3 URLs for uploading audio files. 
 - Adjust strength for a more natural sound
-- **Integration**: Seamless integration of other Firefly services, facilitating a smooth workflow for users.
+- Seamless integration of other Firefly services, facilitating a smooth workflow for users.
 
 ### Use Cases
 
 - Podcast Editing
 - Enhance Music Post Production
-- Audio Restoration- Create tools for restoring and enhancing old or damaged audio recordings.
-- Interactive Audio Experiences: Build applications that provide immersive audio experiences, such as interactive storytelling and virtual reality audio.
+- **Audio Restoration**: Create tools for restoring and enhancing old or damaged audio recordings.
+- **Interactive Audio Experiences**: Build applications that provide immersive audio experiences, such as interactive storytelling and virtual reality audio.
 
 Check out the [Getting Started Guide](./audio/) for a step-by-step walkthrough of using the Adobe Pro Audio APIs.
 
 ## Adobe Pro Video APIs
 
+<InlineAlert slots="text" />
+
 The Adobe Pro Video APIs are currently in private beta, with plans to be released soon.
 
-Adobe Pro Audio and Video APIs provide powerful, versatile tools for developers aiming to create top-tier multimedia applications. While the Pro Audio APIs are currently available and offer robust audio editing capabilities, the Pro Video APIs are on the horizon and promise equally powerful video editing functionalities. 
+While the Pro Audio APIs are currently available and offer robust audio editing capabilities, the Pro Video APIs are on the horizon and promise equally powerful video editing functionalities. 
 
 Stay tuned for the upcoming release of the Pro Video APIs to expand your multimedia development toolkit further.
 

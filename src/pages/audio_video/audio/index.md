@@ -1,6 +1,6 @@
-# Getting Started with the Enhance Speech API (Audio Services)
+# Getting Started with the Pro Audio APIs
 
-The Enhance Speech API, part of Adobe Audio Services, enables rich workflow automation around audio post-production.
+The Pro Audio APIs, part of Adobe Audio Services, enables rich workflow automation around audio post-production.
 
 ## Overview
 
