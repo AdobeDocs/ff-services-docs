@@ -126,7 +126,7 @@
     },
     "servers": [
       {
-        "url": "https://firefly-api-enterprise-stage.adobe.io/audio_services"
+        "url": "https://audio-services-stage.adobe.io/api"
       }
     ],
     "components": {
