@@ -30,7 +30,7 @@ Ensure you have reference to a valid access token. See the [Firefly Services Ge
 
 ### Step 1: Create an asset
 
-Before you can run speech enhancement on an `Asset`, you'll need to register a new `Asset` with the Enhance Speech API. To accomplish this, use the `POST /audio_services/v1/assets` endpoint.
+Before you can run speech enhancement on an `Asset`, you'll need to register a new `Asset` with the Enhance Speech API. To accomplish this, use the `POST /audio_services/v2/assets` endpoint.
 
 This endpoint requires the following information as a JSON request body:
 
@@ -51,7 +51,7 @@ The `byte_size` and `content_type` are used to enable secure and verifiable 
 You can use the `curl` HTTP client to create an asset:
 
 ```bash
-curl 'https://firefly-beta.adobe.io/audio_services/v1/assets'\
+curl 'https://firefly-beta.adobe.io/audio_services/v2/assets'\
 --header 'x-api-key: {CLIENT_ID}'\
 --header 'Content-Type: application/json'\
 --header 'Authorization: Bearer {ACCESS_TOKEN}'\
@@ -80,11 +80,11 @@ If all goes well, you'll get a `201 Created` response with a payload like the 
 
 As you can see in the API response, the `status` of this `Asset` is `waiting_for_upload`, which indicates it can't be used to  create `SpeechEnhancement`s until you upload data for the `Asset`.
 
-In the event that request parameters are structurally or semantically invalid, you'll get a `422` response. See the [API specification](./api/) for details.
+In the event that request parameters are structurally or semantically invalid, you'll get a `422` response. See the [API specification](../../audio_video/audio/api/create_asset.md) for details.
 
 ### Step 2: Upload data for the asset
 
-In order to create `SpeechEnhancement`s for the `Asset`, the `Asset`'s `status` must be `ready_for_processing`. To do this, you need to upload valid data to the object store using the `upload_url` included in the response to `POST /audio_services/v1/assets`.
+In order to create `SpeechEnhancement`s for the `Asset`, the `Asset`'s `status` must be `ready_for_processing`. To do this, you need to upload valid data to the object store using the `upload_url` included in the response to `POST /audio_services/v2/assets`.
 
 You can accomplish this by making a `PUT` request to the `upload_url` with the `Asset`'s content and setting the `Content-Type` header to match the `content_type` provided when creating the `Asset`:
 
@@ -94,7 +94,7 @@ curl --request PUT 'https://phonos-recordings-staging.s3-accelerate.amazonaws.co
 --data-binary '@/path/to/earhart-aviation.mp3'
 ```
 
-If the upload request succeeds, you'll receive a `200` response with an empty body. If you receive a `400`-level response, double check that you are providing the exact same `Content-Type` and `Content-MD5` as supplied when creating the `Asset` via `POST /audio_services/v1/assets`.
+If the upload request succeeds, you'll receive a `200` response with an empty body. If you receive a `400`-level response, double check that you are providing the exact same `Content-Type` and `Content-MD5` as supplied when creating the `Asset` via `POST /audio_services/v2/assets`.
 
 For more details on our object store's (AWS S3) `PUT` API, including links to language-specific S3 clients, please consult the [PutObject documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html).
 
@@ -102,10 +102,10 @@ For more details on our object store's (AWS S3) `PUT` API, including links to 
 
 The presigned `upload_url` is *only valid for a few minutes*. Be certain to `PUT` to `upload_url` *as soon as it is returned in the API* (without any systematic delays).
 
-To receive a new `upload_url` for an `Asset`, call `GET /audio_services/v1/assets/:id` and use the new `upload_url` in the response:
+To receive a new `upload_url` for an `Asset`, call `GET /audio_services/v2/assets/:id` and use the new `upload_url` in the response:
 
 ```bash
-curl --request GET 'https://firefly-beta.adobe.io/audio_services/v1/assets/3445d7a0-2513-4606-b37b-bff0034c0214'\
+curl --request GET 'https://firefly-beta.adobe.io/audio_services/v2/assets/3445d7a0-2513-4606-b37b-bff0034c0214'\
 --header 'x-api-key: {CLIENT_ID}'\
 --header 'Content-Type: application/json'\
 --header 'Authorization: Bearer {ACCESS_TOKEN}'
@@ -127,7 +127,7 @@ curl --request GET 'https://firefly-beta.adobe.io/audio_services/v1/assets/3445d
 
 #### Checking upload validity
 
-As an API client, the best way to ensure that not only did the `PUT` request above go through successfully, but was successfully registered by the [Enhance Speech API](./api/), is to call the `GET /audio_services/v1/assets/:id` endpoint and ensure that `status` shows `ready_for_processing`. Once the `Asset` is `ready_for_processing`, an `upload_url` will no longer be displayed:
+As an API client, the best way to ensure that not only did the `PUT` request above go through successfully, but was successfully registered by the [Enhance Speech API](./api/get_enhancement.md), is to call the `GET /audio_services/v2/assets/:id` endpoint and ensure that `status` shows `ready_for_processing`. Once the `Asset` is `ready_for_processing`, an `upload_url` will no longer be displayed:
 
 ```json
 {
@@ -147,10 +147,10 @@ Now that the data has been uploaded to S3, a base64-encoded MD5 checksum of the 
 
 ### Step 3: Create a speech enhancement
 
-Once you have an `Asset` that is `ready_for_processing`, you can create a `SpeechEnhancement` for it, at a given strength, using the `POST audio_services/v1/assets/:id/speech_enhancements` endpoint:
+Once you have an `Asset` that is `ready_for_processing`, you can create a `SpeechEnhancement` for it, at a given strength, using the `POST audio_services/v2/assets/:id/speech_enhancements` endpoint:
 
 ```bash
-curl --location 'https://firefly-beta.adobe.io/audio_services/v1/assets/3445d7a0-2513-4606-b37b-bff0034c0214/speech_enhancements'\
+curl --location 'https://firefly-beta.adobe.io/audio_services/v2/assets/3445d7a0-2513-4606-b37b-bff0034c0214/speech_enhancements'\
 --header 'x-api-key: {CLIENT_ID}'\
 --header 'Content-Type: application/json'\
 --header 'Authorization: Bearer {ACCESS_TOKEN}'\
@@ -170,7 +170,7 @@ Assuming that the `Asset` was `ready_for_processing` and the request is struct
     "requested_processing_at": "2024-04-09T22:56:50.174Z",
     "finished_processing_at": null,
     "status": "queued",
-    "model_id": "v1"
+    "model_id": "v2"
 }
 ```
 
@@ -194,12 +194,12 @@ As indicated by the `202 Accepted` response code, a `SpeechEnhancement` is n
 
 Currently, a single `SpeechEnhancement` will be processed per API client - there is no parallel processing of speech enhancements.
 
-For example, if you create 5 assets via `POST /audio_services/v1/assets`, upload data for all of them, and then create 5 speech enhancements via `POST audio_services/v1/assets/:id/speech_enhancements`, only 1 of those speech enhancements will be processed at any given time (the order of processing will be from oldest to newest).
+For example, if you create 5 assets via `POST /audio_services/v2/assets`, upload data for all of them, and then create 5 speech enhancements via `POST audio_services/v2/assets/:id/speech_enhancements`, only 1 of those speech enhancements will be processed at any given time (the order of processing will be from oldest to newest).
 
-To see the latest status of the newly created `SpeechEnhancement`, you can poll `GET audio_services/v1/assets/:asset-id/speech_enhancements/:speech-enhancement-id`:
+To see the latest status of the newly created `SpeechEnhancement`, you can poll `GET audio_services/v2/assets/:asset-id/speech_enhancements/:speech-enhancement-id`:
 
 ```bash
-curl 'https://firefly-beta.adobe.io/audio_services/v1/assets/3445d7a0-2513-4606-b37b-bff0034c0214/speech_enhancements/b877bc56-9c17-4efb-8eec-b5839cd7f555'\
+curl 'https://firefly-beta.adobe.io/audio_services/v2/assets/3445d7a0-2513-4606-b37b-bff0034c0214/speech_enhancements/b877bc56-9c17-4efb-8eec-b5839cd7f555'\
 --header 'x-api-key: {CLIENT_ID}'\
 --header 'Authorization: Bearer {ACCESS_TOKEN}'
 ```
@@ -213,7 +213,7 @@ curl 'https://firefly-beta.adobe.io/audio_services/v1/assets/3445d7a0-2513-4606-
     "requested_processing_at": "2024-04-09T22:56:50.174Z",
     "finished_processing_at": "2024-04-09T22:56:51.675Z",
     "status": "succeeded",
-    "model_id": "v1"
+    "model_id": "v2"
 }
 ```
 
@@ -225,7 +225,7 @@ Once the `status` is `succeeded`, a non-null `download_url` is included in 
 
 ### Step 5: Download the speech enhancement
 
-To download the `SpeechEnhancement`, make a `GET` request to the `download_url` displayed above. This is a (short-lived) presigned URL that will enable the downloading of the enhanced audio from AWS S3. If the presigned URL has expired, make a new request to `GET audio_services/v1/assets/:asset-id/speech_enhancements/:speech-enhancement-id` to get a new presigned URL.
+To download the `SpeechEnhancement`, make a `GET` request to the `download_url` displayed above. This is a (short-lived) presigned URL that will enable the downloading of the enhanced audio from AWS S3. If the presigned URL has expired, make a new request to `GET audio_services/v2/assets/:asset-id/speech_enhancements/:speech-enhancement-id` to get a new presigned URL.
 
 ```bash
 curl 'https://phonos-recordings-staging.s3-accelerate.amazonaws.com/Assets/c77ffc5f-aa1c-4db6-916e-99ae7978f76b/6757ba26-8de6-454f-a9d5-21a1bbc27eb3?response-content-disposition=attachment%3B%20filename%3D%22earhart-aviation-enhanced-92p.mp3%22%3B%20filename%2A%3DUTF-8%27%27earhart-aviation-enhanced-92p.mp3&response-content-type=audio%2Fmpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIAS2MU72M7HLP2GA42%2F20240423%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240423T210414Z&X-Amz-Expires=43200&X-Amz-Security-Token=FwoGZXIvYXdzEEYaDHSuaL9jaLiQpoCGzCLJASOmIUcZRk4wj9v0SJi098pCPXErSuLeak8WDsVQz9jOn82SciN8PFIli%2B5liuy8f%2BvukcQF5VJ3q3NRFgUf8%2FNeSqKeD8Y4Ci9SachcOQWBwYPAw0ZqbdaGNea99W4N5KVPJkfFM7L60a4%2B861CxVVVCh5wegNPqERkQ5uF%2Bxo6D3ZXSIevhGRfGOk5gj%2BWQCT1CDyC%2FYYoSZuLoSRK9S3cWSKcjqQqfYaBrqRv5xjeT9pmaEcHRMHcXGKF6u9pZ%2B6YPalushmhciiywKCxBjItCVY8PvebQUp0owuxf3Xt%2FCURh78fUej0d1n%2FQ3M9wiqZ5WRevzUwi3YivJB0&X-Amz-SignedHeaders=host&X-Amz-Signature=33d8c8ed1baa809168130636896581b7a832d2a1d1eee6a1246060ffd7e6221f' \ --remote-name --remote-header-name
