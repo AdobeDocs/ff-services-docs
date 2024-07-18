@@ -1,4 +1,4 @@
-# Getting Started with the Pro Audio APIs
+# Getting Started with the Adobe Audio APIs"
 
 The Enhance Speech API, part of Audio & Video APIs, enables rich workflow automation around audio post-production.
 
@@ -53,7 +53,7 @@ The `byteSize` and `mediaType` are used to enable secure and verifiable dire
 You can use the `curl` HTTP client to create an asset:
 
 ```bash
-curl 'https://audio-services-stage.adobe.io/api/v2/assets'\
+curl 'https://audio-services-stage.adobe.io/api/v2/assets' \
 --header "x-api-key: $CLIENT_ID" \
 --header "Content-Type: application/json" \
 --header "Authorization: Bearer $ACCESS_TOKEN" \

@@ -1,6 +1,6 @@
 ---
-title: Overview - Adobe Pro Audio & Video APIs
-description: An overview of the Adobe Pro Audio & Video APIs
+title: Overview - Adobe Audio & Video APIs
+description: An overview of the Adobe Audio & Video APIs
 keywords:
   - Adobe Firefly Services
   - Audio API
@@ -22,19 +22,19 @@ hideBreadcrumbNav: true
 
 <Hero slots="heading, text" background="rgb(88, 93, 232)"/>
 
-# Adobe Pro Audio & Video APIs - Firefly Services
+# Adobe Audio & Video APIs - Firefly Services
 
-Introducing the Adobe Pro Audio and Video APIs, a powerful suite of tools that equip developers with cutting-edge audio and video editing capabilities.
+Introducing the Adobe Audio and Video APIs, a powerful suite of tools that equip developers with cutting-edge audio and video editing capabilities.
 
 ## Introduction
 
-The Adobe Pro Audio and Video APIs offer a comprehensive suite of tools designed to empower developers with advanced audio and video editing capabilities. These APIs are designed to easily integrate generative AI into your audio and video editing workflows, enabling rich workflow automation. 
+The Adobe Audio and Video APIs offer a comprehensive suite of tools designed to empower developers with advanced audio and video editing capabilities. These APIs are designed to easily integrate generative AI into your audio and video editing workflows, enabling rich workflow automation. 
 
-## Adobe Pro Audio APIs
+## Adobe Audio APIs
 
-The Enhance Speech API allows you to enhance voice recordings to studio quality, scale content production with higher quality and faster time to market, and eliminate tedious and manual work in audio production. 
+The Enhance Speech API, part of the Audio and Video APIs, allows you to enhance voice recordings to studio quality, scale content production with higher quality and faster time to market, and eliminate tedious and manual work in audio production. 
 
-The Adobe Pro Audio APIs from Firefly services are broadly divided into two categories: 
+The Adobe Audio APIs in Firefly Services are broadly divided into two categories: 
 
 - Assets
 - Speech enhancement
@@ -64,17 +64,17 @@ Speech enhancement provides you with endpoints such as,
 - **Audio Restoration**: Create tools for restoring and enhancing old or damaged audio recordings.
 - **Interactive Audio Experiences**: Build applications that provide immersive audio experiences, such as interactive storytelling and virtual reality audio.
 
-Check out the [Getting Started Guide](./audio/) for a step-by-step walkthrough of using the Adobe Pro Audio APIs.
+Check out the [Getting Started Guide](./audio/) for a step-by-step walkthrough of using the Adobe Audio APIs.
 
-## Adobe Pro Video APIs
+## Adobe Video APIs
 
 <InlineAlert slots="text" />
 
-The Adobe Pro Video APIs are currently in private beta, with plans to be released soon.
+The Adobe Video APIs are currently in private beta, with plans to be released soon.
 
-While the Pro Audio APIs are currently available and offer robust audio editing capabilities, the Pro Video APIs are on the horizon and promise equally powerful video editing functionalities. 
+While the Adobe Audio APIs are currently available and offer robust audio editing capabilities, the Video APIs are on the horizon and promise equally powerful video editing functionalities. 
 
-Stay tuned for the upcoming release of the Pro Video APIs to expand your multimedia development toolkit further.
+Stay tuned for the upcoming release of the Adobe Video APIs to expand your multimedia development toolkit further.
 
 ## Discover
 
@@ -82,24 +82,24 @@ Stay tuned for the upcoming release of the Pro Video APIs to expand your multime
 
 [Getting Started with Audio Services](./audio/)
 
-A step-by-step guide to getting started with the Adobe Pro Audio APIs.
+A step-by-step guide to getting started with the Adobe Audio APIs.
 
 <DiscoverBlock slots="link, text" width="33%"/>
 
 [Getting Started with Video Services](./video/)
 
-A step-by-step guide to getting started with the Adobe Pro Video APIs (coming soon).
+A step-by-step guide to getting started with the Adobe Video APIs (coming soon).
 
 <DiscoverBlock slots="link, text" width="33%"/>
 
 [Try the Audio Services APIs](./audio/api/)
 
-Try the Adobe Pro Audio APIs.
+Try the Adobe Audio APIs.
 
 <DiscoverBlock slots="link, text" width="33%"/>
 
 [Try the Video Services APIs](./video/index.md)
 
-Try the Adobe Pro Video APIs (coming soon).
+Try the Adobe Video APIs (coming soon).
 
 <br/><br/><br/><br/>

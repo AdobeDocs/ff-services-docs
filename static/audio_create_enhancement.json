@@ -164,7 +164,7 @@
                         "uploadId": {
                           "type": "string",
                           "example": "audio-services:asset:91c8c3bf-be89-4284-a4f3-cfda5352fc4c",
-                          "description": "ID of the asset with identifying prefix to create a speech enhancement for."
+                          "description": "ID of the asset with identifying prefix (`audio-services:asset:`) to create a speech enhancement for."
                         }
                       },
                       "required": [

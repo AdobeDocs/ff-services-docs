@@ -1,11 +1,11 @@
 ---
-title: Get Speech Enhancement - Adobe Pro Audio and Video APIs
-description: Get Speech Enhancement API Reference for the Adobe Pro Audio and Video APIs
+title: Get Speech Enhancement - Adobe Audio and Video APIs
+description: Get Speech Enhancement API Reference for the Adobe Audio and Video APIs
 keywords:
   - Adobe Firefly Services
   - Get Speech Enhancement
   - API Reference
-  - Adobe Pro Audio and Video APIs
+  - Adobe Audio and Video APIs
   - Developer documentation
   - API documentation  
 layout: none

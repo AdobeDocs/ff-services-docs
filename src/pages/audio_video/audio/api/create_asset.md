@@ -1,11 +1,11 @@
 ---
-title: Create Asset - Adobe Pro Audio and Video APIs
-description: Create Asset API Reference for the Adobe Pro Audio and Video APIs
+title: Create Asset - Adobe Audio and Video APIs
+description: Create Asset API Reference for the Adobe Audio and Video APIs
 keywords:
   - Adobe Firefly Services
   - Create Asset
   - API Reference
-  - Adobe Pro Audio and Video APIs
+  - Adobe Audio and Video APIs
   - Developer documentation
   - API documentation
 layout: none

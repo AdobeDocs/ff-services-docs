@@ -1,13 +1,13 @@
 ---
-title: Usage Notes - Adobe Pro Audio APIs
-description: Usage notes and rate limits for the Adobe Pro Audio APIs.
+title: Usage Notes - Adobe Audio APIs
+description: Usage notes and rate limits for the Adobe Audio APIs.
 contributors:
   - https://github.com/hollyschinsky
 ---
 
 # Audio Services - Usage Notes
 
-This guide details current support and usage limits for the Adobe Pro Audio APIs (Audio Services).
+This guide details current support and usage limits for the Adobe Audio APIs (Audio Services).
 
 ## Input Audio Content Types
 

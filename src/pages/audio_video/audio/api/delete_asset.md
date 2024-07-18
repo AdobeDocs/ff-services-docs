@@ -1,11 +1,11 @@
 ---
-title: Delete Asset - Adobe Pro Audio and Video APIs
-description: Delete Asset API Reference for the Adobe Pro Audio and Video APIs
+title: Delete Asset - Adobe Audio and Video APIs
+description: Delete Asset API Reference for the Adobe Audio and Video APIs
 keywords:
   - Adobe Firefly Services
   - Delete Asset
   - API Reference
-  - Adobe Pro Audio and Video APIs
+  - Adobe Audio and Video APIs
   - Developer documentation
   - API documentation
 layout: none
