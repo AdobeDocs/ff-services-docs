@@ -40,7 +40,7 @@ module.exports = {
         path: 'https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html'
       },
       {
-        title: '"Audio & Video APIs"',
+        title: 'Audio & Video APIs',
         description: 'Docs and references for Adobe Audio & Video APIs',
         path: '/audio_video/'
       },
