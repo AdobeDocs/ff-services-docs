@@ -20,12 +20,12 @@ Learn how to use the Expand Image API in your code workflows.
 
 ## Introduction
 
-Designers often struggle with taking existing media assets and re-purposing them for other sizes and form factors. An original image may be too small, incorrectly oriented, and so forth. With the power of [Firefly's Expand Image API](../api/generative_expand/V3/), an original asset can be used as a source for generating new variations in multiple sizes, using generative AI to "draw out" from the source. In this guide, you will see how this can be done.
+Designers often struggle with taking existing media assets and re-purposing them for other sizes and form factors. An original image may be too small, incorrectly oriented, and so forth. With the power of [Firefly's Expand Image API](../api/expand-image/V3/), an original asset can be used as a source for generating new variations in multiple sizes, using generative AI to "draw out" from the source. In this guide, you will see how this can be done.
 
 ## Prerequisites
 
 -  Firefly API credentials. If you don't have them yet, first visit the Firefly Services [Getting Started](../../../guides/get-started.md) guide to obtain a `client_id` and `client_secret`.
--  Node.js installed on your machine and basic familiarity with `JavaScript`. **Note:** The code for this guide will make use of the [Firefly REST APIs](../api/image_generation/V3/) via Node.js, but could be written in any language, or with the [SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/).
+-  Node.js installed on your machine and basic familiarity with `JavaScript`. **Note:** The code for this guide will make use of the [Firefly REST APIs](../api/generate-images/V3/) via Node.js, but could be written in any language, or with the [SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/).
 
 ## Expand Image API Overview
 
@@ -39,7 +39,7 @@ Before getting into the code, let's look at how the Expand Image API works at a 
 
 ## Expand Image Call Wrapper
 
-You will begin with the simplest API operation possible, simply requesting a larger image from a provided source image. From the [API Reference](../api/generative_expand/V3), you can see that a minimal request body might look like this:
+You will begin with the simplest API operation possible, simply requesting a larger image from a provided source image. From the [API Reference](../api/expand-image/V3), you can see that a minimal request body might look like this:
 
 ```json
 {
@@ -67,7 +67,7 @@ TIP
 
 We recommend you refer to the [Create your First Firefly Application](./create-your-first-ff-application.md) guide for a step-by-step walkthrough on the utility methods used in the how-to guides for authenticating via `getAccessToken()`, uploading images for use in the calls via `uploadImage()`, and for downloading the generated results via`downloadFile()`.
 
-Now, you can wrap the [Expand Image API](../api/generative_expand/V3) call in a simple utility function like so:
+Now, you can wrap the [Expand Image API](../api/expand-image/V3) call in a simple utility function like so:
 
 ```js
 async function genExpand(imageId, width, height, id, token) {
@@ -338,4 +338,4 @@ await downloadFile(result.outputs[0].image.url, fileName);
 
 ## Next Steps
 
-[Firefly's Expand Image API](../api/generative_expand/V3/) is a powerful tool to help designers create new variations of their existing media at a large scale, and to be able to have fine-grained control over the result with the options available. Check out the [API Reference](../api/generative_expand/V3/) for more details.
+[Firefly's Expand Image API](../api/expand-image/V3/) is a powerful tool to help designers create new variations of their existing media at a large scale, and to be able to have fine-grained control over the result with the options available. Check out the [API Reference](../api/expand-image/V3/) for more details.

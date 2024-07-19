@@ -27,7 +27,7 @@ Learn how to optionally pass in a source image to be used as a style or structur
 ## Prerequisites
 
 -  Firefly API credentials. If you don't have them yet, first visit the Firefly Services [Getting Started](../../../guides/get-started.md) guide to obtain a `client_id` and `client_secret`.
--  Node.js installed on your machine and basic familiarity with `JavaScript`. **Note:** The code for this guide will make use of the [Firefly REST APIs](../api/image_generation/V3/) via Node.js, but could be written in any language, or with the [SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/).
+-  Node.js installed on your machine and basic familiarity with `JavaScript`. **Note:** The code for this guide will make use of the [Firefly REST APIs](../api/generate-images/V3/) via Node.js, but could be written in any language, or with the [SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/).
 
 ## Working with Reference Images
 
@@ -81,13 +81,13 @@ We recommend you refer to the [Create your First Firefly Application](./create-y
 
 ## Using a Style Reference Image
 
-The first example uses a reference image to impact the style of the result. A standard prompt is used in a call to the [Generate Images API](../api/image_generation/V3/) -- both with and without a style reference image to compare the differences.
+The first example uses a reference image to impact the style of the result. A standard prompt is used in a call to the [Generate Images API](../api/generate-images/V3/) -- both with and without a style reference image to compare the differences.
 
 First, note the source image used for the style reference. Specifically, notice the color and fire attributes:
 
 ![Style reference image](../images/styleRef.jpg)
 
-Before using this source image as a style reference in the [Generate Images API](../api/image_generation/V3/) call, you'll need to get an upload ID for it to pass in the `style.imageReference.source.uploadId` object. An example payload for the Generate Images API is provided below for reference:
+Before using this source image as a style reference in the [Generate Images API](../api/generate-images/V3/) call, you'll need to get an upload ID for it to pass in the `style.imageReference.source.uploadId` object. An example payload for the Generate Images API is provided below for reference:
 
 ```json
 {
@@ -107,7 +107,7 @@ Before using this source image as a style reference in the [Generate Images API]
 }
 ```
 
-**Note:** You could alternatively provide a [presigned (temporary) URL](#working-with-reference-images) from an image in cloud storage in the `url` property of the `style.imageReference.source` object. See the [Generate Images API](../api/image_generation/V3/) for details.
+**Note:** You could alternatively provide a [presigned (temporary) URL](#working-with-reference-images) from an image in cloud storage in the `url` property of the `style.imageReference.source` object. See the [Generate Images API](../api/generate-images/V3/) for details.
 
 Next, we'll need utility code to get an access token, upload an image (via the [Upload API](../api/upload_image/)), and download the result. An example is below:
 
@@ -169,7 +169,7 @@ async function downloadFile(url, filePath) {
 }
 ```
 
-Now, you'll see an examplf of a wrapper function for the [Generate Images API](../api/image_generation/V3/) call that optionally allows you to pass the id of an uploaded style reference image in the `uploadId` parameter:
+Now, you'll see an examplf of a wrapper function for the [Generate Images API](../api/generate-images/V3/) call that optionally allows you to pass the id of an uploaded style reference image in the `uploadId` parameter:
 
 ```js
 async function generateImage(prompt, id, token, styleReference) {
@@ -259,7 +259,7 @@ The next feature you'll see is how to use an image as a structure reference. As 
 }
 ```
 
-Note, that similar to `style`, [cloud storage URLs](#working-with-reference-images) may be used as well. To demonstrate this, you will once again use a simple wrapper to the [Generate Images](../api/image_generation/V3/) endpoint, but this time optionally accept the ID of an image to use as the structure reference:
+Note, that similar to `style`, [cloud storage URLs](#working-with-reference-images) may be used as well. To demonstrate this, you will once again use a simple wrapper to the [Generate Images](../api/generate-images/V3/) endpoint, but this time optionally accept the ID of an image to use as the structure reference:
 
 ```js
 async function generateImage(prompt, id, token, structureReference) {
@@ -433,4 +433,4 @@ await downloadFile(result.outputs[0].image.url, fileName);
 
 ## Next Steps
 
-While this guide demonstrated two powerful ways to influence Firefly when generating images, there's still more you can learn about to tweak what's generated from your API calls. Check out the other guides in the How-Tos section and the [API Reference](../api/image_generation/V3/) for more details.
+While this guide demonstrated two powerful ways to influence Firefly when generating images, there's still more you can learn about to tweak what's generated from your API calls. Check out the other guides in the How-Tos section and the [API Reference](../api/generate-images/V3/) for more details.

@@ -12,9 +12,9 @@ paths:
   /v2/images/generate:
     $ref: components/paths/images_generations_v2.yaml
   /v1/images/expand:
-    $ref: components/paths/generative_expand.yaml
+    $ref: components/paths/expand-image.yaml
   /v1/images/fill:
-    $ref: components/paths/generative_fill.yaml
+    $ref: components/paths/fill-image.yaml
 
 components:
   securitySchemes:
