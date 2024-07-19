@@ -10,7 +10,7 @@ The first step in accessing the Photoshop API is making sure your organization i
 
 ## Get access
 
-Here are the steps to get started with the Photoshop APIs.
+Here are the steps to get started with the Photoshop API.
 
 ### Getting started from Developer Console
 

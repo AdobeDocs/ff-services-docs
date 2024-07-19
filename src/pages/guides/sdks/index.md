@@ -58,9 +58,9 @@ The Firefly Services SDK is a comprehensive toolkit designed to streamline your 
 The SDK currently comprises of four main modules.  
 
 - Common APIs 
-- Firefly APIs 
-- Photoshop APIs 
-- Lightroom APIs 
+- Firefly API
+- Photoshop API
+- Lightroom API
 
 ![Hierarchical diagram](../images/ff-services-sdk.png) 
 
