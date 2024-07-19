@@ -20,22 +20,22 @@ module.exports = {
         path: '/guides/'
       },                  
       {
-        title: 'Firefly APIs',
+        title: 'Firefly API',
         description: 'Docs and references for Firefly API',
         path: '/firefly-api/' 
       },
       {
-        title: 'Photoshop APIs',
+        title: 'Photoshop API',
         description: 'Docs and references for Photoshop API',
         path: '/photoshop/'
       },
       {
-        title: 'Lightroom APIs',
+        title: 'Lightroom API',
         description: 'Docs and references for Lightroom API',
         path: '/lightroom/'
       },
       {
-        title: 'Content Tagging APIs',
+        title: 'Content Tagging API',
         description: 'Docs and references for Content Tagging services',        
         path: 'https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html'
       },

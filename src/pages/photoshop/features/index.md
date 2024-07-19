@@ -309,7 +309,7 @@ In order to be able to correctly operate on text layers in the PSD, the correspo
 
 While referencing fonts in the API request, please ensure that the correct Postscript name for that font is used. Referencing to that font with any other name will result in the API treating this as a missing font.
 
-The Photoshop APIs supports using the following category of fonts:
+The Photoshop API supports using the following category of fonts:
 - You can find a list of currently supported fonts [here](../features/index.md#photoshop-cc)
 - Custom/Other Fonts: These are the fonts that are either owned by you or the ones that only you are authorized to use.
   To use a custom font you must include an href to the font in your request. Look at the `options.fonts` section of the API docs for more information.
@@ -442,7 +442,7 @@ You can make a customized workflow by chaining different endpoints together. [He
 ## Webhooks through Adobe I/O Events
 
 Adobe I/O Events offers the possibility to build an event-driven application, based on events originating from Photoshop. To start listening for events, your application needs to register a webhook URL, specifying the Event Types to receive. Whenever a matching event gets triggered, your application is notified through an HTTP POST request to the webhook URL.
-The Event Provider for Photoshop APIs is `Imaging API Events`.
+The Event Provider for the Photoshop API is `Imaging API Events`.
 This event provider has two event types:
 1. `Photoshop API events`
 

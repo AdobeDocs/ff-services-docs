@@ -7,7 +7,6 @@ keywords:
   - Photoshop API documentation
   - Photoshop API usage examples
   - Photoshop API SDK
-  - Photoshop APIs
   - Photoshop API
   - Photoshop API SDK
   - Photoshop Node.js SDK

@@ -86,9 +86,9 @@ Let's begin by initializing a new `package.json` in your prompt with `npm init -
 Next, you need to add the SDK. As described in the SDK's [readme](https://git.corp.adobe.com/cc-apis/firefly-services-sdk-js/), there are four individual packages you _can_ install:
 
 -   The `common APIs` package is required for authentication, you'll always need this.
--   A package for Firefly APIs.
--   A package for Photoshop APIs.
--   A package for Lightroom APIs.
+-   A package for Firefly API.
+-   A package for Photoshop API.
+-   A package for Lightroom API.
 
 For your needs, you only require the common and Firefly APIs. Install them like so:
 

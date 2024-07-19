@@ -60,19 +60,19 @@ Get started with the Adobe Firefly services.
 
 ### API References
 
-[Firefly APIs](../../firefly-api/)
+[Firefly API](../../firefly-api/)
 
 Integrate generative AI into your creative workflows.
 
 <DiscoverBlock slots="link, text"/>
 
-[Photoshop APIs](../../photoshop/)
+[Photoshop API](../../photoshop/)
 
 Unlock the potential of Photoshop and cutting edge AI/ML services through an easy-to-use RESTful API.
 
 <DiscoverBlock slots="link, text"/>
 
-[Lightroom APIs](../../lightroom/)
+[Lightroom API](../../lightroom/)
 
 Unlock the potential of Photoshop and cutting edge AI/ML services through an easy-to-use RESTful API.
 
