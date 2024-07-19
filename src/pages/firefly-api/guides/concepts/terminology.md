@@ -1,6 +1,6 @@
 # Terminology
 
-This section provides definitions and details for some terminology and parameters to be aware of when using the [Firefly APIs](../api/image_generation/V3/) and documentation.
+This section provides definitions and details for some terminology and parameters to be aware of when using the [Firefly APIs](../api/generate-images/V3/) and documentation.
 
 ## Seed
 
@@ -169,9 +169,9 @@ The `placement` object adjust how the image will be positioned and sized in the 
 
 <InlineAlert variant="help" slots="text1, text2" />
 
-This parameter is currently available in the [Expand Image API V3](../api/generative_expand/V3/) and the [Object Composite API V3](../api/generate-object-composite/), but used somewhat differently.
+This parameter is currently available in the [Expand Image API V3](../api/expand-image/V3/) and the [Object Composite API V3](../api/generate-object-composite/), but used somewhat differently.
 
-In the case of the [Expand Image API V3](../api/generative_expand/V3/), you cannot use `placement` along with `mask`.
+In the case of the [Expand Image API V3](../api/expand-image/V3/), you cannot use `placement` along with `mask`.
 
 <!-- TODO: A visual representation of how these settings are used with different image sizes and placement settings is shown below, but please check out this wiki for more details about how these properties are interpreted when used with the Expand Image and the Object Composite APIs specifically. -->
 

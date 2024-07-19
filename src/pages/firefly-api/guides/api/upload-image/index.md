@@ -11,4 +11,4 @@ keywords:
 layout: none
 ---
 
-<RedoclyAPIBlock src="/firefly-services/docs/upload_image.json" width="600px" disableSidebar />
+<RedoclyAPIBlock src="/firefly-services/docs/upload-image-v2.json" width="600px" disableSidebar />
