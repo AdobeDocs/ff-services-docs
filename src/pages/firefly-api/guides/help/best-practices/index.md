@@ -13,7 +13,7 @@ hideBreadcrumbNav: true
 
 # Best Practices for Adobe Firefly API
 
-The Adobe Firefly API provides powerful functionality for developers to integrate creative tools into their applications. To ensure efficient and effective use of the API, it's important to follow best practices. This document outlines key recommendations for using Firefly APIs.
+The Adobe Firefly API provides powerful functionality for developers to integrate creative tools into their applications. To ensure efficient and effective use of the API, it's important to follow best practices. This document outlines key recommendations for using the Adobe Firefly API.
 
 ## Authentication
 

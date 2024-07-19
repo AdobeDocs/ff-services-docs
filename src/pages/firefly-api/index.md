@@ -45,7 +45,7 @@ We designed the Adobe Firefly generative AI models to be safe for business.
 
 When generating content with the Adobe Firefly API, your outputs can be eligible for IP indemnification (terms apply). 
 
-[Learn more](https://www.adobe.com/cc-shared/assets/pdf/enterprise/firefly-legal-faqs-enterprise-customers-2024-06-11.pdf)
+[Learn more](https://www.adobe.com/go/firefly-legal-faq-enterprise)
 
 ## Overview
 
