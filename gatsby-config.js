@@ -141,19 +141,19 @@ module.exports = {
       },
       {
         title: 'API Reference',
-        path: '/firefly-api/guides/api/generate-images/V3/',
+        path: '/firefly-api/guides/api/image_generation/V3/',
         pages: [
           {
             title: "Generate Images",
-            path: "/firefly-api/guides/api/generate-images/V3/",
+            path: "/firefly-api/guides/api/image_generation/V3/",
             pages: [
               {
                 title: "V3",
-                path: "/firefly-api/guides/api/generate-images/V3/",
+                path: "/firefly-api/guides/api/image_generation/V3/",
               },
               {
                 title: "V2",
-                path: "/firefly-api/guides/api/generate-images/V2/",
+                path: "/firefly-api/guides/api/image_generation/V2/",
               },
             ]
           },          
@@ -167,35 +167,35 @@ module.exports = {
           },
           {
             title: "Expand Image",
-            path: "/firefly-api/guides/api/expand-image/V3/",
+            path: "/firefly-api/guides/api/generative_expand/V3/",
             pages: [
               {
                 title: "V3",
-                path: "/firefly-api/guides/api/expand-image/V3/",
+                path: "/firefly-api/guides/api/generative_expand/V3/",
               },
               {
                 title: "V1",
-                path: "/firefly-api/guides/api/expand-image/V1/",
+                path: "/firefly-api/guides/api/generative_expand/V1/",
               },
             ]
           },
           {
             title: "Fill Image",
-            path: "/firefly-api/guides/api/fill-image/V3/",
+            path: "/firefly-api/guides/api/generative_fill/V3/",
             pages: [
               {
                 title: "V3",
-                path: "/firefly-api/guides/api/fill-image/V3/",
+                path: "/firefly-api/guides/api/generative_fill/V3/",
               },
               {
                 title: "V1",
-                path: "/firefly-api/guides/api/fill-image/V1/",
+                path: "/firefly-api/guides/api/generative_fill/V1/",
               },
             ]
           },          
           {
             title: "Upload",
-            path: "/firefly-api/guides/api/upload-image/"
+            path: "/firefly-api/guides/api/upload_image/"
           
           },
         ]
