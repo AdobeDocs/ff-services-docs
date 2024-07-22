@@ -1,0 +1,438 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "version": "V3",
+        "title": "Firefly API",
+        "description": "REST API for Adobe Firefly for enterprise usage"
+    },
+    "servers": [
+        {
+            "url": "https://firefly-api.adobe.io"
+        }
+    ],
+    "security": [
+      {
+          "X-Api-Key": [],
+          "AccessToken": []
+      }
+  ],
+  "paths": {
+    "/v3/images/fill": {
+        "post": {
+            "summary": "Fill Image - Model 3 (preview)",
+            "operationId": "fillImage",
+            "description": "Fill the masked area of an image with an optional prompt.",
+            "requestBody": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/FillImageRequest"
+                  }
+                }
+              },
+              "required": true
+            },
+            "responses": {
+              "200": {
+                "description": "Successful Response",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/FillImageResponse"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Bad Request",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ApiError"
+                    },
+                    "examples": {
+                      "bad_request": {
+                        "value": {
+                          "error_code": "bad_request"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "403": {
+                "description": "Forbidden",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ApiError"
+                    },
+                    "examples": {
+                      "access_error": {
+                        "value": {
+                          "error_code": "access_error"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "408": {
+                "description": "Request Timeout",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ApiError"
+                    },
+                    "examples": {
+                      "timeout_error": {
+                        "value": {
+                          "error_code": "timeout_error"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "415": {
+                "description": "Unsupported Media Type",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ApiError"
+                    },
+                    "examples": {
+                      "invalid_content_type": {
+                        "value": {
+                          "error_code": "invalid_content_type"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "422": {
+                "description": "Unprocessable Entity",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ApiError"
+                    },
+                    "examples": {
+                      "validation_error": {
+                        "value": {
+                          "error_code": "validation_error",
+                          "validation_errors": [
+                            {
+                              "loc": [
+                                "body",
+                                "contentClass"
+                              ],
+                              "msg": "value is not a valid enumeration member; permitted: 'photo', 'art'",
+                              "type": "type_error.enum",
+                              "ctx": {
+                                "enum_values": [
+                                  "photo",
+                                  "art"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "prompt_unsafe": {
+                        "value": {
+                          "error_code": "prompt_unsafe"
+                        }
+                      },
+                      "input_media_unsafe": {
+                        "value": {
+                          "error_code": "input_media_unsafe"
+                        }
+                      },
+                      "output_media_unsafe": {
+                        "value": {
+                          "error_code": "output_media_unsafe"
+                        }
+                      },
+                      "language_not_supported": {
+                        "value": {
+                          "error_code": "language_not_supported"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "500": {
+                "description": "Internal Server Error",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ApiError"
+                    },
+                    "examples": {
+                      "runtime_error": {
+                        "value": {
+                          "error_code": "runtime_error"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "501": {
+                "description": "Not Implemented",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ApiError"
+                    },
+                    "examples": {
+                      "not_implemented": {
+                        "value": {
+                          "error_code": "not_implemented"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "503": {
+                "description": "Service Unavailable",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ApiError"
+                    },
+                    "examples": {
+                      "model_not_loaded": {
+                        "value": {
+                          "error_code": "model_not_loaded"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+        }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "AccessToken": {
+          "type": "http",
+          "scheme": "bearer"
+      },
+      "X-Api-Key": {
+          "type": "apiKey",
+          "name": "x-api-key",
+          "in": "header"
+      }
+  },
+      "schemas": {
+        "ApiError": {
+            "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "Error message"
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Associated error code"
+                    }
+                  },
+            "type": "object",
+            "required": [
+              "error_code"
+            ],
+            "title": "ApiError",
+            "description": "The error within the error response."
+          },
+          "FillImageRequest": {
+            "properties": {
+              "numVariations": {
+                "type": "integer",
+                "maximum": 4,
+                "minimum": 1,
+                "title": "The number of variations",
+                "description": "The number of variations to generate. numVariations will default to the number of seeds, or to 1 if seeds is not specified."
+              },
+              "seeds": {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array",
+                "maxItems": 4,
+                "minItems": 1,
+                "uniqueItems": true,
+                "default" : [ 0 ],
+                "title": "The seed of each variation",
+                "description": "Array of seed(s) that ensure consistent image generation across multiple API calls. For example, you can use the same seed to generate a similar image with different styles. If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
+              },
+              "prompt": {
+                "type": "string",
+                "maxLength": 1024,
+                "minLength": 1,
+                "title": "The prompt",
+                "description": "The prompt used to generate the image. The longer the prompt - the better"
+              },
+              "negativePrompt": {
+                "type": "string",
+                "maxLength": 1024,
+                "title": "Avoid prompt",
+                "description": "Inference will try to generate against this prompt"
+              },
+              "image": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/InputImage"
+                  }
+                ],
+                "title": "Input Image",
+                "description": "Input image to fill with generative content. You can either use a <code>url</code> or an <code>uploadId</code> as the source for the uploaded image. Supported formats are, image/jpeg, image/png, image/webp.  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request. The allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
+              },
+              "promptBiasingLocaleCode": {
+                "type": "string",
+                "title": "The locale used for image generations",
+                "description": "A hyphen-separated string combining the ISO 639-1 language code and the ISO 3166-1 region, such as \"en-US\". When a locale is set, the prompt will be biased to generate more relevant content for that region. The locale will be auto-detected if not specified based on the user's profile and Accept-Language header.",
+                "default": "en-US"
+              }
+            },
+            "type": "object",
+            "required": [
+              "image"
+            ],
+            "title": "Fill images payload"
+          },
+          "FillImageResponse": {
+            "properties": {
+              "size": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Size"
+                  }
+                ],
+                "title": "The actual size used for the outputs",
+                "description": "If size was passed as input, this value should be the same as the one passed as input."
+              },
+              "outputs": {
+                "items": {
+                  "$ref": "#/components/schemas/OutputImage"
+                },
+                "type": "array",
+                "minItems": 1,
+                "title": "The list of images",
+                "description": "Each image will have a storage item."
+              }
+            },
+            "type": "object",
+            "required": [
+              "size",
+              "outputs"
+            ],
+            "title": "Fill images response."
+          },
+          "InputImage": {
+              "properties": {
+                  "source": {
+                      "allOf": [
+                          {
+                              "$ref": "#/components/schemas/PublicBinaryInput"
+                          }
+                      ],
+                      "title": "Input image",
+                      "description": "Upload an image you want to fill. <br><strong>Note:</strong> The input image and mask image must match in pixel dimensions and DPI."
+                  },
+                  "mask": {
+                      "allOf": [
+                          {
+                              "$ref": "#/components/schemas/PublicBinaryInput"
+                          }
+                      ],
+                      "title": "Mask image",
+                      "description": "Mask image which will be used replace the background of the image.<br><strong>Note:</strong> The minimum accepted size for the larger side of the image is 600 px. The input image and mask image must match in pixel dimensions and DPI."
+                  }
+              },
+              "type": "object",
+              "required": ["source","mask"],
+              "title": "InputImage"
+          },
+          "PublicBinaryInput": {
+            "properties": {
+                "url": {
+                    "type": "string",
+                    "maxLength": 2083,
+                    "minLength": 1,
+                    "format": "uri",
+                    "title": "The presigned url",
+                    "description": "This URL of an uploaded image."
+                },
+                "uploadId": {
+                    "type": "string",
+                    "format": "uuid4",
+                    "title": "UUID of the uploaded object",
+                    "description": "UUID of the uploaded object"
+                }
+            },
+            "type": "object",
+            "title": "PublicBinaryInput",
+            "description": " You can either use a <code>url</code> or an <code>uploadId</code> as the source for the uploaded image."
+          },
+        "PublicBinaryOutput": {
+          "properties": {
+              "url": {
+                  "type": "string",
+                  "maxLength": 2083,
+                  "minLength": 1,
+                  "format": "uri",
+                  "title": "The presigned url",
+                  "description": "The reference to signed url of the image."
+              }
+          },
+          "type": "object",
+          "title": "PublicBinaryOutput"
+      },
+          "OutputImage": {
+              "properties": {
+                  "seed": {
+                      "type": "integer",
+                      "title": "The seed used for the generation",
+                      "description": "Identifier used to customize image generation processes."
+                  },
+                  "image": {
+                      "allOf": [
+                          {
+                              "$ref": "#/components/schemas/PublicBinaryOutput"
+                          }
+                      ],
+                      "description": "A valid storage item containing a pre-signed URL. The pre-signed URL will expire in one hour. The output format will be <code>image/jpeg</code> or <code>image/png</code>."
+                  }
+              },
+              "type": "object",
+              "required": ["seed", "image"],
+              "title": "OutputImage"
+          },
+          "Size": {
+              "properties": {
+                  "width": {
+                      "type": "integer",
+                      "maximum": 2688,
+                      "minimum": 1,
+                      "title": "The desired width of the output image."
+                  },
+                  "height": {
+                      "type": "integer",
+                      "maximum": 2688,
+                      "minimum": 1,
+                      "title": "The desired height of the output image."
+                  }
+              },
+              "type": "object",
+              "required": ["width", "height"],
+              "title": "Size"
+          }
+        }
+      }
+  }
