@@ -141,7 +141,7 @@ To learn more about each response code, head over to the [API's Responses](../gu
 
 ### Rate Limits
 
-Read more about the Firefly APIs throttling limits [here](./concepts/rate-limits/index.md).
+Read more about the Firefly API throttling limits [here](./concepts/rate-limits/index.md).
 
 ## Try it yourself
 
