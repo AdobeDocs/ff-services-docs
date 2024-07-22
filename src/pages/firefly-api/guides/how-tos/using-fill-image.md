@@ -20,12 +20,12 @@ Learn how to use the Fill Image API in your code workflows.
 
 ## Introduction
 
-Generative Fill is a powerful Firefly feature that lets designers modify an existing image using AI to replace a portion of an image with generated content. The content replaced might be a small portion of an image, or an entire background behind a central object. In this guide, you will see how this can be done using the [Firefly Fill API](../api/fill-image/V3/).
+Generative Fill is a powerful Firefly feature that lets designers modify an existing image using AI to replace a portion of an image with generated content. The content replaced might be a small portion of an image, or an entire background behind a central object. In this guide, you will see how this can be done using the [Firefly Fill API](../api/generative_fill/V3/).
 
 ## Prerequisites
 
 -  Firefly API credentials. If you don't have them yet, first visit the Firefly Services [Getting Started](../../../guides/get-started.md) guide to obtain a `client_id` and `client_secret`.
--  Node.js installed on your machine and basic familiarity with `JavaScript`. **Note:** The code for this guide will make use of the [Firefly REST APIs](../api/generate-images/V3/) via Node.js, but could be written in any language, or with the [SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/).
+-  Node.js installed on your machine and basic familiarity with `JavaScript`. **Note:** The code for this guide will make use of the [Firefly REST APIs](../api/image_generation/V3/) via Node.js, but could be written in any language, or with the [SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/).
 
 ## Fill Image API Overview
 
@@ -52,7 +52,7 @@ The source and mask images are below, and will be uploaded using [Firefly's Uplo
 
 ## Calling the Fill Image API
 
-A simple example of the request body required to use the [Fill Image API](../api/fill-image/) is below:
+A simple example of the request body required to use the [Fill Image API](../api/generative_fill/) is below:
 
 ```json
 {
@@ -72,9 +72,9 @@ A simple example of the request body required to use the [Fill Image API](../api
 }
 ```
 
-More options are available and may be found in the [API Reference](../api/fill-image/V3). Please note that you could also use [cloud storage URLs (in the form of presigned URLs)](./using-style-structure-refs.md#working-with-reference-images) instead of uploaded assets as desired.
+More options are available and may be found in the [API Reference](../api/generative_fill/V3). Please note that you could also use [cloud storage URLs (in the form of presigned URLs)](./using-style-structure-refs.md#working-with-reference-images) instead of uploaded assets as desired.
 
-Below is a sample JavaScript function that could be used to call the [Fill Image API](../api/fill-image/V3).
+Below is a sample JavaScript function that could be used to call the [Fill Image API](../api/generative_fill/V3).
 
 ```js
 async function genFill(maskId, sourceId, width, height, prompt, id, token) {
@@ -267,4 +267,4 @@ await downloadFile(result.outputs[0].image.url, fileName);
 
 ## Next Steps
 
-For more examples of what's possible with Firefly APIs, check out the other guides in this [how-tos](../how-tos/) section and the [API Reference](../api/generate-images/V3/) for more details.
+For more examples of what's possible with Firefly APIs, check out the other guides in this [how-tos](../how-tos/) section and the [API Reference](../api/image_generation/V3/) for more details.

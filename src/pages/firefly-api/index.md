@@ -74,7 +74,7 @@ A quickstart guide to making your first successful Firefly API call.
 
 <!-- ### API References -->
 
-[Try the API](guides/api/generate-images/V3/)
+[Try the API](guides/api/image_generation/V3/)
 
 Try the Adobe Firefly API. Explore, make calls, with full endpoint descriptions.
 

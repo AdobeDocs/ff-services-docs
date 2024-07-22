@@ -51,7 +51,7 @@ hideBreadcrumbNav: true
 
 A step-by-step guide to creating your first implementation with the Firefly APIs.
 
-The Adobe Firefly APIs offer a seamless way to integrate powerful creative workflows into your applications using a simple REST-based API. In this tutorial, you'll be guided through creating your first implementation using the [Firefly Generate Images API](../api/generate-images/V3/).
+The Adobe Firefly APIs offer a seamless way to integrate powerful creative workflows into your applications using a simple REST-based API. In this tutorial, you'll be guided through creating your first implementation using the [Firefly Generate Images API](../api/image_generation/V3/).
 
 <InlineAlert slots="text" />
 
@@ -148,11 +148,11 @@ The provided code example does not include error handling for credentials. For p
 
 ## Step 3: Generate an Image with a Prompt
 
-For the demo, you will use Firefly to generate four images from a single prompt using the [Firefly Generate Images API](../api/generate-images/V3/), which includes optional generative matching.
+For the demo, you will use Firefly to generate four images from a single prompt using the [Firefly Generate Images API](../api/image_generation/V3/), which includes optional generative matching.
 
 <InlineAlert variant="help" slots="text" />
 
-Please refer to the [Generate Images API](../api/generate-images/V3/) in the API Reference for more details.
+Please refer to the [Generate Images API](../api/image_generation/V3/) in the API Reference for more details.
 
 Based on the docs, we can see that the only required parameter is prompt. Also, the `numVariations` prompt specifies how many images we want. So the simplest request body we could build would look like so:
 

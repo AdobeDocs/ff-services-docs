@@ -38,11 +38,11 @@ hideBreadcrumbNav: true
 - Firefly Image Model 3 (preview) APIs:
 
   - New API References added for the newly introduced [Generate Similar Images](../api/generate-similar/) and [Generate Object Composite](../api/generate-object-composite/) APIs.
-  - New V3 API References added for [Generate Images](../api/generate-images/V3/), [Expand Image](../api/expand-image/V3/) and [Fill Image](../api/fill-image/V3/) with support for Firefly Image Model 3 (preview).
+  - New V3 API References added for [Generate Images](../api/image_generation/V3/), [Expand Image](../api/generative_expand/V3/) and [Fill Image](../api/generative_fill/V3) with support for Firefly Image Model 3 (preview).
   
 - Updated guides:
 
-  - [Create your first Firefly APIs implementation](../how-tos/create-your-first-ff-application.md) guide updated to use the new V3 version of the [Generate Images API](../api/generate-images/V3/).
+  - [Create your first Firefly APIs implementation](../how-tos/create-your-first-ff-application.md) guide updated to use the new V3 version of the [Generate Images API](../api/image_generation/V3/).
 
 - New Guides:
 
@@ -58,7 +58,7 @@ hideBreadcrumbNav: true
 
 ### Added
 
-Firefly [Generate Images API](../api/generate-images/V2/) now accepts `url` as source for `referenceImage`. Only allow listed domains are allowed to be accepted as input `url` in the request.
+Firefly [Generate Images API](../api/image_generation/V2/) now accepts `url` as source for `referenceImage`. Only allow listed domains are allowed to be accepted as input `url` in the request.
 
 The allow-listed domains are as follows:
 

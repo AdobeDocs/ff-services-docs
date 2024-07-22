@@ -26,7 +26,7 @@ The following new APIs were introduced in Firefly Image Model 3:
 
 The following existing APIs were updated to use the new Image Model 3, and have new and/or renamed parameters:
 
-- **[Generate Images API](../api/generate-images/V3/):**
+- **[Generate Images API](../api/image_generation/V3/):**
 
   - The `n` parameter has been renamed to `numVariations`.
   - The `styles` object parameter was renamed to `style` and contains renamed child parameters as well. You can still supply a reference image to be used, but it should now be passed as `url` (for a presigned image URL), or `uploadId` for an uploaded image within the `imageReference.source` field:
@@ -49,7 +49,7 @@ The following existing APIs were updated to use the new Image Model 3, and have 
   - The `photoSettings` parameter has been removed.
   - The `locale` parameter has been renamed to `promptBiasingLocaleCode`.
 
-- **[Expand Image](../api/expand-image/V3/):**
+- **[Expand Image](../api/generative_expand/V3/):**
 
   - The `n` parameter has been renamed to `numVariations`.
   - `locale` has been renamed to `promptBiasingLocaleCode`.
@@ -70,7 +70,7 @@ The following existing APIs were updated to use the new Image Model 3, and have 
 
   - A new `placement` object parameter can be specified, with `insets` and `alignment` child parameter values that can be provided. See the placement section below for more details.
 
-- **[Fill Image](../api/fill-image/V3/):**
+- **[Fill Image](../api/generative_fill/V3):**
 
   - The `n` parameter has been renamed to `numVariations`.
   - `locale` has been renamed to `promptBiasingLocaleCode`.
