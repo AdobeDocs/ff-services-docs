@@ -295,7 +295,7 @@
                     "$ref": "#/components/schemas/Size"
                   }
                 ],
-                "description": "Specifies the desired width and height for the final, expanded image. Currently, the supported size for the output image is ≤ 2688 x 2688 px.",
+                "description": "Specifies the desired width and height for the final, expanded image. Currently, the supported size for the output image is ≤ 4000 x 4000 px.",
                 "default": {
                   "width": 2048,
                   "height": 2048
@@ -516,13 +516,13 @@
               "properties": {
                   "width": {
                       "type": "integer",
-                      "maximum": 2688,
+                      "maximum": 4000,
                       "minimum": 1,
                       "title": "The desired width of the output image."
                   },
                   "height": {
                       "type": "integer",
-                      "maximum": 2688,
+                      "maximum": 4000,
                       "minimum": 1,
                       "title": "The desired height of the output image."
                   }
