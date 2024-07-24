@@ -440,7 +440,7 @@
                     "type": "string",
                     "format": "uuid4",
                     "title": "UUID of the uploaded object",
-                    "description": "UUID of the uploaded object"
+                    "description": "UUID of the uploaded objec. Generate this ID using the upload API."
                 }
             },
             "type": "object",
@@ -557,13 +557,13 @@
               "properties": {
                   "width": {
                       "type": "integer",
-                      "maximum": 2688,
+                      "maximum": 4000,
                       "minimum": 1,
                       "title": "The desired width of the output image."
                   },
                   "height": {
                       "type": "integer",
-                      "maximum": 2688,
+                      "maximum": 4000,
                       "minimum": 1,
                       "title": "The desired height of the output image."
                   }

@@ -427,7 +427,7 @@
         "properties": {
           "images": {
             "type": "array",
-            "description": "Array of objects containing asset ID",
+            "description": "Array of objects containing asset ID.",
             "items": {
               "allOf": [
                 {
@@ -445,7 +445,7 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "ID associated with the asset (generate this ID using the upload API). Pre-signed URLs will be supported in the future.",
+            "description": "ID associated with the asset. The id will be valid for 7 days from the date of creation. Pre-signed URLs will be supported in the future.",
             "examples": ["REPLACE WITH STRING ID GENERATED FROM UPLOAD IMAGE API"]
           }
         }
