@@ -19,7 +19,7 @@
 "paths": {
   "/v3/images/generate": {
     "post": {
-        "summary": "Generate Images - Model 3 (preview)",
+        "summary": "Generate Images - Model 3",
         "operationId": "generateImages",
         "description": "Generate images based on a prompt with optional reference image to match style and structure.",
         "requestBody": {
