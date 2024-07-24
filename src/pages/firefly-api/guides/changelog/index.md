@@ -31,6 +31,15 @@ hideBreadcrumbNav: true
 <!-- TODO: Update with latest prod details, elaborate on API descriptions -->
 # Changelog
 
+## July 23, 2024
+
+### API Services Update: General Availability
+
+We are excited to announce that the following APIs are now generally available and no longer in preview:
+
+- [Generate Similar Images](../api/generate-similar/)
+- [Generate Images](../api/image_generation/V3/)
+
 ## June 18, 2024
 
 ### Added
