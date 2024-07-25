@@ -33,7 +33,6 @@ Before getting into the code, let's consider how the Fill Image API works at a h
 
 * You begin with a source image, which can either be uploaded to Firefly Services, or used with one of the supported cloud storage providers. For this guide, you'll use a local image uploaded via the [Firefly Upload API](../api/upload_image/).
 * You then provide a *masked* version of the image. That mask will be where Firefly adds it's generated content.
-* You then specify the desired size. This can be any combination of a `height` and `width` between `1` and `4000` pixels.
 * You can *optionally* specify a `prompt` to help Firefly create the filled region. If not specified, Firefly only uses the source image itself as a guide.
 
 ## Source and Mask Images

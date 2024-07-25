@@ -557,13 +557,13 @@
               "properties": {
                   "width": {
                       "type": "integer",
-                      "maximum": 4000,
+                      "maximum": 2688,
                       "minimum": 1,
                       "title": "The desired width of the output image."
                   },
                   "height": {
                       "type": "integer",
-                      "maximum": 4000,
+                      "maximum": 2688,
                       "minimum": 1,
                       "title": "The desired height of the output image."
                   }

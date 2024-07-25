@@ -32,7 +32,7 @@ Designers often struggle with taking existing media assets and re-purposing them
 Before getting into the code, let's look at how the Expand Image API works at a high-level.
 
 * You begin with a source image, which can either be uploaded to Firefly Services, or used with one of the supported cloud storage providers. For this guide, you'll be using a local image uploaded via the [Firefly Upload API](../api/upload_image/).
-* You then specify the desired size. This can be any combination of a `height` and `width` between `1` and `4000` pixels.
+* You then specify the desired size. This can be any combination of a `height` and `width` between `1` and `3999` pixels.
 * You can *optionally* specify a text `prompt` to guide Firefly when creating the expanded region. If not specified, Firefly only uses the source image itself as a guide.
 * An optional `mask` can be used, as long as it is the same size as specified above.
 * Finally, an optional `placement` parameter can be provided. By default, Firefly will center the source image in the generated new image, but an `inset` or `alignment` value can be used as well. **Note:** You cannot use the `placement` parameter when a mask image is provided.
