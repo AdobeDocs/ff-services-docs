@@ -182,8 +182,8 @@
                       "$ref": "#/components/schemas/ApiError"
                     },
                     "example": {
-                      "message": "Too Many Requests",
-                      "error_code": "10011"
+                       "message": "Too many requests. Please try again later.",
+                      "error_code": "rate_limited"
                     }
                   }
                 }
