@@ -1,12 +1,12 @@
 # Terminology
 
-This section provides definitions and details for some terminology and parameters to be aware of when using the [Firefly APIs](../api/image_generation/V3/) and documentation.
+This section provides definitions and details for terms and parameters to be aware of when using the [Firefly APIs](../api/image_generation/V3/) and documentation.
 
 ## Seed
 
 The purpose of a seed is to give a starting point for image generation. Each API supports an optional array of seed values that will provide generation stability across multiple API calls (example, you can use the same seed to generate a similar image with different styles).
 
-Only generated images can be used as seeds, and you can locate the seed value for any generated image in the outputs  array of a successful response, ie:
+Only generated images can be used as seeds, and you can locate the seed value for any generated image in the outputs array of a successful response, for example:
 
 ```json
 "outputs": [
@@ -35,7 +35,7 @@ Instruct the model that it should NOT include certain elements in its generated 
 
 ## Mask
 
-With image masking, you can “conceal and reveal", meaning you can hide portions of your image and display other portions when editing an image. An image mask is like putting a mask over the parts of a picture you want to protect or hide, while exposing the other areas for editing. 
+With image masking, you can “conceal and reveal", meaning you can hide portions of your image and display other portions when editing an image. An image mask is like putting a mask over the parts of a picture you want to protect or hide, while exposing the other areas for editing.
 
 When creating an image mask, use black or white depending on the results you're trying to achieve. A tip to remember is that black conceals and white reveals, thus you will want to use black on the parts you want to hide from being edited, and white on those that can be changed. For example, using the image and mask below will preserve the perfume bottle content outlined in black.
 
@@ -111,7 +111,6 @@ Specifies the dimensions of the generated image via a `size` parameter in the AP
 | 1792    | 2304     | Portrait    |
 | 2688    | 1536     | Widescreen  |
 
-
 <InlineAlert variant="help" slots="text" />
 
 For tileable images (`"tileable": true`), only the square dimensions are accepted (ie: `{ width: 1024, height: 1024 }` or `{ width: 2048, height: 2048 }`).
@@ -126,11 +125,11 @@ For tileable images (`"tileable": true`), only the square dimensions are accepte
 
 ## Locale Based Prompt Bias
 
-Including the `promptBiasingLocaleCode` parameter where it's supported will generate more relevant content to the region specified. 
+Including the `promptBiasingLocaleCode` parameter where it's supported will generate more relevant content to the region specified.
 
 <InlineAlert variant="help" slots="text" />
 
-When not specified, the locale will be auto-detected, based on user's profile and `Accept-Language` header. Defaults to `en-US`. 
+When not specified, the locale will be auto-detected, based on user's profile and `Accept-Language` header. Defaults to `en-US`.
 
 ## Visual Intensity
 
@@ -165,7 +164,6 @@ The `placement` object adjust how the image will be positioned and sized in the 
     }
 }
 ````
-
 
 <InlineAlert variant="help" slots="text1, text2" />
 
