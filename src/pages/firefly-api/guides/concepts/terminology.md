@@ -31,7 +31,7 @@ Instructions given to generate an output. Write descriptive prompts to generate 
 
 ## Negative prompt
 
-Instruct the model that it should NOT include certain elements in its generated image that it may otherwise assume. The model will avoid these words in the generated content with best effort. More details [here](https://www.adobe.com/products/firefly/discover/ai-art-negative-prompts.html#:~:text=Negative%20prompts%20are%20text%20prompts,elements%20in%20its%20generated%20images).
+Tell the model that it should **not** include certain elements in its generated image that it may otherwise assume. The model will avoid these words in the generated content with best effort. More details [here](https://www.adobe.com/products/firefly/discover/ai-art-negative-prompts.html#:~:text=Negative%20prompts%20are%20text%20prompts,elements%20in%20its%20generated%20images).
 
 ## Mask
 
