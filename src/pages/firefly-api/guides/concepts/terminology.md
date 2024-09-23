@@ -4,7 +4,7 @@ This section provides definitions and details for terms and parameters to be awa
 
 ## Seed
 
-The purpose of a seed is to give a starting point for image generation. Each API supports an optional array of seed values that will provide generation stability across multiple API calls (example, you can use the same seed to generate a similar image with different styles).
+The purpose of a seed is to give a starting point for image generation. Each API supports an optional array of seed values that will provide generation stability across multiple API calls. For example, you can use the same seed to generate a similar image with different styles.
 
 Only generated images can be used as seeds, and you can locate the seed value for any generated image in the outputs array of a successful response, for example:
 
