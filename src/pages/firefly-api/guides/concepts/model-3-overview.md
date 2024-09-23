@@ -1,9 +1,10 @@
-# Firefly Image 3 Model (preview)
+# Firefly Image 3 Model (Preview)
 
-The Firefly Image 3 Model (preview) offers an improved generative Al image model for faster ideation and content creation.
+The Firefly Image 3 Model (Preview) offers an improved generative Al image model for faster ideation and content creation.
 
 ## Overview
-This document provides an overview of the changes and new APIs introduced for the Firefly Image 3 Model (preview).
+
+This document provides an overview of the changes and new APIs introduced for the Firefly Image 3 Model (Preview).
 
 Specific benefits include:
 
@@ -17,7 +18,7 @@ See [this link](https://helpx.adobe.com/firefly/using/whats-new.html) for more d
 
 ### New APIs
 
-The following new APIs were introduced in Firefly Image Model 3:
+The following new APIs were introduced:
 
 - **[Generate Similar Images](../api/generate-similar/):** Pass in a source image to use as a reference for generating similar image results.
 - **[Generate Object Composite](../api/generate-object-composite/):** Upload an image (with or without mask), such as a product photo, and utilize a text prompt to generate a seamlessly composited scene featuring the product. Additionally, provide optional parameters to influence the style and content of the background. See [this link](https://helpx.adobe.com/firefly/using/whats-new/2024-3.html#object-composites) for more specific details.
