@@ -117,7 +117,7 @@ Here is an example response payload:
     {
       "seed": 4999,
       "image": {
-        "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/e5f03d33-05dc-43e3-a23d-edffa6d90ff8?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDA3TX66CSNORXF4%2F20240617%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240617T165447Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=d34ffaecce34ef6f874e6fa668a27c2c8162cffc2fed0c2b71d8640be51f2764"
+        "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/e5f03d33-05dc-43e3-a23d-edffa6d90ff8?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDA3TX66CSFus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240617T165447Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=d34ffaecce34ef6f874e6fa668a27c2c8162cffc2fed0c2b71d8640be51f2764"
       }
     }    
   ],
