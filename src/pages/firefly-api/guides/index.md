@@ -127,11 +127,11 @@ Here is an example response payload:
 
 ### Image Results
 
-- Seed 0 <br/>
+* Seed 0 <br/>
 
  ![Horses in a field of sunflowers (photo)](./images/horses-sunflowers-0.jpg)
 
-- Seed 4999 <br/>
+* Seed 4999 <br/>
 
  ![Horses in a field of sunflowers (photo) - seed 4999 ](./images/horses-sunflowers-4999.jpg)
 
