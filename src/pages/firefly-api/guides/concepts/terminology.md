@@ -1,6 +1,6 @@
 # Terminology
 
-This section provides definitions and details for terms and parameters to be aware of when using the [Firefly APIs](../api/image_generation/V3/) and documentation.
+This section provides definitions and details for terms and parameters to be aware of when you use the [Firefly APIs](../api/image_generation/V3/) and documentation.
 
 ## Seed
 
