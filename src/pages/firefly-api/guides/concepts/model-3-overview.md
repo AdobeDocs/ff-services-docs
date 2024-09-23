@@ -3,6 +3,7 @@
 The Firefly Image 3 Model (Preview) offers an improved generative Al image model for faster ideation and content creation.
 
 ## Overview
+
 This document provides an overview of the changes and new APIs introduced for the Firefly Image 3 Model (Preview).
 
 Specific benefits include:
