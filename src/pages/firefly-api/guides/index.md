@@ -43,7 +43,7 @@ This guide will show you how to make your first successful call to the [Firefly 
 
 You need a valid API key and an access token to call the [Firefly Generate Images](./api/image_generation/V3/) endpoint. If you don't have an API key (aka: `client_id`) or access token yet, visit the [Getting Started guide](../../guides/get-started.md/) for instructions on obtaining them.
 
-If you already have a project configured with Firefly Services in the [Adobe Developer Console](https://developer.adobe.com/console), you can generate an access token there, or use the credentials from it (client ID and client secret) to generate an access token with the following `curl` command, replacing the`{CLIENT_ID}` and `{CLIENT_SECRET}` values with your own.
+If you already have a project configured with Firefly Services in the [Adobe Developer Console](https://developer.adobe.com/console), you can generate an access token there, or use client ID and client secret from it to generate an access token with the following `curl` command, replacing the`{CLIENT_ID}` and `{CLIENT_SECRET}` values with your own.
 
 <!-- Log into the [Adobe Developer Console](https://developer.adobe.com/console) using the profile that your admin created for you and create an access token. [Learn more](../get-started.md/#generate-an-api-key-and-access-token-from-the-adobe-developer-console) about creating an access token. -->
 
