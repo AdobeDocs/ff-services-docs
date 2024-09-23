@@ -41,7 +41,7 @@ hideBreadcrumbNav: true
 
 This guide will show you how to make your first successful call to the [Firefly Generate Images API](./api/image_generation/V3/).
 
-You need a valid API key and an access token to call the [Firefly Generate Images](./api/image_generation/V3/) endpoint. If you don't have an API key, known as `client_id` or access token yet, visit the [Getting Started guide](../../guides/get-started.md/) for instructions on obtaining them.
+You need a valid API key and an access token to call the [Firefly Generate Images](./api/image_generation/V3/) endpoint. If you don't have an API key, namely `client_id` or access token yet, visit the [Getting Started guide](../../guides/get-started.md/) for instructions on obtaining them.
 
 If you already have a project configured with Firefly Services in the [Adobe Developer Console](https://developer.adobe.com/console), you can generate an access token there, or use client ID and client secret from it to generate an access token with the following `curl` command, replacing the`{CLIENT_ID}` and `{CLIENT_SECRET}` values with your own.
 
@@ -111,13 +111,13 @@ Here is an example response payload:
     {
       "seed": 0,
       "image": {
-        "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/c851e657-67e0-4a05-aa4a-91c2ab26b9a8?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDA3TX66CSNORXF4%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240617T165447Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=10377687205d2f3d0c199c9348633aeb48d2cbb2075c01fa9b0bc0fd545c3aff"
+        "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/c851e657-67e0-4a05-aa4a-91c2ab26b9a8?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDA3T%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240617T165447Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=10377687205d2f3d0c199c9348633aeb48d2cbb2075c01fa9b0bc0fd545c3aff"
       }
     },
     {
       "seed": 4999,
       "image": {
-        "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/e5f03d33-05dc-43e3-a23d-edffa6d90ff8?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDA3TX66CSNORXF4%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240617T165447Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=d34ffaecce34ef6f874e6fa668a27c2c8162cffc2fed0c2b71d8640be51f2764"
+        "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/e5f03d33-05dc-43e3-a23d-edffa6d90ff8?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDA3TX66CSFus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240617T165447Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=d34ffaecce34ef6f874e6fa668a27c2c8162cffc2fed0c2b71d8640be51f2764"
       }
     }    
   ],
