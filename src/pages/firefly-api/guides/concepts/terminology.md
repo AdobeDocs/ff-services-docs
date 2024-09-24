@@ -27,7 +27,7 @@ Only generated images can be used as seeds, and you can locate the seed value fo
 
 ## Prompt
 
-Instructions given to generate an output. Write descriptive prompts to generate specifically what you want — if you don't like the results, reword your prompt to get closer to what you want. See [Writing Effective Prompts](https://helpx.adobe.com/firefly/using/tips-and-tricks.html) for more details.
+Provide instructions to generate an output. Write descriptive text prompts to generate specifically what you want — if you don't like the results, reword your prompt to get closer to what you want. See [Writing Effective Prompts](https://helpx.adobe.com/firefly/using/tips-and-tricks.html) for more details.
 
 ## Negative prompt
 
