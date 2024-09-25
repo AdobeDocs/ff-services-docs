@@ -485,4 +485,3 @@ finalResults.forEach((r,i) => {
 	downloadFile(r.result.outputs[0].image.url, `output/source_${sizes[i]}.jpg`);
 });
 ```
-
