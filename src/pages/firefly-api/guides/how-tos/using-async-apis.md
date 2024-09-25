@@ -455,7 +455,6 @@ async function downloadFile(url, filePath) {
 	return await finished(body.pipe(download_write_stream));
 }
 
-
 let token = await getAccessToken(CLIENT_ID, CLIENT_SECRET);
 
 let upload = await uploadImage('./source.jpg', 'image/jpeg', CLIENT_ID, token);
