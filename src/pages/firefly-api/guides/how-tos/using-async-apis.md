@@ -22,11 +22,12 @@ hideBreadcrumbNav: true
 
 # Using the Asynchronous Adobe Firefly APIs
 
-Our original Firefly APIs operated in a synchronous fashion. You could call the API with a given text prompt and generate an image, however Firefly platform delayed returning the response until it generated your assets. With our launch of new asynchronous APIs, you can better manage your Firefly requests and responses. Let's 
-take a look at how these APIs work. If you're not already familiar with our standard APIs, see the [Create your First Firefly API Implementation](https://developer.adobe.com/firefly-services/docs/firefly-api/guides/how-tos/create-your-first-ff-application/) 
-for a refresher on the APIs in general.
+With our launch of new asynchronous APIs, you can manage your Firefly requests and responses more efficiently.
 
 ## What's Available
+
+Our original Firefly APIs operated in a synchronous fashion. You could call the API with a given text prompt and generate an image, however Firefly platform delayed returning the response until it generated your assets.  If you're not already familiar with our standard, syncrhonous APIs, see the [Create your First Firefly API Implementation](https://developer.adobe.com/firefly-services/docs/firefly-api/guides/how-tos/create-your-first-ff-application/) 
+for a refresher on the APIs in general.
 
 Currently, the async operations include:
 
