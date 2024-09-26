@@ -156,6 +156,10 @@ module.exports = {
                 path: "/firefly-api/guides/api/image_generation/V3/",
               },
               {
+                title: "V3 async",
+                path: "/firefly-api/guides/api/image_generation/V3_Async/",
+              },
+              {
                 title: "V2",
                 path: "/firefly-api/guides/api/image_generation/V2/",
               },
