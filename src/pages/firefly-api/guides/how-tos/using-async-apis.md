@@ -31,11 +31,11 @@ for a refresher on the APIs in general.
 
 Currently, the async operations include:
 
-* [Generate Images](link)
-* [Expand Image](ditto)
-* [Fill Image](ditto)
-* [Generate Object Composite](ditto)
-* [Generate Similar Images](ditto)
+* [Generate Image Async](link)
+* [Expand Image Async](ditto)
+* [Fill Image Async](ditto)
+* [Generate Object Composite Async](ditto)
+* [Generate Similar Images Async](ditto)
 
 The workflow for each of these is the same:
 
