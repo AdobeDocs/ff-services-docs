@@ -16,7 +16,7 @@ keywords:
   - Firefly endpoint
 contributors:
   - https://github.com/cfjedimaster
-  - https://github.com/hollyschinsky
+  - https://github.com/sushiriot
 hideBreadcrumbNav: true
 ---
 
