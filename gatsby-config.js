@@ -162,7 +162,7 @@ module.exports = {
               {
                 title: "V2",
                 path: "/firefly-api/guides/api/image_generation/V2/",
-              },
+              }
             ]
           },          
           {
