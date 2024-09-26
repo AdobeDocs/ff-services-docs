@@ -174,6 +174,10 @@ module.exports = {
             path: "/firefly-api/guides/api/generate-object-composite/"
           },
           {
+            title: "Generate Object Composite",
+            path: "/firefly-api/guides/api/generate-object-composite-async/"
+          },
+          {
             title: "Expand Image",
             path: "/firefly-api/guides/api/generative_expand/V3/",
             pages: [
