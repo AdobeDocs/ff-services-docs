@@ -1,7 +1,9 @@
+
 ---
 title: Using the Firefly Asynchronous API
 description: A guide to generating images the asynchronous version of Firefly APIs.
 keywords:
+
   - Adobe Firefly Services
   - Firefly API
   - Firefly API Style Reference
@@ -17,6 +19,7 @@ keywords:
 contributors:
   - https://github.com/cfjedimaster
   - https://github.com/hollyschinsky
+
 hideBreadcrumbNav: true
 ---
 
@@ -26,23 +29,23 @@ With our launch of new asynchronous APIs, you can manage your Firefly requests a
 
 ## What's Available
 
-Our original Firefly APIs operated in a synchronous fashion. You could call the API with a given text prompt and generate an image, however Firefly platform delayed returning the response until it generated your assets.  If you're not already familiar with our standard, syncrhonous APIs, see the [Create your First Firefly API Implementation](https://developer.adobe.com/firefly-services/docs/firefly-api/guides/how-tos/create-your-first-ff-application/) 
+Our original Firefly APIs operated in a synchronous fashion. You could call the API with a given text prompt and generate an image, however Firefly platform delayed returning the response until it generated your assets. If you're not already familiar with our standard, synchronous APIs, see the [Create your First Firefly API Implementation](https://developer.adobe.com/firefly-services/docs/firefly-api/guides/how-tos/create-your-first-ff-application/) 
 for a refresher on the APIs in general.
 
-Currently, the async operations include:
+Currently, the asynchronous API includes:
 
-* [Generate Images](link)
-* [Expand Image](ditto)
-* [Fill Image](ditto)
-* [Generate Object Composite](ditto)
-* [Generate Similar Images](ditto)
+- [Generate Images](link)
+- [Expand Image](ditto)
+- [Fill Image](ditto)
+- [Generate Object Composite](ditto)
+- [Generate Similar Images](ditto)
 
 The workflow for each of these is the same:
 
-* You make your request, and send any required and optional arguments.
-* Firefly responds and sends you a job ID that includes a URL. Use this to check the status of your request or to cancel the job
-* Check on the job, with scheduled requests for a time reasonable time period, such as once every two minutes and wait for a success or failure message.
-* On success, Firefly send you a result with URLs where you can retrieve your assets.
+- You make your request, and send any required and optional arguments.
+- Firefly responds and sends you a job ID that includes a URL. Use this to check the status of your request or to cancel the job
+- Check on the job, with scheduled requests for a time reasonable time period, such as once every two minutes and wait for a success or failure message.
+- On success, Firefly sends you a result with URLs where you can retrieve your assets.
 
 ## Generating Images with the Async API
 
@@ -73,7 +76,7 @@ async function asyncTextToImage(prompt, contentClass='photo', id, token) {
 }
 ```
 
-This simple Node.js wrapper calls the endpoint and helps you to pass a prompt and content class. As mentioned earlier, you have a whole set of other options you can change as well. 
+This simple Node.js wrapper calls the endpoint and helps you to pass a prompt and content class. As mentioned earlier, you have a whole set of other options you can change as well.
 
 The important thing now though is the response. With the synchronous version, this method waited while Firefly generated your images. Now, on success, you get a rapid response that looks like this:
 
