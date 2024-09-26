@@ -1,4 +1,3 @@
-
 ---
 title: Using the Firefly Asynchronous API
 description: A guide to generating images the asynchronous version of Firefly APIs.
@@ -19,7 +18,6 @@ keywords:
 contributors:
   - https://github.com/cfjedimaster
   - https://github.com/hollyschinsky
-
 hideBreadcrumbNav: true
 ---
 
@@ -129,23 +127,23 @@ When Firefly successfully generates your image, the final status looks similar t
 
 ```json
 {
-        "status": "succeeded",
-        "jobId": "urn:ff:jobs:eso851211:86ffe2ea-d765-4bd3-b2fd-568ca8fc36ac",
-        "result": {
-                "size": {
-                        "width": 2048,
-                        "height": 2048
-                },
-                "outputs": [
-                        {
-                                "seed": 2142812600,
-                                "image": {
-                                        "url": "a long signed url"
-                                }
-                        }
-                ],
-                "contentClass": "art"
-        }
+		"status": "succeeded",
+		"jobId": "urn:ff:jobs:eso851211:86ffe2ea-d765-4bd3-b2fd-568ca8fc36ac",
+		"result": {
+				"size": {
+						"width": 2048,
+						"height": 2048
+				},
+				"outputs": [
+						{
+								"seed": 2142812600,
+								"image": {
+										"url": "a long signed url"
+								}
+						}
+				],
+				"contentClass": "art"
+		}
 }
 ```
 
