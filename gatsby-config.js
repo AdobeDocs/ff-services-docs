@@ -179,7 +179,7 @@ module.exports = {
               },
               {
                 title: "V3 async",
-                path: "/firefly-api/guides/api/generate-object-composite-async/V3/",
+                path: "/firefly-api/guides/api/generate-object-composite/V3_Async/",
               },
             ]
           },
