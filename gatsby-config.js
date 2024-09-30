@@ -203,9 +203,13 @@ module.exports = {
                 path: "/firefly-api/guides/api/generative_expand/V3/",
               },
               {
+                title: "V3",
+                path: "/firefly-api/guides/api/generative_expand/V3_Async/",
+              },
+              {
                 title: "V1",
                 path: "/firefly-api/guides/api/generative_expand/V1/",
-              },
+              }
             ]
           },
           {
