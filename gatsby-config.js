@@ -162,7 +162,7 @@ module.exports = {
               {
                 title: "V2",
                 path: "/firefly-api/guides/api/image_generation/V2/",
-              }
+              },
             ]
           },          
           {
@@ -176,7 +176,7 @@ module.exports = {
               {
                 title: "V3 async",
                 path: "/firefly-api/guides/api/generate-similar/V3_Async/",
-              }
+              },
             ]
           },
           {
@@ -221,10 +221,14 @@ module.exports = {
                 path: "/firefly-api/guides/api/generative_fill/V3/",
               },
               {
+                title: "V3 async",
+                path: "/firefly-api/guides/api/generative_fill/V3_Async/",
+              },
+              {
                 title: "V1",
                 path: "/firefly-api/guides/api/generative_fill/V1/",
               },
-            ]
+            ],
           },          
           {
             title: "Upload",
