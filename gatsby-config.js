@@ -167,7 +167,17 @@ module.exports = {
           },          
           {
             title: "Generate Similar Images",
-            path: "/firefly-api/guides/api/generate-similar/"
+            path: "/firefly-api/guides/api/generate-similar/",
+            pages: [
+              {
+                title: "V3",
+                path: "/firefly-api/guides/api/generate-similar/V3/",
+              },
+              {
+                title: "V3 async",
+                path: "/firefly-api/guides/api/generate-similar/V3_Async/",
+              }
+            ]
           },
           {
             title: "Generate Object Composite",
@@ -180,7 +190,7 @@ module.exports = {
               {
                 title: "V3 async",
                 path: "/firefly-api/guides/api/generate-object-composite/V3_Async/",
-              },
+              }
             ]
           },
          
