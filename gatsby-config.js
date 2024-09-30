@@ -167,7 +167,7 @@ module.exports = {
           },          
           {
             title: "Generate Similar Images",
-            path: "/firefly-api/guides/api/generate-similar/",
+            path: "/firefly-api/guides/api/generate-similar/V3/",
             pages: [
               {
                 title: "V3",
