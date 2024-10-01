@@ -253,7 +253,7 @@ for(let output of jobResult.result.outputs) {
 
 ## Expanding Images with Async APIs
 
-The asynchronous API are even more powerful; in this next example, we take a source image, upload it, and then use the [Expand Image Asychronous API](link TBD) to resize it. Instead of doing one resize after another, we can kick off multiple jobs at once so we can execute this much more efficiently. Do note that there are many different ways to multiple asynchronous processes in code. This example takes a simpler approach and you can perform it many different ways. The good news is that *with* these asyncrhonous APIs, you can have richer, more complex handling.
+The asynchronous API are even more powerful; in this next example, we take a source image, upload it, and then use the [Expand Image Asychronous API](../api/generative_expand/V3_Async/) to resize it. Instead of doing one resize after another, we can kick off multiple jobs at once so we can execute this much more efficiently. Do note that there are many different ways to multiple asynchronous processes in code. This example takes a simpler approach and you can perform it many different ways. The good news is that *with* these asyncrhonous APIs, you can have richer, more complex handling.
 
 First, let's look at our wrapper function which uses a small subset of the possible options. In this case, our wrapper only needs the source and your desired size:
 
