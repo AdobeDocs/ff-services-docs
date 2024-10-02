@@ -26,7 +26,7 @@ With our launch of new asynchronous APIs, you can manage your Firefly requests a
 
 ## What's Available
 
-Our original Firefly APIs operated in a synchronous fashion. This meant that you could call the API with a given text prompt and generate an image, however Firefly platform delayed returning the response until it generated your assets.  If you're not already familiar with our standard, synchronous APIs, see the [Create your First Firefly API Implementation](https://developer.adobe.com/firefly-services/docs/firefly-api/guides/how-tos/create-your-first-ff-application/) 
+Our original Firefly APIs operated in a synchronous fashion. This meant that you could call the API with a given text prompt and generate an image, however Firefly platform delayed returning the response until it generated your assets. If you're not already familiar with our standard, synchronous APIs, see the [Create your First Firefly API Implementation](https://developer.adobe.com/firefly-services/docs/firefly-api/guides/how-tos/create-your-first-ff-application/) 
 for a refresher on the APIs in general.
 
 Currently, the async operations include:
@@ -47,7 +47,7 @@ The workflow for each of these is the same:
 
 ## Generating Images with the Async API
 
-Start with this example that uses the asynchronous version of the text to image endpoint, see [Generate Image Async API Reference](../api/image_generation/V3_Async/)  For now we won't show authentication which is the same as it is for synchronous calls. 
+Start with this example that uses the asynchronous version of the text to image endpoint, see [Generate Image Async API Reference](../api/image_generation/V3_Async/). For now we won't show authentication which is the same as it is for synchronous calls.
 
 In terms of required and optional arguments, you have the same options that you do with the synchronous endpoint. At minimum, you should send a text prompt; beyond that, you can send optional arguments to help Firefly create the final result. This includes the content class as well as structure and style options. In fact, the only real change to the code for your request beyond what you already do for synchronous requests is to sent it to a different endpoint:
 
@@ -76,7 +76,7 @@ async function asyncTextToImage(prompt, contentClass='photo', id, token) {
 }
 ```
 
-This simple `Node.js` wrapper calls the endpoint and helps you to pass a text prompt and a content class. As mentioned earlier, you have a whole set of other options you can change as well. 
+This simple `Node.js` wrapper calls the endpoint and helps you to pass a text prompt and a content class. As mentioned earlier, you have a whole set of other options you can change as well.
 
 The main difference now is the response. With the synchronous version, this method waited while Firefly generated your images. Now, on success, you get a rapid response that looks like this:
 
