@@ -26,8 +26,7 @@ With our launch of new asynchronous APIs, you can manage your Firefly requests a
 
 ## What's Available
 
-Our original Firefly APIs operated in a synchronous fashion. You could call the API with a given text prompt and generate an image, however Firefly platform delayed returning the response until it generated your assets.  If you're not already familiar with our standard, syncrhonous APIs, see the [Create your First Firefly API Implementation](https://developer.adobe.com/firefly-services/docs/firefly-api/guides/how-tos/create-your-first-ff-application/) 
-for a refresher on the APIs in general.
+Our original Firefly APIs operated in a synchronous fashion. This meant that you could call the API with a given text prompt and generate an image, however Firefly platform delayed returning the response until it generated your assets. If you're not already familiar with our standard, synchronous APIs, see the [Create your First Firefly API Implementation](https://developer.adobe.com/firefly-services/docs/firefly-api/guides/how-tos/create-your-first-ff-application/) for a refresher on the APIs in general.
 
 Currently, the async operations include:
 
@@ -39,14 +38,17 @@ Currently, the async operations include:
 
 The workflow for each of these is the same:
 
-* You make your request, and send any required and optional arguments.
-* Firefly responds and sends you a job ID that includes a URL. Use this to check the status of your request or to cancel the job
-* Check on the job, with scheduled requests for a time reasonable time period, such as once every two minutes and wait for a success or failure message.
-* On success, Firefly send you a result with URLs where you can retrieve your assets.
+* Make a request, and send any required and optional arguments.
+* Firefly responds and returns a job ID that includes a URL. Use the ID and URL to check the status of your request or to cancel the job.
+* Check on the job, with scheduled requests for a time reasonable time period. For example, check once every two minutes and wait for a success or failure message.
+* On success, Firefly sends you a result containing URLs.
+* Retrieve your assets from the URL.
 
 ## Generating Images with the Async API
 
-Start with this example that uses the asynchronous version of the text to image endpoint, see [Generate Image Async API Reference](link to prod doc)  For now we'll skip over authentication is the same. In terms of required and optional arguments, you have the same options as you do with the synchronous endpoint. At minimum, you need a prompt and you have many optional arguments to help Firefly create the final result. This includes the content class as well as structure and style options. In fact, the only real change to the code for your request will be the endpoint:
+Start with this example that uses the asynchronous version of the text to image endpoint, see [Generate Image Async API Reference](../api/image_generation/V3_Async/). For now we won't show authentication which is the same as it is for synchronous calls.
+
+In terms of required and optional arguments, you have the same options that you do with the synchronous endpoint. At minimum, you should send a text prompt; beyond that, you can send optional arguments to help Firefly create the final result. This includes the content class as well as structure and style options. In fact, the only real change to the code for your request beyond what you already do for synchronous requests is to sent it to a different endpoint:
 
 ```js
 let BASE = 'https://firefly-api-enterprise-stage.adobe.io/';
@@ -73,9 +75,9 @@ async function asyncTextToImage(prompt, contentClass='photo', id, token) {
 }
 ```
 
-This simple Node.js wrapper calls the endpoint and helps you to pass a prompt and content class. As mentioned earlier, you have a whole set of other options you can change as well. 
+This simple `Node.js` wrapper calls the endpoint and helps you to pass a text prompt and a content class. As mentioned earlier, you have a whole set of other options you can change as well.
 
-The important thing now though is the response. With the synchronous version, this method waited while Firefly generated your images. Now, on success, you get a rapid response that looks like this:
+The main difference now is the response. With the synchronous version, this method waited while Firefly generated your images. Now, on success, you get a rapid response that looks like this:
 
 ```json
 {
@@ -85,7 +87,7 @@ The important thing now though is the response. With the synchronous version, th
 }
 ```
 
-In your code, you can use `statusUrl` and `cancelUrl` to get the latest status of your request or cancel the request. If you want, you can also use `jobId` for logging. Here's an example function that repeatedly poll a `statusUrl`:
+In your code, you can use `statusUrl` and `cancelUrl` to get the latest status of your request or to cancel the request. If you want, you can also use `jobId` for logging. Here's an example function that repeatedly polls `statusUrl` to see when Firefly completes the job:
 
 ```js
 async function pollJob(jobUrl, id, token) {
@@ -122,7 +124,7 @@ While your job is still in progress, you get a result that looks like this:
 }
 ```
 
-When Firefly successfully generates your image, the final status looks similar to a synchronous reponse, with one additional field called 'wrapped' in the status:
+After Firefly successfully generates your image, the final status looks similar to a synchronous response, except for one additional field called `wrapped` in the status:
 
 ```json
 {
@@ -146,7 +148,7 @@ When Firefly successfully generates your image, the final status looks similar t
 }
 ```
 
-Altogether, here's a complete script that takes a static text prompt, creates the job, and checks the status. When Firefly completes generating the image, this script saves the result to the file system. As a reminder, any utility functions below suhc as the one handling authentication have not been changed, and your code could implement this differently.
+Altogether, here's a complete script that takes a static text prompt, creates a request to Firefly, and checks the status of this request. When Firefly generates the image, this script saves the result to the file system. As a reminder, any utility functions below such as the one handling authentication are the same as when you make synchronous calls, and your code could implement this authentication differently.
 
 ```js
 import fs from 'fs';
@@ -253,9 +255,9 @@ for(let output of jobResult.result.outputs) {
 
 ## Expanding Images with Async APIs
 
-The asynchronous API are even more powerful; in this next example, we take a source image, upload it, and then use the [Expand Image Asychronous API](../api/generative_expand/V3_Async/) to resize it. Instead of doing one resize after another, we can kick off multiple jobs at once so we can execute this much more efficiently. Do note that there are many different ways to multiple asynchronous processes in code. This example takes a simpler approach and you can perform it many different ways. The good news is that *with* these asyncrhonous APIs, you can have richer, more complex handling.
+The asynchronous API are even more powerful; in this next example, we take a source image, upload it, and then use the [Expand Image Asynchronous API](../api/generative_expand/V3_Async/) to resize it. Instead of doing one resize after another, we can kick off multiple jobs at once so we can resize am image much more efficiently. Do note that there are many different ways to multiple asynchronous processes in code. This example takes a simpler approach and you can perform it many different ways. The good news is that *with* these asynchronous APIs, you can have richer, more complex handling.
 
-First, let's look at our wrapper function which uses a small subset of the possible options. In this case, our wrapper only needs the source and your desired size:
+First, let's look at our wrapper function which uses a small subset of available parameters. In this case, our wrapper only needs the source image and your desired size:
 
 ```js
 async function asyncExpandImage(source, size, id, token) {
@@ -287,7 +289,7 @@ async function asyncExpandImage(source, size, id, token) {
 }
 ```
 
-Now let's look at the code that makes uses this. We begin by authenticating and uploading a source image:
+Now let's look at the code that uses this. We begin by authenticating and uploading a source image:
 
 ```js
 let token = await getAccessToken(CLIENT_ID, CLIENT_SECRET);
@@ -312,9 +314,9 @@ for(let size of sizes) {
 let jobs = await Promise.all(expandJobs);
 ```
 
-Typically you should have additional error checking in place. At this point, all three jobs for each of three sizes have begun.
+Typically you should have additional error checking in place. At this point, all three jobs for each of the three sizes have begun.
 
-Next we set up our polls and wait for them to complete:
+Next we set up our polling and wait for them to complete:
 
 ```js
 let expandResults = [];
