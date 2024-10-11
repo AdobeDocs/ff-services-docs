@@ -19,9 +19,9 @@
   "paths": {
     "/v3/images/fill": {
         "post": {
-            "summary": "Fill Image - Model 3 (preview)",
+            "summary": "Fill Image - Model 3",
             "operationId": "fillImage",
-            "description": "Fill the masked area of an image with an optional prompt.",
+            "description": "Fill the masked area of an image based on images from an optional prompt.",
             "requestBody": {
               "content": {
                 "application/json": {
