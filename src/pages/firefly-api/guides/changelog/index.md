@@ -35,20 +35,20 @@ hideBreadcrumbNav: true
 
 ### API Services Update: General Availability
 
-We are excited to announce that the following APIs are now generally available and no longer in preview:
-
-- [Generate Similar Images](../api/generate-similar/)
-- [Generate Images](../api/image_generation/V3/)
-
-## July 23, 2024
-
-### API Services Update: General Availability
-
 We are excited to announce that the following APIs are now generally available and no longer only in preview:
 
 - [Generate Object Composite ](../api/generate-object-composite/V3/)
 - [Expand Image](../api/image_generation/V3/)
 - [Fill Image](../api/generative_fill/V3/)
+
+## July 23, 2024
+
+### API Services Update: General Availability
+
+We are excited to announce that the following APIs are now generally available and no longer in preview:
+
+- [Generate Similar Images](../api/generate-similar/)
+- [Generate Images](../api/image_generation/V3/)
 
 ## June 18, 2024
 
