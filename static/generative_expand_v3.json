@@ -19,7 +19,7 @@
   "paths": {
     "/v3/images/expand": {
         "post": {
-            "summary": "Expand Image - Model 3 (preview)",
+            "summary": "Expand Image - Model 3",
             "operationId": "expandImage",
             "description": "Change the aspect ratio or size of an image and expand its contents with or without a text prompt.",
             "requestBody": {

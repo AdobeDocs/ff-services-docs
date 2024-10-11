@@ -19,9 +19,9 @@
   "paths": {
     "/v3/images/generate-object-composite": {
         "post": {
-            "summary": "Generate Object Composite - Model 3 (preview)",
+            "summary": "Generate Object Composite - Model 3",
             "operationId": "generateObjectComposite",
-            "description": "Upload an image(with or without mask), such as a product photo, and utilize a text prompt to generate a seamlessly composited scene featuring the product.",
+            "description": "Upload an image with or without mask, such as a product photo, and utilize a text prompt to generate a seamlessly composited scene featuring the product.",
             "requestBody": {
               "content": {
                 "application/json": {
