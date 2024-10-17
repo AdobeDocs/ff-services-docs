@@ -36,7 +36,7 @@ hideBreadcrumbNav: true
 
 # Rate Limits
 
-To ensure our customers enjoy equitable peak performance with the Adobe Firefly API, Adobe places limits on the volume, frequency, and concurrency of API calls, and monitors your API usage to proactively contact you and resolve any risks to API performance. 
+To ensure our customers enjoy peak performance with the Adobe Firefly API, Adobe places limits on the volume, frequency, and concurrency of API calls, and monitors your API usage to proactively contact you and resolve any risks to API performance. 
 
 ## Overview
 
