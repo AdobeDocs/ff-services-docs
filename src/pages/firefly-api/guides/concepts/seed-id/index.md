@@ -44,6 +44,6 @@ Seed IDs are the secret sauce to generating images with similar styles. For inst
 
 ## Optional Usage and Requirements
 
-While using seed IDs in API requests is optional, providing a seed for each expected output is essential. For instance, if you intend to generate four images, you must provide an array containing four distinct seeds.
+When you use seed IDs in API requests is optional, providing a seed for each expected output is essential. For instance, if you intend to generate four images, you must provide an array containing four distinct seeds.
 
 Seed IDs in Firefly services API are strategic assets. They empower users to steer the image generation process according to their preferences. Whether you are exploring variations of a favourite style or ensuring consistency across outputs, the strategic use of seed IDs can significantly enhance your experience and the quality of the content you generate.
