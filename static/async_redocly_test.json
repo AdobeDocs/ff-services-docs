@@ -1141,8 +1141,6 @@
         "securitySchemes": {
             "Authorization": {
                 "bearerFormat": "JWT",
-                "in": "header",
-                "name": "Authorization",
                 "scheme": "bearer",
                 "type": "http"
             },
@@ -1311,9 +1309,6 @@
                             "Link": {
                                 "description": "Links to check job status & cancel job",
                                 "schema": {
-                                    "examples": [
-                                        "<https://{subdomain}.adobe.io/v3/status/{jobId}>; rel=\"status\", <https://{subdomain}.adobe.io/v3/cancel/{jobId}>; rel=\"cancel\""
-                                    ],
                                     "type": "string"
                                 }
                             }
@@ -1520,9 +1515,6 @@
                             "Link": {
                                 "description": "Links to check job status & cancel job",
                                 "schema": {
-                                    "examples": [
-                                        "<https://{subdomain}.adobe.io/v3/status/{jobId}>; rel=\"status\", <https://{subdomain}.adobe.io/v3/cancel/{jobId}>; rel=\"cancel\""
-                                    ],
                                     "type": "string"
                                 }
                             }
@@ -1729,9 +1721,6 @@
                             "Link": {
                                 "description": "Links to check job status & cancel job",
                                 "schema": {
-                                    "examples": [
-                                        "<https://{subdomain}.adobe.io/v3/status/{jobId}>; rel=\"status\", <https://{subdomain}.adobe.io/v3/cancel/{jobId}>; rel=\"cancel\""
-                                    ],
                                     "type": "string"
                                 }
                             }
@@ -1938,9 +1927,6 @@
                             "Link": {
                                 "description": "Links to check job status & cancel job",
                                 "schema": {
-                                    "examples": [
-                                        "<https://{subdomain}.adobe.io/v3/status/{jobId}>; rel=\"status\", <https://{subdomain}.adobe.io/v3/cancel/{jobId}>; rel=\"cancel\""
-                                    ],
                                     "type": "string"
                                 }
                             }
@@ -2147,9 +2133,6 @@
                             "Link": {
                                 "description": "Links to check job status & cancel job",
                                 "schema": {
-                                    "examples": [
-                                        "<https://{subdomain}.adobe.io/v3/status/{jobId}>; rel=\"status\", <https://{subdomain}.adobe.io/v3/cancel/{jobId}>; rel=\"cancel\""
-                                    ],
                                     "type": "string"
                                 }
                             }
@@ -2422,9 +2405,6 @@
                             "Link": {
                                 "description": "Links to check job status & cancel job",
                                 "schema": {
-                                    "examples": [
-                                        "<https://{subdomain}.adobe.io/v3/status/{jobId}>; rel=\"status\", <https://{subdomain}.adobe.io/v3/cancel/{jobId}>; rel=\"cancel\""
-                                    ],
                                     "type": "string"
                                 }
                             }
@@ -2469,14 +2449,6 @@
         }
     ],
     "servers": [
-        {
-            "description": "Local development endpoint",
-            "url": "http://localhost:8000"
-        },
-        {
-            "description": "Documentation local endpoint",
-            "url": "http://localhost:8100"
-        },
         {
             "description": "Production endpoint",
             "url": "https://firefly-api.adobe.io"
