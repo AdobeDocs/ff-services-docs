@@ -389,17 +389,18 @@
         "GenerateObjectCompositeResponseAsync3": {
           "properties": {
             "jobId": {
+              "type": "integer",
               "title": "Unique identifier for your job",
               "description": "Unique identifier for your job."
             },
             "statusUrl": {
-              "type": "array",
+              "type": "string",
               "minItems": 1,
               "title": "Check the job status",
               "description": "Check the job status."
             },
             "cancelUrl": {
-              "type": "array",
+              "type": "string",
               "minItems": 1,
               "title": "Cancel the job",
               "description": "Cancel the job at this URL."
