@@ -21,7 +21,7 @@
       "post": {
           "summary": "Generate Object Composite - Model 3 Async",
           "operationId": "generateObjectComposite",
-          "description": "Upload an image with or without mask, such as a product photo, and utilize a text prompt to generate a seamlessly composited scene featuring the product. Returns a JSON response containing a URL where you can poll the status of the request and a URL where you can cancel the job.",
+          "description": "Upload an image with or without mask, such as a product photo, and utilize a text prompt to generate a seamlessly composited scene featuring the product. Returns a JSON response containing a job ID, a URL where you can poll the status of the request and a URL where you can cancel the job.",
           "requestBody": {
             "content": {
               "application/json": {
