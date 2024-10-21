@@ -21,7 +21,7 @@
       "post": {
         "summary": "Upload",
         "description": "Upload source image or mask for Image-to-Image operations, such as fill, expand. This api returns an identifier that is used to refer to uploaded content.",
-        "operationId": "storageImageV2",
+        "operationId": "storageImage",
         "requestBody": {
           "content": {
             "image/jpeg": {
