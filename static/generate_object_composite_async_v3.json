@@ -389,31 +389,20 @@
         "GenerateObjectCompositeResponseAsync3": {
           "properties": {
             "jobId": {
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/Size"
-                }
-              ],
               "title": "Unique identifier for your job",
               "description": "Unique identifier for your job."
             },
             "statusUrl": {
-              "items": {
-                "$ref": "#/components/schemas/OutputImage"
-              },
               "type": "array",
               "minItems": 1,
               "title": "Check the job status",
               "description": "Check the job status."
             },
             "cancelUrl": {
-              "items": {
-                "$ref": "#/components/schemas/OutputImage"
-              },
               "type": "array",
               "minItems": 1,
               "title": "Cancel the job",
-              "description": "Cancel the job."
+              "description": "Cancel the job at this URL."
             }
           },
           "type": "object",
