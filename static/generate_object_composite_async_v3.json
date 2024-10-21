@@ -38,7 +38,7 @@
               "content": {
                 "application/json": {
                   "schema": {
-                    "$ref": "#/components/schemas/GenerateObjectCompositeResponse"
+                    "$ref": "#/components/schemas/GenerateObjectCompositeResponseAsync3"
                   }
                 }
               }
@@ -386,7 +386,7 @@
           ],
           "title": "Generate object composite from prompt request"
         },
-        "GenerateObjectCompositeResponse": {
+        "GenerateObjectCompositeResponseAsync3": {
           "properties": {
             "size": {
               "allOf": [
@@ -405,15 +405,6 @@
               "minItems": 1,
               "title": "The list of images",
               "description": "Each image will have a storage item."
-            },
-            "contentClass": {
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/ContentClass"
-                }
-              ],
-              "title": "The detected content class",
-              "description": "Will be same as input, if input was specified"
             }
           },
           "type": "object",
