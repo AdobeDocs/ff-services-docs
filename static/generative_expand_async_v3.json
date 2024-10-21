@@ -19,7 +19,7 @@
 "paths": {
   "/v3/images/expand": {
       "post": {
-          "summary": "Expand Image - Model 3",
+          "summary": "Expand Image - Model 3 Async",
           "operationId": "expandImage",
           "description": "Change the aspect ratio or size of an image and expand its contents with or without a text prompt. Returns a JSON response containing a URL where you can poll the status of the request and a URL where you can cancel the job.",
           "requestBody": {
