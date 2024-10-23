@@ -238,10 +238,6 @@ module.exports = {
                 title: "V2",
                 path: "/firefly-api/guides/api/upload_image/V2/",
               },
-              {
-                title: "V3 async",
-                path: "/firefly-api/guides/api/upload_image/V3_Async/",
-              },
             ],
           },
         ]
