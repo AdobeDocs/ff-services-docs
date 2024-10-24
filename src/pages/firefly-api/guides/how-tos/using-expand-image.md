@@ -246,9 +246,9 @@ async function getAccessToken(id, secret) {
 	params.append('grant_type', 'client_credentials');
 	params.append('client_id', id);
 	params.append('client_secret', secret);
-	params.append('scope', 'openid,AdobeID,firefly_enterprise,firefly_api,ff_apis');
+	params.append('scope', 'openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis');
 	
-	let resp = await fetch('https://ims-na1-stg1.adobelogin.com/ims/token/v3', 
+	let resp = await fetch('https://ims-na1.adobelogin.com/ims/token/v3', 
 		{ 
 			method: 'POST', 
 			body: params
@@ -320,19 +320,19 @@ async function genExpand(imageId, width, height, id, token, prompt, alignment) {
 
 let token = await getAccessToken(CLIENT_ID, CLIENT_SECRET);
 
-let upload = await uploadImage('./gen-expand-source.jpg', 'image/jpeg', CLIENT_ID, token);
+let upload = await uploadImage('./gen-expand-source.jpg', 'image/webp', CLIENT_ID, token);
 let sourceImage = upload.images[0].id;
 
 let result = await genExpand(sourceImage, 2048, 2048, CLIENT_ID, token);
-let fileName = `./output/gen-expand.jpg`;
+let fileName = `./gen-expand.jpg`;
 await downloadFile(result.outputs[0].image.url, fileName);
 
 result = await genExpand(sourceImage, 2048, 2048, CLIENT_ID, token, "The sun is rising in the background and trees are visible.");
-fileName = `./output/gen-expand-prompt.jpg`;
+fileName = `./gen-expand-prompt.jpg`;
 await downloadFile(result.outputs[0].image.url, fileName);
 
 result = await genExpand(sourceImage, 2048, 2048, CLIENT_ID, token, "The sun is rising in the background and trees are visible.", { horizontal:"left", vertical:"bottom" });
-fileName = `./output/gen-expand-prompt-placement.jpg`;
+fileName = `./gen-expand-prompt-placement.jpg`;
 await downloadFile(result.outputs[0].image.url, fileName);
 ```
 
