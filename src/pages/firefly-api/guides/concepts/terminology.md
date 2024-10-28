@@ -37,7 +37,7 @@ Instruct the model that it should NOT include certain elements in its generated 
 
 With image masking, you can “conceal and reveal", meaning you can hide portions of your image and display other portions when editing an image. An image mask is like putting a mask over the parts of a picture you want to protect or hide, while exposing the other areas for editing.
 
-When creating an image mask, use black or white depending on the results you're trying to achieve. A tip to remember is that black conceals and white reveals, thus you will want to use black on the parts you want to hide from being edited, and white on those that can be changed. For example, using the image and mask below will preserve the perfume bottle content outlined in black.
+When creating an image mask, use black or white depending on the results you're trying to achieve. A tip to remember is that black conceals and white reveals, thus you will want to use black on the parts you want to hide from being edited, and white on those that can be changed.
 
 ## Inverted mask
 
@@ -49,15 +49,11 @@ For these APIs, the model will process an image using its context. For example, 
 
 ## Reference Image
 
-A sample image provided to be used as a reference while generating image results (ie: such as the image parameter in the Generate Similar API, or the style  and structure.imageReference parameters in Generate Images).
+A sample image provided to be used as a reference while generating image results (ie: such as the image parameter in the Generate Similar API, or the style  and structure imageReference parameters in Generate Images).
 
 ## Content class
 
 Guides the overall image theme and styles that can be applied on top of each content type (ie: photo, art). If the parameter is not specified, it will be auto-detected.
-
-<InlineAlert slots="text" />
-
-The `contentClass` parameter is supported in the V3 Generate Image and Object Composite APIs.
 
 ## Style
 
@@ -66,12 +62,8 @@ Use the `style` parameter to generate an image based on a [preset value](https:/
 ## Parameter Options
 
 - `presets`: a list of style presets to be applied to generated content.
-- `source`: presigned url of image to use for style match.
+- `source`: presigned url or upload id of image to use for style match.
 - `strength`: indicates the intensity scale to apply the styles (`1..100`).
-
-<InlineAlert slots="text" />
-
-The `style` parameter is supported in the V3 Generate Images and Object Composite APIs.
 
 ## Structure
 
@@ -80,10 +72,6 @@ Firefly will detect the structure in the image supplied in the `structure` param
 <InlineAlert variant="help" slots="text" />
 
 Use the `strength` param to adjust the adherence to the structure reference image. `0` means no adherence. `100` means full adherence.
-
-<InlineAlert variant="info" slots="text" />
-
-The `structure` parameter is currently available in the v3 Generate Image API.
 
 Example:
 

@@ -64,6 +64,8 @@ The token endpoint also returns an expiry date and the token itself (when decode
 
 ## Client secrets
 
+### Rotating secrets
+
 You can rotate your client secret as needed, according to your company’s security posture/compliance. For some, this means rotating client secrets every few months. For others, this may mean rotating secrets every day.
 
 Rotating your secret is highly recommended in case of a leak or unauthorized access. Furthermore, rotating client secrets periodically is an industry-standard practice that strengthens your application security posture. Similar to access tokens, you can rotate your client secret in the Developer Console UI or using an API.

@@ -47,7 +47,7 @@ The source and mask images are below, and will be uploaded using [Firefly's Uplo
 
 ![Mask image](../images/gen-fill-mask.png)
 
-**Note:** The Photoshop API has a "Create Mask" endpoint that can be used to automate the creation of a mask, but at this time, the mask is created in a way that does not yet work with the Firefly Fill Image endpoint. The image mask must be inverted. That could either be done with a second Photoshop API, the ActionJSON endpoint -- or instead, use one ActionJSON call to do both. This is only a temporary limitation, however, and will be fixed soon.
+**Note:** Use the Photoshop API's [Create Mask](https://developer.adobe.com/firefly-services/docs/photoshop/api/photoshop_createMask/) endpoint to automate the creation of a mask.
 
 ## Calling the Fill Image API
 
@@ -122,10 +122,10 @@ Below is an example snippet of using the aforementioned utility functions with t
 ```js
 let token = await getAccessToken(CLIENT_ID, CLIENT_SECRET);
 
-let upload = await uploadImage('./gen-fill-mask.png', 'image/png', CLIENT_ID, token);
+let upload = await uploadImage('./gen-fill-mask.webp', 'image/webp', CLIENT_ID, token);
 let maskedImage = upload.images[0].id;
 
-upload = await uploadImage('./gen-fill-source.png', 'image/png', CLIENT_ID, token);
+upload = await uploadImage('./gen-fill-source.webp', 'image/webp', CLIENT_ID, token);
 let sourceImage = upload.images[0].id;
 ```
 
@@ -140,7 +140,7 @@ Now that you have everything needed for the call parameters, make a call to the 
 
 ```js
 let result = await genFill(maskedImage, sourceImage, 2048, 2048, "a beach at sunset", CLIENT_ID, token);
-let fileName = `./output/gen-fill.jpg`;
+let fileName = `./gen-fill.jpg`;
 await downloadFile(result.outputs[0].image.url, fileName);
 ```
 
@@ -180,7 +180,7 @@ async function getAccessToken(id, secret) {
 	params.append('client_secret', secret);
 	params.append('scope', 'openid,AdobeID,firefly_enterprise,firefly_api,ff_apis');
 	
-	let resp = await fetch('https://ims-na1-stg1.adobelogin.com/ims/token/v3', 
+	let resp = await fetch('https://ims-na1.adobelogin.com/ims/token/v3', 
 		{ 
 			method: 'POST', 
 			body: params
@@ -253,14 +253,14 @@ async function genFill(maskId, sourceId, width, height, prompt, id, token) {
 
 let token = await getAccessToken(CLIENT_ID, CLIENT_SECRET);
 
-let upload = await uploadImage('./gen-fill-mask.png', 'image/png', CLIENT_ID, token);
+let upload = await uploadImage('./gen-fill-mask.webp', 'image/webp', CLIENT_ID, token);
 let maskedImage = upload.images[0].id;
 
-upload = await uploadImage('./gen-fill-source.png', 'image/png', CLIENT_ID, token);
+upload = await uploadImage('./gen-fill-source.webp', 'image/webp', CLIENT_ID, token);
 let sourceImage = upload.images[0].id;
 
 let result = await genFill(maskedImage, sourceImage, 2048, 2048, "a beach at sunset", CLIENT_ID, token);
-let fileName = `./output/gen-fill.jpg`;
+let fileName = `./gen-fill.jpg`;
 await downloadFile(result.outputs[0].image.url, fileName);
 ```
 
