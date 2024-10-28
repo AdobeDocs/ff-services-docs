@@ -27,16 +27,15 @@ If you only choose to view one layer, such as the moon in the image, you see thi
 
 ![alt image](./layers_earth.png?raw=true "Original Image")
 
+In both the Photoshop app and the API, we have a concept of *target layer*. This is the layer you selected and any operations you perform will apply to this layer only. For example, if we select the astronaut in our original image, resizing it only applies to this layer and we get this result:
 
-
-
-
-
-
-
+![alt image](./astronaut_resize.png?raw=true "Original Image")
 
 ## Selections
 
+We use selections to define an area in an image that we want to enhance or adjust. A selection can include an object, a defined color range, and so on. As is the case with target layers, any operation you perform only applies to the selection itself:
+
+![alt image](./image_selection.png?raw=true "Original Image")
 
 ## Masks
 
