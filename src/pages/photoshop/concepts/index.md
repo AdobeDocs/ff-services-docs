@@ -29,7 +29,7 @@ In both the Photoshop app and the API, we have a concept of *target layer*. This
 
 ![alt image](./astronaut_resize.png?raw=true "Original Image")
 
-For more information about layers see, [Photoshop, layer basics](https://helpx.adobe.com/photoshop/using/layer-basics.html).
+In short, layers enable you to organize different parts of an image into manageable parts of a whole. You can isolate image adjustments such as resizing or filling with generative background by applying your change to an individual target layer. For more information about layers see, [Photoshop, layer basics](https://helpx.adobe.com/photoshop/using/layer-basics.html).
 
 ## Selections
 
@@ -37,7 +37,7 @@ We use selections to define an area in an image that we want to enhance or adjus
 
 ![alt image](./astronaut_selection.png?raw=true "Original Image")
 
-In the image above, the pink area is our selected area. To learn more, see [Photoshop, Getting started with selections](https://helpx.adobe.com/photoshop/using/making-selections.html).
+In the image above, the pink area is our selected area which we created using the Photoshop app. You can later adjust these areas programmatically such as inserting a generative background, or by expanding that part of the image. To learn more, see [Photoshop, Getting started with selections](https://helpx.adobe.com/photoshop/using/making-selections.html).
 
 ## Masks
 
