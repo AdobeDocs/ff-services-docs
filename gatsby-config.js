@@ -235,6 +235,10 @@ module.exports = {
         path: '/photoshop/general-workflow/'
       },
       {
+        title: 'Key Concepts',
+        path: '/photoshop/concepts/'
+      },
+      {
         title: 'Features',
         path: '/photoshop/features/'
       },
