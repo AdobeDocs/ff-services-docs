@@ -49,7 +49,7 @@ For these APIs, the model will process an image using its context. For example, 
 
 ## Reference Image
 
-A sample image provided to be used as a reference while generating image results (ie: such as the image parameter in the Generate Similar API, or the style  and structure imageReference parameters in Generate Images).
+Provide a sample image as a reference to generate image results. For example, the `image` parameter in the Generate Similar API, or the style and structure `imageReference` parameter in Generate Images.
 
 ## Content class
 
@@ -62,7 +62,7 @@ Use the `style` parameter to generate an image based on a [preset value](https:/
 ## Parameter Options
 
 - `presets`: a list of style presets to be applied to generated content.
-- `source`: presigned url or upload id of image to use for style match.
+- `source`: presigned url or upload id of an image to use to match style.
 - `strength`: indicates the intensity scale to apply the styles (`1..100`).
 
 ## Structure
