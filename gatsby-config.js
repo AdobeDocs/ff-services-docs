@@ -84,7 +84,7 @@ module.exports = {
         path: '/firefly-api/guides/concepts/model-3-overview.md/',
         pages: [
           {
-            title: 'Firefly Image 3 Model (preview)',
+            title: 'Firefly Image 3 Model',
             path: '/firefly-api/guides/concepts/model-3-overview.md/'
           },      
           {
