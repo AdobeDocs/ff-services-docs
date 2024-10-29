@@ -204,7 +204,7 @@ def generateImage(text, id, token):
 		"numVariations":4,
 	}
 
-	response = requests.post("https://firefly-api.adobe.io/v2/images/generate", json=data, headers = {
+	response = requests.post("https://firefly-api.adobe.io/v3/images/generate", json=data, headers = {
 		"X-API-Key":id, 
 		"Authorization":f"Bearer {token}",
 		"Content-Type":"application/json"
@@ -404,7 +404,7 @@ async function getAccessToken(id, secret) {
 	params.append('client_secret', secret);
 	params.append('scope', 'openid,AdobeID,firefly_enterprise,firefly_api,ff_apis');
 	
-	let resp = await fetch('https://ims-na1-stg1.adobelogin.com/ims/token/v3', 
+	let resp = await fetch('https://ims-na1.adobelogin.com/ims/token/v3', 
 		{ 
 			method: 'POST', 
 			body: params
@@ -466,7 +466,7 @@ CLIENT_ID = os.environ.get('CLIENT_ID')
 CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
 
 def getAccessToken(id, secret):
-	response = requests.post(f"https://ims-na1-stg1.adobelogin.com/ims/token/v3?client_id={id}&client_secret={secret}&grant_type=client_credentials&scope=openid,AdobeID,firefly_enterprise,firefly_api,ff_apis")
+	response = requests.post(f"https://ims-na1.adobelogin.com/ims/token/v3?client_id={id}&client_secret={secret}&grant_type=client_credentials&scope=openid,AdobeID,firefly_enterprise,firefly_api,ff_apis")
 	return response.json()["access_token"]
 
 token = getAccessToken(CLIENT_ID, CLIENT_SECRET)

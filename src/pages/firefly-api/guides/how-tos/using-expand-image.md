@@ -320,7 +320,7 @@ async function genExpand(imageId, width, height, id, token, prompt, alignment) {
 
 let token = await getAccessToken(CLIENT_ID, CLIENT_SECRET);
 
-let upload = await uploadImage('./gen-expand-source.jpg', 'image/webp', CLIENT_ID, token);
+let upload = await uploadImage('./gen-expand-source.webp', 'image/webp', CLIENT_ID, token);
 let sourceImage = upload.images[0].id;
 
 let result = await genExpand(sourceImage, 2048, 2048, CLIENT_ID, token);

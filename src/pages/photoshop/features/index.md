@@ -430,8 +430,6 @@ Example of Remove Background with a sample image.
 ## Create Mask
 This endpoint allows you create a greyscale mask png file that you can composite onto the original image (or any other). You can find a code sample [here.](../code-sample/index.md#generate-image-mask).<br />
 
-Note: If using this output for an input file in the Adobe Firefly API you must invert the mask which can be done using the Action JSON endpoint.
-
 Example of Image mask with a sample image.
 ![alt image](./imagecutout_mask_example.png?raw=true "Original Image")
 

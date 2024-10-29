@@ -60,7 +60,6 @@ Run the curl command below to see if your output file path is working
 There are a few limitations to the APIs you should be aware of ahead of time.  
 - Multi-part uploads and downloads are not yet supported.
 - All the endpoints only support a single file input.
-- Error handling is a work in progress. Sometimes you may not see the most helpful of messages.
 
 ## Retries
 For increased reliability and stability we have added a retry mechanism for all API calls, and have some recommendations on how to handle these:

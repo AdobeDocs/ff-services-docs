@@ -130,7 +130,7 @@ async function getAccessToken(id, secret) {
 	params.append('client_secret', secret);
 	params.append('scope', 'openid,AdobeID,firefly_enterprise,firefly_api,ff_apis');
 	
-	let resp = await fetch('https://ims-na1-stg1.adobelogin.com/ims/token/v3', 
+	let resp = await fetch('https://ims-na1.adobelogin.com/ims/token/v3', 
 		{ 
 			method: 'POST', 
 			body: params
@@ -169,7 +169,7 @@ async function downloadFile(url, filePath) {
 }
 ```
 
-Now, you'll see an examplf of a wrapper function for the [Generate Images API](../api/image_generation/V3/) call that optionally allows you to pass the id of an uploaded style reference image in the `uploadId` parameter:
+Now, you'll see an example of a wrapper function for the [Generate Images API](../api/image_generation/V3/) call that optionally allows you to pass the id of an uploaded style reference image in the `uploadId` parameter:
 
 ```js
 async function generateImage(prompt, id, token, styleReference) {
@@ -211,19 +211,19 @@ Finally, the demo code. It will authenticate, upload the style reference, and th
 ```js
 let token = await getAccessToken(CLIENT_ID, CLIENT_SECRET);
 
-let upload = await uploadImage('./source_image.jpg', 'image/jpeg', CLIENT_ID, token);
+let upload = await uploadImage('./styleRef.webp', 'image/webp', CLIENT_ID, token);
 let styleReference = upload.images[0].id;
 
 let prompt = 'A long-haired cat majestically riding a flying unicorn. The cat is wielding a rainbow shield and sword, pointing the swords tip outwards.';
 
 // First, no style reference
 let result = await generateImage(prompt, CLIENT_ID, token);
-let fileName = `./output/without_style_reference.jpg`;
+let fileName = `./without_style_reference.jpg`;
 await downloadFile(result.outputs[0].image.url, fileName);
 
 // Second, with a style reference
 result = await generateImage(prompt, CLIENT_ID, token, styleReference);
-fileName = `./output/with_style_reference.jpg`;
+fileName = `./with_style_reference.jpg`;
 await downloadFile(result.outputs[0].image.url, fileName);
 ```
 
@@ -342,7 +342,7 @@ async function getAccessToken(id, secret) {
 	params.append('client_secret', secret);
 	params.append('scope', 'openid,AdobeID,firefly_enterprise,firefly_api,ff_apis');
 	
-	let resp = await fetch('https://ims-na1-stg1.adobelogin.com/ims/token/v3', 
+	let resp = await fetch('https://ims-na1.adobelogin.com/ims/token/v3', 
 		{ 
 			method: 'POST', 
 			body: params
@@ -415,19 +415,19 @@ async function generateImage(prompt, id, token, structureReference) {
 
 let token = await getAccessToken(CLIENT_ID, CLIENT_SECRET);
 
-let upload = await uploadImage('./cat_writing_laptop.jpg', 'image/jpeg', CLIENT_ID, token);
+let upload = await uploadImage('./structureRef.webp', 'image/webp', CLIENT_ID, token);
 let structureReference = upload.images[0].id;
 
 let prompt = 'picture of a poodle with colorful fur looking majestic';
 
 // First, no structure reference
 let result = await generateImage(prompt, CLIENT_ID, token);
-let fileName = `./output/without_structure_reference.jpg`;
+let fileName = `./without_structure_reference.jpg`;
 await downloadFile(result.outputs[0].image.url, fileName);
 
 // Second, with a structure reference
 result = await generateImage(prompt, CLIENT_ID, token, structureReference);
-fileName = `./output/with_structure_reference.jpg`;
+fileName = `./with_structure_reference.jpg`;
 await downloadFile(result.outputs[0].image.url, fileName);
 ```
 

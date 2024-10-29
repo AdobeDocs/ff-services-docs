@@ -101,7 +101,7 @@ async function getAccessToken(id, secret) {
 	params.append('client_secret', secret);
 	params.append('scope', 'openid,AdobeID,firefly_enterprise,firefly_api,ff_apis');
 	
-	let resp = await fetch('https://ims-na1-stg1.adobelogin.com/ims/token/v3', 
+	let resp = await fetch('https://ims-na1.adobelogin.com/ims/token/v3', 
 		{ 
 			method: 'POST', 
 			body: params
@@ -137,17 +137,17 @@ Now, use the following code which runs three calls; one without specifying the `
 ```js
 // First, don't specify a content class at all
 let result = await generateImage(prompt, CLIENT_ID, token);
-let fileName = `./output/v3_noclass.jpg`;
+let fileName = `./v3_noclass.jpg`;
 await downloadFile(result.outputs[0].image.url, fileName);
   
 // Second, specify the "photo" content class
 result = await generateImage(prompt, CLIENT_ID, token, "photo");
-fileName = `./output/v3_photo.jpg`;
+fileName = `./v3_photo.jpg`;
 await downloadFile(result.outputs[0].image.url, fileName);
  
 // Third, pass in the "art" content class
 result = await generateImage(prompt, CLIENT_ID, token, "art");
-fileName = `./output/v3_art.jpg`;
+fileName = `./v3_art.jpg`;
 await downloadFile(result.outputs[0].image.url, fileName);
 ```
 
@@ -225,11 +225,11 @@ The method above simply adds the `presets` value to the call when it's specified
 
 ```js
 result = await generateImage(prompt, CLIENT_ID, token, ["golden"]);
-fileName = `./output/v3_golden.jpg`;
+fileName = `./v3_golden.jpg`;
 await downloadFile(result.outputs[0].image.url, fileName);
  
 result = await generateImage(prompt, CLIENT_ID, token, ["pastel_color"]);
-fileName = `./output/v3_pastel_color.jpg`;
+fileName = `./v3_pastel_color.jpg`;
 await downloadFile(result.outputs[0].image.url, fileName);
 ```
 
