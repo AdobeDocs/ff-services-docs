@@ -104,50 +104,51 @@ If you haven't already enabled developer mode in your Photoshop app, follow thes
 
 ### Create New actionJSON
 
-If you have developer mode enabled in Photoshop follow the instructions below. If you don't have developer mode enabled below please see the section below labeled How to enable developer mode. 
+If you have developer mode enabled in Photoshop follow the instructions below. If you don't have developer mode enabled below please see the previous section. 
 
-- Open Photoshop desktop application
-- Click on  "Plugins” from the top menu
-- Select “Development”
-- And then choose “Record Action Commands..."
-- Name your file and click on “Save”
-- You can now make edits to your document and all of your edits will be saved
+- Open the Photoshop app
+- Select `Settings | Plugins` 
+- Select `Development`
+- Select `Record Action Commands...`
+- Name your file and click `Save`. You can now make select actions in Photoshop such as resizing an image, adjusting hue and saturation and son on. Photoshop saves all of your actions in your new file.
 
-Once you are done recording your action:
+Once you are done recording your action, you can stop recording and save:
 
-- Click on  "Plugins” from the top menu
-- Select “Development”
-- Choose “Stop Action Recording"
+- Select `Settings | Plugins`
+- Select `Development`
+- Click `Stop Action Recording`
 
-The file will be saved to the directory you chose when you named your file.
+Photoshop app saves your actions to the directory you chose when you named your file.
 
-### Create new actionJSON using actions panel
+### Create actionJSON in Actions Panel
 
-- Open Photoshop
-- Click on "Open action panel”
-- Select “Create new Action”
-- Select your single action from action set
-- Click on copy as Javascript
-- Paste it in any text editor
-- Modify the file to trim out the actions (example is shown below in the code sample)
-- Use the action in your payload
+You can alternately create a new file in your Photoshop app's Action Panel:
 
-### Convert an existing Action (.atn) file into actionJSON
+- Go to `Windows | Actions`. The action panel opens.
+- Select `New Action` to create a new action. You can alternately click `+` in the panel.
+  ![alt image](./actions_panel_menu.png?raw=true "Original Image")
+- Select your action from action set
+- Select `Copy as Javascript`
+- Paste it in any text editor.
+- Modify the file to trim out the actions. An example is shown below in the code sample.
 
-- This endpoint will allow to convert an .atn file to actionJSON format. This is the simplest and easiest way to create an actionJSON file. 
+Now you can use the action in your Photoshop API payload
 
-### Convert an existing Action (.atn) file into actionJSON using Photoshop
+### Convert ATN files into actionJSON
 
-- Open Photoshop
-- Click on "Open action panel”
-- Select “Load action”
+This endpoint enables you to convert an .atn file to actionJSON format. This is the simplest and easiest way to create an actionJSON file. 
+
+### Convert ATN files into actionJSON with Photoshop
+
+- Go to `Windows | Actions`. The action panel opens.
+- Select `Load action`
 - Choose the action you would like to convert to actionJSON
-- Click on copy as Javascript
+- Click on `copy as Javascript`
 - Paste it in any text editor
-- Modify the file to trim out the actions obj blocks (example is shown below in the code sample)
-- Use the action in your payload
+- Modify the file to trim out the actions obj blocks An example is shown below in the code sample.
 
-A code sample of Action JSON when you copy as Javascript
+You can now use the action in your payload. Here is a code sample of Action JSON when you copy as Javascript from Photoshop:
+
 ```
 async function vignetteSelection() {
     let result;
@@ -194,11 +195,9 @@ Remove everything else from the javascript file and copy the array containing `_
 ```
 More details about actionJSON can be found [here](https://developer.adobe.com/photoshop/uxp/2022/ps_reference/media/batchplay/)
 
-
-
 ## Smart Object
 
-The Smart Object endpoint allows you to create and edit an embedded Smart Objects within a PSD. The Smart Object that's replaced will be positioned within the bounding box of the original image. Whether the new image is larger or smaller than the original, it will adjust to fit within the original bounding box while preserving its aspect ratio. To alter the bounds of the replaced image, you can specify bounds parameters in the API call.
+The Smart Object endpoint allows you to create and edit an embedded Smart Objects in a Photoshop file, or PSD file. The Smart Object that's replaced will be positioned within the bounding box of the original image. Whether the new image is larger or smaller than the original, it will adjust to fit within the original bounding box while preserving its aspect ratio. To alter the bounds of the replaced image, you can specify bounds parameters in the API call.
 
 ### Known Limitations
 
