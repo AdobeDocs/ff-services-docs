@@ -231,16 +231,16 @@ module.exports = {
       //   path: '/photoshop/getting-started/'
       // },
       {
-        title: 'General Workflow',
-        path: '/photoshop/general-workflow/'
-      },
-      {
         title: 'Key Concepts',
         path: '/photoshop/concepts/'
       },
       {
         title: 'Features',
         path: '/photoshop/features/'
+      },
+      {
+        title: 'General Workflow',
+        path: '/photoshop/general-workflow/'
       },
       {
         title: 'Code Samples',
