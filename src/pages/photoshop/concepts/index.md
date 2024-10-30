@@ -37,10 +37,25 @@ We use selections to define an area in an image that we want to enhance or adjus
 
 ![alt image](./astronaut_selection.png?raw=true "Original Image")
 
-In the image above, the pink area is our selected area which we created using the Photoshop app. You can later adjust these areas programmatically such as inserting a generative background, or by expanding that part of the image. To learn more, see [Photoshop, Getting started with selections](https://helpx.adobe.com/photoshop/using/making-selections.html).
+In the image above, the pink area is our selected area which we created using the Photoshop app. You can later adjust these areas programmatically such as inserting a background, or by expanding that part of the image. To learn more, see [Photoshop, Getting started with selections](https://helpx.adobe.com/photoshop/using/making-selections.html).
 
 ## Masks
 
-Masking enables you to hide portion of a layer and to reveal the layers below.
+Masking enables you to hide portion of a layer and to reveal the layers below. It is a nondestructive way to hide parts of an image or layer without erasing them. Masking is a great way to make image composites, modifying background colors, removing or cutting out objects, and targeting your image adjustments edits so they affect only certain areas, rather than the entire layer.
+
+For example, we have this images with two layers, with the earth and space in the background and the moon in the forefront:
+
+![alt image](./mask_background.png?raw=true "Original Image")
+
+On the top layer with the moon, we can select the area that we want to mask out:
+
+![alt image](./mask_outline.png?raw=true "Original Image")
+
+After we apply a mask, we see the earth and space background in the area that we masked:
+
+![alt image](./mask_applied.png?raw=true "Original Image")
+
+Similar to layers and selections, masks enable you to target parts of an image and perform adjustments. Unlike selections and layers, any enhancements apply to the mask itself, not the image being masked or the image exposed by the mask. With Photoshop API and image masking, you can perform sophisticated image adjustments without deleting or permanently altering your source images. To learn more about masks in Photoshop, see [Photoshop, Mask Layers](https://helpx.adobe.com/photoshop/using/masking-layers.html).
+
 
 
