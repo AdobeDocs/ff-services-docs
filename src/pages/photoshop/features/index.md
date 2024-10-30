@@ -80,13 +80,11 @@ Take a look at this tutorial of this endpoint to learn more. Alternately you can
 
 If you haven't already enabled developer mode in your Photoshop app, follow these steps:
 
-  - Open Photoshop
   - Select:
-    - Photoshop → Preferences → Plugins... (For Mac)
+    - `Photoshop → Preferences → Plugins...` (For Mac)
    Or
-    - Edit → Preferences → Plugins...(For Windows)
-  - Select Enable Developer Mode
-  ![alt image](./ps_developer_mode.png?raw=true "Original Image")
+    - `Edit → Preferences → Plugins...` (For Windows)
+  - Select `Enable Developer Mode`
   - Quit Photoshop
 
   Enable this as a hidden feature if you are using Photoshop 23.4 (July 2022) or earlier. Execute the command below:
