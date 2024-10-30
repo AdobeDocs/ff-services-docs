@@ -68,4 +68,6 @@ It's important to note that rate limits are imposed at the organization level, n
 
 You may encounter a HTTP 429 "Too Many Requests" error if your usage exceeds either the per-minute, or per day limit. We recommend using the 'retry-after' header to determine the number of seconds you should wait before trying again.
 
-We appreciate that these limits may not be ideal for certain use cases. Please contact us at firefly-professional-services-support@adobe.com, so that we can partner with you on setting the optimal thresholds for your account.
+We appreciate that these limits may not be ideal for certain use cases. Please contact your 
+account manager so that we can partner with you on setting the optimal thresholds for your 
+account.
