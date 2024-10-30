@@ -68,7 +68,7 @@ In this example take the input image and ATN file from the previous example and 
 ![alt image](./ps_action_json_example_bw.png?raw=true "Original Image")
 You can find a code sample [here](../code-sample/index.md#executing-an-actionjson)
 
-The actionJSON endpoint does support multiple inputs. If you would like to learn more about using multiple inputs with actionJSON, you can find an example [here.](../code-sample/index.md#executing-an-actionjson-with-multiple-inputs)
+The actionJSON endpoint does support multiple inputs. If you would like to learn more about using multiple inputs with actionJSON, you can find this: [Multiple Inputs ActionJSON Example](../code-sample/index.md#executing-an-actionjson-with-multiple-inputs)
 
 Take a look at this tutorial of this endpoint to learn more. Alternately you can read on in this section to walk through the process.
 
