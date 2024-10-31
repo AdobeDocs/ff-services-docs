@@ -25,15 +25,15 @@ If you separate an image into layers, you could see something like this:
 
 ![alt image](./decompose_layers.png?raw=true "Original Image")
 
-And you only choose to view one layer, such as the moon in the image, you see this:
+And you only choose to view one layer, such as the earth in the image, you see this:
 
 ![alt image](./layers_earth.png?raw=true "Original Image")
 
-In both the Photoshop app and the API, we have a concept of *target layer*. This is the layer you selected and any operations you perform will apply to this layer only. For example, if we select the astronaut in our original image, resizing it only applies to this layer and we get this result:
+In both the Photoshop API, we have a concept of *target layer*. This is the layer you selected and any operations you perform *only apply to this layer*. For example, if we select the astronaut in our original image, resizing it only applies to this layer and we get this result:
 
 ![alt image](./astronaut_resize.png?raw=true "Original Image")
 
-In short, layers enable you to organize different parts of an image into manageable parts of a whole. You can isolate image adjustments such as resizing or filling with generative background by applying your change to an individual target layer. For more information about layers see, [Photoshop, layer basics](https://helpx.adobe.com/photoshop/using/layer-basics.html).
+In short, layers that you define in the Photoshop app enable you to organize different parts of an image into manageable parts of a whole. You can isolate image adjustments such as resizing or filling with generative background by applying your change to only a specified individual target layer. For more information about layers see, [Photoshop, layer basics](https://helpx.adobe.com/photoshop/using/layer-basics.html).
 
 ## Selections
 
@@ -41,7 +41,7 @@ In the Photoshop app, we use selections to define an area in an image that we wa
 
 ![alt image](./astronaut_selection.png?raw=true "Original Image")
 
-In the image above, the pink area is our selected area which we created using the Photoshop app. After you create a selection in the Photoshop app, you can later adjust these areas programmatically such as inserting a background, or by expanding that part of the image. To learn more, see [Photoshop, Getting started with selections](https://helpx.adobe.com/photoshop/using/making-selections.html).
+In the image above, the pink area is our selected area which we created using the Photoshop app. After you create a selection in the Photoshop app, you can later adjust these areas with Photoshop API such as inserting a background, or by expanding that part of the image. To learn more, see [Photoshop, Getting started with selections](https://helpx.adobe.com/photoshop/using/making-selections.html).
 
 ## Masks
 
