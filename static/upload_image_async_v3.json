@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "version": "V2",
+    "version": "V3",
     "title": "Firefly API",
     "description": "REST API for Adobe Firefly for enterprise usage"
   },
@@ -19,8 +19,8 @@
   "paths": {
     "/v2/storage/image": {
       "post": {
-        "summary": "Upload",
-        "description": "Upload source image or mask for Image-to-Image operations, such as fill, expand. This api returns an identifier that is used to refer to uploaded content.",
+        "summary": "Upload  - Model 3 Async",
+        "description": "Upload source image or mask for operations, such as fill, expand. Immediately returns a JSON response containing a URL where you can poll the status of the request and a URL where you can cancel the job. Ultimately returns an identifier that is used to refer to uploaded content.",
         "operationId": "storageImage",
         "requestBody": {
           "content": {
@@ -652,3 +652,4 @@
     }
   }
 }
+

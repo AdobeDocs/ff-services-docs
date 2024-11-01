@@ -1,770 +1,22 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "contact": {
-      "email": "rosca@adobe.com",
-      "name": "Adobe Firefly",
-      "url": "https://www.adobe.com"
-    },
-    "description": "Inference APIs description",
-    "license": {
-      "name": "Adobe License",
-      "url": "https://www.adobe.com"
-    },
-    "summary": "Inference APIs summary",
-    "termsOfService": "https://www.adobe.com/legal/terms.html",
-    "title": "Firefly APIs",
-    "version": "1.0.0"
-  },
-  "servers": [
+    "version": "V3",
+    "title": "Firefly API",
+    "description": "REST API for Adobe Firefly for enterprise usage"
+},
+"servers": [
     {
-      "description": "Production endpoint",
-      "url": "https://firefly-api.adobe.io"
-    },
-    {
-      "description": "Stage endpoint",
-      "url": "https://firefly-api-enterprise-stage.adobe.io"
+        "url": "https://firefly-api.adobe.io"
     }
-  ],
-  "security": [
-    {
-      "Authorization": [],
-      "X-Api-Key": []
-    }
-  ],
-  "tags": [
-    {
-      "description": "APIs exposed in the V3 family of Firefly APIs",
-      "name": "v3"
-    }
-  ],
+],
+"security": [
+  {
+      "X-Api-Key": [],
+      "AccessToken": []
+  }
+],
   "paths": {
-    "/v3/cancel/{jobId}": {
-      "put": {
-        "operationId": "cancelJobV3",
-        "parameters": [
-          {
-            "description": "Unique identifier for the submitted job",
-            "in": "path",
-            "name": "jobId",
-            "required": true,
-            "schema": {
-              "description": "Unique identifier for the submitted job",
-              "title": "title job urn id",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            },
-            "description": "Successful Response"
-          },
-          "404": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "unknown_job_id": {
-                    "value": {
-                      "error_code": "unknown_job_id",
-                      "message": "The job id is unknown."
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/AsyncApiErrorV3"
-                }
-              }
-            },
-            "description": "Not Found"
-          },
-          "409": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "job_already_canceled": {
-                    "value": {
-                      "error_code": "job_already_canceled",
-                      "message": "The job was already canceled."
-                    }
-                  },
-                  "job_cancel_failed": {
-                    "value": {
-                      "error_code": "job_cancel_failed",
-                      "message": "The job failed to cancel."
-                    }
-                  },
-                  "job_completed": {
-                    "value": {
-                      "error_code": "job_completed",
-                      "message": "The job was already completed."
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/AsyncApiErrorV3"
-                }
-              }
-            },
-            "description": "Conflict"
-          },
-          "410": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "job_timeout": {
-                    "value": {
-                      "error_code": "job_timeout",
-                      "message": "The job timed out."
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/AsyncApiErrorV3"
-                }
-              }
-            },
-            "description": "Gone"
-          },
-          "422": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            },
-            "description": "Validation Error"
-          }
-        },
-        "summary": " Cancel Job",
-        "tags": [
-          "async"
-        ]
-      }
-    },
-    "/v3/images/expand-async": {
-      "post": {
-        "operationId": "expandImagesV3Async",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ExpandImageRequestV3"
-              }
-            },
-            "multipart/form-data": {
-              "schema": {
-                "$ref": "#/components/schemas/Body_expandImagesV3Async"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "202": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AsyncAcceptResponseV3"
-                }
-              }
-            },
-            "description": "Successful Response",
-            "headers": {
-              "Link": {
-                "description": "Links to check job status & cancel job",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "400": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "bad_request": {
-                    "value": {
-                      "error_code": "bad_request"
-                    }
-                  },
-                  "empty_input_body": {
-                    "value": {
-                      "error_code": "empty_input_body"
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Bad Request"
-          },
-          "403": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "access_error": {
-                    "value": {
-                      "error_code": "access_error"
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Forbidden",
-            "headers": {
-              "x-access-error": {
-                "description": "Indicates reason for unauthorized access. Possible values are:\n- quota_exhausted\n- user_non_entitled\n- user_profile_denied\n- invalid_ims_scope",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "408": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "timeout_error": {
-                    "value": {
-                      "error_code": "timeout_error"
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Request Timeout"
-          },
-          "415": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "invalid_content_type": {
-                    "value": {
-                      "error_code": "invalid_content_type"
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Unsupported Media Type"
-          },
-          "422": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "validation_error": {
-                    "value": {
-                      "error_code": "validation_error",
-                      "validation_errors": [
-                        {
-                          "ctx": {
-                            "enum_values": [
-                              "photo",
-                              "art"
-                            ]
-                          },
-                          "loc": [
-                            "body",
-                            "contentClass"
-                          ],
-                          "msg": "value is not a valid enumeration member; permitted: 'photo', 'art'",
-                          "type": "type_error.enum"
-                        }
-                      ]
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Unprocessable Entity"
-          },
-          "429": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "rate_limited": {
-                    "value": {
-                      "error_code": "rate_limited"
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Too Many Requests",
-            "headers": {
-              "retry-after": {
-                "description": "Indicates the date after which the client should retry the request.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "x-access-rate-limit-level": {
-                "description": "Indicates the level at which the rate limit was applied. Possible values are:\n- org: The rate limit was applied to the organisation\n- account: The rate limit was applied to the organization's tech account",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "500": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "runtime_error": {
-                    "value": {
-                      "error_code": "runtime_error"
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Internal Server Error"
-          }
-        },
-        "summary": "/V3/Images/Expand-Async",
-        "tags": [
-          "v3"
-        ]
-      }
-    },
-    "/v3/images/fill-async": {
-      "post": {
-        "operationId": "fillImagesV3Async",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FillImageRequestV3"
-              }
-            },
-            "multipart/form-data": {
-              "schema": {
-                "$ref": "#/components/schemas/Body_fillImagesV3Async"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "202": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AsyncAcceptResponseV3"
-                }
-              }
-            },
-            "description": "Successful Response",
-            "headers": {
-              "Link": {
-                "description": "Links to check job status & cancel job",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "400": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "bad_request": {
-                    "value": {
-                      "error_code": "bad_request"
-                    }
-                  },
-                  "empty_input_body": {
-                    "value": {
-                      "error_code": "empty_input_body"
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Bad Request"
-          },
-          "403": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "access_error": {
-                    "value": {
-                      "error_code": "access_error"
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Forbidden",
-            "headers": {
-              "x-access-error": {
-                "description": "Indicates reason for unauthorized access. Possible values are:\n- quota_exhausted\n- user_non_entitled\n- user_profile_denied\n- invalid_ims_scope",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "408": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "timeout_error": {
-                    "value": {
-                      "error_code": "timeout_error"
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Request Timeout"
-          },
-          "415": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "invalid_content_type": {
-                    "value": {
-                      "error_code": "invalid_content_type"
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Unsupported Media Type"
-          },
-          "422": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "validation_error": {
-                    "value": {
-                      "error_code": "validation_error",
-                      "validation_errors": [
-                        {
-                          "ctx": {
-                            "enum_values": [
-                              "photo",
-                              "art"
-                            ]
-                          },
-                          "loc": [
-                            "body",
-                            "contentClass"
-                          ],
-                          "msg": "value is not a valid enumeration member; permitted: 'photo', 'art'",
-                          "type": "type_error.enum"
-                        }
-                      ]
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Unprocessable Entity"
-          },
-          "429": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "rate_limited": {
-                    "value": {
-                      "error_code": "rate_limited"
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Too Many Requests",
-            "headers": {
-              "retry-after": {
-                "description": "Indicates the date after which the client should retry the request.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "x-access-rate-limit-level": {
-                "description": "Indicates the level at which the rate limit was applied. Possible values are:\n- org: The rate limit was applied to the organisation\n- account: The rate limit was applied to the organization's tech account",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "500": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "runtime_error": {
-                    "value": {
-                      "error_code": "runtime_error"
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Internal Server Error"
-          }
-        },
-        "summary": "/V3/Images/Fill-Async",
-        "tags": [
-          "v3"
-        ]
-      }
-    },
-    "/v3/images/generate-async": {
-      "post": {
-        "operationId": "generateImagesV3Async",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/GenerateImagesRequestV3"
-              }
-            },
-            "multipart/form-data": {
-              "schema": {
-                "$ref": "#/components/schemas/Body_generateImagesV3Async"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "202": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AsyncAcceptResponseV3"
-                }
-              }
-            },
-            "description": "Successful Response",
-            "headers": {
-              "Link": {
-                "description": "Links to check job status & cancel job",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "400": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "bad_request": {
-                    "value": {
-                      "error_code": "bad_request"
-                    }
-                  },
-                  "empty_input_body": {
-                    "value": {
-                      "error_code": "empty_input_body"
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Bad Request"
-          },
-          "403": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "access_error": {
-                    "value": {
-                      "error_code": "access_error"
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Forbidden",
-            "headers": {
-              "x-access-error": {
-                "description": "Indicates reason for unauthorized access. Possible values are:\n- quota_exhausted\n- user_non_entitled\n- user_profile_denied\n- invalid_ims_scope",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "408": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "timeout_error": {
-                    "value": {
-                      "error_code": "timeout_error"
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Request Timeout"
-          },
-          "415": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "invalid_content_type": {
-                    "value": {
-                      "error_code": "invalid_content_type"
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Unsupported Media Type"
-          },
-          "422": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "validation_error": {
-                    "value": {
-                      "error_code": "validation_error",
-                      "validation_errors": [
-                        {
-                          "ctx": {
-                            "enum_values": [
-                              "photo",
-                              "art"
-                            ]
-                          },
-                          "loc": [
-                            "body",
-                            "contentClass"
-                          ],
-                          "msg": "value is not a valid enumeration member; permitted: 'photo', 'art'",
-                          "type": "type_error.enum"
-                        }
-                      ]
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Unprocessable Entity"
-          },
-          "429": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "rate_limited": {
-                    "value": {
-                      "error_code": "rate_limited"
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Too Many Requests",
-            "headers": {
-              "retry-after": {
-                "description": "Indicates the date after which the client should retry the request.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "x-access-rate-limit-level": {
-                "description": "Indicates the level at which the rate limit was applied. Possible values are:\n- org: The rate limit was applied to the organisation\n- account: The rate limit was applied to the organization's tech account",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "500": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "runtime_error": {
-                    "value": {
-                      "error_code": "runtime_error"
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Internal Server Error"
-          }
-        },
-        "summary": "/V3/Images/Generate-Async",
-        "tags": [
-          "v3"
-        ]
-      }
-    },
     "/v3/images/generate-object-composite-async": {
       "post": {
         "operationId": "generateObjectCompositeV3Async",
@@ -971,212 +223,6 @@
         ]
       }
     },
-    "/v3/images/generate-similar-async": {
-      "post": {
-        "operationId": "generateSimilarImagesV3Async",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/GenerateSimilarImagesRequestV3"
-              }
-            },
-            "multipart/form-data": {
-              "schema": {
-                "$ref": "#/components/schemas/Body_generateSimilarImagesV3Async"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "202": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AsyncAcceptResponseV3"
-                }
-              }
-            },
-            "description": "Successful Response",
-            "headers": {
-              "Link": {
-                "description": "Links to check job status & cancel job",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "400": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "bad_request": {
-                    "value": {
-                      "error_code": "bad_request"
-                    }
-                  },
-                  "empty_input_body": {
-                    "value": {
-                      "error_code": "empty_input_body"
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Bad Request"
-          },
-          "403": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "access_error": {
-                    "value": {
-                      "error_code": "access_error"
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Forbidden",
-            "headers": {
-              "x-access-error": {
-                "description": "Indicates reason for unauthorized access. Possible values are:\n- quota_exhausted\n- user_non_entitled\n- user_profile_denied\n- invalid_ims_scope",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "408": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "timeout_error": {
-                    "value": {
-                      "error_code": "timeout_error"
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Request Timeout"
-          },
-          "415": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "invalid_content_type": {
-                    "value": {
-                      "error_code": "invalid_content_type"
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Unsupported Media Type"
-          },
-          "422": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "validation_error": {
-                    "value": {
-                      "error_code": "validation_error",
-                      "validation_errors": [
-                        {
-                          "ctx": {
-                            "enum_values": [
-                              "photo",
-                              "art"
-                            ]
-                          },
-                          "loc": [
-                            "body",
-                            "contentClass"
-                          ],
-                          "msg": "value is not a valid enumeration member; permitted: 'photo', 'art'",
-                          "type": "type_error.enum"
-                        }
-                      ]
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Unprocessable Entity"
-          },
-          "429": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "rate_limited": {
-                    "value": {
-                      "error_code": "rate_limited"
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Too Many Requests",
-            "headers": {
-              "retry-after": {
-                "description": "Indicates the date after which the client should retry the request.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "x-access-rate-limit-level": {
-                "description": "Indicates the level at which the rate limit was applied. Possible values are:\n- org: The rate limit was applied to the organisation\n- account: The rate limit was applied to the organization's tech account",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "500": {
-            "content": {
-              "application/json": {
-                "examples": {
-                  "runtime_error": {
-                    "value": {
-                      "error_code": "runtime_error"
-                    }
-                  }
-                },
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "Internal Server Error"
-          }
-        },
-        "summary": "/V3/Images/Generate-Similar-Async",
-        "tags": [
-          "v3"
-        ]
-      }
-    },
     "/v3/status/{jobId}": {
       "get": {
         "operationId": "jobResultV3",
@@ -1306,6 +352,114 @@
           }
         },
         "summary": " Get Result",
+        "tags": [
+          "async"
+        ]
+      }
+    },
+    "/v3/cancel/{jobId}": {
+      "put": {
+        "operationId": "cancelJobV3",
+        "parameters": [
+          {
+            "description": "Unique identifier for the submitted job",
+            "in": "path",
+            "name": "jobId",
+            "required": true,
+            "schema": {
+              "description": "Unique identifier for the submitted job",
+              "title": "title job urn id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "unknown_job_id": {
+                    "value": {
+                      "error_code": "unknown_job_id",
+                      "message": "The job id is unknown."
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/AsyncApiErrorV3"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "job_already_canceled": {
+                    "value": {
+                      "error_code": "job_already_canceled",
+                      "message": "The job was already canceled."
+                    }
+                  },
+                  "job_cancel_failed": {
+                    "value": {
+                      "error_code": "job_cancel_failed",
+                      "message": "The job failed to cancel."
+                    }
+                  },
+                  "job_completed": {
+                    "value": {
+                      "error_code": "job_completed",
+                      "message": "The job was already completed."
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/AsyncApiErrorV3"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "410": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "job_timeout": {
+                    "value": {
+                      "error_code": "job_timeout",
+                      "message": "The job timed out."
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/AsyncApiErrorV3"
+                }
+              }
+            },
+            "description": "Gone"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": " Cancel Job",
         "tags": [
           "async"
         ]
