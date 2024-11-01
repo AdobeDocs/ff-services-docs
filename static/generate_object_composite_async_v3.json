@@ -217,7 +217,7 @@
             "description": "Internal Server Error"
           }
         },
-        "summary": "Generate Object Composite - Model 3",
+        "summary": "Generate Object Composite Async - Model 3",
         "description": "Upload an image with or without mask, such as a product photo, and utilize a text prompt to generate a  composited scene featuring the product."
       }
     },

@@ -217,10 +217,8 @@
             "description": "Internal Server Error"
           }
         },
-        "summary": "/V3/Images/Expand-Async",
-        "tags": [
-          "v3"
-        ]
+     "summary": "Expand Image Async - Model 3",
+        "description": "Change the aspect ratio or size of an image and expand its contents with or without a text prompt."
       }
     },
     "/v3/status/{jobId}": {

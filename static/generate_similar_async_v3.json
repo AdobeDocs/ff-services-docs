@@ -217,10 +217,8 @@
             "description": "Internal Server Error"
           }
         },
-        "summary": "/V3/Images/Generate-Similar-Async",
-        "tags": [
-          "v3"
-        ]
+        "summary": "Generate Similar Images Async - Model 3",
+        "description": "Generate similar images based on the reference image."
       }
     },
     "/v3/status/{jobId}": {
