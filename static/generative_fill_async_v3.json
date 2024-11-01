@@ -1,43 +1,21 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "contact": {
-      "email": "rosca@adobe.com",
-      "name": "Adobe Firefly",
-      "url": "https://www.adobe.com"
-    },
-    "description": "Inference APIs description",
-    "license": {
-      "name": "Adobe License",
-      "url": "https://www.adobe.com"
-    },
-    "summary": "Inference APIs summary",
-    "termsOfService": "https://www.adobe.com/legal/terms.html",
-    "title": "Firefly APIs",
-    "version": "1.0.0"
-  },
-  "servers": [
+    "version": "V3",
+    "title": "Firefly API",
+    "description": "REST API for Adobe Firefly for enterprise usage"
+},
+"servers": [
     {
-      "description": "Production endpoint",
-      "url": "https://firefly-api.adobe.io"
-    },
-    {
-      "description": "Stage endpoint",
-      "url": "https://firefly-api-enterprise-stage.adobe.io"
+        "url": "https://firefly-api.adobe.io"
     }
-  ],
-  "security": [
-    {
-      "Authorization": [],
-      "X-Api-Key": []
-    }
-  ],
-  "tags": [
-    {
-      "description": "APIs exposed in the V3 family of Firefly APIs",
-      "name": "v3"
-    }
-  ],
+],
+"security": [
+  {
+      "X-Api-Key": [],
+      "AccessToken": []
+  }
+],
   "paths": {
     "/v3/images/fill-async": {
       "post": {
