@@ -20,7 +20,9 @@
  
     "/v3/images/generate-object-composite-async": {
       "post": {
+        "summary": "Generate Object Composite Async - Model 3",
         "operationId": "generateObjectCompositeV3Async",
+        "description": "Upload an image with or without mask, such as a product photo, and utilize a text prompt to generate a seamlessly composited scene featuring the product.",
         "requestBody": {
           "content": {
             "application/json": {
