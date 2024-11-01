@@ -20,7 +20,9 @@ With Adobe Photoshop API, which is now available through Adobe Firefly Services,
 
 Typically, you apply actions on a single file or a batch of files and you record actions from Photoshop app menu commands, panel options, tool actions, and more. 
 
-For example, you can create an action file that changes the size of an image, applies a blur effect to the image, and then saves the file in the desired format. You create a sequence of actions and then save these image adjustments in a single file, known as an ATN file. You can later call into the Photoshop API to run one or more actions in your ATN file. 
+![alt image](./frogs_adjusted.png?raw=true "Original Image")
+
+For example, you can create an action file that changes the hue and saturation of an image, applies slight blur effect to the image, and then saves the file in the desired format. You create a sequence of actions and then save these image adjustments in a single file, known as an ATN file. You can later call into the Photoshop API to run one or more actions in your ATN file. 
 
 For background information on Photoshop Actions, see the <a href="https://helpx.adobe.com/photoshop/using/actions-actions-panel.html" target="_blank">Adobe Help Center.</a>
 
