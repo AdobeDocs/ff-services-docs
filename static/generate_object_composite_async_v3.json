@@ -10,18 +10,17 @@
         "url": "https://firefly-api.adobe.io"
     }
 ],
-  "security": [
-    {
-      "Authorization": [],
-      "X-Api-Key": []
-    }
-  ],
+"security": [
+  {
+      "X-Api-Key": [],
+      "AccessToken": []
+  }
+],
   "paths": {
+ 
     "/v3/images/generate-object-composite-async": {
       "post": {
-        "summary": "Generate Object Composite - Model 3",
         "operationId": "generateObjectCompositeV3Async",
-        "description": "Upload an image with or without mask, such as a product photo, and utilize a text prompt to generate a seamlessly composited scene featuring the product.",
         "requestBody": {
           "content": {
             "application/json": {
