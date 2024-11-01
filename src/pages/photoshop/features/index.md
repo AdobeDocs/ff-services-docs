@@ -12,110 +12,143 @@ hideBreadcrumbNav: true
 
 # Supported Features
 
-This is a list of currently supported features in the Adobe Photoshop API, which is now available through Adobe Firefly Services.
+With Adobe Photoshop API, which is now available through Adobe Firefly Services, you can perform numerous rich image-enhancements at scale.
 
 ## Photoshop Actions
 
-An action is a series of tasks that you play back on a single file or a batch of files—menu commands, panel options, tool actions, and more. For example, you can create an action that changes the size of an image, applies an effect to the image, and then saves the file in the desired format. All of these taks could be executed in one API call. 
+*Actions* are a series an image adjustment that you can record in the Photoshop app and then you can later apply to one or more images.
 
-Actions created in Photoshop produce an ATN file which can then be used to edit images programmtically using our API. 
+Typically, you apply actions on a single file or a batch of files and you record actions from Photoshop app menu commands, panel options, tool actions, and more. 
 
-For more information on how to create Photoshop Actions, see the <a href="https://helpx.adobe.com/photoshop/using/actions-actions-panel.html" target="_blank">Adobe Help Center.</a>
+![alt image](./frogs_adjusted.png?raw=true "Original Image")
 
-#### Supported Input and Output formats
+For example, you can create an action file that changes the hue and saturation of an image, applies slight blur effect to the image, and then saves the file in the desired format. You create a sequence of actions and then save these image adjustments in a single file, known as an ATN file. You can later call into the Photoshop API to run one or more actions in your ATN file. 
+
+For background information on Photoshop Actions, see the <a href="https://helpx.adobe.com/photoshop/using/actions-actions-panel.html" target="_blank">Adobe Help Center.</a>
+
+### Supported Input and Output formats
+
+We support the following file formats for Photoshop API with Photoshop Actions:
+
 * PSD 
 * JPEG
 * PNG 
 * TIFF
 
-#### Usage Recommendations
-* We currently do not support operating system dialogs but all other Photoshop dialogs are supported.
-* We recommended creating Actions that do not require user interactions.
+### Best Practices and Limitations
+
+* We support all Photoshop app dialogs, however we do not support interactions with operating system dialogs. The later means you cannot use Photoshop API to programmatically open a system-level print settings dialog. 
+* We recommended creating Actions that do not require user intervention such as confirming a selection or providing file paths.
 * Make sure to test your actions on Photoshop, with several different input/images. If it has any errors in Photoshop, it won't run successfully on our servers either.
 
-#### Known Limitations
-The following are known limitations:
+The following are known limitations which Photoshop API does not support:
 
-* 3D and Video features are not supported.
-* Custom presets (for example color swatches and brushes).
+* Photoshop 3D, and Video and animation features features.
+* Custom presets, for example color swatches and brushes.
 * This endpoint does not currently support multiple file inputs. 
 
-You can choose to playback all of the tasks recorded in an Action or you can selectively choose a particular task within and exclude the rest.
+You can choose to playback all of the tasks recorded in an Action or you can selectively choose a particular task from an Actions file and exclude the rest.
+
+### Examples 
 
 Here are some examples of submitting and executing Photoshop Actions:
 - [Execute Photoshop Action with all recorded tasks](../code-sample/index.md#photoshop-actions---play-all-actions-in-atn-file)  
 - [Execute Photoshop Action with a specific task while excluding the rest](../code-sample/index.md#photoshop-actions-play-a-specific-action)
 
-In this example we applied a custom Action called "Graphic Design." This ATN file had over 75 recorded Photoshop tasks including Select Subject, Camera Raw Filer adjustments, Content-Aware Fill, Transform, Fill Layer, and more.
+In this example we applied a custom Action called Graphic Design. This ATN file had over 75 recorded Photoshop tasks including Select Subject, Camera Raw Filer adjustments, Content-Aware Fill, Transform, Fill Layer, and more.
 ![alt image](./psactions_example.png?raw=true "Original Image")
 
-## ActionJson
+## ActionJSON Endpoint
 
-Similar to the Photoshop Actions endpoint, this endpoint also allows you to apply the contents of ATN file to an image programmatically. However, there are a few key differences which give you added flexibility.
+Similar to the Photoshop Actions endpoint, this endpoint also helps you to apply the contents of ATN file to an image programmatically. However, there are a few key differences which give you added flexibility.
 
-- Ability to modify the payload.
-- You don’t need to upload and store your ATN file as you do with the Photoshop Actions endpoint.
+- You can modify the payload, such as adding an action.
+- You don’t need to upload and store your ATN file at Firefly Services as you do with the Photoshop Actions endpoint.
 
-In the example below we took the same input image and ATN file from the previous example and dynamically modified the Action to execute all of the same tasks with an adiitional step of adding a black and white filter.
+In this example take the input image and ATN file from the previous example and in our script, we modify the Action to execute all of the same tasks with an additional step of adding a black and white filter.
 
 ![alt image](./ps_action_json_example_bw.png?raw=true "Original Image")
 You can find a code sample [here](../code-sample/index.md#executing-an-actionjson)
 
-The actionJSON endpoint has the capability of supporting multiple inputs. If you would like to learn more about using multiple inputs with actionJSON, you can find an example [here.](../code-sample/index.md#executing-an-actionjson-with-multiple-inputs)
+The actionJSON endpoint does support multiple inputs. If you would like to learn more about using multiple inputs with actionJSON, you can find this: [Multiple Inputs ActionJSON Example](../code-sample/index.md#executing-an-actionjson-with-multiple-inputs)
 
-Take a look at this aweosme demo of the actionJson endpoint to learn more.
+Take a look at this tutorial of this endpoint to learn more. Alternately you can read on in this section to walk through the process.
 
 <Media slots="video" width="750" height="500"/>
 
 <https://youtu.be/giFJ6qbez_I?feature=shared>
 
+### Enable Developer Mode
 
-### Create new actionJSON using developer mode.
+If you haven't already enabled developer mode in your Photoshop app, follow these steps:
 
-If you have “developer mode” enabled in Photoshop follow the instructions below. If you don't have "developer mode" enabled below please see the section below labeled "How to enable developer mode." 
+  - Select:
+    - `Photoshop → Preferences → Plugins...` (For Mac)
+   Or
+    - `Edit → Preferences → Plugins...` (For Windows)
+  - Select `Enable Developer Mode`
+  - Quit Photoshop
 
-- Open Photoshop desktop application
-- Click on  "Plugins” from the top menu
-- Select “Development”
-- And then choose “Record Action Commands..."
-- Name your file and click on “Save”
-- You can now make edits to your document and all of your edits will be saved
+  Enable this as a hidden feature if you are using Photoshop 23.4 (July 2022) or earlier. Execute the command below:
 
-Once you are done recording your action:
+  For Mac
+  ```
+  echo "UXPEnableScriptingUtilities 1" >>  "/Users/$USER/Library/Preferences/Adobe Photoshop 2021 Settings/PSUserConfig.txt"
+  ```
+  For Windows Powershell
+  ```
+  echo  "UXPEnableScriptingUtilities 1" >> "C:\Users\$env:USERNAME\AppData\Roaming\Adobe\Adobe Photoshop 2021\Adobe Photoshop 2021 Settings\PSUserConfig.txt"
+  ```
+ 
+ At this point you can reopen your Photoshop app with developer mode enabled.
 
-- Click on  "Plugins” from the top menu
-- Select “Development”
-- Choose “Stop Action Recording"
+### Create New actionJSON
 
-The file will be saved to the directory you chose when you named your file.
+If you have developer mode enabled in Photoshop follow the instructions below. If you don't have developer mode enabled below please see the previous section. 
 
-### Create new actionJSON using actions panel
+- Open the Photoshop app
+- Select `Settings | Plugins` 
+- Select `Development`
+- Select `Record Action Commands...`
+- Name your file and click `Save`. You can now make select actions in Photoshop such as resizing an image, adjusting hue and saturation and son on. Photoshop saves all of your actions in your new file.
 
-- Open Photoshop
-- Click on "Open action panel”
-- Select “Create new Action”
-- Select your single action from action set
-- Click on copy as Javascript
-- Paste it in any text editor
-- Modify the file to trim out the actions (example is shown below in the code sample)
-- Use the action in your payload
+Once you are done recording your action, you can stop recording and save:
 
-### Convert an existing Action (.atn) file into actionJSON
+- Select `Settings | Plugins`
+- Select `Development`
+- Click `Stop Action Recording`
 
-- This endpoint will allow to convert an .atn file to actionJSON format. This is the simplest and easiest way to create an actionJSON file. 
+Photoshop app saves your actions to the directory you chose when you named your file.
 
-### Convert an existing Action (.atn) file into actionJSON using Photoshop
+### Create actionJSON in Actions Panel
 
-- Open Photoshop
-- Click on "Open action panel”
-- Select “Load action”
+You can alternately create a new file in your Photoshop app's Action Panel:
+
+- Go to `Windows | Actions`. The action panel opens.
+- Select `New Action` to create a new action. You can alternately click `+` in the panel.
+  ![alt image](./actions_panel_menu.png?raw=true "Original Image")
+- Select your action from action set
+- Select `Copy as Javascript`
+- Paste it in any text editor.
+- Modify the file to trim out the actions. An example is shown below in the code sample.
+
+Now you can use the action in your Photoshop API payload
+
+### Convert ATN files into actionJSON
+
+This endpoint enables you to convert an .atn file to actionJSON format. This is the simplest and easiest way to create an actionJSON file. 
+
+### Convert ATN files into actionJSON with Photoshop
+
+- Go to `Windows | Actions`. The action panel opens.
+- Select `Load action`
 - Choose the action you would like to convert to actionJSON
-- Click on copy as Javascript
+- Click on `copy as Javascript`
 - Paste it in any text editor
-- Modify the file to trim out the actions obj blocks (example is shown below in the code sample)
-- Use the action in your payload
+- Modify the file to trim out the actions obj blocks An example is shown below in the code sample.
 
-A code sample of Action JSON when you copy as Javascript
+You can now use the action in your payload. Here is a code sample of Action JSON when you copy as Javascript from Photoshop:
+
 ```
 async function vignetteSelection() {
     let result;
@@ -162,32 +195,9 @@ Remove everything else from the javascript file and copy the array containing `_
 ```
 More details about actionJSON can be found [here](https://developer.adobe.com/photoshop/uxp/2022/ps_reference/media/batchplay/)
 
-### How to enable developer mode
-  - Open Photoshop
-  - On the menu bar, select
-   Photoshop → Preferences → Plugins... (For Mac)
-   Or
-   Edit → Preferences → Plugins...(For Windows)
-  - Enable Developer Mode
-  ![alt image](./ps_developer_mode.png?raw=true "Original Image")
-  - Completely Exit Photoshop
-
-  - Enable Hidden Feature if you are using Photoshop 23.4 (July 2022) or earlier. Execute the command below.
-
-  For Mac
-  ```
-  echo "UXPEnableScriptingUtilities 1" >>  "/Users/$USER/Library/Preferences/Adobe Photoshop 2021 Settings/PSUserConfig.txt"
-  ```
-  For Windows Powershell
-  ```
-  echo  "UXPEnableScriptingUtilities 1" >> "C:\Users\$env:USERNAME\AppData\Roaming\Adobe\Adobe Photoshop 2021\Adobe Photoshop 2021 Settings\PSUserConfig.txt"
-  ```
- - Open Photoshop
-
-
 ## Smart Object
 
-The Smart Object endpoint allows you to create and edit an embedded Smart Objects within a PSD. The Smart Object that's replaced will be positioned within the bounding box of the original image. Whether the new image is larger or smaller than the original, it will adjust to fit within the original bounding box while preserving its aspect ratio. To alter the bounds of the replaced image, you can specify bounds parameters in the API call.
+The Smart Object endpoint allows you to create and edit an embedded Smart Objects in a Photoshop file, or PSD file. The Smart Object that's replaced will be positioned within the bounding box of the original image. Whether the new image is larger or smaller than the original, it will adjust to fit within the original bounding box while preserving its aspect ratio. To alter the bounds of the replaced image, you can specify bounds parameters in the API call.
 
 ### Known Limitations
 
