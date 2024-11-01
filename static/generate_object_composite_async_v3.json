@@ -16,12 +16,6 @@
       "X-Api-Key": []
     }
   ],
-  "tags": [
-    {
-      "description": "APIs exposed in the V3 family of Firefly APIs",
-      "name": "v3"
-    }
-  ],
   "paths": {
     "/v3/images/generate-object-composite-async": {
       "post": {
