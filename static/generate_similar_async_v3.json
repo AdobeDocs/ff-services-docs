@@ -218,7 +218,7 @@
           }
         },
         "summary": "Generate Similar Images Async - Model 3",
-        "description": "Generate similar images based on the reference image."
+        "description": "Generate similar images based on a reference image that you provide as a parameter. Performs this asynchronously, meaning you make your request and provide an image with your text prompt and on success, returns a <code>jobID</code>, status endpoint and endpoint to cancel the request. You can later poll the status endpoint to get updates on whether the job completes and to get the image."
       }
     },
     "/v3/status/{jobId}": {

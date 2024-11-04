@@ -218,7 +218,7 @@
           }
         },
      "summary": "Expand Image Async - Model 3",
-        "description": "Change the aspect ratio or size of an image and expand its contents with or without a text prompt."
+        "description": "Change the aspect ratio or size of an image and expand it. You can optionally provide a text prompt and Firefly generates additional filler image based on the prompt. For example, you can add a prompt to as Firefly to generate pine trees and a forest landscape which fills empty parts of the newly expanded image. Performs this asynchronously, meaning you make your request and provide an image with your text prompt and on success, returns a <code>jobID</code>, status endpoint and endpoint to cancel the request. You can later poll the status endpoint to get updates on whether the job completes and to get the image."
       }
     },
     "/v3/status/{jobId}": {

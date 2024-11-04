@@ -24,7 +24,7 @@ hideBreadcrumbNav: true
 
 With our launch of new asynchronous APIs, you can manage your Firefly requests and responses more efficiently.
 
-## What's Available
+## Introduction
 
 Our original Firefly APIs operated in a synchronous fashion. This meant that you could call the API with a given text prompt and generate an image, however Firefly platform delayed returning the response until it generated your assets. If you're not already familiar with our standard, synchronous APIs, see the [Create your First Firefly API Implementation](https://developer.adobe.com/firefly-services/docs/firefly-api/guides/how-tos/create-your-first-ff-application/) for a refresher on the APIs in general.
 
@@ -35,6 +35,8 @@ Currently, the async operations include:
 * [Fill Image Async](../api/generative_fill/V3_Async/)
 * [Generate Object Composite Async](../api/generate-object-composite/V3_Async/)
 * [Generate Similar Images Async](../api/generate-similar/V3_Async/)
+
+## Sequence of Calls
 
 The workflow for each of these is the same:
 
