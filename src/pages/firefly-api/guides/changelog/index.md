@@ -31,6 +31,18 @@ hideBreadcrumbNav: true
 <!-- TODO: Update with latest prod details, elaborate on API descriptions -->
 # Changelog
 
+## November 14, 2024
+
+### API Services Update: General Availability
+
+We are excited to announce that the following APIs are now generally available:
+
+* [Generate Image Async](../api/image_generation/V3_Async/)
+* [Expand Image Async](../api/generative_expand/V3_Async/)
+* [Fill Image Async](../api/generative_fill/V3_Async/)
+* [Generate Object Composite Async](../api/generate-object-composite/V3_Async/)
+* [Generate Similar Images Async](../api/generate-similar/V3_Async/)
+
 ## October 12, 2024
 
 ### API Services Update: General Availability
