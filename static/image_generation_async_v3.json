@@ -1005,7 +1005,7 @@
             "type": "integer"
           },
           "prompt": {
-            "description": "An text prompt up to 1024 characters. The longer the prompt the better Firefly performs.",
+            "description": "An optional text prompt up to 1024 characters. The longer the prompt the better Firefly performs.",
             "maxLength": 1024,
             "minLength": 1,
             "title": "The prompt",
