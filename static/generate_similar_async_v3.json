@@ -349,10 +349,7 @@
             "description": "Validation Error"
           }
         },
-        "summary": " Get Result",
-        "tags": [
-          "async"
-        ]
+        "summary": " Get Result"
       }
     },
     "/v3/cancel/{jobId}": {
