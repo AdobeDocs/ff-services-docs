@@ -22,7 +22,7 @@ Typically, you apply actions on a single file or a batch of files and you record
 
 ![alt image](./frogs_adjusted.png?raw=true "Original Image")
 
-For example, you can create an action file that changes the hue and saturation of an image, applies slight blur effect to the image, and then saves the file in the desired format. You create a sequence of actions and then save these image adjustments in a single file, known as an ATN file. You can later call into the Photoshop API to run one or more actions in your ATN file. 
+For example, you can create an action file that changes the hue and saturation of an image, applies a slight blur effect to the image, and then saves the file in the desired format. In the Photoshop app, you create a sequence of actions and then save these image adjustments in a single file, known as an ATN file. You can later call the Photoshop API to run one or more actions from your ATN file and apply these actions to multiple images. 
 
 For background information on Photoshop Actions, see the <a href="https://helpx.adobe.com/photoshop/using/actions-actions-panel.html" target="_blank">Adobe Help Center.</a>
 
