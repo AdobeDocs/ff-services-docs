@@ -20,7 +20,7 @@
       "/v2/images/generate": {
           "post": {
               "summary": "Generate Images",
-              "description": "Generate images based on a prompt with optional reference image to match style.",
+              "description": "Generate images based on your text prompt. When you make your request, you can also include an optional reference image and Firefly will try to mimic the layout and style, such as color scheme, lighting, layout of objects in the image and so on.",
               "operationId": "generateImages",
               "requestBody": {
                   "description": "Image generation request body.",
