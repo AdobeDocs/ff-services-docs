@@ -21,7 +21,7 @@
     "post": {
         "summary": "Generate Images - Model 3",
         "operationId": "generateImages",
-        "description": "Generate images based on a prompt and include an optional reference image for style and structure.",
+        "description": "Generate images based on your text prompt. When you make your request, you can also include an optional reference image and Firefly will try to mimic the layout and style, such as color scheme, lighting, layout of objects in the image and so on.",
         "requestBody": {
             "description": "image generation request body.",
             "content": {
