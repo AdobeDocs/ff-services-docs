@@ -323,7 +323,7 @@
               "maxLength": 1024,
               "minLength": 1,
               "title": "The prompt",
-              "description": "The prompt used to generate the image. The longer the prompt - the better.",
+              "description": "The prompt used to generate the image.",
               "examples": ["Horses in a field."]
             },
             "negativePrompt": {
