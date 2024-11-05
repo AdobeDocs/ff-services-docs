@@ -51,12 +51,43 @@ You can choose to playback all of the tasks recorded in an Action or you can sel
 
 ### Examples 
 
-Here are some examples of submitting and executing Photoshop Actions:
-- [Execute Photoshop Action with all recorded tasks](../code-sample/index.md#photoshop-actions---play-all-actions-in-atn-file)  
-- [Execute Photoshop Action with a specific task while excluding the rest](../code-sample/index.md#photoshop-actions-play-a-specific-action)
+In this example we applied a custom Action called Posterize. This ATN file had multiple recorded Photoshop tasks including Select Subject, Remove Background, Posterize, and Export as PNG.
 
-In this example we applied a custom Action called Graphic Design. This ATN file had over 75 recorded Photoshop tasks including Select Subject, Camera Raw Filer adjustments, Content-Aware Fill, Transform, Fill Layer, and more.
-![alt image](./psactions_example.png?raw=true "Original Image")
+![alt image](./spaniels_before_after.png?raw=true "Original Image")
+
+```shell
+curl -X POST \
+  https://image.adobe.io/pie/psdService/photoshopActions \
+  -H "Authorization: Bearer $token"  \
+  -H "x-api-key: $apiKey" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "inputs": [
+    {
+      "href": "https://as2.ftcdn.net/jpg/02/49/48/49/500_F_249484911_JifPIzjUqzkRhcdMkF9GnsUI9zaqdAsn.jpg",
+      "storage": "external"
+    }
+  ],
+  "options": {
+    "actions": [
+      {
+        "href": "https://raw.githubusercontent.com/johnleetran/ps-actions-samples/master/actions/Posterize.atn",
+        "storage": "external"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "storage": "<storage>",
+      "type": "image/jpeg",
+      "href": "https://some-presigned-url/output.jpeg"
+    }
+  ]
+}'
+```
+
+For another example, see [Execute Individual Photoshop Action](../code-sample/index.md#photoshop-actions-play-a-specific-action)
+
 
 ## ActionJSON Endpoint
 
