@@ -11,7 +11,7 @@ This repository contains the main [Firefly Services documentation](https://devel
 
 ## Steps
 
-**IMPORTANT:** These steps are required to allow you to see your updates to any transcluded content. 
+**IMPORTANT:** These steps are required to allow you to see your updates to any transcluded content.
 
 1. Ensure you are in the `transclude` branch of this repo.
 1. Ensure your latest content is checked into the `main` branch of the repo to be copied from (ie: [`AdobeDocs/firefly-api-docs`](https://github.com/AdobeDocs/firefly-api-docs).
@@ -25,7 +25,7 @@ This repository contains the main [Firefly Services documentation](https://devel
 **IMPORTANT:** If your transcluded repo site needs changes to the nav, you'll need to update the specific related config file noted below (vs the `gatsby-config.js` in that repo):
 
 - For [Firefly API](https://developer-stage.adobe.com/firefly-services/docs/firefly-api/) navigation updates - update the [`reference-firefly.js`](./reference-firefly.js)
-- For [Photoshop API](https://developer-stage.adobe.com/firefly-services/docs/photoshop/) navigation updates - update the [`reference-photoshop.js`](./reference-photoshop.js) 
+- For [Photoshop API](https://developer-stage.adobe.com/firefly-services/docs/photoshop/) navigation updates - update the [`reference-photoshop.js`](./reference-photoshop.js)
 
 ## Template
 
@@ -39,10 +39,11 @@ The slack channel #adobeio-onsite-onboarding is our main point of contact for he
 
 ### How to develop
 
-For local development, simply use :
+For local development, run:
 
 ```shell
 $ yarn install
+$ export NODE_OPTIONS=--max_old_space_size=8192
 $ yarn dev
 ```
 
