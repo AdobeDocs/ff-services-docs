@@ -42,7 +42,7 @@ The workflow for each of these is the same:
 
 * Make a request, and send any required and optional arguments.
 * Firefly responds and returns a job ID that includes a URL. Use the ID and URL to check the status of your request or to cancel the job.
-* Check on the job, with scheduled requests for a time reasonable time period. For example, check once every two minutes and wait for a success or failure message.
+* Check on the job, with scheduled requests for a time reasonable time period. For example, check once every second and wait for a success or failure message.
 * On success, Firefly sends you a result containing URLs.
 * Retrieve your assets from the URL.
 

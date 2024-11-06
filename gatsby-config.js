@@ -185,10 +185,6 @@ module.exports = {
             path: "/firefly-api/guides/api/generate-object-composite/V3/",
             pages: [
               {
-                title: "V4 Mike",
-                path: "/firefly-api/guides/api/generate-object-composite/V4/",
-              },
-              {
                 title: "V3 async",
                 path: "/firefly-api/guides/api/generate-object-composite/V3_Async/",
               },
