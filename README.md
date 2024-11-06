@@ -39,10 +39,11 @@ The slack channel #adobeio-onsite-onboarding is our main point of contact for he
 
 ### How to develop
 
-For local development, simply use :
+For local development, run:
 
 ```shell
 $ yarn install
+$ export NODE_OPTIONS=--max_old_space_size=8192
 $ yarn dev
 ```
 
