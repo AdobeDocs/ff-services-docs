@@ -53,7 +53,7 @@ Start with this example that uses the asynchronous version of the text to image 
 In terms of required and optional arguments, you have the same options that you do with the synchronous endpoint. At minimum, you should send a text prompt; beyond that, you can send optional arguments to help Firefly create the final result. This includes the content class as well as structure and style options. In fact, the only real change to the code for your request beyond what you already do for synchronous requests is to sent it to a different endpoint:
 
 ```js
-let BASE = 'https://firefly-api-enterprise-stage.adobe.io/';
+let BASE = 'https://firefly-api.adobe.io';
 
 async function asyncTextToImage(prompt, contentClass='photo', id, token) {
 
@@ -84,8 +84,8 @@ The main difference now is the response. With the synchronous version, this meth
 ```json
 {
   "jobId": "urn:ff:jobs:eso851211:86ffe2ea-d765-4bd3-b2fd-568ca8fc36ac",
-  "statusUrl": "https://firefly-stage-eso851211.adobe.io/v3/status/urn:ff:jobs:eso851211:86ffe2ea-d765-4bd3-b2fd-568ca8fc36ac",
-  "cancelUrl": "https://firefly-stage-eso851211.adobe.io/v3/cancel/urn:ff:jobs:eso851211:86ffe2ea-d765-4bd3-b2fd-568ca8fc36ac"
+  "statusUrl": "https://firefly-api.adobe.io/v3/status/urn:ff:jobs:eso851211:86ffe2ea-d765-4bd3-b2fd-568ca8fc36ac",
+  "cancelUrl": "https://firefly-api.adobe.io/v3/cancel/urn:ff:jobs:eso851211:86ffe2ea-d765-4bd3-b2fd-568ca8fc36ac"
 }
 ```
 
@@ -108,8 +108,8 @@ async function pollJob(jobUrl, id, token) {
 		status = data.status;
 
 		// delay is a utility to 'pause' for X ms
-		if(status !== 'succeeded' && status !== 'failed') await delay(1000);
-		if(status === 'succeeded') return data;
+		if (status !== 'succeeded' && status !== 'failed') await delay(1000);
+		if (status === 'succeeded') return data;
 	}
 
 	return status;
@@ -126,7 +126,7 @@ While your job is still in progress, you get a result that looks like this:
 }
 ```
 
-After Firefly successfully generates your image, the final status looks similar to a synchronous response, except for one additional field called `wrapped` in the status:
+After Firefly successfully generates your image, the final status looks similar to this response:
 
 ```json
 {
@@ -141,7 +141,8 @@ After Firefly successfully generates your image, the final status looks similar 
                         {
                                 "seed": 2142812600,
                                 "image": {
-                                        "url": "a long signed url"
+                                        "url": "
+										https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/0c5c80a3-7189-4bd3-a52e-87b36e4fc47b12345"
                                 }
                         }
                 ],
@@ -160,7 +161,7 @@ import { finished } from 'stream/promises';
 let CLIENT_ID = process.env.CLIENT_ID;
 let CLIENT_SECRET = process.env.CLIENT_SECRET;
 
-let BASE = 'https://firefly-api-enterprise-stage.adobe.io/';
+let BASE = 'https://firefly-api.adobe.io';
 
 async function getAccessToken(id, secret) {
 	const params = new URLSearchParams();
@@ -170,7 +171,7 @@ async function getAccessToken(id, secret) {
 	params.append('client_secret', secret);
 	params.append('scope', 'openid,AdobeID,read_organizations,firefly_enterprise,firefly_api,ff_apis');
 	
-	let resp = await fetch('https://ims-na1-stg1.adobelogin.com/ims/token/v3', 
+	let resp = await fetch('https://ims-na1.adobelogin.com/ims/token/v3', 
 		{ 
 			method: 'POST', 
 			body: params
@@ -226,8 +227,8 @@ async function pollJob(jobUrl, id, token) {
 		console.log(data);
 		status = data.status;
 
-		if(status !== 'succeeded' && status !== 'failed') await delay(1000);
-		if(status === 'succeeded') return data;
+		if (status !== 'succeeded' && status !== 'failed') await delay(1000);
+		if (status === 'succeeded') return data;
 	}
 
 	return status;
@@ -257,7 +258,7 @@ for(let output of jobResult.result.outputs) {
 
 ## Expanding Images with Async APIs
 
-The asynchronous API are even more powerful; in this next example, we take a source image, upload it, and then use the [Expand Image Asynchronous API](../api/generative_expand/V3_Async/) to resize it. Instead of doing one resize after another, we can kick off multiple jobs at once so we can resize am image much more efficiently. Do note that there are many different ways to multiple asynchronous processes in code. This example takes a simpler approach and you can perform it many different ways. The good news is that *with* these asynchronous APIs, you can have richer, more complex handling.
+The asynchronous API are even more powerful; in this next example, we take a source image, upload it, and then use the [Expand Image Asynchronous API](../api/generative_expand/V3_Async/) to resize it. Instead of doing one resize after another, we can kick off multiple jobs at once so we can resize an image much more efficiently.
 
 First, let's look at our wrapper function which uses a small subset of available parameters. In this case, our wrapper only needs the source image and your desired size:
 
@@ -351,7 +352,7 @@ import { finished } from 'stream/promises';
 let CLIENT_ID = process.env.CLIENT_ID;
 let CLIENT_SECRET = process.env.CLIENT_SECRET;
 
-let BASE = 'https://firefly-api-enterprise-stage.adobe.io/';
+let BASE = 'https://firefly-api.adobe.io';
 
 async function getAccessToken(id, secret) {
 	const params = new URLSearchParams();
@@ -361,7 +362,7 @@ async function getAccessToken(id, secret) {
 	params.append('client_secret', secret);
 	params.append('scope', 'openid,AdobeID,read_organizations,firefly_enterprise,firefly_api,ff_apis');
 	
-	let resp = await fetch('https://ims-na1-stg1.adobelogin.com/ims/token/v3', 
+	let resp = await fetch('https://ims-na1.adobelogin.com/ims/token/v3', 
 		{ 
 			method: 'POST', 
 			body: params
@@ -423,8 +424,8 @@ async function pollJob(jobUrl, id, token) {
 		let data = await resp.json();
 		status = data.status;
 
-		if(status !== 'succeeded' && status !== 'failed') await delay(1000);
-		if(status === 'succeeded') return data;
+		if (status !== 'succeeded' && status !== 'failed') await delay(1000);
+		if (status === 'succeeded') return data;
 	}
 
 	// only returns for fails now, meh
