@@ -96,10 +96,81 @@ Similar to the Photoshop Actions endpoint, this endpoint also helps you to apply
 - You can modify the payload, such as adding an action.
 - You don’t need to upload and store your ATN file at Firefly Services as you do with the Photoshop Actions endpoint.
 
-In this example take the input image and ATN file from the previous example and in our script, we modify the Action to execute all of the same tasks with an additional step of adding a black and white filter.
+![alt image](./spanielsBW.png?raw=true "Original Image")
 
-![alt image](./ps_action_json_example_bw.png?raw=true "Original Image")
-You can find a code sample [here](../code-sample/index.md#executing-an-actionjson)
+In this example take the input image and ATN file from the previous example and in our script, we modify the Action to execute all of the same tasks with an additional step.
+
+```shell
+curl -X POST \
+  https://image.adobe.io/pie/psdService/actionJSON \
+  -H "Authorization: Bearer $token"  \
+  -H "x-api-key: $apiKey" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "inputs": [{
+  "href": "<SIGNED_GET_URL>",
+  "storage": "<storage>"
+  }],
+  "options": {
+    "actionJSON": [{
+        "_obj": "imageSize",
+        "constrainProportions": true,
+        "interfaceIconFrameDimmed": {
+          "_enum": "interpolationType",
+          "_value": "automaticInterpolation"
+        },
+        "scaleStyles": true
+      }, {
+        "_obj": "imageSize",
+        "constrainProportions": true,
+        "interfaceIconFrameDimmed": {
+          "_enum": "interpolationType",
+          "_value": "automaticInterpolation"
+        },
+        "resolution": {
+          "_unit": "densityUnit",
+          "_value": 72.0
+        },
+        "scaleStyles": true
+      },
+      {
+        "_obj": "make",
+        "_target": [{
+          "_ref": "adjustmentLayer"
+        }],
+        "using": {
+          "_obj": "adjustmentLayer",
+          "type": {
+            "_obj": "blackAndWhite",
+            "blue": 20,
+            "cyan": 60,
+            "grain": 40,
+            "magenta": 80,
+            "presetKind": {
+              "_enum": "presetKindType",
+              "_value": "presetKindDefault"
+            },
+            "red": 40,
+            "tintColor": {
+              "_obj": "RGBColor",
+              "blue": 179.00115966796876,
+              "grain": 211.00067138671876,
+              "red": 225.00045776367188
+            },
+            "useTint": false,
+            "yellow": 60
+          }
+        }
+      }
+    ]
+  },
+  "outputs": [{
+    "type": "image/jpeg",
+    "storage": "<storage>",
+    "href": "<SIGNED_POST_URL>"
+  }]
+}'
+```
 
 The actionJSON endpoint does support multiple inputs. If you would like to learn more about using multiple inputs with actionJSON, you can find this: [Multiple Inputs ActionJSON Example](../code-sample/index.md#executing-an-actionjson-with-multiple-inputs)
 
