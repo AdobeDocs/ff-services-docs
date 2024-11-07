@@ -37,10 +37,8 @@ The table below exemplifies the visual representations of each of the content cl
 Check out the [Using Content Class and Style Presets](../../how-tos/using-content-class-style-preset.md) guide for more details on using content class and style presets.
 
 ||
-| :--------:
-| ![Photo](../../images/styles/2x/Photo.png) <p style="text-align:center">photo</p> 
-| ![Art](../../images/styles/2x/Art.png) <p style="text-align:center">art</p>
-| ![Graphic](../../images/styles/2x/Graphic.png) <p style="text-align:center">graphic</p>
+| :--------: | :--------: | :--------:
+| ![Photo](../../images/styles/2x/Photo.png) <p style="text-align:center">photo</p> | ![Art](../../images/styles/2x/Art.png) <p style="text-align:center">art</p> | ![Graphic](../../images/styles/2x/Graphic.png) <p style="text-align:center">graphic</p>
 | ![Black and white](../../images/styles/2x/Black_and_white.png) <p style="text-align:center">bw</p>
 | ![Cool tone](../../images/styles/2x/Cool_tone.png) <p style="text-align:center">cool_colors</p>
 | ![Golden](../../images/styles/2x/Golden.png) <p style="text-align:center">golden</p>
