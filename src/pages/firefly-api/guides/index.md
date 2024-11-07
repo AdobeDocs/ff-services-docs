@@ -45,33 +45,41 @@ Generate your first image with Firefly Services
 
 ### 1. Generate an access token
 
-First, create an [access token](./concepts/authentication/index.md) using the `CLIENT_ID` and `CLIENT_SECRET` that you either received from a teammate or [generated on your own in the Adobe Developer Console](../guides/get-started.md/#gaining-access-to-the-adobe-developer-console).
+First, create an [access token](./concepts/authentication/index.md) using the `CLIENT_ID` and `CLIENT_SECRET` that you either received from a teammate or [generated on your own in the Adobe Developer Console](../guides/get-started.md):
 
 ```bash
 curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'grant_type=client_credentials' \
---data-urlencode 'client_id=CLIENT_ID' \
---data-urlencode 'client_secret=CLIENT_SECRET' \
+--data-urlencode 'client_id=PASTE_YOUR_CLIENT_ID_HERE' \
+--data-urlencode 'client_secret=PASTE_YOUR_CLIENT_SECRET_HERE' \
 --data-urlencode 'scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
 ```
 
+The response will look something like this:
+
+```json
+{"access_token":"asdf...1234","token_type":"bearer","expires_in":86399}
+```
+
+Save the `access_token` property value from the response to use in the next step.
+
 ### 2. Call the Firefly Generate Images API
 
-Next, use this newly created `ACCESS_TOKEN` along with your `CLIENT_ID` to call the [Firefly Generate Images API](./api/image_generation/V3/):
+Next, call the [Firefly Generate Images API](./api/image_generation/V3/) with the `access_token` and `CLIENT_ID`:
 
 ```bash
 curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
---header 'x-api-key: CLIENT_ID' \
---header 'Authorization: ACCESS_TOKEN' \
+--header 'x-api-key: PASTE_YOUR_CLIENT_ID_HERE' \
+--header 'Authorization: PASTE_YOUR_ACCESS_TOKEN_HERE' \
 --data '{
     "prompt": "a realistic illustration of a cat dressed as a renaissance artist coding software on a laptop"
 }'
 ```
 
-Your response will look something like this:
+The response will look something like this:
 
 ```json
 {
