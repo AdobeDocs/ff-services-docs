@@ -28,17 +28,28 @@ hideBreadcrumbNav: true
 
 # Image Model Styles
 
-Certain Firefly API endpoints, including the [Generate Images](../../api/image_generation/V3/) and [Generate Object Composite](../../api/generate-object-composite/) APIs allow you to specify optional content classes and image styles which influence the generated output.
+Use style presets to customize the look and feel of your generated images
 
-The table below exemplifies the visual representations of each of the content classes and image styles/presets available. Simply specify the `Preset ID` as a string to the Firefly API call where they are supported.
 
-<InlineAlert variant="success" slots="text" />
+Firefly's [Generate Images](../../api/image_generation/V3/) and [Generate Object Composite](../../api/generate-object-composite/) allow you to use a set of style `presets` designed to give your generated images a specific visual style or mood in your images. Pick from a wide range of styles to create the perfect look for your images, using them individually or in combination.
 
-Check out the [Using Content Class and Style Presets](../../how-tos/using-content-class-style-preset.md) guide for more details on using content class and style presets.
+Explore the styles with the code snippet below, or see the [Using Content Class and Style Presets](../../how-tos/using-content-class-style-preset.md) guide for more details on using style presets.
+
+```bash
+{
+  "style": {
+    "presets": [
+      "photo",
+      "cool_colors",
+      "vibrant_colors"
+    ]
+  }
+}
+```
 
 ||
 | --- | --- | --- |
-| ![Photo](../../images/styles/2x/Photo.png) <p style="text-align:center">photo</p> | ![Art](../../images/styles/2x/Art.png) <p style="text-align:center">art</p> | ![Graphic](../../images/styles/2x/Graphic.png) <p style="text-align:center">graphic</p>
+| ![Graphic](../../images/styles/2x/Graphic.png) <p style="text-align:center">graphic</p> | ![Wireframe](../../images/styles/2x/Wireframe.png) <p style="text-align:center">wireframe</p> | ![Vector look](../../images/styles/2x/Vector_look.png) <p style="text-align:center">vector_look</p>
 | ![Black and white](../../images/styles/2x/Black_and_white.png) <p style="text-align:center">bw</p> | ![Cool tone](../../images/styles/2x/Cool_tone.png) <p style="text-align:center">cool_colors</p> | ![Golden](../../images/styles/2x/Golden.png) <p style="text-align:center">golden</p>
 | ![Monochromatic](../../images/styles/2x/Monochromatic.png) <p style="text-align:center">monochromatic</p> | ![Muted color](../../images/styles/2x/Muted_color.png) <p style="text-align:center">muted_color</p> | ![Pastel color](../../images/styles/2x/Pastel_color.png) <p style="text-align:center">pastel_color</p>
 | ![Toned image](../../images/styles/2x/Toned_image.png) <p style="text-align:center">toned_image</p> | ![Vibrant colors](../../images/styles/2x/Vibrant_colors.png) <p style="text-align:center">vibrant_colors</p> | ![Warm tone](../../images/styles/2x/Warm_tone.png) <p style="text-align:center">warm_tone</p>
@@ -88,5 +99,4 @@ Check out the [Using Content Class and Style Presets](../../how-tos/using-conten
 | ![Optical illusion](../../images/styles/2x/Optical_illusion.png) <p style="text-align:center">optical_illusion</p> | ![Pattern pixel](../../images/styles/2x/Pattern_pixel.png) <p style="text-align:center">pattern_pixel</p> | ![Pixel art](../../images/styles/2x/Pixel_art.png) <p style="text-align:center">pixel_art</p>
 | ![Pop art](../../images/styles/2x/Pop_art.png) <p style="text-align:center">pop_art</p> | ![Product photo](../../images/styles/2x/Product_photo.png) <p style="text-align:center">product_photo</p> | ![Psychedelic background](../../images/styles/2x/Psychedelic_background.png) <p style="text-align:center">psychedelic_background</p>
 | ![Psychedelic wonderland](../../images/styles/2x/Psychedelic_wonderland.png) <p style="text-align:center">psychedelic_wonderland</p> | ![Scandinavian](../../images/styles/2x/Scandinavian.png) <p style="text-align:center">scandinavian</p> | ![Splash images](../../images/styles/2x/Splash_images.png) <p style="text-align:center">splash_images</p>
-| ![Stamp](../../images/styles/2x/Stamp.png) <p style="text-align:center">stamp</p> | ![Trompe l'oeil](../../images/styles/2x/Trompe_loeil.png) <p style="text-align:center">trompe_loeil</p> | ![Vector look](../../images/styles/2x/Vector_look.png) <p style="text-align:center">vector_look</p>
-| ![Wireframe](../../images/styles/2x/Wireframe.png) <p style="text-align:center">wireframe</p> | |
+| ![Stamp](../../images/styles/2x/Stamp.png) <p style="text-align:center">stamp</p> | ![Trompe l'oeil](../../images/styles/2x/Trompe_loeil.png) <p style="text-align:center">trompe_loeil</p>
