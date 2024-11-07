@@ -56,9 +56,17 @@ curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
 --data-urlencode 'scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
 ```
 
+The response will look something like this:
+
+```json
+{"access_token":"asdf...1234","token_type":"bearer","expires_in":86399}
+```
+
+Save the `access_token` property value from the response to use in the next step.
+
 ### 2. Call the Firefly Generate Images API
 
-Next, use this newly created `ACCESS_TOKEN` along with your `CLIENT_ID` to call the [Firefly Generate Images API](./api/image_generation/V3/):
+Next, call the [Firefly Generate Images API](./api/image_generation/V3/) with the `access_token` and `CLIENT_ID`:
 
 ```bash
 curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
@@ -71,7 +79,7 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 }'
 ```
 
-Your response will look something like this:
+The response will look something like this:
 
 ```json
 {
