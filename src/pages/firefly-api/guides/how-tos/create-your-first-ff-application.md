@@ -53,8 +53,6 @@ A step-by-step guide for creating your first implementation with the Firefly API
 
 Adobe Firefly APIs offer a seamless way to integrate powerful creative workflows into your applications using a simple REST-based API. In this tutorial, you'll be guided through creating your first implementation using the [Firefly Generate Images API](../api/image_generation/V3/).
 
-![an illustration of a cat coding on a laptop](../images/cat-coding.jpeg)
-
 <InlineAlert slots="text" />
 
 This tutorial provides code snippets in both `Node.js` and `Python` for your convenience. Feel free to use the language of your choice to complete the implementation of your first Firefly API.
