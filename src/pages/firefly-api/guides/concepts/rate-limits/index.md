@@ -56,11 +56,11 @@ If you exceed the rate limits, you'll receive an **HTTP 429 Too Many Requests** 
 
 Rate limits are standard practice for APIs, and they serve several important purposes:
 
-- **Preventing abuse**: Protects the API from being overwhelmed by excessive requests.
-- **Ensuring fair usage**: Guarantees equal access to all users and organizations.
-- **Managing server load**: Manages server load for consistent performance.
-- **Protecting against downtime**: Reduces the risk of service interruptions.
-- **Controlling costs**: Helps manage resource consumption and associated expenses.
+* **Preventing abuse**: Protects the API from being overwhelmed by excessive requests.
+* **Ensuring fair usage**: Guarantees equal access to all users and organizations.
+* **Managing server load**: Manages server load for consistent performance.
+* **Protecting against downtime**: Reduces the risk of service interruptions.
+* **Controlling costs**: Helps manage resource consumption and associated expenses.
 
 ## What to Do If You Run Into Issues
 
