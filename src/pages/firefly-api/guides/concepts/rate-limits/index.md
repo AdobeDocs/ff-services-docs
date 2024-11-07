@@ -49,7 +49,9 @@ Our API imposes the following rate limits **per organization**:
 It's important to note that rate limits are shared across **all users within your organization**. This means that all users within an organization share the same rate limits.
 
 ## Checking Rate Limits with Requests
+
 If you exceed the rate limits, you'll receive an **HTTP 429 Too Many Requests** error. We recommend using the `retry-after` header to determine the number of seconds you should wait before trying again.
+
 ## Why do we have rate limits?
 
 Rate limits are standard practice for APIs, and they serve several important purposes:
