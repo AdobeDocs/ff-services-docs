@@ -51,8 +51,8 @@ First, create an [access token](./concepts/authentication/index.md) using the `C
 curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'grant_type=client_credentials' \
---data-urlencode 'client_id=CLIENT_ID' \
---data-urlencode 'client_secret=CLIENT_SECRET' \
+--data-urlencode 'client_id=PASTE_YOUR_CLIENT_ID_HERE' \
+--data-urlencode 'client_secret=PASTE_YOUR_CLIENT_SECRET_HERE' \
 --data-urlencode 'scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
 ```
 
@@ -64,8 +64,8 @@ Next, use this newly created `ACCESS_TOKEN` along with your `CLIENT_ID` to call 
 curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
---header 'x-api-key: CLIENT_ID' \
---header 'Authorization: ACCESS_TOKEN' \
+--header 'x-api-key: PASTE_YOUR_CLIENT_ID_HERE' \
+--header 'Authorization: PASTE_YOUR_ACCESS_TOKEN_HERE' \
 --data '{
     "prompt": "a realistic illustration of a cat dressed as a renaissance artist coding software on a laptop"
 }'
