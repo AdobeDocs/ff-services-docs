@@ -88,7 +88,6 @@ curl -X POST \
 
 For another example, see [Execute Individual Photoshop Action](../code-sample/index.md#photoshop-actions-play-a-specific-action)
 
-
 ## ActionJSON Endpoint
 
 Similar to the Photoshop Actions endpoint, this endpoint also helps you to apply the contents of ATN file to an image programmatically. However, there are a few key differences which give you added flexibility.
@@ -194,11 +193,14 @@ If you haven't already enabled developer mode in your Photoshop app, follow thes
   Enable this as a hidden feature if you are using Photoshop 23.4 (July 2022) or earlier. Execute the command below:
 
   For Mac
-  ```
+
+  ```bash
   echo "UXPEnableScriptingUtilities 1" >>  "/Users/$USER/Library/Preferences/Adobe Photoshop 2021 Settings/PSUserConfig.txt"
   ```
+
   For Windows Powershell
-  ```
+  
+  ```bash
   echo  "UXPEnableScriptingUtilities 1" >> "C:\Users\$env:USERNAME\AppData\Roaming\Adobe\Adobe Photoshop 2021\Adobe Photoshop 2021 Settings\PSUserConfig.txt"
   ```
 
@@ -206,10 +208,10 @@ If you haven't already enabled developer mode in your Photoshop app, follow thes
 
 ### Create New actionJSON
 
-If you have developer mode enabled in Photoshop follow the instructions below. If you don't have developer mode enabled below please see the previous section. 
+If you have developer mode enabled in Photoshop follow the instructions below. If you don't have developer mode enabled below please see the previous section.
 
 * Open the Photoshop app
-* Select `Settings | Plugins` 
+* Select `Settings | Plugins`
 * Select `Development`
 * Select `Record Action Commands...`
 * Name your file and click `Save`. You can now make select actions in Photoshop such as resizing an image, adjusting hue and saturation and son on. Photoshop saves all of your actions in your new file.
@@ -238,7 +240,7 @@ Now you can use the action in your Photoshop API payload
 
 ### Convert ATN files into actionJSON
 
-This endpoint enables you to convert an .atn file to actionJSON format. This is the simplest and easiest way to create an actionJSON file. 
+This endpoint enables you to convert an .atn file to actionJSON format. This is the simplest and easiest way to create an actionJSON file.
 
 ### Convert ATN files into actionJSON with Photoshop
 
@@ -251,7 +253,7 @@ This endpoint enables you to convert an .atn file to actionJSON format. This is 
 
 You can now use the action in your payload. Here is a code sample of Action JSON when you copy as Javascript from Photoshop:
 
-```
+```js
 async function vignetteSelection() {
     let result;
     let psAction = require("photoshop").action;
@@ -281,9 +283,11 @@ async function runModalFunction() {
 
 await runModalFunction();
 ```
+
 Modify the javascript file to trim out the actions.
 Remove everything else from the javascript file and copy the array containing `_obj` from the `command` variable which will look something like below
-```
+
+```js
 [      
  {"_obj":"make","_target":[{"_ref":"snapshotClass"}],"from":{"_property":"currentHistoryState","_ref":"historyState"},
  "using":{"_enum":"historyState","_value":"fullDocument"}},
@@ -295,6 +299,7 @@ Remove everything else from the javascript file and copy the array containing `_
  {"_obj":"move","_target":[{"_enum":"ordinal","_ref":"layer","_value":"targetEnum"}],"to":{"_enum":"ordinal","_ref":"layer","_value":"previous"}}
 ]
 ```
+
 More details about actionJSON can be found [here](https://developer.adobe.com/photoshop/uxp/2022/ps_reference/media/batchplay/)
 
 ## Smart Object
@@ -304,8 +309,8 @@ The Smart Object endpoint allows you to create and edit an embedded Smart Object
 ### Known Limitations
 
 * If your document contains transparent pixels, (e.g some .png), you may not get consistent bounds.
-* We currently do not support Linked Smart Objects. 
-* In order to update an embedded Smart Object that is referenced by multiple layers you need to update each of those layers in order for the Smart Object to be replaced in those layers. 
+* We currently do not support Linked Smart Objects.
+* In order to update an embedded Smart Object that is referenced by multiple layers you need to update each of those layers in order for the Smart Object to be replaced in those layers.
 
 Here is an [example](../code-sample/index.md#replacing-a-smartobject) of replacing a Smart Object within a layer.
 For better performance, we rasterize our smart objects that are bigger than  2000 pixels * 2000 pixels.
@@ -318,7 +323,8 @@ In this example, we generated a Smart Object within the "socks" layer and utiliz
 
 The Edit Text endpoint supports editing one or more text layers within a PSD.
 
-It enables users to
+It enables users to:
+
 * Format text properties such as antialias, orientation and be able to edit text contents. (Note: Changing only the text properties will not change any character/paragraph styling).
 * Some of the key character properties that can be formatted include (but not limited to):
   * Text treatments such as strikethrough, underline, fontCaps.
@@ -398,19 +404,21 @@ The `add` and `move` blocks must also supply one of the attributes `insertAbove`
 **Note**: Adding a new layer does not require the ID to be included, the service will generate a new layer id for you.
 
 Here are some examples of making various layer level edits.
-- [Layer level editing](../code-sample/index.md#making-a-simple-edit)
-- [Adding a new Adjustment Layer](../code-sample/index.md#adding-a-new-adjustment-layer)
-- [Editing Image in a Pixel Layer](../code-sample/index.md#editing-a-pixel-layer)
+
+* [Layer level editing](../code-sample/index.md#making-a-simple-edit)
+* [Adding a new Adjustment Layer](../code-sample/index.md#adding-a-new-adjustment-layer)
+* [Editing Image in a Pixel Layer](../code-sample/index.md#editing-a-pixel-layer)
 
 ## Text layers Edits
 
 The Photoshop API currently supports creating and editing of Text Layer with different fonts, character styles and paragraph styles. The set of text attributes that can be edited is listed below:
-- Edit the text contents
-- Change the font (See the `Fonts` section for more info)
-- Edit the font size
-- Change the font color in the following formats: rgb, cmyk, gray, lab
-- Edit the text orientation (horizontal/vertical)
-- Edit the paragraph alignment (left, center, right, justify, justifyLeft, justifyCenter, justifyRight)
+
+* Edit the text contents
+* Change the font (See the `Fonts` section for more info)
+* Edit the font size
+* Change the font color in the following formats: rgb, cmyk, gray, lab
+* Edit the text orientation (horizontal/vertical)
+* Edit the paragraph alignment (left, center, right, justify, justifyLeft, justifyCenter, justifyRight)
 
 We also have an example of making a simple text layer edit.
 
@@ -441,8 +449,7 @@ The Photoshop API supports using the following category of fonts:
 
   **Note:** This also applies to any other font present in the document which is not to be found in the first 2 categories above.
 
-Here is an example usage of a custom font
-- [Custom font](../code-sample/index.md#custom-font-in-a-text-layer)
+Here is an example usage of a custom font: [Custom font](../code-sample/index.md#custom-font-in-a-text-layer)
 
 #### Handle missing fonts in the document.
 
@@ -537,13 +544,13 @@ This is a list of all of the supported Postscript fonts for Photoshop API.
 
 ## Document level edits
 
-- Crop a PSD
-- Resize a PSD
+* Crop a PSD
+* Resize a PSD
 
 ## Artboards
 
-- Show artboard information in the JSON Manifest
-- Create a new artboard from multiple input psd's
+* Show artboard information in the JSON Manifest
+* Create a new artboard from multiple input psd's
 
 ## Remove Background
 
@@ -562,7 +569,6 @@ Example of Image mask with a sample image.
 ## Customized Workflow
 
 You can make a customized workflow by chaining different endpoints together. [Here](../code-sample/index.md#generate-remove-background-result-as-photoshop-path) is an example using the Remove Background endpoint.
-
 
 ## Webhooks through Adobe I/O Events
 
