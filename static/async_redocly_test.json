@@ -1658,7 +1658,7 @@
         "properties": {
           "image": {
             "$ref": "#/components/schemas/InputImageV3",
-            "description": "The image to expand. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code>, </li> <li><code>windows.net</code>, or</li> <li><code>dropboxusercontent.com</code>. </li> </ul>",
+            "description": "The image to expand. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> </ul>",
             "title": "Input Image"
           },
           "mask": {
@@ -1706,7 +1706,7 @@
               "height": 2048,
               "width": 2048
             },
-            "description": "The desired width and height for the final, expanded image in pixels. Currently, the maximum supported size for the output image is ≤ 3999 x 3999 px.",
+            "description": "The desired width and height for the final expanded image in pixels. The maximum size for the output images is 3999px by 3999px.",
             "title": "The size"
           }
         },
@@ -1744,7 +1744,7 @@
         "properties": {
           "image": {
             "$ref": "#/components/schemas/InputImageV3",
-            "description": "The image to expand. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code>, </li> <li><code>windows.net</code>, or</li> <li><code>dropboxusercontent.com</code>. </li> </ul>",
+            "description": "The image to expand. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> </ul>",
             "title": "Input Image"
           },
           "mask": {
@@ -1773,7 +1773,7 @@
             "type": "string"
           },
           "promptBiasingLocaleCode": {
-            "description": "A hyphen-separated string combining the ISO 639-1 language code and the ISO 3166-1 region, such as en-US. When a locale is set, the prompt will be biased to generate more relevant content for that region. The locale will be auto-detected if not specified based on the your profile and the accepted language header.",
+            "description": "A hyphen-separated string combining the ISO 639-1 language code and the ISO 3166-1 region, such as en-US. When a locale is set, the prompt will be biased to generate more relevant content for that region. The locale will be auto-detected if not specified based on your profile and the accepted language header.",
             "title": "The locale used to generate an image",
             "type": "string"
           },
@@ -1798,12 +1798,13 @@
               "height": 2048,
               "width": 2048
             },
-            "description": "The desired width and height for the final, expanded image in pixels. Currently, the supported sizes for the output images are: <ul> <li>Square (1:1) - width 2048px, height 2048px </li> <li>Square (1:1) - width 1024px, height 1024px </li> <li>Landscape (4:3)  - width 2304px, height 1792px </li> <li>Portrait (3:4)  - width 1792px, height 2304px</li> <li>Widescreen (16:9) - width 2688px, height 1536px </li> <li>(7:4)  - width 1344px, height 768px </li> <li>(9:7) - width 1152px, height 896px </li> <li>(7:9) - width 896px, height 1152px</li> </ul>",
+            "description": "The desired width and height for the final expanded image in pixels. The supported sizes for the output images are: <ul> <li>Square (1:1) - width 2048px, height 2048px </li> <li>Square (1:1) - width 1024px, height 1024px </li> <li>Landscape (4:3)  - width 2304px, height 1792px </li> <li>Portrait (3:4)  - width 1792px, height 2304px</li> <li>Widescreen (16:9) - width 2688px, height 1536px </li> <li>(7:4)  - width 1344px, height 768px </li> <li>(9:7) - width 1152px, height 896px </li> <li>(7:9) - width 896px, height 1152px</li> </ul>",
             "title": "The size"
           }
         },
         "required": [
-          "image"
+          "image",
+          "mask"
         ],
         "title": "Fill images payload",
         "type": "object"
@@ -1836,7 +1837,7 @@
         "properties": {
           "contentClass": {
             "$ref": "#/components/schemas/ContentClassV3",
-            "description": "Generate a image to being more photographic or more like art. Options include <code>photo</code> or <code>art</code>.",
+            "description": "Generate an image to being more photographic or more like art. Options include <code>photo</code> or <code>art</code>.",
             "title": "The content class"
           },
           "negativePrompt": {
@@ -1853,14 +1854,14 @@
             "type": "integer"
           },
           "prompt": {
-            "description": "An text prompt up to 1024 characters. The longer the prompt the better Firefly performs.",
+            "description": "An optional text prompt up to 1024 characters. The longer the prompt the better Firefly performs.",
             "maxLength": 1024,
             "minLength": 1,
             "title": "The prompt",
             "type": "string"
           },
           "promptBiasingLocaleCode": {
-            "description": "A hyphen-separated string combining the ISO 639-1 language code and the ISO 3166-1 region, such as en-US. When a locale is set, the prompt will be biased to generate more relevant content for that region. The locale will be auto-detected if not specified based on the your profile and the accepted language header.",
+            "description": "A hyphen-separated string combining the ISO 639-1 language code and the ISO 3166-1 region, such as en-US. When a locale is set, the prompt will be biased to generate more relevant content for that region. The locale will be auto-detected if not specified based on your profile and the accepted language header.",
             "title": "The locale used for image generations",
             "type": "string"
           },
@@ -1885,7 +1886,7 @@
               "height": 2048,
               "width": 2048
             },
-            "description": "The desired width and height for the final, image in pixels. Currently, the supported sizes for the output images are: <ul> <li>Square (1:1) - width 2048px, height 2048px </li> <li>Square (1:1) - width 1024px, height 1024px </li> <li>Landscape (4:3)  - width 2304px, height 1792px </li> <li>Portrait (3:4)  - width 1792px, height 2304px</li> <li>Widescreen (16:9) - width 2688px, height 1536px </li> <li>(7:4)  - width 1344px, height 768px </li> <li>(9:7) - width 1152px, height 896px </li> <li>(7:9) - width 896px, height 1152px</li> </ul>",
+            "description": "The desired width and height for the final image in pixels. The supported sizes for the output images are: <ul> <li>Square (1:1) - width 2048px, height 2048px </li> <li>Square (1:1) - width 1024px, height 1024px </li> <li>Landscape (4:3)  - width 2304px, height 1792px </li> <li>Portrait (3:4)  - width 1792px, height 2304px</li> <li>Widescreen (16:9) - width 2688px, height 1536px </li> <li>(7:4)  - width 1344px, height 768px </li> <li>(9:7) - width 1152px, height 896px </li> <li>(7:9) - width 896px, height 1152px</li> </ul>",
             "title": "The size"
           },
           "structure": {
@@ -1895,8 +1896,8 @@
             "$ref": "#/components/schemas/StylesV3"
           },
           "tileable": {
-            "description": "Firefly can tile an image if it can be repeated infinitely in any direction without showing visible seams or edges.",
-            "title": "Indicates if Firefly can tile an image",
+            "description": "Firefly generates an image that can be repeated infinitely in each direction without showing visible seams or edges.",
+            "title": "Indicates if Firefly can repeat an image",
             "type": "boolean"
           },
           "visualIntensity": {
@@ -1917,7 +1918,7 @@
         "properties": {
           "contentClass": {
             "$ref": "#/components/schemas/ContentClassV3",
-            "description": "When you provide <code>contentClass</code>, this value is the same.",
+            "description": "Generate an image to being more photographic or more like art. Either <code>photo</code> or <code>art</code>.",
             "title": "The detected content class"
           },
           "outputs": {
@@ -1957,7 +1958,7 @@
           },
           "image": {
             "$ref": "#/components/schemas/InputImageV3",
-            "description": "The image to expand. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code>, </li> <li><code>windows.net</code>, or</li> <li><code>dropboxusercontent.com</code>. </li> </ul>",
+            "description": "The image to expand. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> </ul>",
             "title": "Input Image"
           },
           "mask": {
@@ -2005,7 +2006,7 @@
               "height": 2048,
               "width": 2048
             },
-            "description": "The desired width and height for the final, image in pixels. Currently, the supported sizes for the output images are: <ul> <li>Square (1:1) - width 2048px, height 2048px </li> <li>Square (1:1) - width 1024px, height 1024px </li> <li>Landscape (4:3)  - width 2304px, height 1792px </li> <li>Portrait (3:4)  - width 1792px, height 2304px</li> <li>Widescreen (16:9) - width 2688px, height 1536px </li> <li>(7:4)  - width 1344px, height 768px </li> <li>(9:7) - width 1152px, height 896px </li> <li>(7:9) - width 896px, height 1152px</li> </ul>",
+            "description": "The desired width and height for the final image in pixels. The supported sizes for the output images are: <ul> <li>Square (1:1) - width 2048px, height 2048px </li> <li>Square (1:1) - width 1024px, height 1024px </li> <li>Landscape (4:3)  - width 2304px, height 1792px </li> <li>Portrait (3:4)  - width 1792px, height 2304px</li> <li>Widescreen (16:9) - width 2688px, height 1536px </li> <li>(7:4)  - width 1344px, height 768px </li> <li>(9:7) - width 1152px, height 896px </li> <li>(7:9) - width 896px, height 1152px</li> </ul>",
             "title": "The size"
           },
           "style": {
@@ -2050,7 +2051,7 @@
         "properties": {
           "image": {
             "$ref": "#/components/schemas/BaseInputImageV3",
-            "description": "Firefly will create similar variations. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request | <ul> <li><code>amazonaws.com</code>, </li> <li><code>windows.net</code>, or</li> <li><code>dropboxusercontent.com</code>. </li> </ul>",
+            "description": "Firefly will create similar variations. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> </ul>",
             "title": "The reference image"
           },
           "numVariations": {
@@ -2081,12 +2082,12 @@
               "height": 2048,
               "width": 2048
             },
-            "description": "The desired width and height for the final, image in pixels. Currently, the supported sizes for the output images are:\n<ul> <li>Square (1:1) - width 2048px, height 2048px </li> <li>Square (1:1) - width 1024px, height 1024px </li> <li>Landscape (4:3)  - width 2304px, height 1792px </li> <li>Portrait (3:4)  - width 1792px, height 2304px</li> <li>Widescreen (16:9) - width 2688px, height 1536px </li> <li>(7:4)  - width 1344px, height 768px </li> <li>(9:7) - width 1152px, height 896px </li> <li>(7:9) - width 896px, height 1152px</li> </ul>",
+            "description": "The desired width and height for the final image in pixels. The supported sizes for the output images are: <ul> <li>Square (1:1) - width 2048px, height 2048px </li> <li>Square (1:1) - width 1024px, height 1024px </li> <li>Landscape (4:3)  - width 2304px, height 1792px </li> <li>Portrait (3:4)  - width 1792px, height 2304px</li> <li>Widescreen (16:9) - width 2688px, height 1536px </li> <li>(7:4)  - width 1344px, height 768px </li> <li>(9:7) - width 1152px, height 896px </li> <li>(7:9) - width 896px, height 1152px</li> </ul>",
             "title": "The size"
           },
           "tileable": {
-            "description": "Firefly can tile an image if it can be repeated infinitely in any direction without showing visible seams or edges.",
-            "title": "Indicates if Firefly can tile an image",
+            "description": "Firefly generates an image that can be repeated infinitely in each direction without showing visible seams or edges.",
+            "title": "Indicates if Firefly can repeat an image",
             "type": "boolean"
           }
         },
@@ -2272,7 +2273,7 @@
             "type": "string"
           },
           "url": {
-            "description": "Presigned URL of an uploaded file, as of firefly supports these domains: <ul> <li><code>amazonaws.com</code>, </li> <li><code>windows.net</code>, or</li> <li><code>dropboxusercontent.com</code>. </li> </ul>",
+            "description": "Presigned URL of an uploaded file. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> </ul>",
             "format": "uri",
             "maxLength": 2083,
             "minLength": 1,
@@ -2334,7 +2335,7 @@
             "$ref": "#/components/schemas/StructureImageReferenceV3"
           },
           "strength": {
-            "description": "Control how strictly Firefly adheres to the reference image whn it generates the image variations. 0 means no adherence. 100 means full adherence.",
+            "description": "Control how strictly Firefly adheres to the reference image when it generates the image variations. 0 means no adherence. 100 means full adherence.",
             "maximum": 100,
             "minimum": 0,
             "title": "Adherence Threshold",
