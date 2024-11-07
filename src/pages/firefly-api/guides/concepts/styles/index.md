@@ -30,7 +30,7 @@ hideBreadcrumbNav: true
 
 Certain Firefly API endpoints, including the [Generate Images](../../api/image_generation/V3/) and [Generate Object Composite](../../api/generate-object-composite/) APIs allow you to specify optional content classes and image styles which influence the generated output.
 
-The table below exemplifies the visual representations of each of the content classes and image styles/presets available. Simply specify the `Preset ID` as a string to the Firefly API call where they are supported. 
+The table below exemplifies the visual representations of each of the content classes and image styles/presets available. Simply specify the `Preset ID` as a string to the Firefly API call where they are supported.
 
 <InlineAlert variant="success" slots="text" />
 
@@ -89,4 +89,4 @@ Check out the [Using Content Class and Style Presets](../../how-tos/using-conten
 | ![Pop art](../../images/styles/2x/Pop_art.png) <p style="text-align:center">pop_art</p> | ![Product photo](../../images/styles/2x/Product_photo.png) <p style="text-align:center">product_photo</p> | ![Psychedelic background](../../images/styles/2x/Psychedelic_background.png) <p style="text-align:center">psychedelic_background</p>
 | ![Psychedelic wonderland](../../images/styles/2x/Psychedelic_wonderland.png) <p style="text-align:center">psychedelic_wonderland</p> | ![Scandinavian](../../images/styles/2x/Scandinavian.png) <p style="text-align:center">scandinavian</p> | ![Splash images](../../images/styles/2x/Splash_images.png) <p style="text-align:center">splash_images</p>
 | ![Stamp](../../images/styles/2x/Stamp.png) <p style="text-align:center">stamp</p> | ![Trompe l'oeil](../../images/styles/2x/Trompe_loeil.png) <p style="text-align:center">trompe_loeil</p> | ![Vector look](../../images/styles/2x/Vector_look.png) <p style="text-align:center">vector_look</p>
-| ![Wireframe](../../images/styles/2x/Wireframe.png) <p style="text-align:center">wireframe</p> | | 
+| ![Wireframe](../../images/styles/2x/Wireframe.png) <p style="text-align:center">wireframe</p> | |
