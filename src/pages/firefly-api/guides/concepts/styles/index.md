@@ -31,21 +31,32 @@ hideBreadcrumbNav: true
 Use style presets to customize the look and feel of your generated images
 
 
-Firefly's [Generate Images](../../api/image_generation/V3/) and [Generate Object Composite](../../api/generate-object-composite/) allow you to use a set of style `presets` designed to give your generated images a specific visual style or mood in your images. Pick from a wide range of styles to create the perfect look for your images, using them individually or in combination.
+![a picture of a puppy dressed as a renaissance artist](../../images/puppy-renaissance-artist.jpeg)
 
-Explore the styles with the code snippet below, or see the [Using Content Class and Style Presets](../../how-tos/using-content-class-style-preset.md) guide for more details on using style presets.
+
+Use style `presets` with Firefly's [Generate Images](../../api/image_generation/V3/) and [Generate Object Composite](../../api/generate-object-composite/) APIs to give your generated images a specific visual style or mood. Pick from a wide range of styles to create the perfect look for your images, using them individually or in combination.
+
+Begin exploring Firefly's many style `presets` with the code snippet below, and then see the [Using Content Class and Style Presets](../../how-tos/using-content-class-style-preset.md) guide for more tips on how to expertly use this powerful feature.
 
 ```bash
-{
-  "style": {
-    "presets": [
-      "photo",
-      "cool_colors",
-      "vibrant_colors"
-    ]
-  }
-}
+curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header 'x-api-key: PASTE_YOUR_CLIENT_ID_HERE' \
+--header 'Authorization: PASTE_YOUR_ACCESS_TOKEN_HERE' \
+--data '{
+    "prompt": "a puppy dressed as a renaissance artist",
+    "numVariations": 4,
+    "style": {
+        "presets": [
+            "bw", "fantasy", "dramatic_light"
+        ]
+    }
+}'
 ```
+
+### Style Presets
+
 
 ||
 | --- | --- | --- |
