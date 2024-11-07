@@ -36,9 +36,9 @@ hideBreadcrumbNav: true
 
 # Authentication
 
-Understand how Firefly API's enterprise-optimized authentication works
+Understand Firefly API's enterprise-level authentication pattern
 
-Server-to-server OAuth authentication allows your server-side application to securely generate 24 hour access tokens that call Firefly APIs without requiring end-user interaction. This secure pattern is often referred to as "two-legged OAuth".
+Firefly API's server-to-server OAuth authentication pattern allows your server-side application to generate 24-hour access tokens that call Firefly APIs, rather than directly relying on API keys. This modern security pattern is often referred to as "two-legged OAuth".
 
 ## Prerequisites
 
