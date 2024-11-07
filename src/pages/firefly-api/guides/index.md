@@ -39,110 +39,62 @@ hideBreadcrumbNav: true
 
 # Quickstart Guide
 
-This guide will show you how to make your first successful call to the [Firefly Generate Images API](./api/image_generation/V3/).
+Generate your first image with Firefly Services
 
-You need a valid API key and an access token to call the [Firefly Generate Images](./api/image_generation/V3/) endpoint. If you don't have an API key, namely `client_id` or access token yet, visit the [Getting Started guide](../../guides/get-started.md/) for instructions on obtaining them.
+![an illustration of a cat coding on a laptop](./images/cat-coding.jpeg)
 
-If you already have a project configured with Firefly Services in the [Adobe Developer Console](https://developer.adobe.com/console), you can generate an access token there, or use client ID and client secret from it to generate an access token with the following `curl` command, replacing the`{CLIENT_ID}` and `{CLIENT_SECRET}` values with your own.
+### 1. Generate an access token
 
-<!-- Log into the [Adobe Developer Console](https://developer.adobe.com/console) using the profile that your admin created for you and create an access token. [Learn more](../get-started.md/#generate-an-api-key-and-access-token-from-the-adobe-developer-console) about creating an access token. -->
+First, create an [access token](./concepts/authentication/index.md) using the `CLIENT_ID` and `CLIENT_SECRET` that you either received from a teammate or [generated on your own in the Adobe Developer Console](../guides/get-started.md/#generate-an-api-key-and-access-token-from-the-adobe-developer-console).
 
 ```bash
-curl -X POST 'https://ims-na1.adobelogin.com/ims/token/v3' \
--H 'Content-Type: application/x-www-form-urlencoded' \
--d 'grant_type=client_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
+curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'grant_type=client_credentials' \
+--data-urlencode 'client_id=CLIENT_ID' \
+--data-urlencode 'client_secret=CLIENT_SECRET' \
+--data-urlencode 'scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
 ```
 
-<InlineAlert variant="warning" slots="text" />
+### 2. Call the Firefly Generate Images API
 
-Access tokens expire every 24 hours and it is wise that you rotate them programmatically before they expire. The token endpoint above returns expiry information alongside the token itself. Read more about this in our [auth guide](./concepts/authentication/index.md). Once you have this token, you are ready to make your first request to the [Generate Images](./api/image_generation/V3/) endpoint.
-
-Now, replace your API key and access token in the example below, and you're all set to make your first request to the [Generate Images](./api/image_generation/V3/) endpoint.
-
-## Request Headers
-
-* `X-Api-Key`: This is a required parameter -- provide your client ID from the Developer Console project.
-* `Authorization`: This is a required header -- provide your access token.
-* `Content-Type`: Specifies the media type of the request body.
-
-## Example Request
+Next, use this newly created `ACCESS_TOKEN` along with your `CLIENT_ID` to call the [Firefly Generate Images API](./api/image_generation/V3/):
 
 ```bash
 curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
---header 'X-Api-Key: {CLIENT_ID}' \
---header 'Authorization: {ACCESS_TOKEN}' \
 --header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header 'x-api-key: CLIENT_ID' \
+--header 'Authorization: ACCESS_TOKEN' \
 --data '{
-  "numVariations": 2,
-  "seeds": [
-    0,4999
-  ],
-  "size": {
-    "width": 2048,
-    "height": 2048
-  },
-  "prompt": "Horses in a field of sunflowers",
-  "contentClass": "photo",
-  "visualIntensity": 2,
-  "style": {
-    "presets": [
-      "vibrant_colors"
-    ],    
-    "strength": 90   
-  }
+    "prompt": "a realistic illustration of a cat dressed as a renaissance artist coding software on a laptop"
 }'
 ```
 
-## Responses
-
-Got a 200 response code? Great! Your API call was successful.
-
-### Response Payload
-
-Here is an example response payload:
+Your response will look something like this:
 
 ```json
 {
-  "size": {
-    "width": 2048,
-    "height": 2048
-  },
-  "outputs": [
-    {
-      "seed": 0,
-      "image": {
-        "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/c851e657-67e0-4a05-aa4a-91c2ab26b9a8?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDA3T%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240617T165447Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=10377687205d2f3d0c199c9348633aeb48d2cbb2075c01fa9b0bc0fd545c3aff"
-      }
+    "size": {
+        "width": 2048,
+        "height": 2048
     },
-    {
-      "seed": 4999,
-      "image": {
-        "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/e5f03d33-05dc-43e3-a23d-edffa6d90ff8?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDA3TX66CSFus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240617T165447Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=d34ffaecce34ef6f874e6fa668a27c2c8162cffc2fed0c2b71d8640be51f2764"
-      }
-    }    
-  ],
-  "contentClass": "photo"
+    "outputs": [
+        {
+            "seed": 1779323515,
+            "image": {
+                "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/asdf-12345?lots=of&query=params..."
+            }
+        }
+    ],
+    "contentClass": "art"
 }
 ```
 
-### Image Results
+### 3. View the generated image
 
-* Seed 0 <br/>
+Open the URL in your browser to see the image you generated with Firefly Services 🎉
 
- ![Horses in a field of sunflowers (photo)](./images/horses-sunflowers-0.jpg)
+### 4. Next steps
 
-* Seed 4999 <br/>
-
- ![Horses in a field of sunflowers (photo) - seed 4999 ](./images/horses-sunflowers-4999.jpg)
-
-### Error Codes
-
-To learn more about each response code, head over to the [API's Responses](../guides/api/image_generation/V3/) section.
-
-### Rate Limits
-
-Read more about the Firefly API throttling limits [here](./concepts/rate-limits/index.md).
-
-## Try it yourself
-
-Go ahead and try making calls using the __Try it__ feature on the __API Reference__ page. Configure the headers and send a request. Once you get a 200 response code, the response body will contain a pre-signed URL of your image.
+Visit the [Firefly Generate Images API documentation](./api/image_generation/V3/) to learn more about the rich customization options available to you, including the ability to specify image style, structure, intensity, geographic locale, size, and more 🚀
