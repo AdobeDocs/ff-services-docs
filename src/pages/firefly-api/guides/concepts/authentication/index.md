@@ -36,7 +36,7 @@ hideBreadcrumbNav: true
 
 # Authentication
 
-This document will help you understand how to authenticate your application with Firefly APIs using OAuth Server-to-Server credentials via the Adobe Developer Console. 
+This document will help you understand how to authenticate your application with Firefly APIs using OAuth Server-to-Server credentials via the Adobe Developer Console.
 
 Server-to-server authentication allows your server-side application to generate access tokens and make API calls on its own behalf, without requiring end-user interaction. This is often referred to as "two-legged OAuth".
 
@@ -55,6 +55,7 @@ Before you begin, ensure you have:
 To generate an access token, send a `POST` request to the Adobe Identity Management System (IMS) token endpoint.
 
 ### Authentication Endpoint:
+
 ```bash
 https://ims-na1.adobelogin.com/ims/token/v3
 ```
@@ -88,4 +89,3 @@ Replace `{CLIENT_ID}` and `{CLIENT_SECRET}` with your actual credentials.
 The token endpoint returns an expiry timeframe in seconds, a token type and the token itself.
 
 Access tokens and the `client_id` are required to authenticate your API requests. See the [Quickstart Page](../../index.md) to make your first request! 
-
