@@ -73,7 +73,7 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header 'x-api-key: PASTE_YOUR_CLIENT_ID_HERE' \
---header 'Authorization: PASTE_YOUR_ACCESS_TOKEN_HERE' \
+--header 'Authorization: Bearer PASTE_YOUR_ACCESS_TOKEN_HERE' \
 --data '{
     "prompt": "a realistic illustration of a cat dressed as a renaissance artist coding software on a laptop"
 }'
