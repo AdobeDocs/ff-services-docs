@@ -45,7 +45,7 @@ Generate your first image with Firefly Services
 
 ### 1. Generate an access token
 
-First, create an [access token](./concepts/authentication/index.md) using the `CLIENT_ID` and `CLIENT_SECRET` that you either received from a teammate or [generated on your own in the Adobe Developer Console](../guides/get-started.md):
+First, create an [access token](./concepts/authentication/index.md) using the `CLIENT_ID` and `CLIENT_SECRET` that you either received from a teammate or [generated on your own in the Adobe Developer Console](../../guides/get-started.md):
 
 ```bash
 curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
