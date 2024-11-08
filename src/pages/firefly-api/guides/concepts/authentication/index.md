@@ -36,9 +36,9 @@ hideBreadcrumbNav: true
 
 # Authentication
 
-This document will help you understand how to authenticate your application with Firefly APIs using OAuth Server-to-Server credentials via the Adobe Developer Console.
+Understand Firefly API's enterprise-level authentication pattern
 
-Server-to-server authentication allows your server-side application to generate access tokens and make API calls on its own behalf, without requiring end-user interaction. This is often referred to as "two-legged OAuth".
+Firefly API's server-to-server OAuth authentication pattern allows your server-side application to generate 24-hour access tokens that call Firefly APIs, rather than directly relying on API keys. This modern security pattern is often referred to as "two-legged OAuth".
 
 ## Prerequisites
 
@@ -78,7 +78,7 @@ Replace `{CLIENT_ID}` and `{CLIENT_SECRET}` with your actual credentials.
 
 ### Response:
 
-``` bash 
+``` bash
 {
     "access_token": "ey1...JQ",
     "token_type": "bearer",
@@ -88,4 +88,4 @@ Replace `{CLIENT_ID}` and `{CLIENT_SECRET}` with your actual credentials.
 
 The token endpoint returns an expiry timeframe in seconds, a token type and the token itself.
 
-Access tokens and the `client_id` are required to authenticate your API requests. See the [Quickstart Page](../../index.md) to make your first request! 
+Access tokens and the `client_id` are required to authenticate your API requests. See the [Quickstart Page](../../index.md) to make your first request!
