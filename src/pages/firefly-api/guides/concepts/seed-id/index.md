@@ -30,95 +30,20 @@ contributors:
 hideBreadcrumbNav: true
 ---
 
-# Understanding Firefly API Seed IDs
+# Understanding Seed IDs in Firefly Services API
 
-Use seed IDs to generate images similar to one another across multiple requests.
+Seed IDs in Firefly services API are the unique identifiers that drive the API's request and response mechanisms. 
 
-Whenever Firefly generates an image, by default it starts in a brand new random state. This random starting state contributes to what makes each image unique. This is great when you want to generate a wide variety of images, but there may be times when you want to generate images that are similar to one another. For example, when Firefly generates an image with a certain prompt that you find to be amazing, and now you wish to try out different generated styles while keeping the image more consistent, Seed IDs can help you achieve this.
+## Role of Seed IDs
 
-The best way to understand the advanced power of seed IDs is to see them in action. Let's first generate images without seeds specified (which means that Firefly will randomly generate them for us):
+These IDs, represented as strings of numbers, are the key to associating images with specific styles or characteristics, making them a fundamental component of the API.
 
-```bash
-curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
---header 'Content-Type: application/json' \
---header 'Accept: application/json' \
---header 'x-api-key: PASTE_YOUR_CLIENT_ID_HERE' \
---header 'Authorization: Bearer PASTE_YOUR_ACCESS_TOKEN_HERE' \
---data '{
-    "prompt": "puppy reading a book while pondering life",
-    "numVariations": 4
-}'
-```
+## Generating Similar Images using Seed IDs
 
-The above request will return a response that looks something like this:
+Seed IDs are the secret sauce to generating images with similar styles. For instance, when using the [Generate Images API](../../api/image_generation/V3/) to create multiple images, you can leverage the seed ID of a preferred image in subsequent API calls. This will result in more images that mirror its style, giving you a batch of images with a consistent aesthetic.
 
-```bash
-{
-    "size": {
-        "width": 2048,
-        "height": 2048
-    },
-    "outputs": [
-        {
-            "seed": 1065791981,
-            "image": {
-                "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/asdf-1234..."
-            }
-        },
-        {
-            "seed": 733755163,
-            "image": {
-                "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/qwer-1234..."
-            }
-        },
-        {
-            "seed": 1658106736,
-            "image": {
-                "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/zxcv-1234..."
-            }
-        },
-        {
-            "seed": 1842533538,
-            "image": {
-                "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/uiop-1234..."
-            }
-        }
-    ],
-    "contentClass": "photo"
-}
-```
-With images like this:
+## Optional Usage and Requirements
 
-## TODO
+When you use seed IDs in API requests is optional, providing a seed for each expected output is essential. For instance, if you intend to generate four images, you must provide an array containing four distinct seeds.
 
-Now, let's say we like the image of the puppy with its paws holding up the book. We can use the seed ID (`733755163`) from that image to generate more images that are similar to it. Let's first demonstrate what happens if we replace `"numVariations" : 4` with `"seeds": [733755163]`:
-
-```bash
-curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
---header 'Content-Type: application/json' \
---header 'Accept: application/json' \
---header 'x-api-key: PASTE_YOUR_CLIENT_ID_HERE' \
---header 'Authorization: Bearer PASTE_YOUR_ACCESS_TOKEN_HERE' \
---data '{
-    "prompt": "puppy reading a book while pondering life",
-    "seeds": [733755163]
-}'
-```
-
-With no new instructions for how generate the image, we receive an image back that looks similar our prior puppy with the same prompt and same seed:
-
-TODO PUPPY IMAGE 2
-
-Now, in practice we won't be interested in generating lots of images of the same puppy. Rather, now that we know we can keep the puppy consistent, we will begin exploring different styles with it:
-
-```bash
-curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
---header 'Content-Type: application/json' \
---header 'Accept: application/json' \
---header 'x-api-key: PASTE_YOUR_CLIENT_ID_HERE' \
---header 'Authorization: Bearer PASTE_YOUR_ACCESS_TOKEN_HERE' \
---data '{
-    "prompt": "puppy reading a book while pondering life",
-    "seeds": [733755163]
-}'
-```
+Seed IDs in Firefly services API are strategic assets. They empower users to steer the image generation process according to their preferences. Whether you are exploring variations of a favourite style or ensuring consistency across outputs, the strategic use of seed IDs can significantly enhance your experience and the quality of the content you generate.
