@@ -38,5 +38,5 @@ It enables users to:
 
 The API cannot automatically detect missing fonts in the layers. To prevent potential missing fonts from being replaced, please provide a href to the font(s) in the options.fonts section of the API. For more details on specifying custom fonts, please refer to the example section below.
 
-In this example, the font on the original image was altered using the Text API, as depicted in the image on the left.
+In this example, the font on the original image was altered using the Text API, as depicted in the image on the left:
 ![alt image](./textlayer_example.png?raw=true "Original Image")
