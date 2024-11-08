@@ -78,7 +78,7 @@ Replace `{CLIENT_ID}` and `{CLIENT_SECRET}` with your actual credentials.
 
 ### Response:
 
-``` bash 
+``` bash
 {
     "access_token": "ey1...JQ",
     "token_type": "bearer",
@@ -88,4 +88,4 @@ Replace `{CLIENT_ID}` and `{CLIENT_SECRET}` with your actual credentials.
 
 The token endpoint returns an expiry timeframe in seconds, a token type and the token itself.
 
-Access tokens and the `client_id` are required to authenticate your API requests. See the [Quickstart Page](../../index.md) to make your first request! 
+Access tokens and the `client_id` are required to authenticate your API requests. See the [Quickstart Page](../../index.md) to make your first request!
