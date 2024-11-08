@@ -4,9 +4,9 @@ This section provides definitions and details for terms and parameters to be awa
 
 ## Seed
 
-The purpose of a seed is to give a starting point for image generation. Each API supports an optional array of seed values that will provide generation stability across multiple API calls (example, you can use the same seed to generate a similar image with different styles).
+A **seed** is a starting point for image generation. By using a seed value, you can generate consistent images across multiple API calls. This means that using the same seed with different styles can produce similar images with variations.
 
-Only generated images can be used as seeds, and you can locate the seed value for any generated image in the outputs array of a successful response, for example:
+*Note:* Only generated images can be used as seeds. You can find the seed value for any generated image in the `outputs` array of a successful response. For example:
 
 ```json
 "outputs": [
@@ -27,59 +27,59 @@ Only generated images can be used as seeds, and you can locate the seed value fo
 
 ## Prompt
 
-Provide instructions to generate an output. Write descriptive text prompts to generate specifically what you want — if you don't like the results, reword your prompt to get closer to what you want. See [Writing Effective Prompts](https://helpx.adobe.com/firefly/using/tips-and-tricks.html) for more details.
+A **prompt** is a descriptive text instruction that tells the model what kind of image to generate. The more detailed your prompt, the more specific the generated image will be. If you're not satisfied with the results, try rewording your prompt. See [Writing Effective Prompts](https://helpx.adobe.com/firefly/using/tips-and-tricks.html) for more tips.
 
 ## Negative prompt
 
-Instruct the model that it should NOT include certain elements in its generated image that it may otherwise assume. The model will avoid these words in the generated content with best effort. More details [here](https://www.adobe.com/products/firefly/discover/ai-art-negative-prompts.html#:~:text=Negative%20prompts%20are%20text%20prompts,elements%20in%20its%20generated%20images).
+A **negative prompt** tells the model what elements to avoid in the generated image. By specifying what you don't want, the model will make a best effort to exclude those elements. Learn more about negative prompts [here](https://www.adobe.com/products/firefly/discover/ai-art-negative-prompts.html#:~:text=Negative%20prompts%20are%20text%20prompts,elements%20in%20its%20generated%20images).
 
 ## Mask
 
-With image masking, you can “conceal and reveal", meaning you can hide portions of your image and display other portions when editing an image. An image mask is like putting a mask over the parts of a picture you want to protect or hide, while exposing the other areas for editing.
+An image mask allows you to hide or protect parts of an image when editing. It's like placing a mask over the areas you don't want to change, revealing only the parts you want to edit.
 
-When creating an image mask, use black or white depending on the results you're trying to achieve. A tip to remember is that black conceals and white reveals, thus you will want to use black on the parts you want to hide from being edited, and white on those that can be changed.
+* **Black conceals:** Use black on the mask to hide areas from being edited.
+* **White reveals:** Use white to expose areas that can be changed.
 
 ## Inverted mask
 
-Inverting a mask means to swap which area of the image is masked (ie: black and white areas are reversed). So for instance, in the case of the above perfume image mask, inverting it would result in the following, and preserve the background of the image instead.
+An **inverted mask** swaps the masked and unmasked areas of an image. This means that the areas previously hidden become visible for editing, and vice versa.
 
 ## MD (Multi Diffusion)
 
-For these APIs, the model will process an image using its context. For example, in case of Generative Fill/Expand, the model needs to know what the rest of the image is before generating new content.
+**Multi Diffusion** refers to the model processing an image using its context. For example, in Generative Fill or Expand, the model considers the rest of the image when generating new content.
 
 ## Reference Image
 
-Provide a sample image as a reference to generate image results. For example, the `image` parameter in the Generate Similar API, or the style and structure `imageReference` parameter in Generate Images.
+A **reference image** is a sample image you provide to influence the generated results. For example, you can use a reference image to match the style or structure in the generated images.
 
 ## Content class
 
-Guides the overall image theme and styles that can be applied on top of each content type (ie: photo, art). If the parameter is not specified, it will be auto-detected.
+The **content class** guides the overall theme and styles applied to the content, such as `photo` or `art`. If not specified, the model will auto-detect the content class. For more information visit the [Styles Documentation.](./styles/index.md)
 
 ## Style
 
-Use the `style` parameter to generate an image based on a [preset value](https://developer.adobe.com/firefly-services/docs/firefly-api/guides/concepts/styles/), or the look and feel of a reference image. Firefly will be influenced by either the preset style value when present, or detect the style in the supplied image, and apply the same style in the generated image. A `style` can be specified with preset styles (Such as, `photo`, `art`, `graphic`, `bw`), a reference image, or both.
+Use the style parameter to define the look and feel of the generated image. You can:
+
+* **Preset styles:** Use the `style` parameter to generate an image based on a [preset value](https://developer.adobe.com/firefly-services/docs/firefly-api/guides/concepts/styles/) like `photo`, `art`, `graphic`, or `bw`.
+* **Reference image:** Provide an image to match its style.
 
 ## Parameter Options
 
-- `presets`: a list of style presets to be applied to generated content.
-- `source`: presigned url or upload id of an image to use to match style.
-- `strength`: indicates the intensity scale to apply the styles (`1..100`).
+* `presets`: a list of style presets to be applied to generated content.
+* `source`: presigned url or upload id of an image to use to match style.
+* `strength`: indicates the intensity scale to apply the styles (`1..100`).
 
 ## Structure
 
-Firefly will detect the structure in the image supplied in the `structure` param and apply the same in the generated image. Structure in an image refers to the composition of an image and how the visual elements and subjects are arranged within the frame. The outline and depth are essential aspects that Firefly considers while matching the structure of a reference image. A reference image provided to use for determining the structure of the generated image is more specific than the content reference image in that only the structure is affected.
+Structure refers to the composition and arrangement of visual elements in an image. By providing a reference image in the `structure` parameter, Firefly will mimic the outline and depth in the generated image.
 
 <InlineAlert variant="help" slots="text" />
 
 Use the `strength` param to adjust the adherence to the structure reference image. `0` means no adherence. `100` means full adherence.
 
-Example:
-
-A car driving in the middle of a desert
-
 ## Dimensions
 
-Specifies the dimensions of the generated image via a `size` parameter in the APIs. Valid dimensions:
+The **dimensions** specify the size of the generated image using the `size` parameter. Valid dimensions are:
 
 **Non-upsampled:**
 
@@ -105,7 +105,7 @@ For tileable images (`"tileable": true`), only the square dimensions are accepte
 
 ## Tileable
 
-Generates results that are repeated patterns, like tiles in a single image​. An image is tileable if it can be repeated infinitely in any direction without showing visible seams or edges.  The default for `tileable` is false.
+A **tileable image** is one that can be repeated infinitely in any direction without visible seams or edges, like a pattern. Set `tileable` to `true` to generate such images. The default is false.
 
 <InlineAlert variant="help" slots="text" />
 
@@ -113,7 +113,7 @@ For tileable images (`"tileable": true`), only the square dimensions are accepte
 
 ## Locale Based Prompt Bias
 
-Including the `promptBiasingLocaleCode` parameter where it's supported will generate more relevant content to the region specified.
+Including the `promptBiasingLocaleCode` parameter where supported will generate content relevant to the specified region.
 
 <InlineAlert variant="help" slots="text" />
 
@@ -121,11 +121,11 @@ When not specified, the locale will be auto-detected, based on user's profile an
 
 ## Visual Intensity
 
-The `visualIntensity` parameter adjusts the overall intensity of your photo's existing visual characteristic. Valid values are `[ 2 .. 10 ]`.
+The `visualIntensity` parameter adjusts the overall intensity of the image's existing visual characteristics. Valid values are `[ 2 .. 10 ]`.
 
 ## Placement
 
-The `placement` object adjust how the image will be positioned and sized in the final generation. You can specify only `inset`, only `alignment`, or none (omit all).
+The `placement` object adjust how the image is positioned and sized in the final generation. You can specify only `inset`, only `alignment`, or none (omit all).
 
 <CodeBlock slots="heading, code" repeat="2" languages="JSON, JSON" />
 
@@ -155,7 +155,7 @@ The `placement` object adjust how the image will be positioned and sized in the 
 
 <InlineAlert variant="help" slots="text1, text2" />
 
-This parameter is currently available in the [Expand Image API V3](../api/generative_expand/V3/) and the [Object Composite API V3](../api/generate-object-composite/), but used somewhat differently.
+This parameter is currently available in the [Expand Image API V3](../api/generative_expand/V3/) and the [Object Composite API V3](../api/generate-object-composite/), but used differently in each.
 
 In the case of the [Expand Image API V3](../api/generative_expand/V3/), you cannot use `placement` along with `mask`.
 
@@ -163,8 +163,8 @@ In the case of the [Expand Image API V3](../api/generative_expand/V3/), you cann
 
 ## Inpainting
 
-The process of filling-in a designated region of the visual input.
+**Inpainting** is the process of filling in a designated region of an image. It's used to reconstruct or replace parts of an image.
 
 ## Outpainting
 
-Expands the borders of an image using generative AI.
+**Outpainting** expands the borders of an image by generating new content using generative AI, effectively extending the image beyond its original boundaries.
