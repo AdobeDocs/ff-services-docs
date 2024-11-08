@@ -278,6 +278,24 @@ module.exports = {
         path: '/photoshop/concepts/'
       },
       {
+        title: 'How-Tos',
+        path: '/photoshop/how-tos/photoshop-actions.md',
+        pages: [
+          {
+            title: 'Photoshop Actions',
+            path: '/photoshop/how-tos/photoshop-actions.md'
+          },
+          {
+            title: 'Smart Objects',
+            path: '/photoshop/how-tos/smart-objects.md'
+          },
+          {
+            title: 'Text',
+            path: '/photoshop/how-tos/text.md'
+          }
+        ]
+      },
+      {
         title: 'Features',
         path: '/photoshop/features/'
       },

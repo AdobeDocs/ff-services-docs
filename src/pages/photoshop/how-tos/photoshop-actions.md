@@ -229,7 +229,7 @@ You can alternately create a new file in your Photoshop app's Action Panel:
 
 * Go to `Windows | Actions`. The action panel opens.
 * Select `New Action` to create a new action. You can alternately click `+` in the panel.
-  ![alt image](./actions_panel_menu.png?raw=true "Original Image")
+  ![alt image](../features/actions_panel_menu.png?raw=true "Original Image")
 * Select your action from action set
 * Select `Copy as Javascript`
 * Paste it in any text editor.
