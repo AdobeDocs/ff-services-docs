@@ -165,6 +165,7 @@ In the case of the [Expand Image API V3](../api/generative_expand/V3/), you cann
 ## Inpainting
 
 **Inpainting** is the process of filling in a designated region of an image. It's used to reconstruct or replace parts of an image.
+
 ## Outpainting
 
-Outpainting expands the borders of an image by generating new content using generative AI, effectively extending the image beyond its original boundaries.
+**Outpainting** expands the borders of an image by generating new content using generative AI, effectively extending the image beyond its original boundaries.
