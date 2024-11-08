@@ -31,43 +31,41 @@ contributors:
   - https://github.com/amandahuarng
   - https://github.com/nimithajalal
   - https://github.com/hollyschinsky
+  - https://github.com/bishoysefin
 hideBreadcrumbNav: true
 ---
 
 # Rate Limits
 
-To ensure our customers enjoy equitable peak performance with the Adobe Firefly API, Adobe places limits on the volume, frequency, and concurrency of API calls, and monitors your API usage to proactively contact you and resolve any risks to API performance. 
+Adobe Firefly API places limits on the volume, frequency, and concurrency of API calls. This guide provides an overview of these limits, how to check them, why they are necessary, and what to do if you encounter issues.
 
-## Overview
+## Summary of Rate Limits
 
-Our API imposes rate limits on how often a user or client can access our services within a specified period.
+Our API imposes the following rate limits **per organization**:
+
+* **4** requests **per minute (RPM)**
+* **9,000** requests **per day (RPD)**
+
+It's important to note that rate limits are shared across **all users within your organization**. This means that all users within an organization share the same rate limits.
+
+## Checking Rate Limits with Requests
+
+If you exceed the rate limits, you'll receive an **HTTP 429 Too Many Requests** error. We recommend using the `retry-after` header to determine the number of seconds you should wait before trying again.
 
 ## Why do we have rate limits?
 
 Rate limits are standard practice for APIs, and they serve several important purposes:
 
-- **Preventing abuse**: Limiting the number of requests from a user prevents malicious users or bots from overwhelming the API, maintaining stability and avoiding disruptions.
-- **Ensuring fair usage**: Setting limits provides all users equal access to resources, preventing any user or organization from monopolizing the API's capacity.
-- **Managing server load**: Control over the request processing rate prevents server overload and ensures consistent user performance.
-- **Protecting against downtime**: Limiting excessive usage helps avoid server downtime, keeping the API available and responsive to legitimate users.
-- **Controlling costs**: Limiting resource consumption helps control costs for users, organizations, or applications, especially when API usage is tied to a pricing plan.
+* **Preventing abuse**: Protects the API from being overwhelmed by excessive requests.
+* **Ensuring fair usage**: Guarantees equal access to all users and organizations.
+* **Managing server load**: Manages server load for consistent performance.
+* **Protecting against downtime**: Reduces the risk of service interruptions.
+* **Controlling costs**: Helps manage resource consumption and associated expenses.
 
-## How do these rate limits work?
+## What to Do If You Run Into Issues
 
-Rate limits are measured in two ways: requests per minute (RPM) and requests per day (RPD). 
+If you encounter rate limit issues:
 
-We limit the rate of API requests by the minute, and day.
-
-<InlineAlert variant="info" slots="text1, text2, text3" />
-
-It's important to note that rate limits are imposed at the organization level, not the user level. This means that all users within an organization share the same rate limits. The limits are as follows:
-
-**4** requests **per minute**
-
-**9000** requests **per day**
-
-You may encounter a HTTP 429 "Too Many Requests" error if your usage exceeds either the per-minute, or per day limit. We recommend using the 'retry-after' header to determine the number of seconds you should wait before trying again.
-
-We appreciate that these limits may not be ideal for certain use cases. Please contact your 
-account manager so that we can partner with you on setting the optimal thresholds for your 
-account.
+1. **Review Your Usage:** reduce unnecessary request.
+2. **Implement Retry Logic:** Use the `retry-after` header to wait before retrying.
+3. **Contact Us for Assistance:** We appreciate that these limits may not be ideal for certain use cases. Please contact your account manager so that we can partner with you on setting the optimal thresholds for your account.
