@@ -60,14 +60,14 @@ The **content class** guides the overall theme and styles applied to the content
 
 Use the style parameter to define the look and feel of the generated image. You can:
 
-* **Preset styles:** Use the `style` parameter to generate an image based on a [preset value](https://developer.adobe.com/firefly-services/docs/firefly-api/guides/concepts/styles/) like `photo`, `art`, `graphic`, or `bw`. 
+* **Preset styles:** Use the `style` parameter to generate an image based on a [preset value](https://developer.adobe.com/firefly-services/docs/firefly-api/guides/concepts/styles/) like `photo`, `art`, `graphic`, or `bw`.
 * **Reference image:** Provide an image to match its style.
 
 ## Parameter Options
 
-- `presets`: a list of style presets to be applied to generated content.
-- `source`: presigned url or upload id of an image to use to match style.
-- `strength`: indicates the intensity scale to apply the styles (`1..100`).
+* `presets`: a list of style presets to be applied to generated content.
+* `source`: presigned url or upload id of an image to use to match style.
+* `strength`: indicates the intensity scale to apply the styles (`1..100`).
 
 ## Structure
 
@@ -76,7 +76,6 @@ Structure refers to the composition and arrangement of visual elements in an ima
 <InlineAlert variant="help" slots="text" />
 
 Use the `strength` param to adjust the adherence to the structure reference image. `0` means no adherence. `100` means full adherence.
-
 
 ## Dimensions
 
