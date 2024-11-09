@@ -90,7 +90,13 @@ The above request will return a response that looks something like this:
 }
 ```
 
-That that fourth, lower-right image is our favorite. Now let's use its seed ID of `1842533538` to iterate on it further. By keeping the prompt and seed ID the same, we are telling firefly that want future image generations to be similar to this image that we like. This allows us to use all Firefly's other generation options such as style presets, size, reference images, and more, while keeping the image consistent with the one we liked.
+
+||
+| --- | --- |
+| ![a picture of a futuristic city 1](../../images/seedless-city-1.jpeg) | ![a picture of a futuristic city 2](../../images/seedless-city-2.jpeg) |
+| ![a picture of a futuristic city 3](../../images/seedless-city-3.jpeg) | ![a picture of a futuristic city 4](../../images/seedless-city-4.jpeg) |
+
+That that first image in the upper-left inspires me, but I want to now try using some of Firefly's different advanced features to generate variations of it. Now let's use its seed ID of `1842533538` to iterate on it further. By keeping the prompt and seed ID the same, we are telling firefly that want future image generations to be similar to this image that we like. This allows us to use all Firefly's other generation options such as style presets, size, reference images, and more, while keeping the image consistent with the one we liked.
 
 ```bash
 curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
@@ -113,3 +119,4 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 
 Firefly generates the following image for us. Notice how many similarities from the image with the same seed are retained, but we've nudged the generation with [style presets](../styles/index.md) towards "landscape photography" and "science fiction" styles.
 
+![a variation of futuristic city 1](../../images/seeded-city-1.jpeg)
