@@ -38,10 +38,13 @@ hideBreadcrumbNav: true
 
 Learn how to make requests to Firefly APIs
 
-To call Firefly APIs, you need send an encrypted access token with each API request which prove you have the right to access Firefly.
+Every request you make to Firefly APIs must include an encrypted access token. You generate this token by having your secure, server-side application making a request to the [Adobe Identity Management System (IMS)](https://www.adobe.com/content/dam/cc/en/trust-center/ungated/whitepapers/corporate/adobe-identity-management-services-security-overview.pdf) with your `CLIENT_ID` and `CLIENT_SECRET`.
 
-Access tokens are generated using the modern OAuth authentication pattern, where your secure server-side application sends a request to the Adobe Identity Management System (IMS) with your `CLIENT_ID` and `CLIENT_SECRET`, and receives an access token that is valid for 24 hours:
+<InlineAlert variant="info" slots="text" />
 
+If you don't already have a `CLIENT_ID` and `CLIENT_SECRET`, retrieve it from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview).
+
+Generate an access token by running the following command in your terminal:
 
 ```bash
 curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
@@ -52,16 +55,12 @@ curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
 --data-urlencode 'scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
 ```
 
-<InlineAlert variant="info" slots="text" />
-
-If you don't already have a `CLIENT_ID` and `CLIENT_SECRET`, you can find it in your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview).
-
 The response will look like this:
 
 ```json
 {"access_token":"asdf...1234","token_type":"bearer","expires_in":86399}
 ```
 
-Notice how the response includes an `expires_in` field, which tells you how many more seconds the token is valid for. Each token will be valid for 24 hours, after which your server will need to request a new token.
+Notice how the response includes an `expires_in` field, which tells you how many more seconds the token is valid for. Each token will be valid for 24 hours, after which your server will need to request a new token. A best practice is to store the token in a secure location and refresh it before it expires.
 
-Now that you understand how to generate an access token, see the [Quickstart Page](../../index.md) to make your first request!
+Now that you know how to generate an access token, quickly generate your first image with the [Quickstart Guide](../../index.md)!
