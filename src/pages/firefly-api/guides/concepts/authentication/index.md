@@ -65,4 +65,4 @@ The response will look like this:
 
 Notice how the response includes an `expires_in` field, which tells you how many more seconds the token is valid for. Each token will be valid for 24 hours, after which your secure server-side application will need to request a new token. A best practice is securely store the token and refresh it before it expires.
 
-Now that you know how to generate an access token, quickly generate your first image with the [Quickstart Guide](../../index.md)!
+Now that you are retrieving an access token, hop over to the [Quickstart Guide](../../index.md) to generate your first image!
