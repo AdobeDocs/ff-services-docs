@@ -48,17 +48,13 @@ Our API imposes the following rate limits **per organization**:
 
 It's important to understand that rate limits are shared across all users within your organization and that all users within an organization share the same rate limits.
 
-## Checking Rate Limits with Requests
-
-If you exceed the rate limits, you'll receive an **HTTP 429 Too Many Requests** error. We recommend using the `retry-after` header to determine the number of seconds you should wait before trying again.
-
 ## What to Do If You Run Into Issues
 
-If you encounter rate limit issues:
+If you exceed the rate limits, you'll receive an **HTTP 429 Too Many Requests** error. If you encounter this error, consider any of the following solutions:
 
-1. **Review Your Usage:** reduce unnecessary requests.
-2. **Implement Retry Logic:** Use the `retry-after` header to wait before retrying.
-3. **Contact Us for Assistance:** We appreciate that these rate limits may not be ideal for certain use cases. Please reach out to your account manager so that we can partner with you to set the optimal rate limits for your account.
+- **Review your usage** and reduce unnecessary requests.
+- **Implement retry logic** via a [`retry-after` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After) or [exponential backoff strategy](https://en.wikipedia.org/wiki/Exponential_backoff).
+- **Contact your account manager** to request enabling higher usage rates.
 
 ## Why do API rate limits exist?
 
