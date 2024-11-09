@@ -32,9 +32,11 @@ hideBreadcrumbNav: true
 
 # Understanding Firefly API Seed IDs
 
-Use seed IDs to generate images similar to one another across multiple requests.
+Use seed IDs to generate images similar to one another across multiple HTTP requests
 
-Whenever Firefly generates an image, by default it starts in a brand new random state. This random starting state contributes to what makes each image unique. This is great when you want to generate a wide variety of images, but there may be times when you want to generate images that are similar to one another. For example, when Firefly generates an image with a certain prompt that you find to be amazing, and now you wish to try out different generated styles while keeping the image more consistent, Seed IDs can help you achieve this.
+Whenever Firefly generates an image, by default it starts in a brand new random state. This random starting state contributes to what makes each image unique.
+
+This is great when you want to generate a wide variety of images, but there may be times when you want to generate images that are similar to one another. For example, when Firefly generates an image with a certain prompt that you find to be amazing, and now you wish to try out different generated styles while keeping the image more consistent, use a seed ID.
 
 The best way to understand the advanced power of seed IDs is to see them in action. Let's first generate images without seeds specified (which means that Firefly will randomly generate them for us):
 
@@ -45,7 +47,7 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header 'x-api-key: PASTE_YOUR_CLIENT_ID_HERE' \
 --header 'Authorization: Bearer PASTE_YOUR_ACCESS_TOKEN_HERE' \
 --data '{
-    "prompt": "puppy reading a book while pondering life",
+    "prompt": "a futuristic future cityscape with flying cars",
     "numVariations": 4
 }'
 ```
@@ -87,11 +89,8 @@ The above request will return a response that looks something like this:
     "contentClass": "photo"
 }
 ```
-With images like this:
 
-## TODO
-
-Now, let's say we like the image of the puppy with its paws holding up the book. We can use the seed ID (`733755163`) from that image to generate more images that are similar to it. Let's first demonstrate what happens if we replace `"numVariations" : 4` with `"seeds": [733755163]`:
+That that fourth, lower-right image is our favorite. Now let's use its seed ID of `1842533538` to iterate on it further. By keeping the prompt and seed ID the same, we are telling firefly that want future image generations to be similar to this image that we like. This allows us to use all Firefly's other generation options such as style presets, size, reference images, and more, while keeping the image consistent with the one we liked.
 
 ```bash
 curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
@@ -100,25 +99,17 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header 'x-api-key: PASTE_YOUR_CLIENT_ID_HERE' \
 --header 'Authorization: Bearer PASTE_YOUR_ACCESS_TOKEN_HERE' \
 --data '{
-    "prompt": "puppy reading a book while pondering life",
-    "seeds": [733755163]
+    "prompt": "a futuristic future cityscape with flying cars",
+    "seeds": [
+        1842533538
+    ],
+    "style": {
+        "presets": [
+            "landscape_photography", "science_fiction"
+        ]
+    }
 }'
 ```
 
-With no new instructions for how generate the image, we receive an image back that looks similar our prior puppy with the same prompt and same seed:
+Firefly generates the following image for us. Notice how many similarities from the image with the same seed are retained, but we've nudged the generation with [style presets](../styles/index.md) towards "landscape photography" and "science fiction" styles.
 
-TODO PUPPY IMAGE 2
-
-Now, in practice we won't be interested in generating lots of images of the same puppy. Rather, now that we know we can keep the puppy consistent, we will begin exploring different styles with it:
-
-```bash
-curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
---header 'Content-Type: application/json' \
---header 'Accept: application/json' \
---header 'x-api-key: PASTE_YOUR_CLIENT_ID_HERE' \
---header 'Authorization: Bearer PASTE_YOUR_ACCESS_TOKEN_HERE' \
---data '{
-    "prompt": "puppy reading a book while pondering life",
-    "seeds": [733755163]
-}'
-```
