@@ -44,7 +44,7 @@ Your secure, server-side application retrieves this token by making a request to
 
 <InlineAlert variant="info" slots="text" />
 
-If you don't already have a `CLIENT_ID` and `CLIENT_SECRET`, retrieve it from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview).
+If you don't already have a `CLIENT_ID` and `CLIENT_SECRET`, retrieve it from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview). Store these credentials securely and never expose them in client-side or public code.
 
 Try generating an access token by running the following command in your terminal:
 
