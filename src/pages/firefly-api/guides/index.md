@@ -45,7 +45,7 @@ Generate your first image with Firefly Services
 
 <InlineAlert variant="info" slots="text" />
 
-If you don't already have a `CLIENT_ID` and `CLIENT_SECRET`, retrieve it from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview).
+If you don't yet have your `CLIENT_ID` and `CLIENT_SECRET`, first read our [authentication guide](./concepts/authentication/index.md) to learn how to retrieve it.
 
 ### 1. Generate an access token
 
