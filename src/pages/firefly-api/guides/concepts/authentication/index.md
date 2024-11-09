@@ -36,56 +36,32 @@ hideBreadcrumbNav: true
 
 # Authentication
 
-Understand Firefly API's enterprise-level authentication pattern
+Learn how to make requests to Firefly APIs
 
-Firefly API's server-to-server OAuth authentication pattern allows your server-side application to generate 24-hour access tokens that call Firefly APIs, rather than directly relying on API keys. This modern security pattern is often referred to as "two-legged OAuth".
+To call Firefly APIs, you need send an encrypted access token with each API request which prove you have the right to access Firefly.
 
-## Prerequisites
+Access tokens are generated using the modern OAuth authentication pattern, where your secure server-side application sends a request to the Adobe Identity Management System (IMS) with your `CLIENT_ID` and `CLIENT_SECRET`, and receives an access token that is valid for 24 hours:
 
-Before you begin, ensure you have:
-
-* An [Adobe Developer Console](https://developer.adobe.com/console/786177/home) account.
-* A [project](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/) with Firefly API [OAuth Server-to-Server credentials set up](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/).
-* Access to your Client ID and Client Secret from the Developer Console.
-
-## Access tokens
-
-[Generating access tokens](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) can be accomplished either directly from the Developer Console UI or programmatically.
-
-To generate an access token, send a `POST` request to the Adobe Identity Management System (IMS) token endpoint.
-
-### Authentication Endpoint:
 
 ```bash
-https://ims-na1.adobelogin.com/ims/token/v3
+curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'grant_type=client_credentials' \
+--data-urlencode 'client_id=PASTE_YOUR_CLIENT_ID_HERE' \
+--data-urlencode 'client_secret=PASTE_YOUR_CLIENT_SECRET_HERE' \
+--data-urlencode 'scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
 ```
 
-### Required Parameters:
+<InlineAlert variant="info" slots="text" />
 
-* `client_id`: Client ID from Console
-* `client_secret`: Client secret from Console
-* `scope`: `firefly_api`, `ff_apis`, `openid`, `AdobeID`, `session`, `additional_info`, `read_organizations`
+If you don't already have a `CLIENT_ID` and `CLIENT_SECRET`, you can find it in your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview).
 
-### Example Request
+The response will look like this:
 
-```bash
-curl -X POST 'https://ims-na1.adobelogin.com/ims/token/v3' \
--H 'Content-Type: application/x-www-form-urlencoded' \
--d 'grant_type=client_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
+```json
+{"access_token":"asdf...1234","token_type":"bearer","expires_in":86399}
 ```
 
-Replace `{CLIENT_ID}` and `{CLIENT_SECRET}` with your actual credentials.
+Notice how the response includes an `expires_in` field, which tells you how many more seconds the token is valid for. Each token will be valid for 24 hours, after which your server will need to request a new token.
 
-### Response:
-
-``` bash
-{
-    "access_token": "ey1...JQ",
-    "token_type": "bearer",
-    "expires_in": 86399
-}
-```
-
-The token endpoint returns an expiry timeframe in seconds, a token type and the token itself.
-
-Access tokens and the `client_id` are required to authenticate your API requests. See the [Quickstart Page](../../index.md) to make your first request!
+Now that you understand how to generate an access token, see the [Quickstart Page](../../index.md) to make your first request!
