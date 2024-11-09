@@ -117,6 +117,28 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 }'
 ```
 
+Firefly responds with:
+
+```json
+{
+    "size": {
+        "width": 2048,
+        "height": 2048
+    },
+    "outputs": [
+        {
+            "seed": 388281090,
+            "image": {
+                "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/dfgh-1234..."
+            }
+        }
+    ],
+    "contentClass": "art"
+}
+```
+
 Firefly generates the following image for us. Notice how many similarities from the image with the same seed are retained, but we've nudged the generation with [style presets](../styles/index.md) towards "landscape photography" and "science fiction" styles.
 
 ![a variation of futuristic city 1](../../images/seeded-city-1.jpeg)
+
+Notice how the seed is the same in the response and request. This is how you can use seed IDs to generate images that are similar to one another across multiple HTTP requests.
