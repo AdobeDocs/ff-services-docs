@@ -43,9 +43,13 @@ Generate your first image with Firefly Services
 
 ![an illustration of a cat coding on a laptop](./images/cat-coding.jpeg)
 
+<InlineAlert variant="info" slots="text" />
+
+If you don't already have a `CLIENT_ID` and `CLIENT_SECRET`, retrieve it from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview).
+
 ### 1. Generate an access token
 
-First, create an [access token](./concepts/authentication/index.md) using the `CLIENT_ID` and `CLIENT_SECRET` that you either received from a teammate or [generated on your own in the Adobe Developer Console](../../guides/get-started.md):
+First, create an [access token](./concepts/authentication/index.md) using your `CLIENT_ID` and `CLIENT_SECRET`:
 
 ```bash
 curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
@@ -56,7 +60,7 @@ curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
 --data-urlencode 'scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
 ```
 
-The response will look something like this:
+The response will look this:
 
 ```json
 {"access_token":"asdf...1234","token_type":"bearer","expires_in":86399}
