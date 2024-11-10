@@ -107,6 +107,7 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 }'
 ```
 
+Your response will look like this:
 
 ```json
 {
@@ -116,7 +117,7 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
     },
     "outputs": [
         {
-            "seed": 388281090,
+            "seed": 1842533538
             "image": {
                 "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/dfgh-1234..."
             }
