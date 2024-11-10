@@ -44,14 +44,14 @@ If you don't already have a Firefly "client ID" and "client secret", retrieve th
 
 Every request you make to Firefly APIs must include an encrypted access token. Your secure, server-side application retrieves this access token by making a request to the [Adobe Identity Management System (IMS)](https://www.adobe.com/content/dam/cc/en/trust-center/ungated/whitepapers/corporate/adobe-identity-management-services-security-overview.pdf) with your "client ID" and "client secret".
 
-First, on a secure computer terminal `export` your "client ID" and client secret" as environment variables so that your later commands can access them:
+First, open a secure terminal and `export` your "client ID" and client secret" as environment variables so that your later commands can access them:
 
 ```bash
 export FIREFLY_CLIENT_ID=PASTE_YOUR_CLIENT_ID_HERE
 export FIREFLY_CLIENT_SECRET=PASTE_YOUR_CLIENT_SECRET_HERE
 ```
 
-Next, run the following command in your terminal to generate an access token:
+Next, run the following command to generate an access token:
 
 ```bash
 curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
