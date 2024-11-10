@@ -41,7 +41,7 @@ hideBreadcrumbNav: true
 
 Generate your first image with Firefly Services
 
-![an illustration of a cat coding on a laptop](./images/coding-cat.jpeg)
+![an illustration of a cat coding on a laptop](./images/cat-coding.jpeg)
 
 <InlineAlert variant="info" slots="text" />
 
