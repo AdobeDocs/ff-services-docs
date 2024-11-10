@@ -38,7 +38,7 @@ Whenever Firefly generates an image, by default it begins the process by picking
 
 However, there may be times when you want to generate images that are similar to one another across multiple HTTP requests. For example, when Firefly generates an image that you want to modify using Firefly's other options (such as style presets, reference images, etc.), use that image's seed in future HTTP requests to limit the randomness of future images and hone in on the image you want.
 
-The best way to understand the power of seeds is to see them in action:
+Let's see this in action:
 
 ```bash
 curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
