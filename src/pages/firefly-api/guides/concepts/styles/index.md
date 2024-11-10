@@ -53,8 +53,8 @@ Next, run this command:
 curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
---header 'x-api-key: PASTE_YOUR_CLIENT_ID_HERE' \
---header 'Authorization: Bearer PASTE_YOUR_ACCESS_TOKEN_HERE' \
+--header "x-api-key: $FIREFLY_CLIENT_ID" \
+--header "Authorization: Bearer $FIREFLY_ACCESS_TOKEN" \
 --data '{
     "prompt": "a puppy dressed as a renaissance artist",
     "numVariations": 4,
