@@ -34,18 +34,29 @@ hideBreadcrumbNav: true
 
 Use seeds to generate images similar to one another across multiple HTTP requests
 
-Whenever Firefly generates an image, by default it begins the process by picking a random value called a "seed". This random value contributes to what makes each image unique, which is great when you want to generate a wide variety of images
+Whenever Firefly generates an image, by default it begins the process by picking a random `seed`. This random value contributes to what makes each image unique, which is great when you want to generate a wide variety of images
 
-However, there may be times when you want to generate images that are similar to one another across multiple HTTP requests. For example, when Firefly generates an image that you want to modify using Firefly's other options (such as style presets, reference images, etc.), use that image's seed in future HTTP requests to limit the randomness of future images and hone in on the image you want.
+However, there may be times when you want to generate images that are similar to one another across multiple HTTP requests. For example, when Firefly generates an image that you want to modify using Firefly's other options (such as style presets, reference images, etc.), use that image's `seed` in future HTTP requests to limit the randomness of future images and hone in on the image you want.
 
-Let's see this in action:
+<InlineAlert variant="info" slots="text" />
+
+If you don't already have a Firefly "client ID" and "access token", learn how to retrieve them in the [Authentication Guide](../authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
+
+First, open a secure terminal and `export` your "client ID" and "access token" as environment variables:
+
+```bash
+export FIREFLY_CLIENT_ID=PASTE_YOUR_CLIENT_ID_HERE
+export FIREFLY_ACCESS_TOKEN=PASTE_YOUR_ACCESS_TOKEN
+```
+
+Next, run the following `curl` command to generate an image:
 
 ```bash
 curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
---header 'x-api-key: PASTE_YOUR_CLIENT_ID_HERE' \
---header 'Authorization: Bearer PASTE_YOUR_ACCESS_TOKEN_HERE' \
+--header "x-api-key: $FIREFLY_CLIENT_ID" \
+--header "Authorization: Bearer $FIREFLY_ACCESS_TOKEN" \
 --data '{
     "prompt": "a futuristic future cityscape with flying cars",
 }'
@@ -73,16 +84,16 @@ The above request will return a response like this:
 
 ![a picture of a futuristic city 1](../../images/seedless-city-1.jpeg)
 
-Let's generate variations of this image by using its `seed` of `1842533538` in our next request. By using the same seed as the prior request, we tell Firefly that we want future image generations to be similar to this image. This allows us to use all Firefly's other generation options such as style presets, size, reference images, and more, while keeping the more image consistent with the one we like.
+Let's generate similar variations of this image by using its `seed` of `1842533538` in our next request. This allows us to use all Firefly's other generation options such as style presets, size, reference images, and more, while keeping the more image consistent with this previously generated image that we like.
 
-Below, let's generate a variation of our favorite image that has "landscape photography" and "science fiction" [style presets](../styles/index.md) applied to it.
+Below, let's generate an image variation has "landscape photography" and "science fiction" [style presets](../styles/index.md) applied to it.
 
 ```bash
 curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
---header 'x-api-key: PASTE_YOUR_CLIENT_ID_HERE' \
---header 'Authorization: Bearer PASTE_YOUR_ACCESS_TOKEN_HERE' \
+--header "x-api-key: $FIREFLY_CLIENT_ID" \
+--header "Authorization: Bearer $FIREFLY_ACCESS_TOKEN" \
 --data '{
     "prompt": "a futuristic future cityscape with flying cars",
     "seeds": [
@@ -96,7 +107,7 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 }'
 ```
 
-Our response looks like this:
+Your response will look like this:
 
 ```json
 {
@@ -106,7 +117,7 @@ Our response looks like this:
     },
     "outputs": [
         {
-            "seed": 388281090,
+            "seed": 1842533538
             "image": {
                 "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/dfgh-1234..."
             }
@@ -116,8 +127,6 @@ Our response looks like this:
 }
 ```
 
-And has this generated image:
+Notice how many similarities there are between these two images generated from the same seeds.
 
 ![a variation of futuristic city 1](../../images/seeded-city-1.jpeg)
-
-Notice how many similarities from the image with the same seed are retained, but we've influenced this generation with [style presets](../styles/index.md) towards "landscape photography" and "science fiction" styles.

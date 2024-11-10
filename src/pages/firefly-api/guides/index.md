@@ -41,29 +41,19 @@ hideBreadcrumbNav: true
 
 Generate your first image with Firefly Services
 
-![an illustration of a cat coding on a laptop](./images/coding-cat.jpeg)
+![an illustration of a cat coding on a laptop](./images/cat-coding.jpeg)
 
 <InlineAlert variant="info" slots="text" />
 
-If you don't yet have your `CLIENT_ID` and `CLIENT_SECRET`, read the [authentication guide](./concepts/authentication/index.md) to learn how to retrieve it.
+If you don't already have a Firefly "client ID" and "access token", learn how to retrieve them in the [Authentication Guide](./concepts/authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
 
-### 1. Fetch an access token
+### 1. Export your client ID and access token
 
-First, fetch an [access token](./concepts/authentication/index.md) using your `CLIENT_ID` and `CLIENT_SECRET`:
+Open a secure terminal and `export` your "client ID" and "access token" as environment variables:
 
 ```bash
-curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'grant_type=client_credentials' \
---data-urlencode 'client_id=PASTE_YOUR_CLIENT_ID_HERE' \
---data-urlencode 'client_secret=PASTE_YOUR_CLIENT_SECRET_HERE' \
---data-urlencode 'scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
-```
-
-The response will look this:
-
-```json
-{"access_token":"asdf...1234","token_type":"bearer","expires_in":86399}
+export FIREFLY_CLIENT_ID=PASTE_YOUR_CLIENT_ID_HERE
+export FIREFLY_ACCESS_TOKEN=PASTE_YOUR_ACCESS_TOKEN
 ```
 
 ### 2. Call the Firefly Generate Images API
@@ -74,8 +64,8 @@ Next, call the [Firefly Generate Images API](./api/image_generation/V3/) with th
 curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
---header 'x-api-key: PASTE_YOUR_CLIENT_ID_HERE' \
---header 'Authorization: Bearer PASTE_YOUR_ACCESS_TOKEN_HERE' \
+--header "x-api-key: $FIREFLY_CLIENT_ID" \
+--header "Authorization: Bearer $FIREFLY_ACCESS_TOKEN" \
 --data '{
     "prompt": "a realistic illustration of a cat coding"
 }'

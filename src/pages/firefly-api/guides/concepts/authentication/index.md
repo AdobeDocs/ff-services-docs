@@ -38,22 +38,31 @@ hideBreadcrumbNav: true
 
 Learn how to make requests to Firefly APIs
 
-Every request you make to Firefly APIs must include an encrypted access token.
-
-Your secure, server-side application retrieves this access token by making a request to the [Adobe Identity Management System (IMS)](https://www.adobe.com/content/dam/cc/en/trust-center/ungated/whitepapers/corporate/adobe-identity-management-services-security-overview.pdf) with your `CLIENT_ID` and `CLIENT_SECRET`.
-
 <InlineAlert variant="info" slots="text" />
 
-If you don't already have a `CLIENT_ID` and `CLIENT_SECRET`, retrieve it from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview). Store these credentials securely and never expose them in client-side or public code.
+If you don't already have a Firefly "client ID" and "client secret", retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
 
-Run the following command in your terminal to generate an access token:
+## Overview
+
+Every request made to Firefly APIs must include an encrypted access token. Your secure, server-side application retrieves an access token by making a request to the [Adobe Identity Management System (IMS)](https://www.adobe.com/content/dam/cc/en/trust-center/ungated/whitepapers/corporate/adobe-identity-management-services-security-overview.pdf) with your "client ID" and "client secret".
+
+## Retrieve an access token
+
+First, open a secure terminal and `export` your "client ID" and "client secret" as environment variables so that your later commands can access them:
+
+```bash
+export FIREFLY_CLIENT_ID=PASTE_YOUR_CLIENT_ID_HERE
+export FIREFLY_CLIENT_SECRET=PASTE_YOUR_CLIENT_SECRET_HERE
+```
+
+Next, run the following command to generate an access token:
 
 ```bash
 curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'grant_type=client_credentials' \
---data-urlencode 'client_id=PASTE_YOUR_CLIENT_ID_HERE' \
---data-urlencode 'client_secret=PASTE_YOUR_CLIENT_SECRET_HERE' \
+--data-urlencode "client_id=$FIREFLY_CLIENT_ID" \
+--data-urlencode "client_secret=$FIREFLY_CLIENT_SECRET" \
 --data-urlencode 'scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
 ```
 
@@ -63,6 +72,6 @@ The response will look like this:
 {"access_token":"asdf...1234","token_type":"bearer","expires_in":86399}
 ```
 
-Notice how the response includes an `expires_in` field, which informs you of how many more seconds the token is valid for. Each token is valid for 24 hours, after which your secure server-side application will need to request a new token. A best practice is securely store the token and refresh it before it expires.
+Notice how the response includes an `expires_in` field, which informs you of how many more seconds the access token is valid for. Each access token is valid for 24 hours, after which your secure server-side application will need to request a new token. A best practice is securely store the token and refresh it before it expires.
 
 Now that you are retrieving an access token, hop over to the [Quickstart Guide](../../index.md) to generate your first image!
