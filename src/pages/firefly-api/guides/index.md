@@ -41,11 +41,11 @@ hideBreadcrumbNav: true
 
 Generate your first image with Firefly Services
 
-![an illustration of a cat coding on a laptop](./images/cat-coding.jpeg)
+![an illustration of a cat coding on a laptop](./images/coding-cat.jpeg)
 
 <InlineAlert variant="info" slots="text" />
 
-If you don't yet have your `CLIENT_ID` and `CLIENT_SECRET`, first read our [authentication guide](./concepts/authentication/index.md) to learn how to retrieve it.
+If you don't yet have your `CLIENT_ID` and `CLIENT_SECRET`, read the [authentication guide](./concepts/authentication/index.md) to learn how to retrieve it.
 
 ### 1. Generate an access token
 
@@ -66,7 +66,7 @@ The response will look this:
 {"access_token":"asdf...1234","token_type":"bearer","expires_in":86399}
 ```
 
-Save the `access_token` property value from the response to use in the next step.
+Save the `access_token` string from this response to use in the next step.
 
 ### 2. Call the Firefly Generate Images API
 
