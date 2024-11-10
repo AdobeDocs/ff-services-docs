@@ -37,7 +37,7 @@ hideBreadcrumbNav: true
 
 # Rate Limits
 
-Adobe Firefly API places limits on the volume, frequency, and concurrency of API calls. This guide provides an overview of these limits, how to check them, why they are necessary, and what to do if you encounter issues.
+Adobe Firefly API places limits on the volume and frequency of API calls
 
 ## Summary of Rate Limits
 
@@ -46,26 +46,20 @@ Our API imposes the following rate limits **per organization**:
 * **4** requests **per minute (RPM)**
 * **9,000** requests **per day (RPD)**
 
-It's important to note that rate limits are shared across **all users within your organization**. This means that all users within an organization share the same rate limits.
-
-## Checking Rate Limits with Requests
-
-If you exceed the rate limits, you'll receive an **HTTP 429 Too Many Requests** error. We recommend using the `retry-after` header to determine the number of seconds you should wait before trying again.
-
-## Why do we have rate limits?
-
-Rate limits are standard practice for APIs, and they serve several important purposes:
-
-* **Preventing abuse**: Protects the API from being overwhelmed by excessive requests.
-* **Ensuring fair usage**: Guarantees equal access to all users and organizations.
-* **Managing server load**: Manages server load for consistent performance.
-* **Protecting against downtime**: Reduces the risk of service interruptions.
-* **Controlling costs**: Helps manage resource consumption and associated expenses.
+Rate limits are shared across **all users within your organization**.
 
 ## What to Do If You Run Into Issues
 
-If you encounter rate limit issues:
+If you exceed the rate limits, you'll receive an **HTTP 429 Too Many Requests** error. If you encounter this error, consider any of the following solutions:
 
-1. **Review Your Usage:** reduce unnecessary request.
-2. **Implement Retry Logic:** Use the `retry-after` header to wait before retrying.
-3. **Contact Us for Assistance:** We appreciate that these limits may not be ideal for certain use cases. Please contact your account manager so that we can partner with you on setting the optimal thresholds for your account.
+* **Review your usage** and reduce unnecessary requests.
+* **Implement retry logic** via a [`retry-after` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After) or an [exponential backoff strategy](https://en.wikipedia.org/wiki/Exponential_backoff).
+* **Contact your account manager** to request enabling higher usage rates.
+
+## Why do API rate limits exist?
+
+Rate limits are standard practice that serve several important purposes, including:
+
+* **Preventing abuse**: Protects APIs from being overwhelmed by excessive requests.
+* **Protecting against downtime**: Reduces the risk of service interruptions.
+* **Controlling costs**: Helps manage resource consumption and associated expenses.

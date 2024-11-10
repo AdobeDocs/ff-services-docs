@@ -36,56 +36,33 @@ hideBreadcrumbNav: true
 
 # Authentication
 
-Understand Firefly API's enterprise-level authentication pattern
+Learn how to make requests to Firefly APIs
 
-Firefly API's server-to-server OAuth authentication pattern allows your server-side application to generate 24-hour access tokens that call Firefly APIs, rather than directly relying on API keys. This modern security pattern is often referred to as "two-legged OAuth".
+Every request you make to Firefly APIs must include an encrypted access token.
 
-## Prerequisites
+Your secure, server-side application retrieves this access token by making a request to the [Adobe Identity Management System (IMS)](https://www.adobe.com/content/dam/cc/en/trust-center/ungated/whitepapers/corporate/adobe-identity-management-services-security-overview.pdf) with your `CLIENT_ID` and `CLIENT_SECRET`.
 
-Before you begin, ensure you have:
+<InlineAlert variant="info" slots="text" />
 
-* An [Adobe Developer Console](https://developer.adobe.com/console/786177/home) account.
-* A [project](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/) with Firefly API [OAuth Server-to-Server credentials set up](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/).
-* Access to your Client ID and Client Secret from the Developer Console.
+If you don't already have a `CLIENT_ID` and `CLIENT_SECRET`, retrieve it from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview). Store these credentials securely and never expose them in client-side or public code.
 
-## Access tokens
-
-[Generating access tokens](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) can be accomplished either directly from the Developer Console UI or programmatically.
-
-To generate an access token, send a `POST` request to the Adobe Identity Management System (IMS) token endpoint.
-
-### Authentication Endpoint:
+Run the following command in your terminal to generate an access token:
 
 ```bash
-https://ims-na1.adobelogin.com/ims/token/v3
+curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'grant_type=client_credentials' \
+--data-urlencode 'client_id=PASTE_YOUR_CLIENT_ID_HERE' \
+--data-urlencode 'client_secret=PASTE_YOUR_CLIENT_SECRET_HERE' \
+--data-urlencode 'scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
 ```
 
-### Required Parameters:
+The response will look like this:
 
-* `client_id`: Client ID from Console
-* `client_secret`: Client secret from Console
-* `scope`: `firefly_api`, `ff_apis`, `openid`, `AdobeID`, `session`, `additional_info`, `read_organizations`
-
-### Example Request
-
-```bash
-curl -X POST 'https://ims-na1.adobelogin.com/ims/token/v3' \
--H 'Content-Type: application/x-www-form-urlencoded' \
--d 'grant_type=client_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
+```json
+{"access_token":"asdf...1234","token_type":"bearer","expires_in":86399}
 ```
 
-Replace `{CLIENT_ID}` and `{CLIENT_SECRET}` with your actual credentials.
+Notice how the response includes an `expires_in` field, which informs you of how many more seconds the token is valid for. Each token is valid for 24 hours, after which your secure server-side application will need to request a new token. A best practice is securely store the token and refresh it before it expires.
 
-### Response:
-
-``` bash
-{
-    "access_token": "ey1...JQ",
-    "token_type": "bearer",
-    "expires_in": 86399
-}
-```
-
-The token endpoint returns an expiry timeframe in seconds, a token type and the token itself.
-
-Access tokens and the `client_id` are required to authenticate your API requests. See the [Quickstart Page](../../index.md) to make your first request!
+Now that you are retrieving an access token, hop over to the [Quickstart Guide](../../index.md) to generate your first image!

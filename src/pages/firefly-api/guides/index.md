@@ -41,11 +41,15 @@ hideBreadcrumbNav: true
 
 Generate your first image with Firefly Services
 
-![an illustration of a cat coding on a laptop](./images/cat-coding.jpeg)
+![an illustration of a cat coding on a laptop](./images/coding-cat.jpeg)
 
-### 1. Generate an access token
+<InlineAlert variant="info" slots="text" />
 
-First, create an [access token](./concepts/authentication/index.md) using the `CLIENT_ID` and `CLIENT_SECRET` that you either received from a teammate or [generated on your own in the Adobe Developer Console](../../guides/get-started.md):
+If you don't yet have your `CLIENT_ID` and `CLIENT_SECRET`, read the [authentication guide](./concepts/authentication/index.md) to learn how to retrieve it.
+
+### 1. Fetch an access token
+
+First, fetch an [access token](./concepts/authentication/index.md) using your `CLIENT_ID` and `CLIENT_SECRET`:
 
 ```bash
 curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
@@ -56,13 +60,11 @@ curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
 --data-urlencode 'scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
 ```
 
-The response will look something like this:
+The response will look this:
 
 ```json
 {"access_token":"asdf...1234","token_type":"bearer","expires_in":86399}
 ```
-
-Save the `access_token` property value from the response to use in the next step.
 
 ### 2. Call the Firefly Generate Images API
 
@@ -75,11 +77,11 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header 'x-api-key: PASTE_YOUR_CLIENT_ID_HERE' \
 --header 'Authorization: Bearer PASTE_YOUR_ACCESS_TOKEN_HERE' \
 --data '{
-    "prompt": "a realistic illustration of a cat dressed as a renaissance artist coding software on a laptop"
+    "prompt": "a realistic illustration of a cat coding"
 }'
 ```
 
-The response will look something like this:
+The response will look like this:
 
 ```json
 {
@@ -101,7 +103,7 @@ The response will look something like this:
 
 ### 3. View the generated image
 
-Open the URL in your browser to see the image you generated with Firefly Services 🎉
+Open the URL in your browser to see the image you generated with Firefly 🎉
 
 ### 4. Next steps
 
