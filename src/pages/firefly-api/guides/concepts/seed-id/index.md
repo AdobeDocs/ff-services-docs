@@ -71,7 +71,7 @@ The above request will return a response like this:
 }
 ```
 
-| ![a picture of a futuristic city 1](../../images/seedless-city-1.jpeg)
+![a picture of a futuristic city 1](../../images/seedless-city-1.jpeg)
 
 Let's generate variations of this image by using its `seed` of `1842533538` in our next request. By using the same seed as the prior request, we tell Firefly that we want future image generations to be similar to this image. This allows us to use all Firefly's other generation options such as style presets, size, reference images, and more, while keeping the more image consistent with the one we like.
 
