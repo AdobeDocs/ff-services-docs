@@ -30,15 +30,15 @@ contributors:
 hideBreadcrumbNav: true
 ---
 
-# Understanding Firefly API Seed IDs
+# Understanding Firefly API Seeds
 
-Use seed IDs to generate images similar to one another across multiple HTTP requests
+Use seeds to generate images similar to one another across multiple HTTP requests
 
-Whenever Firefly generates an image, by default it starts in a brand new random state. This randomness contributes to what makes each image unique, which is great when you want to generate a wide variety of images
+Whenever Firefly generates an image, by default it begins the process by picking a random value called a "seed". This random value contributes to what makes each image unique, which is great when you want to generate a wide variety of images
 
-However, there may be times when you want to generate images that are similar to one another across multiple HTTP requests. For example, when Firefly generates an image that you want to modify using Firefly's other options (such as style presets, reference images, etc.), use seed IDs to limit the randomness of future generations to hone in on the image you want.
+However, there may be times when you want to generate images that are similar to one another across multiple HTTP requests. For example, when Firefly generates an image that you want to modify using Firefly's other options (such as style presets, reference images, etc.), use that image's seed in future HTTP requests to limit the randomness of future images and hone in on the image you want.
 
-The best way to understand the advanced power of seed IDs is to see them in action. Let's walk through an example:
+The best way to understand the power of seeds is to see them in action:
 
 ```bash
 curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
@@ -48,7 +48,6 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header 'Authorization: Bearer PASTE_YOUR_ACCESS_TOKEN_HERE' \
 --data '{
     "prompt": "a futuristic future cityscape with flying cars",
-    "numVariations": 4
 }'
 ```
 
@@ -66,40 +65,17 @@ The above request will return a response like this:
             "image": {
                 "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/asdf-1234..."
             }
-        },
-        {
-            "seed": 733755163,
-            "image": {
-                "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/qwer-1234..."
-            }
-        },
-        {
-            "seed": 1658106736,
-            "image": {
-                "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/zxcv-1234..."
-            }
-        },
-        {
-            "seed": 1065791981,
-            "image": {
-                "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/uiop-1234..."
-            }
         }
     ],
     "contentClass": "photo"
 }
 ```
 
-Notice above how each image has a `seed` value. This `seed` value is a unique identifier for the random state that Firefly used to generate that image. If you like one of the images generated, you can use the `seed` value to generate more images that are similar to it.
+| ![a picture of a futuristic city 1](../../images/seedless-city-1.jpeg)
 
-||
-| --- | --- |
-| ![a picture of a futuristic city 1](../../images/seedless-city-1.jpeg) | ![a picture of a futuristic city 2](../../images/seedless-city-2.jpeg) |
-| ![a picture of a futuristic city 3](../../images/seedless-city-3.jpeg) | ![a picture of a futuristic city 4](../../images/seedless-city-4.jpeg) |
+Let's generate variations of this image by using its `seed` of `1842533538` in our next request. By using the same seed as the prior request, we tell Firefly that we want future image generations to be similar to this image. This allows us to use all Firefly's other generation options such as style presets, size, reference images, and more, while keeping the more image consistent with the one we like.
 
-That that first image in the upper-left inspires me, and now I want to now use some more of Firefly's features to generate variations of it. To do this, in our next request we will specify that Firefly generate an image with the seed ID of `1842533538` to iterate on it further. By keeping the seed ID the same, we tell Firefly that we want future image generations to be similar to this image that we like. This allows us to use all Firefly's other generation options such as style presets, size, reference images, and more, while keeping the image consistent with the one we liked.
-
-In the example below, we instruct Firefly to generate an image similar to the one we like by specifying its seed ID, but want an image generation variation by using the "landscape photography" and "science fiction" style presets.
+Below, let's generate a variation of our favorite image that has "landscape photography" and "science fiction" [style presets](../styles/index.md) applied to it.
 
 ```bash
 curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
@@ -120,7 +96,7 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 }'
 ```
 
-Firefly responds with this JSON:
+Our response looks like this:
 
 ```json
 {
@@ -140,8 +116,8 @@ Firefly responds with this JSON:
 }
 ```
 
-With a URL containing this image:
+And has this generated image:
 
 ![a variation of futuristic city 1](../../images/seeded-city-1.jpeg)
 
-Notice how many similarities from the image with the same seed are retained, but we've nudged the generation with [style presets](../styles/index.md) towards "landscape photography" and "science fiction" styles.
+Notice how many similarities from the image with the same seed are retained, but we've influenced this generation with [style presets](../styles/index.md) towards "landscape photography" and "science fiction" styles.
