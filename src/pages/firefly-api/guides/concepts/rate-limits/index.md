@@ -37,7 +37,7 @@ hideBreadcrumbNav: true
 
 # Rate Limits
 
-Adobe Firefly API places limits on the volume, frequency, and concurrency of API calls. This guide provides an overview of these limits, how to check them, why they are necessary, and what to do if you encounter issues.
+Adobe Firefly API places limits on the volume and frequency of API calls
 
 ## Summary of Rate Limits
 
@@ -46,19 +46,19 @@ Our API imposes the following rate limits **per organization**:
 * **4** requests **per minute (RPM)**
 * **9,000** requests **per day (RPD)**
 
-It's important to understand that rate limits are shared across all users within your organization and that all users within an organization share the same rate limits.
+Rate limits are shared across **all users within your organization**.
 
 ## What to Do If You Run Into Issues
 
 If you exceed the rate limits, you'll receive an **HTTP 429 Too Many Requests** error. If you encounter this error, consider any of the following solutions:
 
 - **Review your usage** and reduce unnecessary requests.
-- **Implement retry logic** via a [`retry-after` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After) or [exponential backoff strategy](https://en.wikipedia.org/wiki/Exponential_backoff).
+- **Implement retry logic** via a [`retry-after` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After) or an [exponential backoff strategy](https://en.wikipedia.org/wiki/Exponential_backoff).
 - **Contact your account manager** to request enabling higher usage rates.
 
 ## Why do API rate limits exist?
 
-Rate limits are standard practice for APIs, and they serve several important purposes, including:
+Rate limits are standard practice that serve several important purposes, including:
 
 * **Preventing abuse**: Protects APIs from being overwhelmed by excessive requests.
 * **Protecting against downtime**: Reduces the risk of service interruptions.
