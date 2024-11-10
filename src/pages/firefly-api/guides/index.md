@@ -47,9 +47,9 @@ Generate your first image with Firefly Services
 
 If you don't yet have your `CLIENT_ID` and `CLIENT_SECRET`, read the [authentication guide](./concepts/authentication/index.md) to learn how to retrieve it.
 
-### 1. Generate an access token
+### 1. Fetch an access token
 
-First, create an [access token](./concepts/authentication/index.md) using your `CLIENT_ID` and `CLIENT_SECRET`:
+First, fetch an [access token](./concepts/authentication/index.md) using your `CLIENT_ID` and `CLIENT_SECRET`:
 
 ```bash
 curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
@@ -66,8 +66,6 @@ The response will look this:
 {"access_token":"asdf...1234","token_type":"bearer","expires_in":86399}
 ```
 
-Save the `access_token` string from this response to use in the next step.
-
 ### 2. Call the Firefly Generate Images API
 
 Next, call the [Firefly Generate Images API](./api/image_generation/V3/) with the `access_token` and `CLIENT_ID`:
@@ -83,7 +81,7 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 }'
 ```
 
-The response will look something like this:
+The response will look like this:
 
 ```json
 {
@@ -105,7 +103,7 @@ The response will look something like this:
 
 ### 3. View the generated image
 
-Open the URL in your browser to see the image you generated with Firefly Services 🎉
+Open the URL in your browser to see the image you generated with Firefly 🎉
 
 ### 4. Next steps
 
