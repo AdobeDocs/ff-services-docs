@@ -40,13 +40,13 @@ Learn how to make requests to Firefly APIs
 
 Every request you make to Firefly APIs must include an encrypted access token.
 
-Your secure, server-side application retrieves this token by making a request to the [Adobe Identity Management System (IMS)](https://www.adobe.com/content/dam/cc/en/trust-center/ungated/whitepapers/corporate/adobe-identity-management-services-security-overview.pdf) with your `CLIENT_ID` and `CLIENT_SECRET`.
+Your secure, server-side application retrieves this access token by making a request to the [Adobe Identity Management System (IMS)](https://www.adobe.com/content/dam/cc/en/trust-center/ungated/whitepapers/corporate/adobe-identity-management-services-security-overview.pdf) with your `CLIENT_ID` and `CLIENT_SECRET`.
 
 <InlineAlert variant="info" slots="text" />
 
 If you don't already have a `CLIENT_ID` and `CLIENT_SECRET`, retrieve it from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview). Store these credentials securely and never expose them in client-side or public code.
 
-Try generating an access token by running the following command in your terminal:
+Run the following command in your terminal to generate an access token:
 
 ```bash
 curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
@@ -63,6 +63,6 @@ The response will look like this:
 {"access_token":"asdf...1234","token_type":"bearer","expires_in":86399}
 ```
 
-Notice how the response includes an `expires_in` field, which tells you how many more seconds the token is valid for. Each token will be valid for 24 hours, after which your secure server-side application will need to request a new token. A best practice is securely store the token and refresh it before it expires.
+Notice how the response includes an `expires_in` field, which informs you of how many more seconds the token is valid for. Each token is valid for 24 hours, after which your secure server-side application will need to request a new token. A best practice is securely store the token and refresh it before it expires.
 
 Now that you are retrieving an access token, hop over to the [Quickstart Guide](../../index.md) to generate your first image!
