@@ -36,6 +36,19 @@ Use style `presets` with Firefly's [Generate Images API](../../api/image_generat
 
 Begin exploring Firefly's many style `presets` with the code snippet below, and then read the [Using Content Class and Style Presets](../../how-tos/using-content-class-style-preset.md) guide for more tips on how to expertly use this powerful feature.
 
+<InlineAlert variant="info" slots="text" />
+
+If you don't already have a Firefly "client ID" and "access token", learn how to retrieve them in the [Authentication Guide](../authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
+
+First, open a secure terminal and `export` your "client ID" and "access token" as environment variables:
+
+```bash
+export FIREFLY_CLIENT_ID=PASTE_YOUR_CLIENT_ID_HERE
+export FIREFLY_ACCESS_TOKEN=PASTE_YOUR_ACCESS_TOKEN
+```
+
+Next, run this command:
+
 ```bash
 curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header 'Content-Type: application/json' \
