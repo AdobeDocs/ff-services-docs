@@ -45,7 +45,7 @@ Generate your first image with Firefly Services
 
 <InlineAlert variant="info" slots="text" />
 
-If you don't already have a Firefly "client ID" and "access token", learn how to retrieve them in the [Authentication Guide](../authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
+If you don't already have a Firefly "client ID" and "access token", learn how to retrieve them in the [Authentication Guide](./concepts/authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
 
 ### 1. Export your client ID and access token
 
