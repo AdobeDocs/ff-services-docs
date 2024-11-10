@@ -47,17 +47,18 @@ contributors:
 hideBreadcrumbNav: true
 ---
 
-# How to create personalized marketing assets with Firefly Generate Images API
+# Firefly Generate Images API Tutorial
 
 Learn to use the advanced capabilities offered by Firefly's Generate Images API
 
-In this tutorial you will learn how to use Firefly's Generate Images API's advanced capabilities. If you'd rather jump straight to the full implementation, find it at the bottom of this page. Otherwise, we'll walk through and explain each capability step-by-step.
+Read this tutorial to learn step-by-step how to use the powerful features of Firefly's Generate Images API. If you'd rather jump straight to the full implementation, find it at the bottom of this page.
 
 <InlineAlert variant="info" slots="text" />
 
 If you don't already have a Firefly "client ID" and "access token", learn how to retrieve them in the [Authentication Guide](../authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
 
-### 1. Export your client ID and access token
+
+### Export your client ID and access token
 
 Open a secure terminal and `export` your "client ID" and "access token" as environment variables:
 
@@ -66,9 +67,79 @@ export FIREFLY_CLIENT_ID=PASTE_YOUR_CLIENT_ID_HERE
 export FIREFLY_ACCESS_TOKEN=PASTE_YOUR_ACCESS_TOKEN
 ```
 
-### Code block learning
+### Project setup
 
-Next, define a simple prompt and call the function to interact with the Firefly API, displaying the result on the screen.
+* Create a new empty directory for your project.
+* Run `npm init -y` to create a new `package.json` file.
+* Run `npm install axios` to install the `axios` package.
+* Create a new file called `index.mjs` in your project directory.
+
+### Generate an image
+
+Begin by generating an image using the Firefly API. Insert the following code snippet to make a POST request to the Firefly API to generate an image based on a prompt:
+
+```js
+const axios = require('axios');
+const qs = require('qs');
+
+async function retrieveAccessToken() {
+let data = qs.stringify({
+  'grant_type': 'client_credentials',
+  'client_id': process.env.FIREFLY_CLIENT_ID,
+  'client_secret': process.env.FIREFLY_CLIENT_SECRET,
+  'scope': 'openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis' 
+});
+
+let config = {
+  method: 'post',
+  maxBodyLength: Infinity,
+  url: 'https://ims-na1.adobelogin.com/ims/token/v3',
+  headers: { 
+    'Content-Type': 'application/x-www-form-urlencoded', 
+  },
+  data : data
+};
+
+  try {
+    const response = await axios.request(config);
+    const { access_token } = response.data;
+    return access_token;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function generateImage(data) {
+  let config = {
+    method: 'post',
+    maxBodyLength: Infinity,
+    url: 'https://firefly-api.adobe.io/v3/images/generate',
+    headers: { 
+      'Content-Type': 'application/json', 
+      'Accept': 'application/json', 
+      'x-api-key': process.env.FIREFLY_CLIENT_ID,
+      'Authorization': `Bearer ${process.env.FIREFLY_ACCESS_TOKEN}`
+    },
+    data : JSON.stringify(data)
+  };
+
+  try {
+    const response = await axios.request(config);
+    console.log(JSON.stringify(response.data));
+  }
+  catch (error) {
+    console.log(error);
+  }
+}
+
+let data = {
+  prompt: 'a cat dancing on a rainbow'
+};
+
+generateImage(data);
+```
+
+## Full Implementation
 
 <CodeBlock slots="heading, code" repeat="3" languages="JavaScript, PYTHON, JSON" />
 
