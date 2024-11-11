@@ -4,45 +4,23 @@ This section provides definitions and details for terms and parameters to be awa
 
 ## Seed
 
-A **seed** is a starting point for image generation. By using a seed value, you can generate consistent images across multiple API calls. This means that using the same seed with different styles can produce similar images with variations.
-
-*Note:* Only generated images can be used as seeds. You can find the seed value for any generated image in the `outputs` array of a successful response. For example:
-
-```json
-"outputs": [
-    {
-      "seed": 1,
-      "image": {
-        "url": "https://image1.com/"
-      }
-    },
-    {
-      "seed": 1234,
-      "image": {
-        "url": "https://image2.com/"
-      }
-    }
-]
-```
+A **seed** is a starting point for image generation. By using a seed value, you can generate consistent images across multiple API calls. Visit the seed [concept page](./seed-id/index.md) for more information.
 
 ## Prompt
 
-A **prompt** is a descriptive text instruction that tells the model what kind of image to generate. The more detailed your prompt, the more specific the generated image will be. If you're not satisfied with the results, try rewording your prompt. See [Writing Effective Prompts](https://helpx.adobe.com/firefly/using/tips-and-tricks.html) for more tips.
+A **prompt** is a descriptive text instruction that tells Firefly what kind of image to generate. See the [Writing Effective Prompts](https://helpx.adobe.com/firefly/using/tips-and-tricks.html) guide for more tips.
 
 ## Negative prompt
 
-A **negative prompt** tells the model what elements to avoid in the generated image. By specifying what you don't want, the model will make a best effort to exclude those elements. Learn more about negative prompts [here](https://www.adobe.com/products/firefly/discover/ai-art-negative-prompts.html#:~:text=Negative%20prompts%20are%20text%20prompts,elements%20in%20its%20generated%20images).
+A **negative prompt** tells Firefly what elements not to include in its generated the image.
 
 ## Mask
 
-An image mask allows you to hide or protect parts of an image when editing. It's like placing a mask over the areas you don't want to change, revealing only the parts you want to edit.
-
-* **Black conceals:** Use black on the mask to hide areas from being edited.
-* **White reveals:** Use white to expose areas that can be changed.
+An image **mask** allows you to specify which parts of an image should change and which should stay the same when an image is being edited. Because black areas of an image mask are protected from changes and white areas of the image mask are exposed to changes, imagine the white areas are flashlights that show the artist where they can make changes.
 
 ## Inverted mask
 
-An **inverted mask** swaps the masked and unmasked areas of an image. This means that the areas previously hidden become visible for editing, and vice versa.
+An **inverted mask** swaps the black masked and white unmasked areas of an image. This means that the black, previously protected areas become visible for editing, and all of the white, previously exposed areas are now protected from changes.
 
 ## MD (Multi Diffusion)
 
@@ -50,18 +28,15 @@ An **inverted mask** swaps the masked and unmasked areas of an image. This means
 
 ## Reference Image
 
-A **reference image** is a sample image you provide to influence the generated results. For example, you can use a reference image to match the style or structure in the generated images.
+A **reference image** is an image you provide to influence how Firefly generates its images. For example, you can use a reference image to match the style or structure in the generated images.
 
 ## Content class
 
-The **content class** guides the overall theme and styles applied to the content, such as `photo` or `art`. If not specified, the model will auto-detect the content class. For more information visit the [Styles Documentation.](./styles/index.md)
+The **content class** guides the overall type of content (`photo` or `art`) to generate.If not specified, the model will auto-detect the content class.
 
 ## Style
 
-Use the style parameter to define the look and feel of the generated image. You can:
-
-* **Preset styles:** Use the `style` parameter to generate an image based on a [preset value](https://developer.adobe.com/firefly-services/docs/firefly-api/guides/concepts/styles/) like `photo`, `art`, `graphic`, or `bw`.
-* **Reference image:** Provide an image to match its style.
+Use the style parameter to define the look and feel of the generated image. You can use a preset style or provide a reference image to match its style.
 
 ## Parameter Options
 
@@ -72,10 +47,6 @@ Use the style parameter to define the look and feel of the generated image. You 
 ## Structure
 
 Structure refers to the composition and arrangement of visual elements in an image. By providing a reference image in the `structure` parameter, Firefly will mimic the outline and depth in the generated image.
-
-<InlineAlert variant="help" slots="text" />
-
-Use the `strength` param to adjust the adherence to the structure reference image. `0` means no adherence. `100` means full adherence.
 
 ## Dimensions
 

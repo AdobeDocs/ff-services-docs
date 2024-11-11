@@ -43,43 +43,35 @@ Generate your first image with Firefly Services
 
 ![an illustration of a cat coding on a laptop](./images/cat-coding.jpeg)
 
-### 1. Generate an access token
+<InlineAlert variant="info" slots="text" />
 
-First, create an [access token](./concepts/authentication/index.md) using the `CLIENT_ID` and `CLIENT_SECRET` that you either received from a teammate or [generated on your own in the Adobe Developer Console](../../guides/get-started.md):
+If you don't already have a Firefly "client ID" and "access token", learn how to retrieve them in the [Authentication Guide](./concepts/authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
+
+### 1. Export your client ID and access token
+
+Open a secure terminal and `export` your "client ID" and "access token" as environment variables:
 
 ```bash
-curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'grant_type=client_credentials' \
---data-urlencode 'client_id=PASTE_YOUR_CLIENT_ID_HERE' \
---data-urlencode 'client_secret=PASTE_YOUR_CLIENT_SECRET_HERE' \
---data-urlencode 'scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
+export FIREFLY_CLIENT_ID=asdf...123
+export FIREFLY_ACCESS_TOKEN=qwer...456
 ```
-
-The response will look something like this:
-
-```json
-{"access_token":"asdf...1234","token_type":"bearer","expires_in":86399}
-```
-
-Save the `access_token` property value from the response to use in the next step.
 
 ### 2. Call the Firefly Generate Images API
 
-Next, call the [Firefly Generate Images API](./api/image_generation/V3/) with the `access_token` and `CLIENT_ID`:
+Next, call the [Firefly Generate Images API](./api/image_generation/V3/):
 
 ```bash
 curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
---header 'x-api-key: PASTE_YOUR_CLIENT_ID_HERE' \
---header 'Authorization: Bearer PASTE_YOUR_ACCESS_TOKEN_HERE' \
+--header "x-api-key: $FIREFLY_CLIENT_ID" \
+--header "Authorization: Bearer $FIREFLY_ACCESS_TOKEN" \
 --data '{
-    "prompt": "a realistic illustration of a cat dressed as a renaissance artist coding software on a laptop"
+    "prompt": "a realistic illustration of a cat coding"
 }'
 ```
 
-The response will look something like this:
+The response will look like this:
 
 ```json
 {
@@ -101,7 +93,7 @@ The response will look something like this:
 
 ### 3. View the generated image
 
-Open the URL in your browser to see the image you generated with Firefly Services 🎉
+Open the URL in your browser to see the image you generated with Firefly 🎉
 
 ### 4. Next steps
 

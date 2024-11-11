@@ -36,56 +36,81 @@ hideBreadcrumbNav: true
 
 # Authentication
 
-Understand Firefly API's enterprise-level authentication pattern
+Learn how to make requests to Firefly APIs
 
-Firefly API's server-to-server OAuth authentication pattern allows your server-side application to generate 24-hour access tokens that call Firefly APIs, rather than directly relying on API keys. This modern security pattern is often referred to as "two-legged OAuth".
+## Overview
 
-## Prerequisites
+Every request made to Firefly APIs must include an encrypted access token. Your secure, server-side application retrieves an access token by making a request to the [Adobe Identity Management System (IMS)](https://www.adobe.com/content/dam/cc/en/trust-center/ungated/whitepapers/corporate/adobe-identity-management-services-security-overview.pdf) with your "client ID" and "client secret".
 
-Before you begin, ensure you have:
+## Retrieve your "client ID" and "client secret"
 
-* An [Adobe Developer Console](https://developer.adobe.com/console/786177/home) account.
-* A [project](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/) with Firefly API [OAuth Server-to-Server credentials set up](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/).
-* Access to your Client ID and Client Secret from the Developer Console.
+If you don't already have a Firefly "client ID" and "client secret", retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
 
-## Access tokens
+## Retrieve an access token
 
-[Generating access tokens](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) can be accomplished either directly from the Developer Console UI or programmatically.
-
-To generate an access token, send a `POST` request to the Adobe Identity Management System (IMS) token endpoint.
-
-### Authentication Endpoint:
+First, open a secure terminal and `export` your "client ID" and "client secret" as environment variables so that your later commands can access them:
 
 ```bash
-https://ims-na1.adobelogin.com/ims/token/v3
+export FIREFLY_CLIENT_ID=asdf...123
+export FIREFLY_CLIENT_SECRET=qwer...456
 ```
 
-### Required Parameters:
-
-* `client_id`: Client ID from Console
-* `client_secret`: Client secret from Console
-* `scope`: `firefly_api`, `ff_apis`, `openid`, `AdobeID`, `session`, `additional_info`, `read_organizations`
-
-### Example Request
+Next, run the following command to generate an access token:
 
 ```bash
-curl -X POST 'https://ims-na1.adobelogin.com/ims/token/v3' \
--H 'Content-Type: application/x-www-form-urlencoded' \
--d 'grant_type=client_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
+curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'grant_type=client_credentials' \
+--data-urlencode "client_id=$FIREFLY_CLIENT_ID" \
+--data-urlencode "client_secret=$FIREFLY_CLIENT_SECRET" \
+--data-urlencode 'scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
 ```
 
-Replace `{CLIENT_ID}` and `{CLIENT_SECRET}` with your actual credentials.
+The response will look like this:
 
-### Response:
+```json
+{"access_token":"asdf...1234","token_type":"bearer","expires_in":86399}
+```
 
-``` bash
+Notice how the response includes an `expires_in` field, which informs you of how many more seconds the access token is valid for. Each access token is valid for 24 hours, after which your secure server-side application will need to request a new token. A best practice is securely store the token and refresh it before it expires.
+
+Export your access token as an environment variable:
+
+```bash
+export FIRELY_ACCESS_TOKEN=asdf...1234
+```
+
+## Generate an image
+
+Next, call the [Firefly Generate Images API](../../api/image_generation/V3/):
+
+```bash
+curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header "x-api-key: $FIREFLY_CLIENT_ID" \
+--header "Authorization: Bearer $FIREFLY_ACCESS_TOKEN" \
+--data '{
+    "prompt": "a realistic illustration of a cat coding"
+}'
+```
+
+The response will look like this:
+
+```json
 {
-    "access_token": "ey1...JQ",
-    "token_type": "bearer",
-    "expires_in": 86399
+    "size": {
+        "width": 2048,
+        "height": 2048
+    },
+    "outputs": [
+        {
+            "seed": 1779323515,
+            "image": {
+                "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/asdf-12345?lots=of&query=params..."
+            }
+        }
+    ],
+    "contentClass": "art"
 }
 ```
-
-The token endpoint returns an expiry timeframe in seconds, a token type and the token itself.
-
-Access tokens and the `client_id` are required to authenticate your API requests. See the [Quickstart Page](../../index.md) to make your first request!
