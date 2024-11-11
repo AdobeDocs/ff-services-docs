@@ -47,455 +47,272 @@ contributors:
 hideBreadcrumbNav: true
 ---
 
-# Create your first Firefly API implementation
+# Firefly Generate Images API Tutorial
 
-A step-by-step guide for creating your first implementation with the Firefly APIs.
+Efficiently become an advanced user of Firefly's Generate Images API
 
-Adobe Firefly APIs offer a seamless way to integrate powerful creative workflows into your applications using a simple REST-based API. In this tutorial, you'll be guided through creating your first implementation using the [Firefly Generate Images API](../api/image_generation/V3/).
+![paris tourism illustration](../images/paris.jpeg)
 
-<InlineAlert slots="text" />
+## Overview
 
-This tutorial provides code snippets in both `Node.js` and `Python` for your convenience. Feel free to use the language of your choice to complete the implementation of your first Firefly API.
+To ground the lesson of [Firefly's Generate Images API](../api/image_generation/V3/index.md) in reality, let's pretend we're a global tourism company creating a marketing campaign with localized assets for each of the destinations it promotes. While the company may have 100 locations, to keep the code simple, we'll just focus on two: Paris and Tokyo.
+
+<InlineAlert variant="info" slots="text" />
+
+Depending on your learning style, we invite you to walk through this use-case step-by-step or jump straight to the [full source code](#full-source-code).
 
 ## Prerequisites
 
-Before beginning, make sure you have the following:
+Before we focus on the code, prepare for this tutorial by running the following in a secure terminal:
 
--   Firefly API credentials. If you don't have them yet, first visit the Firefly Services [Getting Started](../../../guides/get-started.md) guide to obtain a `client_id` and `client_secret`.
--   `Node.js` or `Python` installed on your machine and basic familiarity with `JavaScript` or `Python`.
+```bash
+export FIREFLY_CLIENT_ID=yourClientIdAsdf123
+export FIREFLY_CLIENT_SECRET=yourClientSecretAsdf123
 
-## Step 1: Set Up Your Environment
-
-Begin by creating a new script, named `firefly.js` (or `firefly.py`), and save it anywhere on your computer. This will be the script used for testing your integration with the Firefly API endpoints.
-
-Next, set your `client_id` and `client_secret` as environment variables. For example, on a Mac or in Windows Subsystem for Linux (WSL), you can do the following:
-
-```js
-export CLIENT_ID=YOURIDHERE
-export CLIENT_SECRET=YOURSECRETHERE
+mkdir firefly-generate-images-api-tutorial
+cd firefly-generate-images-api-tutorial
+npm init --y
+npm install axios qs
+touch index.js
 ```
 
 <InlineAlert variant="info" slots="text" />
 
-This tutorial assumes you have set these variables in uppercase (ie: `CLIENT_ID` and `CLIENT_SECRET`), and case matters.
+If you don't already have a Firefly "client ID" and "client secret", retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
 
-## Step 2: Authentication
+## Generating our first image
 
-Next, you will initialize a few variables. **Note:** It's crucial to have your environment variables set up from above prior to this step, as the following code relies on them:
+Begin by pasting this script into your `index.js` file and run `node index.js` to generate an image:
 
-<CodeBlock slots="heading, code" repeat="2" languages="JavaScript, PYTHON" />
 
-#### Sample code
+```javascript
+const axios = require("axios");
+const qs = require("qs");
 
-```js
-/* Set our creds based on environment variables.
-*/
-const CLIENT_ID = process.env.CLIENT_ID;
-const CLIENT_SECRET = process.env.CLIENT_SECRET;
-```
+(async () => {
+  const accessToken = await retrieveAccessToken();
+  const images = await createImages(accessToken);
+  console.log(JSON.stringify(images, null, 2));
+})();
 
-#### Sample code
-
-```python
-#Set our creds based on environment variables.
-CLIENT_ID = os.environ.get('CLIENT_ID')
-CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
-```
-
-Now, these two variables will be used to make a `POST` request to the authentication endpoint: `https://ims-na1.adobelogin.com/ims/token/v3`. You need to pass your credentials along with the requested scopes that allow for access to Firefly. All of this can be done in this simple function:
-
-<CodeBlock slots="heading, code" repeat="2" languages="JavaScript, PYTHON" />
-
-#### Sample code
-
-```js
-async function getAccessToken(id, secret) {
-
-	const params = new URLSearchParams();
-
-	params.append('grant_type', 'client_credentials');
-	params.append('client_id', id);
-	params.append('client_secret', secret);
-	params.append('scope', 'openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis');
-	
-	let resp = await fetch('https://ims-na1.adobelogin.com/ims/token/v3', 
-		{ 
-			method: 'POST', 
-			body: params
-		}
-	);
-
-	let data = await resp.json();
-	return data.access_token;
+async function createImages(accessToken) {
+  const data = { prompt: "Fun, abstract tourism doodle that inspires travel" }
+  return generateImage({ accessToken, data, });
 }
 
-let token = await getAccessToken(CLIENT_ID, CLIENT_SECRET);
-```
+async function retrieveAccessToken() {
+  let data = qs.stringify({
+    grant_type: "client_credentials",
+    client_id: process.env.FIREFLY_CLIENT_ID,
+    client_secret: process.env.FIREFLY_CLIENT_SECRET,
+    scope:
+      "openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis",
+  });
 
-#### Sample code
+  let config = {
+    method: "post",
+    maxBodyLength: Infinity,
+    url: "https://ims-na1.adobelogin.com/ims/token/v3",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    data: data,
+  };
 
-```python
-def getAccessToken(id, secret):
-	response = requests.post(f"https://ims-na1.adobelogin.com/ims/token/v3?client_id={id}&client_secret={secret}&grant_type=client_credentials&scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis")
-	return response.json()["access_token"]
-
-token = getAccessToken(CLIENT_ID, CLIENT_SECRET)
-```
-
-<InlineAlert variant="info" slots="text" />
-
-The provided code example does not include error handling for credentials. For production code, it's essential to implement proper error handling to ensure the security and reliability of your application.
-
-## Step 3: Generate an Image with a Prompt
-
-For the demo, you will use Firefly to generate four images from a single prompt using the [Firefly Generate Images API](../api/image_generation/V3/), which includes optional generative matching.
-
-<InlineAlert variant="help" slots="text" />
-
-Please refer to the [Generate Images API](../api/image_generation/V3/) in the API Reference for more details.
-
-Based on the docs, we can see that the only required parameter is prompt. Also, the `numVariations` prompt specifies how many images we want. So the simplest request body we could build would look like so:
-
-```js
-{
-	"prompt":"a cat dancing on a rainbow",
-	"numVariations":4
-}
-```
-
-Now, let's create a function to generate an image using a prompt.
-
-First, we'll build a simple function to call the REST endpoint.
-It requires our previous `client_id` value and the `access_token`, and our prompt:
-
-<CodeBlock slots="heading, code" repeat="2" languages="JavaScript, PYTHON" />
-
-#### Sample code
-
-```js
-async function generateImage(prompt, id, token) {
-
-	let body = {
-		"numVariations":4,
-		prompt
-	}
-
-	let req = await fetch('https://firefly-api.adobe.io/v3/images/generate', {
-		method:'POST',
-		headers: {
-			'X-Api-Key':id, 
-			'Authorization':`Bearer ${token}`,
-			'Content-Type':'application/json'
-		}, 
-		body: JSON.stringify(body)
-	});
-
-	return await req.json();
-}
-```
-
-#### Sample code
-
-```python
-def generateImage(text, id, token):
-
-	data = {
-		"prompt":text,
-		"numVariations":4,
-	}
-
-	response = requests.post("https://firefly-api.adobe.io/v3/images/generate", json=data, headers = {
-		"X-API-Key":id, 
-		"Authorization":f"Bearer {token}",
-		"Content-Type":"application/json"
-	}) 
-
-	return response.json()
-```
-
-Please ensure you include the authentication headers correctly; pass the token in the `Authorization` header and the `client id` in the `X-Api-Key` header. The API will return a JSON string for you to process and return to the caller.
-
-### Executing the Firefly API Call
-
-Next, define a simple prompt and call the function to interact with the Firefly API, displaying the result on the screen.
-
-<CodeBlock slots="heading, code" repeat="3" languages="JavaScript, PYTHON, JSON" />
-
-#### Sample code
-
-```js
-let prompt = 'a cat dancing on a rainbow';
-let result = await generateImage(prompt, CLIENT_ID, token);
-console.log(JSON.stringify(result, null, '\t'));
-```
-
-#### Sample code
-
-```python
-prompt = "a cat dancing on a rainbow"
-result = generateImage(prompt, CLIENT_ID, token)
-print(json.dumps(result, indent=True))
-```
-
-#### Response
-
-```js
-{
- "size": {
-  "width": 2048,
-  "height": 2048
- },
- "outputs": [
-  {
-   "seed": 295213121,
-   "image": {
-    "uploadId": "014c2235-f2e9-47be-98a9-33bc9d62568b",
-    "url": "https://pre-signed-firefly.s3.amazonaws.com/images/014c2235-f2e9-47be-98a9-33bc9d62568b?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA55EBG7KCZFCHQDZT%2F20240510%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240510T145429Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=a91dfaf608f5f539c80339778aa1bd45dc8698fc35bd32ba41e93d0d2e288632"
-   }
-  },
-  {
-   "seed": 295109025,
-   "image": {
-    "uploadId": "1c1ae898-0709-4a28-bb6d-1c677189a03b",
-    "url": "https://pre-signed-firefly.s3.amazonaws.com/images/1c1ae898-0709-4a28-bb6d-1c677189a03b?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA55EBG7KCZFCHQDZT%2F20240510%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240510T145429Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=88bf526592ef5e72e016619c470a346789403660933f05f523af467704ebb0b8"
-   }
-  },
-  {
-   "seed": 779747824,
-   "image": {
-    "uploadId": "e56845cd-bf6d-4242-b1db-2eb357c821a5",
-    "url": "https://pre-signed-firefly.s3.amazonaws.com/images/e56845cd-bf6d-4242-b1db-2eb357c821a5?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA55EBG7KCZFCHQDZT%2F20240510%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240510T145429Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=77d4b996909b04cfe1e892c12345f28d97b47a43e79bdf8ae91a36a87eac73a3"
-   }
-  },
-  {
-   "seed": 1081574056,
-   "image": {
-    "uploadId": "0985b3be-5961-409a-a6e5-8a31e44e6aed",
-    "url": "https://pre-signed-firefly.s3.amazonaws.com/images/0985b3be-5961-409a-a6e5-8a31e44e6aed?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA55EBG7KCZFCHQDZT%2F20240510%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240510T145429Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=0fc4ff2e7b0545208fc5b08f1bb18d265b429166d0e0bfbe49b411aa01142bae"
-   }
+  try {
+    const response = await axios.request(config);
+    const { access_token } = response.data;
+    return access_token;
+  } catch (error) {
+    console.log(error);
   }
- ],
- "photoSettings": {
-  "aperture": 1.2,
-  "shutterSpeed": 0.0005,
-  "fieldOfView": 14
- },
- "contentClass": "art"
+}
+
+async function generateImage({ accessToken, data }) {
+  let config = {
+    method: "post",
+    maxBodyLength: Infinity,
+    url: "https://firefly-api.adobe.io/v3/images/generate",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      "x-api-key": process.env.FIREFLY_CLIENT_ID,
+      Authorization: `Bearer ${accessToken}`,
+    },
+    data: JSON.stringify(data),
+  };
+
+  try {
+    const response = await axios.request(config);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
 }
 ```
 
-This function sends a `POST` request to the Firefly API with the prompt, and retrieves the generated images. Replace `"a cat dancing on a rainbow"` with your desired prompt.
+## Specifying size, style, and locale
 
-You can copy and paste any of the `url` values from the result to view the images.
+Next, let's build out our request to generate artwork with:
 
-## Step 4: Downloading Images from Firefly API
+* Style presets of `doodle_drawing` and `scribble_texture`
+* A landscape (16:9) aspect ratio
+* A localized style of `en-US`
+* A prompt to generate an tourism image
 
-Next, you will learn how to write a quick utility to download the resulting images.
+If you're following along, update your `data` object to match the following:
 
-### Import the Required Modules
-
-First, import the necessary file-related modules and the requests modules for `Node` or `Python`:
-
-<CodeBlock slots="heading, code" repeat="2" languages="JavaScript, PYTHON" />
-
-#### Sample code
-
-```js
-import fs from 'fs';
-import { Readable } from 'stream';
-import { finished } from 'stream/promises';
-```
-
-#### Sample code
-
-```python
-import requests 
-```
-
-### Define the `downloadFile` function
-
-Next, create a function that takes a URL and a file path as arguments, and downloads the file from the URL to the specified path.
-
-<CodeBlock slots="heading, code" repeat="2" languages="JavaScript, PYTHON" />
-
-#### Sample code
-
-```js
-async function downloadFile(url, filePath) {
-    let res = await fetch(url);
-    const body = Readable.fromWeb(res.body);
-    const download_write_stream = fs.createWriteStream(filePath);
-    return await finished(body.pipe(download_write_stream));
+```javascript
+const data = {
+  prompt: "Fun, abstract tourism doodle that inspires travel",
+  size: { width: 2688, height: 1536 },
+  promptBiasingLocaleCode: "en-US",
+  style: {
+    presets: ["doodle_drawing", "scribble_texture"],
+  },
 }
 ```
 
-#### Sample code
+## Generate images for multiple locations
 
-```python
-def downloadFile(url, filePath):
-	with open(filePath,'wb') as output:
-		bits = requests.get(url, stream=True).content
-		output.write(bits)
+Finally, let's generate multiple variations by adding this object to the top of our file:
+
+```javascript
+const axios = require("axios");
+const qs = require("qs");
+
+const IMAGE_VARIATIONS = [
+  {
+    location: "Paris, France",
+    locale: "fr-FR",
+    customPrompt: "Includes delicious baguettes and croissants.",
+  },
+  {
+    location: "Tokyo, Japan",
+    locale: "ja-JP",
+    customPrompt: "Includes delicious sushi and ramen.",
+  },
+];
+
+...
 ```
 
-### Iterate over the results and save each image
+And let's update the `createImages` function generate images for each location:
 
-Finally, iterate over the results and save each image with a unique file name using the seed value from the result:
+```javascript
+async function createImages(accessToken) {
+  return Promise.all(
+    IMAGE_VARIATIONS.map(({ location, locale, customPrompt }) => {
+      const data = {
+        prompt: `Fun, abstract tourism doodle that inspires travel to ${location}. ${customPrompt}`,
+        size: { width: 2688, height: 1536 },
+        promptBiasingLocaleCode: locale,
+        style: {
+          presets: ["doodle_drawing", "scribble_texture"],
+        },
+      };
 
-<CodeBlock slots="heading, code" repeat="2" languages="JavaScript, PYTHON" />
-
-#### Sample code
-
-```js
-for(let output of result.outputs) {
-    let fileName = `./${output.seed}.jpg`;
-    await downloadFile(output.image.url, fileName);
-}
-```
-
-#### Sample code
-
-```python
-for output in result["outputs"]:
-    fileName = f'./{output["seed"]}.jpg';
-    downloadFile(output["image"]["url"], fileName);
-```
-
-After running these steps, you'll see four images output in the same directory.
-
-**Sample output**
-
-A result of an image generated with the prompt specified above is shown here for reference.
-
-![a cat dancing on a rainbow](../images/cat-rainbow.jpg)
-
-## Complete Source Code
-
-Here's the entire code sample. As a reminder, feel free to modify and change the prompt.
-
-<InlineAlert variant="warning" slots="title, text" />
-
-IMPORTANT
-
-Note that this Node.js code uses imports and top-level `await`, so you must either use the `.mjs` extension on your script file, or ensure you have a `package.json` with `type: "module"`.
-
-<CodeBlock slots="heading, code" repeat="2" languages="JavaScript, PYTHON" />
-
-#### Sample code
-
-```js
-import fs from 'fs';
-import { Readable } from 'stream';
-import { finished } from 'stream/promises';
-
-/*
-  Set the creds based on environment variables.
-*/
-const CLIENT_ID = process.env.CLIENT_ID;
-const CLIENT_SECRET = process.env.CLIENT_SECRET;
-
-
-async function getAccessToken(id, secret) {
-
-	const params = new URLSearchParams();
-
-	params.append('grant_type', 'client_credentials');
-	params.append('client_id', id);
-	params.append('client_secret', secret);
-	params.append('scope', 'openid,AdobeID,firefly_enterprise,firefly_api,ff_apis');
-	
-	let resp = await fetch('https://ims-na1.adobelogin.com/ims/token/v3', 
-		{ 
-			method: 'POST', 
-			body: params
-		}
-	);
-
-	let data = await resp.json();
-	return data.access_token;
-}
-
-let token = await getAccessToken(CLIENT_ID, CLIENT_SECRET);
-
-async function generateImage(prompt, id, token) {
-
-	let body = {
-		"numVariations":4,
-		prompt
-	}
-
-	let req = await fetch('https://firefly-api.adobe.io/v3/images/generate', {
-		method:'POST',
-		headers: {
-			'X-Api-Key':id, 
-			'Authorization':`Bearer ${token}`,
-			'Content-Type':'application/json'
-		}, 
-		body: JSON.stringify(body)
-	});
-
-	return await req.json();
-}
-
-let prompt = 'a cat dancing on a rainbow';
-let result = await generateImage(prompt, CLIENT_ID, token);
-console.log(JSON.stringify(result,null,'\t'));
-
-async function downloadFile(url, filePath) {
-	let res = await fetch(url);
-	const body = Readable.fromWeb(res.body);
-	const download_write_stream = fs.createWriteStream(filePath);
-	return await finished(body.pipe(download_write_stream));
-}
-
-for(let output of result.outputs) {
-	let fileName = `./${output.seed}.jpg`;
-	await downloadFile(output.image.url, fileName);
+      return generateImage({ accessToken, data });
+    }),
+  );
 }
 ```
 
-#### Sample code
-
-```python
-import os 
-import requests 
-import json 
-
-#Set our creds based on environment variables.
-CLIENT_ID = os.environ.get('CLIENT_ID')
-CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
-
-def getAccessToken(id, secret):
-	response = requests.post(f"https://ims-na1.adobelogin.com/ims/token/v3?client_id={id}&client_secret={secret}&grant_type=client_credentials&scope=openid,AdobeID,firefly_enterprise,firefly_api,ff_apis")
-	return response.json()["access_token"]
-
-token = getAccessToken(CLIENT_ID, CLIENT_SECRET)
-
-def generateImage(text, id, token):
-
-	data = {
-		"prompt":text,
-		"numVariations":4,
-	}
-
-	response = requests.post("https://firefly-api.adobe.io/v3/images/generate", json=data, headers = {
-		"X-API-Key":id, 
-		"Authorization":f"Bearer {token}",
-		"Content-Type":"application/json"
-	}) 
-
-	return response.json()
 
 
-prompt = "a cat dancing on a rainbow"
-result = generateImage(prompt, CLIENT_ID, token)
-print(json.dumps(result, indent=True))
+## Full Source Code
 
-def downloadFile(url, filePath):
-	with open(filePath,'wb') as output:
-			output.write(bits)
+Review this tutorial's [Prequisites](#prerequisites) section to understand how to run this code locally.
 
-for output in result["outputs"]:
-	fileName = f'./{output["seed"]}.jpg'
-	downloadFile(output["image"]["url"], fileName)
+We kept this tutorial code succinct in order to focus on efficiently teaching you the advanced features of Firefly' Generate Images API. Therefore, as you review the script below, imagine how the tourism company could easily expand it to generate more targeted variations of images for their marketing campaign, including image variations for seasonality and even highlighting different activities such as ocean cruises, mountain hiking, and more. Feel free to use this code in your own projects, but be sure to refactor anything you reuse to be secure and production-ready, as this code is for educational purposes only.
+
+```javascript
+const axios = require("axios");
+const qs = require("qs");
+
+const IMAGE_VARIATIONS = [
+  {
+    location: "Paris, France",
+    locale: "fr-FR",
+    customPrompt: "Includes delicious baguettes and croissants.",
+  },
+  {
+    location: "Tokyo, Japan",
+    locale: "ja-JP",
+    customPrompt: "Includes delicious sushi and ramen.",
+  },
+];
+
+(async () => {
+  const accessToken = await retrieveAccessToken();
+  const images = await createImages(accessToken);
+  console.log(JSON.stringify(images, null, 2));
+})();
+
+async function createImages(accessToken) {
+  return Promise.all(
+    IMAGE_VARIATIONS.map(({ location, locale, customPrompt }) => {
+      const data = {
+        prompt: `Fun, abstract tourism doodle that inspires travel to ${location}. ${customPrompt}`,
+        size: { width: 2688, height: 1536 },
+        promptBiasingLocaleCode: locale,
+        style: {
+          presets: ["doodle_drawing", "scribble_texture"],
+        },
+      };
+
+      return generateImage({ accessToken, data });
+    }),
+  );
+}
+
+async function retrieveAccessToken() {
+  let data = qs.stringify({
+    grant_type: "client_credentials",
+    client_id: process.env.FIREFLY_CLIENT_ID,
+    client_secret: process.env.FIREFLY_CLIENT_SECRET,
+    scope:
+      "openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis",
+  });
+
+  let config = {
+    method: "post",
+    maxBodyLength: Infinity,
+    url: "https://ims-na1.adobelogin.com/ims/token/v3",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    data: data,
+  };
+
+  try {
+    const response = await axios.request(config);
+    const { access_token } = response.data;
+    return access_token;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function generateImage({ accessToken, data }) {
+  let config = {
+    method: "post",
+    maxBodyLength: Infinity,
+    url: "https://firefly-api.adobe.io/v3/images/generate",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      "x-api-key": process.env.FIREFLY_CLIENT_ID,
+      Authorization: `Bearer ${accessToken}`,
+    },
+    data: JSON.stringify(data),
+  };
+
+  try {
+    const response = await axios.request(config);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
 ```
