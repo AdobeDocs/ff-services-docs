@@ -82,7 +82,7 @@ export FIRELY_ACCESS_TOKEN=asdf...1234
 
 ## Generate an image
 
-Next, call the [Firefly Generate Images API](./api/image_generation/V3/):
+Next, call the [Firefly Generate Images API](../../api/image_generation/V3/):
 
 ```bash
 curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
