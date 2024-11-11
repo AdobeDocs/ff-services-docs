@@ -52,13 +52,13 @@ If you don't already have a Firefly "client ID" and "access token", learn how to
 Open a secure terminal and `export` your "client ID" and "access token" as environment variables:
 
 ```bash
-export FIREFLY_CLIENT_ID=PASTE_YOUR_CLIENT_ID_HERE
-export FIREFLY_ACCESS_TOKEN=PASTE_YOUR_ACCESS_TOKEN
+export FIREFLY_CLIENT_ID=asdf...123
+export FIREFLY_ACCESS_TOKEN=qwer...456
 ```
 
 ### 2. Call the Firefly Generate Images API
 
-Next, call the [Firefly Generate Images API](./api/image_generation/V3/) with the `access_token` and `CLIENT_ID`:
+Next, call the [Firefly Generate Images API](./api/image_generation/V3/):
 
 ```bash
 curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
