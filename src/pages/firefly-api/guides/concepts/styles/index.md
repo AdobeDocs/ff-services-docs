@@ -32,16 +32,29 @@ Use style presets to customize the look and feel of your generated images
 
 ![a picture of a puppy dressed as a renaissance artist](../../images/puppy-renaissance-artist.jpeg)
 
-Use style `presets` with Firefly's [Generate Images API](../../api/image_generation/V3/) or [Generate Object Composite API](../../api/generate-object-composite/) to give your generated images a specific visual style or mood. Pick from a wide range of styles to create the perfect look for your images, using them individually or in combination.
+Use style `presets` with Firefly's [Generate Images API](../../api/image_generation/V3/) or [Generate Object Composite API](../../api/generate-object-composite/) to give your generated images a specific visual style or mood.
 
-Begin exploring Firefly's many style `presets` with the code snippet below, and then see the [Using Content Class and Style Presets](../../how-tos/using-content-class-style-preset.md) guide for more tips on how to expertly use this powerful feature.
+Begin exploring Firefly's many style `presets` with the code snippet below, and then read the [Using Content Class and Style Presets](../../how-tos/using-content-class-style-preset.md) guide for more tips on how to expertly use this powerful feature.
+
+<InlineAlert variant="info" slots="text" />
+
+If you don't already have a Firefly "client ID" and "access token", learn how to retrieve them in the [Authentication Guide](../authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
+
+First, open a secure terminal and `export` your "client ID" and "access token" as environment variables:
+
+```bash
+export FIREFLY_CLIENT_ID=asdf...123
+export FIREFLY_ACCESS_TOKEN=qwer...456
+```
+
+Next, run this command:
 
 ```bash
 curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
---header 'x-api-key: PASTE_YOUR_CLIENT_ID_HERE' \
---header 'Authorization: Bearer PASTE_YOUR_ACCESS_TOKEN_HERE' \
+--header "x-api-key: $FIREFLY_CLIENT_ID" \
+--header "Authorization: Bearer $FIREFLY_ACCESS_TOKEN" \
 --data '{
     "prompt": "a puppy dressed as a renaissance artist",
     "numVariations": 4,
