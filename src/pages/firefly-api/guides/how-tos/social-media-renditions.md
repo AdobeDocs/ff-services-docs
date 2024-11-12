@@ -193,7 +193,7 @@ async function createSocialMediaRenditions() {
     let fileName = `./renditions/${platform.name.replace(/\s+/g, '_')}.jpg`;
 
     // Download and save the image
-    await downloadFile(result.images[0].url, fileName);
+    await downloadFile(result.outputs[0].image.url, fileName);
 
     console.log(`Generated rendition for ${platform.name}`);
   }
@@ -351,7 +351,7 @@ async function createSocialMediaRenditions() {
     let fileName = `./renditions/${platform.name.replace(/\s+/g, '_')}.jpg`;
 
     // Download and save the image
-    await downloadFile(result.images[0].url, fileName);
+    await downloadFile(result.outputs[0].image.url, fileName);
 
     console.log(`Generated rendition for ${platform.name}`);
   }
