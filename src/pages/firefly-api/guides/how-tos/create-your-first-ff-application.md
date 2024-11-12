@@ -67,7 +67,7 @@ Depending on your learning style, you may prefer to walk through this tutorial s
 
 ## Prerequisites
 
-Before we begin, run the following in a secure terminal:
+Before we begin this [Node.js](https://nodejs.org/en/download/package-manager) tutorial, run the following in a secure terminal:
 
 ```bash
 export FIREFLY_CLIENT_ID=yourClientIdAsdf123
