@@ -47,7 +47,7 @@ Generate your first image with Firefly Services
 
 If you don't already have a Firefly "client ID" and "access token", learn how to retrieve them in the [Authentication Guide](./concepts/authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
 
-### 1. Export your client ID and access token
+### Export your client ID and access token
 
 Open a secure terminal and `export` your "client ID" and "access token" as environment variables:
 
@@ -56,7 +56,7 @@ export FIREFLY_CLIENT_ID=asdf...123
 export FIREFLY_ACCESS_TOKEN=qwer...456
 ```
 
-### 2. Call the Firefly Generate Images API
+### Call the Firefly Generate Images API
 
 Next, call the [Firefly Generate Images API](./api/image_generation/V3/):
 
@@ -91,10 +91,10 @@ The response will look like this:
 }
 ```
 
-### 3. View the generated image
+### View the generated image
 
 Open the URL in your browser to see the image you generated with Firefly 🎉
 
-### 4. Next steps
+### Next steps
 
 Visit the [Firefly Generate Images API documentation](./api/image_generation/V3/) to learn more about the rich customization options available to you, including the ability to specify image style, structure, intensity, geographic locale, size, and more 🚀
