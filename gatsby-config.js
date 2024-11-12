@@ -118,6 +118,10 @@ module.exports = {
             path: '/firefly-api/guides/how-tos/create-your-first-ff-application.md'
           },
           {
+            title: 'Creating Renditions for Multiple Social Media Outlets',
+            path: '/firefly-api/guides/how-tos/social-media-renditions.md'
+          },
+          {
             title: 'Using the Expand Image API',
             path: '/firefly-api/guides/how-tos/using-expand-image.md'
           },
