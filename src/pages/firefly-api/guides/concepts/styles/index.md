@@ -36,6 +36,8 @@ Use style `presets` with Firefly's [Generate Images API](../../api/image_generat
 
 Begin exploring Firefly's many style `presets` with the code snippet below, and then read the [Using Content Class and Style Presets](../../how-tos/using-content-class-style-preset.md) guide for more tips on how to expertly use this powerful feature.
 
+### Generating Images with Style Presets
+
 <InlineAlert variant="info" slots="text" />
 
 If you don't already have a Firefly "client ID" and "access token", learn how to retrieve them in the [Authentication Guide](../authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
@@ -62,6 +64,28 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
         "presets": [
             "bw", "fantasy", "dramatic_light"
         ]
+    }
+}'
+```
+
+### Specifying Style Strength
+
+To influence how impactful your presets are on the image generation, add a `strength` value between `1` and `100` to your style object. When "strength" is not specified, it defaults to a value of `50`. Below we show how to set the "strength" value to `100` to make our style presets more pronounced:
+
+```bash
+curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header "x-api-key: $FIREFLY_CLIENT_ID" \
+--header "Authorization: Bearer $FIREFLY_ACCESS_TOKEN" \
+--data '{
+    "prompt": "a puppy dressed as a renaissance artist",
+    "numVariations": 4,
+    "style": {
+        "presets": [
+            "bw", "fantasy", "dramatic_light"
+        ],
+        "strength": 100
     }
 }'
 ```
