@@ -49,21 +49,25 @@ hideBreadcrumbNav: true
 
 # Firefly Generate Images API Tutorial
 
-Efficiently become an advanced user of Firefly's Generate Images API
+Become an advanced user of Firefly's Generate Images API
 
 ![paris tourism illustration](../images/paris.jpeg)
 
 ## Overview
 
-To ground the lesson of [Firefly's Generate Images API](../api/image_generation/V3/index.md) in reality, let's pretend we're a global tourism company creating a marketing campaign with localized assets for each of the destinations it promotes. While the company may have 100 locations, to keep the code simple, we'll just focus on two: Paris and Tokyo.
+In this [Generate Images API](../api/image_generation/V3/index.md) tutorial, let's imagine we work at a global tourism company and are creating a marketing campaign with localized illustrations for the different places our company promotes.
 
-<InlineAlert variant="info" slots="text" />
+<InlineAlert variant="warning" slots="title,text" />
 
-Depending on your learning style, we invite you to walk through this use-case step-by-step or jump straight to the [full source code](#full-source-code).
+DISCLAIMER
+
+The code in this tutorial is for educational purposes only. It is not production-ready and requires additional error handling, logging, security measures, and more before it can be used in a live application.
+
+Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [go straight to the full source code](#full-source-code) at the bottom of this webpage.
 
 ## Prerequisites
 
-Before we focus on the code, prepare for this tutorial by running the following in a secure terminal:
+Before we begin, run the following in a secure terminal:
 
 ```bash
 export FIREFLY_CLIENT_ID=yourClientIdAsdf123
@@ -80,9 +84,11 @@ touch index.js
 
 If you don't already have a Firefly "client ID" and "client secret", retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
 
-## Generating our first image
+## Generate your first image
 
-Begin by pasting this script into your `index.js` file and run `node index.js` to generate an image:
+* Save the code below in your `index.js` file
+* Run `node index.js` to generate the image.
+* To view the image, open the URL provided in the response.
 
 
 ```javascript
@@ -96,7 +102,10 @@ const qs = require("qs");
 })();
 
 async function createImages(accessToken) {
-  const data = { prompt: "Fun, abstract tourism doodle that inspires travel" }
+  const data = {
+    prompt: "Fun, abstract tourism doodle that inspires travel"
+  };
+
   return generateImage({ accessToken, data, });
 }
 
@@ -151,16 +160,15 @@ async function generateImage({ accessToken, data }) {
 }
 ```
 
-## Specifying size, style, and locale
+## Define aspect ratio, localized style, and style presets
 
-Next, let's build out our request to generate artwork with:
+Next, let's further customize our artwork by specifying:
 
-* Style presets of `doodle_drawing` and `scribble_texture`
 * A landscape (16:9) aspect ratio
-* A localized style of `en-US`
-* A prompt to generate an tourism image
+* A geographic style localized to `en-US`
+* The style presets of `doodle_drawing` and `scribble_texture`
 
-If you're following along, update your `data` object to match the following:
+Update your `data` object to match the following:
 
 ```javascript
 const data = {
@@ -173,31 +181,28 @@ const data = {
 }
 ```
 
+Save your changes and run `node index.js` to generate a new image with these specifications.
+
 ## Generate images for multiple locations
 
-Finally, let's generate multiple variations by adding this object to the top of our file:
+Finally, let's begin generating localized artwork for multiple locations by adding this object to the top of our file, right below our `require` statements:
 
 ```javascript
-const axios = require("axios");
-const qs = require("qs");
-
 const IMAGE_VARIATIONS = [
   {
     location: "Paris, France",
     locale: "fr-FR",
-    customPrompt: "Includes delicious baguettes and croissants.",
+    customPrompt: "Includes delicious croissants.",
   },
   {
     location: "Tokyo, Japan",
     locale: "ja-JP",
-    customPrompt: "Includes delicious sushi and ramen.",
+    customPrompt: "Includes delicious sushi.",
   },
 ];
-
-...
 ```
 
-And let's update the `createImages` function generate images for each location:
+And now let's update the `createImages` function to customize its requests for each location described above:
 
 ```javascript
 async function createImages(accessToken) {
@@ -218,13 +223,11 @@ async function createImages(accessToken) {
 }
 ```
 
-
+Save your changes and run `node index.js` to generate images for Paris and Tokyo.
 
 ## Full Source Code
 
-Review this tutorial's [Prequisites](#prerequisites) section to understand how to run this code locally.
-
-We kept this tutorial code succinct in order to focus on efficiently teaching you the advanced features of Firefly' Generate Images API. Therefore, as you review the script below, imagine how the tourism company could easily expand it to generate more targeted variations of images for their marketing campaign, including image variations for seasonality and even highlighting different activities such as ocean cruises, mountain hiking, and more. Feel free to use this code in your own projects, but be sure to refactor anything you reuse to be secure and production-ready, as this code is for educational purposes only.
+Review this tutorial's [Prequisites](#prerequisites) section to understand how to set up your environment prior to running this code.
 
 ```javascript
 const axios = require("axios");
@@ -234,12 +237,12 @@ const IMAGE_VARIATIONS = [
   {
     location: "Paris, France",
     locale: "fr-FR",
-    customPrompt: "Includes delicious baguettes and croissants.",
+    customPrompt: "Includes delicious croissants.",
   },
   {
     location: "Tokyo, Japan",
     locale: "ja-JP",
-    customPrompt: "Includes delicious sushi and ramen.",
+    customPrompt: "Includes delicious sushi.",
   },
 ];
 
