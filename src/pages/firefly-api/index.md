@@ -49,16 +49,15 @@ When generating content with the Adobe Firefly API, your outputs can be eligible
 
 ## Overview
 
-This documentation provides instructions for the Adobe Firefly API. Firefly is the natural extension of the technology Adobe has produced over the past 40 years, driven by the belief that people should be empowered to bring their ideas into the world precisely as they imagine them. Describe your creative vision in your own words and we will bring it to life, saving you time and effort.
+The Adobe Firefly API is the natural extension of the technology Adobe has produced over the past 40 years, driven by the belief that people should be empowered to bring their ideas into the world precisely as they imagine them. Describe your creative vision in your own words and we will bring it to life, saving you time and effort.
 
 With Firefly, you can ideate, create, and communicate while significantly improving creative workflows using generative AI. You might have already tried out the Firefly web app, along with features powered by Firefly in Adobe’s flagship apps and Adobe Stock. And now it is available to you as an API. Integrate them with your workflow as it suits your needs.
 
-Try out the API today to:
+See Firefly APIs in action in the following tutorials:
 
-- Jumpstart by creating images with just a prompt.
-- Match your images with a specific style by selecting from varied style options or providing a reference image.
-- Tweak your images by replacing sections of images using fill.
-- Use expand to adapt to different sizes for different marketing channels.
+- [Learn to create personalized marketing assets](./guides/how-tos/create-your-first-ff-application.md) with the [Firefly Generate Image API](./guides/api/image_generation/V3/index.md).
+- Expand an image to optimal aspect ratios for different social media platform with the [Firefly Expand Image API](./guides/api/generative_expand/V3/index.md).
+- Learn to generate seasonal product backgrounds with the [Firefly Generative Fill API](./guides/api/generative_fill/V3/index.md).
 
 ## Discover
 
