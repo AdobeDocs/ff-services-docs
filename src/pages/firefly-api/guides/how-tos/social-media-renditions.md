@@ -17,18 +17,40 @@ hideBreadcrumbNav: true
 
 # Create Social Media Renditions with Firefly APIs
 
-Learn how to use Adobe Firefly APIs to create different renditions of your images tailored for various social media platforms.
+Learn how to use Firefly's Expand Image API to create different renditions of your images tailored for various social media platforms.
 
 ## Overview
 
 In today's digital landscape, content creators often need to adapt their media assets to fit the specific dimensions and requirements of different social media platforms. Manually resizing and adjusting images can be time-consuming and prone to errors. 
 
-Adobe Firefly APIs offer a streamlined solution to automate this process, allowing you to generate multiple renditions of an image optimized for platforms like Instagram, Facebook, Twitter, and more. This guide will walk you through how to achieve this using [Firefly's Expand Image API](../api/generative_expand/V3/).
+[Firefly's Expand Image API](../api/generative_expand/V3/) offers a streamlined solution to automate this process, allowing you to generate multiple renditions of an image optimized for platforms like Instagram, Facebook, Twitter, and more. This guide will walk you through how to achieve this using [Firefly's Expand Image API](../api/generative_expand/V3/).
+
+<InlineAlert variant="warning" slots="title,text" />
+
+DISCLAIMER
+
+The code in this tutorial is for educational purposes only. It is not production-ready and requires additional error handling, logging, security measures, and more before it can be used in a live application.
+
+Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [go straight to the full source code](#full-source-code) at the bottom of this webpage.
 
 ## Prerequisites
 
--  Firefly API credentials. If you don't have them yet, first visit the Firefly Services [Getting Started](../../../guides/get-started.md) guide to obtain a `client_id` and `client_secret`.
--  Node.js installed on your machine and basic familiarity with `JavaScript`. **Note:** The code for this guide will make use of the [Firefly REST APIs](../api/image_generation/V3/) via Node.js, but could be written in any language, or with the [SDK](https://developer.adobe.com/firefly-services/docs/guides/sdks/).
+Before we begin, run the following in a secure terminal:
+
+```bash
+export FIREFLY_CLIENT_ID=yourClientIdAsdf123
+export FIREFLY_CLIENT_SECRET=yourClientSecretAsdf123
+
+mkdir firefly-generate-images-api-tutorial
+cd firefly-generate-images-api-tutorial
+npm init --y
+npm install axios qs
+touch index.js
+```
+
+<InlineAlert variant="info" slots="text" />
+
+If you don't already have a Firefly "client ID" and "client secret", retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
 
 ## Expand Image API Overview
 
@@ -37,9 +59,8 @@ Before diving into the code, let's understand the high-level steps involved in g
 1. **Define Target Dimensions:** Each social media platform has specific image size requirements. You'll need to define these dimensions for the platforms you target.
 2. **Upload Source Image:** Use the [Firefly Upload API](../api/upload_image/) to upload your original image.
 3. **Generate Renditions:** Utilize [Firefly's Expand Image API](../api/generative_expand/V3/) to create resized versions of the image according to the defined dimensions.
-4. **Download and Save:** Retrieve the generated images and save them locally or to your preferred storage.
 
-## Step 1: Define Social Media Platform Dimensions
+## Define Social Media Platform Dimensions
 
 First, let's define the image dimensions required for different social media platforms. Here's an example of common dimensions:
 
@@ -59,57 +80,72 @@ const socialMediaPlatforms = [
     name: 'Twitter Post',
     width: 1024,
     height: 512,
-  },
-  {
-    name: 'LinkedIn Banner',
-    width: 1128,
-    height: 191,
-  },
+  }
 ];
 ```
 
-## Step 2: Upload Your Source Image
+## Upload Your Source Image
 
 You'll need to upload your source image using the Firefly Upload API. This image will serve as the base for all renditions.
 
 ```js
-async function uploadImage(filePath, fileType, id, token) {
+const axios = require("axios");
+const fs = require('fs');
+
+
+async function uploadImage(filePath, fileType, accessToken) {
   let stream = fs.createReadStream(filePath);
   let stats = fs.statSync(filePath);
   let fileSizeInBytes = stats.size;
 
-  let upload = await fetch('https://firefly-api.adobe.io/v2/storage/image', {
-    method: 'POST',
+  const config = {
+    method: 'post',
+    url: 'https://firefly-api.adobe.io/v2/storage/image',
     headers: {
-      'Authorization': `Bearer ${token}`,
-      'X-API-Key': id,
+      'Authorization': `Bearer ${accessToken}`,
+      'X-API-Key': process.env.FIREFLY_CLIENT_ID,
       'Content-Type': fileType,
       'Content-Length': fileSizeInBytes,
     },
-    duplex: 'half',
-    body: stream,
-  });
+    data: fileStream,
+    maxContentLength: Infinity,
+    maxBodyLength: Infinity,
+  };
 
-  return await upload.json();
+  const response = await axios(config);
+  return response.data;
+```
+
+**Example Firefly Upload API Response**
+
+```json
+{ 
+	"images": 
+	[ 
+		{ 
+			"id": "510aabb4-e154-4a7b-bd2e-f492ee71c938" 
+		} 
+	] 
 }
 ```
 
 **Example Usage:**
 
 ```js
-let upload = await uploadImage('./source-image.jpg', 'image/jpeg', CLIENT_ID, token);
-let sourceImageId = upload.images[0].id;
+const uploadResponse = await uploadImage('./source-image.jpg', 'image/jpeg', accessToken);
+const sourceImageId = uploadResponse.images[0].id;
 ```
 
-## Steps 3: Generate Renditions Using Firefly Expand Image API
+## Generate Renditions Using Firefly Expand Image API
 
 Now, you'll create a function that generates images for each social media platform using the Firefly Expand Image API.
 
 ```js
-async function genExpand(imageId, width, height, id, token, prompt, alignment) {
+const axios = require('axios');
 
-    let body = {
-        numVariations:1,
+async function genExpand(imageId, width, height, accessToken) {
+
+    const body = {
         size:{
             width,
             height
@@ -121,61 +157,37 @@ async function genExpand(imageId, width, height, id, token, prompt, alignment) {
         }
     }
 
-    if(prompt) body.prompt = prompt;
-    if(alignment) body.placement = { alignment };
+    const config = {
+    method: 'post',
+    url: 'https://firefly-api.adobe.io/v3/images/expand',
+    headers: {
+      'X-Api-Key': process.env.FIREFLY_CLIENT_ID,
+      'Authorization': `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+    },
+    data: body,
+  };
 
-    let req = await fetch('https://firefly-api.adobe.io/v3/images/expand', {
-        method:'POST',
-        headers: {
-            'X-Api-Key':id, 
-            'Authorization':`Bearer ${token}`,
-            'Content-Type':'application/json'
-        }, 
-        body: JSON.stringify(body)
-    });
-
-    return await req.json();
+  const response = await axios(config);
+  return response.data;
 }
 ```
 
-**Note:** The prompt field is utilized here to describe the intended transformation, although for resizing, the API will primarily focus on the width and height parameters.
-
-<InlineAlert variant="success" slots="title, text" />
-
-TIP
-
-By default, Firefly is going to expand "outwards" treating the source image as the center. The placement argument can specify either an `inset` or `alignment` value. The inset value lets you specify displacement values for `left`, `top`, `right`, and `bottom` values, while alignment lets you specify values for `horizontal` and `vertical` alignment.
-
-## Step 4: Download and Save the Renditions
-
-Create a function to download and save the generated images.
-
-```js
-async function downloadFile(url, filePath) {
-  let res = await fetch(url);
-  const body = Readable.fromWeb(res.body);
-  const downloadWriteStream = fs.createWriteStream(filePath);
-  return await finished(body.pipe(downloadWriteStream));
-}
-```
-
-## Step 5: Putting It All Together
+## Putting It All Together
 
 Now, you can loop through each social media platform and generate the corresponding renditions.
 
 ```js
-import fs from 'fs';
-import { Readable } from 'stream';
-import { finished } from 'stream/promises';
+const axios = require('axios');
+const qs = require('qs');
+const fs = require('fs');
 
-/* Include your utility functions: getAccessToken, uploadImage, generateRendition, downloadFile */
+/* Include your utility functions: getAccessToken, uploadImage, generateRendition */
 
-async function createSocialMediaRenditions() {
-  // Get the access token
-  let token = await getAccessToken(CLIENT_ID, CLIENT_SECRET);
+async function createSocialMediaRenditions(accessToken) {
 
   // Upload the source image
-  let upload = await uploadImage('./source-image.jpg', 'image/jpeg', CLIENT_ID, token);
+  let upload = await uploadImage('./source-image.jpg', 'image/jpeg', accessToken);
   let sourceImageId = upload.images[0].id;
 
   // Loop through each platform and generate renditions
@@ -184,32 +196,22 @@ async function createSocialMediaRenditions() {
       sourceImageId,
       platform.width,
       platform.height,
-      CLIENT_ID,
-      token,
-      platform.name
+      accessToken
     );
 
-    // Construct the filename
-    let fileName = `./renditions/${platform.name.replace(/\s+/g, '_')}.jpg`;
-
-    // Download and save the image
-    await downloadFile(result.outputs[0].image.url, fileName);
-
-    console.log(`Generated rendition for ${platform.name}`);
+    console.log(`Generated rendition for ${platform.name} at ${result.outputs[0].image.url}`);
   }
 }
-
-createSocialMediaRenditions();
 ```
 
-## Complete Source Code
+## Full Source Code
 
 Below is the complete source code that incorporates all the steps:
 
 ```js
-import fs from 'fs';
-import { Readable } from 'stream';
-import { finished } from 'stream/promises';
+const axios = require('axios');
+const qs = require('qs');
+const fs = require('fs');
 
 // Set the credentials based on environment variables
 const CLIENT_ID = process.env.CLIENT_ID;
@@ -231,104 +233,99 @@ const socialMediaPlatforms = [
     name: 'Twitter Post',
     width: 1024,
     height: 512,
-  },
-  {
-    name: 'LinkedIn Banner',
-    width: 1128,
-    height: 191,
-  },
+  }
 ];
 
-async function getAccessToken(id, secret) {
-  const params = new URLSearchParams();
+(async () => {
+  const accessToken = await retrieveAccessToken();
+  await createSocialMediaRenditions(accessToken);
+})();
 
-  params.append('grant_type', 'client_credentials');
-  params.append('client_id', id);
-  params.append('client_secret', secret);
-  params.append(
-    'scope',
-    'openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
-  );
 
-  let resp = await fetch('https://ims-na1.adobelogin.com/ims/token/v3', {
-    method: 'POST',
-    body: params,
+async function retrieveAccessToken() {
+  let data = qs.stringify({
+    grant_type: "client_credentials",
+    client_id: process.env.FIREFLY_CLIENT_ID,
+    client_secret: process.env.FIREFLY_CLIENT_SECRET,
+    scope:
+      "openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis",
   });
 
-  let data = await resp.json();
-  return data.access_token;
-}
-
-async function uploadImage(filePath, fileType, id, token) {
-  let stream = fs.createReadStream(filePath);
-  let stats = fs.statSync(filePath);
-  let fileSizeInBytes = stats.size;
-
-  let upload = await fetch('https://firefly-api.adobe.io/v2/storage/image', {
-    method: 'POST',
+  let config = {
+    method: "post",
+    maxBodyLength: Infinity,
+    url: "https://ims-na1.adobelogin.com/ims/token/v3",
     headers: {
-      'Authorization': `Bearer ${token}`,
-      'X-API-Key': id,
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    data: data,
+  };
+
+  try {
+    const response = await axios.request(config);
+    const { access_token } = response.data;
+    return access_token;
+  } catch (error) {
+    console.log(error);
+  }
+}
+async function uploadImage(filePath, fileType, accessToken) {
+  const fileStream = fs.createReadStream(filePath);
+  const fileStats = fs.statSync(filePath);
+  const fileSizeInBytes = fileStats.size;
+
+  const config = {
+    method: 'post',
+    url: 'https://firefly-api.adobe.io/v2/storage/image',
+    headers: {
+      'Authorization': `Bearer ${accessToken}`,
+      'X-API-Key': process.env.FIREFLY_CLIENT_ID,
       'Content-Type': fileType,
       'Content-Length': fileSizeInBytes,
     },
-    duplex: 'half',
-    body: stream,
-  });
+    data: fileStream,
+    maxContentLength: Infinity,
+    maxBodyLength: Infinity,
+  };
 
-  return await upload.json();
+  const response = await axios(config);
+  return response.data;
 }
 
-async function genExpand(imageId, width, height, id, token, prompt, alignment) {
+async function genExpand(imageId, width, height, accessToken) {
+  const body = {
+    numVariations: 1,
+    size: {
+      width,
+      height,
+    },
+    image: {
+      source: {
+        uploadId: imageId,
+      },
+    },
+  };
 
-    let body = {
-        numVariations:1,
-        size:{
-            width,
-            height
-        },
-        image: {
-            source: {
-                uploadId: imageId
-            }
-        }
-    }
+  const config = {
+    method: 'post',
+    url: 'https://firefly-api.adobe.io/v3/images/expand',
+    headers: {
+      'X-Api-Key': process.env.FIREFLY_CLIENT_ID,
+      'Authorization': `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+    },
+    data: body,
+  };
 
-    if(prompt) body.prompt = prompt;
-    if(alignment) body.placement = { alignment };
-
-    let req = await fetch('https://firefly-api.adobe.io/v3/images/expand', {
-        method:'POST',
-        headers: {
-            'X-Api-Key':id, 
-            'Authorization':`Bearer ${token}`,
-            'Content-Type':'application/json'
-        }, 
-        body: JSON.stringify(body)
-    });
-
-    return await req.json();
+  const response = await axios(config);
+  return response.data;
 }
 
-async function downloadFile(url, filePath) {
-  let res = await fetch(url);
-  const body = Readable.fromWeb(res.body);
-  const downloadWriteStream = fs.createWriteStream(filePath);
-  return await finished(body.pipe(downloadWriteStream));
-}
-
-async function createSocialMediaRenditions() {
-  // Get the access token
-  let token = await getAccessToken(CLIENT_ID, CLIENT_SECRET);
+async function createSocialMediaRenditions(accessToken) {
 
   // Upload the source image
-  let upload = await uploadImage('./source-image.jpg', 'image/jpeg', CLIENT_ID, token);
+  let upload = await uploadImage('./source-image.jpg', 'image/jpeg', accessToken);
   let sourceImageId = upload.images[0].id;
-
-  // Ensure the renditions directory exists
-  if (!fs.existsSync('./renditions')) {
-    fs.mkdirSync('./renditions');
-  }
 
   // Loop through each platform and generate renditions
   for (let platform of socialMediaPlatforms) {
@@ -336,35 +333,13 @@ async function createSocialMediaRenditions() {
       sourceImageId,
       platform.width,
       platform.height,
-      CLIENT_ID,
-      token,
-      platform.name
+      accessToken
     );
 
-    // Check for errors
-    if (result.errors) {
-      console.error(`Error generating rendition for ${platform.name}:`, result.errors);
-      continue;
-    }
-
-    // Construct the filename
-    let fileName = `./renditions/${platform.name.replace(/\s+/g, '_')}.jpg`;
-
-    // Download and save the image
-    await downloadFile(result.outputs[0].image.url, fileName);
-
-    console.log(`Generated rendition for ${platform.name}`);
+    console.log(`Generated rendition for ${platform.name} at ${result.outputs[0].image.url}`);
   }
 }
-
-createSocialMediaRenditions();
 ```
-
-<InlineAlert variant="warning" slots="title, text" />
-
-IMPORTANT
-
-This `Node.js` code uses imports and top-level `await`, so you must either use the `.mjs` extension on your script file, or ensure you have a `package.json` with `type: "module"`.
 
 ## Next Steps
 
