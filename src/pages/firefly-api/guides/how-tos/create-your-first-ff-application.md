@@ -57,6 +57,12 @@ Become an advanced user of Firefly's Generate Images API
 
 In this [Generate Images API](../api/image_generation/V3/index.md) tutorial, let's imagine we work at a global tourism company and are creating a marketing campaign with localized illustrations for the different places our company promotes.
 
+In the tutorial below, we will:
+
+* Generate a single image with a prompt
+* Customize the aspect ratio, localized style, and style presets
+* Generate localized images for multiple locations
+
 <InlineAlert variant="warning" slots="title,text" />
 
 DISCLAIMER
