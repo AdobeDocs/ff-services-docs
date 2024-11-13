@@ -31,7 +31,7 @@ hideBreadcrumbNav: true
 <!-- TODO: Update with latest prod details, elaborate on API descriptions -->
 # Changelog
 
-## November 14, 2024
+## November 18, 2024
 
 ### API Services Update: General Availability
 
