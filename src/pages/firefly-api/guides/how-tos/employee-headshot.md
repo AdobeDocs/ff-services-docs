@@ -221,6 +221,130 @@ const CLIENT_SECRET = process.env.FIREFLY_CLIENT_SECRET;
 // Define the background replacement prompt
 const backgroundPrompt = 'a smooth gradient background with corporate blue tones';
 
+// Assuming you have a list of employee image file paths and corresponding mask file paths
+const employees = [
+    {
+      name: 'John Doe',
+      imagePath: './employee1.jpg',
+      maskPath: './mask1.png',
+    },
+    {
+      name: 'Jane Smith',
+      imagePath: './employee2.jpg',
+      maskPath: './mask2.png',
+    },
+    // Add more employees as needed
+  ];
+
+(async () => {
+    const accessToken = await retrieveAccessToken();
+    await updateEmployeeHeadshots(accessToken);
+  })();
+
+  async function retrieveAccessToken() {
+    let data = qs.stringify({
+      grant_type: "client_credentials",
+      client_id: CLIENT_ID,
+      client_secret: CLIENT_SECRET,
+      scope:
+        "openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis",
+    });
+  
+    let config = {
+      method: "post",
+      maxBodyLength: Infinity,
+      url: "https://ims-na1.adobelogin.com/ims/token/v3",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      data: data,
+    };
+  
+    try {
+      const response = await axios.request(config);
+      const { access_token } = response.data;
+      return access_token;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+async function uploadImage(filePath, fileType, accessToken) {
+  const fileStream = fs.createReadStream(filePath);
+  const fileStats = fs.statSync(filePath);
+  const fileSizeInBytes = fileStats.size;
+
+  const config = {
+    method: 'post',
+    url: 'https://firefly-api.adobe.io/v2/storage/image',
+    headers: {
+      'Authorization': `Bearer ${accessToken}`,
+      'X-API-Key': CLIENT_ID,
+      'Content-Type': fileType,
+      'Content-Length': fileSizeInBytes,
+    },
+    data: fileStream,
+    maxContentLength: Infinity,
+    maxBodyLength: Infinity,
+  };
+
+  const response = await axios(config);
+  return response.data;
+}
+
+async function genFill(maskId, sourceId, prompt, accessToken) {
+  const body = {
+    image: {
+      mask: {
+        uploadId: maskId,
+      },
+      source: {
+        uploadId: sourceId,
+      },
+    },
+    prompt: prompt,
+  };
+
+  const config = {
+    method: 'post',
+    url: 'https://firefly-api.adobe.io/v3/images/fill',
+    headers: {
+      'X-Api-Key': CLIENT_ID,
+      'Authorization': `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+    },
+    data: body,
+  };
+
+  const response = await axios(config);
+  return response.data;
+}
+
+async function updateEmployeeHeadshots(accessToken) {
+    
+    for (let employee of employees) {
+        try {
+          // Upload the source and mask images
+          const sourceUploadResponse = await uploadImage(employee.imagePath, 'image/jpeg', accessToken);
+          const sourceImageId = sourceUploadResponse.images[0].id;
+    
+          const maskUploadResponse = await uploadImage(employee.maskPath, 'image/png', accessToken);
+          const maskImageId = maskUploadResponse.images[0].id;
+    
+          // Generate the new image
+          const result = await genFill(
+            maskImageId,
+            sourceImageId,
+            backgroundPrompt,
+            accessToken
+          );
+
+      console.log(`Updated headshot for ${employee.name} at url ${result.outputs[0].image.url}`);
+    } catch (error) {
+      console.error(`Error updating headshot for ${employee.name}:`, error.response.data);
+    }
+  }
+}
 ```
 
 ## Next Steps
