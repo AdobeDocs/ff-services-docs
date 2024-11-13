@@ -6,7 +6,7 @@ keywords:
   - Text
 contributors:
   - https://github.com/archyposada
-   - https://github.com/sushiriot
+  - https://github.com/sushiriot
 hideBreadcrumbNav: true
 ---
 
