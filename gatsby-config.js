@@ -122,12 +122,8 @@ module.exports = {
             path: '/firefly-api/guides/how-tos/social-media-renditions.md'
           },
           {
-            title: 'Using the Expand Image API',
-            path: '/firefly-api/guides/how-tos/using-expand-image.md'
-          },
-          {
-            title: 'Using the Fill Image API',
-            path: '/firefly-api/guides/how-tos/using-fill-image.md'
+            title: 'Employee Headshots with Firefly Fill Image API',
+            path: '/firefly-api/guides/how-tos/employee-headshot.md'
           },
           {
             title: 'Using Content Class and Style Presets',
