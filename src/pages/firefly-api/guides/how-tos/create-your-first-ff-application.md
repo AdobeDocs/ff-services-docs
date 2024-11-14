@@ -1,8 +1,10 @@
 ---
-title: Create Your First Firefly API Implementation - Adobe Firefly API
-description: This how-to guides you through the process of integrating Adobe's Firefly workflows into your applications.
+title: Firefly Generate Image API Tutorial - Adobe Firefly API
+description: Learn to become an advanced user of Firefly's Generate Image API. Generate a single image with a simple prompt, add aspect ratio, localized style, and style preset customizations, and generate localized images for multiple locations.
 keywords:
   - Adobe Firefly Services
+  - Adobe Firefly Generate Image API
+  - Adobe Firefly Generate Image API tutorial
   - Firefly API
   - Integrating Firefly Services
   - Developer documentation
@@ -41,27 +43,27 @@ keywords:
   - Testing and debugging
   - Styles
 contributors:
-  - https://github.com/cfjedimaster
-  - https://github.com/nimithajalal
-  - https://github.com/hollyschinsky
+  - https://github.com/bishoysefin
 hideBreadcrumbNav: true
 ---
 
-# Firefly Generate Images API Tutorial
+# Firefly Generate Image API Tutorial
 
-Become an advanced user of Firefly's Generate Images API
+Become an advanced user of Firefly's Generate Image API
 
 ![paris tourism illustration](../images/paris.jpeg)
 
 ## Overview
 
-In this [Generate Images API](../api/image_generation/V3/index.md) tutorial, let's imagine we work at a global tourism company and are creating a marketing campaign with localized illustrations for the different places our company promotes.
+The [Firefly Generate Image API](../api/image_generation/V3/index.md) allows you to create custom illustrations and photos.
+
+For this tutorial, let's imagine we work at a global tourism company and are creating a marketing campaign with localized illustrations for the different places our company promotes.
 
 In the tutorial below, we will:
 
-* Generate a single image with a prompt
-* Customize the aspect ratio, localized style, and style presets
-* Generate localized images for multiple locations
+* First, generate a single image with a simple prompt
+* Next, add aspect ratio, localized style, and style preset customizations
+* Finally, generate localized images for multiple locations
 
 <InlineAlert variant="warning" slots="title,text" />
 
@@ -73,14 +75,16 @@ Depending on your learning style, you may prefer to walk through this tutorial s
 
 ## Prerequisites
 
+### Set up your environment
+
 Before we begin this [Node.js](https://nodejs.org/en/download/package-manager) tutorial, run the following in a secure terminal:
 
 ```bash
 export FIREFLY_CLIENT_ID=yourClientIdAsdf123
 export FIREFLY_CLIENT_SECRET=yourClientSecretAsdf123
 
-mkdir firefly-generate-images-api-tutorial
-cd firefly-generate-images-api-tutorial
+mkdir firefly-generate-image-api-tutorial
+cd firefly-generate-image-api-tutorial
 npm init --y
 npm install axios qs
 touch index.js
@@ -94,10 +98,10 @@ If you don't already have a Firefly "client ID" and "client secret", retrieve th
 
 * Save the code below in your `index.js` file
 * Run `node index.js` to generate the image.
-* To view the image, open the URL provided in the response.
+* To view the image, open the URL provided in the logged response.
 
 
-```javascript
+```js
 const axios = require("axios");
 const qs = require("qs");
 
@@ -176,7 +180,7 @@ Next, let's further customize our artwork by specifying:
 
 Update your `data` object to match the following:
 
-```javascript
+```js
 const data = {
   prompt: "Fun, abstract tourism doodle that inspires travel",
   size: { width: 2688, height: 1536 },
@@ -193,7 +197,7 @@ Save your changes and run `node index.js` to generate a new image with these spe
 
 Finally, let's begin generating localized artwork for multiple locations by adding this object to the top of our file, right below our `require` statements:
 
-```javascript
+```js
 const IMAGE_VARIATIONS = [
   {
     location: "Paris, France",
@@ -210,7 +214,7 @@ const IMAGE_VARIATIONS = [
 
 And now let's update the `createImages` function to customize its requests for each location described above:
 
-```javascript
+```js
 async function createImages(accessToken) {
   return Promise.all(
     IMAGE_VARIATIONS.map(({ location, locale, customPrompt }) => {
@@ -235,7 +239,7 @@ Save your changes and run `node index.js` to generate images for Paris and Tokyo
 
 Review this tutorial's [Prequisites](#prerequisites) section to understand how to set up your environment prior to running this code.
 
-```javascript
+```js
 const axios = require("axios");
 const qs = require("qs");
 
@@ -325,3 +329,11 @@ async function generateImage({ accessToken, data }) {
   }
 }
 ```
+
+<InlineAlert variant="info" slots="text" />
+
+We wrote this tutorial using the CommmonJS convention in order to make it easy to get up and running with the code. If you'd prefer to use ES6 modules, you can easily convert the code by changing the `require` statements to `import` statements and then changing the file name from `index.js` to `index.mjs`.
+
+## Next Steps
+
+Now that you have a working implementation of the Fill Image API, visit its [reference documentation](../api/image_generation/V3) to try out other features and explore more advanced use cases that can help you automate your workflows.

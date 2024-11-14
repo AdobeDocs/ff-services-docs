@@ -51,8 +51,8 @@ If you don't already have a Firefly "client ID" and "client secret", retrieve th
 First, open a secure terminal and `export` your "client ID" and "client secret" as environment variables so that your later commands can access them:
 
 ```bash
-export FIREFLY_CLIENT_ID=asdf...123
-export FIREFLY_CLIENT_SECRET=qwer...456
+export FIREFLY_CLIENT_ID=yourClientIdAsdf123
+export FIREFLY_CLIENT_SECRET=yourClientSecretAsdf123
 ```
 
 Next, run the following command to generate an access token:

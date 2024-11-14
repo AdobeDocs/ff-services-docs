@@ -1,29 +1,37 @@
 ---
-title: Employee Headshots with Firefly Fill Image API
-description: A guide to using the Firefly Fill Image API in your code workflows.
+title: Firefly Fill Image API Tutorial - Adobe Firefly API
+description: Learn to become an advanced user of Firefly's Fill Image API. Fill in specific regions of an image by replacing them with AI-generated content based on a text prompt. In this tutorial, we'll use it to replace backgrounds in employee photos for a consistent and professional look.
 keywords:
   - Adobe Firefly Services
+  - Adobe Firefly Fill Image API
+  - Adobe Firefly Fill Image API tutorial
   - Firefly API
   - Firefly Generative Fill
   - Fill Images
   - How-to guides
   - Firefly endpoint
 contributors:
-  - https://github.com/cfjedimaster
-  - https://github.com/hollyschinsky
   - https://github.com/bishoysefin
 hideBreadcrumbNav: true
 ---
 
-# Employee Headshots with Firefly Fill Image API
+# Firefly Fill Image API Tutorial
 
-Learn how to use the [Fill Image API](../api/generative_fill/V3) to replace backgrounds in employee headshots for a consistent and professional look.
+Become an advanced user of Firefly's Fill Image API
+
+![paris tourism illustration](../images/paris.jpeg)
 
 ## Overview
 
-Maintaining a consistent and professional appearance across all employee headshots is essential for company branding and a cohesive online presence. However, scheduling new photoshoots for every employee can be time-consuming and costly. 
+The [Fill Image API](../api/generative_fill/V3) allows you to modify specific regions of an image by replacing them with AI-generated pixels.
 
-Adobe Firefly's [Fill Image API](../api/generative_fill/V3) provides a powerful solution to automate background replacement in existing headshots, allowing you to update and unify employee photos efficiently.
+For this tutorial, let's imagine we are on a team that manages the website of a Fortune 100 company, and we need to update thousands of employee photos on the website to have a consistent and professional look. Because it is it's too expensive and time-consuming to schedule new photo sessions for every employee, we can efficiently use the Fill Image API to replace the backgrounds of the employee photos with a uniform setting, ensuring a cohesive online presence.
+
+
+In this tutorial, we'll use it to:
+
+* **Replace Backgrounds:** Change the background of employee photos to a uniform, professional setting.
+* **Maintain Consistency:** Ensure all photos have the same look without reshooting.
 
 <InlineAlert variant="warning" slots="title,text" />
 
@@ -35,7 +43,9 @@ Depending on your learning style, you may prefer to walk through this tutorial s
 
 ## Prerequisites
 
-Before we begin, run the following in a secure terminal:
+### Set up your environment
+
+Before we begin this [Node.js](https://nodejs.org/en/download/package-manager) tutorial, run the following in a secure terminal:
 
 ```bash
 export FIREFLY_CLIENT_ID=yourClientIdAsdf123
@@ -53,35 +63,39 @@ touch index.js
 If you don't already have a Firefly "client ID" and "client secret", retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
 
 
-## Introduction to the Fill Image API
+### Download the sample images
 
-The [Fill Image API](../api/generative_fill/V3) allows you to modify specific regions of an image by replacing them with AI-generated content based on a text prompt. In this tutorial, we'll use it to:
+Right click on each of the images below to download and save them to your project folder.
 
-* **Replace Backgrounds:** Change the background of employee headshots to a uniform, professional setting.
-* **Maintain Consistency:** Ensure all headshots have the same look without reshooting.
+##### source-person-photo-1.webp
 
-## Source and Mask Images
+![source-person-photo-1](../images/source-person-photo-1.png)
 
-The source and mask images are below, and will be uploaded using [Firefly's Upload API](../api/upload_image/).
+##### mask-person-photo-1.webp
 
-##### Source image
+![mask-person-photo-1](../images/mask-person-photo-1.png)
 
-![Source image](../images/gen-fill-source.png)
+##### source-person-photo-2.webp
 
-##### Mask image
+![source-person-photo-2](../images/source-person-photo-2.png)
 
-![Mask image](../images/gen-fill-mask.png)
+##### mask-person-photo-2.webp
 
-**Note:** Use the Photoshop API's [Create Mask](https://developer.adobe.com/firefly-services/docs/photoshop/api/photoshop_createMask/) endpoint to automate the creation of a mask.
+![mask-person-photo-2](../images/mask-person-photo-2.png)
+
+
+<InlineAlert variant="info" slots="text" />
+
+When creating your own applications, use the Photoshop API's [Create Mask](https://developer.adobe.com/firefly-services/docs/photoshop/api/photoshop_createMask/) endpoint to automate creation masks for your own images.
 
 ## Upload Images to Firefly Storage
 
-You'll need to upload both the source image and the mask image using the Firefly Upload API.
+Let's begin by uploading both the source image and the mask image using Firefly's [Upload API](../api/storage/V2).
 
 ```js
 const fs = require('fs');
 
-async function uploadImage(filePath, fileType, accessToken) {
+async function uploadImage({ filePath, fileType, accessToken }) {
   const fileStream = fs.createReadStream(filePath);
   const fileStats = fs.statSync(filePath);
   const fileSizeInBytes = fileStats.size;
@@ -91,7 +105,7 @@ async function uploadImage(filePath, fileType, accessToken) {
     url: 'https://firefly-api.adobe.io/v2/storage/image',
     headers: {
       'Authorization': `Bearer ${accessToken}`,
-      'X-API-Key': process.env.FIREFLY_CLIENT_ID,
+      'X-API-Key': process.env.FIREFLY_FIREFLY_CLIENT_ID,
       'Content-Type': fileType,
       'Content-Length': fileSizeInBytes,
     },
@@ -104,20 +118,20 @@ async function uploadImage(filePath, fileType, accessToken) {
   return response.data;
 }
 ```
-**Example Usage:**
+
+### Example Usage
 
 ```js
-const sourceUploadResponse = await uploadImage('./employee.jpg', 'image/jpeg', accessToken);
+const sourceUploadResponse = await uploadImage({ './employee.webp', 'image/webp', accessToken });
 const sourceImageId = sourceUploadResponse.images[0].id;
 
-const maskUploadResponse = await uploadImage('./mask.png', 'image/png', accessToken);
+const maskUploadResponse = await uploadImage({ './mask.webp', 'image/webp', accessToken });
 const maskImageId = maskUploadResponse.images[0].id;
 ```
 
-
 ## Define Your Background Replacement Prompt
 
-Decide on the new background you want for the headshots. For a professional look, you might choose a simple gradient or a specific office setting.
+Let's next describe the new background you want for our photos. For a professional look, let's use a smooth gradient background with corporate blue tones.
 
 ```js
 const backgroundPrompt = 'a smooth gradient background with corporate blue tones';
@@ -128,9 +142,8 @@ const backgroundPrompt = 'a smooth gradient background with corporate blue tones
 Below is a sample JavaScript function that could be used to call the [Fill Image API](../api/generative_fill/V3).
 
 ```js
-async function genFill(maskId, sourceId, prompt, accessToken) {
+async function genFill({ maskId, sourceId, prompt, accessToken }) {
   const body = {
-    numVariations: 1,
     image: {
       mask: {
         uploadId: maskId,
@@ -146,11 +159,11 @@ async function genFill(maskId, sourceId, prompt, accessToken) {
     method: 'post',
     url: 'https://firefly-api.adobe.io/v3/images/fill',
     headers: {
-      'X-Api-Key': process.env.FIREFLY_CLIENT_ID,
+      'X-Api-Key': process.env.FIREFLY_FIREFLY_CLIENT_ID,
       'Authorization': `Bearer ${accessToken}`,
       'Content-Type': 'application/json',
     },
-    data: body,
+    data: JSON.stringify(body),
   };
 
   const response = await axios(config);
@@ -158,48 +171,49 @@ async function genFill(maskId, sourceId, prompt, accessToken) {
 }
 ```
 
-## Putting It All Together
-Now, you can process each employee headshot and generate the updated images.
+## Generate New Employee Photos with Updated Backgrounds
+
+Now, you can process each employee photo and generate a new image with the updated background.
 
 ```js
-async function updateEmployeeHeadshots() {
+async function updateEmployeePhotos() {
   const accessToken = await getAccessToken();
 
-  // Assuming you have a list of employee image file paths and corresponding mask file paths
   const employees = [
     {
-      name: 'John Doe',
-      imagePath: './employee1.jpg',
-      maskPath: './mask1.png',
+      name: 'Jane Smith',
+      imagePath: './source-person-photo-1.webp',
+      maskPath: './mask-person-photo-1.webp',
     },
     {
-      name: 'Jane Smith',
-      imagePath: './employee2.jpg',
-      maskPath: './mask2.png',
+      name: 'John Doe',
+      imagePath: './source-person-photo-2.webp',
+      maskPath: './mask-person-photo-2.webp',
     },
     // Add more employees as needed
   ];
 
-  for (let employee of employees) {
+  for (const employee of employees) {
     try {
       // Upload the source and mask images
-      const sourceUploadResponse = await uploadImage(employee.imagePath, 'image/jpeg', accessToken);
+      const sourceUploadResponse = await uploadImage(employee.imagePath, 'image/webp', accessToken);
       const sourceImageId = sourceUploadResponse.images[0].id;
 
-      const maskUploadResponse = await uploadImage(employee.maskPath, 'image/png', accessToken);
+      const maskUploadResponse = await uploadImage(employee.maskPath, 'image/webp', accessToken);
       const maskImageId = maskUploadResponse.images[0].id;
 
       // Generate the new image
-      const result = await genFill(
+      const result = await genFill({
         maskImageId,
         sourceImageId,
         backgroundPrompt,
         accessToken
-      );
+      });
 
-      console.log(`Updated headshot for ${employee.name}`);
+      console.log(`Updated photo for ${employee.name}`);
+      console.log(`New image URL: ${result.outputs[0].image.url}`);
     } catch (error) {
-      console.error(`Error updating headshot for ${employee.name}:`, error.response.data);
+      console.error(`Error updating photo for ${employee.name}:`, error.response.data);
     }
   }
 }
@@ -207,45 +221,41 @@ async function updateEmployeeHeadshots() {
 
 ## Full Source Code
 
-Here is the complete source code combining all the steps:
+Review this tutorial's [Prequisites](#prerequisites) section to understand how to set up your environment prior to running this code.
 
 ```js
 const axios = require('axios');
 const qs = require('qs');
 const fs = require('fs');
 
-// Set the credentials based on environment variables
-const CLIENT_ID = process.env.FIREFLY_CLIENT_ID;
-const CLIENT_SECRET = process.env.FIREFLY_CLIENT_SECRET;
-
 // Define the background replacement prompt
 const backgroundPrompt = 'a smooth gradient background with corporate blue tones';
 
 // Assuming you have a list of employee image file paths and corresponding mask file paths
 const employees = [
-    {
-      name: 'John Doe',
-      imagePath: './employee1.jpg',
-      maskPath: './mask1.png',
-    },
-    {
-      name: 'Jane Smith',
-      imagePath: './employee2.jpg',
-      maskPath: './mask2.png',
-    },
-    // Add more employees as needed
-  ];
+  {
+    name: 'Jane Smith',
+    imagePath: './source-person-photo-1.webp',
+    maskPath: './mask-person-photo-1.webp',
+  },
+  {
+    name: 'John Doe',
+    imagePath: './source-person-photo-2.webp',
+    maskPath: './mask-person-photo-2.webp',
+  },
+  // Add more employees as needed
+];
 
 (async () => {
     const accessToken = await retrieveAccessToken();
-    await updateEmployeeHeadshots(accessToken);
+    await updateEmployeePhotos(accessToken);
   })();
 
   async function retrieveAccessToken() {
     let data = qs.stringify({
       grant_type: "client_credentials",
-      client_id: CLIENT_ID,
-      client_secret: CLIENT_SECRET,
+      client_id: process.env.FIREFLY_CLIENT_ID,
+      client_secret: process.env.FIREFLY_CLIENT_SECRET,
       scope:
         "openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis",
     });
@@ -269,7 +279,7 @@ const employees = [
     }
   }
 
-async function uploadImage(filePath, fileType, accessToken) {
+async function uploadImage({ filePath, fileType, accessToken }) {
   const fileStream = fs.createReadStream(filePath);
   const fileStats = fs.statSync(filePath);
   const fileSizeInBytes = fileStats.size;
@@ -279,7 +289,7 @@ async function uploadImage(filePath, fileType, accessToken) {
     url: 'https://firefly-api.adobe.io/v2/storage/image',
     headers: {
       'Authorization': `Bearer ${accessToken}`,
-      'X-API-Key': CLIENT_ID,
+      'X-API-Key': process.env.FIREFLY_CLIENT_ID,
       'Content-Type': fileType,
       'Content-Length': fileSizeInBytes,
     },
@@ -292,7 +302,7 @@ async function uploadImage(filePath, fileType, accessToken) {
   return response.data;
 }
 
-async function genFill(maskId, sourceId, prompt, accessToken) {
+async function genFill({ maskId, sourceId, prompt, accessToken }) {
   const body = {
     image: {
       mask: {
@@ -309,44 +319,48 @@ async function genFill(maskId, sourceId, prompt, accessToken) {
     method: 'post',
     url: 'https://firefly-api.adobe.io/v3/images/fill',
     headers: {
-      'X-Api-Key': CLIENT_ID,
+      'X-Api-Key': FIREFLY_CLIENT_ID,
       'Authorization': `Bearer ${accessToken}`,
       'Content-Type': 'application/json',
     },
-    data: body,
+    data: JSON.stringify(body),
   };
 
   const response = await axios(config);
   return response.data;
 }
 
-async function updateEmployeeHeadshots(accessToken) {
+async function updateEmployeePhotos(accessToken) {
     
     for (let employee of employees) {
-        try {
-          // Upload the source and mask images
-          const sourceUploadResponse = await uploadImage(employee.imagePath, 'image/jpeg', accessToken);
-          const sourceImageId = sourceUploadResponse.images[0].id;
-    
-          const maskUploadResponse = await uploadImage(employee.maskPath, 'image/png', accessToken);
-          const maskImageId = maskUploadResponse.images[0].id;
-    
-          // Generate the new image
-          const result = await genFill(
-            maskImageId,
-            sourceImageId,
-            backgroundPrompt,
-            accessToken
-          );
+      try {
+        // Upload the source and mask images
+        const sourceUploadResponse = await uploadImage(employee.imagePath, 'image/webp', accessToken);
+        const sourceImageId = sourceUploadResponse.images[0].id;
+  
+        const maskUploadResponse = await uploadImage(employee.maskPath, 'image.webp', accessToken);
+        const maskImageId = maskUploadResponse.images[0].id;
+  
+        // Generate the new image
+        const result = await genFill({
+          maskImageId,
+          sourceImageId,
+          backgroundPrompt,
+          accessToken
+        });
 
-      console.log(`Updated headshot for ${employee.name} at url ${result.outputs[0].image.url}`);
+        console.log(`Updated photo for ${employee.name} at url ${result.outputs[0].image.url}`);
     } catch (error) {
-      console.error(`Error updating headshot for ${employee.name}:`, error.response.data);
+      console.error(`Error updating photo for ${employee.name}:`, error.response.data);
     }
   }
 }
 ```
 
+<InlineAlert variant="info" slots="text" />
+
+We wrote this tutorial using the CommmonJS convention in order to make it easy to get up and running with the code. If you'd prefer to use ES6 modules, you can easily convert the code by changing the `require` statements to `import` statements and then changing the file name from `index.js` to `index.mjs`.
+
 ## Next Steps
 
-For more examples of what's possible with Firefly APIs, check out the other guides in this [how-tos](../how-tos/) section and the [API Reference](../api/image_generation/V3/) for more details.
+Now that you have a working implementation of the Fill Image API, visit its [reference documentation](../api/generative_fill/V3) to try out other features and explore more advanced use cases that can help you automate your workflows.
