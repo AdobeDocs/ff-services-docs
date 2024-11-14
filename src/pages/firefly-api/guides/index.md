@@ -53,7 +53,7 @@ Open a secure terminal and `export` your "client ID" and "access token" as envir
 
 ```bash
 export FIREFLY_CLIENT_ID=yourClientIdAsdf123
-export FIREFLY_ACCESS_TOKEN=qwer...456
+export FIREFLY_ACCESS_TOKEN=yourAccessTokenAsdf123
 ```
 
 ### Call the Firefly Generate Images API

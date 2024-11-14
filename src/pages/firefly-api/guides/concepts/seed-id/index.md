@@ -46,7 +46,7 @@ First, open a secure terminal and `export` your "client ID" and "access token" a
 
 ```bash
 export FIREFLY_CLIENT_ID=yourClientIdAsdf123
-export FIREFLY_ACCESS_TOKEN=qwer...456
+export FIREFLY_ACCESS_TOKEN=yourAccessTokenAsdf123
 ```
 
 Next, run the following `curl` command to generate an image:
