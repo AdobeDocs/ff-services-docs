@@ -69,7 +69,7 @@ curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
 The response will look like this:
 
 ```json
-{"access_token":"asdf...1234","token_type":"bearer","expires_in":86399}
+{"access_token":"yourAccessTokenAsdf123","token_type":"bearer","expires_in":86399}
 ```
 
 Notice how the response includes an `expires_in` field, which informs you of how many more seconds the access token is valid for. Each access token is valid for 24 hours, after which your secure server-side application will need to request a new token. A best practice is securely store the token and refresh it before it expires.
@@ -77,7 +77,7 @@ Notice how the response includes an `expires_in` field, which informs you of how
 Export your access token as an environment variable:
 
 ```bash
-export FIRELY_ACCESS_TOKEN=asdf...1234
+export FIRELY_ACCESS_TOKEN=yourAccessTokenAsdf123
 ```
 
 ## Generate an image
