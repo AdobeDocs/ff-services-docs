@@ -111,6 +111,7 @@ module.exports = {
       },
       {
         title: "How-Tos",
+        path: "/firefly-api/guides/how-tos/firefly-generate-image-api-tutorial.md/",
         pages: [
           {
             title: "Generate Image API Tutorial",
