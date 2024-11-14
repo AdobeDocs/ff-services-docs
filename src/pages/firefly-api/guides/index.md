@@ -52,7 +52,7 @@ If you don't already have a Firefly "client ID" and "access token", learn how to
 Open a secure terminal and `export` your "client ID" and "access token" as environment variables:
 
 ```bash
-export FIREFLY_CLIENT_ID=asdf...123
+export FIREFLY_CLIENT_ID=yourClientIdAsdf123
 export FIREFLY_ACCESS_TOKEN=qwer...456
 ```
 
