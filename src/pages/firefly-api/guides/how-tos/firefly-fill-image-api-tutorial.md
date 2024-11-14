@@ -65,22 +65,11 @@ If you don't already have a Firefly "client ID" and "client secret", retrieve th
 
 Right click on each of the images below to download and save them to your project folder.
 
-##### source-person-photo-1.webp
 
-![source-person-photo-1](../images/source-person-photo-1.png)
-
-##### mask-person-photo-1.webp
-
-![mask-person-photo-1](../images/mask-person-photo-1.png)
-
-##### source-person-photo-2.webp
-
-![source-person-photo-2](../images/source-person-photo-2.png)
-
-##### mask-person-photo-2.webp
-
-![mask-person-photo-2](../images/mask-person-photo-2.png)
-
+||
+| --- | --- |
+| ![source-person-photo-1](../images/source-person-photo-1.png) <p style="text-align:center">source-person-photo-1.webp</p> | ![mask-person-photo-1](../images/mask-person-photo-1.png) <p style="text-align:center">mask-person-photo-1.webp</p>
+| ![source-person-photo-2](../images/source-person-photo-2.png) <p style="text-align:center">source-person-photo-2.webp</p> | ![mask-person-photo-2](../images/mask-person-photo-2.png) <p style="text-align:center">mask-person-photo-2.webp</p>
 
 <InlineAlert variant="info" slots="text" />
 
