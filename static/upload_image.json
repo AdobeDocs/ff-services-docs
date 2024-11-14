@@ -20,7 +20,7 @@
     "/v2/storage/image": {
       "post": {
         "summary": "Upload",
-        "description": "Upload source image or mask for Image-to-Image operations, such as fill, expand. This api returns an identifier that is used to refer to uploaded content.",
+        "description": "Upload source image or mask for image-to-image operations, such as fill, expand. This API returns an identifier that is used to refer to uploaded content. The uploaded assets will be valid for 7 days from the date you upload them.",
         "operationId": "storageImageV2",
         "requestBody": {
           "content": {
