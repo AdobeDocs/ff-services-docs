@@ -40,7 +40,7 @@ Depending on your learning style, you may prefer to walk through this tutorial s
 
 If you don't already have a Firefly "client ID" and "client secret", retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
 
-### Set up your environment
+### Set up environment
 
 Before we begin this [Node.js](https://nodejs.org/en/download/package-manager) tutorial, run the following in a secure terminal:
 
@@ -55,7 +55,7 @@ npm install axios qs
 touch index.js
 ```
 
-### Download the sample images
+### Download sample images
 
 Right click on each of the images below to download and save them to your project folder.
 
@@ -68,7 +68,7 @@ Right click on each of the images below to download and save them to your projec
 
 When creating your own applications, use the Photoshop API's [Create Mask](https://developer.adobe.com/firefly-services/docs/photoshop/api/photoshop_createMask/) endpoint to automate creation masks for your own images.
 
-## Upload Images to Firefly Storage
+## Upload images
 
 Let's begin by uploading both the source image and the mask image using Firefly's [Upload API](../api/storage/V2).
 
@@ -99,7 +99,7 @@ async function uploadImage({ filePath, fileType, accessToken }) {
 }
 ```
 
-## Define Your Background Replacement Prompt
+## Write background prompt
 
 Let's next describe the new background you want for our photos. For a professional look, let's use a smooth gradient background with corporate blue tones.
 
@@ -107,7 +107,7 @@ Let's next describe the new background you want for our photos. For a profession
 const backgroundPrompt = 'a smooth gradient background with corporate blue tones';
 ```
 
-## Use the Fill Image API to Replace Backgrounds
+## Replace backgrounds
 
 Below is a sample JavaScript function that calls the [Fill Image API](../api/generative_fill/V3).
 
@@ -141,7 +141,7 @@ async function genFill({ maskId, sourceId, prompt, accessToken }) {
 }
 ```
 
-## Generate New Employee Photos with Updated Backgrounds
+## Generate photo backgrounds
 
 Now, you can process each employee photo and generate a new image with the updated background.
 
@@ -189,7 +189,7 @@ async function updateEmployeePhotos() {
 }
 ```
 
-## Full Source Code
+## Full source code
 
 Review this tutorial's [Prequisites](#prerequisites) section to understand how to set up your environment prior to running this code. (Because this code is for educational purposes only, it is not production-ready and requires additional error handling, logging, security measures, and more before it can be used in a live application.)
 

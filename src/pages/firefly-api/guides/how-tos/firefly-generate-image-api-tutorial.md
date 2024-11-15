@@ -71,7 +71,7 @@ Depending on your learning style, you may prefer to walk through this tutorial s
 
 If you don't already have a Firefly "client ID" and "client secret", retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
 
-### Set up your environment
+### Set up environment
 
 Before we begin this [Node.js](https://nodejs.org/en/download/package-manager) tutorial, run the following in a secure terminal:
 
@@ -86,7 +86,7 @@ npm install axios qs
 touch index.js
 ```
 
-## Image Generation
+## Image generation
 
 Let's not bury the lead 😁 Here's the code to generate a single image with a simple prompt:
 
@@ -114,7 +114,7 @@ async function generateImage({ accessToken, data = { prompt: "dog" } }) {
 }
 ```
 
-## Customizing Requests
+## Customizing requests
 
 Firefly has a variety of options to customize your image generation requests. Let's explore some of these options by updating the `data` object in the code below to customize our artwork by specifying:
 
@@ -135,7 +135,7 @@ const data = {
 }
 ```
 
-## Localized Customizations
+## Localized customizations
 
 To generate localized customizations, we'll define this object at the top of our file:
 
@@ -175,7 +175,7 @@ async function createImages(accessToken) {
 }
 ```
 
-## Full Source Code
+## Full source code
 
 Review this tutorial's [Prequisites](#prerequisites) section to understand how to set up your environment prior to running this code. (Because this code is for educational purposes only, it is not production-ready and requires additional error handling, logging, security measures, and more before it can be used in a live application.)
 
