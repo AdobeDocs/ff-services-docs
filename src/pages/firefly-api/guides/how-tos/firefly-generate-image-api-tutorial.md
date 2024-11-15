@@ -69,6 +69,8 @@ Depending on your learning style, you may prefer to walk through this tutorial s
 
 ## Prerequisites
 
+If you don't already have a Firefly "client ID" and "client secret", retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
+
 ### Set up your environment
 
 Before we begin this [Node.js](https://nodejs.org/en/download/package-manager) tutorial, run the following in a secure terminal:
@@ -83,10 +85,6 @@ npm init --y
 npm install axios qs
 touch index.js
 ```
-
-<InlineAlert variant="info" slots="text" />
-
-If you don't already have a Firefly "client ID" and "client secret", retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
 
 ## Generate your first image
 
