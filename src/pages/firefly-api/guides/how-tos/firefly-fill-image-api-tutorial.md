@@ -12,6 +12,7 @@ keywords:
   - Firefly endpoint
 contributors:
   - https://github.com/bishoysefin
+  - https://github.com/mikemajzoub
 hideBreadcrumbNav: true
 ---
 
@@ -19,7 +20,9 @@ hideBreadcrumbNav: true
 
 Modify specific regions of an image by replacing them with AI-generated pixels with the [Fill Image API](../api/generative_fill/V3).
 
-![fill-image-tutorial-source-image.webp](../images/fill-image-tutorial-hero-image.jpeg)
+||
+| --- | --- | --- |
+| ![source-person-photo-1](../images/source-person-photo-1.png) | ![mask-person-photo-1](../images/mask-person-photo-1.png) | ![fill-image-tutorial-source-image.webp](../images/fill-image-tutorial-hero-image.jpeg)
 
 ## Overview
 
@@ -31,6 +34,8 @@ In this tutorial, we will:
 * **Replace Backgrounds:** Change the background of employee photos to a uniform, professional setting.
 * **Maintain Consistency:** Ensure all photos have the same look without the need for new photo sessions.
 
+## Prerequisites
+
 <InlineAlert variant="warning" slots="title,text" />
 
 DISCLAIMER
@@ -38,8 +43,6 @@ DISCLAIMER
 The code in this tutorial is for educational purposes only. It is not production-ready and requires additional error handling, logging, security measures, and more before it can be used in a live application.
 
 Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [go straight to the full source code](#full-source-code) at the bottom of this webpage.
-
-## Prerequisites
 
 ### Set up your environment
 

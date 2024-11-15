@@ -81,31 +81,31 @@ module.exports = {
       },
       {
         title: "Concepts",
-        path: "/firefly-api/guides/concepts/model-3-overview.md/",
+        path: "/firefly-api/guides/concepts/authentication/",
         pages: [
-          {
-            title: "Firefly Image 3 Model",
-            path: "/firefly-api/guides/concepts/model-3-overview.md/",
-          },
           {
             title: "Authentication",
             path: "/firefly-api/guides/concepts/authentication/",
           },
           {
-            title: "Image Model Styles",
-            path: "/firefly-api/guides/concepts/styles/",
+            title: "Style Presets",
+            path: "/firefly-api/guides/concepts/style-presets/",
+          },
+          {
+            title: "Style Image Reference",
+            path: "/firefly-api/guides/concepts/style-image-reference/",
+          },
+          {
+            title: "Structure Image Reference",
+            path: "/firefly-api/guides/concepts/structure-image-reference/",
           },
           {
             title: "Rate limits",
             path: "/firefly-api/guides/concepts/rate-limits/",
           },
           {
-            title: "Seed ID",
-            path: "/firefly-api/guides/concepts/seed-id",
-          },
-          {
-            title: "Terminology",
-            path: "/firefly-api/guides/concepts/terminology.md",
+            title: "Seeds",
+            path: "/firefly-api/guides/concepts/seeds",
           },
         ],
       },
@@ -398,4 +398,3 @@ module.exports = {
   },
   plugins: [`@adobe/gatsby-theme-aio`],
 };
-

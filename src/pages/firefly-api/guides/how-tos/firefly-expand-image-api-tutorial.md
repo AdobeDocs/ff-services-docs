@@ -12,6 +12,7 @@ keywords:
   - Firefly endpoint
 contributors:
   - https://github.com/bishoysefin
+  - https://github.com/mikemajzoub
 hideBreadcrumbNav: true
 ---
 
@@ -32,6 +33,8 @@ Before diving into the code, let's understand the high-level steps involved:
 2. **Upload Source Image:** Use Firefly's [Upload API](../api/upload_image/) to upload your original image.
 3. **Generate Variations:** Use Firefly's [Expand Image API](../api/generative_expand/V3/) to create resized variations of the image for each dimension.
 
+## Prerequisites
+
 <InlineAlert variant="warning" slots="title,text" />
 
 DISCLAIMER
@@ -39,8 +42,6 @@ DISCLAIMER
 The code in this tutorial is for educational purposes only. It is not production-ready and requires additional error handling, logging, security measures, and more before it can be used in a live application.
 
 Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [go straight to the full source code](#full-source-code) at the bottom of this webpage.
-
-## Prerequisites
 
 ### Set up your environment
 

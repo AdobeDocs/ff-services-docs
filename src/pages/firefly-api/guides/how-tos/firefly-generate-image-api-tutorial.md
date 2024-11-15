@@ -44,6 +44,7 @@ keywords:
   - Styles
 contributors:
   - https://github.com/bishoysefin
+  - https://github.com/mikemajzoub
 hideBreadcrumbNav: true
 ---
 
@@ -64,6 +65,8 @@ In the tutorial below, we will:
 * Next, add aspect ratio, localized style, and style preset customizations
 * Finally, generate localized images for multiple locations
 
+## Prerequisites
+
 <InlineAlert variant="warning" slots="title,text" />
 
 DISCLAIMER
@@ -71,8 +74,6 @@ DISCLAIMER
 The code in this tutorial is for educational purposes only. It is not production-ready and requires additional error handling, logging, security measures, and more before it can be used in a live application.
 
 Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [go straight to the full source code](#full-source-code) at the bottom of this webpage.
-
-## Prerequisites
 
 ### Set up your environment
 

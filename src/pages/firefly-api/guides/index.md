@@ -43,16 +43,39 @@ Generate your first image with Firefly Services
 
 ![an illustration of a cat coding on a laptop](./images/cat-coding.jpeg)
 
+## Retrieve a 24-hour access token
+
 <InlineAlert variant="info" slots="text" />
 
-If you don't already have a Firefly "client ID" and "access token", learn how to retrieve them in the [Authentication Guide](./concepts/authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
+If you don't already have a Firefly "client ID" and "client secret", retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
 
-### Export your client ID and access token
-
-Open a secure terminal and `export` your "client ID" and "access token" as environment variables:
+First, open a secure terminal and `export` your "client ID" and "client secret" as environment variables so that your later commands can access them:
 
 ```bash
 export FIREFLY_CLIENT_ID=yourClientIdAsdf123
+export FIREFLY_CLIENT_SECRET=yourClientSecretAsdf123
+```
+
+Next, run the following command to generate an access token:
+
+```bash
+curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'grant_type=client_credentials' \
+--data-urlencode "client_id=$FIREFLY_CLIENT_ID" \
+--data-urlencode "client_secret=$FIREFLY_CLIENT_SECRET" \
+--data-urlencode 'scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
+```
+
+The response will look like this:
+
+```json
+{"access_token":"yourAccessTokenAsdf123","token_type":"bearer","expires_in":86399}
+```
+
+Export this access token so that the next script can conveniently access it:
+
+```bash
 export FIREFLY_ACCESS_TOKEN=yourAccessTokenAsdf123
 ```
 

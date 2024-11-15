@@ -55,9 +55,9 @@ With Firefly, you can ideate, create, and communicate while significantly improv
 
 See Firefly APIs in action in the following tutorials:
 
-- [Learn to create personalized marketing assets](./guides/how-tos/create-your-first-ff-application.md) with the [Firefly Generate Image API](./guides/api/image_generation/V3/index.md).
-- Expand an image to optimal aspect ratios for different social media platform with the [Firefly Expand Image API](./guides/api/generative_expand/V3/index.md).
-- Learn to generate seasonal product backgrounds with the [Firefly Generative Fill API](./guides/api/generative_fill/V3/index.md).
+- [Create personalized marketing assets](./guides/how-tos/firefly-generate-image-api-tutorial.md) with the [Firefly Generate Image API](./guides/api/image_generation/V3/index.md).
+- [Expand an image to optimal aspect ratios for different social media platform](./guides/how-tos/firefly-expand-image-api-tutorial.md) with the [Firefly Expand Image API](./guides/api/generative_expand/V3/index.md).
+- [Generate custom backgrounds](./guides/how-tos/firefly-fill-image-api-tutorial.md) with the [Firefly Generative Fill API](./guides/api/generative_fill/V3/index.md).
 
 ## Discover
 
