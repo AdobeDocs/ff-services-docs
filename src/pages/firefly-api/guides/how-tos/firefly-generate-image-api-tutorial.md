@@ -86,60 +86,12 @@ npm install axios qs
 touch index.js
 ```
 
-## Generate your first image
+## Image Generation
 
-* Save the code below in your `index.js` file
-* Run `node index.js` to generate the image.
-* To view the image, open the URL provided in the logged response.
-
+Let's not bury the lead 😁 Here's the code to generate a single image with a simple prompt:
 
 ```js
-const axios = require("axios");
-const qs = require("qs");
-
-(async () => {
-  const accessToken = await retrieveAccessToken();
-  const images = await createImages(accessToken);
-  console.log(JSON.stringify(images, null, 2));
-})();
-
-async function createImages(accessToken) {
-  const data = {
-    prompt: "Fun, abstract tourism doodle that inspires travel"
-  };
-
-  return generateImage({ accessToken, data, });
-}
-
-async function retrieveAccessToken() {
-  let data = qs.stringify({
-    grant_type: "client_credentials",
-    client_id: process.env.FIREFLY_CLIENT_ID,
-    client_secret: process.env.FIREFLY_CLIENT_SECRET,
-    scope:
-      "openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis",
-  });
-
-  let config = {
-    method: "post",
-    maxBodyLength: Infinity,
-    url: "https://ims-na1.adobelogin.com/ims/token/v3",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    data: data,
-  };
-
-  try {
-    const response = await axios.request(config);
-    const { access_token } = response.data;
-    return access_token;
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-async function generateImage({ accessToken, data }) {
+async function generateImage({ accessToken, data = { prompt: "dog" } }) {
   let config = {
     method: "post",
     maxBodyLength: Infinity,
@@ -162,9 +114,9 @@ async function generateImage({ accessToken, data }) {
 }
 ```
 
-## Define aspect ratio, localized style, and style presets
+## Customizing Requests
 
-Next, let's further customize our artwork by specifying:
+Firefly has a variety of options to customize your image generation requests. Let's explore some of these options by updating the `data` object in the code below to customize our artwork by specifying:
 
 * A landscape (16:9) aspect ratio
 * A geographic style localized to `en-US`
@@ -183,11 +135,9 @@ const data = {
 }
 ```
 
-Save your changes and run `node index.js` to generate a new image with these specifications.
+## Localized Customizations
 
-## Generate images for multiple locations
-
-Finally, let's begin generating localized artwork for multiple locations by adding this object to the top of our file, right below our `require` statements:
+To generate localized customizations, we'll define this object at the top of our file:
 
 ```js
 const IMAGE_VARIATIONS = [
@@ -224,8 +174,6 @@ async function createImages(accessToken) {
   );
 }
 ```
-
-Save your changes and run `node index.js` to generate images for Paris and Tokyo.
 
 ## Full Source Code
 
