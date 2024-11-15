@@ -34,15 +34,10 @@ In this tutorial, we will:
 * **Replace Backgrounds:** Change the background of employee photos to a uniform, professional setting.
 * **Maintain Consistency:** Ensure all photos have the same look without the need for new photo sessions.
 
+Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [go straight to the full source code](#full-source-code) at the bottom of this webpage.
+
 ## Prerequisites
 
-<InlineAlert variant="warning" slots="title,text" />
-
-DISCLAIMER
-
-The code in this tutorial is for educational purposes only. It is not production-ready and requires additional error handling, logging, security measures, and more before it can be used in a live application.
-
-Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [go straight to the full source code](#full-source-code) at the bottom of this webpage.
 
 ### Set up your environment
 
@@ -201,7 +196,7 @@ async function updateEmployeePhotos() {
 
 ## Full Source Code
 
-Review this tutorial's [Prequisites](#prerequisites) section to understand how to set up your environment prior to running this code.
+Review this tutorial's [Prequisites](#prerequisites) section to understand how to set up your environment prior to running this code. (Because this code is for educational purposes only, it is not production-ready and requires additional error handling, logging, security measures, and more before it can be used in a live application.)
 
 ```js
 const axios = require("axios");
@@ -349,8 +344,6 @@ async function updateEmployeePhotos(accessToken) {
   }
 }
 ```
-
-<InlineAlert variant="info" slots="text" />
 
 We wrote this tutorial using the CommmonJS convention in order to make it easy to get up and running with the code. If you'd prefer to use ES6 modules, you can easily convert the code by changing the `require` statements to `import` statements and then changing the file name from `index.js` to `index.mjs`.
 

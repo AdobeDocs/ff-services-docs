@@ -33,15 +33,9 @@ Before diving into the code, let's understand the high-level steps involved:
 2. **Upload Source Image:** Use Firefly's [Upload API](../api/upload_image/) to upload your original image.
 3. **Generate Variations:** Use Firefly's [Expand Image API](../api/generative_expand/V3/) to create resized variations of the image for each dimension.
 
-## Prerequisites
-
-<InlineAlert variant="warning" slots="title,text" />
-
-DISCLAIMER
-
-The code in this tutorial is for educational purposes only. It is not production-ready and requires additional error handling, logging, security measures, and more before it can be used in a live application.
-
 Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [go straight to the full source code](#full-source-code) at the bottom of this webpage.
+
+## Prerequisites
 
 ### Set up your environment
 
@@ -196,7 +190,7 @@ async function createSocialMediaRenditions(accessToken) {
 
 ## Full Source Code
 
-Review this tutorial's [Prequisites](#prerequisites) section to understand how to set up your environment prior to running this code.
+Review this tutorial's [Prequisites](#prerequisites) section to understand how to set up your environment prior to running this code. (Because this code is for educational purposes only, it is not production-ready and requires additional error handling, logging, security measures, and more before it can be used in a live application.)
 
 ```js
 const axios = require("axios");
@@ -332,8 +326,6 @@ async function createSocialMediaRenditions(accessToken) {
   }
 }
 ```
-
-<InlineAlert variant="info" slots="text" />
 
 We wrote this tutorial using the CommmonJS convention in order to make it easy to get up and running with the code. If you'd prefer to use ES6 modules, you can easily convert the code by changing the `require` statements to `import` statements and then changing the file name from `index.js` to `index.mjs`.
 

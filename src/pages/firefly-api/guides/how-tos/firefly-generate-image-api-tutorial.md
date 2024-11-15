@@ -65,15 +65,9 @@ In the tutorial below, we will:
 * Next, add aspect ratio, localized style, and style preset customizations
 * Finally, generate localized images for multiple locations
 
-## Prerequisites
-
-<InlineAlert variant="warning" slots="title,text" />
-
-DISCLAIMER
-
-The code in this tutorial is for educational purposes only. It is not production-ready and requires additional error handling, logging, security measures, and more before it can be used in a live application.
-
 Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [go straight to the full source code](#full-source-code) at the bottom of this webpage.
+
+## Prerequisites
 
 ### Set up your environment
 
@@ -237,7 +231,7 @@ Save your changes and run `node index.js` to generate images for Paris and Tokyo
 
 ## Full Source Code
 
-Review this tutorial's [Prequisites](#prerequisites) section to understand how to set up your environment prior to running this code.
+Review this tutorial's [Prequisites](#prerequisites) section to understand how to set up your environment prior to running this code. (Because this code is for educational purposes only, it is not production-ready and requires additional error handling, logging, security measures, and more before it can be used in a live application.)
 
 ```js
 const axios = require("axios");
@@ -329,8 +323,6 @@ async function generateImage({ accessToken, data }) {
   }
 }
 ```
-
-<InlineAlert variant="info" slots="text" />
 
 We wrote this tutorial using the CommmonJS convention in order to make it easy to get up and running with the code. If you'd prefer to use ES6 modules, you can easily convert the code by changing the `require` statements to `import` statements and then changing the file name from `index.js` to `index.mjs`.
 
