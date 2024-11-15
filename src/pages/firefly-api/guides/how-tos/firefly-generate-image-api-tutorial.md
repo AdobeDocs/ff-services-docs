@@ -88,7 +88,7 @@ touch index.js
 
 ## Image generation
 
-Let's not bury the lead 😁 Here's the code to generate a single image with a simple prompt:
+Let's not bury the lede 😁 Here's the code to generate a single image with a simple prompt:
 
 ```js
 async function generateImage({ accessToken, data = { prompt: "dog" } }) {
