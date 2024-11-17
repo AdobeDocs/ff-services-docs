@@ -43,20 +43,20 @@ Generate your first image with Firefly Services
 
 ![an illustration of a cat coding on a laptop](./images/cat-coding.jpeg)
 
-## Retrieve a 24-hour access token
-
-<InlineAlert variant="info" slots="text" />
+## Prerequisites
 
 If you don't already have a Firefly "client ID" and "client secret", retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
 
-First, open a secure terminal and `export` your "client ID" and "client secret" as environment variables so that your later commands can access them:
+## Retrieve access token
+
+Open a secure terminal and `export` your "client ID" and "client secret" as environment variables so that your later commands can access them:
 
 ```bash
 export FIREFLY_CLIENT_ID=yourClientIdAsdf123
 export FIREFLY_CLIENT_SECRET=yourClientSecretAsdf123
 ```
 
-Next, run the following command to generate an access token:
+Run the following command to generate an access token:
 
 ```bash
 curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
@@ -79,7 +79,7 @@ Export this access token so that the next script can conveniently access it:
 export FIREFLY_ACCESS_TOKEN=yourAccessTokenAsdf123
 ```
 
-### Call the Firefly Generate Images API
+### Generate an image
 
 Next, call the [Firefly Generate Images API](./api/image_generation/V3/):
 
@@ -118,6 +118,6 @@ The response will look like this:
 
 Open the URL in your browser to see the image you generated with Firefly 🎉
 
-### Next steps
+### Deepen your understanding
 
 Visit the [Firefly Generate Images API documentation](./api/image_generation/V3/) to learn more about the rich customization options available to you, including the ability to specify image style, structure, intensity, geographic locale, size, and more 🚀

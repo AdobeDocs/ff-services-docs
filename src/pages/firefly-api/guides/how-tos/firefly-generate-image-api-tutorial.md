@@ -65,17 +65,13 @@ In the tutorial below, we will:
 * Next, add aspect ratio, localized style, and style preset customizations
 * Finally, generate localized images for multiple locations
 
-## Prerequisites
-
-<InlineAlert variant="warning" slots="title,text" />
-
-DISCLAIMER
-
-The code in this tutorial is for educational purposes only. It is not production-ready and requires additional error handling, logging, security measures, and more before it can be used in a live application.
-
 Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [go straight to the full source code](#full-source-code) at the bottom of this webpage.
 
-### Set up your environment
+## Prerequisites
+
+If you don't already have a Firefly "client ID" and "client secret", retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
+
+### Set up environment
 
 Before we begin this [Node.js](https://nodejs.org/en/download/package-manager) tutorial, run the following in a secure terminal:
 
@@ -90,64 +86,12 @@ npm install axios qs
 touch index.js
 ```
 
-<InlineAlert variant="info" slots="text" />
+## Image generation
 
-If you don't already have a Firefly "client ID" and "client secret", retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
-
-## Generate your first image
-
-* Save the code below in your `index.js` file
-* Run `node index.js` to generate the image.
-* To view the image, open the URL provided in the logged response.
-
+Let's not bury the lede 😁 Here's the code to generate a single image with a simple prompt:
 
 ```js
-const axios = require("axios");
-const qs = require("qs");
-
-(async () => {
-  const accessToken = await retrieveAccessToken();
-  const images = await createImages(accessToken);
-  console.log(JSON.stringify(images, null, 2));
-})();
-
-async function createImages(accessToken) {
-  const data = {
-    prompt: "Fun, abstract tourism doodle that inspires travel"
-  };
-
-  return generateImage({ accessToken, data, });
-}
-
-async function retrieveAccessToken() {
-  let data = qs.stringify({
-    grant_type: "client_credentials",
-    client_id: process.env.FIREFLY_CLIENT_ID,
-    client_secret: process.env.FIREFLY_CLIENT_SECRET,
-    scope:
-      "openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis",
-  });
-
-  let config = {
-    method: "post",
-    maxBodyLength: Infinity,
-    url: "https://ims-na1.adobelogin.com/ims/token/v3",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    data: data,
-  };
-
-  try {
-    const response = await axios.request(config);
-    const { access_token } = response.data;
-    return access_token;
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-async function generateImage({ accessToken, data }) {
+async function generateImage({ accessToken, data = { prompt: "dog" } }) {
   let config = {
     method: "post",
     maxBodyLength: Infinity,
@@ -170,9 +114,9 @@ async function generateImage({ accessToken, data }) {
 }
 ```
 
-## Define aspect ratio, localized style, and style presets
+## Customizing requests
 
-Next, let's further customize our artwork by specifying:
+Firefly has a variety of options to customize your image generation requests. Let's explore some of these options by updating the `data` object in the code below to customize our artwork by specifying:
 
 * A landscape (16:9) aspect ratio
 * A geographic style localized to `en-US`
@@ -191,11 +135,9 @@ const data = {
 }
 ```
 
-Save your changes and run `node index.js` to generate a new image with these specifications.
+## Localized customizations
 
-## Generate images for multiple locations
-
-Finally, let's begin generating localized artwork for multiple locations by adding this object to the top of our file, right below our `require` statements:
+To generate localized customizations, we'll define this object at the top of our file:
 
 ```js
 const IMAGE_VARIATIONS = [
@@ -233,11 +175,9 @@ async function createImages(accessToken) {
 }
 ```
 
-Save your changes and run `node index.js` to generate images for Paris and Tokyo.
+## Full source code
 
-## Full Source Code
-
-Review this tutorial's [Prequisites](#prerequisites) section to understand how to set up your environment prior to running this code.
+Review this tutorial's [Prequisites](#prerequisites) section to understand how to set up your environment prior to running this code. (Because this code is for educational purposes only, it is not production-ready and requires additional error handling, logging, security measures, and more before it can be used in a live application.)
 
 ```js
 const axios = require("axios");
@@ -329,8 +269,6 @@ async function generateImage({ accessToken, data }) {
   }
 }
 ```
-
-<InlineAlert variant="info" slots="text" />
 
 We wrote this tutorial using the CommmonJS convention in order to make it easy to get up and running with the code. If you'd prefer to use ES6 modules, you can easily convert the code by changing the `require` statements to `import` statements and then changing the file name from `index.js` to `index.mjs`.
 
