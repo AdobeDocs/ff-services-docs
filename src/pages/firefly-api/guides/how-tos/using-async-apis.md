@@ -143,8 +143,7 @@ After Firefly successfully generates your image, the final status looks similar 
                         {
                                 "seed": 2142812600,
                                 "image": {
-                                        "url": "
-										https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/0c5c80a3-7189-4bd3-a52e-87b36e4fc47b12345"
+                                        "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/0c5c80a3-7189-4bd3-a52e-87b36e4fc47b12345"
                                 }
                         }
                 ],
