@@ -49,9 +49,9 @@ We are excited to announce that the following APIs are now generally available:
 
 We are excited to announce that the following APIs are now generally available and no longer only in preview:
 
-- [Generate Object Composite ](../api/generate-object-composite/)
-- [Expand Image](../api/generative_expand/V3/)
-- [Fill Image](../api/generative_fill/V3/)
+* [Generate Object Composite](../api/generate-object-composite/)
+* [Expand Image](../api/generative_expand/V3/)
+* [Fill Image](../api/generative_fill/V3/)
 
 ## July 23, 2024
 
@@ -59,31 +59,31 @@ We are excited to announce that the following APIs are now generally available a
 
 We are excited to announce that the following APIs are now generally available and no longer in preview:
 
-- [Generate Similar Images](../api/generate-similar/)
-- [Generate Images](../api/image_generation/V3/)
+* [Generate Similar Images](../api/generate-similar/)
+* [Generate Images](../api/image_generation/V3/)
 
 ## June 18, 2024
 
 ### Added
 
-- Firefly Image Model 3 (preview) APIs:
+Firefly Image Model 3 (preview) APIs:
 
-  - New API References added for the newly introduced [Generate Similar Images](../api/generate-similar/) and [Generate Object Composite](../api/generate-object-composite/) APIs.
-  - New V3 API References added for [Generate Images](../api/image_generation/V3/), [Expand Image](../api/generative_expand/V3/) and [Fill Image](../api/generative_fill/V3) with support for Firefly Image Model 3 (preview).
+  * New API References added for the newly introduced [Generate Similar Images](../api/generate-similar/) and [Generate Object Composite](../api/generate-object-composite/) APIs.
+  * New V3 API References added for [Generate Images](../api/image_generation/V3/), [Expand Image](../api/generative_expand/V3/) and [Fill Image](../api/generative_fill/V3) with support for Firefly Image Model 3 (preview).
   
-- Updated guides:
+Updated guides:
 
-  - [Create your first Firefly APIs implementation](../how-tos/create-your-first-ff-application.md) guide updated to use the new V3 version of the [Generate Images API](../api/image_generation/V3/).
+[Create your first Firefly APIs implementation](../how-tos/create-your-first-ff-application.md) guide updated to use the new V3 version of the [Generate Images API](../api/image_generation/V3/).
 
-- New Guides:
+New Guides:
 
-  - [Firefly Image Model 3 (preview) - Overview](../concepts/model-3-overview.md)
-  - [Using Content Class and Style Presets](../how-tos/using-content-class-style-preset.md)
-  - [Using Style and Structure Image References](../how-tos/using-style-structure-refs.md)
-  - [Using the Expand Image API](../how-tos/using-expand-image.md)
-  - [Using the Fill Image API](../how-tos/using-fill-image.md)
-  - [Getting Started with the Firefly Services SDK](../../../guides/tutorials/using-the-sdk.md)
-  - [Firefly API Terminology](../concepts/terminology.md)
+  * [Firefly Image Model 3 (preview) - Overview](../concepts/model-3-overview.md)
+  * [Using Content Class and Style Presets](../how-tos/using-content-class-style-preset.md)
+  * [Using Style and Structure Image References](../how-tos/using-style-structure-refs.md)
+  * [Using the Expand Image API](../how-tos/using-expand-image.md)
+  * [Using the Fill Image API](../how-tos/using-fill-image.md)
+  * [Getting Started with the Firefly Services SDK](../../../guides/tutorials/using-the-sdk.md)
+  * [Firefly API Terminology](../concepts/terminology.md)
 
 ## April 18, 2024
 
