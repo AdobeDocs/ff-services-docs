@@ -20,7 +20,7 @@
     "/v1/images/expand": {
       "post": {
         "summary": "Expand Image",
-        "description": "Expand an image to a new size/aspect ratio.",
+        "description": "Change the aspect ratio or size of an image and expand it. You can optionally provide a text prompt and Firefly generates additional filler image based on the prompt. For example, you can add a prompt to as Firefly to generate pine trees and a forest landscape which fills empty parts of the newly expanded image.",
         "operationId": "expandImagesV1",
         "parameters": [
           {
