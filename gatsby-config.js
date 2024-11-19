@@ -122,41 +122,75 @@ module.exports = {
             path: "/firefly-api/guides/how-tos/firefly-expand-image-api-tutorial.md",
           },
           {
+            title: 'Using the Firefly Asynchronous API',
+            path: '/firefly-api/guides/how-tos/using-async-apis.md'
+          },
+          {
             title: "Fill Image API Tutorial",
             path: "/firefly-api/guides/how-tos/firefly-fill-image-api-tutorial.md",
           },
         ],
       },
       {
-        title: "API Reference",
-        path: "/firefly-api/guides/api/image_generation/V3/",
+        title: 'API Reference',
+        path: '/firefly-api/guides/api/image_generation/V3/',
         pages: [
           {
             title: "Generate Images",
             path: "/firefly-api/guides/api/image_generation/V3/",
             pages: [
               {
+                title: "V3 async",
+                path: "/firefly-api/guides/api/image_generation/V3_Async/",
+              },
+              {
                 title: "V3",
                 path: "/firefly-api/guides/api/image_generation/V3/",
               },
+
               {
                 title: "V2",
                 path: "/firefly-api/guides/api/image_generation/V2/",
-              },
-            ],
-          },
+              }
+            ]
+          },          
           {
             title: "Generate Similar Images",
-            path: "/firefly-api/guides/api/generate-similar/",
+            path: "/firefly-api/guides/api/generate-similar/V3/",
+            pages: [
+              {
+                title: "V3 async",
+                path: "/firefly-api/guides/api/generate-similar/V3_Async/",
+              },
+              {
+                title: "V3",
+                path: "/firefly-api/guides/api/generate-similar/V3/",
+              }
+            ]
           },
           {
             title: "Generate Object Composite",
-            path: "/firefly-api/guides/api/generate-object-composite/",
+            path: "/firefly-api/guides/api/generate-object-composite/V3/",
+            pages: [
+              {
+                title: "V3 async",
+                path: "/firefly-api/guides/api/generate-object-composite/V3_Async/",
+              },
+              {
+                title: "V3",
+                path: "/firefly-api/guides/api/generate-object-composite/V3/",
+              }
+            ]
           },
+         
           {
             title: "Expand Image",
             path: "/firefly-api/guides/api/generative_expand/V3/",
             pages: [
+              {
+                title: "V3 async",
+                path: "/firefly-api/guides/api/generative_expand/V3_Async/",
+              },
               {
                 title: "V3",
                 path: "/firefly-api/guides/api/generative_expand/V3/",
@@ -164,13 +198,17 @@ module.exports = {
               {
                 title: "V1",
                 path: "/firefly-api/guides/api/generative_expand/V1/",
-              },
-            ],
+              }
+            ]
           },
           {
             title: "Fill Image",
             path: "/firefly-api/guides/api/generative_fill/V3/",
             pages: [
+              {
+                title: "V3 async",
+                path: "/firefly-api/guides/api/generative_fill/V3_Async/",
+              },
               {
                 title: "V3",
                 path: "/firefly-api/guides/api/generative_fill/V3/",
@@ -180,204 +218,210 @@ module.exports = {
                 path: "/firefly-api/guides/api/generative_fill/V1/",
               },
             ],
-          },
+          },          
           {
             title: "Upload",
-            path: "/firefly-api/guides/api/upload_image/",
+            path: "/firefly-api/guides/api/upload_image/V2/",
+            pages: [
+              {
+                title: "V2",
+                path: "/firefly-api/guides/api/upload_image/V2/",
+              },
+            ],
           },
-        ],
+        ]
       },
       {
-        title: "Changelog",
-        path: "/firefly-api/guides/changelog/",
+        title: 'Changelog',
+        path: '/firefly-api/guides/changelog/',
       },
       {
-        title: "Help",
-        path: "/firefly-api/guides/help/best-practices/",
+        title: 'Help',
+        path: '/firefly-api/guides/help/best-practices/',
         pages: [
           {
-            title: "Best Practices",
-            path: "/firefly-api/guides/help/best-practices/",
+            title: 'Best Practices',
+            path: '/firefly-api/guides/help/best-practices/'
           },
           {
-            title: "Troubleshooting",
-            path: "/firefly-api/guides/help/troubleshooting/",
-          },
-        ],
-      },
+            title: 'Troubleshooting',
+            path: '/firefly-api/guides/help/troubleshooting/'
+          }
+        ]
+      },         
       // END Firefly API left nav
       ///////////////////////////////////////////////
       // Photoshop API-specific left side nav
-      ///////////////////////////////////////////////
+      /////////////////////////////////////////////// 
       {
-        title: "Overview",
-        path: "/photoshop/",
-      },
+        title: 'Overview',
+        path: '/photoshop/',
+      },        
       // {
       //   title: 'Getting Started',
       //   path: '/photoshop/getting-started/'
       // },
       {
-        title: "Key Concepts",
-        path: "/photoshop/concepts/",
+        title: 'Key Concepts',
+        path: '/photoshop/concepts/'
       },
       {
-        title: "How-Tos",
-        path: "/photoshop/how-tos/photoshop-actions.md",
+        title: 'How-Tos',
+        path: '/photoshop/how-tos/photoshop-actions.md',
         pages: [
           {
-            title: "Photoshop Actions",
-            path: "/photoshop/how-tos/photoshop-actions.md",
+            title: 'Photoshop Actions',
+            path: '/photoshop/how-tos/photoshop-actions.md'
           },
           {
-            title: "Smart Objects",
-            path: "/photoshop/how-tos/smart-objects.md",
+            title: 'Smart Objects',
+            path: '/photoshop/how-tos/smart-objects.md'
           },
           {
-            title: "Text",
-            path: "/photoshop/how-tos/text.md",
-          },
-        ],
+            title: 'Text',
+            path: '/photoshop/how-tos/text.md'
+          }
+        ]
       },
       {
-        title: "Features",
-        path: "/photoshop/features/",
+        title: 'Features',
+        path: '/photoshop/features/'
       },
       {
-        title: "General Workflow",
-        path: "/photoshop/general-workflow/",
+        title: 'General Workflow',
+        path: '/photoshop/general-workflow/'
       },
       {
-        title: "Code Samples",
-        path: "/photoshop/code-sample/",
+        title: 'Code Samples',
+        path: '/photoshop/code-sample/'
       },
       {
-        title: "API Reference",
-        path: "/photoshop/api/photoshop_actions.md",
+        title: 'API Reference',
+        path: '/photoshop/api/photoshop_actions.md',
         pages: [
           {
-            title: "Actions",
-            path: "/photoshop/api/photoshop_actions.md",
+            title: 'Actions',
+            path: '/photoshop/api/photoshop_actions.md'
           },
           {
-            title: "Action JSON",
-            path: "/photoshop/api/photoshop_actionJSON.md",
+            title: 'Action JSON',
+            path: '/photoshop/api/photoshop_actionJSON.md'
           },
           {
-            title: "Apply PSD Edits",
-            path: "/photoshop/api/photoshop_applyPsdEdits.md",
+            title: 'Apply PSD Edits',
+            path: '/photoshop/api/photoshop_applyPsdEdits.md'
           },
           {
-            title: "Create Action JSON",
-            path: "/photoshop/api/photoshop_createActionJson.md",
+            title: 'Create Action JSON',
+            path: '/photoshop/api/photoshop_createActionJson.md'
           },
           {
-            title: "Create Artboard",
-            path: "/photoshop/api/photoshop_createArtboard.md",
+            title: 'Create Artboard',
+            path: '/photoshop/api/photoshop_createArtboard.md'
           },
           {
-            title: "Create Mask",
-            path: "/photoshop/api/photoshop_createMask.md",
+            title: 'Create Mask',
+            path: '/photoshop/api/photoshop_createMask.md'
           },
           {
-            title: "Create PSD",
-            path: "/photoshop/api/photoshop_createPsd.md",
+            title: 'Create PSD',
+            path: '/photoshop/api/photoshop_createPsd.md'
           },
           {
-            title: "Create Rendition",
-            path: "/photoshop/api/photoshop_createRendition.md",
+            title: 'Create Rendition',
+            path: '/photoshop/api/photoshop_createRendition.md'
           },
           {
-            title: "Depth Blur",
-            path: "/photoshop/api/photoshop_depthBlur.md",
+            title: 'Depth Blur',
+            path: '/photoshop/api/photoshop_depthBlur.md'
           },
           {
-            title: "Edit Text",
-            path: "/photoshop/api/photoshop_editText.md",
+            title: 'Edit Text',
+            path: '/photoshop/api/photoshop_editText.md'
           },
           {
-            title: "Get Manifest",
-            path: "/photoshop/api/photoshop_getManifest.md",
+            title: 'Get Manifest',
+            path: '/photoshop/api/photoshop_getManifest.md'
           },
           {
-            title: "Product Crop",
-            path: "/photoshop/api/photoshop_productCrop.md",
+            title: 'Product Crop',
+            path: '/photoshop/api/photoshop_productCrop.md'
           },
           {
-            title: "Remove Background",
-            path: "/photoshop/api/photoshop_removeBackground.md",
+            title: 'Remove Background',
+            path: '/photoshop/api/photoshop_removeBackground.md'
           },
           {
-            title: "Replace Smart Object",
-            path: "/photoshop/api/photoshop_replaceSmartObject.md",
+            title: 'Replace Smart Object',
+            path: '/photoshop/api/photoshop_replaceSmartObject.md'
           },
           {
-            title: "Get Status - Manifest",
-            path: "/photoshop/api/photoshop_status_manifest.md",
+            title: 'Get Status - Manifest',
+            path: '/photoshop/api/photoshop_status_manifest.md'
           },
           {
-            title: "Get Status - Mask",
-            path: "/photoshop/api/photoshop_status_mask.md",
+            title: 'Get Status - Mask',
+            path: '/photoshop/api/photoshop_status_mask.md'
           },
           {
-            title: "Get Status",
-            path: "/photoshop/api/photoshop_status.md",
-          },
-        ],
-      },
+            title: 'Get Status',
+            path: '/photoshop/api/photoshop_status.md'
+          }, 
+        ]
+      },    
       ///////////////////////////////////////////////
       // Lightroom API-specific left side nav
-      ///////////////////////////////////////////////
+      /////////////////////////////////////////////// 
       {
-        title: "Overview",
-        path: "/lightroom/",
-      },
+        title: 'Overview',
+        path: '/lightroom/',
+      },        
       // {
       //   title: 'Getting Started',
       //   path: '/lightroom/getting-started/'
       // },
       {
-        title: "General Workflow",
-        path: "/lightroom/general-workflow/",
+        title: 'General Workflow',
+        path: '/lightroom/general-workflow/'
       },
       {
-        title: "Features",
-        path: "/lightroom/features/",
+        title: 'Features',
+        path: '/lightroom/features/'
       },
       {
-        title: "Code Samples",
-        path: "/lightroom/code-sample/",
+        title: 'Code Samples',
+        path: '/lightroom/code-sample/'
       },
       {
-        title: "API Reference",
-        path: "/lightroom/api/lightroom_applyPresets.md",
+        title: 'API Reference',
+        path: '/lightroom/api/lightroom_applyPresets.md',
         pages: [
           {
-            title: "Apply Presets",
-            path: "/lightroom/api/lightroom_applyPresets.md",
+            title: 'Apply Presets',
+            path: '/lightroom/api/lightroom_applyPresets.md'
           },
           {
-            title: "Apply XMP",
-            path: "/lightroom/api/lightroom_applyXMP.md",
+            title: 'Apply XMP',
+            path: '/lightroom/api/lightroom_applyXMP.md'
           },
           {
-            title: "Apply Edits",
-            path: "/lightroom/api/lightroom_edits.md",
+            title: 'Apply Edits',
+            path: '/lightroom/api/lightroom_edits.md'
           },
           {
-            title: "Auto Straighten",
-            path: "/lightroom/api/lightroom_autoStraighten.md",
+            title: 'Auto Straighten',
+            path: '/lightroom/api/lightroom_autoStraighten.md'
           },
           {
-            title: "Auto Tone",
-            path: "/lightroom/api/lightroom_autoTone.md",
+            title: 'Auto Tone',
+            path: '/lightroom/api/lightroom_autoTone.md'
           },
           {
-            title: "Get Status",
-            path: "/lightroom/api/lightroom_getStatus.md",
-          },
-        ],
-      },
+            title: 'Get Status',
+            path: '/lightroom/api/lightroom_getStatus.md'
+          }
+        ]
+      },    
       // END PS API left nav
       /////////////////////////////////////////////////////
       // TODO: Revisit including a file but one that's flattened, these roll to the API overview root
@@ -385,16 +429,16 @@ module.exports = {
       // {
       //   title: 'Firefly API Overview',
       //   path: '/firefly-api/',
-      //   pages: require("./reference-firefly.js"),
-      // },
-      //
+      //   pages: require("./reference-firefly.js"),   
+      // },        
+      // 
       // {
       //   title: 'Photoshop API Overview',
-      //   path: '/photoshop/',
-      //   pages: require("./reference-photoshop.js"),
+      //   path: '/photoshop/',     
+      //   pages: require("./reference-photoshop.js"),   
       // },
-      /////////////////////////////////////////////////////
-    ],
+      ///////////////////////////////////////////////////// 
+    ]
   },
-  plugins: [`@adobe/gatsby-theme-aio`],
+  plugins: [`@adobe/gatsby-theme-aio`]
 };

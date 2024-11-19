@@ -20,7 +20,7 @@
     "/v1/images/fill": {
       "post": {
         "summary": "Fill Image",
-        "description": "Fill the masked area of an image with an optional prompt.",
+        "description": "Fills an area of an image based on images that Firefly generates based on your prompt. We call this part of an image an image, and this mask defines the area which should be filled. For example you can have an circular mask defined on an image and Firefly can generate the image of a planet in that area.",
         "operationId": "fillImagesV1",
         "requestBody": {
           "content": {
