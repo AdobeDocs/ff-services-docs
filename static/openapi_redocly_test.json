@@ -1,0 +1,2447 @@
+{
+  "components": {
+      "schemas": {
+          "AlignmentHorizontal": {
+              "description": "An enumeration.",
+              "enum": [
+                  "center",
+                  "left",
+                  "right"
+              ],
+              "title": "AlignmentHorizontal"
+          },
+          "AlignmentVertical": {
+              "description": "An enumeration.",
+              "enum": [
+                  "center",
+                  "top",
+                  "bottom"
+              ],
+              "title": "AlignmentVertical"
+          },
+          "ApiError": {
+              "description": "The error within the error response.",
+              "properties": {
+                  "error_code": {
+                      "$ref": "#/components/schemas/ColligoErrorCodeAsyncV3"
+                  },
+                  "message": {
+                      "title": "Message",
+                      "type": "string"
+                  },
+                  "stack_trace": {
+                      "items": {
+                          "type": "string"
+                      },
+                      "title": "Stack Trace",
+                      "type": "array"
+                  },
+                  "validation_errors": {
+                      "items": {
+                          "$ref": "#/components/schemas/ValidationErrorMessage"
+                      },
+                      "title": "Validation Errors",
+                      "type": "array"
+                  }
+              },
+              "required": [
+                  "error_code"
+              ],
+              "title": "ApiError",
+              "type": "object"
+          },
+          "AsyncAcceptResponseV3": {
+              "properties": {
+                  "cancelUrl": {
+                      "description": "The URL to cancel the job.",
+                      "title": "Cancel URL",
+                      "type": "string"
+                  },
+                  "jobId": {
+                      "description": "The ID of the job.",
+                      "title": "Job ID",
+                      "type": "string"
+                  },
+                  "statusUrl": {
+                      "description": "The URL to check the status of the job.",
+                      "title": "Status URL",
+                      "type": "string"
+                  }
+              },
+              "required": [
+                  "jobId",
+                  "statusUrl",
+                  "cancelUrl"
+              ],
+              "title": "AsyncAcceptResponseV3",
+              "type": "object"
+          },
+          "AsyncApiErrorV3": {
+              "description": "The error within the error response.",
+              "properties": {
+                  "error_code": {
+                      "anyOf": [
+                          {
+                              "type": "string"
+                          },
+                          {
+                              "$ref": "#/components/schemas/ColligoErrorCodeAsyncV3"
+                          },
+                          {
+                              "$ref": "#/components/schemas/ColliogAsyncStatusErrorCodeV3"
+                          },
+                          {
+                              "$ref": "#/components/schemas/ColligoAsyncCancelErrorCodeV3"
+                          }
+                      ],
+                      "title": "Error Code"
+                  },
+                  "jobId": {
+                      "title": "Jobid",
+                      "type": "string"
+                  },
+                  "message": {
+                      "experimental": true,
+                      "title": "EXPERIMENTAL, STAGE ONLY - Message",
+                      "type": "string"
+                  },
+                  "stack_trace": {
+                      "experimental": true,
+                      "items": {
+                          "type": "string"
+                      },
+                      "title": "EXPERIMENTAL, STAGE ONLY - Stack Trace",
+                      "type": "array"
+                  },
+                  "status": {
+                      "title": "Status",
+                      "type": "string"
+                  },
+                  "validation_errors": {
+                      "items": {
+                          "$ref": "#/components/schemas/ValidationErrorMessage"
+                      },
+                      "title": "Validation Errors",
+                      "type": "array"
+                  }
+              },
+              "title": "AsyncApiErrorV3",
+              "type": "object"
+          },
+          "AsyncTaskResponseV3": {
+              "properties": {
+                  "jobId": {
+                      "description": "The ID of async job.",
+                      "title": "Job ID",
+                      "type": "string"
+                  },
+                  "progress": {
+                      "title": "Progress",
+                      "type": "number"
+                  },
+                  "result": {
+                      "anyOf": [
+                          {
+                              "$ref": "#/components/schemas/GenerateImagesResponseV3"
+                          },
+                          {
+                              "$ref": "#/components/schemas/GenerateSimilarImagesResponseV3"
+                          },
+                          {
+                              "$ref": "#/components/schemas/ExpandImageResponseV3"
+                          },
+                          {
+                              "$ref": "#/components/schemas/FillImageResponseV3"
+                          },
+                          {
+                              "$ref": "#/components/schemas/GenerateObjectCompositeResponseV3"
+                          }
+                      ],
+                      "description": "The result of the job, if the job has completed.",
+                      "title": "Result"
+                  },
+                  "status": {
+                      "description": "The status of the job. One of 'pending', 'running', 'completed', 'failed', 'canceled'.",
+                      "title": "Status of the job",
+                      "type": "string"
+                  }
+              },
+              "required": [
+                  "status",
+                  "jobId"
+              ],
+              "title": "AsyncTaskResponseV3",
+              "type": "object"
+          },
+          "BaseInputImageV3": {
+              "properties": {
+                  "source": {
+                      "$ref": "#/components/schemas/PublicBinaryInputV3",
+                      "description": "Source image which will be used to expand, fill or generate similar images",
+                      "title": "Source image"
+                  }
+              },
+              "required": [
+                  "source"
+              ],
+              "title": "BaseInputImageV3",
+              "type": "object"
+          },
+          "BaseInputMaskV3": {
+              "properties": {
+                  "source": {
+                      "$ref": "#/components/schemas/PublicBinaryInputV3",
+                      "description": "Source of the mask image.",
+                      "title": "Mask image"
+                  }
+              },
+              "required": [
+                  "source"
+              ],
+              "title": "BaseInputMaskV3",
+              "type": "object"
+          },
+          "Body_expandImagesV3Async": {
+              "properties": {
+                  "files": {
+                      "items": {
+                          "format": "binary",
+                          "type": "string"
+                      },
+                      "title": "Files",
+                      "type": "array"
+                  },
+                  "request": {
+                      "$ref": "#/components/schemas/ExpandImageRequestV3"
+                  }
+              },
+              "required": [
+                  "request",
+                  "files"
+              ],
+              "title": "Body_expandImagesV3Async",
+              "type": "object"
+          },
+          "Body_fillImagesV3Async": {
+              "properties": {
+                  "files": {
+                      "items": {
+                          "format": "binary",
+                          "type": "string"
+                      },
+                      "title": "Files",
+                      "type": "array"
+                  },
+                  "request": {
+                      "$ref": "#/components/schemas/FillImageRequestV3"
+                  }
+              },
+              "required": [
+                  "request",
+                  "files"
+              ],
+              "title": "Body_fillImagesV3Async",
+              "type": "object"
+          },
+          "Body_generateImagesV3Async": {
+              "properties": {
+                  "files": {
+                      "items": {
+                          "format": "binary",
+                          "type": "string"
+                      },
+                      "title": "Files",
+                      "type": "array"
+                  },
+                  "request": {
+                      "$ref": "#/components/schemas/GenerateImagesRequestV3"
+                  }
+              },
+              "required": [
+                  "request",
+                  "files"
+              ],
+              "title": "Body_generateImagesV3Async",
+              "type": "object"
+          },
+          "Body_generateObjectCompositeV3Async": {
+              "properties": {
+                  "files": {
+                      "items": {
+                          "format": "binary",
+                          "type": "string"
+                      },
+                      "title": "Files",
+                      "type": "array"
+                  },
+                  "request": {
+                      "$ref": "#/components/schemas/GenerateObjectCompositeRequestV3"
+                  }
+              },
+              "required": [
+                  "request",
+                  "files"
+              ],
+              "title": "Body_generateObjectCompositeV3Async",
+              "type": "object"
+          },
+          "Body_generateSimilarImagesV3Async": {
+              "properties": {
+                  "files": {
+                      "items": {
+                          "format": "binary",
+                          "type": "string"
+                      },
+                      "title": "Files",
+                      "type": "array"
+                  },
+                  "request": {
+                      "$ref": "#/components/schemas/GenerateSimilarImagesRequestV3"
+                  }
+              },
+              "required": [
+                  "request",
+                  "files"
+              ],
+              "title": "Body_generateSimilarImagesV3Async",
+              "type": "object"
+          },
+          "ColligoAsyncCancelErrorCodeV3": {
+              "description": "An enumeration.",
+              "enum": [
+                  "job_timeout",
+                  "job_completed",
+                  "unknown_job_id",
+                  "job_already_canceled",
+                  "job_cancel_failed"
+              ],
+              "title": "ColligoAsyncCancelErrorCodeV3",
+              "type": "string"
+          },
+          "ColligoErrorCodeAsyncV3": {
+              "description": "An enumeration.",
+              "enum": [
+                  "validation_error",
+                  "runtime_error",
+                  "timeout_error",
+                  "rate_limited",
+                  "access_error",
+                  "invalid_content_type",
+                  "empty_input_body",
+                  "bad_request"
+              ],
+              "title": "ColligoErrorCodeAsyncV3",
+              "type": "string"
+          },
+          "ColliogAsyncStatusErrorCodeV3": {
+              "description": "An enumeration.",
+              "enum": [
+                  "unknown_job_id"
+              ],
+              "title": "ColliogAsyncStatusErrorCodeV3",
+              "type": "string"
+          },
+          "ContentClassV3": {
+              "description": "An enumeration.",
+              "enum": [
+                  "photo",
+                  "art"
+              ],
+              "title": "ContentClassV3",
+              "type": "string"
+          },
+          "ExpandImageRequestV3": {
+              "properties": {
+                  "image": {
+                      "$ref": "#/components/schemas/InputImageV3",
+                      "description": "Image which we want to expand",
+                      "title": "Input Image"
+                  },
+                  "mask": {
+                      "$ref": "#/components/schemas/InputMaskV3",
+                      "description": "Mask image which will be used to expand the given image.",
+                      "title": "Mask Image"
+                  },
+                  "numVariations": {
+                      "description": "numVariations will default to the number of seeds, or to 1 if seeds is not specified.",
+                      "maximum": 4.0,
+                      "minimum": 1.0,
+                      "title": "The number of variations",
+                      "type": "integer"
+                  },
+                  "placement": {
+                      "$ref": "#/components/schemas/Placement",
+                      "description": "Use placement if you want to define the directions in which you want to expand the image.",
+                      "title": "Placement"
+                  },
+                  "prompt": {
+                      "description": "The prompt used to generate the image. The longer the prompt - the better",
+                      "maxLength": 1024,
+                      "minLength": 1,
+                      "title": "The prompt",
+                      "type": "string"
+                  },
+                  "seeds": {
+                      "description": "If specified alongside with numVariations, the number of seeds must be the equal to numVariations",
+                      "items": {
+                          "type": "integer"
+                      },
+                      "maxItems": 4,
+                      "minItems": 1,
+                      "title": "The seed of each variation",
+                      "type": "array",
+                      "uniqueItems": true
+                  },
+                  "size": {
+                      "allOf": [
+                          {
+                              "$ref": "#/components/schemas/Size"
+                          }
+                      ],
+                      "default": {
+                          "height": 2048,
+                          "width": 2048
+                      },
+                      "description": "The size of the requested generations",
+                      "title": "The size"
+                  }
+              },
+              "required": [
+                  "image"
+              ],
+              "title": "Images expand payload",
+              "type": "object"
+          },
+          "ExpandImageResponseV3": {
+              "properties": {
+                  "outputs": {
+                      "description": "Each image will have a storage item.",
+                      "items": {
+                          "$ref": "#/components/schemas/OutputImageV3"
+                      },
+                      "minItems": 1,
+                      "title": "The list of images",
+                      "type": "array"
+                  },
+                  "size": {
+                      "$ref": "#/components/schemas/Size",
+                      "description": "If size was passed as input, this value should be the same as the one passed as input.",
+                      "title": "The actual size used for the output"
+                  }
+              },
+              "required": [
+                  "size",
+                  "outputs"
+              ],
+              "title": "Images expand response",
+              "type": "object"
+          },
+          "FillImageRequestV3": {
+              "properties": {
+                  "image": {
+                      "$ref": "#/components/schemas/InputImageV3",
+                      "description": "Input image which we want to fill",
+                      "title": "Input Image"
+                  },
+                  "mask": {
+                      "$ref": "#/components/schemas/InputMaskV3",
+                      "description": "Mask of the image which will be used to fill the source image. It is a required property.",
+                      "title": "Mask Image"
+                  },
+                  "negativePrompt": {
+                      "description": "Inference will try to generate against this prompt",
+                      "maxLength": 1024,
+                      "title": "Avoid prompt",
+                      "type": "string"
+                  },
+                  "numVariations": {
+                      "description": "numVariations will default to the number of seeds, or to 1 if seeds is not specified.",
+                      "maximum": 4.0,
+                      "minimum": 1.0,
+                      "title": "The number of variations",
+                      "type": "integer"
+                  },
+                  "prompt": {
+                      "description": "The prompt used to generate the image. The longer the prompt - the better",
+                      "maxLength": 1024,
+                      "minLength": 1,
+                      "title": "The prompt",
+                      "type": "string"
+                  },
+                  "promptBiasingLocaleCode": {
+                      "description": "The locale will be used to generate content that is more relevant for user's country and language",
+                      "title": "The locale used for image generations",
+                      "type": "string"
+                  },
+                  "seeds": {
+                      "description": "If specified alongside with n, the number of seeds must be the equal to n",
+                      "items": {
+                          "type": "integer"
+                      },
+                      "maxItems": 4,
+                      "minItems": 1,
+                      "title": "The seed of each variation",
+                      "type": "array",
+                      "uniqueItems": true
+                  },
+                  "size": {
+                      "allOf": [
+                          {
+                              "$ref": "#/components/schemas/Size"
+                          }
+                      ],
+                      "default": {
+                          "height": 2048,
+                          "width": 2048
+                      },
+                      "description": "The size of the requested generations",
+                      "title": "The size"
+                  }
+              },
+              "required": [
+                  "image"
+              ],
+              "title": "Fill images payload",
+              "type": "object"
+          },
+          "FillImageResponseV3": {
+              "properties": {
+                  "outputs": {
+                      "description": "Each image will have a storage item.",
+                      "items": {
+                          "$ref": "#/components/schemas/OutputImageV3"
+                      },
+                      "minItems": 1,
+                      "title": "The list of images",
+                      "type": "array"
+                  },
+                  "size": {
+                      "$ref": "#/components/schemas/Size",
+                      "description": "If size was passed as input, this value should be the same as the one passed as input.",
+                      "title": "The actual size used for the outputs"
+                  }
+              },
+              "required": [
+                  "size",
+                  "outputs"
+              ],
+              "title": "Fill images response.",
+              "type": "object"
+          },
+          "GenerateImagesRequestV3": {
+              "properties": {
+                  "contentClass": {
+                      "$ref": "#/components/schemas/ContentClassV3",
+                      "description": "Will guide the generation to being more photographic or more like art",
+                      "title": "The content class"
+                  },
+                  "negativePrompt": {
+                      "description": "Inference will try to generate against this prompt",
+                      "maxLength": 1024,
+                      "title": "Avoid prompt",
+                      "type": "string"
+                  },
+                  "numVariations": {
+                      "description": "numVariations will default to the number of seeds, or to 1 if seeds is not specified.",
+                      "maximum": 4.0,
+                      "minimum": 1.0,
+                      "title": "The number of variations",
+                      "type": "integer"
+                  },
+                  "prompt": {
+                      "description": "The prompt used to generate the image. The longer the prompt - the better",
+                      "maxLength": 1024,
+                      "minLength": 1,
+                      "title": "The prompt",
+                      "type": "string"
+                  },
+                  "promptBiasingLocaleCode": {
+                      "description": "The locale will be used to generate content that is more relevant for user's country and language",
+                      "title": "The locale used for image generations",
+                      "type": "string"
+                  },
+                  "seeds": {
+                      "description": "If specified alongside with numVariations, the number of seeds must be the equal to numVariations",
+                      "items": {
+                          "type": "integer"
+                      },
+                      "maxItems": 4,
+                      "minItems": 1,
+                      "title": "The seed of each variation",
+                      "type": "array",
+                      "uniqueItems": true
+                  },
+                  "size": {
+                      "allOf": [
+                          {
+                              "$ref": "#/components/schemas/Size"
+                          }
+                      ],
+                      "default": {
+                          "height": 2048,
+                          "width": 2048
+                      },
+                      "description": "The size of the requested generations",
+                      "title": "The size"
+                  },
+                  "structure": {
+                      "$ref": "#/components/schemas/StructureReferenceV3"
+                  },
+                  "style": {
+                      "$ref": "#/components/schemas/StylesV3"
+                  },
+                  "tileable": {
+                      "description": "Control to apply noise-rolling during diffusion (required for text2pattern, text2texture)",
+                      "title": "If the output image should be tileable or not",
+                      "type": "boolean"
+                  },
+                  "visualIntensity": {
+                      "description": "Adjusts the overall intensity of your photo's existing visual characteristic",
+                      "maximum": 10.0,
+                      "minimum": 2.0,
+                      "title": "Visual Intensity",
+                      "type": "integer"
+                  }
+              },
+              "required": [
+                  "prompt"
+              ],
+              "title": "Generating images from prompt",
+              "type": "object"
+          },
+          "GenerateImagesResponseV3": {
+              "properties": {
+                  "contentClass": {
+                      "$ref": "#/components/schemas/ContentClassV3",
+                      "description": "Will be same as input, if input was specified",
+                      "title": "The detected content class"
+                  },
+                  "outputs": {
+                      "description": "Each image will have a storage item.",
+                      "items": {
+                          "$ref": "#/components/schemas/OutputImageV3"
+                      },
+                      "minItems": 1,
+                      "title": "The list of images",
+                      "type": "array"
+                  },
+                  "promptHasBlockedArtists": {
+                      "description": "The user may see that the generation does not comply to its full prompt",
+                      "title": "The prompt had artists that were blocked",
+                      "type": "boolean"
+                  },
+                  "promptHasDeniedWords": {
+                      "description": "The user may see that the generation does not comply to its full prompt",
+                      "title": "The prompt had denied words",
+                      "type": "boolean"
+                  },
+                  "size": {
+                      "$ref": "#/components/schemas/Size",
+                      "description": "If size was passed as input, this value should be the same as the one passed as input.",
+                      "title": "The actual size used for the output"
+                  }
+              },
+              "required": [
+                  "size",
+                  "outputs"
+              ],
+              "title": "Generating images from prompt",
+              "type": "object"
+          },
+          "GenerateObjectCompositeRequestV3": {
+              "properties": {
+                  "contentClass": {
+                      "$ref": "#/components/schemas/ContentClassV3"
+                  },
+                  "image": {
+                      "$ref": "#/components/schemas/InputImageV3",
+                      "description": "Input Image to create object composite",
+                      "title": "Input Image"
+                  },
+                  "mask": {
+                      "$ref": "#/components/schemas/BaseInputMaskV3",
+                      "description": "Mask to the object which will be used to generate object composite of source image.",
+                      "title": "Mask of the object"
+                  },
+                  "numVariations": {
+                      "description": "numVariations will default to the number of seeds, or to 1 if seeds is not specified.",
+                      "maximum": 4.0,
+                      "minimum": 1.0,
+                      "title": "The number of variations",
+                      "type": "integer"
+                  },
+                  "placement": {
+                      "$ref": "#/components/schemas/Placement",
+                      "description": "Determines placement of object in output image",
+                      "title": "Object placement"
+                  },
+                  "prompt": {
+                      "description": "The prompt used to generate the image. The longer the prompt - the better",
+                      "maxLength": 1024,
+                      "minLength": 1,
+                      "title": "The prompt",
+                      "type": "string"
+                  },
+                  "seeds": {
+                      "description": "If specified alongside with numVariations, the number of seeds must be the equal to numVariations",
+                      "items": {
+                          "type": "integer"
+                      },
+                      "maxItems": 4,
+                      "minItems": 1,
+                      "title": "The seed of each variation",
+                      "type": "array",
+                      "uniqueItems": true
+                  },
+                  "size": {
+                      "allOf": [
+                          {
+                              "$ref": "#/components/schemas/Size"
+                          }
+                      ],
+                      "default": {
+                          "height": 2048,
+                          "width": 2048
+                      },
+                      "description": "The size of the requested generations",
+                      "title": "The size"
+                  },
+                  "style": {
+                      "$ref": "#/components/schemas/StylesV3"
+                  }
+              },
+              "required": [
+                  "image",
+                  "prompt"
+              ],
+              "title": "Generate object composite from prompt request",
+              "type": "object"
+          },
+          "GenerateObjectCompositeResponseV3": {
+              "properties": {
+                  "contentClass": {
+                      "$ref": "#/components/schemas/ContentClassV3"
+                  },
+                  "outputs": {
+                      "description": "Each image will have a storage item.",
+                      "items": {
+                          "$ref": "#/components/schemas/OutputImageV3"
+                      },
+                      "minItems": 1,
+                      "title": "The list of images",
+                      "type": "array"
+                  },
+                  "size": {
+                      "$ref": "#/components/schemas/Size",
+                      "description": "If size was passed as input, this value should be the same as the one passed as input.",
+                      "title": "The actual size used for the output"
+                  }
+              },
+              "required": [
+                  "size",
+                  "outputs"
+              ],
+              "title": "Generate object composite from prompt response",
+              "type": "object"
+          },
+          "GenerateSimilarImagesRequestV3": {
+              "properties": {
+                  "image": {
+                      "$ref": "#/components/schemas/BaseInputImageV3",
+                      "description": "Firefly will create similar variations",
+                      "title": "The reference image"
+                  },
+                  "numVariations": {
+                      "description": "numVariations will default to the number of seeds, or to 1 if seeds is not specified.",
+                      "maximum": 4.0,
+                      "minimum": 1.0,
+                      "title": "The number of variations",
+                      "type": "integer"
+                  },
+                  "seeds": {
+                      "description": "If specified alongside with numVariations, the number of seeds must be the equal to numVariations",
+                      "items": {
+                          "type": "integer"
+                      },
+                      "maxItems": 4,
+                      "minItems": 1,
+                      "title": "The seed of each variation",
+                      "type": "array",
+                      "uniqueItems": true
+                  },
+                  "size": {
+                      "allOf": [
+                          {
+                              "$ref": "#/components/schemas/Size"
+                          }
+                      ],
+                      "default": {
+                          "height": 2048,
+                          "width": 2048
+                      },
+                      "description": "The size of the requested generations",
+                      "title": "The size"
+                  },
+                  "tileable": {
+                      "description": "An image is tilable if it can be repeated infinitely in any direction without showing visible seams or edges.",
+                      "title": "Output image tileability",
+                      "type": "boolean"
+                  }
+              },
+              "required": [
+                  "image"
+              ],
+              "title": "Generating similar images from a reference image",
+              "type": "object"
+          },
+          "GenerateSimilarImagesResponseV3": {
+              "properties": {
+                  "outputs": {
+                      "description": "Each image will have a storage item.",
+                      "items": {
+                          "$ref": "#/components/schemas/OutputImageV3"
+                      },
+                      "minItems": 1,
+                      "title": "The list of images",
+                      "type": "array"
+                  },
+                  "size": {
+                      "$ref": "#/components/schemas/Size",
+                      "description": "If size was passed as input, this value should be the same as the one passed as input.",
+                      "title": "The actual size used for the output"
+                  }
+              },
+              "required": [
+                  "size",
+                  "outputs"
+              ],
+              "title": "Generating similar images response",
+              "type": "object"
+          },
+          "HTTPValidationError": {
+              "properties": {
+                  "detail": {
+                      "items": {
+                          "$ref": "#/components/schemas/ValidationError"
+                      },
+                      "title": "Detail",
+                      "type": "array"
+                  }
+              },
+              "title": "HTTPValidationError",
+              "type": "object"
+          },
+          "InputImageV3": {
+              "properties": {
+                  "mask": {
+                      "allOf": [
+                          {
+                              "$ref": "#/components/schemas/PublicBinaryInputV3"
+                          }
+                      ],
+                      "deprecated": true,
+                      "description": "This is a deprecated property please use mask at the base level.",
+                      "title": "Deprecated mask image"
+                  },
+                  "source": {
+                      "$ref": "#/components/schemas/PublicBinaryInputV3",
+                      "description": "Source image which will be used to expand, fill or generate similar images",
+                      "title": "Source image"
+                  }
+              },
+              "required": [
+                  "source"
+              ],
+              "title": "InputImageV3",
+              "type": "object"
+          },
+          "InputMaskV3": {
+              "properties": {
+                  "invert": {
+                      "description": "Invert mask is an optional boolen property, use true if you want to use an inverted mask.",
+                      "title": "Invert mask",
+                      "type": "boolean"
+                  },
+                  "source": {
+                      "$ref": "#/components/schemas/PublicBinaryInputV3"
+                  }
+              },
+              "required": [
+                  "source"
+              ],
+              "title": "InputMaskV3",
+              "type": "object"
+          },
+          "OutputImageV3": {
+              "properties": {
+                  "image": {
+                      "$ref": "#/components/schemas/PublicBinaryOutputV3"
+                  },
+                  "seed": {
+                      "title": "Seed",
+                      "type": "integer"
+                  }
+              },
+              "required": [
+                  "seed",
+                  "image"
+              ],
+              "title": "OutputImageV3",
+              "type": "object"
+          },
+          "Placement": {
+              "properties": {
+                  "alignment": {
+                      "allOf": [
+                          {
+                              "$ref": "#/components/schemas/PlacementAlignment"
+                          }
+                      ],
+                      "description": "Specify horizontal and vertical alignment. Possible values for horizontal=(center|left|right) and for vertical=(center|top|bottom).",
+                      "title": "Alignment"
+                  },
+                  "inset": {
+                      "allOf": [
+                          {
+                              "$ref": "#/components/schemas/PlacementInset"
+                          }
+                      ],
+                      "description": "Margin values in target size",
+                      "title": "Margin values in target size"
+                  }
+              },
+              "title": "Placement",
+              "type": "object"
+          },
+          "PlacementAlignment": {
+              "properties": {
+                  "horizontal": {
+                      "allOf": [
+                          {
+                              "$ref": "#/components/schemas/AlignmentHorizontal"
+                          }
+                      ],
+                      "default": "center"
+                  },
+                  "vertical": {
+                      "allOf": [
+                          {
+                              "$ref": "#/components/schemas/AlignmentVertical"
+                          }
+                      ],
+                      "default": "center"
+                  }
+              },
+              "title": "PlacementAlignment",
+              "type": "object"
+          },
+          "PlacementInset": {
+              "properties": {
+                  "bottom": {
+                      "description": "The space between bottom edge of the result image and bottom edge of the placed object image.",
+                      "title": "Bottom Inset",
+                      "type": "integer"
+                  },
+                  "left": {
+                      "description": "The space between left edge of the result image and left edge of the placed object image.",
+                      "title": "Left Inset",
+                      "type": "integer"
+                  },
+                  "right": {
+                      "description": "The space between right edge of the result image and right edge of the placed object image.",
+                      "title": "Right Inset",
+                      "type": "integer"
+                  },
+                  "top": {
+                      "description": "The space between top edge of the result image and top edge of the placed object image.",
+                      "title": "Top Inset",
+                      "type": "integer"
+                  }
+              },
+              "title": "PlacementInset",
+              "type": "object"
+          },
+          "PublicBinaryInputV3": {
+              "properties": {
+                  "uploadId": {
+                      "description": "This is coming from other outputs",
+                      "format": "uuid4",
+                      "title": "The upload ID",
+                      "type": "string"
+                  },
+                  "url": {
+                      "description": "This URL will expire in one hour",
+                      "format": "uri",
+                      "maxLength": 2083,
+                      "minLength": 1,
+                      "title": "The pre-signed URL",
+                      "type": "string"
+                  }
+              },
+              "title": "PublicBinaryInputV3",
+              "type": "object"
+          },
+          "PublicBinaryOutputV3": {
+              "properties": {
+                  "url": {
+                      "description": "This URL will expire in one hour",
+                      "format": "uri",
+                      "maxLength": 2083,
+                      "minLength": 1,
+                      "title": "The pre-signed URL",
+                      "type": "string"
+                  }
+              },
+              "title": "PublicBinaryOutputV3",
+              "type": "object"
+          },
+          "Size": {
+              "properties": {
+                  "height": {
+                      "maximum": 4096.0,
+                      "minimum": 1.0,
+                      "title": "The height of the output image",
+                      "type": "integer"
+                  },
+                  "width": {
+                      "maximum": 4096.0,
+                      "minimum": 1.0,
+                      "title": "The width of the output image",
+                      "type": "integer"
+                  }
+              },
+              "required": [
+                  "width",
+                  "height"
+              ],
+              "title": "Size",
+              "type": "object"
+          },
+          "StructureImageReferenceV3": {
+              "properties": {
+                  "source": {
+                      "$ref": "#/components/schemas/PublicBinaryInputV3"
+                  }
+              },
+              "title": "StructureImageReferenceV3",
+              "type": "object"
+          },
+          "StructureReferenceV3": {
+              "properties": {
+                  "imageReference": {
+                      "$ref": "#/components/schemas/StructureImageReferenceV3"
+                  },
+                  "strength": {
+                      "description": "Control the amount of adherence to the reference image when generating the image variations. 0 means no adherence. 100 means full adherence.",
+                      "maximum": 100.0,
+                      "minimum": 0.0,
+                      "title": "Adherence Threshold",
+                      "type": "integer"
+                  }
+              },
+              "title": "StructureReferenceV3",
+              "type": "object"
+          },
+          "StylesImageReferenceV3": {
+              "properties": {
+                  "source": {
+                      "$ref": "#/components/schemas/PublicBinaryInputV3"
+                  }
+              },
+              "title": "StylesImageReferenceV3",
+              "type": "object"
+          },
+          "StylesV3": {
+              "properties": {
+                  "imageReference": {
+                      "$ref": "#/components/schemas/StylesImageReferenceV3"
+                  },
+                  "presets": {
+                      "description": "You can specify an ID for a style",
+                      "items": {
+                          "type": "string"
+                      },
+                      "title": "The style presets",
+                      "type": "array",
+                      "uniqueItems": true
+                  },
+                  "strength": {
+                      "description": "The strength of the style to be applied.",
+                      "exclusiveMinimum": 0.0,
+                      "maximum": 100.0,
+                      "title": "The strength of the style",
+                      "type": "integer"
+                  }
+              },
+              "title": "StylesV3",
+              "type": "object"
+          },
+          "ValidationError": {
+              "properties": {
+                  "loc": {
+                      "items": {
+                          "anyOf": [
+                              {
+                                  "type": "string"
+                              },
+                              {
+                                  "type": "integer"
+                              }
+                          ]
+                      },
+                      "title": "Location",
+                      "type": "array"
+                  },
+                  "msg": {
+                      "title": "Message",
+                      "type": "string"
+                  },
+                  "type": {
+                      "title": "Error Type",
+                      "type": "string"
+                  }
+              },
+              "required": [
+                  "loc",
+                  "msg",
+                  "type"
+              ],
+              "title": "ValidationError",
+              "type": "object"
+          },
+          "ValidationErrorMessage": {
+              "properties": {
+                  "ctx": {
+                      "title": "Ctx",
+                      "type": "object"
+                  },
+                  "loc": {
+                      "items": {
+                          "anyOf": [
+                              {
+                                  "type": "integer"
+                              },
+                              {
+                                  "type": "string"
+                              }
+                          ]
+                      },
+                      "title": "Loc",
+                      "type": "array"
+                  },
+                  "msg": {
+                      "title": "Msg",
+                      "type": "string"
+                  },
+                  "type": {
+                      "title": "Type",
+                      "type": "string"
+                  }
+              },
+              "required": [
+                  "loc",
+                  "msg",
+                  "type"
+              ],
+              "title": "ValidationErrorMessage",
+              "type": "object"
+          }
+      },
+      "securitySchemes": {
+          "Authorization": {
+              "bearerFormat": "JWT",
+              "in": "header",
+              "name": "Authorization",
+              "scheme": "bearer",
+              "type": "http"
+          },
+          "X-Api-Key": {
+              "in": "header",
+              "name": "x-api-key",
+              "type": "apiKey"
+          }
+      }
+  },
+  "info": {
+      "contact": {
+          "email": "rosca@adobe.com",
+          "name": "Adobe Firefly",
+          "url": "https://www.adobe.com"
+      },
+      "description": "Inference APIs description",
+      "license": {
+          "name": "Adobe license",
+          "url": "https://www.adobe.com"
+      },
+      "summary": "Inference APIs summary",
+      "termsOfService": "Firefly Terms Of Service",
+      "title": "Firefly APIs",
+      "version": "1.0.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+      "/v3/cancel/{jobId}": {
+          "put": {
+              "operationId": "cancelJobV3",
+              "parameters": [
+                  {
+                      "description": "Unique identifier for the submitted job",
+                      "in": "path",
+                      "name": "jobId",
+                      "required": true,
+                      "schema": {
+                          "description": "Unique identifier for the submitted job",
+                          "title": "title job urn id",
+                          "type": "string"
+                      }
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "content": {
+                          "application/json": {
+                              "schema": {}
+                          }
+                      },
+                      "description": "Successful Response"
+                  },
+                  "404": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "unknown_job_id": {
+                                      "value": {
+                                          "error_code": "unknown_job_id",
+                                          "message": "The job id is unknown."
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/AsyncApiErrorV3"
+                              }
+                          }
+                      },
+                      "description": "Not Found"
+                  },
+                  "409": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "job_already_canceled": {
+                                      "value": {
+                                          "error_code": "job_already_canceled",
+                                          "message": "The job was already canceled."
+                                      }
+                                  },
+                                  "job_cancel_failed": {
+                                      "value": {
+                                          "error_code": "job_cancel_failed",
+                                          "message": "The job failed to cancel."
+                                      }
+                                  },
+                                  "job_completed": {
+                                      "value": {
+                                          "error_code": "job_completed",
+                                          "message": "The job was already completed."
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/AsyncApiErrorV3"
+                              }
+                          }
+                      },
+                      "description": "Conflict"
+                  },
+                  "410": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "job_timeout": {
+                                      "value": {
+                                          "error_code": "job_timeout",
+                                          "message": "The job timed out."
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/AsyncApiErrorV3"
+                              }
+                          }
+                      },
+                      "description": "Gone"
+                  },
+                  "422": {
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/HTTPValidationError"
+                              }
+                          }
+                      },
+                      "description": "Validation Error"
+                  }
+              },
+              "summary": " Cancel Job",
+              "tags": [
+                  "async"
+              ]
+          }
+      },
+      "/v3/images/expand-async": {
+          "post": {
+              "operationId": "expandImagesV3Async",
+              "requestBody": {
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/ExpandImageRequestV3"
+                          }
+                      },
+                      "multipart/form-data": {
+                          "schema": {
+                              "$ref": "#/components/schemas/Body_expandImagesV3Async"
+                          }
+                      }
+                  },
+                  "required": true
+              },
+              "responses": {
+                  "202": {
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/AsyncAcceptResponseV3"
+                              }
+                          }
+                      },
+                      "description": "Successful Response",
+                      "headers": {
+                          "Link": {
+                              "description": "Links to check job status & cancel job",
+                              "schema": {
+                                  "example": "<https://{subdomain}.adobe.io/v3/status/{jobId}>; rel=\"status\", <https://{subdomain}.adobe.io/v3/cancel/{jobId}>; rel=\"cancel\"",
+                                  "type": "string"
+                              }
+                          }
+                      }
+                  },
+                  "400": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "bad_request": {
+                                      "value": {
+                                          "error_code": "bad_request"
+                                      }
+                                  },
+                                  "empty_input_body": {
+                                      "value": {
+                                          "error_code": "empty_input_body"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Bad Request"
+                  },
+                  "403": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "access_error": {
+                                      "value": {
+                                          "error_code": "access_error"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Forbidden",
+                      "headers": {
+                          "x-access-error": {
+                              "description": "Indicates reason for unauthorized access. Possible values are:\n- quota_exhausted\n- user_non_entitled\n- user_profile_denied\n- invalid_ims_scope"
+                          }
+                      }
+                  },
+                  "408": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "timeout_error": {
+                                      "value": {
+                                          "error_code": "timeout_error"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Request Timeout"
+                  },
+                  "415": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "invalid_content_type": {
+                                      "value": {
+                                          "error_code": "invalid_content_type"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Unsupported Media Type"
+                  },
+                  "422": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "validation_error": {
+                                      "value": {
+                                          "error_code": "validation_error",
+                                          "validation_errors": [
+                                              {
+                                                  "ctx": {
+                                                      "enum_values": [
+                                                          "photo",
+                                                          "art"
+                                                      ]
+                                                  },
+                                                  "loc": [
+                                                      "body",
+                                                      "contentClass"
+                                                  ],
+                                                  "msg": "value is not a valid enumeration member; permitted: 'photo', 'art'",
+                                                  "type": "type_error.enum"
+                                              }
+                                          ]
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Unprocessable Entity"
+                  },
+                  "429": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "rate_limited": {
+                                      "value": {
+                                          "error_code": "rate_limited"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Too Many Requests",
+                      "headers": {
+                          "retry-after": {
+                              "description": "Indicates the date after which the client should retry the request."
+                          },
+                          "x-access-rate-limit-level": {
+                              "description": "Indicates the level at which the rate limit was applied. Possible values are:\n- org: The rate limit was applied to the organisation\n- account: The rate limit was applied to the organization's tech account"
+                          }
+                      }
+                  },
+                  "500": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "runtime_error": {
+                                      "value": {
+                                          "error_code": "runtime_error"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Internal Server Error"
+                  }
+              },
+              "summary": "/V3/Images/Expand-Async",
+              "tags": [
+                  "v3"
+              ]
+          }
+      },
+      "/v3/images/fill-async": {
+          "post": {
+              "operationId": "fillImagesV3Async",
+              "requestBody": {
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/FillImageRequestV3"
+                          }
+                      },
+                      "multipart/form-data": {
+                          "schema": {
+                              "$ref": "#/components/schemas/Body_fillImagesV3Async"
+                          }
+                      }
+                  },
+                  "required": true
+              },
+              "responses": {
+                  "202": {
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/AsyncAcceptResponseV3"
+                              }
+                          }
+                      },
+                      "description": "Successful Response",
+                      "headers": {
+                          "Link": {
+                              "description": "Links to check job status & cancel job",
+                              "schema": {
+                                  "example": "<https://{subdomain}.adobe.io/v3/status/{jobId}>; rel=\"status\", <https://{subdomain}.adobe.io/v3/cancel/{jobId}>; rel=\"cancel\"",
+                                  "type": "string"
+                              }
+                          }
+                      }
+                  },
+                  "400": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "bad_request": {
+                                      "value": {
+                                          "error_code": "bad_request"
+                                      }
+                                  },
+                                  "empty_input_body": {
+                                      "value": {
+                                          "error_code": "empty_input_body"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Bad Request"
+                  },
+                  "403": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "access_error": {
+                                      "value": {
+                                          "error_code": "access_error"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Forbidden",
+                      "headers": {
+                          "x-access-error": {
+                              "description": "Indicates reason for unauthorized access. Possible values are:\n- quota_exhausted\n- user_non_entitled\n- user_profile_denied\n- invalid_ims_scope"
+                          }
+                      }
+                  },
+                  "408": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "timeout_error": {
+                                      "value": {
+                                          "error_code": "timeout_error"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Request Timeout"
+                  },
+                  "415": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "invalid_content_type": {
+                                      "value": {
+                                          "error_code": "invalid_content_type"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Unsupported Media Type"
+                  },
+                  "422": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "validation_error": {
+                                      "value": {
+                                          "error_code": "validation_error",
+                                          "validation_errors": [
+                                              {
+                                                  "ctx": {
+                                                      "enum_values": [
+                                                          "photo",
+                                                          "art"
+                                                      ]
+                                                  },
+                                                  "loc": [
+                                                      "body",
+                                                      "contentClass"
+                                                  ],
+                                                  "msg": "value is not a valid enumeration member; permitted: 'photo', 'art'",
+                                                  "type": "type_error.enum"
+                                              }
+                                          ]
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Unprocessable Entity"
+                  },
+                  "429": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "rate_limited": {
+                                      "value": {
+                                          "error_code": "rate_limited"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Too Many Requests",
+                      "headers": {
+                          "retry-after": {
+                              "description": "Indicates the date after which the client should retry the request."
+                          },
+                          "x-access-rate-limit-level": {
+                              "description": "Indicates the level at which the rate limit was applied. Possible values are:\n- org: The rate limit was applied to the organisation\n- account: The rate limit was applied to the organization's tech account"
+                          }
+                      }
+                  },
+                  "500": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "runtime_error": {
+                                      "value": {
+                                          "error_code": "runtime_error"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Internal Server Error"
+                  }
+              },
+              "summary": "/V3/Images/Fill-Async",
+              "tags": [
+                  "v3"
+              ]
+          }
+      },
+      "/v3/images/generate-async": {
+          "post": {
+              "operationId": "generateImagesV3Async",
+              "requestBody": {
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/GenerateImagesRequestV3"
+                          }
+                      },
+                      "multipart/form-data": {
+                          "schema": {
+                              "$ref": "#/components/schemas/Body_generateImagesV3Async"
+                          }
+                      }
+                  },
+                  "required": true
+              },
+              "responses": {
+                  "202": {
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/AsyncAcceptResponseV3"
+                              }
+                          }
+                      },
+                      "description": "Successful Response",
+                      "headers": {
+                          "Link": {
+                              "description": "Links to check job status & cancel job",
+                              "schema": {
+                                  "example": "<https://{subdomain}.adobe.io/v3/status/{jobId}>; rel=\"status\", <https://{subdomain}.adobe.io/v3/cancel/{jobId}>; rel=\"cancel\"",
+                                  "type": "string"
+                              }
+                          }
+                      }
+                  },
+                  "400": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "bad_request": {
+                                      "value": {
+                                          "error_code": "bad_request"
+                                      }
+                                  },
+                                  "empty_input_body": {
+                                      "value": {
+                                          "error_code": "empty_input_body"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Bad Request"
+                  },
+                  "403": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "access_error": {
+                                      "value": {
+                                          "error_code": "access_error"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Forbidden",
+                      "headers": {
+                          "x-access-error": {
+                              "description": "Indicates reason for unauthorized access. Possible values are:\n- quota_exhausted\n- user_non_entitled\n- user_profile_denied\n- invalid_ims_scope"
+                          }
+                      }
+                  },
+                  "408": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "timeout_error": {
+                                      "value": {
+                                          "error_code": "timeout_error"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Request Timeout"
+                  },
+                  "415": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "invalid_content_type": {
+                                      "value": {
+                                          "error_code": "invalid_content_type"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Unsupported Media Type"
+                  },
+                  "422": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "validation_error": {
+                                      "value": {
+                                          "error_code": "validation_error",
+                                          "validation_errors": [
+                                              {
+                                                  "ctx": {
+                                                      "enum_values": [
+                                                          "photo",
+                                                          "art"
+                                                      ]
+                                                  },
+                                                  "loc": [
+                                                      "body",
+                                                      "contentClass"
+                                                  ],
+                                                  "msg": "value is not a valid enumeration member; permitted: 'photo', 'art'",
+                                                  "type": "type_error.enum"
+                                              }
+                                          ]
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Unprocessable Entity"
+                  },
+                  "429": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "rate_limited": {
+                                      "value": {
+                                          "error_code": "rate_limited"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Too Many Requests",
+                      "headers": {
+                          "retry-after": {
+                              "description": "Indicates the date after which the client should retry the request."
+                          },
+                          "x-access-rate-limit-level": {
+                              "description": "Indicates the level at which the rate limit was applied. Possible values are:\n- org: The rate limit was applied to the organisation\n- account: The rate limit was applied to the organization's tech account"
+                          }
+                      }
+                  },
+                  "500": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "runtime_error": {
+                                      "value": {
+                                          "error_code": "runtime_error"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Internal Server Error"
+                  }
+              },
+              "summary": "/V3/Images/Generate-Async",
+              "tags": [
+                  "v3"
+              ]
+          }
+      },
+      "/v3/images/generate-object-composite-async": {
+          "post": {
+              "operationId": "generateObjectCompositeV3Async",
+              "requestBody": {
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/GenerateObjectCompositeRequestV3"
+                          }
+                      },
+                      "multipart/form-data": {
+                          "schema": {
+                              "$ref": "#/components/schemas/Body_generateObjectCompositeV3Async"
+                          }
+                      }
+                  },
+                  "required": true
+              },
+              "responses": {
+                  "202": {
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/AsyncAcceptResponseV3"
+                              }
+                          }
+                      },
+                      "description": "Successful Response",
+                      "headers": {
+                          "Link": {
+                              "description": "Links to check job status & cancel job",
+                              "schema": {
+                                  "example": "<https://{subdomain}.adobe.io/v3/status/{jobId}>; rel=\"status\", <https://{subdomain}.adobe.io/v3/cancel/{jobId}>; rel=\"cancel\"",
+                                  "type": "string"
+                              }
+                          }
+                      }
+                  },
+                  "400": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "bad_request": {
+                                      "value": {
+                                          "error_code": "bad_request"
+                                      }
+                                  },
+                                  "empty_input_body": {
+                                      "value": {
+                                          "error_code": "empty_input_body"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Bad Request"
+                  },
+                  "403": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "access_error": {
+                                      "value": {
+                                          "error_code": "access_error"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Forbidden",
+                      "headers": {
+                          "x-access-error": {
+                              "description": "Indicates reason for unauthorized access. Possible values are:\n- quota_exhausted\n- user_non_entitled\n- user_profile_denied\n- invalid_ims_scope"
+                          }
+                      }
+                  },
+                  "408": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "timeout_error": {
+                                      "value": {
+                                          "error_code": "timeout_error"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Request Timeout"
+                  },
+                  "415": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "invalid_content_type": {
+                                      "value": {
+                                          "error_code": "invalid_content_type"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Unsupported Media Type"
+                  },
+                  "422": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "validation_error": {
+                                      "value": {
+                                          "error_code": "validation_error",
+                                          "validation_errors": [
+                                              {
+                                                  "ctx": {
+                                                      "enum_values": [
+                                                          "photo",
+                                                          "art"
+                                                      ]
+                                                  },
+                                                  "loc": [
+                                                      "body",
+                                                      "contentClass"
+                                                  ],
+                                                  "msg": "value is not a valid enumeration member; permitted: 'photo', 'art'",
+                                                  "type": "type_error.enum"
+                                              }
+                                          ]
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Unprocessable Entity"
+                  },
+                  "429": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "rate_limited": {
+                                      "value": {
+                                          "error_code": "rate_limited"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Too Many Requests",
+                      "headers": {
+                          "retry-after": {
+                              "description": "Indicates the date after which the client should retry the request."
+                          },
+                          "x-access-rate-limit-level": {
+                              "description": "Indicates the level at which the rate limit was applied. Possible values are:\n- org: The rate limit was applied to the organisation\n- account: The rate limit was applied to the organization's tech account"
+                          }
+                      }
+                  },
+                  "500": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "runtime_error": {
+                                      "value": {
+                                          "error_code": "runtime_error"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Internal Server Error"
+                  }
+              },
+              "summary": "/V3/Images/Generate-Object-Composite-Async",
+              "tags": [
+                  "v3"
+              ]
+          }
+      },
+      "/v3/images/generate-similar-async": {
+          "post": {
+              "operationId": "generateSimilarImagesV3Async",
+              "requestBody": {
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/GenerateSimilarImagesRequestV3"
+                          }
+                      },
+                      "multipart/form-data": {
+                          "schema": {
+                              "$ref": "#/components/schemas/Body_generateSimilarImagesV3Async"
+                          }
+                      }
+                  },
+                  "required": true
+              },
+              "responses": {
+                  "202": {
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/AsyncAcceptResponseV3"
+                              }
+                          }
+                      },
+                      "description": "Successful Response",
+                      "headers": {
+                          "Link": {
+                              "description": "Links to check job status & cancel job",
+                              "schema": {
+                                  "example": "<https://{subdomain}.adobe.io/v3/status/{jobId}>; rel=\"status\", <https://{subdomain}.adobe.io/v3/cancel/{jobId}>; rel=\"cancel\"",
+                                  "type": "string"
+                              }
+                          }
+                      }
+                  },
+                  "400": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "bad_request": {
+                                      "value": {
+                                          "error_code": "bad_request"
+                                      }
+                                  },
+                                  "empty_input_body": {
+                                      "value": {
+                                          "error_code": "empty_input_body"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Bad Request"
+                  },
+                  "403": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "access_error": {
+                                      "value": {
+                                          "error_code": "access_error"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Forbidden",
+                      "headers": {
+                          "x-access-error": {
+                              "description": "Indicates reason for unauthorized access. Possible values are:\n- quota_exhausted\n- user_non_entitled\n- user_profile_denied\n- invalid_ims_scope"
+                          }
+                      }
+                  },
+                  "408": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "timeout_error": {
+                                      "value": {
+                                          "error_code": "timeout_error"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Request Timeout"
+                  },
+                  "415": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "invalid_content_type": {
+                                      "value": {
+                                          "error_code": "invalid_content_type"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Unsupported Media Type"
+                  },
+                  "422": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "validation_error": {
+                                      "value": {
+                                          "error_code": "validation_error",
+                                          "validation_errors": [
+                                              {
+                                                  "ctx": {
+                                                      "enum_values": [
+                                                          "photo",
+                                                          "art"
+                                                      ]
+                                                  },
+                                                  "loc": [
+                                                      "body",
+                                                      "contentClass"
+                                                  ],
+                                                  "msg": "value is not a valid enumeration member; permitted: 'photo', 'art'",
+                                                  "type": "type_error.enum"
+                                              }
+                                          ]
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Unprocessable Entity"
+                  },
+                  "429": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "rate_limited": {
+                                      "value": {
+                                          "error_code": "rate_limited"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Too Many Requests",
+                      "headers": {
+                          "retry-after": {
+                              "description": "Indicates the date after which the client should retry the request."
+                          },
+                          "x-access-rate-limit-level": {
+                              "description": "Indicates the level at which the rate limit was applied. Possible values are:\n- org: The rate limit was applied to the organisation\n- account: The rate limit was applied to the organization's tech account"
+                          }
+                      }
+                  },
+                  "500": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "runtime_error": {
+                                      "value": {
+                                          "error_code": "runtime_error"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApiError"
+                              }
+                          }
+                      },
+                      "description": "Internal Server Error"
+                  }
+              },
+              "summary": "/V3/Images/Generate-Similar-Async",
+              "tags": [
+                  "v3"
+              ]
+          }
+      },
+      "/v3/status/{jobId}": {
+          "get": {
+              "operationId": "jobResultV3",
+              "parameters": [
+                  {
+                      "description": "Unique identifier for the submitted job",
+                      "in": "path",
+                      "name": "jobId",
+                      "required": true,
+                      "schema": {
+                          "description": "Unique identifier for the submitted job",
+                          "title": "title job urn id",
+                          "type": "string"
+                      }
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "content": {
+                          "application/json": {
+                              "examples": {
+                                  "cancel_pending": {
+                                      "value": {
+                                          "error_code": "some_error_code",
+                                          "jobId": "ede28272-5726-4179-84f0-020250966e32",
+                                          "message": "some_message",
+                                          "status": "cancel_pending"
+                                      }
+                                  },
+                                  "cancelled": {
+                                      "value": {
+                                          "error_code": "some_error_code",
+                                          "jobId": "ede28272-5726-4179-84f0-020250966e32",
+                                          "message": "some_message",
+                                          "status": "cancelled"
+                                      }
+                                  },
+                                  "failed": {
+                                      "value": {
+                                          "error_code": "some_error_code",
+                                          "jobId": "ede28272-5726-4179-84f0-020250966e32",
+                                          "message": "some_message",
+                                          "status": "failed"
+                                      }
+                                  },
+                                  "running": {
+                                      "value": {
+                                          "jobId": "ede28272-5726-4179-84f0-020250966e32",
+                                          "status": "running"
+                                      }
+                                  },
+                                  "succeeded": {
+                                      "value": {
+                                          "jobId": "ede28272-5726-4179-84f0-020250966e32",
+                                          "result": {
+                                              "outputs": [
+                                                  {
+                                                      "image": {
+                                                          "url": "https://example.com"
+                                                      },
+                                                      "seed": 1
+                                                  }
+                                              ],
+                                              "size": {
+                                                  "height": 1024,
+                                                  "width": 1024
+                                              }
+                                          },
+                                          "status": "succeeded"
+                                      }
+                                  },
+                                  "timeout": {
+                                      "value": {
+                                          "error_code": "some_error_code",
+                                          "jobId": "ede28272-5726-4179-84f0-020250966e32",
+                                          "message": "some_message",
+                                          "status": "timeout"
+                                      }
+                                  }
+                              },
+                              "schema": {
+                                  "anyOf": [
+                                      {
+                                          "$ref": "#/components/schemas/AsyncTaskResponseV3"
+                                      },
+                                      {
+                                          "$ref": "#/components/schemas/AsyncApiErrorV3"
+                                      }
+                                  ],
+                                  "title": "Response Jobresultv3"
+                              }
+                          }
+                      },
+                      "description": "Successful Response",
+                      "headers": {
+                          "Link": {
+                              "description": "Links to check job status & cancel job",
+                              "schema": {
+                                  "example": "<https://{subdomain}.adobe.io/v3/status/{jobId}>; rel=\"status\", <https://{subdomain}.adobe.io/v3/cancel/{jobId}>; rel=\"cancel\"",
+                                  "type": "string"
+                              }
+                          }
+                      }
+                  },
+                  "404": {
+                      "content": {
+                          "application/json": {
+                              "example": {
+                                  "error_code": "unknown_job_id",
+                                  "message": "The job id is unknown."
+                              },
+                              "schema": {
+                                  "$ref": "#/components/schemas/AsyncApiErrorV3"
+                              }
+                          }
+                      },
+                      "description": "Not Found"
+                  },
+                  "422": {
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/HTTPValidationError"
+                              }
+                          }
+                      },
+                      "description": "Validation Error"
+                  }
+              },
+              "summary": " Get Result",
+              "tags": [
+                  "async"
+              ]
+          }
+      }
+  },
+  "security": [
+      {
+          "Authorization": [],
+          "X-Api-Key": []
+      }
+  ],
+  "servers": [
+      {
+          "description": "Local development endpoint",
+          "url": "http://localhost:8000"
+      },
+      {
+          "description": "Documentation local endpoint",
+          "url": "http://localhost:8100"
+      },
+      {
+          "description": "Production endpoint",
+          "url": "https://firefly-api.adobe.io"
+      },
+      {
+          "description": "Stage endpoint",
+          "url": "https://firefly-api-enterprise-stage.adobe.io"
+      }
+  ],
+  "tags": [
+      {
+          "description": "APIs exposed in the V3 family of Firefly APIs",
+          "name": "v3"
+      }
+  ]
+}
