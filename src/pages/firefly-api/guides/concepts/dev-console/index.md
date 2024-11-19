@@ -61,7 +61,7 @@ To generate an access token programatically, refer to the [Authentication guide!
 - **Scope Limitation:** Request only the scopes necessary for your application's functionality to adhere to the principle of least privilege.
 - **Secure Storage:** Store your Client ID, Client Secret, and access tokens securely to prevent unauthorized access.
 
-## Client secrets
+## Managing Client secrets
 
 ### Rotating secrets
 
@@ -69,7 +69,7 @@ You can rotate your client secret as needed, according to your company’s secur
 
 Rotating your secret is highly recommended in case of a leak or unauthorized access. Furthermore, rotating client secrets periodically is an industry-standard practice that strengthens your application security posture. Similar to access tokens, you can rotate your client secret in the Developer Console UI or using an API.
 
-Org admins: Navigate to your project in Adobe Developer Console. Click the **Add to Project** button and select **API** > add **I/O Management API** to your project. This API will allow your credential to read, delete, and generate new client secrets. You will need to configure the credential name before saving it.
+**Org admins**: Navigate to your project in Adobe Developer Console. Click the **Add to Project** button and select **API** > add **I/O Management API** to your project. This API will allow your credential to read, delete, and generate new client secrets. You will need to configure the credential name before saving it.
 
 In order to successfully rotate secrets without contacting the org admin, developers will need the following:
 
@@ -80,7 +80,9 @@ In order to successfully rotate secrets without contacting the org admin, develo
 
 Navigate to the OAuth server-to-server credential overview page. Copy the `orgId`, `projectId`, and `credentialId` from the URL by comparing it to the templated URL below:
 
-__<https://developer.adobe.com/console/projects/{orgId}/{projectId}/credentials/{credentialId}/details/oauthservertoserver>__
+```bash
+https://developer.adobe.com/console/projects/{orgId}/{projectId}/credentials/{credentialId}/details/oauthservertoserver
+```
 
 Next, you need an access token. To generate an access token, use the following command. Make sure to include scopes that the I/O Management API requires in the `scope` parameter:
 
