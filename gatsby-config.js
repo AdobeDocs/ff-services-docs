@@ -88,6 +88,14 @@ module.exports = {
             path: "/firefly-api/guides/concepts/authentication/",
           },
           {
+            title: "Adobe Developer Console",
+            path: "/firefly-api/guides/concepts/dev-console/",
+          },
+          {
+            title: "Image Upload",
+            path: "/firefly-api/guides/concepts/image-upload/",
+          },
+          {
             title: "Style Presets",
             path: "/firefly-api/guides/concepts/style-presets/",
           },
