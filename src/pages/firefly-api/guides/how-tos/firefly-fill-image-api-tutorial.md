@@ -108,7 +108,7 @@ async function uploadImage({ filePath, fileType, accessToken }) {
 Let's next describe the new background you want for our photos. For a professional look, let's use a smooth gradient background with corporate blue tones.
 
 ```js
-const backgroundPrompt = 'a smooth gradient background with corporate blue tones';
+const backgroundPrompt = 'A professional background for corporate headshots, blending a smooth gradient in neutral tones (e.g., gray, beige, or light blue) with subtle abstract artistic elements. Include elegant geometric shapes, soft brushstroke patterns, or layered textures that provide a modern and sophisticated appearance without overpowering the subject. The abstract elements should create depth and interest while maintaining a clean, polished, and corporate-appropriate aesthetic.';
 ```
 
 ## Replace backgrounds
@@ -203,8 +203,7 @@ const qs = require("qs");
 const fs = require("fs");
 
 // Define the background replacement prompt
-const backgroundPrompt =
-  "a smooth gradient background with corporate blue tones";
+const backgroundPrompt = 'A professional background for corporate headshots, blending a smooth gradient in neutral tones (e.g., gray, beige, or light blue) with subtle abstract artistic elements. Include elegant geometric shapes, soft brushstroke patterns, or layered textures that provide a modern and sophisticated appearance without overpowering the subject. The abstract elements should create depth and interest while maintaining a clean, polished, and corporate-appropriate aesthetic.';
 
 // Assuming you have a list of employee image file paths and corresponding mask file paths
 const employees = [
