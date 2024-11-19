@@ -21,7 +21,7 @@
         "post": {
             "summary": "Generate Similar Images - Model 3",
             "operationId": "generateSimilarImages",
-            "description": "Generate similar Images based on the reference image.",
+            "description": "Generate similar images based on a reference image that you provide as a parameter.",
             "requestBody": {
               "content": {
                 "application/json": {

@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "version": "V1",
+    "version": "V3",
     "title": "Firefly API",
     "description": "REST API for Adobe Firefly for enterprise usage"
   },
@@ -17,24 +17,33 @@
     }
 ],
   "paths": {
-    "/v1/images/expand": {
+    "/v2/storage/image": {
       "post": {
-        "summary": "Expand Image",
-        "description": "Change the aspect ratio or size of an image and expand it. You can optionally provide a text prompt and Firefly generates additional filler image based on the prompt. For example, you can add a prompt to as Firefly to generate pine trees and a forest landscape which fills empty parts of the newly expanded image.",
-        "operationId": "expandImagesV1",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/x-accept-mimetype"
-          }
-        ],
+        "summary": "Upload  - Model 3 Async",
+        "description": "Upload source image or mask for operations, such as fill, expand. Immediately returns a JSON response containing a URL where you can poll the status of the request and a URL where you can cancel the job. Ultimately returns an identifier that is used to refer to uploaded content.",
+        "operationId": "storageImage",
         "requestBody": {
           "content": {
-            "application/json": {
+            "image/jpeg": {
               "schema": {
-                "$ref": "#/components/schemas/ImageExpandRequest"
+                "type": "string",
+                "format": "binary"
+              }
+            },
+            "image/png": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            },
+            "image/webp": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
               }
             }
           },
+          "description": "The PNG/JPEG/WEBP image to be stored (binary data). The maximum file size supported for uploading an image is 15MB.",
           "required": true
         },
         "responses": {
@@ -43,7 +52,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ImageGenerativeResponse"
+                  "$ref": "#/components/schemas/StorageImageResponse"
                 }
               }
             }
@@ -90,48 +99,6 @@
               }
             }
           },
-          "408": {
-            "description": "Timeout",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorBody"
-                },
-                "example": {
-                  "message": "Timeout",
-                  "error_code": "10011"
-                }
-              }
-            }
-          },
-          "415": {
-            "description": "Unsupported Media Type",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorBody"
-                },
-                "example": {
-                  "message": "Unsupported Media Type",
-                  "error_code": "10011"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Unprocessable Entity",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorBody"
-                },
-                "example": {
-                  "message": "Client provided the right inputs but the server is unable to process the outputs due to some limitation. Commonly this suggests the input image resolution is not supported, or the requested size is not compatible with the reference image.",
-                  "error_code": "10011"
-                }
-              }
-            }
-          },
           "429": {
             "description": "Too Many Requests",
             "content": {
@@ -156,6 +123,20 @@
                 "example": {
                   "message": "Unavailable For Legal Reasons",
                   "error_code": "10008"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorBody"
+                },
+                "example": {
+                  "message": "Internal Server Error",
+                  "error_code": "10002"
                 }
               }
             }
@@ -446,7 +427,7 @@
         "properties": {
           "images": {
             "type": "array",
-            "description": "Array of objects containing asset ID",
+            "description": "Array of objects containing asset ID.",
             "items": {
               "allOf": [
                 {
@@ -464,7 +445,7 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "ID associated with the asset (generate this ID using the upload API). Pre-signed URLs will be supported in the future.",
+            "description": "ID associated with the asset. The id will be valid for 7 days from the date of creation. Pre-signed URLs will be supported in the future.",
             "examples": ["REPLACE WITH STRING ID GENERATED FROM UPLOAD IMAGE API"]
           }
         }
@@ -671,3 +652,4 @@
     }
   }
 }
+
