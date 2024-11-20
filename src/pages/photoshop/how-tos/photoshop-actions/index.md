@@ -85,7 +85,7 @@ curl -X POST \
 }'
 ```
 
-For another example, see [Execute Individual Photoshop Action](../code-sample/index.md#photoshop-actions-play-a-specific-action)
+For another example, see [Execute Individual Photoshop Action](../../code-sample/index.md#photoshop-actions-play-a-specific-action)
 
 ## ActionJSON Endpoint
 
@@ -170,7 +170,7 @@ curl -X POST \
 }'
 ```
 
-The actionJSON endpoint does support multiple inputs. If you would like to learn more about using multiple inputs with actionJSON, you can find this: [Multiple Inputs ActionJSON Example](../code-sample/index.md#executing-an-actionjson-with-multiple-inputs).
+The actionJSON endpoint does support multiple inputs. If you would like to learn more about using multiple inputs with actionJSON, you can find this: [Multiple Inputs ActionJSON Example](../../code-sample/index.md#executing-an-actionjson-with-multiple-inputs).
 
 Take a look at this tutorial of this endpoint to learn more. Alternately you can read on in this section to walk through the process.
 
@@ -229,7 +229,7 @@ You can alternately create a new file in your Photoshop app's Action Panel:
 
 * Go to `Windows | Actions`. The action panel opens.
 * Select `New Action` to create a new action. You can alternately click `+` in the panel.
-  ![alt image](../features/actions_panel_menu.png?raw=true "Original Image")
+  ![alt image](../../features/actions_panel_menu.png?raw=true "Original Image")
 * Select your action from action set
 * Select `Copy as Javascript`
 * Paste it in any text editor.
@@ -299,4 +299,4 @@ Remove everything else from the javascript file and copy the array containing `_
 ]
 ```
 
-More details about actionJSON can be found [here](https://developer.adobe.com/photoshop/uxp/2022/ps_reference/media/batchplay/)
+You can find details about actionJSON at [Photoshop API, `batchPlay`](https://developer.adobe.com/photoshop/uxp/2022/ps_reference/media/batchplay/).
