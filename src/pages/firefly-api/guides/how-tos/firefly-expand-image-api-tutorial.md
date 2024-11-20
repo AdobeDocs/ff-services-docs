@@ -18,34 +18,31 @@ hideBreadcrumbNav: true
 
 # Firefly Expand Image API Tutorial
 
-Generate multiple variations of an image by generatively expanding it out into larger sizes with the [Expand Image API](../api/generative_expand/V3/).
-
+Create multiple variations of an image by generating larger sizes of the image with the [Expand Image API](../api/generative_expand/V3/).
 
 ![shoes advertisement hero image](../images/expand-image-tutorial-hero-image.png)
 
 ## Overview
 
-For this tutorial, let's imagine we are working on a marketing campaign at a Fortune 100 company, and we need to create differently-sized images variations optimized for various social media platforms. In the past, we've had to manually resize images for each platform, which was time-consuming and error-prone. With Firefly's Expand Image API, we will automate this process and generate multiple variations of an images optimized for platforms like Instagram, Facebook, Twitter, and more.
+For this tutorial, imagine we are working on a marketing campaign at a Fortune 100 company, and we need to create different sized images variations optimized for various social media platforms. In the past, we had to manually resize images for each platform, which was time-consuming and error-prone. With Firefly's Expand Image API, we automate this process and generate multiple variations of an images with dimensions optimized for platforms like Instagram, Facebook, Twitter, and more.
 
-Before diving into the code, let's understand the high-level steps involved:
+Before diving into the code, let's preview the high-level steps:
 
-1. **Define Target Dimensions:** Each social media platform has specific image size requirements. We will define these dimensions for the platforms you target.
+1. **Define Target Dimensions:** Each social media platform has specific image size requirements. We define these dimensions for the platforms you target.
 2. **Upload Source Image:** Use Firefly's [Upload API](../api/upload_image/) to upload your original image.
 3. **Generate Variations:** Use Firefly's [Expand Image API](../api/generative_expand/V3/) to create resized variations of the image for each dimension.
 
-Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [go straight to the full source code](#full-source-code) at the bottom of this webpage.
+Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [go straight to the full source code](#full-source-code).
 
 ## Prerequisites
 
-Since Firefly API is currently available on a limited basis, this tutorial assumes you have worked with your Adobe Representative and have the following: 
+Since Firefly API is currently available on a limited basis, this tutorial assumes you worked with your Adobe Representative and have the following: 
 
 * An [Adobe Developer Console](https://developer.adobe.com/console/786177/home) account.
-* A [project](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/) with Firefly API [OAuth Server-to-Server credentials set up](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/).
+* A [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/) with Firefly API [OAuth Server-to-Server credentials set up](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/).
 * Access to your Client ID and Client Secret from the [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview). Securely store these credentials and never expose them in client-side or public code.
 
-### Set up environment
-
-Before we begin this [Node.js](https://nodejs.org/en/download/package-manager) tutorial, run the following in a secure terminal:
+Before we begin this tutorial, if you don't already have it, set up [Node.js](https://nodejs.org/en/download/package-manager). Run the following in a secure terminal:
 
 ```bash
 export FIREFLY_CLIENT_ID=yourClientIdAsdf123
@@ -58,17 +55,15 @@ npm install axios qs
 touch index.js
 ```
 
-### Download sample image
+## Download Sample Image
 
-Save the sample image below to your project folder.
-
-##### expand-image-tutorial-source-image.webp
+Save this sample image to your project folder:
 
 ![expand-image-tutorial-source-image.webp](../images/expand-image-tutorial-source-image.png)
 
-## Define social media platforms
+## Define Dimensions
 
-First, let's define the image dimensions for each social media platform we will expand our image for:
+First, let's define the image dimensions for each social media platform:
 
 ```js
 const SOCIAL_MEDIA_PLATFORMS = [
@@ -90,9 +85,9 @@ const SOCIAL_MEDIA_PLATFORMS = [
 ];
 ```
 
-## Upload source image
+## Upload Source Image
 
- Next, let's upload our source image using Firefly's [Upload API](../api/upload_image/). This image will serve as the starting point for all variations.
+ Next, let's upload our source image using Firefly's [Upload API](../api/upload_image/). This image serves as the starting point for all variations.
 
 ```js
 const axios = require("axios");
@@ -122,7 +117,7 @@ async function uploadImage({ filePath, fileType, accessToken }) {
 }
 ```
 
-**Example Response:**
+On success, the response looks similar to this:
 
 ```json
 {
@@ -135,9 +130,9 @@ async function uploadImage({ filePath, fileType, accessToken }) {
 }
 ```
 
-## Generate image variations
+## Generate Image Variations
 
-Next, let's create a function that generates images for each social media platform with Firefly's [Expand Image API](../api/generative_expand/V3/):
+Next, let's create a function that generates images for each social media platform with Firefly's [Expand Image API](../api/generative_expand/V3/). We use the `axios` library to make HTTPs requests:
 
 ```js
 const axios = require('axios');
@@ -166,7 +161,7 @@ async function genExpand({ imageId, width, height, accessToken }) {
 }
 ```
 
-Finally, let's expand the image to fit each social media platform's optimized dimensions and log the URL of the generated image:
+We can expand the image to fit each social media platform's optimized dimensions and log the URL of the generated image:
 
 ```js
 async function createSocialMediaRenditions(accessToken) {
@@ -187,10 +182,11 @@ async function createSocialMediaRenditions(accessToken) {
   }
 }
 ```
+Once we know Firefly generated our images, we log the results, including the URL for each generated images.
 
-## Full source code
+## Full Example
 
-Review this tutorial's [Prequisites](#prerequisites) section to understand how to set up your environment prior to running this code. (Because this code is for educational purposes only, it is not production-ready and requires additional error handling, logging, security measures, and more before it can be used in a live application.)
+You can review the [Prequisites](#prerequisites) section to understand how to set up your environment prior to running this code. Note that this is an example only ad is not production-ready and requires additional error handling, logging, security measures, and more before you can run it at scale in a live application.
 
 ```js
 const axios = require("axios");
@@ -327,8 +323,8 @@ async function createSocialMediaRenditions(accessToken) {
 }
 ```
 
-We wrote this tutorial using the CommmonJS convention in order to make it easy to get up and running with the code. If you'd prefer to use ES6 modules, you can easily convert the code by changing the `require` statements to `import` statements and then changing the file name from `index.js` to `index.mjs`.
+This tutorial uses the CommmonJS convention in order to make it easy to get up and running with the code. If you'd prefer the ES6 modules, you can easily convert the code by changing the `require` statements to `import` statements and then changing the file name from `index.js` to `index.mjs`.
 
-## Deepen your understanding
+## Learn More
 
-Now that you have a working implementation of the Expand Image API, visit its [reference documentation](../api/generative_expand/V3) to explore more advanced use cases for automating your workflows.
+Now that you completed this tutorial, visit its [API Reference](../api/generative_expand/V3) to explore more advanced use cases to automate image generation with Firefly.
