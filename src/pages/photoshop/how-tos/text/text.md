@@ -20,9 +20,9 @@ The Edit Text endpoint supports editing one or more text layers within a PSD.
 
 It enables users to:
 
-* Format text properties such as antialias, orientation and be able to edit text contents. (Note: Changing only the text properties will not change any character/paragraph styling).
+* Format text properties such as anti-alias, orientation and be able to edit text contents. Changing only the text properties will not change any character paragraph styling.
 * Some of the key character properties that can be formatted include (but not limited to):
-  * Text treatments such as strikethrough, underline, capitalization.
+  * Text treatments such as strike-through, underline, capitalization.
   * Character size and color.
   * Line and character spacing through leading, tracking, autoKern settings.
 * All the paragraph properties are supported.
@@ -31,8 +31,55 @@ It enables users to:
 ### Usage Recommendations
 
 * Ensure that the input file is a PSD and that it contains one or more text layers.
-* Please refer to [Font Handling](#font-handling) and [Handle Missing Fonts](#handle-missing-fonts-in-the-document) for a better understanding.
-* You can find a code sample [here.](../../code-sample/index.md#making-a-text-layer-edit)
+* Refer to [Font Handling](#font-handling) and [Handle Missing Fonts](#handle-missing-fonts-in-the-document) more information.
+
+You can find a code sample for making a text layer edit here:
+
+```shell
+curl -X POST \
+  https://image.adobe.io/pie/psdService/text \
+  -H "Authorization: Bearer $token"  \
+  -H "x-api-key: $apiKey" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "inputs":[
+    {
+      "href":"<SIGNED_GET_URL>",
+      "storage":"<storage>"
+    }
+  ],
+  "options":{
+    "layers":[
+      {
+        "name": "My Text Layer",
+        "text": {
+            "content": "CHANGED TO NEW TEXT",
+            "orientation": "horizontal",
+            "characterStyles": [{
+                "size": 15,
+                "orientation": "horizontal",
+                "color": {
+                    "red":255,
+                    "green":0,
+                    "blue":0
+                }
+            }],
+            "paragraphStyles": [{
+              "alignment": "right"
+            }]
+        }
+      }
+    ]
+  },
+  "outputs":[
+    {
+      "href":"<SIGNED_POST_URL>",
+      "storage":"<storage>",
+      "type":"vnd.adobe.photoshop"
+    }
+  ]
+}'
+```
 
 ### Known Limitations
 
@@ -48,13 +95,93 @@ The Photoshop API currently supports creating and editing of Text Layer with dif
 * Edit the text contents
 * Change the font. See the `Fonts` section for more information.
 * Edit the font size
-* Change the font color in the following formats: rgb, cmyk, gray, lab
+* Change the font color in the following formats: RGB, CMYK, grayscale, or lab
 * Edit the text orientation (horizontal/vertical)
-* Edit the paragraph alignment (left, center, right, justify, justifyLeft, justifyCenter, justifyRight)
+* Edit the paragraph alignment, such as left, center, right, justify, justify left, justify center, and justify right
 
-We also have an example of making a simple text layer edit.
+This example shows how you can apply edits to two text layers:
 
-[Text layer Example Code](../../code-sample/index.md#edit-text-layers)
+```shell
+curl -X POST \
+  https://image.adobe.io/pie/psdService/text \
+  -H "Authorization: Bearer $token"  \
+  -H "x-api-key: $apiKey" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "inputs": [
+    {
+      "href": "<SIGNED_GET_URL>",
+      "storage": "<storage>"
+    }
+  ],
+  "options": {
+    "fonts": [
+      {
+        "storage": "<storage>",
+        "href": "<SIGNED_GET_URL>"
+      }
+    ],
+    "layers": [
+      {
+        "name": "<name_of_text_layer_1_to_edit>",
+        "text": {
+            "orientation": "horizontal",
+            "contents": "New text Contents 1",
+            "antiAlias": "antiAliasSharp",
+            "characterStyles": [{
+              "autoKern": "metricsKern",
+              "fontPostScriptName": "<font_postscript_name>",
+              "fontCaps": "allCaps",
+              "size": 25,
+              "leading": 20,
+              "tracking": 20,
+              "syntheticBold": true,
+              "ligature": true,
+              "syntheticItalic": true,
+              "color": {
+                "blue": 100,
+                "green": 200,
+                "red": 163
+              }
+            }],
+            "paragraphStyles": [{
+              "align": "right"
+            }]
+        }
+      },
+      {
+        "name": "<name_of_text_layer_2_to_edit>",
+        "text": {
+          "contents": "New text Contents 2",
+          "characterStyles": [{
+              "size": 45,
+              "stylisticAlternates": true,
+              "leading": 100,
+              "tracking": 100,
+              "baseline": "subScript",
+              "strikethrough": true,
+              "underline": true,
+              "verticalScale": 150,
+              "horizontalScale": 200,
+              "color": {
+                "blue": 300,
+                "green": 100,
+                "red": 63
+              }
+            }]
+        }
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "href": "<SIGNED_POST_URL>",
+      "type": "vnd.adobe.photoshop",
+      "storage": "<storage>"
+    }
+  ]
+}'
+```
 
 ### Font handling
 
@@ -79,9 +206,61 @@ The Photoshop API supports using the following category of fonts:
   }
   ```
 
-  **Note:** This also applies to any other font present in the document which is not to be found in the first 2 categories above.
+This applies to any other font present in the document which is not to be found in the first 2 categories above.
 
-Here is an example usage of a custom font: [Custom font](../../code-sample/index.md#custom-font-in-a-text-layer)
+This example changes the font in a text layer named `My Text Layer` to a custom font `VeganStylePersonalUse`. The value for the `fontName` field in the `text.characterStyles` section is the full postscript name of the custom font:
+
+```shell
+curl -X POST \
+  https://image.adobe.io/pie/psdService/text \
+  -H "Authorization: Bearer $token"  \
+  -H "x-api-key: $apiKey" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "inputs":[
+    {
+      "href":"<SIGNED_GET_URL>",
+      "storage":"<storage>"
+    }
+  ],
+  "options":{
+    "fonts": [
+      {
+        "storage": "<storage>",
+        "href": "<SIGNED_GET_URL_TO_VeganStylePersonalUse.ttf>"
+      }
+    ],
+    "layers":[
+      {
+        "name": "My Text Layer",
+        "text": {
+            "content": "CHANGED TO NEW TEXT",
+            "orientation": "horizontal",
+            "characterStyles": [{
+                "size": 15,
+                "orientation": "horizontal",
+                "color": {
+                    "red":255,
+                    "green":0,
+                    "blue":0
+                }
+            }],
+            "paragraphStyles": [{
+              "alignment": "right"
+            }]
+        }
+      }
+    ]
+  },
+  "outputs":[
+    {
+      "href":"<SIGNED_POST_URL>",
+      "storage":"<storage>",
+      "type":"vnd.adobe.photoshop"
+    }
+  ]
+}'
+```
 
 #### Handle missing fonts in the document.
 
