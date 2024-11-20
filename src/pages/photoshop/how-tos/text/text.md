@@ -173,4 +173,3 @@ This is a list of all of the supported Postscript fonts for Photoshop API.
 | SourceSansVariable-Roman          |
 | SourceSerifVariable-Roman         |
 | TrajanColor-Concept               |
-
