@@ -1292,7 +1292,6 @@ Sample output from [here](https://github.com/AdobeDocs/cis-photoshop-api-docs/bl
 3. Make the second API call to Photoshop action service to use above intermediate result as well as the make-file.atn file to generate final JPEG format result with desired PS path embedded
 4. Open the final result with Photoshop Desktop app to check generated path in path panel
 
-
 #### Sample Code
 
 You can download the sample end-to-end bash script [here](https://github.com/AdobeDocs/cis-photoshop-api-docs/tree/main/sample-code/ic-customized-workflow-app) and then follow the comments to try it out this customized workflow.
