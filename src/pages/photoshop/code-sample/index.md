@@ -1017,6 +1017,7 @@ curl -X POST \
   ]
 }'
 ```
+
 ### Edit Text Layers
 
 The `/text` endpoint can take an input PSD file with one or more text layers and can apply edits to it.
