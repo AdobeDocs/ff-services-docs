@@ -18,6 +18,46 @@ With Smart Objects, you can create define objects in an image and adjust these o
 
 The Smart Object endpoint allows you to create and edit an embedded Smart Objects in a Photoshop file, or PSD file. The Smart Object that's replaced will be positioned within the bounding box of the original image. Whether the new image is larger or smaller than the original, it will adjust to fit within the original bounding box while preserving its aspect ratio. To alter the bounds of the replaced image, you can specify bounds parameters in the API call.
 
+### Creating a smartObject
+
+This example shows how you can create an embedded smart object using the `/smartObject` endpoint.
+
+``` shell
+curl -X POST \
+  https://image.adobe.io/pie/psdService/smartObject \
+  -H "Authorization: Bearer $token"  \
+  -H "x-api-key: $apiKey" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "inputs": [
+  {
+    "href": "<SIGNED_GET_URL>",
+    "storage": "<storage>"
+  }],
+  "options": {
+    "layers": [{
+      "name": "New",
+      "add": {
+        "insertTop": true
+      },
+      "input": {
+        "href": "<SIGNED_GET_URL>",
+        "storage": "<storage>"
+       }
+      }
+    ]
+  },
+  "outputs": [
+  {
+    "storage": "<storage>",
+    "href": "<SIGNED_POST_URL>",
+    "type": "vnd.adobe.photoshop"
+  }
+]}'
+```
+
+A call to this API initiates an asynchronous job and returns a response containing an href. Use the value in the href to poll for the status of the job. This is illustrated in [Example, Fetch API Status](../../code-sample/index.md#fetch-the-status-of-an-api) and [Example, Poll Job Status](../../code-sample/index.md#poll-for-job-status-for-all-other-apis).
+
 ### Known Limitations
 
 * If your document contains transparent pixels, (e.g some .png), you may not get consistent bounds.

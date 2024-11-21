@@ -197,46 +197,6 @@ curl -X POST \
 ]}'
 ```
 
-### Creating a smartObject
-
-This example shows how you can create an embedded smart object using the `/smartObject` endpoint.
-
-``` shell
-curl -X POST \
-  https://image.adobe.io/pie/psdService/smartObject \
-  -H "Authorization: Bearer $token"  \
-  -H "x-api-key: $apiKey" \
-  -H "Content-Type: application/json" \
-  -d '{
-  "inputs": [
-  {
-    "href": "<SIGNED_GET_URL>",
-    "storage": "<storage>"
-  }],
-  "options": {
-    "layers": [{
-      "name": "New",
-      "add": {
-        "insertTop": true
-      },
-      "input": {
-        "href": "<SIGNED_GET_URL>",
-        "storage": "<storage>"
-       }
-      }
-    ]
-  },
-  "outputs": [
-  {
-    "storage": "<storage>",
-    "href": "<SIGNED_POST_URL>",
-    "type": "vnd.adobe.photoshop"
-  }
-]}'
-```
-
-A call to this API initiates an asynchronous job and returns a response containing an href. Use the value in the href to poll for the status of the job. This is illustrated in [Example 12](../code-sample/index.md#fetch-the-status-of-an-api) and [Example 14](../code-sample/index.md#poll-for-job-status-for-all-other-apis)
-
 ### Making a text layer edit
 
 This example shows how you can edit a text layer using the `/text` endpoint. <a href="https://github.com/AdobeDocs/cis-photoshop-api-docs/tree/main/sample-code/azure-blob-text-edit">Sample Code</a>
