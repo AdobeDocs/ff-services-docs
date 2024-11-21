@@ -96,6 +96,10 @@ module.exports = {
             path: "/firefly-api/guides/concepts/image-upload/",
           },
           {
+            title: "Masking",
+            path: "/firefly-api/guides/concepts/masking/",
+          },
+          {
             title: "Style Presets",
             path: "/firefly-api/guides/concepts/style-presets/",
           },
