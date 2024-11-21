@@ -18,82 +18,6 @@ export token="<YOUR_TOKEN>"
 export apiKey="<YOUR_API_KEY>"
 ```
 
-### Executing an actionJSON
-
-The `/actionJSON` endpoint can take an input file and apply any Photoshop Action file on it and edit the steps within the original action file. This gives you a lot of flexibility to create dynamic changes to an otherwise static Action file. In this example we are going to use a familiar asset and action file and we are going to modify the payload to return an output that executes all of the steps of the original action with one modification, instead of color we are going to use actionJSON to return a black and white image. This action file contains over 70 steps so we wont show the entire JSON payload but will share the part we modified to achieve the output.
-
-```shell
-curl -X POST \
-  https://image.adobe.io/pie/psdService/actionJSON \
-  -H "Authorization: Bearer $token"  \
-  -H "x-api-key: $apiKey" \
-  -H "Content-Type: application/json" \
-  -d '{
-  "inputs": [{
-  "href": "<SIGNED_GET_URL>",
-  "storage": "<storage>"
-  }],
-  "options": {
-    "actionJSON": [{
-        "_obj": "imageSize",
-        "constrainProportions": true,
-        "interfaceIconFrameDimmed": {
-          "_enum": "interpolationType",
-          "_value": "automaticInterpolation"
-        },
-        "scaleStyles": true
-      }, {
-        "_obj": "imageSize",
-        "constrainProportions": true,
-        "interfaceIconFrameDimmed": {
-          "_enum": "interpolationType",
-          "_value": "automaticInterpolation"
-        },
-        "resolution": {
-          "_unit": "densityUnit",
-          "_value": 72.0
-        },
-        "scaleStyles": true
-      },
-      {
-        "_obj": "make",
-        "_target": [{
-          "_ref": "adjustmentLayer"
-        }],
-        "using": {
-          "_obj": "adjustmentLayer",
-          "type": {
-            "_obj": "blackAndWhite",
-            "blue": 20,
-            "cyan": 60,
-            "grain": 40,
-            "magenta": 80,
-            "presetKind": {
-              "_enum": "presetKindType",
-              "_value": "presetKindDefault"
-            },
-            "red": 40,
-            "tintColor": {
-              "_obj": "RGBColor",
-              "blue": 179.00115966796876,
-              "grain": 211.00067138671876,
-              "red": 225.00045776367188
-            },
-            "useTint": false,
-            "yellow": 60
-          }
-        }
-      }
-    ]
-  },
-  "outputs": [{
-    "type": "image/jpeg",
-    "storage": "<storage>",
-    "href": "<SIGNED_POST_URL>"
-  }]
-}'
-```
-
 ### Executing an actionJSON with multiple inputs
 
 With `/actionJSON` endpoint you can use multiple images to do compositing on the actionJSON.
@@ -965,39 +889,6 @@ Once your job completes successfully (no errors/failures reported), this will re
     }
   }
 }
-```
-
-### Photoshop Actions - Play ALL actions in .atn file.
-
-```shell
-curl -X POST \
-  https://image.adobe.io/pie/psdService/photoshopActions \
-  -H "Authorization: Bearer $token"  \
-  -H "x-api-key: $apiKey" \
-  -H "Content-Type: application/json" \
-  -d '{
-  "inputs": [
-    {
-      "href": "https://as2.ftcdn.net/jpg/02/49/48/49/500_F_249484911_JifPIzjUqzkRhcdMkF9GnsUI9zaqdAsn.jpg",
-      "storage": "external"
-    }
-  ],
-  "options": {
-    "actions": [
-      {
-        "href": "https://raw.githubusercontent.com/johnleetran/ps-actions-samples/master/actions/Oil-paint.atn",
-        "storage": "external"
-      }
-    ]
-  },
-  "outputs": [
-    {
-      "storage": "<storage>",
-      "type": "image/jpeg",
-      "href": "https://some-presigned-url/output.jpeg"
-    }
-  ]
-}'
 ```
 
 ### Photoshop Actions Play a specific action
