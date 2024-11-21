@@ -287,11 +287,11 @@ module.exports = {
           },
           {
             title: 'Smart Objects',
-            path: '/photoshop/how-tos/smart-objects.md'
+            path: '/photoshop/how-tos/smart-objects/'
           },
           {
             title: 'Text',
-            path: '/photoshop/how-tos/text.md'
+            path: '/photoshop/how-tos/text/'
           }
         ]
       },
