@@ -11,9 +11,6 @@
  */
 
 module.exports = {
-  flags: {
-    FAST_DEV: true,
-  },
   pathPrefix: process.env.PATH_PREFIX || "/firefly-services/docs/",
 
   siteMetadata: {
