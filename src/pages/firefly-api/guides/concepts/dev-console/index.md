@@ -73,10 +73,10 @@ Rotating your secret is highly recommended in case of a leak or unauthorized acc
 
 In order to successfully rotate secrets without contacting the org admin, developers will need the following:
 
-* `orgId`
-* `projectId`
-* `credentialId`
-* Access token
+- `orgId`
+- `projectId`
+- `credentialId`
+- Access token
 
 Navigate to the OAuth server-to-server credential overview page. Copy the `orgId`, `projectId`, and `credentialId` from the URL by comparing it to the templated URL below:
 
