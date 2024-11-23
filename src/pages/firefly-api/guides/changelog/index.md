@@ -70,20 +70,20 @@ Firefly Image Model 3 (preview) APIs:
 
   * New API References added for the newly introduced [Generate Similar Images](../api/generate-similar/) and [Generate Object Composite](../api/generate-object-composite/) APIs.
   * New V3 API References added for [Generate Images](../api/image_generation/V3/), [Expand Image](../api/generative_expand/V3/) and [Fill Image](../api/generative_fill/V3) with support for Firefly Image Model 3 (preview).
-  
+
 Updated guides:
 
-[Create your first Firefly APIs implementation](../how-tos/create-your-first-ff-application.md) guide updated to use the new V3 version of the [Generate Images API](../api/image_generation/V3/).
+Create your first Firefly APIs implementation guide updated to use the new V3 version of the [Generate Images API](../api/image_generation/V3/).
 
 New Guides:
 
-  * [Firefly Image Model 3 (preview) - Overview](../concepts/model-3-overview.md)
-  * [Using Content Class and Style Presets](../how-tos/using-content-class-style-preset.md)
-  * [Using Style and Structure Image References](../how-tos/using-style-structure-refs.md)
-  * [Using the Expand Image API](../how-tos/using-expand-image.md)
-  * [Using the Fill Image API](../how-tos/using-fill-image.md)
-  * [Getting Started with the Firefly Services SDK](../../../guides/tutorials/using-the-sdk.md)
-  * [Firefly API Terminology](../concepts/terminology.md)
+  * Firefly Image Model 3 (preview) - Overview
+  * Using Content Class and Style Presets
+  * Using Style and Structure Image References
+  * Using the Expand Image API
+  * Using the Fill Image API
+  * Getting Started with the Firefly Services SDK
+  * Firefly API Terminology
 
 ## April 18, 2024
 
@@ -111,7 +111,7 @@ The allow-listed domains are as follows:
 ### Added
 
 * You can now use the latest image model by setting header `x-api-variant` to `v2`. It will be set to `v2` by default.
-* Styles are documented in the API references as well as the new [styles guide](../concepts/styles/index.md).
+* Styles are documented in the API references as well as the new styles guide
   
 ## October 26, 2023
 
