@@ -64,7 +64,7 @@ async function asyncTextToImage(prompt, contentClass='photo', id, token) {
 		contentClass
 	}
 
-	let resp = await fetch(`${BASE}v3/images/generate-async`, {
+	let resp = await fetch(`${BASE}/v3/images/generate-async`, {
 		method:'POST',
 		headers: {
 			'x-api-key':id, 
@@ -159,8 +159,8 @@ import fs from 'fs';
 import { Readable } from 'stream';
 import { finished } from 'stream/promises';
 
-let CLIENT_ID = process.env.CLIENT_ID;
-let CLIENT_SECRET = process.env.CLIENT_SECRET;
+let FIREFLY_SERVICES_CLIENT_ID = process.env.FIREFLY_SERVICES_CLIENT_ID;
+let FIREFLY_SERVICES_CLIENT_SECRET = process.env.FIREFLY_SERVICES_CLIENT_SECRET;
 
 let BASE = 'https://firefly-api.adobe.io';
 
@@ -190,7 +190,7 @@ async function asyncTextToImage(prompt, contentClass='photo', id, token) {
 		contentClass
 	}
 
-	let resp = await fetch(`${BASE}v3/images/generate-async`, {
+	let resp = await fetch(`${BASE}/v3/images/generate-async`, {
 		method:'POST',
 		headers: {
 			'x-api-key':id, 
@@ -243,16 +243,16 @@ async function downloadFile(url, filePath) {
 	return await finished(body.pipe(download_write_stream));
 }
 
-let token = await getAccessToken(CLIENT_ID, CLIENT_SECRET);
+let token = await getAccessToken(FIREFLY_SERVICES_CLIENT_ID, FIREFLY_SERVICES_CLIENT_SECRET);
 
-let result = await asyncTextToImage('a cat living their best life, sleeping in a sunbeam', 'art', CLIENT_ID, token);
+let result = await asyncTextToImage('a cat living their best life, sleeping in a sunbeam', 'art', FIREFLY_SERVICES_CLIENT_ID, token);
 console.log(result);
 
-let jobResult = await pollJob(result.statusUrl, CLIENT_ID, token);
+let jobResult = await pollJob(result.statusUrl, FIREFLY_SERVICES_CLIENT_ID, token);
 console.log(JSON.stringify(jobResult, null, '\t'));
 
 for(let output of jobResult.result.outputs) {
-	let fileName = `./output/${output.seed}.jpg`;
+	let fileName = `./${output.seed}.jpg`;
 	await downloadFile(output.image.url, fileName);
 }
 ```
@@ -279,7 +279,7 @@ async function asyncExpandImage(source, size, id, token) {
 		}
 	}
 
-	let resp = await fetch(`${BASE}v3/images/expand-async`, {
+	let resp = await fetch(`${BASE}/v3/images/expand-async`, {
 		method:'POST',
 		headers: {
 			'x-api-key':id, 
@@ -296,9 +296,9 @@ async function asyncExpandImage(source, size, id, token) {
 Now let's look at the code that uses this. We begin by authenticating and uploading a source image:
 
 ```js
-let token = await getAccessToken(CLIENT_ID, CLIENT_SECRET);
+let token = await getAccessToken(FIREFLY_SERVICES_CLIENT_ID, FIREFLY_SERVICES_CLIENT_SECRET);
 
-let upload = await uploadImage('./source.jpg', 'image/jpeg', CLIENT_ID, token);
+let upload = await uploadImage('./source.jpg', 'image/jpeg', FIREFLY_SERVICES_CLIENT_ID, token);
 let uploadedImage = upload.images[0].id;
 ```
 
@@ -312,7 +312,7 @@ let sizes = ['2500x2500','3000x3000','3500x3500'];
 let expandJobs = [];
 for(let size of sizes) {
 	console.log(`Create job to expand our source to ${size}`);
-	expandJobs.push(asyncExpandImage(uploadedImage, size, CLIENT_ID, token));
+	expandJobs.push(asyncExpandImage(uploadedImage, size, FIREFLY_SERVICES_CLIENT_ID, token));
 }
 
 let jobs = await Promise.all(expandJobs);
@@ -325,7 +325,7 @@ Next we set up our polling and wait for them to complete:
 ```js
 let expandResults = [];
 jobs.forEach(j => {
-	expandResults.push(pollJob(j.statusUrl, CLIENT_ID, token));
+	expandResults.push(pollJob(j.statusUrl, FIREFLY_SERVICES_CLIENT_ID, token));
 });
 console.log('Waiting for the jobs to complete...');
 
@@ -339,7 +339,7 @@ console.log('All work done, now downloading.');
 
 finalResults.forEach((r,i) => {
 	// we know we only have one result
-	downloadFile(r.result.outputs[0].image.url, `output/source_${sizes[i]}.jpg`);
+	downloadFile(r.result.outputs[0].image.url, `source_${sizes[i]}.jpg`);
 });
 ```
 
@@ -350,8 +350,8 @@ import fs from 'fs';
 import { Readable } from 'stream';
 import { finished } from 'stream/promises';
 
-let CLIENT_ID = process.env.CLIENT_ID;
-let CLIENT_SECRET = process.env.CLIENT_SECRET;
+let FIREFLY_SERVICES_CLIENT_ID = process.env.FIREFLY_SERVICES_CLIENT_ID;
+let FIREFLY_SERVICES_CLIENT_SECRET = process.env.FIREFLY_SERVICES_CLIENT_SECRET;
 
 let BASE = 'https://firefly-api.adobe.io';
 
@@ -389,7 +389,7 @@ async function asyncExpandImage(source, size, id, token) {
 		}
 	}
 
-	let resp = await fetch(`${BASE}v3/images/expand-async`, {
+	let resp = await fetch(`${BASE}/v3/images/expand-async`, {
 		method:'POST',
 		headers: {
 			'x-api-key':id, 
@@ -440,7 +440,7 @@ async function uploadImage(filePath, fileType, id, token) {
 	let stats = fs.statSync(filePath);
 	let fileSizeInBytes = stats.size;
 
-	let upload = await fetch(`${BASE}v2/storage/image`, {
+	let upload = await fetch(`${BASE}/v2/storage/image`, {
 		method:'POST', 
 		headers: {
 			'Authorization':`Bearer ${token}`, 
@@ -462,9 +462,9 @@ async function downloadFile(url, filePath) {
 	return await finished(body.pipe(download_write_stream));
 }
 
-let token = await getAccessToken(CLIENT_ID, CLIENT_SECRET);
+let token = await getAccessToken(FIREFLY_SERVICES_CLIENT_ID, FIREFLY_SERVICES_CLIENT_SECRET);
 
-let upload = await uploadImage('./source.jpg', 'image/jpeg', CLIENT_ID, token);
+let upload = await uploadImage('./source.jpg', 'image/jpeg', FIREFLY_SERVICES_CLIENT_ID, token);
 let uploadedImage = upload.images[0].id;
 
 let sizes = ['2500x2500','3000x3000','3500x3500'];
@@ -472,14 +472,14 @@ let sizes = ['2500x2500','3000x3000','3500x3500'];
 let expandJobs = [];
 for(let size of sizes) {
 	console.log(`Create job to expand our source to ${size}`);
-	expandJobs.push(asyncExpandImage(uploadedImage, size, CLIENT_ID, token));
+	expandJobs.push(asyncExpandImage(uploadedImage, size, FIREFLY_SERVICES_CLIENT_ID, token));
 }
 
 let jobs = await Promise.all(expandJobs);
 
 let expandResults = [];
 jobs.forEach(j => {
-	expandResults.push(pollJob(j.statusUrl, CLIENT_ID, token));
+	expandResults.push(pollJob(j.statusUrl, FIREFLY_SERVICES_CLIENT_ID, token));
 });
 console.log('Waiting for the jobs to complete...');
 
@@ -488,6 +488,6 @@ console.log('All work done, now downloading.');
 
 finalResults.forEach((r,i) => {
 	// we know we only have one result
-	downloadFile(r.result.outputs[0].image.url, `output/source_${sizes[i]}.jpg`);
+	downloadFile(r.result.outputs[0].image.url, `source_${sizes[i]}.jpg`);
 });
 ```
