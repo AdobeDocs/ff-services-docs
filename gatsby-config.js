@@ -279,19 +279,19 @@ module.exports = {
       },
       {
         title: 'How-Tos',
-        path: '/photoshop/how-tos/photoshop-actions.md',
+        path: '/photoshop/how-tos/photoshop-actions/',
         pages: [
           {
             title: 'Photoshop Actions',
-            path: '/photoshop/how-tos/photoshop-actions.md'
+            path: '/photoshop/how-tos/photoshop-actions/'
           },
           {
             title: 'Smart Objects',
-            path: '/photoshop/how-tos/smart-objects.md'
+            path: '/photoshop/how-tos/smart-objects/'
           },
           {
             title: 'Text',
-            path: '/photoshop/how-tos/text.md'
+            path: '/photoshop/how-tos/text/'
           }
         ]
       },

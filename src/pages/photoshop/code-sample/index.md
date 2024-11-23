@@ -13,82 +13,9 @@ For each of these examples to run. You first have to get your Bearer token and a
 ```shell
 export token="<YOUR_TOKEN>"
 ```
-```shell
-export apiKey="<YOUR_API_KEY>"
-```
-### Executing an actionJSON
-The `/actionJSON` endpoint can take an input file and apply any Photoshop Action file on it and edit the steps within the original action file. This gives you a lot of flexibility to create dynamic changes to an otherwise static Action file. In this example we are going to use a familiar asset and action file and we are going to modify the payload to return an output that executes all of the steps of the original action with one modification, instead of color we are going to use actionJSON to return a black and white image. This action file contains over 70 steps so we wont show the entire JSON payload but will share the part we modified to achieve the output.
 
 ```shell
-curl -X POST \
-  https://image.adobe.io/pie/psdService/actionJSON \
-  -H "Authorization: Bearer $token"  \
-  -H "x-api-key: $apiKey" \
-  -H "Content-Type: application/json" \
-  -d '{
-  "inputs": [{
-  "href": "<SIGNED_GET_URL>",
-  "storage": "<storage>"
-  }],
-  "options": {
-    "actionJSON": [{
-        "_obj": "imageSize",
-        "constrainProportions": true,
-        "interfaceIconFrameDimmed": {
-          "_enum": "interpolationType",
-          "_value": "automaticInterpolation"
-        },
-        "scaleStyles": true
-      }, {
-        "_obj": "imageSize",
-        "constrainProportions": true,
-        "interfaceIconFrameDimmed": {
-          "_enum": "interpolationType",
-          "_value": "automaticInterpolation"
-        },
-        "resolution": {
-          "_unit": "densityUnit",
-          "_value": 72.0
-        },
-        "scaleStyles": true
-      },
-      {
-        "_obj": "make",
-        "_target": [{
-          "_ref": "adjustmentLayer"
-        }],
-        "using": {
-          "_obj": "adjustmentLayer",
-          "type": {
-            "_obj": "blackAndWhite",
-            "blue": 20,
-            "cyan": 60,
-            "grain": 40,
-            "magenta": 80,
-            "presetKind": {
-              "_enum": "presetKindType",
-              "_value": "presetKindDefault"
-            },
-            "red": 40,
-            "tintColor": {
-              "_obj": "RGBColor",
-              "blue": 179.00115966796876,
-              "grain": 211.00067138671876,
-              "red": 225.00045776367188
-            },
-            "useTint": false,
-            "yellow": 60
-          }
-        }
-      }
-    ]
-  },
-  "outputs": [{
-    "type": "image/jpeg",
-    "storage": "<storage>",
-    "href": "<SIGNED_POST_URL>"
-  }]
-}'
+export apiKey="<YOUR_API_KEY>"
 ```
 
 ### Executing an actionJSON with multiple inputs
@@ -233,6 +160,7 @@ curl -X POST \
 ```
 
 ### Replacing a smartObject
+
 The `/smartObject` endpoint can take an input PSD file with an embedded smartObject and can replace with another smartObject.
 This API is a simple API developed to ease the smartObject replacement workflow for an user.
 
@@ -269,46 +197,8 @@ curl -X POST \
 ]}'
 ```
 
-### Creating a smartObject
-This example shows how you can create an embedded smart object using the `/smartObject` endpoint.
-
-``` shell
-curl -X POST \
-  https://image.adobe.io/pie/psdService/smartObject \
-  -H "Authorization: Bearer $token"  \
-  -H "x-api-key: $apiKey" \
-  -H "Content-Type: application/json" \
-  -d '{
-  "inputs": [
-  {
-    "href": "<SIGNED_GET_URL>",
-    "storage": "<storage>"
-  }],
-  "options": {
-    "layers": [{
-      "name": "New",
-      "add": {
-        "insertTop": true
-      },
-      "input": {
-        "href": "<SIGNED_GET_URL>",
-        "storage": "<storage>"
-       }
-      }
-    ]
-  },
-  "outputs": [
-  {
-    "storage": "<storage>",
-    "href": "<SIGNED_POST_URL>",
-    "type": "vnd.adobe.photoshop"
-  }
-]}'
-```
-
-A call to this API initiates an asynchronous job and returns a response containing an href. Use the value in the href to poll for the status of the job. This is illustrated in [Example 12](../code-sample/index.md#fetch-the-status-of-an-api) and [Example 14](../code-sample/index.md#poll-for-job-status-for-all-other-apis)
-
 ### Making a text layer edit
+
 This example shows how you can edit a text layer using the `/text` endpoint. <a href="https://github.com/AdobeDocs/cis-photoshop-api-docs/tree/main/sample-code/azure-blob-text-edit">Sample Code</a>
 
 ```shell
@@ -358,6 +248,7 @@ curl -X POST \
 ```
 
 ### Custom font in a text layer
+
 This will change the font in a text layer named `My Text Layer` to a custom font `VeganStylePersonalUse`.
 **Note**: the value for the `fontName` field in the `text.characterStyles` section is the full postscript name of the custom font.
 
@@ -414,7 +305,9 @@ curl -X POST \
 ```
 
 ### Dictating actions for missing fonts
+
 In this request for example, if `MySampleFont` is not found while processing the request, the system default font (`ArialMT`) will be used as `manageMissingFonts` is set to `useDefault`
+
 ```shell
 curl -X POST \
   https://image.adobe.io/pie/psdService/text \
@@ -472,6 +365,7 @@ curl -X POST \
 A call to this API initiates an asynchronous job and returns a response containing an href. Use the value in the href to poll for the status of the job. This is illustrated in [Example 12](../code-sample/index.md#fetch-the-status-of-an-api) and [Example 14](../code-sample/index.md#poll-for-job-status-for-all-other-apis)
 
 ### Making a simple edit
+
 ```shell
 curl -X POST \
   https://image.adobe.io/pie/psdService/documentOperations \
@@ -667,6 +561,7 @@ curl -X POST \
 A call to this API initiates an asynchronous job and returns a response containing an href. Use the value in the href to poll for the status of the job. This is illustrated in [Example 12](../code-sample/index.md#fetch-the-status-of-an-api) and [Example 14](../code-sample/index.md#poll-for-job-status-for-all-other-apis)
 
 ### Create a document rendition
+
 Generate multiple output renditions with the API `renditionCreate`
 
 ```shell
@@ -721,9 +616,11 @@ curl -X POST \
   ]
 }'
 ```
+
 A call to this API initiates an asynchronous job and returns a response containing an href. Use the value in the href to poll for the status of the job and the same response will also contain the JSON manifest. This is illustrated in [Example 12](../code-sample/index.md#fetch-the-status-of-an-api) and [Example 14](../code-sample/index.md#poll-for-job-status-for-all-other-apis)
 
 ###  Fetch the status of an API
+
 Each of our Photoshop API endpoints, when invoked, initiates an asynchronous job and returns a response body that contains the href to poll for status of the job.
 
 ```json
@@ -735,6 +632,7 @@ Each of our Photoshop API endpoints, when invoked, initiates an asynchronous job
     }
 }
 ```
+
 Using the job id returned from the response (ass above) of a successfully submitted API call, you can poll on the corresponding value in the `href` field, to get the status of the job.
 
 ```shell
@@ -744,6 +642,7 @@ curl -X GET \
   -H "x-api-key: $apiKey" \
   -H "Content-Type: application/json"
 ```
+
 ### Poll for job status for documentManifest
 
 Once your job completes successfully (no errors/failures reported), the status response will contain your document's JSON manifest along with other metadata about the input document. The JSON Manifest is further described in the [api docs](../api/photoshop_status.md)
@@ -913,6 +812,7 @@ Once your job completes successfully (no errors/failures reported), the status r
   }
 }
 ```
+
 ### Poll for job status for all Other APIs
 
 Once your job completes successfully (no errors/failures reported), this will return a response body containing the job status for each requested output. For the `/renditionCreate` API call in [Example 10](../code-sample/index.md#create-a-document-rendition) as illustrated above, a sample response containing the job status is as shown below:
@@ -951,37 +851,6 @@ Once your job completes successfully (no errors/failures reported), this will re
 }
 ```
 
-### Photoshop Actions - Play ALL actions in .atn file.
-```shell
-curl -X POST \
-  https://image.adobe.io/pie/psdService/photoshopActions \
-  -H "Authorization: Bearer $token"  \
-  -H "x-api-key: $apiKey" \
-  -H "Content-Type: application/json" \
-  -d '{
-  "inputs": [
-    {
-      "href": "https://as2.ftcdn.net/jpg/02/49/48/49/500_F_249484911_JifPIzjUqzkRhcdMkF9GnsUI9zaqdAsn.jpg",
-      "storage": "external"
-    }
-  ],
-  "options": {
-    "actions": [
-      {
-        "href": "https://raw.githubusercontent.com/johnleetran/ps-actions-samples/master/actions/Oil-paint.atn",
-        "storage": "external"
-      }
-    ]
-  },
-  "outputs": [
-    {
-      "storage": "<storage>",
-      "type": "image/jpeg",
-      "href": "https://some-presigned-url/output.jpeg"
-    }
-  ]
-}'
-```
 ### Photoshop Actions Play a specific action
 
 By default, Photoshop API will attempt to play all actions in an action set.  If you would like to only playback a specific action, you can specify `actionName` and the name of the action you want to invoke (see example below).
@@ -1017,6 +886,7 @@ curl -X POST \
   ]
 }'
 ```
+
 ### Edit Text Layers
 
 The `/text` endpoint can take an input PSD file with one or more text layers and can apply edits to it.
@@ -1206,6 +1076,7 @@ curl -X POST \
 ```
 
 This initiates an asynchronous job and returns a response containing the href to poll for job status and the JSON manifest.
+
 ```json
 {
     "_links": {
@@ -1215,7 +1086,6 @@ This initiates an asynchronous job and returns a response containing the href to
     }
 }
 ```
-
 
 Using the job id returned from the previous call you can poll on the returned `/status` href to get the job status
 
@@ -1256,10 +1126,13 @@ Once the job is complete your successful `/status` response will look similar to
 The workflow is exactly the same as [creating Remove Background](../code-sample/index.md#remove-background) except you use the `/mask` endpoint instead of `/cutout`.  
 
 ## Customized Workflow
+
 ### Generate Remove Background result as Photoshop path
+
 This workflow is ONLY for users who'd like to generate remove background result as Photoshop path instead of regular mask or remove background in above [example 1](../code-sample/index.md#remove-background) and [example 2](../code-sample/index.md#generate-image-mask). You will need to chain API calls to Remove Background service and Photoshop Service to achieve this goal.
 
 #### Sample Input/Output
+
 Sample input from [here](https://github.com/AdobeDocs/cis-photoshop-api-docs/blob/main/sample_files/ic_customized_workflow/input.jpg).
 Sample output from [here](https://github.com/AdobeDocs/cis-photoshop-api-docs/blob/main/sample_files/ic_customized_workflow/result_with_path.jpg) (Note: you will need to open result in Photoshop Desktop application so that you will see the path in path panel)
 
@@ -1270,12 +1143,14 @@ Sample output from [here](https://github.com/AdobeDocs/cis-photoshop-api-docs/bl
 3. Make the second API call to Photoshop action service to use above intermediate result as well as the make-file.atn file to generate final JPEG format result with desired PS path embedded
 4. Open the final result with Photoshop Desktop app to check generated path in path panel
 
-
 #### Sample Code
+
 You can download the sample end-to-end bash script [here](https://github.com/AdobeDocs/cis-photoshop-api-docs/tree/main/sample-code/ic-customized-workflow-app) and then follow the comments to try it out this customized workflow.
 
 ## Triggering an Event from the API's
+
 In order to start receiving the events in your Webhook Application, the additional thing that needs to be done is to pass in your IMS ORG ID in a header: `x-gw-ims-org-id: <YOUR_IMS_ORG_ID>`, when you make an API call to initiate a job. Please have a look at the example below that demonstrates the usage of the new header and a sample event received for that job.
+
 ### Example 1: Retrieving a PSD manifest from the Photoshop API
 
 #### Step 1: Initiate a job to retrieve a PSD's JSON manifest
@@ -1300,6 +1175,7 @@ curl -X POST \
 ```
 
 This initiates an asynchronous job and returns a response containing the href to poll for job status and the JSON manifest.
+
 ```json
 {
     "_links": {
@@ -1309,8 +1185,11 @@ This initiates an asynchronous job and returns a response containing the href to
     }
 }
 ```
+
 #### Step 2: Receive the Job's status on the Webhook application when the job is complete
+
 The value in the key `body` inside the event JSON contains the result of the job. Here is a sample event received from the job initiated above:
+
 ```json
 {
   "event_id": "b412a90e-8bc0-4f0d-931e-9e9b8d24993d",
