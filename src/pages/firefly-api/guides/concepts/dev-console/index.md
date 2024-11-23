@@ -45,9 +45,9 @@ The **Adobe Developer Console** is a centralized platform that enables developer
 
 You will need:
 
-* An [Adobe Developer Console](https://developer.adobe.com/console/786177/home) account.
-* A [project](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/) with Firefly API [OAuth Server-to-Server credentials set up](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/).
-* Access to your Client ID and Client Secret from the Developer Console.
+- An [Adobe Developer Console](https://developer.adobe.com/console/786177/home) account.
+- A [project](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/) with Firefly API [OAuth Server-to-Server credentials set up](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/).
+- Access to your Client ID and Client Secret from the Developer Console.
 
 ## Access tokens
 

@@ -57,7 +57,6 @@ This tutorial assumes you have worked with your Adobe Representative and have th
 * Access to your Client ID and Client Secret from the [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview). Securely store these credentials and never expose them in client-side or public code.
 * A [Generated access token](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview)
 
-
 ### Upload Source Image
 
 Below is a JavaScript example using `axios` to upload an image using Firefly's Upload API:
