@@ -29,7 +29,6 @@ keywords:
   - Authentication best practices
 contributors:
   - https://github.com/bishoysefin
-  - https://github.com/mikemajzoub
 hideBreadcrumbNav: true
 ---
 
