@@ -25,12 +25,13 @@ Generatively edit specific areas of an image with the [Fill Image API](../api/ge
 
 ## Overview
 
-In this tutorial, let's imagine we are on a team that manages the website of a Fortune 100 company. We need to update thousands of employee photos on the website to have a consistent, tasteful, and professional look. With the Fill Image API, we will replace the backgrounds of the employee photos with a similar style, ensuring a cohesive online presence.
+In this tutorial, let's imagine we manage the website of a Fortune 100 company. We need to update thousands of employee photos on the website to have a consistent, tasteful, and professional look. With the Fill Image API, we will replace the backgrounds of the employee photos with a similar style, ensuring a cohesive online presence.
 
 In this tutorial, we will:
 
-* Change the background of employee photos to a uniform, professional setting.
-* Ensure all photos have the same look without the need for new photo sessions.
+* Upload employee images along with mask images to target each photo's background.
+* Write a background prompt to describe the artwork we want to generate for the new backgrounds.
+* Use Firefly's Fill Image API to replace the backgrounds of the employee photos with stylistically consistent artwork.
 
 Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump immediately to the full source code](#full-example) at the bottom of this webpage.
 
@@ -55,7 +56,7 @@ touch index.js
 
 ### Download sample images
 
-Right click on each of the images below to download and save them to your project folder.
+Save each of the images below to your project folder.
 
 ||
 | --- | --- |
@@ -64,7 +65,7 @@ Right click on each of the images below to download and save them to your projec
 
 <InlineAlert variant="info" slots="text" />
 
-When creating your own applications, use the Photoshop API's [Create Mask](https://developer.adobe.com/firefly-services/docs/photoshop/api/photoshop_createMask/) endpoint to automate creation masks for your own images.
+When creating your own applications, use the Photoshop API's [Create Mask](https://developer.adobe.com/firefly-services/docs/photoshop/api/photoshop_createMask/) endpoint to automate the creation masks for your own images.
 
 ## Upload images
 
@@ -83,7 +84,7 @@ async function uploadImage({ filePath, fileType, accessToken }) {
     url: 'https://firefly-api.adobe.io/v2/storage/image',
     headers: {
       'Authorization': `Bearer ${accessToken}`,
-      'X-API-Key': process.env.FIREFLY_FIREFLY_SERVICES_CLIENT_ID,
+      'X-API-Key': process.env.FIREFLY_SERVICES_CLIENT_ID,
       'Content-Type': fileType,
       'Content-Length': fileSizeInBytes,
     },
@@ -127,7 +128,7 @@ async function genFill({ maskId, sourceId, prompt, accessToken }) {
     method: 'post',
     url: 'https://firefly-api.adobe.io/v3/images/fill',
     headers: {
-      'X-Api-Key': process.env.FIREFLY_FIREFLY_SERVICES_CLIENT_ID,
+      'X-Api-Key': process.env.FIREFLY_SERVICES_CLIENT_ID,
       'Authorization': `Bearer ${accessToken}`,
       'Content-Type': 'application/json',
     },
@@ -141,7 +142,7 @@ async function genFill({ maskId, sourceId, prompt, accessToken }) {
 
 ## Generate photo backgrounds
 
-Now, you can process each employee photo and generate a new image with the updated background.
+Next, process each employee photo and generate a new image with an updated background.
 
 ```js
 async function updateEmployeePhotos() {
