@@ -56,7 +56,6 @@ Create custom illustrations and photos with the [Generate Image API](../api/imag
 
 ## Overview
 
-
 For this tutorial, let's imagine we work at a global tourism company and are creating a marketing campaign with localized illustrations for the different places our company promotes.
 
 In the tutorial below, we will:
@@ -69,7 +68,7 @@ Depending on your learning style, you may prefer to walk through this tutorial s
 
 ## Prerequisites
 
-This tutorial assumes you have worked with your Adobe Representative and have the following: 
+This tutorial assumes you have worked with your Adobe Representative and have the following:
 
 * An [Adobe Developer Console](https://developer.adobe.com/console/786177/home) account.
 * A [project](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/) with Firefly API [OAuth Server-to-Server credentials set up](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/).

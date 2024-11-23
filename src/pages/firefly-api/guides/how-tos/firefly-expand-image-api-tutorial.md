@@ -36,7 +36,7 @@ Depending on your learning style, you may prefer to walk through this tutorial s
 
 ## Prerequisites
 
-This tutorial assumes you worked with your Adobe Representative and have the following: 
+This tutorial assumes you worked with your Adobe Representative and have the following:
 
 * An [Adobe Developer Console](https://developer.adobe.com/console/786177/home) account.
 * A [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/) with Firefly API [OAuth Server-to-Server credentials set up](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/).
@@ -182,6 +182,7 @@ async function createSocialMediaRenditions(accessToken) {
   }
 }
 ```
+
 Once we know Firefly generated our images, we log the results, including the URL for each generated images.
 
 ## Full Example

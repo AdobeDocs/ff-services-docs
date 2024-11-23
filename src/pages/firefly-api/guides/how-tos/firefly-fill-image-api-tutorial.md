@@ -28,7 +28,6 @@ Modify specific regions of an image by replacing them with AI-generated pixels w
 
 For this tutorial, let's imagine we are on a team that manages the website of a Fortune 100 company. We need to update thousands of employee photos on the website to have a consistent and professional look. Because it is it's too expensive and time-consuming to schedule new photo sessions for every employee, we decide to efficiently use the Fill Image API to replace the backgrounds of the employee photos with a uniform style, ensuring a cohesive online presence.
 
-
 In this tutorial, we will:
 
 * **Replace Backgrounds:** Change the background of employee photos to a uniform, professional setting.
@@ -38,7 +37,7 @@ Depending on your learning style, you may prefer to walk through this tutorial s
 
 ## Prerequisites
 
-This tutorial assumes you have worked with your Adobe Representative and have the following: 
+This tutorial assumes you have worked with your Adobe Representative and have the following:
 
 * An [Adobe Developer Console](https://developer.adobe.com/console/786177/home) account.
 * A [project](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/) with Firefly API [OAuth Server-to-Server credentials set up](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/).
