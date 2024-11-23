@@ -17,7 +17,7 @@ Use Style Image Reference to generate images based on a specific style, colors, 
 
 ||
 | --- | --- |
-| ![mountain](../../images/style-image-reference-mountain.jpeg) | ![dog](../../images/style-image-reference-dog.jpeg) 
+| ![mountain](../../images/style-image-reference-mountain.jpeg) <p style="text-align:center">Style Reference Image</p> | ![dog](../../images/style-image-reference-dog.jpeg) <p style="text-align:center">Generated Image</p>
 
 Use `style.imageReference` to generate images based on specific style, colors, artistic methods, or mood.
 
