@@ -38,10 +38,10 @@ Use Images with Firefly APIs
 
 ## Overview
 
-Some Firefly APIs require images to be uploaded as part of their transactions. Adobe Firefly offers two options for uploading and referencing images:
+Some Firefly APIs require images to be uploaded as part of their transactions. The Firefly API offers two options for uploading images:
 
 1. **Upload Endpoint:** Use Firefly's Upload Endpoint to upload an image from local storage. This operation generates an image ID that can be used in API calls.
-2. **Pre-signed URLs:** Use pre-signed URLs from supported platforms like **Azure**, **AWS**, or **Dropbox** to reference your image directly.
+2. **Pre-signed URLs:** Have Firefly APIs read from **Azure**, **AWS**, or **Dropbox** pre-signed URLs.
 
 ## Using the Upload Endpoint
 
@@ -115,10 +115,12 @@ You can now use this `id` in subsequent Firefly API requests. The upload id is v
 
 ## Pre-signed URLs
 
-If you prefer not to use the Upload API, you can reference images hosted on supported platforms via pre-signed URLs. The currently supported domains are:
+If you prefer not to use the Firefly Upload Endpoint, you can reference images hosted on supported platforms via pre-signed URLs. The currently supported domains are:
 
 * `*.amazonaws.com`
 * `*.windows.net`
 * `*.dropboxusercontent.com`
 
-**Image Formats:** Supported formats include `image/jpeg`, `image/png`, and `image/webp`
+## Image Formats
+
+Supported formats include `image/jpeg`, `image/png`, and `image/webp`.
