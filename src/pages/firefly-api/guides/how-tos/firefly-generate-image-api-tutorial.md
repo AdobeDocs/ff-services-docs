@@ -51,7 +51,7 @@ hideBreadcrumbNav: true
 
 Create custom illustrations and photos with the [Generate Image API](../api/image_generation/V3/index.md)
 
-![paris tourism illustration](../images/paris.jpeg)
+![paris tourism illustration](../images/gen-image-tutorial-hero.jpeg)
 
 ## Overview
 
