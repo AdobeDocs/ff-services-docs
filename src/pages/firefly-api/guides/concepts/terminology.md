@@ -4,7 +4,7 @@ This section provides definitions and details for terms and parameters to be awa
 
 ## Seed
 
-A **seed** is a starting point for image generation. By using a seed value, you can generate consistent images across multiple API calls. Visit the seed [concept page](./seed-id/index.md) for more information.
+A **seed** is a starting point for image generation. By using a seed value, you can generate consistent images across multiple API calls. Visit the seed [concept page](./seeds/index.md) for more information.
 
 ## Prompt
 

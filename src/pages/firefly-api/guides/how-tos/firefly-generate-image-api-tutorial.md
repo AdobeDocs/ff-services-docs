@@ -64,7 +64,7 @@ In the tutorial below, we will:
 * Next, add aspect ratio, localized style, and style preset customizations
 * Finally, generate localized images for multiple locations
 
-Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [go straight to the full source code](#full-source-code) at the bottom of this webpage.
+Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [go straight to the full source code](#full-example) at the bottom of this webpage.
 
 ## Prerequisites
 
@@ -178,7 +178,7 @@ async function createImages(accessToken) {
 }
 ```
 
-## Full source code
+## Full example
 
 Review this tutorial's [Prequisites](#prerequisites) section to understand how to set up your environment prior to running this code. (Because this code is for educational purposes only, it is not production-ready and requires additional error handling, logging, security measures, and more before it can be used in a live application.)
 

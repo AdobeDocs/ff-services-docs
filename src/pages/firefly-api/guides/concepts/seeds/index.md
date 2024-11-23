@@ -86,7 +86,7 @@ The above request will return a response like this:
 
 Let's generate similar variations of this image by using its `seed` of `1842533538` in our next request. This allows us to use all Firefly's other generation options such as style presets, size, reference images, and more, while keeping the more image consistent with this previously generated image that we like.
 
-Below, let's generate an image variation has "landscape photography" and "science fiction" [style presets](../styles/index.md) applied to it.
+Below, let's generate an image variation has "landscape photography" and "science fiction" [style presets](../style-presets/index.md) applied to it.
 
 ```bash
 curl --location 'https://firefly-api.adobe.io/v3/images/generate' \

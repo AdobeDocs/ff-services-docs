@@ -33,7 +33,7 @@ In this tutorial, we will:
 * **Replace Backgrounds:** Change the background of employee photos to a uniform, professional setting.
 * **Maintain Consistency:** Ensure all photos have the same look without the need for new photo sessions.
 
-Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [go straight to the full source code](#full-source-code) at the bottom of this webpage.
+Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [go straight to the full source code](#full-example) at the bottom of this webpage.
 
 ## Prerequisites
 
@@ -73,7 +73,7 @@ When creating your own applications, use the Photoshop API's [Create Mask](https
 
 ## Upload images
 
-Let's begin by uploading both the source image and the mask image using Firefly's [Upload API](../api/storage/V2).
+Let's begin by uploading both the source image and the mask image using Firefly's [Upload API](../api/upload_image/V2).
 
 ```js
 const fs = require('fs');
@@ -196,7 +196,7 @@ async function updateEmployeePhotos() {
 | --- | --- |
 | ![result-person-photo-1](../images/result-person-photo-1.jpeg) | ![result-person-photo-2](../images/result-person-photo-2.jpeg)
 
-## Full source code
+## Full example
 
 Review this tutorial's [Prequisites](#prerequisites) section to understand how to set up your environment prior to running this code. (Because this code is for educational purposes only, it is not production-ready and requires additional error handling, logging, security measures, and more before it can be used in a live application.)
 

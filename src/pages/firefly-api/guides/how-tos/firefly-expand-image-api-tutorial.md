@@ -32,7 +32,7 @@ Before diving into the code, let's preview the high-level steps:
 2. **Upload Source Image:** Use Firefly's [Upload API](../api/upload_image/) to upload your original image.
 3. **Generate Variations:** Use Firefly's [Expand Image API](../api/generative_expand/V3/) to create resized variations of the image for each dimension.
 
-Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [go straight to the full source code](#full-source-code).
+Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [go straight to the full source code](#full-example).
 
 ## Prerequisites
 
