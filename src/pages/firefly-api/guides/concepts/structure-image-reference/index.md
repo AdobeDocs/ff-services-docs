@@ -17,7 +17,7 @@ Use Structure Image Reference to generate images based on a specific outline and
 
 ||
 | --- | --- |
-| ![mountain](../../images/structure-image-reference-mountain.jpeg) <p style="text-align:center">Structure Reference Image</p> | ![volcano](../../images/structure-image-reference-volcano.jpeg) <p style="text-align:center">Generated Image</p>
+| ![mountain](../../images/structure-image-reference-mountain.jpeg) <p style="text-align:center">Structure Image Reference</p> | ![volcano](../../images/structure-image-reference-volcano.jpeg) <p style="text-align:center">Generated Image</p>
 
 Use `structure.imageReference` with Firefly's [Generate Images API](../../api/image_generation/V3/) to generate images based on a specific outline and depth. This is helpful for when you have a scene where everything in it is placed correctly, but you want to generate a new image with a different details, style, or mood.
 
