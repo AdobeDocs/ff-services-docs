@@ -63,7 +63,7 @@ In the tutorial below, we will:
 * Next, add aspect ratio, localized style, and style preset customizations
 * Finally, generate localized images for multiple locations
 
-Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump straight to the full source code](#full-example) at the bottom of this webpage.
+Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump immediately to the full source code](#full-example) at the bottom of this webpage.
 
 ## Prerequisites
 

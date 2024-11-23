@@ -17,7 +17,7 @@ hideBreadcrumbNav: true
 
 # Firefly Fill Image API Tutorial
 
-Modify specific regions of an image by replacing them with AI-generated pixels with the [Fill Image API](../api/generative_fill/V3)
+Generatively edit specific areas of an image with the [Fill Image API](../api/generative_fill/V3)
 
 ||
 | --- | --- | --- |
@@ -25,14 +25,14 @@ Modify specific regions of an image by replacing them with AI-generated pixels w
 
 ## Overview
 
-In this tutorial, let's imagine we are on a team that manages the website of a Fortune 100 company. We need to update thousands of employee photos on the website to have a consistent and professional look. Because it is it's too expensive and time-consuming to schedule new photo sessions for every employee, we decide to efficiently use the Fill Image API to replace the backgrounds of the employee photos with a uniform style, ensuring a cohesive online presence.
+In this tutorial, let's imagine we are on a team that manages the website of a Fortune 100 company. We need to update thousands of employee photos on the website to have a consistent, tasteful, and professional look. With the Fill Image API, we will replace the backgrounds of the employee photos with a similar style, ensuring a cohesive online presence.
 
 In this tutorial, we will:
 
-* **Replace Backgrounds:** Change the background of employee photos to a uniform, professional setting.
-* **Maintain Consistency:** Ensure all photos have the same look without the need for new photo sessions.
+* Change the background of employee photos to a uniform, professional setting.
+* Ensure all photos have the same look without the need for new photo sessions.
 
-Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump straight to the full source code](#full-example) at the bottom of this webpage.
+Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump immediately to the full source code](#full-example) at the bottom of this webpage.
 
 ## Prerequisites
 

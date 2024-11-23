@@ -23,7 +23,7 @@ Generatively expand an image out beyond its edges with the [Expand Image API](..
 
 ## Overview
 
-In this tutorial, imagine we are working on a marketing campaign at a Fortune 100 company, and we need to create differently sized images variations optimized for various social media platforms. In the past we had to manually resize images for each platform, which was time-consuming and error-prone. With Firefly's Expand Image API, we can automate this process and generate multiple variations of images with dimensions optimized for platforms like Instagram, Facebook, Twitter, and more.
+In this tutorial, imagine we are working on a marketing campaign at a Fortune 100 company, and we need to create differently sized image variations optimized for various social media platforms. In the past we had to manually resize images for each platform, which was time-consuming and error-prone. With Firefly's Expand Image API, we can automate this process and generate multiple variations of images with dimensions optimized for platforms like Instagram, Facebook, Twitter, and more.
 
 Before diving into the code, let's preview the high-level steps:
 
@@ -31,7 +31,7 @@ Before diving into the code, let's preview the high-level steps:
 2. **Upload Source Image:** Use Firefly's [Upload API](../api/upload_image/) to upload your original image.
 3. **Generate Image Variations:** Use Firefly's [Expand Image API](../api/generative_expand/V3/) to create resized variations of the image for each dimension.
 
-Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump straight to the full source code](#full-example).
+Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump immediately to the full source code](#full-example).
 
 ## Prerequisites
 
@@ -180,7 +180,7 @@ async function createSocialMediaRenditions(accessToken) {
 }
 ```
 
-Once we know Firefly generated our images, we log the results, including the URL for each generated images.
+Once we know Firefly generated our images, we log the results, including the URL for each generated image.
 
 ## Full Example
 
