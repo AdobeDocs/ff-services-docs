@@ -17,7 +17,7 @@ hideBreadcrumbNav: true
 
 # Firefly Fill Image API Tutorial
 
-Modify specific regions of an image by replacing them with AI-generated pixels with the [Fill Image API](../api/generative_fill/V3).
+Modify specific regions of an image by replacing them with AI-generated pixels with the [Fill Image API](../api/generative_fill/V3)
 
 ||
 | --- | --- | --- |

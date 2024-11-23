@@ -17,7 +17,7 @@ hideBreadcrumbNav: true
 
 # Firefly Expand Image API Tutorial
 
-Create multiple variations of an image by generating larger sizes of the image with the [Expand Image API](../api/generative_expand/V3/).
+Create multiple variations of an image by generating larger sizes of the image with the [Expand Image API](../api/generative_expand/V3/)
 
 ![shoes advertisement hero image](../images/expand-image-tutorial-hero-image.png)
 

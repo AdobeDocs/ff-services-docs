@@ -49,7 +49,7 @@ hideBreadcrumbNav: true
 
 # Firefly Generate Image API Tutorial
 
-Create custom illustrations and photos with the [Generate Image API](../api/image_generation/V3/index.md).
+Create custom illustrations and photos with the [Generate Image API](../api/image_generation/V3/index.md)
 
 ![paris tourism illustration](../images/paris.jpeg)
 
