@@ -38,21 +38,21 @@ Use Adobe Developer Console to manage resources and credentials
 
 ## Overview
 
-The **Adobe Developer Console** is a centralized platform that enables developers to integrate Adobe's suite of APIs and services. To securely access Adobe's APIs, including the Firefly API, your application must authenticate using OAuth 2.0 protocols. This involves obtaining an access token that grants your application permission to interact with Adobe's services.
+The **Adobe Developer Console** is a centralized platform that enables developers to integrate Adobe's APIs and services. To securely access Adobe's APIs, including the Firefly API, your application must authenticate using OAuth 2.0 protocols. This involves obtaining an access token that grants your application permission to interact with Adobe's services.
 
 ## Getting Started for Firefly APIs
 
 You will need:
 
-- An [Adobe Developer Console](https://developer.adobe.com/console/786177/home) account.
+- An [Adobe Developer Console](https://developer.adobe.com/) account.
 - A [project](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/) with Firefly API [OAuth Server-to-Server credentials set up](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/).
 - Access to your Client ID and Client Secret from the Developer Console.
 
-## Access tokens
+## Access Tokens
 
 [Generating access tokens](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) can be accomplished either directly from the Developer Console UI or programmatically.
 
-To generate an access token programatically, refer to the [Authentication guide!](../authentication/index.md)
+To generate an access token programatically, refer to the [Authentication guide](../authentication/index.md).
 
 ## Best Practices
 
@@ -60,15 +60,15 @@ To generate an access token programatically, refer to the [Authentication guide!
 - **Scope Limitation:** Request only the scopes necessary for your application's functionality to adhere to the principle of least privilege.
 - **Secure Storage:** Store your Client ID, Client Secret, and access tokens securely to prevent unauthorized access.
 
-## Managing Client secrets
+## Managing Secrets
 
-### Rotating secrets
+### Rotating Secrets
 
-You can rotate your client secret as needed, according to your company’s security posture/compliance. For some, this means rotating client secrets every few months. For others, this may mean rotating secrets every day.
+You can rotate your client secret as needed. For some, this means rotating client secrets every few months. For others, this may mean rotating secrets every day.
 
 Rotating your secret is highly recommended in case of a leak or unauthorized access. Furthermore, rotating client secrets periodically is an industry-standard practice that strengthens your application security posture. Similar to access tokens, you can rotate your client secret in the Developer Console UI or using an API.
 
-**Org admins**: Navigate to your project in Adobe Developer Console. Click the **Add to Project** button and select **API** > add **I/O Management API** to your project. This API will allow your credential to read, delete, and generate new client secrets. You will need to configure the credential name before saving it.
+**Org admins**: Navigate to your project in Adobe Developer Console. Click the **Add to Project** button and select **API** and then add **I/O Management API** to your project. This API will allow your credential to read, delete, and generate new client secrets. You will need to configure the credential name before saving it.
 
 In order to successfully rotate secrets without contacting the org admin, developers will need the following:
 
@@ -91,7 +91,7 @@ curl -X POST 'https://ims-na1.adobelogin.com/ims/token/v3' \
 -d 'client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&grant_type=client_credentials&scope=AdobeID,openid,read_organizations,additional_info.projectedProductContext,additional_info.roles,adobeio_api,read_client_secret,manage_client_secrets'
 ```
 
-### List all secrets
+### List All Secrets
 
 ```bash
 curl -X GET 'https://api.adobe.io/console/organizations/{orgId}/credentials/{credentialId}/secrets' \
@@ -99,7 +99,7 @@ curl -X GET 'https://api.adobe.io/console/organizations/{orgId}/credentials/{cre
      -H 'x-api-key: {CLIENT_ID}'
 ```
 
-### Generate new secret
+### Generate a New Secret
 
 Make the following request. The API response will contain the `client_secret` that was added to the project and its `uuid`. You can find it again later on the Developer Console UI. After you generate a new secret, update your application to use the new secret.
 
@@ -121,4 +121,4 @@ curl -X DELETE 'https://api.adobe.io/console/organizations/{orgId}/credentials/{
 
 <InlineAlert variant="warning" slots="text" />
 
-Once a client secret is deleted, you cannot restore it. So be extra sure you have replaced the old client secret with the new one in all locations.
+Once a client secret is deleted, you cannot restore it. Therefore, be certain you have replaced the old client secret with the new one in all locations.

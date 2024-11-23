@@ -17,7 +17,7 @@ hideBreadcrumbNav: true
 
 # Firefly Fill Image API Tutorial
 
-Modify specific regions of an image by replacing them with AI-generated pixels with the [Fill Image API](../api/generative_fill/V3).
+Generatively edit specific areas of an image with the [Fill Image API](../api/generative_fill/V3)
 
 ||
 | --- | --- | --- |
@@ -25,30 +25,27 @@ Modify specific regions of an image by replacing them with AI-generated pixels w
 
 ## Overview
 
-For this tutorial, let's imagine we are on a team that manages the website of a Fortune 100 company. We need to update thousands of employee photos on the website to have a consistent and professional look. Because it is it's too expensive and time-consuming to schedule new photo sessions for every employee, we decide to efficiently use the Fill Image API to replace the backgrounds of the employee photos with a uniform style, ensuring a cohesive online presence.
+In this tutorial, let's imagine we manage the website of a Fortune 100 company. We need to update thousands of employee photos on the website to have a consistent, tasteful, and professional look. With the Fill Image API, we will replace the backgrounds of the employee photos with a similar style, ensuring a cohesive online presence.
 
 In this tutorial, we will:
 
-* **Replace Backgrounds:** Change the background of employee photos to a uniform, professional setting.
-* **Maintain Consistency:** Ensure all photos have the same look without the need for new photo sessions.
+* Upload employee images along with mask images to target each photo's background.
+* Write a background prompt to describe the artwork we want to generate for the new backgrounds.
+* Use Firefly's Fill Image API to replace the backgrounds of the employee photos with stylistically consistent artwork.
 
-Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [go straight to the full source code](#full-example) at the bottom of this webpage.
+Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump immediately to the full source code](#full-example) at the bottom of this webpage.
 
 ## Prerequisites
 
-This tutorial assumes you have worked with your Adobe Representative and have the following:
+This tutorial assumes you possess a Firefly Services **Client ID** and **Client Secret**. If you don't have these credentials, learn how to get them at the [Adobe Developer Console](../concepts/dev-console) page.
 
-* An [Adobe Developer Console](https://developer.adobe.com/console/786177/home) account.
-* A [project](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/) with Firefly API [OAuth Server-to-Server credentials set up](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/).
-* Access to your Client ID and Client Secret from the [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview). Securely store these credentials and never expose them in client-side or public code.
-
-### Set up environment
+### Set Up Your Environment
 
 Before we begin this [Node.js](https://nodejs.org/en/download/package-manager) tutorial, run the following in a secure terminal:
 
 ```bash
-export FIREFLY_CLIENT_ID=yourClientIdAsdf123
-export FIREFLY_CLIENT_SECRET=yourClientSecretAsdf123
+export FIREFLY_SERVICES_CLIENT_ID=yourClientIdAsdf123
+export FIREFLY_SERVICES_CLIENT_SECRET=yourClientSecretAsdf123
 
 mkdir firefly-fill-image-api-tutorial
 cd firefly-fill-image-api-tutorial
@@ -59,7 +56,7 @@ touch index.js
 
 ### Download sample images
 
-Right click on each of the images below to download and save them to your project folder.
+Save each of the images below to your project folder.
 
 ||
 | --- | --- |
@@ -68,7 +65,7 @@ Right click on each of the images below to download and save them to your projec
 
 <InlineAlert variant="info" slots="text" />
 
-When creating your own applications, use the Photoshop API's [Create Mask](https://developer.adobe.com/firefly-services/docs/photoshop/api/photoshop_createMask/) endpoint to automate creation masks for your own images.
+When creating your own applications, use the Photoshop API's [Create Mask](https://developer.adobe.com/firefly-services/docs/photoshop/api/photoshop_createMask/) endpoint to automate the creation masks for your own images.
 
 ## Upload images
 
@@ -87,7 +84,7 @@ async function uploadImage({ filePath, fileType, accessToken }) {
     url: 'https://firefly-api.adobe.io/v2/storage/image',
     headers: {
       'Authorization': `Bearer ${accessToken}`,
-      'X-API-Key': process.env.FIREFLY_FIREFLY_CLIENT_ID,
+      'X-API-Key': process.env.FIREFLY_SERVICES_CLIENT_ID,
       'Content-Type': fileType,
       'Content-Length': fileSizeInBytes,
     },
@@ -131,7 +128,7 @@ async function genFill({ maskId, sourceId, prompt, accessToken }) {
     method: 'post',
     url: 'https://firefly-api.adobe.io/v3/images/fill',
     headers: {
-      'X-Api-Key': process.env.FIREFLY_FIREFLY_CLIENT_ID,
+      'X-Api-Key': process.env.FIREFLY_SERVICES_CLIENT_ID,
       'Authorization': `Bearer ${accessToken}`,
       'Content-Type': 'application/json',
     },
@@ -145,7 +142,7 @@ async function genFill({ maskId, sourceId, prompt, accessToken }) {
 
 ## Generate photo backgrounds
 
-Now, you can process each employee photo and generate a new image with the updated background.
+Next, process each employee photo and generate a new image with an updated background.
 
 ```js
 async function updateEmployeePhotos() {
@@ -197,7 +194,7 @@ async function updateEmployeePhotos() {
 
 ## Full example
 
-Review this tutorial's [Prequisites](#prerequisites) section to understand how to set up your environment prior to running this code. (Because this code is for educational purposes only, it is not production-ready and requires additional error handling, logging, security measures, and more before it can be used in a live application.)
+Review this tutorial's [prerequisites](#prerequisites) section to understand how to set up your environment prior to running this code. (Because this code is for educational purposes only, it is not production-ready and requires additional error handling, logging, security measures, and more before it can be used in a live application.)
 
 ```js
 const axios = require("axios");
@@ -230,8 +227,8 @@ const employees = [
 async function retrieveAccessToken() {
   let data = qs.stringify({
     grant_type: "client_credentials",
-    client_id: process.env.FIREFLY_CLIENT_ID,
-    client_secret: process.env.FIREFLY_CLIENT_SECRET,
+    client_id: process.env.FIREFLY_SERVICES_CLIENT_ID,
+    client_secret: process.env.FIREFLY_SERVICES_CLIENT_SECRET,
     scope:
       "openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis",
   });
@@ -265,7 +262,7 @@ async function uploadImage({ filePath, fileType, accessToken }) {
     url: "https://firefly-api.adobe.io/v2/storage/image",
     headers: {
       Authorization: `Bearer ${accessToken}`,
-      "X-API-Key": process.env.FIREFLY_CLIENT_ID,
+      "X-API-Key": process.env.FIREFLY_SERVICES_CLIENT_ID,
       "Content-Type": fileType,
       "Content-Length": fileSizeInBytes,
     },
@@ -295,7 +292,7 @@ async function genFill({ maskId, sourceId, prompt, accessToken }) {
     method: "post",
     url: "https://firefly-api.adobe.io/v3/images/fill",
     headers: {
-      "X-Api-Key": process.env.FIREFLY_CLIENT_ID,
+      "X-Api-Key": process.env.FIREFLY_SERVICES_CLIENT_ID,
       Authorization: `Bearer ${accessToken}`,
       "Content-Type": "application/json",
     },
@@ -345,7 +342,7 @@ async function updateEmployeePhotos(accessToken) {
 }
 ```
 
-We wrote this tutorial using the CommmonJS convention in order to make it easy to get up and running with the code. If you'd prefer to use ES6 modules, you can easily convert the code by changing the `require` statements to `import` statements and then changing the file name from `index.js` to `index.mjs`.
+We wrote this tutorial in CommmonJS in order to make it easy to get up and running with the code. If you'd prefer to use ES6 modules, convert the code by changing the `require` statements to `import` statements and then changing the file name from `index.js` to `index.mjs`.
 
 ## Deepen your understanding
 

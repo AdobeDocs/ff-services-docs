@@ -13,13 +13,11 @@ hideBreadcrumbNav: true
 
 # Style Image Reference
 
-Use Style Image Reference to generate images based on a specific style, colors, artistic methods, or mood.
+Use Style Image Reference to generate images based on specific styles, colors, artistic methods, or mood.
 
 ||
 | --- | --- |
-| ![mountain](../../images/style-image-reference-mountain.jpeg) <p style="text-align:center">Style Reference Image</p> | ![dog](../../images/style-image-reference-dog.jpeg) <p style="text-align:center">Generated Image</p>
-
-Use `style.imageReference` to generate images based on specific style, colors, artistic methods, or mood.
+| ![mountain](../../images/style-image-reference-mountain.jpeg) <p style="text-align:center">Style Image Reference</p> | ![dog](../../images/style-image-reference-dog.jpeg) <p style="text-align:center">Generated Image</p>
 
 ### Specifying Strength
 
@@ -34,16 +32,16 @@ If you don't already have a Firefly "client ID" and "access token", learn how to
 First, open a secure terminal and `export` your "client ID" and "access token" as environment variables:
 
 ```bash
-export FIREFLY_CLIENT_ID=yourClientIdAsdf123
+export FIREFLY_SERVICES_CLIENT_ID=yourClientIdAsdf123
 export FIREFLY_ACCESS_TOKEN=yourAccessTokenAsdf123
 ```
 
-Next, right click on the image of the mountain and save it to your computer's Desktop.
+Next, save the image of the mountain to your computer's Desktop.
 
 Next, upload your saved image to Firefly's storage API:
 
 ```bash
-curl --location 'https://firefly-api.adobe.io/v2/storage/image' --header 'Content-Type: image/webp' --header 'Accept: application/json' --header "x-api-key: $FIREFLY_CLIENT_ID" --header "Authorization: Bearer $FIREFLY_ACCESS_TOKEN" --data-binary '@/Users/PLACEHOLDER_FOR_YOUR_MACHINE_USER_NAME/Desktop/style-image-reference-mountain.webp'
+curl --location 'https://firefly-api.adobe.io/v2/storage/image' --header 'Content-Type: image/webp' --header 'Accept: application/json' --header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" --header "Authorization: Bearer $FIREFLY_ACCESS_TOKEN" --data-binary '@/Users/PLACEHOLDER_FOR_YOUR_MACHINE_USER_NAME/Desktop/style-image-reference-mountain.webp'
 ```
 
 You will receive a response that looks like this:
@@ -64,7 +62,7 @@ Finally, generate a new image based on the uploaded image:
 curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
---header "x-api-key: $FIREFLY_CLIENT_ID" \
+--header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
 --header "Authorization: Bearer $FIREFLY_ACCESS_TOKEN" \
 --data '{
   "numVariations": 4,

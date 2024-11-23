@@ -26,7 +26,7 @@ With our launch of new asynchronous APIs, you can manage your Firefly requests a
 
 ## Introduction
 
-Our original Firefly APIs operated in a synchronous fashion. This meant that you could call the API with a given text prompt and generate an image, however Firefly platform delayed returning the response until it generated your assets. If you're not already familiar with our standard, synchronous APIs, see the [Create your First Firefly API Implementation](https://developer.adobe.com/firefly-services/docs/firefly-api/guides/how-tos/create-your-first-ff-application/) for a refresher on the APIs in general.
+Our original Firefly APIs operated in a synchronous fashion. This meant that you could call the API with a given text prompt and generate an image, however Firefly platform delayed returning the response until it generated your assets. If you're not already familiar with our standard, synchronous APIs, see our [Quickstart Guide](../index.md).
 
 ![bears in dresses dancing](../images/bearsdancingforest.jpg)
 

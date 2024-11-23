@@ -49,13 +49,13 @@ hideBreadcrumbNav: true
 
 # Firefly Generate Image API Tutorial
 
-Create custom illustrations and photos with the [Generate Image API](../api/image_generation/V3/index.md).
+Create custom illustrations and photos with the [Generate Image API](../api/image_generation/V3/index.md)
 
-![paris tourism illustration](../images/paris.jpeg)
+![paris tourism illustration](../images/gen-image-tutorial-hero.jpeg)
 
 ## Overview
 
-For this tutorial, let's imagine we work at a global tourism company and are creating a marketing campaign with localized illustrations for the different places our company promotes.
+In this tutorial, let's imagine we work at a global tourism company and are creating a marketing campaign with localized illustrations for the different places our company promotes.
 
 In the tutorial below, we will:
 
@@ -63,23 +63,19 @@ In the tutorial below, we will:
 * Next, add aspect ratio, localized style, and style preset customizations
 * Finally, generate localized images for multiple locations
 
-Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [go straight to the full source code](#full-example) at the bottom of this webpage.
+Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump immediately to the full source code](#full-example) at the bottom of this webpage.
 
 ## Prerequisites
 
-This tutorial assumes you have worked with your Adobe Representative and have the following:
+This tutorial assumes you possess a Firefly Services **Client ID** and **Client Secret**. If you don't have these credentials, learn how to get them at the [Adobe Developer Console](../concepts/dev-console) page.
 
-* An [Adobe Developer Console](https://developer.adobe.com/console/786177/home) account.
-* A [project](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/) with Firefly API [OAuth Server-to-Server credentials set up](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/).
-* Access to your Client ID and Client Secret from the [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview). Securely store these credentials and never expose them in client-side or public code.
-
-### Set up environment
+## Set Up Your Environment
 
 Before we begin this [Node.js](https://nodejs.org/en/download/package-manager) tutorial, run the following in a secure terminal:
 
 ```bash
-export FIREFLY_CLIENT_ID=yourClientIdAsdf123
-export FIREFLY_CLIENT_SECRET=yourClientSecretAsdf123
+export FIREFLY_SERVICES_CLIENT_ID=yourClientIdAsdf123
+export FIREFLY_SERVICES_CLIENT_SECRET=yourClientSecretAsdf123
 
 mkdir firefly-generate-image-api-tutorial
 cd firefly-generate-image-api-tutorial
@@ -88,7 +84,7 @@ npm install axios qs
 touch index.js
 ```
 
-## Image generation
+## Generate an Image
 
 Let's not bury the lede 😁 Here's the code to generate a single image with a simple prompt:
 
@@ -101,7 +97,7 @@ async function generateImage({ accessToken, data = { prompt: "dog" } }) {
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      "x-api-key": process.env.FIREFLY_CLIENT_ID,
+      "x-api-key": process.env.FIREFLY_SERVICES_CLIENT_ID,
       Authorization: `Bearer ${accessToken}`,
     },
     data: JSON.stringify(data),
@@ -116,15 +112,13 @@ async function generateImage({ accessToken, data = { prompt: "dog" } }) {
 }
 ```
 
-## Customizing requests
+## Customize Requests
 
 Firefly has a variety of options to customize your image generation requests. Let's explore some of these options by updating the `data` object in the code below to customize our artwork by specifying:
 
 * A landscape (16:9) aspect ratio
 * A geographic style localized to `en-US`
 * The style presets of `doodle_drawing` and `scribble_texture`
-
-Update your `data` object to match the following:
 
 ```js
 const data = {
@@ -156,7 +150,7 @@ const IMAGE_VARIATIONS = [
 ];
 ```
 
-And now let's update the `createImages` function to customize its requests for each location described above:
+And now let's update the `createImages` function to customize its requests for each location:
 
 ```js
 async function createImages(accessToken) {
@@ -179,7 +173,7 @@ async function createImages(accessToken) {
 
 ## Full example
 
-Review this tutorial's [Prequisites](#prerequisites) section to understand how to set up your environment prior to running this code. (Because this code is for educational purposes only, it is not production-ready and requires additional error handling, logging, security measures, and more before it can be used in a live application.)
+Review this tutorial's [prerequisites](#prerequisites) section to understand how to set up your environment prior to running this code. (Because this code is for educational purposes only, it is not production-ready and requires additional error handling, logging, security measures, and more before it can be used in a live application.)
 
 ```js
 const axios = require("axios");
@@ -224,8 +218,8 @@ async function createImages(accessToken) {
 async function retrieveAccessToken() {
   let data = qs.stringify({
     grant_type: "client_credentials",
-    client_id: process.env.FIREFLY_CLIENT_ID,
-    client_secret: process.env.FIREFLY_CLIENT_SECRET,
+    client_id: process.env.FIREFLY_SERVICES_CLIENT_ID,
+    client_secret: process.env.FIREFLY_SERVICES_CLIENT_SECRET,
     scope:
       "openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis",
   });
@@ -257,7 +251,7 @@ async function generateImage({ accessToken, data }) {
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      "x-api-key": process.env.FIREFLY_CLIENT_ID,
+      "x-api-key": process.env.FIREFLY_SERVICES_CLIENT_ID,
       Authorization: `Bearer ${accessToken}`,
     },
     data: JSON.stringify(data),
@@ -272,7 +266,7 @@ async function generateImage({ accessToken, data }) {
 }
 ```
 
-We wrote this tutorial using the CommmonJS convention in order to make it easy to get up and running with the code. If you'd prefer to use ES6 modules, you can easily convert the code by changing the `require` statements to `import` statements and then changing the file name from `index.js` to `index.mjs`.
+We wrote this tutorial in CommmonJS in order to make it easy to get up and running with the code. If you'd prefer to use ES6 modules, convert the code by changing the `require` statements to `import` statements and then changing the file name from `index.js` to `index.mjs`.
 
 ## Deepen your understanding
 
