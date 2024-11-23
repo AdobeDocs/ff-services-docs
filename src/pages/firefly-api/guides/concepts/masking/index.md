@@ -11,7 +11,7 @@ contributors:
 hideBreadcrumbNav: true
 ---
 
-# Masking 
+# Masking
 
 Use masks to control image maniplation in Firefly APIs
 
@@ -19,12 +19,11 @@ Use masks to control image maniplation in Firefly APIs
 | --- | --- |
 | ![a picture of a person with a green scenic background](../../images/masking-concept-original.jpg) | ![a mask of a person shape with a white background](../../images/masking-concept-mask.jpg)
 
-
 ## Overview
 
 Masking is a powerful concept in image editing that allows you to isolate specific parts of an image for modifications while leaving other areas unchanged. This process is essential in scenarios where you want precise control over which portions of an image are edited.
 
-In the case of Firefly APIs, masking can help with many operations such as Fill Image and Generate Object Composite endpoints to tell firefly which areas of an image can be modified/filled. 
+In the case of Firefly APIs, masking can help with many operations such as Fill Image and Generate Object Composite endpoints to tell firefly which areas of an image can be modified/filled.
 
 ## Mask
 

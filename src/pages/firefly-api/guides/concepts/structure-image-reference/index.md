@@ -15,7 +15,6 @@ hideBreadcrumbNav: true
 
 Use Structure Image Reference to generate images based on a specific outline and depth
 
-
 ||
 | --- | --- |
 | ![mountain](../../images/structure-image-reference-mountain.jpeg) <p style="text-align:center">Structure Reference Image</p> | ![volcano](../../images/structure-image-reference-volcano.jpeg) <p style="text-align:center">Generated Image</p>
@@ -55,7 +54,7 @@ You will receive a response that looks like this:
 
 Export it so that the next script can easily access it:
 
-```
+```bash
 export FIREFLY_UPLOAD_ID=asdf123YourUploadIdFromPreviousStep
 ```
 

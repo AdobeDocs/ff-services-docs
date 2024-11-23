@@ -54,7 +54,7 @@ You will receive a response that looks like this:
 
 Export it so that the next script can easily access it:
 
-```
+```bash
 export FIREFLY_UPLOAD_ID=asdf123YourUploadIdFromPreviousStep
 ```
 
