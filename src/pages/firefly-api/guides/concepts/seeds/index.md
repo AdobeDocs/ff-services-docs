@@ -45,7 +45,7 @@ If you don't already have a Firefly "client ID" and "access token", learn how to
 First, open a secure terminal and `export` your "client ID" and "access token" as environment variables:
 
 ```bash
-export FIREFLY_CLIENT_ID=yourClientIdAsdf123
+export FIREFLY_SERVICES_CLIENT_ID=yourClientIdAsdf123
 export FIREFLY_ACCESS_TOKEN=yourAccessTokenAsdf123
 ```
 
@@ -55,7 +55,7 @@ Next, run the following `curl` command to generate an image:
 curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
---header "x-api-key: $FIREFLY_CLIENT_ID" \
+--header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
 --header "Authorization: Bearer $FIREFLY_ACCESS_TOKEN" \
 --data '{
     "prompt": "a futuristic future cityscape with flying cars"
@@ -92,7 +92,7 @@ Below, let's generate an image variation has "landscape photography" and "scienc
 curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
---header "x-api-key: $FIREFLY_CLIENT_ID" \
+--header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
 --header "Authorization: Bearer $FIREFLY_ACCESS_TOKEN" \
 --data '{
     "prompt": "a futuristic future cityscape with flying cars",

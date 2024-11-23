@@ -17,35 +17,33 @@ hideBreadcrumbNav: true
 
 # Firefly Expand Image API Tutorial
 
-Create multiple variations of an image by generating larger sizes of the image with the [Expand Image API](../api/generative_expand/V3/)
+Generatively expand an image out beyond its edges with the [Expand Image API](../api/generative_expand/V3/)
 
 ![shoes advertisement hero image](../images/expand-image-tutorial-hero-image.png)
 
 ## Overview
 
-For this tutorial, imagine we are working on a marketing campaign at a Fortune 100 company, and we need to create different sized images variations optimized for various social media platforms. In the past, we had to manually resize images for each platform, which was time-consuming and error-prone. With Firefly's Expand Image API, we automate this process and generate multiple variations of an images with dimensions optimized for platforms like Instagram, Facebook, Twitter, and more.
+In this tutorial, imagine we are working on a marketing campaign at a Fortune 100 company, and we need to create differently sized images variations optimized for various social media platforms. In the past we had to manually resize images for each platform, which was time-consuming and error-prone. With Firefly's Expand Image API, we can automate this process and generate multiple variations of images with dimensions optimized for platforms like Instagram, Facebook, Twitter, and more.
 
 Before diving into the code, let's preview the high-level steps:
 
 1. **Define Target Dimensions:** Each social media platform has specific image size requirements. We define these dimensions for the platforms you target.
 2. **Upload Source Image:** Use Firefly's [Upload API](../api/upload_image/) to upload your original image.
-3. **Generate Variations:** Use Firefly's [Expand Image API](../api/generative_expand/V3/) to create resized variations of the image for each dimension.
+3. **Generate Image Variations:** Use Firefly's [Expand Image API](../api/generative_expand/V3/) to create resized variations of the image for each dimension.
 
-Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [go straight to the full source code](#full-example).
+Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump straight to the full source code](#full-example).
 
 ## Prerequisites
 
-This tutorial assumes you worked with your Adobe Representative and have the following:
+This tutorial assumes you possess a Firefly Services **Client ID** and **Client Secret**. If you don't have these credentials, learn how to get them at the [Adobe Developer Console](../concepts/dev-console) page.
 
-* An [Adobe Developer Console](https://developer.adobe.com/console/786177/home) account.
-* A [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/) with Firefly API [OAuth Server-to-Server credentials set up](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/).
-* Access to your Client ID and Client Secret from the [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview). Securely store these credentials and never expose them in client-side or public code.
+## Set Up Your Environment
 
-Before we begin this tutorial, if you don't already have it, set up [Node.js](https://nodejs.org/en/download/package-manager). Run the following in a secure terminal:
+Before we begin this [Node.js](https://nodejs.org/en/download/package-manager) tutorial, run the following in a secure terminal:
 
 ```bash
-export FIREFLY_CLIENT_ID=yourClientIdAsdf123
-export FIREFLY_CLIENT_SECRET=yourClientSecretAsdf123
+export FIREFLY_SERVICES_CLIENT_ID=yourClientIdAsdf123
+export FIREFLY_SERVICES_CLIENT_SECRET=yourClientSecretAsdf123
 
 mkdir firefly-expand-image-api-tutorial
 cd firefly-expand-image-api-tutorial
@@ -102,7 +100,7 @@ async function uploadImage({ filePath, fileType, accessToken }) {
     url: 'https://firefly-api.adobe.io/v2/storage/image',
     headers: {
       'Authorization': `Bearer ${accessToken}`,
-      'X-API-Key': process.env.FIREFLY_CLIENT_ID,
+      'X-API-Key': process.env.FIREFLY_SERVICES_CLIENT_ID,
       'Content-Type': fileType,
       'Content-Length': fileSizeInBytes,
     },
@@ -148,7 +146,7 @@ async function genExpand({ imageId, width, height, accessToken }) {
     method: 'post',
     url: 'https://firefly-api.adobe.io/v3/images/expand',
     headers: {
-      'X-Api-Key': process.env.FIREFLY_CLIENT_ID,
+      'X-Api-Key': process.env.FIREFLY_SERVICES_CLIENT_ID,
       'Authorization': `Bearer ${accessToken}`,
       'Content-Type': 'application/json',
     },
@@ -186,7 +184,7 @@ Once we know Firefly generated our images, we log the results, including the URL
 
 ## Full Example
 
-You can review the [Prequisites](#prerequisites) section to understand how to set up your environment prior to running this code. Note that this is an example only ad is not production-ready and requires additional error handling, logging, security measures, and more before you can run it at scale in a live application.
+You can review the [prerequisites](#prerequisites) section to understand how to set up your environment prior to running this code. Note that this is an example only ad is not production-ready and requires additional error handling, logging, security measures, and more before you can run it at scale in a live application.
 
 ```js
 const axios = require("axios");
@@ -220,8 +218,8 @@ const SOCIAL_MEDIA_PLATFORMS = [
 async function retrieveAccessToken() {
   let data = qs.stringify({
     grant_type: "client_credentials",
-    client_id: process.env.FIREFLY_CLIENT_ID,
-    client_secret: process.env.FIREFLY_CLIENT_SECRET,
+    client_id: process.env.FIREFLY_SERVICES_CLIENT_ID,
+    client_secret: process.env.FIREFLY_SERVICES_CLIENT_SECRET,
     scope:
       "openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis",
   });
@@ -255,7 +253,7 @@ async function uploadImage({ filePath, fileType, accessToken }) {
     url: "https://firefly-api.adobe.io/v2/storage/image",
     headers: {
       Authorization: `Bearer ${accessToken}`,
-      "X-API-Key": process.env.FIREFLY_CLIENT_ID,
+      "X-API-Key": process.env.FIREFLY_SERVICES_CLIENT_ID,
       "Content-Type": fileType,
       "Content-Length": fileSizeInBytes,
     },
@@ -286,7 +284,7 @@ async function genExpand({ imageId, width, height, accessToken }) {
     method: "post",
     url: "https://firefly-api.adobe.io/v3/images/expand",
     headers: {
-      "X-Api-Key": process.env.FIREFLY_CLIENT_ID,
+      "X-Api-Key": process.env.FIREFLY_SERVICES_CLIENT_ID,
       Authorization: `Bearer ${accessToken}`,
       "Content-Type": "application/json",
     },
@@ -323,7 +321,7 @@ async function createSocialMediaRenditions(accessToken) {
 }
 ```
 
-This tutorial uses the CommmonJS convention in order to make it easy to get up and running with the code. If you'd prefer the ES6 modules, you can easily convert the code by changing the `require` statements to `import` statements and then changing the file name from `index.js` to `index.mjs`.
+We wrote this tutorial in CommmonJS in order to make it easy to get up and running with the code. If you'd prefer to use ES6 modules, convert the code by changing the `require` statements to `import` statements and then changing the file name from `index.js` to `index.mjs`.
 
 ## Learn More
 
