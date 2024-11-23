@@ -58,7 +58,7 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header "x-api-key: $FIREFLY_CLIENT_ID" \
 --header "Authorization: Bearer $FIREFLY_ACCESS_TOKEN" \
 --data '{
-    "prompt": "a futuristic future cityscape with flying cars",
+    "prompt": "a futuristic future cityscape with flying cars"
 }'
 ```
 
@@ -131,4 +131,4 @@ Notice how many similarities there are between these two images generated from t
 
 ||
 | --- | --- |
-| ![a variation of futuristic city 1](../../images/seeded-city-1.jpeg) <p style="text-align:center">first generation</p> | ![a picture of a futuristic city 1](../../images/seedless-city-1.jpeg) <p style="text-align:center">second generation</p>
+| ![a picture of a futuristic city 1](../../images/seedless-city-1.jpeg) <p style="text-align:center">original image</p> | ![a variation of futuristic city 1](../../images/seeded-city-1.jpeg) <p style="text-align:center">image with same seed but with style presets added</p>
