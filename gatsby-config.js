@@ -134,7 +134,7 @@ module.exports = {
             path: "/firefly-api/guides/how-tos/firefly-expand-image-api-tutorial.md",
           },
           {
-            title: "Using the Firefly Asynchronous API",
+            title: "Using the Firefly Asynchronous APIs",
             path: "/firefly-api/guides/how-tos/using-async-apis.md",
           },
           {
