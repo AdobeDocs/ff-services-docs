@@ -26,7 +26,7 @@ contributors:
 hideBreadcrumbNav: true
 ---
 
-# Image Model Styles
+# Style Presets
 
 Use style presets to customize the look and feel of your generated images
 

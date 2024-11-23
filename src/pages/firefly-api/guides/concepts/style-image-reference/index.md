@@ -13,13 +13,11 @@ hideBreadcrumbNav: true
 
 # Style Image Reference
 
-Use Style Image Reference to generate images based on a specific style, colors, artistic methods, or mood.
+Use Style Image Reference to generate images based on specific styles, colors, artistic methods, or mood.
 
 ||
 | --- | --- |
-| ![mountain](../../images/style-image-reference-mountain.jpeg) <p style="text-align:center">Style Reference Image</p> | ![dog](../../images/style-image-reference-dog.jpeg) <p style="text-align:center">Generated Image</p>
-
-Use `style.imageReference` to generate images based on specific style, colors, artistic methods, or mood.
+| ![mountain](../../images/style-image-reference-mountain.jpeg) <p style="text-align:center">Style Image Reference</p> | ![dog](../../images/style-image-reference-dog.jpeg) <p style="text-align:center">Generated Image</p>
 
 ### Specifying Strength
 
@@ -38,7 +36,7 @@ export FIREFLY_CLIENT_ID=yourClientIdAsdf123
 export FIREFLY_ACCESS_TOKEN=yourAccessTokenAsdf123
 ```
 
-Next, right click on the image of the mountain and save it to your computer's Desktop.
+Next, save the image of the mountain to your computer's Desktop.
 
 Next, upload your saved image to Firefly's storage API:
 
