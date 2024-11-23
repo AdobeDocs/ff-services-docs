@@ -34,8 +34,6 @@ Use style presets to customize the look and feel of your generated images
 
 Use style `presets` with Firefly's [Generate Images API](../../api/image_generation/V3/) or [Generate Object Composite API](../../api/generate-object-composite/) to give your generated images a specific visual style or mood.
 
-Begin exploring Firefly's many style `presets` with the code snippet below, and then read the [Using Content Class and Style Presets](../../how-tos/using-content-class-style-preset.md) guide for more tips on how to expertly use this powerful feature.
-
 ### Generating Images with Style Presets
 
 <InlineAlert variant="info" slots="text" />

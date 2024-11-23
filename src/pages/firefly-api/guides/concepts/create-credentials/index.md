@@ -20,7 +20,7 @@ hideBreadcrumbNav: true
 
 <InlineAlert variant="warning" slots="text" />
 
-This page contains instructions for these admins to create project keys for their teams. If you are a developer and your admin has shared a valid key with you, head over to the [quickstart guide](../index.md)
+This page contains instructions for these admins to create project keys for their teams. If you are a developer and your admin has shared a valid key with you, head over to the [quickstart guide](../../index.md)
 
 ## Access Adobe Developer Console
 
