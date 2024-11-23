@@ -129,4 +129,6 @@ Your response will look like this:
 
 Notice how many similarities there are between these two images generated from the same seeds.
 
-![a variation of futuristic city 1](../../images/seeded-city-1.jpeg)
+||
+| --- | --- |
+| ![a variation of futuristic city 1](../../images/seeded-city-1.jpeg) <p style="text-align:center">first generation</p> | ![a picture of a futuristic city 1](../../images/seedless-city-1.jpeg) <p style="text-align:center">second generation</p>
