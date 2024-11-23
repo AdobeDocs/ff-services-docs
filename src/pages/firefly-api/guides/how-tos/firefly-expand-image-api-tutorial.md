@@ -300,7 +300,7 @@ async function genExpand({ imageId, width, height, accessToken }) {
 async function createSocialMediaRenditions(accessToken) {
   // Upload the source image
   let upload = await uploadImage({
-    filePath: "./source-image.webp",
+    filePath: "./expand-image-tutorial-source-image.webp",
     fileType: "image/webp",
     accessToken,
   });
