@@ -22,7 +22,7 @@ Modify specific regions of an image by replacing them with AI-generated pixels w
 
 ||
 | --- | --- | --- |
-| ![source-person-photo-1](../images/source-person-photo-1.png) | ![mask-person-photo-1](../images/mask-person-photo-1.png) | ![fill-image-tutorial-source-image.webp](../images/fill-image-tutorial-hero-image.jpeg)
+| ![source-person-photo-1](../images/source-person-photo-1.png) | ![mask-person-photo-1](../images/mask-person-photo-1.png) | ![result-person-photo-1](../images/result-person-photo-1.jpeg)
 
 ## Overview
 
@@ -192,6 +192,10 @@ async function updateEmployeePhotos() {
   }
 }
 ```
+
+||
+| --- | --- |
+| ![result-person-photo-1](../images/result-person-photo-1.jpeg) | ![result-person-photo-2](../images/result-person-photo-2.jpeg)
 
 ## Full source code
 
