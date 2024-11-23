@@ -36,7 +36,7 @@ hideBreadcrumbNav: true
 
 # Authentication
 
-Learn how to make requests to Firefly APIs
+Learn how to send requests to Firefly APIs
 
 ## Overview
 
@@ -50,7 +50,7 @@ This tutorial assumes you have worked with your Adobe Representative and have th
 * A [project](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/) with Firefly API [OAuth Server-to-Server credentials set up](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/).
 * Access to your Client ID and Client Secret from the [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview). Securely store these credentials and never expose them in client-side or public code.
 
-## Retrieve access token
+## Retrieve an Access Token
 
 First, open a secure terminal and `export` your "client ID" and "client secret" as environment variables so that your later commands can access them:
 
@@ -84,7 +84,7 @@ Export your access token as an environment variable:
 export FIRELY_ACCESS_TOKEN=yourAccessTokenAsdf123
 ```
 
-## Generate an image
+## Generate an Image
 
 Next, call the [Firefly Generate Images API](../../api/image_generation/V3/):
 
