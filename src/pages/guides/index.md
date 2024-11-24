@@ -80,13 +80,13 @@ With Firefly Services, you're not just creating – you're automating, scaling y
 
 ### Get Started
 
-[Getting Started Guide](./get-started.md)
+[Firefly API Quickstart guide](../firefly-api/guides/index.md)
 
 Get started with the Adobe Firefly Services.
 
 <DiscoverBlock slots="link, text"/>
 
-[Tutorials](./tutorials/) 
+[Firefly API Tutorials](../firefly-api/guides/how-tos/firefly-generate-image-api-tutorial.md)
 
 Explore our tutorials page for comprehensive guidance.  
 
