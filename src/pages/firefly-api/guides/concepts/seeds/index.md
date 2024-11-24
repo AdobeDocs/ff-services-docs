@@ -44,7 +44,7 @@ First, open a secure terminal and `export` your "client ID" and "access token" a
 
 ```bash
 export FIREFLY_SERVICES_CLIENT_ID=yourClientIdAsdf123
-export FIREFLY_ACCESS_TOKEN=yourAccessTokenAsdf123
+export FIREFLY_SERVICES_ACCESS_TOKEN=yourAccessTokenAsdf123
 ```
 
 Next, run the following `curl` command to generate an image:
@@ -54,7 +54,7 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
---header "Authorization: Bearer $FIREFLY_ACCESS_TOKEN" \
+--header "Authorization: Bearer $FIREFLY_SERVICES_ACCESS_TOKEN" \
 --data '{
     "prompt": "a futuristic future cityscape with flying cars"
 }'
@@ -91,7 +91,7 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
---header "Authorization: Bearer $FIREFLY_ACCESS_TOKEN" \
+--header "Authorization: Bearer $FIREFLY_SERVICES_ACCESS_TOKEN" \
 --data '{
     "prompt": "a futuristic future cityscape with flying cars",
     "seeds": [
