@@ -1,6 +1,6 @@
 ---
-title: Styles - Adobe Firefly APIs
-description: A guide to using styles with the Firefly Image Model APIs.
+title: Style Presets - Adobe Firefly APIs
+description: A guide to using style presets with the Firefly Image Model APIs.
 keywords:
   - Styles
   - Adobe Firefly Services
