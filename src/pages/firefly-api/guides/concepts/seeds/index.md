@@ -1,6 +1,6 @@
 ---
-title: Seed IDs - Adobe Firefly API
-description: This guide explains usage of Seed IDs for the Adobe Firefly API.
+title: Seeds - Adobe Firefly API
+description: This guide explains usage of Seeds in the Adobe Firefly API.
 keywords:
   - Adobe Firefly Services
   - Seed ID
@@ -32,7 +32,7 @@ hideBreadcrumbNav: true
 
 Use seeds to generate images similar to one another across multiple HTTP requests
 
-Whenever Firefly generates an image, by default it begins the process by picking a random `seed`. This random number contributes to what makes each image unique, which is great when you want to generate a wide variety of images
+Whenever Firefly generates an image, by default it begins the process by picking a random number called a `seed`. This random number contributes to what makes each image unique, which is great when you want to generate a wide variety of images
 
 However, there may be times when you want to generate images that are similar to one another across multiple HTTP requests. For example, when Firefly generates an image that you want to modify using Firefly's other options (such as style presets, reference images, etc.), use that image's `seed` in future HTTP requests to limit the randomness of future images and hone in on the image you want.
 
@@ -82,7 +82,7 @@ The above request will return a response like this:
 
 ![a picture of a futuristic city 1](../../images/seedless-city-1.jpeg)
 
-Let's generate similar variations of this image by using its `seed` of `1842533538` in our next request. This allows us to use all of Firefly's other generation options such as style presets, size, reference images, and more, while keeping the more image consistent with this previously generated image that we like.
+Let's generate similar variations of this image by using its `seed` of `1842533538` in our next request. This allows us to use all of Firefly's other generation options such as style presets, size, reference images, and more, while keeping the image consistent with the previously generated image.
 
 Below, let's generate an image variation has "landscape photography" and "science fiction" [style presets](../style-presets/index.md) applied to it.
 
