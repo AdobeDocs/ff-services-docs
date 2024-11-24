@@ -79,7 +79,7 @@ Notice how the response includes an `expires_in` field, which informs you of how
 Export your access token as an environment variable:
 
 ```bash
-export FIRELY_ACCESS_TOKEN=yourAccessTokenAsdf123
+export FIREFLY_SERVICES_ACCESS_TOKEN=yourAccessTokenAsdf123
 ```
 
 ## Generate an Image
