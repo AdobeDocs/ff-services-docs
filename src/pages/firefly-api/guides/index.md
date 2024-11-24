@@ -120,4 +120,4 @@ Open the URL in your browser to see the image you generated with Firefly 🎉
 
 ## Deepen Your Understanding
 
-Visit the [Firefly Generate Images API documentation](./api/image_generation/V3/) to learn more about the rich customization options available to you, including the ability to specify image style, structure, intensity, geographic locale, size, and more 🚀
+Visit the [Firefly Generate Image API tutorial](./how-tos/firefly-generate-image-api-tutorial.md) to learn more about the rich customization options available to you 🚀
