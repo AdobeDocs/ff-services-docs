@@ -12,7 +12,7 @@ contributors:
 hideBreadcrumbNav: true
 ---
 
-# Placement 
+# Placement
 
 Use placement to control how an image is positioned
 
