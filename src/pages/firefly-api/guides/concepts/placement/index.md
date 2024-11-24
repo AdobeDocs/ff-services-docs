@@ -17,7 +17,7 @@ Use placement to control how an image is positioned
 
 ||
 | --- | --- |
-| ![expanded product with placement alignment top right](../../images/sevoi-top-right.png) <p style="text-align:center">Placement - Right Alignment</p> | ![expanded product with placement alignment top left](../../images/sevoi-top-left.png) <p style="text-align:center">Placement - Left Alignment</p> |
+| ![expanded product with placement alignment top right](../../images/sevoi-top-right.png) <p style="text-align:center">Right Alignment</p> | ![expanded product with placement alignment top left](../../images/sevoi-top-left.png) <p style="text-align:center">Left Alignment</p> |
 
 ## Overview
 
@@ -58,7 +58,7 @@ The inset option defines margins (in pixels) from each side of the frame, effect
 
 This example places the image with:
 
-* 500 pixels of margin from the left,
-* 0 pixels from the top,
-* 400 pixels from the right, and
-* 40 pixels from the bottom.
+* 500 pixels of margin from the left edge of the final generation
+* 0 pixels from the top edge of the final generation
+* 400 pixels from the right edge of the final generation
+* 40 pixels from the bottom edge of the final generation
