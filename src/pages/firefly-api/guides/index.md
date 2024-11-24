@@ -33,7 +33,7 @@ keywords:
   - Authorization
   - Credentials
 contributors:
-  - https://github.com/hollyschinsky
+  - https://github.com/bishoysefin
 hideBreadcrumbNav: true
 ---
 

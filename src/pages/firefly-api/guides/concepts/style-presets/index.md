@@ -20,6 +20,7 @@ keywords:
   - Design tokens
   - CSS variables
 contributors:
+  - https://github.com/bishoysefin
   - https://github.com/amandahuarng
   - https://github.com/nimithajalal
   - https://github.com/hollyschinsky

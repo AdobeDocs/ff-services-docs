@@ -19,7 +19,7 @@ hideBreadcrumbNav: true
 
 Generatively expand an image out beyond its edges with the [Expand Image API](../api/generative_expand/V3/)
 
-![shoes advertisement hero image](../images/expand-image-tutorial-hero-image.png)
+![wallet advertisement hero image](../images/expand-image-tutorial-hero-image.jpeg)
 
 ## Overview
 
@@ -56,7 +56,7 @@ touch index.js
 
 Save this sample image to your project folder:
 
-![expand-image-tutorial-source-image.webp](../images/expand-image-tutorial-source-image.png)
+![expand-image-tutorial-source-image.webp](../images/expand-image-tutorial-source-image.jpeg)
 
 ## Define Dimensions
 

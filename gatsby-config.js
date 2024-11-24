@@ -100,6 +100,10 @@ module.exports = {
             path: "/firefly-api/guides/concepts/masking/",
           },
           {
+            title: "Placement",
+            path: "/firefly-api/guides/concepts/placement/",
+          },
+          {
             title: "Style Presets",
             path: "/firefly-api/guides/concepts/style-presets/",
           },
