@@ -32,6 +32,10 @@ hideBreadcrumbNav: true
 
 Use seeds to generate images similar to one another across multiple HTTP requests
 
+||
+| --- | --- | --- |
+| ![original image](../../images/seed-concept-original-image.jpeg) <p style="text-align:center">Original Image</p> | ![same seed variation](../../images/seed-concept-same-seed-regeneration.jpeg) <p style="text-align:center">Same Seed Regeneration</p> | ![different seed variation](../../images/seed-concept-different-seed-regeneration.jpeg) <p style="text-align:center">Different Seed Regeneration</p>
+
 Whenever Firefly generates an image, by default it begins the process by picking a random number called a `seed`. This random number contributes to what makes each image unique, which is great when you want to generate a wide variety of images
 
 However, there may be times when you want to generate images that are similar to one another across multiple HTTP requests. For example, when Firefly generates an image that you want to modify using Firefly's other options (such as style presets, reference images, etc.), use that image's `seed` in future HTTP requests to limit the randomness of future images and hone in on the image you want.
