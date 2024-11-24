@@ -49,7 +49,7 @@ contributors:
 hideBreadcrumbNav: true
 ---
 
-<Hero slots="heading, text" background="rgb(233, 80, 80)"/> 
+<Hero slots="heading, text" background="rgb(233, 80, 80)"/>
 
 # Adobe Firefly Services
 
