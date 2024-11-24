@@ -63,7 +63,7 @@ Firefly Services includes Firefly APIs, Lightroom APIs, Photoshop APIs, and Cont
 
 These suites of APIs combine the power of Adobe's creative tools like Photoshop and Lightroom with cutting-edge AI/ML features like Content Tagging, Generative Fill, Text to Image, and more.
 
-With Firefly Services, you're not just creating – you're automating, scaling your content production, and harnessing the latest AI/ML technologies to supercharge your workflows. 
+With Firefly Services, you're not just creating – you're automating, scaling your content production, and harnessing the latest AI/ML technologies to supercharge your workflows.
 
 <br/><br/>
 <div style="display: flex; justify-content: center;"> <iframe width="560" height="315" src="https://adobe.ly/ffs-overview" title="Introduction to Adobe Express Add-ons" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> </div>
@@ -114,6 +114,6 @@ Unlock the potential of Photoshop in the cloud.
 
 [Content Tagging API](https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html)
 
-Leverage Content Tagging API to craft personalized experiences. 
+Leverage Content Tagging API to craft personalized experiences.
 
 <br/><br/><br/><br/>
