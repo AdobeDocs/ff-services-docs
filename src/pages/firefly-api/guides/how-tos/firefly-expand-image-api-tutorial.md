@@ -28,7 +28,7 @@ In this tutorial, imagine we are working on a marketing campaign at a Fortune 10
 Before diving into the code, let's preview the high-level steps:
 
 1. **Define Target Dimensions:** Each social media platform has specific image size requirements. We define these dimensions for the platforms you target.
-2. **Upload Source Image:** Use Firefly's [Upload API](../api/upload_image/) to upload your original image.
+2. **Upload Source Image:** Use Firefly's [Upload API](../api/upload_image/V2/) to upload your original image.
 3. **Generate Image Variations:** Use Firefly's [Expand Image API](../api/generative_expand/V3/) to create resized variations of the image for each dimension.
 
 Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump immediately to the full source code](#full-example).
@@ -84,7 +84,7 @@ const SOCIAL_MEDIA_PLATFORMS = [
 
 ## Upload Source Image
 
- Next, let's upload our source image using Firefly's [Upload API](../api/upload_image/). This image serves as the starting point for all variations.
+ Next, let's upload our source image using Firefly's [Upload API](../api/upload_image/V2/). This image serves as the starting point for all variations.
 
 ```js
 const axios = require("axios");
