@@ -52,7 +52,7 @@ The first step in accessing the Firefly Services API is getting authenticated. F
 Here are the steps to get started with the Firefly Services APIs. If you have already received your credentials, jump straight to our [Firefly API Quickstart guide](../firefly-api/guides/index.md) to begin interacting with Firefly Services.
 
 ## Gaining access to the Adobe Developer Console
- 
+
 Enterprise customers must be assigned the _System Administrator_ or _Developer_ role in the Adobe Admin Console to access the Adobe Developer Console.
 
 * Identify an Adobe Admin in your Enterprise. This may be as simple as checking the notes in your Adobe account. Adobe’s Solution Consultants will also typically have an administrator contact for the organization.
