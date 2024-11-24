@@ -8,7 +8,6 @@ keywords:
   - Inset
 contributors:
   - https://github.com/bishoysefin
-  - https://github.com/mikemajzoub
 hideBreadcrumbNav: true
 ---
 

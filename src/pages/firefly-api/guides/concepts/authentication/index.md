@@ -28,9 +28,7 @@ keywords:
   - Authentication protocols
   - Authentication best practices
 contributors:
-  - https://github.com/amandahuarng
-  - https://github.com/nimithajalal
-  - https://github.com/hollyschinsky
+  - https://github.com/bishoysefin
 hideBreadcrumbNav: true
 ---
 
