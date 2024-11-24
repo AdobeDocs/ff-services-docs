@@ -83,7 +83,7 @@ If you have already been provisioned with access through your organization, you 
 * Give your credential a name.
 * Click **Next**.
 
-![Set credentials](..//guides/images/select-authentication.png)
+![Set credentials](../guides/images/select-authentication.png)
 
 ### Step 4: Select Product Profiles
 
@@ -95,7 +95,7 @@ Select the **Product Profiles** and click **Save Configured API**.
 
 Click **Add to Project** to add more APIs to the product profile in the same project. Click **Edit product profiles** to add APIs to a different product profile in the same project.
 
-![Add to Project](..//guides/images/add-to-proj.png)
+![Add to Project](../guides/images/add-to-proj.png)
 
 Repeat [Step 2](./get-started.md#step-2-add-api-to-your-project) until you have added all these APIs:
 
@@ -117,7 +117,7 @@ Scopes that are added for your application define what actions or data the clien
 
 Click **View scopes per service** to understand the services and scopes associated with it.
 
-![scopes](..//guides/images/scopes.png)
+![scopes](../guides/images/scopes.png)
 
 Sample cURL command for generating an access token programmatically:
 
