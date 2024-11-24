@@ -88,7 +88,7 @@ Get started with the Adobe Firefly Services.
 
 [Firefly API Tutorials](../firefly-api/guides/how-tos/firefly-generate-image-api-tutorial.md)
 
-Explore our tutorials page for comprehensive guidance.  
+Explore our tutorials page for comprehensive guidance.
 
 <DiscoverBlock slots="heading, link, text"/>
 
