@@ -76,7 +76,7 @@ The response will look like this:
 Export this access token so that the next script can conveniently access it:
 
 ```bash
-export FIREFLY_ACCESS_TOKEN=yourAccessTokenAsdf123
+export FIREFLY_SERVICES_ACCESS_TOKEN=yourAccessTokenAsdf123
 ```
 
 ## Generate an Image
@@ -88,7 +88,7 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
---header "Authorization: Bearer $FIREFLY_ACCESS_TOKEN" \
+--header "Authorization: Bearer $FIREFLY_SERVICES_ACCESS_TOKEN" \
 --data '{
     "prompt": "a realistic illustration of a cat coding"
 }'
@@ -120,4 +120,4 @@ Open the URL in your browser to see the image you generated with Firefly 🎉
 
 ## Deepen Your Understanding
 
-Visit the [Firefly Generate Images API documentation](./api/image_generation/V3/) to learn more about the rich customization options available to you, including the ability to specify image style, structure, intensity, geographic locale, size, and more 🚀
+Visit the [Firefly Generate Image API tutorial](./how-tos/firefly-generate-image-api-tutorial.md) to learn more about the rich customization options available to you 🚀

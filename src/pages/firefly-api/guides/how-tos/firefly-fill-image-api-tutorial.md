@@ -30,7 +30,7 @@ In this tutorial, let's imagine we manage the website of a Fortune 100 company. 
 In this tutorial, we will:
 
 * Upload employee images along with mask images to target each photo's background.
-* Write a background prompt to describe the artwork we want to generate for the new backgrounds.
+* Write a prompt to describe the artwork we want to generate for the new backgrounds.
 * Use Firefly's Fill Image API to replace the backgrounds of the employee photos with stylistically consistent artwork.
 
 Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump immediately to the full source code](#full-example) at the bottom of this webpage.
@@ -54,7 +54,7 @@ npm install axios qs
 touch index.js
 ```
 
-### Download sample images
+### Download the Sample Images
 
 Save each of the images below to your project folder.
 
@@ -67,7 +67,7 @@ Save each of the images below to your project folder.
 
 When creating your own applications, use the Photoshop API's [Create Mask](https://developer.adobe.com/firefly-services/docs/photoshop/api/photoshop_createMask/) endpoint to automate the creation masks for your own images.
 
-## Upload images
+## Upload the Images
 
 Let's begin by uploading both the source image and the mask image using Firefly's [Upload API](../api/upload_image/V2).
 
@@ -98,15 +98,15 @@ async function uploadImage({ filePath, fileType, accessToken }) {
 }
 ```
 
-## Write background prompt
+## Write a Background Prompt
 
-Let's next describe the new background you want for our photos. For a professional look, let's use a smooth gradient background with corporate blue tones.
+Let's next describe the new background we want for our photos. For a professional look, let's use a smooth gradient background with corporate blue tones.
 
 ```js
 const backgroundPrompt = 'A professional background for corporate headshots, blending a smooth gradient in neutral tones (e.g., gray, beige, or light blue) with subtle abstract artistic elements. Include elegant geometric shapes, soft brushstroke patterns, or layered textures that provide a modern and sophisticated appearance without overpowering the subject. The abstract elements should create depth and interest while maintaining a clean, polished, and corporate-appropriate aesthetic.';
 ```
 
-## Replace backgrounds
+## Replace the Backgrounds
 
 Below is a sample JavaScript function that calls the [Fill Image API](../api/generative_fill/V3).
 
@@ -140,7 +140,7 @@ async function genFill({ maskId, sourceId, prompt, accessToken }) {
 }
 ```
 
-## Generate photo backgrounds
+## Generate New Backgrounds
 
 Next, process each employee photo and generate a new image with an updated background.
 
@@ -192,7 +192,7 @@ async function updateEmployeePhotos() {
 | --- | --- |
 | ![result-person-photo-1](../images/result-person-photo-1.jpeg) | ![result-person-photo-2](../images/result-person-photo-2.jpeg)
 
-## Full example
+## Full Example
 
 Review this tutorial's [prerequisites](#prerequisites) section to understand how to set up your environment prior to running this code. (Because this code is for educational purposes only, it is not production-ready and requires additional error handling, logging, security measures, and more before it can be used in a live application.)
 
@@ -344,6 +344,6 @@ async function updateEmployeePhotos(accessToken) {
 
 We wrote this tutorial in CommmonJS in order to make it easy to get up and running with the code. If you'd prefer to use ES6 modules, convert the code by changing the `require` statements to `import` statements and then changing the file name from `index.js` to `index.mjs`.
 
-## Deepen your understanding
+## Deepen Your Understanding
 
 Now that you have a working implementation of the Fill Image API, visit its [reference documentation](../api/generative_fill/V3) to explore more advanced use cases for automating your workflows.

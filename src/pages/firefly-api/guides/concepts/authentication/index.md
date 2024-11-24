@@ -44,7 +44,7 @@ Every request made to Firefly APIs must include an encrypted access token. Your 
 
 This tutorial assumes you have worked with your Adobe Representative and have the following:
 
-* An [Adobe Developer Console](https://developer.adobe.com/console/786177/home) account.
+* An [Adobe Developer Console](https://developer.adobe.com/) account.
 * A [project](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/) with Firefly API [OAuth Server-to-Server credentials set up](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/).
 * Access to your Client ID and Client Secret from the [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview). Securely store these credentials and never expose them in client-side or public code.
 
@@ -79,7 +79,7 @@ Notice how the response includes an `expires_in` field, which informs you of how
 Export your access token as an environment variable:
 
 ```bash
-export FIRELY_ACCESS_TOKEN=yourAccessTokenAsdf123
+export FIREFLY_SERVICES_ACCESS_TOKEN=yourAccessTokenAsdf123
 ```
 
 ## Generate an Image
@@ -91,7 +91,7 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
---header "Authorization: Bearer $FIREFLY_ACCESS_TOKEN" \
+--header "Authorization: Bearer $FIREFLY_SERVICES_ACCESS_TOKEN" \
 --data '{
     "prompt": "a realistic illustration of a cat coding"
 }'

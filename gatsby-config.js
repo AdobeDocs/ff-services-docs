@@ -84,12 +84,12 @@ module.exports = {
         path: "/firefly-api/guides/concepts/authentication/",
         pages: [
           {
-            title: "Authentication",
-            path: "/firefly-api/guides/concepts/authentication/",
-          },
-          {
             title: "Adobe Developer Console",
             path: "/firefly-api/guides/concepts/dev-console/",
+          },
+          {
+            title: "Authentication",
+            path: "/firefly-api/guides/concepts/authentication/",
           },
           {
             title: "Image Upload",
@@ -104,24 +104,24 @@ module.exports = {
             path: "/firefly-api/guides/concepts/placement/",
           },
           {
-            title: "Style Presets",
-            path: "/firefly-api/guides/concepts/style-presets/",
-          },
-          {
-            title: "Style Image Reference",
-            path: "/firefly-api/guides/concepts/style-image-reference/",
-          },
-          {
-            title: "Structure Image Reference",
-            path: "/firefly-api/guides/concepts/structure-image-reference/",
-          },
-          {
             title: "Rate limits",
             path: "/firefly-api/guides/concepts/rate-limits/",
           },
           {
             title: "Seeds",
             path: "/firefly-api/guides/concepts/seeds",
+          },
+          {
+            title: "Structure Image Reference",
+            path: "/firefly-api/guides/concepts/structure-image-reference/",
+          },
+          {
+            title: "Style Image Reference",
+            path: "/firefly-api/guides/concepts/style-image-reference/",
+          },
+          {
+            title: "Style Presets",
+            path: "/firefly-api/guides/concepts/style-presets/",
           },
         ],
       },
@@ -458,4 +458,3 @@ module.exports = {
   },
   plugins: [`@adobe/gatsby-theme-aio`],
 };
-

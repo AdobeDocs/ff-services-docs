@@ -1,6 +1,6 @@
 ---
-title: Styles - Adobe Firefly APIs
-description: A guide to using styles with the Firefly Image Model APIs.
+title: Style Presets - Adobe Firefly APIs
+description: A guide to using style presets with the Firefly Image Model APIs.
 keywords:
   - Styles
   - Adobe Firefly Services
@@ -33,9 +33,9 @@ Use style presets to customize the look and feel of your generated images
 
 ![a picture of a puppy dressed as a renaissance artist](../../images/puppy-renaissance-artist.jpeg)
 
-Use style `presets` with Firefly's [Generate Images API](../../api/image_generation/V3/) or [Generate Object Composite API](../../api/generate-object-composite/) to give your generated images a specific visual style or mood.
+Use style `presets` with Firefly's [Generate Images API](../../api/image_generation/V3/) or [Generate Object Composite API](../../api/generate-object-composite/V3/) to give your generated images a specific visual style or mood.
 
-### Generating Images with Style Presets
+## Experience Style Presets in Action
 
 <InlineAlert variant="info" slots="text" />
 
@@ -45,7 +45,7 @@ First, open a secure terminal and `export` your "client ID" and "access token" a
 
 ```bash
 export FIREFLY_SERVICES_CLIENT_ID=yourClientIdAsdf123
-export FIREFLY_ACCESS_TOKEN=yourAccessTokenAsdf123
+export FIREFLY_SERVICES_ACCESS_TOKEN=yourAccessTokenAsdf123
 ```
 
 Next, run this command:
@@ -55,7 +55,7 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
---header "Authorization: Bearer $FIREFLY_ACCESS_TOKEN" \
+--header "Authorization: Bearer $FIREFLY_SERVICES_ACCESS_TOKEN" \
 --data '{
     "prompt": "a puppy dressed as a renaissance artist",
     "numVariations": 4,
@@ -76,7 +76,7 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
---header "Authorization: Bearer $FIREFLY_ACCESS_TOKEN" \
+--header "Authorization: Bearer $FIREFLY_SERVICES_ACCESS_TOKEN" \
 --data '{
     "prompt": "a puppy dressed as a renaissance artist",
     "numVariations": 4,
@@ -89,7 +89,7 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 }'
 ```
 
-### Style Presets
+## Style Presets
 
 ||
 | --- | --- | --- |

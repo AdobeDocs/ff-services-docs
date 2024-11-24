@@ -49,7 +49,7 @@ contributors:
 hideBreadcrumbNav: true
 ---
 
-<Hero slots="heading, text" background="rgb(233, 80, 80)"/> 
+<Hero slots="heading, text" background="rgb(233, 80, 80)"/>
 
 # Adobe Firefly Services
 
@@ -57,16 +57,13 @@ Unleash boundless potential with Firefly Services advanced AI and Creative Cloud
 
 ## Overview
 
-Welcome to Firefly Services, your solution for seamless content generation at scale. Our suite of APIs combines the power of Adobe's creative tools like Photoshop and Lightroom with cutting-edge AI/ML features like Content Tagging, Generative Fill, Text to Image and more.
+Welcome to Firefly Services, your solution for seamless content generation at scale.
 
-With Firefly Services, you're not just creating – you're automating, scaling your content production, and harnessing the latest AI/ML technologies to supercharge your workflows. 
+Firefly Services includes Firefly APIs, Lightroom APIs, Photoshop APIs, and Content Tagging APIs.
 
-This guide will assist you in:
+These suites of APIs combine the power of Adobe's creative tools like Photoshop and Lightroom with cutting-edge AI/ML features like Content Tagging, Generative Fill, Text to Image, and more.
 
-- Creating a project in the Adobe Developer Console to gain access to the complete suite of Firefly Services APIs.
-- Obtaining and authenticating with your credentials.
-- Validating your credentials.
-- Constructing personalized workflows by chaining API calls to various endpoints within the Firefly Services APIs.
+With Firefly Services, you're not just creating – you're automating, scaling your content production, and harnessing the latest AI/ML technologies to supercharge your workflows.
 
 <br/><br/>
 <div style="display: flex; justify-content: center;"> <iframe width="560" height="315" src="https://adobe.ly/ffs-overview" title="Introduction to Adobe Express Add-ons" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> </div>
@@ -74,8 +71,8 @@ This guide will assist you in:
 ## Ready to get started?
 
 - Begin by navigating to the [Getting Started guide](./get-started.md) to get set up and obtain your credentials.
-- Next, check out our [in-depth tutorial](./tutorials/create-product-images-with-ff.md) which will walk you step-by-step through creating your first app leveraging the Firefly Services APIs.
-- Check out our [SDK](./sdks/), which provide a comprehensive toolkit to streamline your integration with Firefly Services.
+
+- Next, visit our [Firefly API Quickstart guide](../firefly-api/guides/index.md) to begin interacting with Firefly Services.
 
 ## Discover
 
@@ -83,15 +80,15 @@ This guide will assist you in:
 
 ### Get Started
 
-[Getting Started Guide](./get-started.md)
+[Firefly API Quickstart guide](../firefly-api/guides/index.md)
 
 Get started with the Adobe Firefly Services.
 
 <DiscoverBlock slots="link, text"/>
 
-[Tutorials](./tutorials/) 
+[Firefly API Tutorials](../firefly-api/guides/how-tos/firefly-generate-image-api-tutorial.md)
 
-Explore our tutorials page for comprehensive guidance.  
+Explore our tutorials page for comprehensive guidance.
 
 <DiscoverBlock slots="heading, link, text"/>
 
@@ -117,6 +114,6 @@ Unlock the potential of Photoshop in the cloud.
 
 [Content Tagging API](https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html)
 
-Leverage Content Tagging API to craft personalized experiences. 
+Leverage Content Tagging API to craft personalized experiences.
 
 <br/><br/><br/><br/>
