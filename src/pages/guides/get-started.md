@@ -49,7 +49,7 @@ The first step in accessing the Firefly Services API is getting authenticated. F
 
 ## Overview
 
-Here are the steps to get started with the Firefly Services APIs. If you have already received your API key, you can skip these steps and proceed to the [generate access token](./get-started.md#step-5-generate-access-token) step and [make your first API call](./get-started.md#make-your-first-api-call) with Firefly Services.
+Here are the steps to get started with the Firefly Services APIs. If you have already received your credentials, jump straight to our [Firefly API Quickstart guide](../firefly-api/guides/index.md) to begin interacting with Firefly Services.
 
 ## Gaining access to the Adobe Developer Console 
  
