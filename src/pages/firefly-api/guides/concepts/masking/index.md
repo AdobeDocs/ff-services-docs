@@ -16,7 +16,7 @@ Use masks to control image maniplation in Firefly APIs
 
 ||
 | --- | --- |
-| ![a picture of a person with a green scenic background](../../images/masking-concept-original.jpg) <p style="text-align:center">Original Image</p> | ![a mask of a person shape with a white background](../../images/masking-concept-mask.jpg) <p style="text-align:center">Masked Image</p> |
+| ![a picture of a person with a green scenic background](../../images/masking-concept-original.jpg) <p style="text-align:center">Image</p> | ![a mask of a person shape with a white background](../../images/masking-concept-mask.jpg) <p style="text-align:center">Image Mask</p> |
 
 ## Overview
 
