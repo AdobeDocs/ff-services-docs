@@ -55,9 +55,9 @@ Here are the steps to get started with the Firefly Services APIs. If you have al
  
 Enterprise customers must be assigned the _System Administrator_ or _Developer_ role in the Adobe Admin Console to access the Adobe Developer Console.
 
-- Identify an Adobe Admin in your Enterprise. This may be as simple as checking the notes in your Adobe account. Adobe’s Solution Consultants will also typically have an administrator contact for the organization. 
-- Have the Admin set up either _System Administrator_ or _Developer_ roles for users who will need to generate API keys. Alternatively, ask your Admin to generate the keys if they feel elevating roles is too risky. If your Admin does this for you, skip to the [Make your first API Call](get-started.md#make-your-first-api-call) section.
-- If your Admin allows you to generate your API keys, the Admin will also need to assign Firefly - Firefly Services to you as a product in the Admin Console.
+* Identify an Adobe Admin in your Enterprise. This may be as simple as checking the notes in your Adobe account. Adobe’s Solution Consultants will also typically have an administrator contact for the organization.
+* Have the Admin set up either _System Administrator_ or _Developer_ roles for users who will need to generate API keys. Alternatively, ask your Admin to generate the keys if they feel elevating roles is too risky. If your Admin does this for you, skip to the [Make your first API Call](get-started.md#make-your-first-api-call) section.
+* If your Admin allows you to generate your API keys, the Admin will also need to assign Firefly - Firefly Services to you as a product in the Admin Console.
 
 ## Generate an API Key and access token from the Adobe Developer Console
 
@@ -133,7 +133,7 @@ Grab your **API KEY (Client ID)** from the same screen.
 
 The selected APIs will be listed in the left-hand side under **APIS**.
 
-![Generate Access Token](..//guides/images/generate-access-token.png)
+![Generate Access Token](../guides/images/generate-access-token.png)
 
 Congratulations! You have just generated an access token.
 
@@ -141,10 +141,10 @@ Congratulations! You have just generated an access token.
 
 Once you have created your access token, you can follow the steps below to make your first API call.
 
-1.	Open your terminal and paste the code below.
-2.	Replace the variables <YOUR_ACCESS_TOKEN> with the token you generated on the Adobe Developer Console.
-3.	Replace <YOUR_CLIENT_ID>. You can find this on the [same page](get-started.md#api-key) you generated your token on.
-4.	Once all variables have been replaced you can run the command.
+* Open your terminal and paste the code below.
+* Replace the variables <YOUR_ACCESS_TOKEN> with the token you generated on the Adobe Developer Console.
+* Replace <YOUR_CLIENT_ID>. You can find this on the [same page](get-started.md#api-key) you generated your token on.
+* Once all variables have been replaced you can run the command.
 
 ```bash
 curl --request GET \
@@ -199,6 +199,6 @@ Content Tagging APIs can help you deliver personalized experiences to your custo
 
 <DiscoverBlock slots="link, text"/>
 
-[Tutorials](./tutorials/) 
+[Tutorials](./tutorials/)
 
 Explore our tutorials page for comprehensive guidance.
