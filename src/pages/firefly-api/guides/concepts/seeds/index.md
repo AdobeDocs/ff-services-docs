@@ -86,7 +86,7 @@ The above request will return a response like this:
 
 ![a picture of a futuristic city 1](../../images/seedless-city-1.jpeg)
 
-Let's generate similar variations of this image by using its `seed` of `1842533538` in our next request. This allows us to use all of Firefly's other generation options such as style presets, size, reference images, and more, while keeping the image consistent with the previously generated image.
+Let's generate similar variations of this image by using its `seed` of `1842533538` in our next request. This allows us to use Firefly's other generation options such as style presets, size, reference images, and more, while keeping the image consistent with the previously generated image.
 
 Below, let's generate an image variation has "landscape photography" and "science fiction" [style presets](../style-presets/index.md) applied to it.
 
