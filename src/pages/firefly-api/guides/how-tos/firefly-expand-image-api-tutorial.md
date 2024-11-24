@@ -27,9 +27,9 @@ In this tutorial, imagine we are working on a marketing campaign at a Fortune 10
 
 Before diving into the code, let's preview the high-level steps:
 
-1. **Define Target Dimensions:** Each social media platform has specific image size requirements. We define these dimensions for the platforms you target.
-2. **Upload Source Image:** Use Firefly's [Upload API](../api/upload_image/V2/) to upload your original image.
-3. **Generate Image Variations:** Use Firefly's [Expand Image API](../api/generative_expand/V3/) to create resized variations of the image for each dimension.
+* **Define Target Dimensions:** Each social media platform has specific image size requirements. We define these dimensions for the platforms we plan to target.
+* **Upload Source Image:** Use Firefly's [Upload API](../api/upload_image/V2/) to upload your original image.
+* **Generate Image Variations:** Use Firefly's [Expand Image API](../api/generative_expand/V3/) to create resized variations of the image for each dimension.
 
 Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump immediately to the full source code](#full-example).
 
@@ -37,7 +37,7 @@ Depending on your learning style, you may prefer to walk through this tutorial s
 
 This tutorial assumes you possess a Firefly Services **Client ID** and **Client Secret**. If you don't have these credentials, learn how to get them at the [Adobe Developer Console](../concepts/dev-console) page.
 
-## Set Up Your Environment
+### Set Up Your Environment
 
 Before we begin this [Node.js](https://nodejs.org/en/download/package-manager) tutorial, run the following in a secure terminal:
 
@@ -52,13 +52,13 @@ npm install axios qs
 touch index.js
 ```
 
-## Download Sample Image
+### Download the Sample Image
 
 Save this sample image to your project folder:
 
 ![expand-image-tutorial-source-image.webp](../images/expand-image-tutorial-source-image.jpeg)
 
-## Define Dimensions
+## Define the Dimensions
 
 First, let's define the image dimensions for each social media platform:
 
@@ -82,7 +82,7 @@ const SOCIAL_MEDIA_PLATFORMS = [
 ];
 ```
 
-## Upload Source Image
+## Upload the Source Image
 
  Next, let's upload our source image using Firefly's [Upload API](../api/upload_image/V2/). This image serves as the starting point for all variations.
 
@@ -179,8 +179,6 @@ async function createSocialMediaRenditions(accessToken) {
   }
 }
 ```
-
-Once we know Firefly generated our images, we log the results, including the URL for each generated image.
 
 ## Full Example
 
@@ -323,6 +321,6 @@ async function createSocialMediaRenditions(accessToken) {
 
 We wrote this tutorial in CommmonJS in order to make it easy to get up and running with the code. If you'd prefer to use ES6 modules, convert the code by changing the `require` statements to `import` statements and then changing the file name from `index.js` to `index.mjs`.
 
-## Learn More
+## Deepen Your Understanding
 
 Now that you completed this tutorial, visit its [API Reference](../api/generative_expand/V3) to explore more advanced use cases to automate image generation with Firefly.

@@ -38,7 +38,7 @@ export FIREFLY_SERVICES_CLIENT_ID=yourClientIdAsdf123
 export FIREFLY_SERVICES_ACCESS_TOKEN=yourAccessTokenAsdf123
 ```
 
-Next, right click on the image of the mountain and save it to your computer's Desktop.
+Next, save the image of the mountain to your computer's Desktop.
 
 Next, upload your saved image to Firefly's storage API:
 
