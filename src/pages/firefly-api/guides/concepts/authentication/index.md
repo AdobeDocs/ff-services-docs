@@ -44,7 +44,7 @@ Every request made to Firefly APIs must include an encrypted access token. Your 
 
 This tutorial assumes you have worked with your Adobe Representative and have the following:
 
-* An [Adobe Developer Console](https://developer.adobe.com/console/786177/home) account.
+* An [Adobe Developer Console](https://developer.adobe.com/) account.
 * A [project](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/) with Firefly API [OAuth Server-to-Server credentials set up](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/).
 * Access to your Client ID and Client Secret from the [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview). Securely store these credentials and never expose them in client-side or public code.
 

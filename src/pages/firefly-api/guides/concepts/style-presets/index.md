@@ -33,9 +33,9 @@ Use style presets to customize the look and feel of your generated images
 
 ![a picture of a puppy dressed as a renaissance artist](../../images/puppy-renaissance-artist.jpeg)
 
-Use style `presets` with Firefly's [Generate Images API](../../api/image_generation/V3/) or [Generate Object Composite API](../../api/generate-object-composite/) to give your generated images a specific visual style or mood.
+Use style `presets` with Firefly's [Generate Images API](../../api/image_generation/V3/) or [Generate Object Composite API](../../api/generate-object-composite/V3/) to give your generated images a specific visual style or mood.
 
-### Generating Images with Style Presets
+## Experience Style Presets in Action
 
 <InlineAlert variant="info" slots="text" />
 
@@ -89,7 +89,7 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 }'
 ```
 
-### Style Presets
+## Style Presets
 
 ||
 | --- | --- | --- |
