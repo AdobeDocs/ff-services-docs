@@ -37,7 +37,7 @@ hideBreadcrumbNav: true
 
 # Rate Limits
 
-Adobe Firefly API places limits on the volume and frequency of API calls
+Adobe Firefly API places default rate limits on the volume and frequency of API calls. Contact your account manager to request higher rate limits if needed.
 
 ## Summary of Rate Limits
 
@@ -45,8 +45,6 @@ Our API imposes the following rate limits **per organization**:
 
 * **4** requests **per minute (RPM)**
 * **9,000** requests **per day (RPD)** (Relevant for those who have worked with their account manager to increase their rate limits beyond 4 RPM without changing this default daily limit.)
-
-Rate limits are shared across all users within your organization.
 
 ## What to Do If You Run Into Issues
 
