@@ -172,7 +172,7 @@ The response will look like this:
 
 ## Get Status - Mask
 
-Next up, we will use the [Get Status - Mask](../api/photoshop_status_mask.md) endpoint to monitor the job status until it completes. 
+Next up, we will use the [Get Status - Mask](../api/photoshop_status_mask.md) endpoint to monitor the job status until it completes.
 
 <CodeBlock slots="heading, code" repeat="2" languages="bash, Python" />
 
