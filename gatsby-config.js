@@ -273,10 +273,10 @@ module.exports = {
         title: "Overview",
         path: "/photoshop/",
       },
-      // {
-      //   title: 'Getting Started',
-      //   path: '/photoshop/getting-started/'
-      // },
+      {
+      title: 'Quickstart',
+      path: '/photoshop/quickstart/'
+      },
       {
         title: "Key Concepts",
         path: "/photoshop/concepts/",
