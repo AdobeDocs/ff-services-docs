@@ -35,6 +35,10 @@ export PHOTOSHOP_CLIENT_SECRET=yourClientSecretAsdf123
 
 Generate an access token:
 
+<CodeBlock slots="heading, code" repeat="2" languages="bash, Python" />
+
+#### cURL
+
 ```bash
 curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
@@ -42,6 +46,34 @@ curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
 --data-urlencode "client_id=$PHOTOSHOP_CLIENT_ID" \
 --data-urlencode "client_secret=$PHOTOSHOP_CLIENT_SECRET" \
 --data-urlencode 'scope=openid,AdobeID,read_organizations'
+```
+
+#### Python
+
+```python
+import os
+import requests
+
+# Retrieve environment variables
+client_id = os.environ['PHOTOSHOP_CLIENT_ID']
+client_secret = os.environ['PHOTOSHOP_CLIENT_SECRET']
+
+# Set up the token endpoint and payload
+token_url = 'https://ims-na1.adobelogin.com/ims/token/v3'
+payload = {
+    'grant_type': 'client_credentials',
+    'client_id': client_id,
+    'client_secret': client_secret,
+    'scope': 'openid,AdobeID,read_organizations'
+}
+
+# Make the POST request to get the access token
+response = requests.post(token_url, data=payload)
+response.raise_for_status()  # Raise an error for bad status codes
+
+# Parse the JSON response
+token_data = response.json()
+print("Authentication Response:", token_data)
 ```
 
 The response will look like this:
@@ -59,6 +91,10 @@ export PHOTOSHOP_ACCESS_TOKEN=yourAccessTokenAsdf123
 ## Create Mask
 
 Next, call the [Photoshop Create Mask API](../api/photoshop_createMask.md):
+
+<CodeBlock slots="heading, code" repeat="2" languages="bash, Python" />
+
+#### cURL
 
 ```bash
 curl --location 'https://image.adobe.io/sensei/mask' \
@@ -78,6 +114,50 @@ curl --location 'https://image.adobe.io/sensei/mask' \
   }'
 ```
 
+#### Python
+
+```python
+import os
+import requests
+
+# Retrieve environment variables
+client_id = os.environ['PHOTOSHOP_CLIENT_ID']
+access_token = os.environ['PHOTOSHOP_ACCESS_TOKEN']
+
+# Replace with your actual pre-signed URLs and storage option
+SIGNED_GET_URL = '<SIGNED_GET_URL>'
+SIGNED_POST_URL = '<SIGNED_POST_URL>'
+storage = '<storage>'  # e.g., 'external', 'azure'
+
+# Set up headers
+headers = {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    'x-api-key': client_id,
+    'Authorization': f'Bearer {access_token}'
+}
+
+# Set up the request payload
+data = {
+    'input': {
+        'href': <SIGNED_GET_URL>,
+        'storage': <STORAGE>
+    },
+    'output': {
+        'href': <SIGNED_POST_URL>,
+        'storage': <STORAGE>
+    }
+}
+
+# Make the POST request to create the mask
+response = requests.post('https://image.adobe.io/sensei/mask', headers=headers, json=data)
+response.raise_for_status()
+
+# Parse the JSON response
+job_response = response.json()
+print("Create Mask Response:", job_response)
+```
+
 The response will look like this:
 
 ```json
@@ -94,12 +174,47 @@ The response will look like this:
 
 Next up, we will use the [Get Status - Mask](../api/photoshop_status_mask.md) endpoint to monitor the job status until it completes. 
 
+<CodeBlock slots="heading, code" repeat="2" languages="bash, Python" />
+
+#### cURL
+
 ```bash
 curl --location 'https://image.adobe.io/sensei/status/<:jobId>' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header "x-api-key: $PHOTOSHOP_CLIENT_ID" \
 --header "Authorization: Bearer $PHOTOSHOP_ACCESS_TOKEN" 
+```
+
+#### Python
+
+```python
+import os
+import requests
+
+# Retrieve environment variables
+client_id = os.environ['PHOTOSHOP_CLIENT_ID']
+access_token = os.environ['PHOTOSHOP_ACCESS_TOKEN']
+
+# Replace with your actual job ID from the previous step
+job_id = '<jobId>'
+
+# Set up headers
+headers = {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    'x-api-key': client_id,
+    'Authorization': f'Bearer {access_token}'
+}
+
+# Function to check job status
+def check_job_status(job_id):
+    status_url = f'https://image.adobe.io/sensei/status/{job_id}'
+    response = requests.get(status_url, headers=headers)
+    response.raise_for_status()
+    return response.json()
+
+print ("Job Status Response:", check_job_status(job_id))
 ```
 
 A successful response looks like:
@@ -109,7 +224,7 @@ A successful response looks like:
   "jobId": "f54e0fcb-260b-47c3-b520-de0d17dc2b67",
   "created": "string",
   "modified": "string",
-  "status": "string",
+  "status": "JOB_COMPLETION_STATUS",
   "metadata": {
     "service": {}
   },
