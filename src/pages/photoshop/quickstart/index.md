@@ -17,7 +17,12 @@ Create your first Mask with Photoshop APIs
 
 If you don't already have a Photoshop "client ID" and "client secret", retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
 
-A pre-signed URL wtih a read token for the image to be masked as well as a pre-signed URL wtih a read/write token for the mask to be uploaded. Visit [Understanding Pre-signed URLs](https://medium.com/@shivam_99875/understanding-pre-signed-urls-80be30b0adf3#:~:text=Fundamental%20Concept%3A,need%20for%20traditional%20authentication%20mechanisms.) for more information on pre-signed URLs.
+Pre-signed URLs:
+
+* A pre-signed URL with a read token for the input image.
+* A pre-signed URL with a read/write token for the output mask.
+
+For more details, see [Understanding Pre-signed URLs](https://medium.com/@shivam_99875/understanding-pre-signed-urls-80be30b0adf3#:~:text=Fundamental%20Concept%3A,need%20for%20traditional%20authentication%20mechanisms.).
 
 ## Retrieve an Access Token
 
@@ -28,7 +33,7 @@ export PHOTOSHOP_CLIENT_ID=yourClientIdAsdf123
 export PHOTOSHOP_CLIENT_SECRET=yourClientSecretAsdf123
 ```
 
-Run the following command to generate an access token:
+Generate an access token:
 
 ```bash
 curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
@@ -51,7 +56,7 @@ Export this access token in your secure terminal so that the next script can con
 export PHOTOSHOP_ACCESS_TOKEN=yourAccessTokenAsdf123
 ```
 
-## Generate an Image
+## Create Mask
 
 Next, call the [Photoshop Create Mask API](../api/photoshop_createMask.md):
 
@@ -87,7 +92,7 @@ The response will look like this:
 
 ## Get Status - Mask
 
-Next up, we will use the [Get Status - Mask](../api/photoshop_status_mask.md) endpoint to check the status of the submitted job. We can keep checking the status until the status in the response is equal to `succeeded` or `failed`. 
+Next up, we will use the [Get Status - Mask](../api/photoshop_status_mask.md) endpoint to monitor the job status until it completes. 
 
 ```bash
 curl --location 'https://image.adobe.io/sensei/status/<:jobId>' \
@@ -97,7 +102,7 @@ curl --location 'https://image.adobe.io/sensei/status/<:jobId>' \
 --header "Authorization: Bearer $PHOTOSHOP_ACCESS_TOKEN" 
 ```
 
-The success response will look like this:
+A successful response looks like:
 
 ```json
 {
@@ -110,7 +115,7 @@ The success response will look like this:
   },
   "output": {
     "href": "string",
-    "storage": "adobe",
+    "storage": "<storage>",
     "mask": {
       "format": "soft"
     },
@@ -130,12 +135,10 @@ The success response will look like this:
 }
 ```
 
-Where the created mask will be found under `output.href` which is the `SIGNED_POST_URL` provided in the Create Mask call.
+## View Created Mask
 
-## View the Generated Image
-
-Open the URL in your browser to see the mask you generated with Photoshop 🎉
+Access the mask at the `output.href` URL (the `SIGNED_POST_URL` provided earlier). 🎉
 
 ## Deepen Your Understanding
 
-Visit the [Photoshop Tutorials](../how-tos/photoshop-actions) to learn more about the rich Photoshop API options available to you 🚀
+Explore more Photoshop API options in our [Photoshop Tutorials](../how-tos/photoshop-actions) 🚀
