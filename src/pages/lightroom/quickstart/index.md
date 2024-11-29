@@ -266,7 +266,7 @@ The response will look like this:
 
 ## Get Status
 
-Next up, we will use the [Get Status ](../api/lightroom_getStatus.md) endpoint to monitor the job status until it completes.
+Next up, we will use the [Get Status](../api/lightroom_getStatus.md) endpoint to monitor the job status until it completes.
 
 <CodeBlock slots="heading, code" repeat="3" languages="bash, Python, JavaScript" />
 
