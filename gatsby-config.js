@@ -51,6 +51,10 @@ module.exports = {
         path: "/guides/get-started.md",
       },
       {
+        title: "Quickstart",
+        path: "/guides/quickstart"
+      },
+      {
         title: "Tutorials",
         path: "/guides/tutorials",
         pages: [

@@ -20,7 +20,7 @@ If you don't already have a Lightroom "client ID" and "client secret", retrieve 
 Pre-signed URLs:
 
 * A pre-signed URL with a read token for the input image.
-* A pre-signed URL with a read/write token for the output mask.
+* A pre-signed URL with a read/write token for the modified image.
 
 ## Retrieve an Access Token
 
@@ -91,7 +91,7 @@ async function retrieveAccessToken() {
     client_id: process.env.LIGHTROOM_CLIENT_ID,
     client_secret: process.env.LIGHTROOM_CLIENT_SECRET,
     scope:
-      "openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis",
+      "openid,AdobeID,read_organizations",
   });
 
   let config = {
@@ -186,7 +186,7 @@ data = {
     'outputs': [{
         'href': <SIGNED_POST_URL>,
         'storage': <STORAGE>,
-        'type'
+        'type':'image/jpeg'
     }]
 }
 
@@ -196,7 +196,7 @@ response.raise_for_status()
 
 # Parse the JSON response
 job_response = response.json()
-print("Auto Straighten:", job_response)
+print("Auto Straighten Response:", job_response)
 ```
 
 #### JavaScript
