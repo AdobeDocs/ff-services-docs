@@ -35,7 +35,7 @@ export PHOTOSHOP_CLIENT_SECRET=yourClientSecretAsdf123
 
 Generate an access token:
 
-<CodeBlock slots="heading, code" repeat="2" languages="bash, Python" />
+<CodeBlock slots="heading, code" repeat="3" languages="bash, Python, JavaScript" />
 
 #### cURL
 
@@ -76,6 +76,47 @@ token_data = response.json()
 print("Authentication Response:", token_data)
 ```
 
+#### JavaScript
+
+```js
+const axios = require("axios");
+const qs = require("qs");
+
+(async () => {
+  const accessToken = await retrieveAccessToken();
+})();
+
+
+async function retrieveAccessToken() {
+  let data = qs.stringify({
+    grant_type: "client_credentials",
+    client_id: process.env.PHOTOSHOP_CLIENT_ID,
+    client_secret: process.env.PHOTOSHOP_CLIENT_SECRET,
+    scope:
+      "openid,AdobeID,read_organizations",
+  });
+
+  let config = {
+    method: "post",
+    maxBodyLength: Infinity,
+    url: "https://ims-na1.adobelogin.com/ims/token/v3",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    data: data,
+  };
+
+  try {
+    const response = await axios.request(config);
+    console.log("Authentication Response:", response);
+    const { access_token } = response.data;
+    return access_token;
+  } catch (error) {
+    console.log(error);
+  }
+}
+```
+
 The response will look like this:
 
 ```json
@@ -92,7 +133,7 @@ export PHOTOSHOP_ACCESS_TOKEN=yourAccessTokenAsdf123
 
 Next, call the [Photoshop Create Mask API](../api/photoshop_createMask.md):
 
-<CodeBlock slots="heading, code" repeat="2" languages="bash, Python" />
+<CodeBlock slots="heading, code" repeat="3" languages="bash, Python, JavaScript" />
 
 #### cURL
 
@@ -157,6 +198,55 @@ response.raise_for_status()
 job_response = response.json()
 print("Create Mask Response:", job_response)
 ```
+#### JavaScript
+
+```js
+const axios = require("axios");
+
+(async () => {
+  const result = await createMask(accessToken);
+  console.log("Create Mask Response:", result);
+})();
+
+async function createMask(accessToken) {
+  // Replace with your actual pre-signed URLs and storage option
+  const SIGNED_GET_URL = "<SIGNED_GET_URL>";
+  const SIGNED_POST_URL = "<SIGNED_POST_URL>";
+  const storage = "<storage>"; // e.g., 'external', 'azure'
+
+  const headers = {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    "x-api-key": process.env.PHOTOSHOP_CLIENT_ID,
+    Authorization: `Bearer ${accessToken}`,
+  };
+
+  const data = {
+    input: {
+      href: SIGNED_GET_URL,
+      storage: storage,
+    },
+    output: {
+      href: SIGNED_POST_URL,
+      storage: storage,
+    },
+  };
+
+  const config = {
+    method: "post",
+    url: "https://image.adobe.io/sensei/mask",
+    headers: headers,
+    data: data,
+  };
+
+  try {
+    const response = await axios.request(config);
+    return response.data;
+  } catch (error) {
+    console.error("Error during createMask:", error);
+  }
+}
+```
 
 The response will look like this:
 
@@ -215,6 +305,39 @@ def check_job_status(job_id):
     return response.json()
 
 print ("Job Status Response:", check_job_status(job_id))
+```
+
+#### JavaScript
+
+```js
+const axios = require("axios");
+
+(async () => {
+  const accessToken = process.env.PHOTOSHOP_ACCESS_TOKEN;
+  const jobId = "<jobId>"; // Replace with your actual job ID
+  const jobStatus = await checkJobStatus(jobId, accessToken);
+  console.log("Job Status Response:", jobStatus);
+})();
+
+async function checkJobStatus(jobId, accessToken) {
+  const clientId = process.env.PHOTOSHOP_CLIENT_ID;
+
+  const headers = {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    "x-api-key": clientId,
+    Authorization: `Bearer ${accessToken}`,
+  };
+
+  const url = `https://image.adobe.io/sensei/status/${jobId}`;
+
+  try {
+    const response = await axios.get(url, { headers: headers });
+    return response.data;
+  } catch (error) {
+    console.error("Error checking job status:", error);
+  }
+}
 ```
 
 A successful response looks like:
