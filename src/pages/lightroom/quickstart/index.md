@@ -357,11 +357,11 @@ A successful response looks like:
     },
     "outputs": [
         {
-            "input": "https://tpmmdemo.blob.core.windows.net:443/aft66006/DemoSpace/input.jpg?sv=2022-11-02&ss=bf&srt=co&sp=rtfx&se=2027-09-18T21:13:22Z&st=2024-09-18T13:13:22Z&spr=https&sig=OTfHSbiNepmJSzOpIcwg%2FbR8C%2BnW3BQSNNyBfBi0srA%3D",
+            "input": "PRESIGNED_URL",
             "status": "succeeded",
             "_links": {
                 "self": {
-                    "href": "https://tpmmdemo.blob.core.windows.net/aft66006/DemoSpace/output.png?sv=2022-11-02&ss=bf&srt=co&sp=wdlaciytfx&se=2027-09-18T21:13:22Z&st=2024-09-18T13:13:22Z&spr=https&sig=H8EwNMJA%2BHT%2F%2B32Gy7F%2BNYttw3d0XMDDI3ooyaN4xH0%3D",
+                    "href": "PRESIGNED_URL",
                     "storage": "azure"
                 }
             }
