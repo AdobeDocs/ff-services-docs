@@ -392,10 +392,10 @@ module.exports = {
         title: "Overview",
         path: "/lightroom/",
       },
-      // {
-      //   title: 'Getting Started',
-      //   path: '/lightroom/getting-started/'
-      // },
+      {
+        title: 'Quickstart',
+        path: '/lightroom/quickstart/'
+      },
       {
         title: "General Workflow",
         path: "/lightroom/general-workflow/",
