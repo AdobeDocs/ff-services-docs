@@ -198,6 +198,7 @@ response.raise_for_status()
 job_response = response.json()
 print("Create Mask Response:", job_response)
 ```
+
 #### JavaScript
 
 ```js
