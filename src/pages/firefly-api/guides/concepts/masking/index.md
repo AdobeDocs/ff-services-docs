@@ -1,10 +1,27 @@
 ---
-title: Masking
-description: A guide to authentication for Adobe Firefly API
+title: Using Masks in Adobe Firefly APIs for Image Manipulation
+description: Learn how to use masks to control image manipulation in Adobe Firefly APIs, including masking concepts, examples, and best practices.
 keywords:
-  - Photoshop Mask
-  - Mask
+  - Adobe Firefly APIs
+  - Masking
+  - Image Manipulation
+  - Masks
   - Inverted Mask
+  - Photoshop Mask
+  - Image Editing
+  - Masking Techniques
+  - Grayscale Overlay
+  - Image Isolation
+  - Editing Control
+  - Fill Images
+  - Expand Images
+  - Composite Images
+  - Image Selection
+  - Mask Examples
+  - Masking Best Practices
+  - Firefly API Guide
+  - Developer Documentation
+  - Image Processing
 contributors:
   - https://github.com/bishoysefin
 hideBreadcrumbNav: true
