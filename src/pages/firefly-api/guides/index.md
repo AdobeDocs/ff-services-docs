@@ -45,11 +45,11 @@ Generate your first image with Firefly Services
 
 ## Prerequisites
 
-If you don't already have a Firefly "client ID" and "client secret", retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
+If you don't already have a Firefly API **Client ID** and **Client Secret**, retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
 
 ## Retrieve an Access Token
 
-Open a secure terminal and `export` your "client ID" and "client secret" as environment variables so that your later commands can access them:
+Open a secure terminal and `export` your **Client ID** and **Client Secret** as environment variables so that your later commands can access them:
 
 ```bash
 export FIREFLY_SERVICES_CLIENT_ID=yourClientIdAsdf123

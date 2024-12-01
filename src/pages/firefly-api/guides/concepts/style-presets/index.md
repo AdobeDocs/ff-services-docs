@@ -35,13 +35,13 @@ Use style presets to customize the look and feel of your generated images
 
 Use style `presets` with Firefly's [Generate Images API](../../api/image_generation/V3/) or [Generate Object Composite API](../../api/generate-object-composite/V3/) to give your generated images a specific visual style or mood.
 
+## Prerequisites
+
+If you don't already have a Firefly **Client ID** and **Access Token**, learn how to retrieve them in the [Authentication Guide](../authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
+
 ## Experience Style Presets in Action
 
-<InlineAlert variant="info" slots="text" />
-
-If you don't already have a Firefly "client ID" and "access token", learn how to retrieve them in the [Authentication Guide](../authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
-
-First, open a secure terminal and `export` your "client ID" and "access token" as environment variables:
+First, open a secure terminal and `export` your **Client ID** and **Access Token** as environment variables:
 
 ```bash
 export FIREFLY_SERVICES_CLIENT_ID=yourClientIdAsdf123

@@ -19,17 +19,16 @@ Use Style Image Reference to generate images based on specific styles, colors, a
 | --- | --- |
 | ![mountain](../../images/style-image-reference-mountain.jpeg) <p style="text-align:center">Style Image Reference</p> | ![dog](../../images/style-image-reference-dog.jpeg) <p style="text-align:center">Generated Image</p>
 
-### Specifying Strength
+## Prerequisites
+
+If you don't already have a Firefly **Client ID** and **Access Token**, learn how to retrieve them in the [Authentication Guide](../authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
+## Specifying Strength
 
 To influence how impactful your reference image is during the image generation process, add a `strength` value between `1` and `100` to your style object. When "strength" is not specified, it defaults to a value of `50`.
 
 ## Experience Style Image Reference in Action
 
-<InlineAlert variant="info" slots="text" />
-
-If you don't already have a Firefly "client ID" and "access token", learn how to retrieve them in the [Authentication Guide](../authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
-
-First, open a secure terminal and `export` your "client ID" and "access token" as environment variables:
+First, open a secure terminal and `export` your **Client ID** and **Access Token** as environment variables:
 
 ```bash
 export FIREFLY_SERVICES_CLIENT_ID=yourClientIdAsdf123
