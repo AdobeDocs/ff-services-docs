@@ -13,11 +13,15 @@ Pictures
 
 ## Overview
 
-Imagine .... PS -> Remove Background -> Create mask -> FF Fill Image -> LR Autotone
+In this tutorial, let's imagine we work at an innovative e-commerce company specializing in handcrafted home decor. Our mission is to create a captivating online catalog that showcases our unique products to customers worldwide. To achieve this, we need to process a large number of product images efficiently while maintaining high visual standards.We will leverage Adobe's Firefly Services APIs to automate our content workflow:
+
+* **Remove Backgrounds:** Use the Photoshop API to eliminate distracting backgrounds from our product images, allowing the items to stand out.
+* **Enhance Images with Generative Fill:** Apply the Firefly Fill Image API to add creative and contextually relevant backgrounds that enhance the aesthetic appeal of each product.
+* **Optimize Image Quality:** Utilize the Lightroom Auto Tone API to automatically adjust lighting and color balance, ensuring consistent and professional-quality images across our catalog.
 
 ## Prerequisites
 
-If you don't already have a Photoshop, Firefly, and Lightroom "client ID" and "client secret", retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
+If you don't already have a Photoshop, Firefly, and Lightroom **Client ID** and **Client Secret**, retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
 
 Pre-signed URLs:
 
@@ -26,7 +30,7 @@ Pre-signed URLs:
 
 ## Retrieve an Access Token
 
-Open a secure terminal and `export` your "client ID" and "client secret" as environment variables so that your later commands can access them:
+Open a secure terminal and `export` your **Client ID** and **Client Secret** as environment variables so that your later commands can access them:
 
 ```bash
 export FIREFLY_SERVICES_CLIENT_ID=yourClientIdAsdf123
@@ -73,7 +77,7 @@ response.raise_for_status()  # Raise an error for bad status codes
 
 # Parse the JSON response
 token_data = response.json()
-print("Authentication Response:", token_data)
+print("Authentication Response: ", token_data)
 ```
 
 #### JavaScript
@@ -108,7 +112,7 @@ async function retrieveAccessToken() {
 
   try {
     const response = await axios.request(config);
-    console.log("Authentication Response:", response);
+    console.log("Authentication Response: ", response);
     const { access_token } = response.data;
     return access_token;
   } catch (error) {
@@ -145,12 +149,12 @@ curl --location 'https://image.adobe.io/sensei/cutout' \
 --header "Authorization: Bearer $FIREFLY_SERVICES_ACCESS_TOKEN" \
 --data '{
     "input":{
-      "href":"<SIGNED_GET_URL>",
-      "storage":"<storage>"
+      "href":"https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...",
+      "storage":"azure"
     },
     "output":{
-      "href":"<SIGNED_POST_URL>",
-      "storage":"<storage>"
+      "href":"https://demo.blob.core.windows.net:443/container/output.jpeg?sv...&query=params...",
+      "storage":"azure"
     }
   }'
 ```
@@ -166,9 +170,9 @@ client_id = os.environ['FIREFLY_SERVICES_CLIENT_ID']
 access_token = os.environ['FIREFLY_SERVICES_ACCESS_TOKEN']
 
 # Replace with your actual pre-signed URLs and storage option
-SIGNED_GET_URL = '<SIGNED_GET_URL>'
-SIGNED_POST_URL = '<SIGNED_POST_URL>'
-storage = '<storage>'  # e.g., 'external', 'azure'
+SIGNED_GET_URL = 'https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...'
+SIGNED_POST_URL = 'https://demo.blob.core.windows.net:443/container/output.jpeg?sv...&query=params...'
+storage = 'azure'  # e.g., 'external', 'azure'
 
 # Set up headers
 headers = {
@@ -181,12 +185,12 @@ headers = {
 # Set up the request payload
 data = {
     'input': {
-        'href': <SIGNED_GET_URL>,
-        'storage': <STORAGE>
+        'href': 'https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...',
+        'storage': 'azure'
     },
     'output': {
-        'href': <SIGNED_POST_URL>,
-        'storage': <STORAGE>
+        'href': 'https://demo.blob.core.windows.net:443/container/output.jpeg?sv...&query=params...',
+        'storage': 'azure'
     }
 }
 
@@ -211,9 +215,9 @@ const axios = require("axios");
 
 async function removeBackground(accessToken) {
   // Replace with your actual pre-signed URLs and storage option
-  const SIGNED_GET_URL = "<SIGNED_GET_URL>";
-  const SIGNED_POST_URL = "<SIGNED_POST_URL>";
-  const storage = "<storage>"; // e.g., 'external', 'azure'
+  const SIGNED_GET_URL = "https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...";
+  const SIGNED_POST_URL = "https://demo.blob.core.windows.net:443/container/output.jpeg?sv...&query=params...";
+  const storage = "azure"; // e.g., 'external', 'azure'
 
   const headers = {
     "Content-Type": "application/json",
@@ -304,8 +308,8 @@ client_id = os.environ['FIREFLY_SERVICES_CLIENT_ID']
 access_token = os.environ['FIREFLY_SERVICES_ACCESS_TOKEN']
 
 # Replace with your actual pre-signed URLs and storage option
-SIGNED_IMAGE_GET_URL = '<SIGNED_GET_URL>'
-SIGNED_MASK_GET_URL = '<SIGNED_GET_URL>'
+SIGNED_IMAGE_GET_URL = 'https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...'
+SIGNED_MASK_GET_URL = 'https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...'
 
 # Set up headers
 headers = {
@@ -423,12 +427,12 @@ curl --location 'https://image.adobe.io/lrService/autoTone' \
 --header "Authorization: Bearer $FIREFLY_SERVICES_ACCESS_TOKEN" \
 --data '{
     "inputs":{
-      "href":"<SIGNED_GET_URL>",
-      "storage":"<storage>"
+      "href":"https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...",
+      "storage":"azure"
     },
     "outputs":[{
-      "href":"<SIGNED_POST_URL>",
-      "storage":"<storage>",
+      "href":"https://demo.blob.core.windows.net:443/container/output.jpeg?sv...&query=params...",
+      "storage":"azure",
       "type":"image/jpeg"
     }]
   }'
@@ -445,9 +449,9 @@ client_id = os.environ['FIREFLY_SERVICES_CLIENT_ID']
 access_token = os.environ['FIREFLY_SERVICES_ACCESS_TOKEN']
 
 # Replace with your actual pre-signed URLs and storage option
-SIGNED_GET_URL = '<SIGNED_GET_URL>'
-SIGNED_POST_URL = '<SIGNED_POST_URL>'
-storage = '<storage>'  # e.g., 'external', 'azure'
+SIGNED_GET_URL = 'https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...'
+SIGNED_POST_URL = 'https://demo.blob.core.windows.net:443/container/output.jpeg?sv...&query=params...'
+storage = 'azure'  # e.g., 'external', 'azure'
 
 # Set up headers
 headers = {
@@ -460,12 +464,12 @@ headers = {
 # Set up the request payload
 data = {
     'inputs': {
-        'href': <SIGNED_GET_URL>,
-        'storage': <STORAGE>
+        'href': 'https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...',
+        'storage': azure
     },
     'outputs': [{
-        'href': <SIGNED_POST_URL>,
-        'storage': <STORAGE>,
+        'href': 'https://demo.blob.core.windows.net:443/container/output.jpeg?sv...&query=params...',
+        'storage': 'azure',
         'type':'image/jpeg'
     }]
 }
@@ -491,9 +495,9 @@ const axios = require("axios");
 
 async function autoTone(accessToken) {
   // Replace with your actual pre-signed URLs and storage option
-  const SIGNED_GET_URL = "<SIGNED_GET_URL>";
-  const SIGNED_POST_URL = "<SIGNED_POST_URL>";
-  const storage = "<storage>"; // e.g., 'external', 'azure'
+  const SIGNED_GET_URL = "https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...";
+  const SIGNED_POST_URL = "https://demo.blob.core.windows.net:443/container/output.jpeg?sv...&query=params...";
+  const storage = "azure"; // e.g., 'external', 'azure'
 
   const headers = {
     "Content-Type": "application/json",
