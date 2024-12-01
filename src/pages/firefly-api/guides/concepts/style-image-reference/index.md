@@ -22,6 +22,7 @@ Use Style Image Reference to generate images based on specific styles, colors, a
 ## Prerequisites
 
 If you don't already have a Firefly **Client ID** and **Access Token**, learn how to retrieve them in the [Authentication Guide](../authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
+
 ## Specifying Strength
 
 To influence how impactful your reference image is during the image generation process, add a `strength` value between `1` and `100` to your style object. When "strength" is not specified, it defaults to a value of `50`.
