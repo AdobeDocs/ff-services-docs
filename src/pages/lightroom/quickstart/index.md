@@ -15,16 +15,18 @@ Modify your first Image with Lightroom APIs
 
 ## Prerequisites
 
-If you don't already have a Lightroom "client ID" and "client secret", retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
+If you don't already have a Lightroom **Client ID** and **Client Secret**, retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
 
 Pre-signed URLs:
 
 * A pre-signed URL with a read token for the input image.
 * A pre-signed URL with a read/write token for the modified image.
 
+For more details, see [AWS Sharing objects with presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html), or [Azure Storage resources using shared access signatures](https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview).
+
 ## Retrieve an Access Token
 
-Open a secure terminal and `export` your "client ID" and "client secret" as environment variables so that your later commands can access them:
+Open a secure terminal and `export` your **Client ID** and **Client Secret** as environment variables so that your later commands can access them:
 
 ```bash
 export LIGHTROOM_CLIENT_ID=yourClientIdAsdf123
@@ -143,12 +145,12 @@ curl --location 'https://image.adobe.io/lrService/autoStraighten' \
 --header "Authorization: Bearer $LIGHTROOM_ACCESS_TOKEN" \
 --data '{
     "inputs":{
-      "href":"<SIGNED_GET_URL>",
-      "storage":"<storage>"
+      "href":"https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...",
+      "storage":"azure"
     },
     "outputs":[{
-      "href":"<SIGNED_POST_URL>",
-      "storage":"<storage>",
+      "href":"https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...",
+      "storage":"azure",
       "type":"image/jpeg"
     }]
   }'
@@ -165,9 +167,9 @@ client_id = os.environ['LIGHTROOM_CLIENT_ID']
 access_token = os.environ['LIGHTROOM_ACCESS_TOKEN']
 
 # Replace with your actual pre-signed URLs and storage option
-SIGNED_GET_URL = '<SIGNED_GET_URL>'
-SIGNED_POST_URL = '<SIGNED_POST_URL>'
-storage = '<storage>'  # e.g., 'external', 'azure'
+SIGNED_GET_URL = 'https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...'
+SIGNED_POST_URL = 'https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...'
+storage = 'azure'  # e.g., 'external', 'azure'
 
 # Set up headers
 headers = {
@@ -180,12 +182,12 @@ headers = {
 # Set up the request payload
 data = {
     'inputs': {
-        'href': <SIGNED_GET_URL>,
-        'storage': <STORAGE>
+        'href': SIGNED_GET_URL,
+        'storage':storage
     },
     'outputs': [{
-        'href': <SIGNED_POST_URL>,
-        'storage': <STORAGE>,
+        'href': SIGNED_POST_URL,
+        'storage':storage,
         'type':'image/jpeg'
     }]
 }
@@ -211,9 +213,9 @@ const axios = require("axios");
 
 async function autoStraighten(accessToken) {
   // Replace with your actual pre-signed URLs and storage option
-  const SIGNED_GET_URL = "<SIGNED_GET_URL>";
-  const SIGNED_POST_URL = "<SIGNED_POST_URL>";
-  const storage = "<storage>"; // e.g., 'external', 'azure'
+  const SIGNED_GET_URL = "https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...";
+  const SIGNED_POST_URL = "https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...";
+  const storage = "azure"; // e.g., 'external', 'azure'
 
   const headers = {
     "Content-Type": "application/json",
@@ -347,21 +349,21 @@ A successful response looks like:
 
 ```json
 {
-    "jobId": "38ae54a3-6961-43fa-914f-9777cf7c4c30",
+    "jobId": "38ae54a3-6961-43fa-914f-111111111",
     "created": "2024-11-28T23:07:01.264Z",
     "modified": "2024-11-28T23:07:03.036Z",
     "_links": {
         "self": {
-            "href": "https://image.adobe.io/lrService/status/38ae54a3-6961-43fa-914f-9777cf7c4c30"
+            "href": "https://image.adobe.io/lrService/status/38ae54a3-6961-43fa-914f-111111111"
         }
     },
     "outputs": [
         {
-            "input": "PRESIGNED_URL",
+            "input": "https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...",
             "status": "succeeded",
             "_links": {
                 "self": {
-                    "href": "PRESIGNED_URL",
+                    "href": "https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...",
                     "storage": "azure"
                 }
             }

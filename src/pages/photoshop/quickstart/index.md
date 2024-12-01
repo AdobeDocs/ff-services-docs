@@ -22,7 +22,7 @@ Pre-signed URLs:
 * A pre-signed URL with a read token for the input image.
 * A pre-signed URL with a read/write token for the output mask.
 
-For more details, see [Understanding Pre-signed URLs](https://medium.com/@shivam_99875/understanding-pre-signed-urls-80be30b0adf3#:~:text=Fundamental%20Concept%3A,need%20for%20traditional%20authentication%20mechanisms.).
+For more details, see [AWS Sharing objects with presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html), or [Azure Storage resources using shared access signatures](https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview).
 
 ## Retrieve an Access Token
 
@@ -145,12 +145,12 @@ curl --location 'https://image.adobe.io/sensei/mask' \
 --header "Authorization: Bearer $PHOTOSHOP_ACCESS_TOKEN" \
 --data '{
     "input":{
-      "href":"<SIGNED_GET_URL>",
-      "storage":"<storage>"
+      "href":"https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...",
+      "storage":"azure"
     },
     "output":{
-      "href":"<SIGNED_POST_URL>",
-      "storage":"<storage>"
+      "href":"https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...",
+      "storage":"azure"
     }
   }'
 ```
@@ -166,9 +166,9 @@ client_id = os.environ['PHOTOSHOP_CLIENT_ID']
 access_token = os.environ['PHOTOSHOP_ACCESS_TOKEN']
 
 # Replace with your actual pre-signed URLs and storage option
-SIGNED_GET_URL = '<SIGNED_GET_URL>'
-SIGNED_POST_URL = '<SIGNED_POST_URL>'
-storage = '<storage>'  # e.g., 'external', 'azure'
+SIGNED_GET_URL = 'https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...'
+SIGNED_POST_URL = 'https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...'
+storage = 'azure'  # e.g., 'external', 'azure'
 
 # Set up headers
 headers = {
@@ -181,12 +181,12 @@ headers = {
 # Set up the request payload
 data = {
     'input': {
-        'href': <SIGNED_GET_URL>,
-        'storage': <STORAGE>
+        'href': SIGNED_GET_URL,
+        'storage': storage
     },
     'output': {
-        'href': <SIGNED_POST_URL>,
-        'storage': <STORAGE>
+        'href': SIGNED_POST_URL,
+        'storage': storage
     }
 }
 
@@ -211,9 +211,9 @@ const axios = require("axios");
 
 async function createMask(accessToken) {
   // Replace with your actual pre-signed URLs and storage option
-  const SIGNED_GET_URL = "<SIGNED_GET_URL>";
-  const SIGNED_POST_URL = "<SIGNED_POST_URL>";
-  const storage = "<storage>"; // e.g., 'external', 'azure'
+  const SIGNED_GET_URL = "https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...";
+  const SIGNED_POST_URL = "https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...";
+  const storage = "azure"; // e.g., 'external', 'azure'
 
   const headers = {
     "Content-Type": "application/json",
@@ -345,16 +345,16 @@ A successful response looks like:
 
 ```json
 {
-  "jobId": "f54e0fcb-260b-47c3-b520-de0d17dc2b67",
-  "created": "string",
-  "modified": "string",
-  "status": "JOB_COMPLETION_STATUS",
+  "jobId": "f54e0fcb-260b-47c3-b520-111111",
+  "created": "2024-11-28T23:07:01.264Z",
+  "modified": "2024-11-28T23:07:03.036Z",
+  "status": "success",
   "metadata": {
     "service": {}
   },
   "output": {
-    "href": "string",
-    "storage": "<storage>",
+    "href": "https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...",
+    "storage": "azure",
     "mask": {
       "format": "soft"
     },

@@ -28,6 +28,8 @@ Pre-signed URLs:
 * A pre-signed URL with a read token for the input assets.
 * A pre-signed URL with a read/write token for the output assets.
 
+For more details, see [AWS Sharing objects with presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html), or [Azure Storage resources using shared access signatures](https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview).
+
 ## Retrieve an Access Token
 
 Open a secure terminal and `export` your **Client ID** and **Client Secret** as environment variables so that your later commands can access them:
@@ -185,12 +187,12 @@ headers = {
 # Set up the request payload
 data = {
     'input': {
-        'href': 'https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...',
-        'storage': 'azure'
+        'href': SIGNED_GET_URL,
+        'storage': storage
     },
     'output': {
-        'href': 'https://demo.blob.core.windows.net:443/container/output.jpeg?sv...&query=params...',
-        'storage': 'azure'
+        'href': SIGNED_POST_URL,
+        'storage': storage
     }
 }
 
@@ -286,12 +288,12 @@ curl --location 'https://firefly-api.adobe.io/v3/images/fill-async' \
     "prompt": "string",
     "image": {
         "source": {
-            "url": "http://example.com",
+            "url": "https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...",
         }
     },
     "mask": {
         "source": {
-            "url": "http://example.com",
+            "url": "https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...",
         }
     }
 }'
@@ -403,9 +405,9 @@ The response will look like this:
 
 ```json
 {
-"cancelUrl": "string",
-"jobId": "string",
-"statusUrl": "string"
+  "jobId": "urn:ff:jobs:eso851211:86ffe2ea-d765-4bd3-b2fd-568ca8fc36ac",
+  "statusUrl": "https://firefly-api.adobe.io/v3/status/urn:ff:jobs:eso851211:86ffe2ea-d765-4bd3-b2fd-568ca8fc36ac",
+  "cancelUrl": "https://firefly-api.adobe.io/v3/cancel/urn:ff:jobs:eso851211:86ffe2ea-d765-4bd3-b2fd-568ca8fc36ac"
 }
 ```
 
@@ -464,12 +466,12 @@ headers = {
 # Set up the request payload
 data = {
     'inputs': {
-        'href': 'https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...',
-        'storage': azure
+        'href': SIGNED_GET_URL,
+        'storage': storage
     },
     'outputs': [{
-        'href': 'https://demo.blob.core.windows.net:443/container/output.jpeg?sv...&query=params...',
-        'storage': 'azure',
+        'href': SIGNED_POST_URL,
+        'storage': storage,
         'type':'image/jpeg'
     }]
 }
