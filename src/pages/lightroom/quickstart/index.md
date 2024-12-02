@@ -351,7 +351,7 @@ STORAGE = 'azure'  # e.g., 'external', 'azure'
 def main():
     access_token = retrieve_access_token()
     job_response = auto_straighten(access_token)
-    job_id = job_response['jobId']
+    job_id = job_response['_links']['self']['href'].split('/')[-1]
     check_job_status(job_id, access_token)
 
 def retrieve_access_token():
