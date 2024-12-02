@@ -1,32 +1,30 @@
 ---
-title: Adobe Developer Console
-description: A guide to authentication for Adobe Firefly API
+title: Image Upload for Adobe Firefly APIs
+description: Learn how to upload and use images with Adobe Firefly APIs, including using the Upload Endpoint and pre-signed URLs.
 keywords:
-  - Adobe Firefly Services
-  - Authentication
-  - Firefly API
-  - Credentials
-  - Server-to-server
-  - Developer documentation
-  - Authentication concepts
-  - Authorization
-  - Identity verification
-  - OAuth
-  - API security
-  - Access tokens
-  - Client secret
-  - Authentication methods
-  - User authentication
-  - Client authentication
-  - Authentication flow
-  - Token-based authentication
-  - Single sign-on (SSO)
-  - Generate token
-  - Firefly access
-  - Identity management
-  - Secure API access
-  - Authentication protocols
-  - Authentication best practices
+  - Adobe Firefly APIs
+  - Image Upload
+  - Upload Endpoint
+  - Pre-signed URLs
+  - Image ID
+  - Azure
+  - AWS
+  - Dropbox
+  - API Integration
+  - Image Formats
+  - JPEG
+  - PNG
+  - WebP
+  - JavaScript Example
+  - Axios
+  - Access Token
+  - Client ID
+  - Secure Storage
+  - Authentication Guide
+  - Programmatic Upload
+  - API Reference
+  - Developer Documentation
+  - Best Practices
 contributors:
   - https://github.com/bishoysefin
 hideBreadcrumbNav: true
@@ -49,7 +47,7 @@ The Firefly Upload Endpoint allows you to upload images directly from local stor
 
 ### Prerequisites
 
-If you don't already have a Firefly "client ID" and "access token", learn how to retrieve them in the [Authentication Guide](../authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
+If you don't already have a Firefly **Client ID** and **Access Token**, learn how to retrieve them in the [Authentication Guide](../authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
 
 ### Upload Source Image
 

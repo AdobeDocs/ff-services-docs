@@ -51,6 +51,10 @@ module.exports = {
         path: "/guides/get-started.md",
       },
       {
+        title: "Quickstart",
+        path: "/guides/quickstart"
+      },
+      {
         title: "Tutorials",
         path: "/guides/tutorials",
         pages: [
@@ -392,10 +396,10 @@ module.exports = {
         title: "Overview",
         path: "/lightroom/",
       },
-      // {
-      //   title: 'Getting Started',
-      //   path: '/lightroom/getting-started/'
-      // },
+      {
+        title: 'Quickstart',
+        path: '/lightroom/quickstart/'
+      },
       {
         title: "General Workflow",
         path: "/lightroom/general-workflow/",

@@ -1,32 +1,19 @@
 ---
 title: Authentication
-description: A guide to authentication for Adobe Firefly API
+description: Learn how to authenticate requests to Firefly APIs
 keywords:
-  - Adobe Firefly Services
-  - Authentication
-  - Firefly API
-  - Credentials
-  - Server-to-server
-  - Developer documentation
-  - Authentication concepts
-  - Authorization
-  - Identity verification
+  - Firefly API Authentication
+  - Server-to-Server Authentication
   - OAuth
-  - API security
-  - Access tokens
-  - Client secret
-  - Authentication methods
-  - User authentication
-  - Client authentication
-  - Authentication flow
-  - Token-based authentication
-  - Single sign-on (SSO)
-  - Generate token
-  - Firefly access
-  - Identity management
-  - Secure API access
-  - Authentication protocols
-  - Authentication best practices
+  - API Security
+  - Access Tokens
+  - Client ID
+  - Client Secret
+  - Identity Management
+  - Secure API Access
+  - Token-Based Authentication
+  - Generate Access Token
+  - Authentication Best Practices
 contributors:
   - https://github.com/bishoysefin
 hideBreadcrumbNav: true
@@ -34,11 +21,11 @@ hideBreadcrumbNav: true
 
 # Authentication
 
-Learn how to send requests to Firefly APIs
+Learn how to authenticate requests to Firefly APIs
 
 ## Overview
 
-Every request made to Firefly APIs must include an encrypted access token. Your secure, server-side application retrieves an access token by making a request to the [Adobe Identity Management System (IMS)](https://www.adobe.com/content/dam/cc/en/trust-center/ungated/whitepapers/corporate/adobe-identity-management-services-security-overview.pdf) with your "client ID" and "client secret".
+Every request made to Firefly APIs must include an encrypted access token. Your secure, server-side application retrieves an access token by making a request to the [Adobe Identity Management System (IMS)](https://www.adobe.com/content/dam/cc/en/trust-center/ungated/whitepapers/corporate/adobe-identity-management-services-security-overview.pdf) with your **Client ID** and **Client Secret**.
 
 ## Prerequisites
 
@@ -50,7 +37,7 @@ This tutorial assumes you have worked with your Adobe Representative and have th
 
 ## Retrieve an Access Token
 
-First, open a secure terminal and `export` your "client ID" and "client secret" as environment variables so that your later commands can access them:
+First, open a secure terminal and `export` your **Client ID** and **Client Secret** as environment variables so that your later commands can access them:
 
 ```bash
 export FIREFLY_SERVICES_CLIENT_ID=yourClientIdAsdf123

@@ -1,32 +1,27 @@
 ---
-title: Adobe Developer Console
-description: A guide to authentication for Adobe Firefly API
+title: Using Adobe Developer Console for Firefly API Authentication
+description: Learn how to use Adobe Developer Console to manage resources and credentials for authenticating with Adobe Firefly APIs.
 keywords:
-  - Adobe Firefly Services
-  - Authentication
-  - Firefly API
-  - Credentials
-  - Server-to-server
-  - Developer documentation
-  - Authentication concepts
-  - Authorization
-  - Identity verification
-  - OAuth
-  - API security
-  - Access tokens
-  - Client secret
-  - Authentication methods
-  - User authentication
-  - Client authentication
-  - Authentication flow
-  - Token-based authentication
-  - Single sign-on (SSO)
-  - Generate token
-  - Firefly access
-  - Identity management
-  - Secure API access
-  - Authentication protocols
-  - Authentication best practices
+  - Adobe Developer Console
+  - Firefly API Authentication
+  - Manage Resources and Credentials
+  - OAuth 2.0
+  - API Security
+  - Access Tokens
+  - Client ID
+  - Client Secret
+  - Identity Management
+  - Secure API Access
+  - Token-Based Authentication
+  - Generate Token
+  - Authentication Best Practices
+  - Server-to-Server Authentication
+  - Secret Rotation
+  - Access Token Refresh
+  - I/O Management API
+  - Secure Storage
+  - Token Management
+  - Scope Limitation
 contributors:
   - https://github.com/bishoysefin
 hideBreadcrumbNav: true
@@ -38,7 +33,7 @@ Use Adobe Developer Console to manage resources and credentials
 
 ## Overview
 
-The **Adobe Developer Console** is a centralized platform that enables developers to integrate Adobe's APIs and services. To securely access Adobe's APIs, including the Firefly API, your application must authenticate using OAuth 2.0 protocols. This involves obtaining an access token that grants your application permission to interact with Adobe's services.
+The **Adobe Developer Console** is an administration interface that enables developers to manage Adobe's APIs and services. To securely access Adobe's APIs, including the Firefly API, your application must authenticate using OAuth 2.0 protocols. This involves obtaining an access token that grants your application permissions to interact with Adobe's services.
 
 ## Getting Started for Firefly APIs
 

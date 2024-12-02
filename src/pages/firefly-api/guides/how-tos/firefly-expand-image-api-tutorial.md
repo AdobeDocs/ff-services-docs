@@ -182,7 +182,7 @@ async function createSocialMediaRenditions(accessToken) {
 
 ## Full Example
 
-You can review the [prerequisites](#prerequisites) section to understand how to set up your environment prior to running this code. Note that this is an example only ad is not production-ready and requires additional error handling, logging, security measures, and more before you can run it at scale in a live application.
+You can review the [prerequisites](#prerequisites) section to understand how to set up your environment prior to running this code. Note that this is an example only and is not production-ready and requires additional error handling, logging, security measures, and more before you can run it at scale in a live application.
 
 ```js
 const axios = require("axios");

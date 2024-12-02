@@ -36,15 +36,19 @@ Use seeds to generate images similar to one another across multiple HTTP request
 | --- | --- | --- |
 | ![original image](../../images/seed-concept-original-image.jpeg) <p style="text-align:center">Original Image</p> | ![same seed variation](../../images/seed-concept-same-seed-regeneration.jpeg) <p style="text-align:center">Same Seed Regeneration</p> | ![different seed variation](../../images/seed-concept-different-seed-regeneration.jpeg) <p style="text-align:center">Different Seed Regeneration</p>
 
+## Overview
+
 Whenever Firefly generates an image, by default it begins the process by picking a random number called a `seed`. This random number contributes to what makes each image unique, which is great when you want to generate a wide variety of images
 
 However, there may be times when you want to generate images that are similar to one another across multiple HTTP requests. For example, when Firefly generates an image that you want to modify using Firefly's other options (such as style presets, reference images, etc.), use that image's `seed` in future HTTP requests to limit the randomness of future images and hone in on the image you want.
 
-<InlineAlert variant="info" slots="text" />
+## Prerequisites
 
-If you don't already have a Firefly "client ID" and "access token", learn how to retrieve them in the [Authentication Guide](../authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
+If you don't already have a Firefly **Client ID** and **Access Token**, learn how to retrieve them in the [Authentication Guide](../authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
 
-First, open a secure terminal and `export` your "client ID" and "access token" as environment variables:
+## Experience Seeds in Action
+
+First, open a secure terminal and `export` your **Client ID** and **Access Token** as environment variables:
 
 ```bash
 export FIREFLY_SERVICES_CLIENT_ID=yourClientIdAsdf123

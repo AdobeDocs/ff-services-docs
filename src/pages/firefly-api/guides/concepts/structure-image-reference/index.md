@@ -19,19 +19,21 @@ Use Structure Image Reference to generate images based on a specific outline and
 | --- | --- |
 | ![mountain](../../images/structure-image-reference-mountain.jpeg) <p style="text-align:center">Structure Image Reference</p> | ![volcano](../../images/structure-image-reference-volcano.jpeg) <p style="text-align:center">Generated Image</p>
 
+## Overview
+
 Use `structure.imageReference` with Firefly's [Generate Images API](../../api/image_generation/V3/) to generate images based on a specific outline and depth. This is helpful for when you have a scene where everything in it is placed correctly, but you want to generate a new image with a different details, style, or mood.
 
-### Specifying Strength
+## Prerequisites
+
+If you don't already have a Firefly  **Client ID** and **Access Token**, learn how to retrieve them in the [Authentication Guide](../authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
+
+## Specifying Strength
 
 To influence how impactful your reference image is during the image generation process, add a `strength` value between `1` and `100` to your structure object. When "strength" is not specified, it defaults to a value of `50`.
 
 ## Experience Structure Image Reference in Action
 
-<InlineAlert variant="info" slots="text" />
-
-If you don't already have a Firefly "client ID" and "access token", learn how to retrieve them in the [Authentication Guide](../authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
-
-First, open a secure terminal and `export` your "client ID" and "access token" as environment variables:
+First, open a secure terminal and `export` your **Client ID** and **Access Token** as environment variables:
 
 ```bash
 export FIREFLY_SERVICES_CLIENT_ID=yourClientIdAsdf123
