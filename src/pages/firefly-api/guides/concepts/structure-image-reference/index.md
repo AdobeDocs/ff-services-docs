@@ -33,7 +33,6 @@ To influence how impactful your reference image is during the image generation p
 
 ## Experience Structure Image Reference in Action
 
-
 First, open a secure terminal and `export` your **Client ID** and **Access Token** as environment variables:
 
 ```bash
