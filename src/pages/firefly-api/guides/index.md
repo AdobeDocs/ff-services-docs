@@ -56,7 +56,11 @@ export FIREFLY_SERVICES_CLIENT_ID=yourClientIdAsdf123
 export FIREFLY_SERVICES_CLIENT_SECRET=yourClientSecretAsdf123
 ```
 
-Run the following command to generate an access token:
+Generate an access token:
+
+<CodeBlock slots="heading, code" repeat="3" languages="bash, Python, JavaScript" />
+
+#### cURL
 
 ```bash
 curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
@@ -65,6 +69,75 @@ curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
 --data-urlencode "client_id=$FIREFLY_SERVICES_CLIENT_ID" \
 --data-urlencode "client_secret=$FIREFLY_SERVICES_CLIENT_SECRET" \
 --data-urlencode 'scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
+```
+
+#### Python
+
+```python
+import os
+import requests
+
+# Retrieve environment variables
+client_id = os.environ['FIREFLY_SERVICES_CLIENT_ID']
+client_secret = os.environ['FIREFLY_SERVICES_CLIENT_ID']
+
+# Set up the token endpoint and payload
+token_url = 'https://ims-na1.adobelogin.com/ims/token/v3'
+payload = {
+    'grant_type': 'client_credentials',
+    'client_id': client_id,
+    'client_secret': client_secret,
+    'scope': 'openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
+}
+
+# Make the POST request to get the access token
+response = requests.post(token_url, data=payload)
+response.raise_for_status()  # Raise an error for bad status codes
+
+# Parse the JSON response
+token_data = response.json()
+print("Authentication Response: ", token_data)
+```
+
+#### JavaScript
+
+```js
+const axios = require("axios");
+const qs = require("qs");
+
+(async () => {
+  const accessToken = await retrieveAccessToken();
+})();
+
+
+async function retrieveAccessToken() {
+  let data = qs.stringify({
+    grant_type: "client_credentials",
+    client_id: process.env.FIREFLY_SERVICES_CLIENT_ID,
+    client_secret: process.env.FIREFLY_SERVICES_CLIENT_SECRET,
+    scope:
+      "openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis",
+  });
+
+  let config = {
+    method: "post",
+    maxBodyLength: Infinity,
+    url: "https://ims-na1.adobelogin.com/ims/token/v3",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    data: data,
+  };
+
+  try {
+    const response = await axios.request(config);
+    console.log("Authentication Response: ", response);
+    const { access_token } = response.data;
+    return access_token;
+  } catch (error) {
+    console.log(error);
+  }
+}
 ```
 
 The response will look like this:
@@ -83,6 +156,10 @@ export FIREFLY_SERVICES_ACCESS_TOKEN=yourAccessTokenAsdf123
 
 Next, call the [Firefly Generate Images API](./api/image_generation/V3/):
 
+<CodeBlock slots="heading, code" repeat="3" languages="bash, Python, JavaScript" />
+
+#### cURL
+
 ```bash
 curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --header 'Content-Type: application/json' \
@@ -92,6 +169,81 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 --data '{
     "prompt": "a realistic illustration of a cat coding"
 }'
+```
+
+#### Python
+
+```python
+import os
+import requests
+
+# Retrieve environment variables
+client_id = os.environ['FIREFLY_SERVICES_CLIENT_ID']
+access_token = os.environ['FIREFLY_SERVICES_ACCESS_TOKEN']
+
+# Set up headers
+headers = {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    'x-api-key': client_id,
+    'Authorization': f'Bearer {access_token}'
+}
+
+# Set up the request payload
+data = {
+    'prompt': 'a realistic illustration of a cat coding',  # Replace with your actual prompt
+}
+
+# Make the POST request to the Firefly Fill Image API
+response = requests.post(
+    'https://firefly-api.adobe.io/v3/images/generate',
+    headers=headers,
+    json=data
+)
+response.raise_for_status()
+
+# Parse the JSON response
+job_response = response.json()
+print("Generate Image Response:", job_response)
+```
+
+#### JavaScript
+
+```js
+const axios = require("axios");
+
+(async () => {
+  const result = await generateImage(accessToken);
+  console.log("Generate Image Response:", result);
+})();
+
+async function generateImage(accessToken) {
+
+  const headers = {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    "x-api-key": process.env.FIREFLY_SERVICES_CLIENT_ID,
+    Authorization: `Bearer ${accessToken}`,
+  };
+
+  const data = {
+    prompt: "a realistic illustration of a cat coding", // Replace with your actual prompt
+  };
+
+  const config = {
+    method: "post",
+    url: "https://firefly-api.adobe.io/v3/images/generate",
+    headers: headers,
+    data: data,
+  };
+
+  try {
+    const response = await axios.request(config);
+    return response.data;
+  } catch (error) {
+    console.error("Error during generateImage:", error);
+  }
+}
 ```
 
 The response will look like this:
