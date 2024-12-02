@@ -9,7 +9,9 @@ contributors:
 
 Automating Content Workflows with Firefly Services APIs
 
-Pictures
+||
+| --- | --- |
+| ![a picture of a burger with a black background](./images/original.jpeg) <p style="text-align:center">Original Image</p> | ![a picture of a burger with a fiery background and enhanced lighting](./images/output.jpeg) <p style="text-align:center">Output Image</p> |
 
 ## Overview
 
