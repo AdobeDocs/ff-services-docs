@@ -342,9 +342,9 @@ STORAGE = 'azure'  # e.g., 'external', 'azure'
 
 def main():
     access_token = retrieve_access_token()
-    job_response = await create_mask(access_token)
+    job_response = create_mask(access_token)
     job_id = job_response['_links']['self']['href'].split('/')[-1]
-    await check_job_status(job_id, access_token)
+    check_job_status(job_id, access_token)
 
 def retrieve_access_token():
     client_id = os.environ['CLIENT_ID']
