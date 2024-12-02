@@ -15,7 +15,7 @@ Automating Content Workflows with Firefly Services APIs
 
 ## Overview
 
-In this tutorial, let's imagine we work at an innovative e-commerce company specializing in handcrafted home decor. Our mission is to create a captivating online catalog that showcases our unique products to customers worldwide. To achieve this, we need to process a large number of product images efficiently while maintaining high visual standards.We will leverage Adobe's Firefly Services APIs to automate our content workflow:
+In this tutorial, let's imagine we are working for a creative marketing team at a gourmet food chain specializing in premium burgers. Our goal is to develop a visually stunning online menu and promotional materials that highlight the mouthwatering appeal of our products to customers worldwide. We will leverage Adobe's Firefly Services APIs to automate our content workflow:
 
 * **Remove Backgrounds:** Use the Photoshop API to eliminate distracting backgrounds from our product images, allowing the items to stand out.
 * **Enhance Images with Generative Fill:** Apply the Firefly Fill Image API to add creative and contextually relevant backgrounds that enhance the aesthetic appeal of each product.
