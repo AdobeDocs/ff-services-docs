@@ -244,7 +244,7 @@ curl --location 'https://firefly-api.adobe.io/v3/images/fill-async' \
 --header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
 --header "Authorization: Bearer $FIREFLY_SERVICES_ACCESS_TOKEN" \
 --data '{
-    "prompt": "string",
+    "prompt": "A delicious firey background",
     "image": {
         "source": {
             "url": "https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...",
@@ -313,7 +313,7 @@ async function fillImage(accessToken) {
   };
 
   const data = {
-    prompt: "string", // Replace with your actual prompt
+    prompt: "A delicious firey background", // Replace with your actual prompt
     image: {
       source: {
         url: SIGNED_IMAGE_GET_URL,
