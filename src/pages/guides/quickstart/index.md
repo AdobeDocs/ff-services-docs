@@ -28,7 +28,7 @@ Pre-signed URLs:
 * A pre-signed URL with a read token for the input assets.
 * A pre-signed URL with a read/write token for the output assets.
 
-For more details, see [AWS Sharing objects with presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html), or [Azure Storage resources using shared access signatures](https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview).
+For more details about pre-signed URLs, see [AWS Sharing objects with presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html), or [Azure Storage resources using shared access signatures](https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview).
 
 ## Retrieve an Access Token
 
@@ -62,7 +62,7 @@ import requests
 
 # Retrieve environment variables
 client_id = os.environ['FIREFLY_SERVICES_CLIENT_ID']
-client_secret = os.environ['FIREFLY_SERVICES_CLIENT_ID']
+client_secret = os.environ['FIREFLY_SERVICES_CLIENT_SECRET']
 
 # Set up the token endpoint and payload
 token_url = 'https://ims-na1.adobelogin.com/ims/token/v3'
@@ -361,8 +361,8 @@ const axios = require("axios");
 
 async function fillImage(accessToken) {
   // Replace with your actual image and mask URLs
-  const SIGNED_IMAGE_GET_URL = "http://example.com"; // Replace with your image URL
-  const SIGNED_MASK_GET_URL = "http://example.com";  // Replace with your mask URL
+  const SIGNED_IMAGE_GET_URL = 'https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...'; // Replace with your image URL
+  const SIGNED_MASK_GET_URL = 'https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...';  // Replace with your mask URL
 
   const headers = {
     "Content-Type": "application/json",
