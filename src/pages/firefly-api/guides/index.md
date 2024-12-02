@@ -324,6 +324,7 @@ def generate_image(access_token):
 if __name__ == '__main__':
     main()
 ```
+
 #### JavaScript
 
 ```js
