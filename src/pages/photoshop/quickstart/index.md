@@ -15,7 +15,7 @@ Create your first Mask with Photoshop APIs
 
 ## Prerequisites
 
-If you don't already have a Photoshop or Firefly Services "client ID" and "client secret", retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
+If you don't already have a Photoshop or Firefly Services **Client ID** and **Client Secret**, retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
 
 Pre-signed URLs:
 
@@ -59,7 +59,7 @@ Save this sample image to your cloud storage, generating a pre-signed URL:
 
 ## Retrieve an Access Token
 
-Open a secure terminal and `export` your "client ID" and "client secret" as environment variables so that your later commands can access them:
+Open a secure terminal and `export` your **Client ID** and **Client Secret** as environment variables so that your later commands can access them:
 
 ```bash
 export CLIENT_ID=yourClientIdAsdf123
@@ -84,7 +84,10 @@ curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
 #### Python
 
 ```python
-def retrieve_access_token(client_id, client_secret):
+def retrieve_access_token():
+    client_id = os.environ['CLIENT_ID']
+    client_secret = os.environ['CLIENT_SECRET']
+
     token_url = 'https://ims-na1.adobelogin.com/ims/token/v3'
     payload = {
         'grant_type': 'client_credentials',
@@ -166,21 +169,19 @@ curl --location 'https://image.adobe.io/sensei/mask' \
 # Replace with your actual pre-signed URLs and storage option
 SIGNED_GET_URL = 'https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...'
 SIGNED_POST_URL = 'https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...'
-storage = 'azure'  # e.g., 'external', 'azure'
+STORAGE = 'azure'  # e.g., 'external', 'azure'
 
-def create_mask(access_token, client_id, signed_get_url, signed_post_url, storage):
-    import requests
-
-    headers = {
+def create_mask(access_token):
+  headers = {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        'x-api-key': client_id,
+        'x-api-key': os.environ['CLIENT_ID']
         'Authorization': f'Bearer {access_token}',
     }
 
     data = {
-        'input': {'href': signed_get_url, 'storage': storage},
-        'output': {'href': signed_post_url, 'storage': storage},
+        'input': {'href': SIGNED_GET_URL, 'storage': STORAGE},
+        'output': {'href': SIGNED_POST_URL, 'storage': STORAGE},
     }
 
     response = requests.post('https://image.adobe.io/sensei/mask', headers=headers, json=data)
@@ -191,12 +192,11 @@ def create_mask(access_token, client_id, signed_get_url, signed_post_url, storag
 #### JavaScript
 
 ```js
-  const SIGNED_GET_URL = "https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...";
-  const SIGNED_POST_URL = "https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...";
-  const storage = "azure"; // e.g., 'external', 'azure'
-async function createMask(accessToken, signedGetUrl, signedPostUrl, storage) {
-  const axios = require('axios');
+const SIGNED_GET_URL = "https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...";
+const SIGNED_POST_URL = "https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...";
+const STORAGE = "azure"; // e.g., 'external', 'azure'
 
+async function createMask(accessToken) {
   const headers = {
     'Content-Type': 'application/json',
     Accept: 'application/json',
@@ -205,8 +205,8 @@ async function createMask(accessToken, signedGetUrl, signedPostUrl, storage) {
   };
 
   const data = {
-    input: { href: signedGetUrl, storage: storage },
-    output: { href: signedPostUrl, storage: storage },
+    input: { href: SIGNED_GET_URL, storage: STORAGE },
+    output: { href: SIGNED_POST_URL, storage: STORAGE },
   };
 
   const config = {
@@ -252,11 +252,11 @@ curl --location 'https://image.adobe.io/sensei/status/<:jobId>' \
 #### Python
 
 ```python
-def check_job_status(job_id, access_token, client_id):
+def check_job_status(job_id, access_token):
     headers = {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        'x-api-key': client_id,
+        'x-api-key': os.environ['CLIENT_ID'],
         'Authorization': f'Bearer {access_token}',
     }
 
@@ -323,7 +323,7 @@ Access the mask at the `output.href` URL (the `SIGNED_POST_URL` provided earlier
 
 ## Full Example
 
-You can review the [prerequisites](#prerequisites) section to understand how to set up your environment prior to running this code. Note that this is an example only ad is not production-ready and requires additional error handling, logging, security measures, and more before you can run it at scale in a live application.
+You can review the [prerequisites](#prerequisites) section to understand how to set up your environment prior to running this code. Note that this is an example only and is not production-ready and requires additional error handling, logging, security measures, and more before you can run it at scale in a live application.
 
 <CodeBlock slots="heading, code" repeat="2" languages="Python, JavaScript" />
 
@@ -334,6 +334,12 @@ import os
 import time
 import requests
 
+# Replace with your actual pre-signed URLs and storage option
+SIGNED_GET_URL = 'https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...'  # Input image URL
+SIGNED_POST_URL = 'https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...'  # Output mask URL
+STORAGE = 'azure'  # e.g., 'external', 'azure'
+
+
 def main():
     access_token = retrieve_access_token()
     job_response = await create_mask(access_token)
@@ -341,8 +347,8 @@ def main():
     await check_job_status(job_id, access_token)
 
 def retrieve_access_token():
-    client_id = os.environ['PHOTOSHOP_CLIENT_ID']
-    client_secret = os.environ['PHOTOSHOP_CLIENT_SECRET']
+    client_id = os.environ['CLIENT_ID']
+    client_secret = os.environ['CLIENT_SECRET']
 
     token_url = 'https://ims-na1.adobelogin.com/ims/token/v3'
     payload = {
@@ -363,21 +369,16 @@ def retrieve_access_token():
         exit(1)
 
 def create_mask(access_token):
-    # Replace with your actual pre-signed URLs and storage option
-    SIGNED_GET_URL = '<YOUR_SIGNED_GET_URL>'  # Input image URL
-    SIGNED_POST_URL = '<YOUR_SIGNED_POST_URL>'  # Output mask URL
-    storage = 'azure'  # e.g., 'external', 'azure'
-
     headers = {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        'x-api-key': os.environ['PHOTOSHOP_CLIENT_ID'],
+        'x-api-key': os.environ['CLIENT_ID'],
         'Authorization': f'Bearer {access_token}',
     }
 
     data = {
-        'input': {'href': SIGNED_GET_URL, 'storage': storage},
-        'output': {'href': SIGNED_POST_URL, 'storage': storage},
+        'input': {'href': SIGNED_GET_URL, 'storage': STORAGE},
+        'output': {'href': SIGNED_POST_URL, 'storage': STORAGE},
     }
 
     try:
@@ -395,7 +396,7 @@ def check_job_status(job_id, access_token):
     headers = {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        'x-api-key': os.environ['PHOTOSHOP_CLIENT_ID'],
+        'x-api-key': os.environ['CLIENT_ID'],
         'Authorization': f'Bearer {access_token}',
     }
 
@@ -432,7 +433,7 @@ const qs = require('qs');
 // Replace with your actual pre-signed URLs and storage option
 const SIGNED_GET_URL = 'https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...'; // Input image URL
 const SIGNED_POST_URL = 'https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...'; // Output mask URL
-const storage = 'azure'; // e.g., 'external', 'azure'
+const STORAGE = 'azure'; // e.g., 'external', 'azure'
 
 (async () => {
   const accessToken = await retrieveAccessToken();
@@ -475,8 +476,8 @@ async function createMask(accessToken) {
   };
 
   const data = {
-    input: { href: SIGNED_GET_URL, storage: storage },
-    output: { href: SIGNED_POST_URL, storage: storage },
+    input: { href: SIGNED_GET_URL, storage: STORAGE },
+    output: { href: SIGNED_POST_URL, storage: STORAGE },
   };
 
   const config = {
