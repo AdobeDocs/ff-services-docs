@@ -57,68 +57,49 @@ curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
 #### Python
 
 ```python
-import os
-import requests
+def retrieve_access_token():
+    client_id = os.environ['FIREFLY_SERVICES_CLIENT_ID']
+    client_secret = os.environ['FIREFLY_SERVICES_CLIENT_SECRET']
 
-# Retrieve environment variables
-client_id = os.environ['FIREFLY_SERVICES_CLIENT_ID']
-client_secret = os.environ['FIREFLY_SERVICES_CLIENT_SECRET']
+    token_url = 'https://ims-na1.adobelogin.com/ims/token/v3'
+    payload = {
+        'grant_type': 'client_credentials',
+        'client_id': client_id,
+        'client_secret': client_secret,
+        'scope': 'openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
+    }
 
-# Set up the token endpoint and payload
-token_url = 'https://ims-na1.adobelogin.com/ims/token/v3'
-payload = {
-    'grant_type': 'client_credentials',
-    'client_id': client_id,
-    'client_secret': client_secret,
-    'scope': 'openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
-}
-
-# Make the POST request to get the access token
-response = requests.post(token_url, data=payload)
-response.raise_for_status()  # Raise an error for bad status codes
-
-# Parse the JSON response
-token_data = response.json()
-print("Authentication Response: ", token_data)
+    response = requests.post(token_url, data=payload)
+    response.raise_for_status()
+    token_data = response.json()
+    print("Access Token Retrieved")
+    return token_data['access_token']
 ```
 
 #### JavaScript
 
 ```js
-const axios = require("axios");
-const qs = require("qs");
-
-(async () => {
-  const accessToken = await retrieveAccessToken();
-})();
-
-
 async function retrieveAccessToken() {
-  let data = qs.stringify({
-    grant_type: "client_credentials",
+  const data = qs.stringify({
+    grant_type: 'client_credentials',
     client_id: process.env.FIREFLY_SERVICES_CLIENT_ID,
     client_secret: process.env.FIREFLY_SERVICES_CLIENT_SECRET,
-    scope:
-      "openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis",
+    scope: 'openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis',
   });
 
-  let config = {
-    method: "post",
-    maxBodyLength: Infinity,
-    url: "https://ims-na1.adobelogin.com/ims/token/v3",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
+  const config = {
+    method: 'post',
+    url: 'https://ims-na1.adobelogin.com/ims/token/v3',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     data: data,
   };
 
   try {
     const response = await axios.request(config);
-    console.log("Authentication Response: ", response);
-    const { access_token } = response.data;
-    return access_token;
+    console.log('Access Token Retrieved');
+    return response.data.access_token;
   } catch (error) {
-    console.log(error);
+    console.error('Error retrieving access token:', error.response.data);
   }
 }
 ```
@@ -164,94 +145,70 @@ curl --location 'https://image.adobe.io/sensei/cutout' \
 #### Python
 
 ```python
-import os
-import requests
-
-# Retrieve environment variables
-client_id = os.environ['FIREFLY_SERVICES_CLIENT_ID']
-access_token = os.environ['FIREFLY_SERVICES_ACCESS_TOKEN']
-
 # Replace with your actual pre-signed URLs and storage option
-SIGNED_GET_URL = 'https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...'
-SIGNED_POST_URL = 'https://demo.blob.core.windows.net:443/container/output.jpeg?sv...&query=params...'
-storage = 'azure'  # e.g., 'external', 'azure'
+SIGNED_GET_URL = 'https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...'
+SIGNED_POST_URL = 'https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...'
+STORAGE = 'azure'  # e.g., 'external', 'azure'
 
-# Set up headers
-headers = {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json',
-    'x-api-key': client_id,
-    'Authorization': f'Bearer {access_token}'
-}
-
-# Set up the request payload
-data = {
-    'input': {
-        'href': SIGNED_GET_URL,
-        'storage': storage
-    },
-    'output': {
-        'href': SIGNED_POST_URL,
-        'storage': storage
+def remove_background(access_token):
+    headers = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'x-api-key': os.environ['FIREFLY_SERVICES_CLIENT_ID'],
+        'Authorization': f'Bearer {access_token}'
     }
-}
 
-# Make the POST request to create the mask
-response = requests.post('https://image.adobe.io/sensei/cutout', headers=headers, json=data)
-response.raise_for_status()
+    data = {
+        'input': {
+            'href': SIGNED_GET_URL,
+            'storage': STORAGE
+        },
+        'output': {
+            'href': SIGNED_POST_URL,
+            'storage': STORAGE
+        }
+    }
 
-# Parse the JSON response
-job_response = response.json()
-print("Remove Background Response:", job_response)
+    response = requests.post('https://image.adobe.io/sensei/cutout', headers=headers, json=data)
+    response.raise_for_status()
+    job_response = response.json()
+    print("Remove Background Job Submitted:", job_response)
+    return job_response
 ```
 
 #### JavaScript
 
 ```js
-const axios = require("axios");
-
-(async () => {
-  const result = await removeBackground(accessToken);
-  console.log("Remove Background Response:", result);
-})();
+const SIGNED_GET_URL = "https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...";
+const SIGNED_POST_URL = "https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...";
+const STORAGE = "azure"; // e.g., 'external', 'azure'
 
 async function removeBackground(accessToken) {
-  // Replace with your actual pre-signed URLs and storage option
-  const SIGNED_GET_URL = "https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...";
-  const SIGNED_POST_URL = "https://demo.blob.core.windows.net:443/container/output.jpeg?sv...&query=params...";
-  const storage = "azure"; // e.g., 'external', 'azure'
-
   const headers = {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-    "x-api-key": process.env.FIREFLY_SERVICES_CLIENT_ID,
+    'Content-Type': 'application/json',
+    Accept: 'application/json',
+    'x-api-key': process.env.FIREFLY_SERVICES_CLIENT_ID,
     Authorization: `Bearer ${accessToken}`,
   };
 
   const data = {
-    input: {
-      href: SIGNED_GET_URL,
-      storage: storage,
-    },
-    output: 
-      {
-        href: SIGNED_POST_URL,
-        storage: storage
-      }
+    input: { href: SIGNED_GET_URL, storage: STORAGE },
+    output: { href: SIGNED_POST_URL, storage: STORAGE },
   };
 
   const config = {
-    method: "post",
-    url: "https://image.adobe.io/sensei/cutout",
+    method: 'post',
+    url: 'https://image.adobe.io/sensei/cutout',
     headers: headers,
     data: data,
   };
 
   try {
     const response = await axios.request(config);
+    console.log('Remove Background Job Submitted:', response.data);
     return response.data;
   } catch (error) {
-    console.error("Error during removeBackground:", error);
+    console.error('Error during removeBackground:', error.response.data);
   }
 }
 ```
@@ -302,68 +259,50 @@ curl --location 'https://firefly-api.adobe.io/v3/images/fill-async' \
 #### Python
 
 ```python
-import os
-import requests
+# Replace with your actual pre-signed URLs
+SIGNED_IMAGE_GET_URL = 'https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...'  # Image URL
+SIGNED_MASK_GET_URL = 'https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...'    # Mask URL
 
-# Retrieve environment variables
-client_id = os.environ['FIREFLY_SERVICES_CLIENT_ID']
-access_token = os.environ['FIREFLY_SERVICES_ACCESS_TOKEN']
+def fill_image(access_token):
+    headers = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'x-api-key': os.environ['FIREFLY_SERVICES_CLIENT_ID'],
+        'Authorization': f'Bearer {access_token}'
+    }
 
-# Replace with your actual pre-signed URLs and storage option
-SIGNED_IMAGE_GET_URL = 'https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...'
-SIGNED_MASK_GET_URL = 'https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...'
-
-# Set up headers
-headers = {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json',
-    'x-api-key': client_id,
-    'Authorization': f'Bearer {access_token}'
-}
-
-# Set up the request payload
-data = {
-    'prompt': 'string',  # Replace with your actual prompt
-    'image': {
-        'source': {
-            'url': SIGNED_IMAGE_GET_URL
-        }
-    },
-    'mask': {
-        'source': {
-            'url': SIGNED_MASK_GET_URL
+    data = {
+        'prompt': 'a description of the desired background',  # Replace with your actual prompt
+        'image': {
+            'source': {
+                'url': SIGNED_IMAGE_GET_URL
+            }
+        },
+        'mask': {
+            'source': {
+                'url': SIGNED_MASK_GET_URL
+            }
         }
     }
-}
 
-# Make the POST request to the Firefly Fill Image API
-response = requests.post(
-    'https://firefly-api.adobe.io/v3/images/fill-async',
-    headers=headers,
-    json=data
-)
-response.raise_for_status()
-
-# Parse the JSON response
-job_response = response.json()
-print("Fill Image Response:", job_response)
+    response = requests.post(
+        'https://firefly-api.adobe.io/v3/images/fill-async',
+        headers=headers,
+        json=data
+    )
+    response.raise_for_status()
+    job_response = response.json()
+    print("Fill Image Job Submitted:", job_response)
+    return job_response
 ```
 
 #### JavaScript
 
 ```js
-const axios = require("axios");
-
-(async () => {
-  const result = await fillImage(accessToken);
-  console.log("Fill Image Response:", result);
-})();
+const SIGNED_IMAGE_GET_URL = 'https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...'; // Replace with your image URL
+const SIGNED_MASK_GET_URL = 'https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...';  // Replace with your mask URL
 
 async function fillImage(accessToken) {
-  // Replace with your actual image and mask URLs
-  const SIGNED_IMAGE_GET_URL = 'https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...'; // Replace with your image URL
-  const SIGNED_MASK_GET_URL = 'https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...';  // Replace with your mask URL
-
   const headers = {
     "Content-Type": "application/json",
     Accept: "application/json",
@@ -405,9 +344,9 @@ The response will look like this:
 
 ```json
 {
-  "jobId": "urn:ff:jobs:eso851211:86ffe2ea-d765-4bd3-b2fd-568ca8fc36ac",
-  "statusUrl": "https://firefly-api.adobe.io/v3/status/urn:ff:jobs:eso851211:86ffe2ea-d765-4bd3-b2fd-568ca8fc36ac",
-  "cancelUrl": "https://firefly-api.adobe.io/v3/cancel/urn:ff:jobs:eso851211:86ffe2ea-d765-4bd3-b2fd-568ca8fc36ac"
+  "jobId": "urn:ff:jobs:eso851211:86ffe2ea-d765-4bd3-b2fd-1111",
+  "statusUrl": "https://firefly-api.adobe.io/v3/status/urn:ff:jobs:eso851211:86ffe2ea-d765-4bd3-b2fd-1111",
+  "cancelUrl": "https://firefly-api.adobe.io/v3/cancel/urn:ff:jobs:eso851211:86ffe2ea-d765-4bd3-b2fd-1111"
 }
 ```
 
@@ -443,64 +382,46 @@ curl --location 'https://image.adobe.io/lrService/autoTone' \
 #### Python
 
 ```python
-import os
-import requests
-
-# Retrieve environment variables
-client_id = os.environ['FIREFLY_SERVICES_CLIENT_ID']
-access_token = os.environ['FIREFLY_SERVICES_ACCESS_TOKEN']
-
 # Replace with your actual pre-signed URLs and storage option
 SIGNED_GET_URL = 'https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...'
 SIGNED_POST_URL = 'https://demo.blob.core.windows.net:443/container/output.jpeg?sv...&query=params...'
 storage = 'azure'  # e.g., 'external', 'azure'
 
-# Set up headers
-headers = {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json',
-    'x-api-key': client_id,
-    'Authorization': f'Bearer {access_token}'
-}
+def auto_tone(access_token):
+    headers = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'x-api-key': os.environ['FIREFLY_SERVICES_CLIENT_ID'],
+        'Authorization': f'Bearer {access_token}'
+    }
 
-# Set up the request payload
-data = {
-    'inputs': {
-        'href': SIGNED_GET_URL,
-        'storage': storage
-    },
-    'outputs': [{
-        'href': SIGNED_POST_URL,
-        'storage': storage,
-        'type':'image/jpeg'
-    }]
-}
+    data = {
+        'inputs': {
+            'href': SIGNED_GET_URL,
+            'storage': STORAGE
+        },
+        'outputs': [{
+            'href': SIGNED_POST_URL,
+            'storage': STORAGE,
+            'type': 'image/jpeg'
+        }]
+    }
 
-# Make the POST request to create the mask
-response = requests.post('https://image.adobe.io/lrService/autoTone', headers=headers, json=data)
-response.raise_for_status()
-
-# Parse the JSON response
-job_response = response.json()
-print("Auto Tone Response:", job_response)
+    response = requests.post('https://image.adobe.io/lrService/autoTone', headers=headers, json=data)
+    response.raise_for_status()
+    job_response = response.json()
+    print("Auto Tone Job Submitted:", job_response)
+    return job_response
 ```
 
 #### JavaScript
 
 ```js
-const axios = require("axios");
-
-(async () => {
-  const result = await autoTone(accessToken);
-  console.log("Auto Tone Response:", result);
-})();
+ const SIGNED_GET_URL = "https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...";
+  const SIGNED_POST_URL = "https://demo.blob.core.windows.net:443/container/output.jpeg?sv...&query=params...";
+  const STORAGE = "azure"; // e.g., 'external', 'azure'
 
 async function autoTone(accessToken) {
-  // Replace with your actual pre-signed URLs and storage option
-  const SIGNED_GET_URL = "https://demo.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...";
-  const SIGNED_POST_URL = "https://demo.blob.core.windows.net:443/container/output.jpeg?sv...&query=params...";
-  const storage = "azure"; // e.g., 'external', 'azure'
-
   const headers = {
     "Content-Type": "application/json",
     Accept: "application/json",
