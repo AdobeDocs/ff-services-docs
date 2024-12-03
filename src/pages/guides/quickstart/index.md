@@ -9,17 +9,17 @@ contributors:
 
 Automating Content Workflows with Firefly Services APIs
 
-|                                                                                                                          |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+||
+| --- | --- |
 | ![a picture of a burger with a black background](./images/original.jpeg) <p style="text-align:center">Original Image</p> | ![a picture of a burger with a fiery background and enhanced lighting](./images/output.jpeg) <p style="text-align:center">Output Image</p> |
 
 ## Overview
 
 In this tutorial, let's imagine we are working for a creative marketing team at a gourmet food chain specializing in premium burgers. Our goal is to develop a visually stunning online menu and promotional materials that highlight the mouthwatering appeal of our products to customers worldwide. We will leverage Adobe's Firefly Services APIs to automate our content workflow:
 
-- **Remove Backgrounds:** use the Photoshop Remove Background API to eliminate distracting backgrounds from our product images, allowing the items to stand out.
-- **Enhance Images with Generate Object Composite:** Use the Firefly Generate Object Composite API to add creative and contextually relevant backgrounds that enhance the aesthetic appeal of each product.
-- **Optimize Image Quality:** Utilize the Lightroom Auto Tone API to automatically adjust lighting and color balance, ensuring consistent and professional-quality images across our catalog.
+* **Remove Backgrounds:** use the Photoshop Remove Background API to eliminate distracting backgrounds from our product images, allowing the items to stand out.
+* **Enhance Images with Generate Object Composite:** Use the Firefly Generate Object Composite API to add creative and contextually relevant backgrounds that enhance the aesthetic appeal of each product.
+* **Optimize Image Quality:** Utilize the Lightroom Auto Tone API to automatically adjust lighting and color balance, ensuring consistent and professional-quality images across our catalog.
 
 ## Prerequisites
 
@@ -58,9 +58,9 @@ To interact with Adobe's Firefly Services APIs, you'll need to generate pre-sign
 
 In this tutorial, you will need:
 
-- A pre-signed URL with read access for the input image. Save this sample image to your cloud storage and generate a pre-signed URL: ![a picture of a burger with a black background](./images/original.jpeg)
-- A pre-signed URL with read access for the style reference image below. Save this sample image to your cloud storage and generate a pre-signed URL: ![a styre reference of a burger with a fiery background](./images/styleref.jpeg)
-- A pre-signed URL with a read/write token for the modified image.
+* A pre-signed URL with read access for the input image. Save this sample image to your cloud storage, generating a pre-signed URL: ![a picture of a burger with a black background](./images/original.jpeg)
+* A pre-signed URL with read access for the style reference image below. Save this sample image to your cloud storage, generating a pre-signed URL: ![a styre reference of a burger with a fiery background](./images/styleref.jpeg)
+* A pre-signed URL with a read/write token for the modified image.
 
 Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump immediately to the full source code](#full-example).
 
@@ -115,26 +115,25 @@ def retrieve_access_token():
 ```js
 async function retrieveAccessToken() {
   const data = qs.stringify({
-    grant_type: "client_credentials",
+    grant_type: 'client_credentials',
     client_id: process.env.FIREFLY_SERVICES_CLIENT_ID,
     client_secret: process.env.FIREFLY_SERVICES_CLIENT_SECRET,
-    scope:
-      "openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis",
+    scope: 'openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis',
   });
 
   const config = {
-    method: "post",
-    url: "https://ims-na1.adobelogin.com/ims/token/v3",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    method: 'post',
+    url: 'https://ims-na1.adobelogin.com/ims/token/v3',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     data: data,
   };
 
   try {
     const response = await axios.request(config);
-    console.log("Access Token Retrieved");
+    console.log('Access Token Retrieved');
     return response.data.access_token;
   } catch (error) {
-    console.error("Error retrieving access token:", error.response.data);
+    console.error('Error retrieving access token:', error.response.data);
   }
 }
 ```
@@ -142,11 +141,7 @@ async function retrieveAccessToken() {
 The response will look like this:
 
 ```json
-{
-  "access_token": "yourAccessTokenAsdf123",
-  "token_type": "bearer",
-  "expires_in": 86399
-}
+{"access_token":"yourAccessTokenAsdf123","token_type":"bearer","expires_in":86399}
 ```
 
 Export this access token in your secure terminal so that the next script can conveniently access it:
@@ -218,17 +213,15 @@ def remove_background(access_token):
 #### JavaScript
 
 ```js
-const SIGNED_GET_URL =
-  "https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...";
-const SIGNED_POST_URL =
-  "https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...";
+const SIGNED_GET_URL = "https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...";
+const SIGNED_POST_URL = "https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...";
 const STORAGE = "azure"; // e.g., 'external', 'azure'
 
 async function removeBackground(accessToken) {
   const headers = {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-    "x-api-key": process.env.FIREFLY_SERVICES_CLIENT_ID,
+    'Content-Type': 'application/json',
+    Accept: 'application/json',
+    'x-api-key': process.env.FIREFLY_SERVICES_CLIENT_ID,
     Authorization: `Bearer ${accessToken}`,
   };
 
@@ -238,18 +231,18 @@ async function removeBackground(accessToken) {
   };
 
   const config = {
-    method: "post",
-    url: "https://image.adobe.io/sensei/cutout",
+    method: 'post',
+    url: 'https://image.adobe.io/sensei/cutout',
     headers: headers,
     data: data,
   };
 
   try {
     const response = await axios.request(config);
-    console.log("Remove Background Job Submitted:", response.data);
+    console.log('Remove Background Job Submitted:', response.data);
     return response.data;
   } catch (error) {
-    console.error("Error during removeBackground:", error.response.data);
+    console.error('Error during removeBackground:', error.response.data);
   }
 }
 ```
@@ -360,10 +353,8 @@ def generate_object_composite(access_token):
 #### JavaScript
 
 ```js
-const SIGNED_IMAGE_GET_URL =
-  "https://your-storage-bucket-name.blob.core.windows.net:443/container/input.jpeg?sv...&query=params..."; // Replace with your image URL
-const SIGNED_STYLEREF_GET_URL =
-  "https://your-storage-bucket-name.blob.core.windows.net:443/container/input.jpeg?sv...&query=params..."; // Replace with your mask URL
+const SIGNED_IMAGE_GET_URL = 'https://your-storage-bucket-name.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...'; // Replace with your image URL
+const SIGNED_STYLEREF_GET_URL = 'https://your-storage-bucket-name.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...';  // Replace with your mask URL
 
 async function generateObjectComposite(accessToken) {
   const headers = {
@@ -382,19 +373,19 @@ async function generateObjectComposite(accessToken) {
       },
     },
     placement: {
-      alignment: {
-        horizontal: "center",
-        vertical: "center",
-      },
+        alignment: {
+            horizontal: "center",
+            vertical: "center"
+        }
     },
     style: {
-      imageReference: {
-        source: {
-          url: SIGNED_STYLEREF_GET_URL,
+        imageReference: {
+            source: {
+                url: SIGNED_STYLEREF_GET_URL
+            }
         },
-      },
-      strength: 50,
-    },
+        strength: 50
+    }
   };
 
   const config = {
@@ -490,11 +481,9 @@ def auto_tone(access_token):
 #### JavaScript
 
 ```js
-const SIGNED_GET_URL =
-  "https://your-storage-bucket-name.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...";
-const SIGNED_POST_URL =
-  "https://your-storage-bucket-name.blob.core.windows.net:443/container/output.jpeg?sv...&query=params...";
-const STORAGE = "azure"; // e.g., 'external', 'azure'
+ const SIGNED_GET_URL = "https://your-storage-bucket-name.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...";
+  const SIGNED_POST_URL = "https://your-storage-bucket-name.blob.core.windows.net:443/container/output.jpeg?sv...&query=params...";
+  const STORAGE = "azure"; // e.g., 'external', 'azure'
 
 async function autoTone(accessToken) {
   const headers = {
@@ -566,7 +555,7 @@ import time
 import requests
 
 # Replace with your actual pre-signed URLs and storage option
-SIGNED_PRODUCT_URL = 'https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...'  # Input product URL for Photoshop
+SIGNED_PRODUCT_URL = 'https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...'  # Input product URL for Photoshop 
 SIGNED_GET_POST_URL = 'https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...'  # Output product URL for Photoshop and Lightroom
 SIGNED_STYLE_REF_URL = 'https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...'  # Style reference image URL for Firefly
 STORAGE = 'azure'  # e.g., 'external', 'azure'
@@ -789,17 +778,14 @@ if __name__ == '__main__':
 #### JavaScript
 
 ```js
-const axios = require("axios");
-const qs = require("qs");
+const axios = require('axios');
+const qs = require('qs');
 
 // Replace with your actual pre-signed URLs and storage option
-const SIGNED_PRODUCT_URL =
-  "https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params..."; // Input product URL for Photoshop
-const SIGNED_GET_POST_URL =
-  "https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params..."; // Output product URL for Photoshop and Lightroom
-const SIGNED_STYLE_REF_URL =
-  "https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params..."; // Style reference image URL for Firefly
-const STORAGE = "azure"; // e.g., 'external', 'azure'
+const SIGNED_PRODUCT_URL = 'https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...'; // Input product URL for Photoshop
+const SIGNED_GET_POST_URL = 'https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...'; // Output product URL for Photoshop and Lightroom
+const SIGNED_STYLE_REF_URL = 'https://your-storage-bucket-name.blob.core.windows.net:443/images/asdf-12345?lots=of&query=params...'; // Style reference image URL for Firefly
+const STORAGE = 'azure'; // e.g., 'external', 'azure'
 
 (async () => {
   const accessToken = await retrieveAccessToken();
@@ -810,13 +796,9 @@ const STORAGE = "azure"; // e.g., 'external', 'azure'
   await checkPhotoshopJobStatus(removeBgJobId, accessToken);
 
   // Step 2: Generate Object Composite
-  const generateObjectCompositeResponse =
-    await generateObjectComposite(accessToken);
+  const generateObjectCompositeResponse = await generateObjectComposite(accessToken);
   const generateObjectCompositeJobId = generateObjectCompositeResponse.jobId;
-  const compositeOutputUrl = await checkFireflyJobStatus(
-    generateObjectCompositeJobId,
-    accessToken,
-  );
+  const compositeOutputUrl = await checkFireflyJobStatus(generateObjectCompositeJobId, accessToken);
 
   // Step 3: Auto Tone
   const autoToneResponse = await autoTone(accessToken, compositeOutputUrl);
@@ -829,39 +811,35 @@ async function retrieveAccessToken() {
   const clientSecret = process.env.FIREFLY_SERVICES_CLIENT_SECRET;
 
   const data = qs.stringify({
-    grant_type: "client_credentials",
+    grant_type: 'client_credentials',
     client_id: clientId,
     client_secret: clientSecret,
-    scope:
-      "openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis",
+    scope: 'openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis',
   });
 
   const config = {
-    method: "post",
-    url: "https://ims-na1.adobelogin.com/ims/token/v3",
+    method: 'post',
+    url: 'https://ims-na1.adobelogin.com/ims/token/v3',
     headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
+      'Content-Type': 'application/x-www-form-urlencoded',
     },
     data: data,
   };
 
   try {
     const response = await axios(config);
-    console.log("Access Token Retrieved");
+    console.log('Access Token Retrieved');
     return response.data.access_token;
   } catch (error) {
-    console.error(
-      "Error retrieving access token:",
-      error.response?.data || error.message,
-    );
+    console.error('Error retrieving access token:', error.response?.data || error.message);
   }
 }
 
 async function removeBackground(accessToken) {
   const headers = {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-    "x-api-key": process.env.FIREFLY_SERVICES_CLIENT_ID,
+    'Content-Type': 'application/json',
+    Accept: 'application/json',
+    'x-api-key': process.env.FIREFLY_SERVICES_CLIENT_ID,
     Authorization: `Bearer ${accessToken}`,
   };
 
@@ -877,58 +855,55 @@ async function removeBackground(accessToken) {
   };
 
   const config = {
-    method: "post",
-    url: "https://image.adobe.io/sensei/cutout",
+    method: 'post',
+    url: 'https://image.adobe.io/sensei/cutout',
     headers: headers,
     data: data,
   };
 
   try {
     const response = await axios(config);
-    console.log("Remove Background Job Submitted:", response.data);
+    console.log('Remove Background Job Submitted:', response.data);
     return response.data;
   } catch (error) {
-    console.error(
-      "Error during removeBackground:",
-      error.response?.data || error.message,
-    );
+    console.error('Error during removeBackground:', error.response?.data || error.message);
   }
 }
 
 async function checkPhotoshopJobStatus(jobId, accessToken) {
   const headers = {
-    "x-api-key": process.env.FIREFLY_SERVICES_CLIENT_ID,
+    'x-api-key': process.env.FIREFLY_SERVICES_CLIENT_ID,
     Authorization: `Bearer ${accessToken}`,
   };
 
   const url = `https://image.adobe.io/sensei/status/${jobId}`;
 
-  let status = "submitted";
-  while (status !== "succeeded" && status !== "failed") {
+  let status = 'submitted';
+  while (status !== 'succeeded' && status !== 'failed') {
     await new Promise((resolve) => setTimeout(resolve, 5000)); // Wait for 5 seconds
     const response = await axios.get(url, { headers: headers });
     status = response.data.status;
     console.log(`Photoshop Job Status: ${status}`);
   }
 
-  if (status === "succeeded") {
-    console.log("Background removal completed successfully!");
+  if (status === 'succeeded') {
+    console.log('Background removal completed successfully!');
   } else {
-    console.error("Background removal failed.");
+    console.error('Background removal failed.');
   }
 }
 
 async function generateObjectComposite(accessToken) {
   const headers = {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-    "x-api-key": process.env.FIREFLY_SERVICES_CLIENT_ID,
+    'Content-Type': 'application/json',
+    Accept: 'application/json',
+    'x-api-key': process.env.FIREFLY_SERVICES_CLIENT_ID,
     Authorization: `Bearer ${accessToken}`,
   };
 
   const data = {
-    prompt: "A delicious fiery background", // Replace with your actual prompt
-    contentClass: "photo",
+    prompt: 'A delicious fiery background', // Replace with your actual prompt
+    contentClass: 'photo',
     image: {
       source: {
         url: SIGNED_GET_POST_URL,
@@ -936,8 +911,8 @@ async function generateObjectComposite(accessToken) {
     },
     placement: {
       alignment: {
-        horizontal: "center",
-        vertical: "center",
+        horizontal: 'center',
+        vertical: 'center',
       },
     },
     style: {
@@ -951,106 +926,96 @@ async function generateObjectComposite(accessToken) {
   };
 
   const config = {
-    method: "post",
-    url: "https://firefly-api.adobe.io/v3/images/generate-object-composite-async",
+    method: 'post',
+    url: 'https://firefly-api.adobe.io/v3/images/generate-object-composite-async',
     headers: headers,
     data: data,
   };
 
   try {
     const response = await axios(config);
-    console.log("Generate Object Composite Job Submitted:", response.data);
+    console.log('Generate Object Composite Job Submitted:', response.data);
     return response.data;
   } catch (error) {
-    console.error(
-      "Error during generateObjectComposite:",
-      error.response?.data || error.message,
-    );
+    console.error('Error during generateObjectComposite:', error.response?.data || error.message);
   }
 }
 
 async function checkFireflyJobStatus(jobId, accessToken) {
   const headers = {
-    "x-api-key": process.env.FIREFLY_SERVICES_CLIENT_ID,
+    'x-api-key': process.env.FIREFLY_SERVICES_CLIENT_ID,
     Authorization: `Bearer ${accessToken}`,
   };
 
   const url = `https://firefly-api.adobe.io/v3/status/${jobId}`;
 
-  let status = "pending";
+  let status = 'pending';
   let imageUrl = null;
-  while (
-    status !== "succeeded" &&
-    status !== "failed" &&
-    status !== "cancelled"
-  ) {
+  while (status !== 'succeeded' && status !== 'failed' && status !== 'cancelled') {
     await new Promise((resolve) => setTimeout(resolve, 5000)); // Wait for 5 seconds
     const response = await axios.get(url, { headers: headers });
     status = response.data.status;
     console.log(`Firefly Job Status: ${status}`);
   }
 
-  if (status === "succeeded") {
-    console.log("Object composite generation completed successfully!");
+  if (status === 'succeeded') {
+    console.log('Object composite generation completed successfully!');
     imageUrl = response.data.result.outputs[0].image.url;
     console.log(`You can access the image at: ${imageUrl}`);
     return imageUrl;
   } else {
-    console.error("Object composite generation failed.");
+    console.error('Object composite generation failed.');
   }
 }
 
 async function autoTone(accessToken, signedInputUrl) {
   const headers = {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-    "x-api-key": process.env.FIREFLY_SERVICES_CLIENT_ID,
+    'Content-Type': 'application/json',
+    Accept: 'application/json',
+    'x-api-key': process.env.FIREFLY_SERVICES_CLIENT_ID,
     Authorization: `Bearer ${accessToken}`,
   };
 
   const data = {
     inputs: {
       href: signedInputUrl,
-      storage: "external",
+      storage: 'external',
     },
     outputs: [
       {
         href: SIGNED_GET_POST_URL,
         storage: STORAGE,
-        type: "image/jpeg",
+        type: 'image/jpeg',
       },
     ],
   };
 
   const config = {
-    method: "post",
-    url: "https://image.adobe.io/lrService/autoTone",
+    method: 'post',
+    url: 'https://image.adobe.io/lrService/autoTone',
     headers: headers,
     data: data,
   };
 
   try {
     const response = await axios(config);
-    console.log("Auto Tone Job Submitted:", response.data);
+    console.log('Auto Tone Job Submitted:', response.data);
     return response.data;
   } catch (error) {
-    console.error(
-      "Error during autoTone:",
-      error.response?.data || error.message,
-    );
+    console.error('Error during autoTone:', error.response?.data || error.message);
   }
 }
 
 async function checkLightroomJobStatus(jobId, accessToken) {
   const headers = {
-    "x-api-key": process.env.FIREFLY_SERVICES_CLIENT_ID,
+    'x-api-key': process.env.FIREFLY_SERVICES_CLIENT_ID,
     Authorization: `Bearer ${accessToken}`,
   };
 
   const url = `https://image.adobe.io/lrService/status/${jobId}`;
 
-  let status = "pending";
-  while (status !== "succeeded" && status !== "failed") {
+  let status = 'pending';
+  while (status !== 'succeeded' && status !== 'failed') {
     await new Promise((resolve) => setTimeout(resolve, 5000)); // Wait for 5 seconds
     const response = await axios.get(url, { headers: headers });
     const outputs = response.data.outputs || [];
@@ -1060,20 +1025,16 @@ async function checkLightroomJobStatus(jobId, accessToken) {
     console.log(`Lightroom Job Status: ${status}`);
   }
 
-  if (status === "succeeded") {
-    console.log("Auto tone completed successfully!");
-    console.log("You can access the image at your SIGNED_GET_POST_URL.");
+  if (status === 'succeeded') {
+    console.log('Auto tone completed successfully!');
+    console.log('You can access the image at your SIGNED_GET_POST_URL.');
   } else {
-    console.error("Auto tone failed.");
+    console.error('Auto tone failed.');
   }
 }
 
 function extractJobId(response) {
   const href = response._links.self.href;
-  return href.split("/").pop();
+  return href.split('/').pop();
 }
 ```
-
-## Deepen Your Understanding
-
-Dive deeper into Firefly Services by exploring our [Firefly API tutorials](../../firefly-api/guides/how-tos/firefly-generate-image-api-tutorial.md).

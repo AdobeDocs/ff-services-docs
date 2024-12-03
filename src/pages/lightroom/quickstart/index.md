@@ -50,7 +50,7 @@ To interact with Adobe's Lightroom APIs, you'll need to generate pre-signed URLs
 
 In this tutorial, you will need:
 
-* A pre-signed URL with a read token for the input image. Save this sample image to your cloud storage and generate a pre-signed URL: ![a crooked picture of a watch tower](./images/autostraighten-input.jpg)
+* A pre-signed URL with a read token for the input image. Save this sample image to your cloud storage, generating a pre-signed URL: ![a crooked picture of a watch tower](./images/autostraighten-input.jpg)
 * A pre-signed URL with a read/write token for the modified image.
 
 Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump immediately to the full source code](#full-example).
