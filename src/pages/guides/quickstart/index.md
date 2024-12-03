@@ -1038,3 +1038,7 @@ function extractJobId(response) {
   return href.split('/').pop();
 }
 ```
+
+## Deepen Your Understanding
+
+Dive deeper into Firefly Services by exploring our [Firefly API tutorials](../../firefly-api/guides/how-tos/firefly-generate-image-api-tutorial.md).
