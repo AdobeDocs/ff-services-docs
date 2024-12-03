@@ -29,7 +29,7 @@ hideBreadcrumbNav: true
 
 # Masking
 
-Use masks to control image maniplation in Firefly APIs
+Use masks to control image manipulation in Firefly APIs
 
 ||
 | --- | --- |

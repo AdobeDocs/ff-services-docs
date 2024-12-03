@@ -15,14 +15,9 @@ Modify your first Image with Lightroom APIs
 
 ## Prerequisites
 
+### Credentials
+
 If you don't already have a Lightroom or a Firefly Services **Client ID** and **Client Secret**, retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
-
-Pre-signed URLs:
-
-* A pre-signed URL with a read token for the input image.
-* A pre-signed URL with a read/write token for the modified image.
-
-For more details about pre-signed URLs, see [AWS Sharing objects with presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html), or [Azure Storage resources using shared access signatures](https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview).
 
 ### Set Up Your Environment
 
@@ -49,13 +44,16 @@ python -m pip install requests
 touch main.py
 ```
 
+### Pre-signed URLs
+
+To interact with Adobe's Lightroom APIs, you'll need to generate pre-signed URLs. These URLs grant temporary access to your storage resources without exposing your credentials. For more details about pre-signed URLs, see [AWS Sharing objects with presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html), or [Azure Storage resources using shared access signatures](https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview).
+
+In this tutorial, you will need:
+
+* A pre-signed URL with a read token for the input image. Save this sample image to your cloud storage, generating a pre-signed URL: ![a crooked picture of a watch tower](./images/autostraighten-input.jpg)
+* A pre-signed URL with a read/write token for the modified image.
+
 Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump immediately to the full source code](#full-example).
-
-### Download the Sample Image
-
-Save this sample image to your cloud storage, generating a pre-signed URL:
-
-![a crooked picture of a watch tower](./images/autostraighten-input.jpg)
 
 ## Retrieve an Access Token
 

@@ -47,12 +47,12 @@ module.exports = {
         path: "/guides/",
       },
       {
-        title: "Getting Started",
-        path: "/guides/get-started.md",
-      },
-      {
         title: "Quickstart",
         path: "/guides/quickstart"
+      },
+      {
+        title: "Getting Credentials",
+        path: "/guides/get-started.md",
       },
       {
         title: "Tutorials",
