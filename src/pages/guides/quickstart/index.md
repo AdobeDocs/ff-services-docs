@@ -51,11 +51,12 @@ cd firefly-services-content-workflow-tutorial
 python -m pip install requests
 touch main.py
 ```
+
 ### Pre-signed URLs
 
 To interact with Adobe's Firefly Services APIs, you'll need to generate pre-signed URLs. These URLs grant temporary access to your storage resources without exposing your credentials. For more details about pre-signed URLs, see [AWS Sharing objects with presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html), or [Azure Storage resources using shared access signatures](https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview).
 
-In this tutorial, you will need: 
+In this tutorial, you will need:
 
 * A pre-signed URL with read access for the input image. Save this sample image to your cloud storage, generating a pre-signed URL: ![a picture of a burger with a black background](./images/original.jpeg)
 * A pre-signed URL with read access for the style reference image below. Save this sample image to your cloud storage, generating a pre-signed URL: ![a styre reference of a burger with a fiery background](./images/styleref.jpeg)
