@@ -58,8 +58,8 @@ To interact with Adobe's Firefly Services APIs, you'll need to generate pre-sign
 
 In this tutorial, you will need:
 
-* A pre-signed URL with read access for the input image. Save this sample image to your cloud storage, generating a pre-signed URL: ![a picture of a burger with a black background](./images/original.jpeg)
-* A pre-signed URL with read access for the style reference image below. Save this sample image to your cloud storage, generating a pre-signed URL: ![a styre reference of a burger with a fiery background](./images/styleref.jpeg)
+* A pre-signed URL with read access for the input image. Save this sample image to your cloud storage and generate a pre-signed URL: ![a picture of a burger with a black background](./images/original.jpeg)
+* A pre-signed URL with read access for the style reference image below. Save this sample image to your cloud storage and generate a pre-signed URL: ![a styre reference of a burger with a fiery background](./images/styleref.jpeg)
 * A pre-signed URL with a read/write token for the modified image.
 
 Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump immediately to the full source code](#full-example).
@@ -1038,3 +1038,7 @@ function extractJobId(response) {
   return href.split('/').pop();
 }
 ```
+
+## Deepen Your Understanding
+
+Dive deeper into Firefly Services by exploring our [Firefly API tutorials](../../firefly-api/guides/how-tos/firefly-generate-image-api-tutorial.md).
