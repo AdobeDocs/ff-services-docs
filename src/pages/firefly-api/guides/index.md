@@ -45,6 +45,8 @@ Generate your first image with Firefly Services
 
 ## Prerequisites
 
+### Credentials
+
 If you don't already have a Firefly API or Firefly Services **Client ID** and **Client Secret**, retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
 
 ### Set Up Your Environment
