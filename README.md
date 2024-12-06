@@ -47,6 +47,12 @@ $ export NODE_OPTIONS=--max_old_space_size=8192
 $ yarn dev
 ```
 
+If the site fails to build, try this:
+
+```shell
+yarn clean && yarn cache clean && rm -r node_modules && rm yarn.lock
+```
+
 For the developer documentation, read the following sections on how to:
 
 - [Arrange the structure content of your docs](https://github.com/adobe/aio-theme#content-structure)

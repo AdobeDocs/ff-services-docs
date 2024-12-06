@@ -167,11 +167,12 @@ Explore our [tutorials](./tutorials/) for comprehensive guidance.
 
 ## Explore more
 
+<!--
 <DiscoverBlock slots="link, text"/>
-
 [SDK](../guides/sdks/)
 
 Explore our Firefly Services SDK.
+-->
 
 <DiscoverBlock slots="link, text"/>
 
