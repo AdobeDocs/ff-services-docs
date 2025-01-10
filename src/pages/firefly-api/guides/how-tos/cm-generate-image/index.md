@@ -13,7 +13,7 @@ Learn how to generate images using a Firefly Custom Model.
 
 ||
 | --- | --- |
-| ![trained-custom-model](./images/customModelTrained.png) <p style="text-align:center">Custom Image Model</p> | ![generated-image](./images/almond.jpeg) <p style="text-align:center">Output Image</p> |
+| ![trained-custom-model](./images/customModelTrained.png) <p style="text-align:center">Custom Image Model</p> | ![generated-image](./images/almond.png) <p style="text-align:center">Output Image</p> |
 
 ## Overview
 
