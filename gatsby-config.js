@@ -168,6 +168,10 @@ module.exports = {
         path: "/firefly-api/guides/api/image_generation/V3/",
         pages: [
           {
+            title: "List Custom Models",
+            path: "/firefly-api/guides/api/list_custom_models",
+          },
+          {
             title: "Generate Images",
             path: "/firefly-api/guides/api/image_generation/V3/",
             pages: [
