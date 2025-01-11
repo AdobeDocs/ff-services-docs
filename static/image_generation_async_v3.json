@@ -20,6 +20,18 @@
     "/v3/images/generate-async": {
       "post": {
         "operationId": "generateImagesV3Async",
+        "parameters": [
+          {
+            "name": "x-model-version",
+            "in": "header",
+            "description": "Use this header when the request body includes a custom model ID. Must be set to `image3_custom`.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["image3_custom"]
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -985,6 +997,18 @@
             "$ref": "#/components/schemas/ContentClassV3",
             "description": "Generate an image to being more photographic or more like art. Options include <code>photo</code> or <code>art</code>.",
             "title": "The content class"
+          },
+          "customModelId": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Optional. If present, you must include x-model-version: image3_custom in the header.",
+            "title": "CM asset identifier"
           },
           "negativePrompt": {
             "description": "Firefly tries to avoid generating anything you specify in this text prompt.",

@@ -22,6 +22,18 @@
         "summary": "Generate Images - Model 3",
         "operationId": "generateImages",
         "description": "Generate images based on your text prompt. When you make your request, you can also include an optional reference image and Firefly will try to mimic the layout and style, such as color scheme, lighting, layout of objects in the image and so on.",
+        "parameters": [
+          {
+            "name": "x-model-version",
+            "in": "header",
+            "description": "Use this header when the request body includes a custom model ID. Must be set to `image3_custom`.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["image3_custom"]
+            }
+          }
+        ],
         "requestBody": {
             "description": "image generation request body.",
             "content": {
@@ -292,6 +304,18 @@
               "minimum": 1,
               "title": "The number of variations",
               "description": "The number of variations to generate. numVariations will default to the number of seeds, or to 1 if seeds is not specified."
+            },
+            "customModelId": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Optional. If present, you must include x-model-version: image3_custom in the header.",
+              "title": "CM asset identifier"
             },
             "seeds": {
               "items": {
