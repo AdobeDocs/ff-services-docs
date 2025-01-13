@@ -255,7 +255,7 @@ export $CUSTOM_MODEL_ID=urn:aaid:sc:VA6C2:bc1f46cd-be98-4a7b-9ffe-1111111111
 
 ## Generate Image
 
-Next, let's use the Model ID to generate images with our custom model!
+Next, let's use the Model ID to generate images with our custom model! **Important:** Remember to include the header `x-model-version: image3_custom` in your request, as this tells the system to use our custom model for image generation.
 
 <CodeBlock slots="heading, code" repeat="3" languages="bash, Python, JavaScript" />
 
@@ -266,6 +266,7 @@ curl --request GET 'https://firefly-api.adobe.io/v3/images/generate-async' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header 'x-accept-mimetype: image/jpeg' \
+--header 'x-model-version: image3_custom' \
 --header "x-api-key: $CUSTOM_MODELS_CLIENT_ID" \
 --header "Authorization: Bearer $CUSTOM_MODELS_ACCESS_TOKEN" \
 --data "{
@@ -294,6 +295,7 @@ def generate_images_with_custom_model(access_token, custom_model_id):
         'Authorization': f'Bearer {access_token}',
         'Content-Type': 'application/json',
         'x-accept-mimetype': 'image/jpeg',
+        'x-model-version':'image3_custom',
         'x-api-key': os.environ['CUSTOM_MODELS_CLIENT_ID'],
     }
 
@@ -332,6 +334,7 @@ async function generateImagesWithCustomModel(accessToken, customModelId) {
       "Authorization": `Bearer ${accessToken}`,
       "Content-Type": "application/json",
       "x-accept-mimetype": "image/jpeg",
+      "x-model-version":"image3_custom",
       "x-api-key": process.env.CUSTOM_MODELS_CLIENT_ID,
     },
     data: JSON.stringify({
@@ -469,6 +472,7 @@ def generate_image_async(access_token, custom_model_id):
         'Authorization': f'Bearer {access_token}',
         'Content-Type': 'application/json',
         'x-accept-mimetype': 'image/jpeg',
+        'x-model-version':'image3_custom',
         'x-api-key': os.environ['CUSTOM_MODELS_CLIENT_ID'],
     }
 
@@ -638,6 +642,7 @@ async function generateImageAsync(accessToken, customModelId) {
       "Authorization": `Bearer ${accessToken}`,
       "Content-Type": "application/json",
       "x-accept-mimetype": "image/jpeg",
+      "x-model-version": "image3_custom",
       "x-api-key": process.env.CUSTOM_MODELS_CLIENT_ID,
     },
     data: JSON.stringify({

@@ -309,13 +309,10 @@
               "anyOf": [
                 {
                   "type": "string"
-                },
-                {
-                  "type": "null"
                 }
               ],
-              "description": "Optional. If present, you must include x-model-version: image3_custom in the header.",
-              "title": "CM asset identifier"
+              "description": "Optional. If present, you must include `x-model-version: image3_custom` in the headers.",
+              "title": "Custom Model asset identifier"
             },
             "seeds": {
               "items": {

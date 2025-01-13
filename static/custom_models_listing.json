@@ -26,27 +26,9 @@
           "operationId": "getCustomModelsFF3p",
           "parameters": [
             {
-              "name": "authorization",
-              "in": "header",
-              "description": "An access token issued by Adobe IMS. In the header, the access token must be preceded by `Bearer `.",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            },
-            {
               "name": "x-user-token",
               "in": "header",
               "description": "A User-Token for the user's individual account, which is obtained using their credentials. The User-Token must be preceded by `Bearer ` (Optional).",
-              "schema": {
-                "type": "string"
-              }
-            },
-            {
-              "name": "x-api-key",
-              "in": "header",
-              "description": "The API key assigned to your API client account when you signed up.",
-              "required": true,
               "schema": {
                 "type": "string"
               }
@@ -62,7 +44,7 @@
             {
               "name": "sortBy",
               "in": "query",
-              "description": "Sorting option for the response list. Reverse sort with `-` (e.g. `-modified_date`). Multi-vector sort is enabled by comma separation (e.g. `name,-modified_date`).",
+              "description": "Sorting option for the response list. Reverse sort with `-` (e.g. `-modified_date`). Multi-vector sort is enabled by comma separation (e.g. `name,-modified_date`). \n Possible Values: <ul><li><code>assetName</code></li><li><code>createdDate</code></li><li><code>modifiedDate</code></li></ul>",
               "schema": {
                 "type": "string",
                 "default": "-modifiedDate"
@@ -80,6 +62,8 @@
             {
               "name": "limit",
               "in": "query",
+              "maximum": 10,
+                "minimum": 1,
               "description": "The number of Custom Models to return for a paged response (1–10).",
               "schema": {
                 "type": "string"
