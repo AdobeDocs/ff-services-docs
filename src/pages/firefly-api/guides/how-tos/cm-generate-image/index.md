@@ -17,7 +17,7 @@ Learn how to generate images using a Firefly Custom Model.
 
 ## Overview
 
-In this tutorial, let's imagine we work at a global fragrance company and are creating an on-brand marketing campaign for our new product line promoting Almond notes. 
+In this tutorial, let's imagine we work at a global fragrance company and are creating an on-brand marketing campaign for our new product line promoting Almond notes.
 
 In the tutorial below, we will:
 
@@ -143,10 +143,9 @@ Export this access token so that the next script can conveniently access it:
 export CUSTOM_MODELS_ACCESS_TOKEN=yourAccessTokenAsdf123
 ```
 
-
 ## List Custom Models
 
-In order to generate images with a custom model, you first need a model ID. Let's list all models available to use and select one for generating images
+In order to generate images with a custom model, you first need a Custom Model ID. Let's list all models available to use and select one for generating images
 
 <CodeBlock slots="heading, code" repeat="3" languages="bash, Python, JavaScript" />
 
@@ -245,9 +244,9 @@ The response will look like this:
 }
 ```
 
-### Retrieve Model ID
+### Retrieve Custom Model ID
 
-Now that we have listed the custom models available, let's store a Model ID to be used to generate our images. The Model ID can be found at the path `custom_models[n].assetId` 
+Now that we have listed the custom models available, let's store a Custom Model ID to be used to generate our images. The Custom Model ID can be found at the path `custom_models[n].assetId`
 
 ```bash
 export $CUSTOM_MODEL_ID=urn:aaid:sc:VA6C2:bc1f46cd-be98-4a7b-9ffe-1111111111
@@ -255,7 +254,7 @@ export $CUSTOM_MODEL_ID=urn:aaid:sc:VA6C2:bc1f46cd-be98-4a7b-9ffe-1111111111
 
 ## Generate Image
 
-Next, let's use the Model ID to generate images with our custom model! **Important:** Remember to include the header `x-model-version: image3_custom` in your request, as this tells the system to use our custom model for image generation.
+Next, let's use the Custom Model ID to generate images with our custom model! **Important:** Remember to include the header `x-model-version: image3_custom` in your request, as this tells the system to use our custom model for image generation.
 
 <CodeBlock slots="heading, code" repeat="3" languages="bash, Python, JavaScript" />
 
