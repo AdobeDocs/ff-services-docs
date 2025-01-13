@@ -999,11 +999,7 @@
             "title": "The content class"
           },
           "customModelId": {
-            "anyOf": [
-              {
-                "type": "string"
-              }
-            ],
+            "type": "string",
             "description": "Optional. If present, you must include `x-model-version: image3_custom` in the headers.",
             "title": "Custom Model asset identifier"
           },
