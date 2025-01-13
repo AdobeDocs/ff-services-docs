@@ -24,7 +24,7 @@
           {
             "name": "x-model-version",
             "in": "header",
-            "description": "Use this header when the request body includes a custom model ID. Must be set to `image3_custom`.",
+            "description": "Use this header when the request body includes a customModelId. Must be set to `image3_custom`.",
             "required": false,
             "schema": {
               "type": "string",
