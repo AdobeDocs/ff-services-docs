@@ -23,7 +23,7 @@
             "Custom Models Firefly 3P"
           ],
           "description": "Retrieve custom models for a user",
-          "operationId": "getCustomModelsFF3p",
+          "operationId": "getCustomModels",
           "parameters": [
             {
               "name": "x-user-token",
@@ -62,7 +62,7 @@
             {
               "name": "limit",
               "in": "query",
-              "maximum": 10,
+              "maximum": 50,
                 "minimum": 1,
               "description": "The number of Custom Models to return for a paged response (1–10).",
               "schema": {
@@ -230,12 +230,12 @@
               "type": "string"
             },
             "createdDate": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string",
+              "format": "date-time"
             },
             "modifiedDate": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string",
+              "format": "date-time"
             },
             "publishedState": {
               "type": "string"

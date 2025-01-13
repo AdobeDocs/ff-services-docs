@@ -1614,15 +1614,14 @@
       }
     },
     "securitySchemes": {
-      "Authorization": {
-        "bearerFormat": "JWT",
-        "scheme": "bearer",
-        "type": "http"
+      "AccessToken": {
+          "type": "http",
+          "scheme": "bearer"
       },
       "X-Api-Key": {
-        "in": "header",
-        "name": "x-api-key",
-        "type": "apiKey"
+          "type": "apiKey",
+          "name": "x-api-key",
+          "in": "header"
       }
     }
   }

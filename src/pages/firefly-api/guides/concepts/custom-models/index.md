@@ -26,7 +26,7 @@ Custom Models can be set to learn different aspects of visual design:
 
 ## Asset IDs
 
-Custom Models are stored as assets in a Digital Asset Management (DAM) system, enabling easy organization, versioning, and reuse. Each custom model is assigned a unique Asset ID. This identifier is key to:
+Custom Models are stored as assets hosted securely by Adobe, enabling easy organization, versioning, and reuse. Each custom model is assigned a unique Asset ID. This identifier is key to:
 
 * **Referencing in Image Generation:** By providing the Asset ID in your API requests, you ensure that the generated images originate from the appropriate model’s learned characteristics.
 * **Version Control and Tracking:** Asset IDs enable you to manage multiple models, track updates, and maintain a clear record of various styles, subjects, or structures you’ve captured over time.
