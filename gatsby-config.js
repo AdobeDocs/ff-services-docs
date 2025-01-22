@@ -40,6 +40,9 @@ module.exports = {
         path: "https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html",
       },
     ],
+    ///////////////////////////////////////////////
+      // Firefly Services - specific left side nav
+      ///////////////////////////////////////////////
     subPages: [
       // Main Firefly Services docs - left side nav
       {

@@ -27,7 +27,7 @@ In this tutorial, let's imagine we are working for a creative marketing team at 
 
 If you don't already have a Firefly Services **Client ID** and **Client Secret** (which gives you access to Firefly APIs, Photoshop APIs, Lightroom APIs, and more), retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
 
-### Set Up Your Environment
+### Set up your environment
 
 Before we begin this tutorial, run the following in a secure terminal:
 
@@ -64,7 +64,7 @@ In this tutorial, you will need:
 
 Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump immediately to the full source code](#full-example).
 
-## Retrieve an Access Token
+## Retrieve an access token
 
 Open a secure terminal and `export` your **Client ID** and **Client Secret** as environment variables so that your later commands can access them:
 
@@ -537,11 +537,11 @@ The response will look like this:
 
 Wait for a success status of this job. A sample of this is provided in the [Lightroom API Quickstart Guide](../../lightroom/quickstart/index.md#get-status).
 
-## View Final Image
+## View final image
 
 Access the final at the `outputs[0]._links.self.href` URL (the `SIGNED_POST_URL` provided earlier). 🎉
 
-## Full Example
+## Full example
 
 You can review the [prerequisites](#prerequisites) section to understand how to set up your environment prior to running this code. Note that this is an example only and is not production-ready and requires additional error handling, logging, security measures, and more before you can run it at scale in a live application.
 
@@ -1039,6 +1039,6 @@ function extractJobId(response) {
 }
 ```
 
-## Deepen Your Understanding
+## Deepen your understanding
 
 Dive deeper into Firefly Services by exploring our [Firefly API tutorials](../../firefly-api/guides/how-tos/firefly-generate-image-api-tutorial.md).
