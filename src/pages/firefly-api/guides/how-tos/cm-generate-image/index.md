@@ -261,7 +261,7 @@ Next, let's use the Custom Model ID to generate images with our custom model! **
 #### cURL
 
 ```bash
-curl --request GET 'https://firefly-api.adobe.io/v3/images/generate-async' \
+curl --request POST 'https://firefly-api.adobe.io/v3/images/generate-async' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header 'x-accept-mimetype: image/jpeg' \

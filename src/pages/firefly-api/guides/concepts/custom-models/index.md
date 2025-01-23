@@ -30,3 +30,80 @@ Custom Models are stored as assets hosted securely by Adobe, enabling easy organ
 
 * **Referencing in Image Generation:** By providing the Asset ID in your API requests, you ensure that the generated images originate from the appropriate model’s learned characteristics.
 * **Version Control and Tracking:** Asset IDs enable you to manage multiple models, track updates, and maintain a clear record of various styles, subjects, or structures you’ve captured over time.
+
+## Performing CM Image Generation
+
+To perform CM inference using the `/v3/images/generate-async` endpoint, it is mandatory to include a header named `x-model-version`. This header specifies the model version that will be used for generating the image.
+
+### Required Header
+
+* **Header Name:** `x-model-version`
+* **Value:** Specifies the version of the model to be used for image generation. Currently, the only supported value is `image3_custom`.
+
+
+### Supported Values
+
+| Model Version Value | Description                      |
+|---------------------|----------------------------------|
+| `image3_custom`     | Current supported model version. |
+
+### Example Request
+
+<CodeBlock slots="heading, code" repeat="3" languages="bash, Python, JavaScript" />
+
+#### cURL
+
+```bash
+curl --request POST 'https://firefly-api.adobe.io/v3/images/generate-async' \
+--header 'x-model-version: image3_custom' \
+...
+--data "{
+    \"prompt\": \"An almond seed in a warm setting\",
+    \"customModelId\": \"$CUSTOM_MODEL_ID\"
+  }"
+```
+
+#### Python
+
+```python
+def generate_images_with_custom_model(access_token, custom_model_id):
+    url = 'https://firefly-api.adobe.io/v3/images/generate-async'
+    headers = {
+      'x-model-version':'image3_custom',
+      ...
+    }
+
+    data = {
+        "prompt": "An almond seed in a warm setting",
+        "customModelId": custom_model_id
+    }
+
+    response = requests.post(url, headers=headers, json=data)
+    response.raise_for_status()
+    result = response.json()
+    print("Generate Image Response:", result)
+    return result
+
+```
+
+#### JavaScript
+
+```js
+async function generateImagesWithCustomModel(accessToken, customModelId) {
+  const config = {
+    method: "post",
+    url: "https://firefly-api.adobe.io/v3/images/generate-async",
+    headers: {
+    "x-model-version":"image3_custom",
+    ...
+  },
+  data: JSON.stringify({
+      "prompt": "An almond seed in a warm setting",
+      "customModelId": customModelId
+    })
+  };
+
+  const response = await axios.request(config);
+  return response.data;
+}
+```
