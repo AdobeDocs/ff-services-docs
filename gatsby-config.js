@@ -35,6 +35,11 @@ module.exports = {
         path: "/lightroom/",
       },
       {
+        title: "InDesign API",
+        description: "Docs and references for InDesign API",
+        path: "/indesign/",
+      },
+      {
         title: "Content Tagging API",
         description: "Docs and references for Content Tagging services",
         path: "https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html",
@@ -446,6 +451,31 @@ module.exports = {
           {
             title: "Get Status",
             path: "/lightroom/api/lightroom_getStatus.md",
+          },
+        ],
+      },
+            ///////////////////////////////////////////////
+      // InDesign API-specific left side nav
+      ///////////////////////////////////////////////
+      {
+        title: "Overview",
+        path: "/indesign/",
+      },
+      {
+        title: "API Reference",
+        path: "/indesign/api/",
+        pages: [
+          {
+            title: "Data Merge API",
+            path: "/indesign/api/datamerge.md",
+          },
+          {
+            title: "Rendition API ",
+            path: "/indesign/api/rendition.md",
+          },
+          {
+            title: "Capabilities API",
+            path: "/indesign/api/capabilities.md",
           },
         ],
       },
