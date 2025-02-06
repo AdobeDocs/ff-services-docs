@@ -459,7 +459,7 @@ module.exports = {
       ///////////////////////////////////////////////
       {
         title: "Overview",
-        path: "/indesign/",
+        path: "/indesign/index.md",
       },
       {
         title: "API Reference",

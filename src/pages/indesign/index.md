@@ -1,32 +1,30 @@
 ---
-title: Overview - InDesign API
-description: An overview of the InDesign API
+title: Adobe InDesign API Overview
+description: This is the overview page of Adobe InDesign API
 keywords:
+  
 contributors:
-  - https://github.com/AEAbreu-hub
+  
 hideBreadcrumbNav: true
 ---
 
-<Hero slots="heading, text" background="rgb(233, 80, 80)"/>
+<Hero slots="image, heading, text" background="rgb(64, 34, 138)"/>
 
-# InDesign API - Firefly Services
+![Hero image](./hero.png)
 
-The Adobe Firefly API makes it easy for you to integrate generative AI into your creative workflows.
+# Adobe InDesign API - Firefly Services
 
-<!-- <Resources slots="heading, links"/>
-
-#### Resources
-
-* [Quickstart Guide](./guides/) -->
-
-<AnnouncementBlock slots="heading, text, text, button" />
-
-### Create with Confidence
-
-We designed the Adobe Firefly generative AI models to be safe for business.
-
-When generating content with the Adobe Firefly API, your output may be eligible for IP indemnification where terms apply.
-
-[Learn more](https://www.adobe.com/go/firefly-legal-faq-enterprise)
+Unlock the potential of Adobe InDesign through easy-to-use RESTful APIs.
 
 ## Overview
+
+InDesign APIs enable enterprises to automate tedious, time-consuming design tasks through scalable cloud services, driving personalization at scale, creative automation, and faster content delivery. 
+
+
+The InDesign APIs currently offered are:
+
+- [Rendition API](#linktorenditionapi) -  Creates renditions of a file in either PNG, JPG, or PDF format.
+
+- [Data Merge API](#working-with-data-merge-api) - Creates multiple document variations from data and extract the data merge tags.
+
+- [Custom Capabilities API](#linktocapabilitesapi) - Perform almost any InDesign task using a custom script. With this API you can submit and execute custom capabilites, and check the latest status of a script.
