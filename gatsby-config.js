@@ -37,7 +37,7 @@ module.exports = {
       {
         title: "InDesign API",
         description: "Docs and references for InDesign API",
-        path: "/indesign/",
+        path: "/indesign-apis/",
       },
       {
         title: "Content Tagging API",
@@ -459,33 +459,33 @@ module.exports = {
       ///////////////////////////////////////////////
       {
         title: "Overview",
-        path: "/indesign/index.md",
+        path: "/indesign-apis/index.md",
       },
       {
         title: "Concepts",
-        path: "/indesign/concepts/index.md",
+        path: "/indesign-apis/concepts/index.md",
       },
       {
         title: "API Reference",
-        path: "/indesign/api/datamerge.md",
+        path: "/indesign-apis/api/datamerge.md",
         pages: [
           {
             title: "Data Merge API",
-            path: "/indesign/api/datamerge.md",
+            path: "/indesign-apis/api/datamerge.md",
           },
           {
             title: "Rendition API ",
-            path: "/indesign/api/rendition.md",
+            path: "/indesign-apis/api/rendition.md",
           },
           {
             title: "Custom Capabilities API",
-            path: "/indesign/api/capabilities.md",
+            path: "/indesign-apis/api/capabilities.md",
           },
         ],
       },
       {
         title: "Help",
-        path: "/indesign/Help/index.md",
+        path: "/indesign-apis/Help/index.md",
       },
       // END PS API left nav
       /////////////////////////////////////////////////////
