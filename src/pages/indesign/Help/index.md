@@ -1,4 +1,14 @@
-# Help
+---
+title: Help page for InDesign APIs
+description: This is the help page for support and troubleshooting.
+keywords:
+contributors:
+  - 
+---
+
+# Troubleshooting and Support
+
+Here you'll find InDesign API support information.
 
 ## API known limitations
 

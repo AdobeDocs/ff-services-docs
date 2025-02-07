@@ -462,8 +462,12 @@ module.exports = {
         path: "/indesign/index.md",
       },
       {
+        title: "Concepts",
+        path: "/indesign/concepts/index.md",
+      },
+      {
         title: "API Reference",
-        path: "/indesign/api/",
+        path: "/indesign/api/datamerge.md",
         pages: [
           {
             title: "Data Merge API",
@@ -478,6 +482,10 @@ module.exports = {
             path: "/indesign/api/capabilities.md",
           },
         ],
+      },
+      {
+        title: "Help",
+        path: "/indesign/Help/index.md",
       },
       // END PS API left nav
       /////////////////////////////////////////////////////

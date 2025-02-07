@@ -1,8 +1,13 @@
 ---
 title: Adobe InDesign API Key Concepts
+description: Learn important concepts for using InDesign APIs.
+keywords:
+contributors:
 ---
 
 # InDesign API Key Concepts
+
+Consider these important concepts when using InDesign APIs.
 
 ## Adobe Developer Console
 
@@ -15,7 +20,7 @@ authenticate using OAuth 2.0 protocols. This involves obtaining an
 access token that grants your application permissions to interact with
 Adobe's services.
 
-### You will need:
+**You will need:**
 
 - An [Adobe Developer Console](https://developer.adobe.com/) account.
 
@@ -105,7 +110,7 @@ platform can upload. You can provide this information in the `outputs` array wit
 
 Each storage provider may have its own requirements for creating PUT or POST pre-signed URLs. Please follow the documentation from the individual storage provider creating these URLs.
 
-## Setup for custom capability bundles
+## About custom capability bundles
 
 To script a custom capabilility to use with the Custom Capabilities API, you'll need to prepare a capability bundle. This is a ZIP file with a predefined structure.
 
