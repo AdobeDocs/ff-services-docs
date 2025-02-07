@@ -18,7 +18,7 @@ InDesign APIs enable enterprises to automate tedious, time-consuming design task
 
 The InDesign APIs currently offered are:
 
-- [Data Merge API](src/pages/indesign/api/datamerge.md) - Creates multiple document variations from data and extract the data merge tags.
-- [Rendition API](src/pages/indesign/api/rendition.md) -  Creates renditions of a file in either PNG, JPG, or PDF format.
-- [Custom Capabilities API](src/pages/indesign/api/capabilities.md) - Perform almost any InDesign task using a custom script. With this API you can submit and execute custom capabilites, and check the latest status of an executed script.
+- [Data Merge API](src/pages/indesign-apis/api/datamerge.md) - Creates multiple document variations from data and extract the data merge tags.
+- [Rendition API](src/pages/indesign-apis/api/rendition.md) -  Creates renditions of a file in either PNG, JPG, or PDF format.
+- [Custom Capabilities API](src/pages/indesign-apis/api/capabilities.md) - Perform almost any InDesign task using a custom script. With this API you can submit and execute custom capabilites, and check the latest status of an executed script.
   
