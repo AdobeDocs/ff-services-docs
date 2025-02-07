@@ -87,7 +87,7 @@ InDesign APIs support the following input assets:
 ]
 ```
 
-In the examples above, you can see that data is divided into `source` and `destination`. 
+In the examples above, you can see that data is divided into `source` and `destination`.
 
 The `source` attribute is where the asset is downloaded from. The `destination` attribute refers to where the asset would be downloaded to.
 
@@ -129,10 +129,10 @@ capability-folder
 | manifest.json | The capability manifest. All the relevant details about the capability are described here.                                                                                                                                                                           | No       |
 | capability.js | The primary executable for the capability. This script gets executed by the product script engine and, depending on the product script engine support, it can depend on other files as well. These additional files go in nested directories in the ZIP file. | No       |
 
-
 ### Capability manifest
 
 The manifest file is a plain JSON file with the following structure:
+
 ```json
 {
     "manifestVersion": "1.0.0",
@@ -165,10 +165,11 @@ The manifest file is a plain JSON file with the following structure:
 | apiEntryPoints  | array | An array of `<EntryPointDefinition>`. Describes the API entry points for the capability.                                                                                                        | Yes      |
 
 The `apiEntryPoints` field is an array of objects with the
-`EntryPointDefinition` format below: 
-* There can be only one entry of each type in the array. 
-* The maximum size of the array is 3. 
-* An entry point specifies a capability script or a capability specification. 
+`EntryPointDefinition` format below:
+
+- There can be only one entry of each type in the array.
+- The maximum size of the array is 3.
+- An entry point specifies a capability script or a capability specification.
 
 There is no need to define an entry point if the default values are being used for them.
 
@@ -186,7 +187,7 @@ The capability bundle can be updated by incrementing the version in the capabili
 
 ## InDesign links support
 
- The InDesign APIs support links to content within the same document or across different documents. This helps keep the assets and the document decoupled. 
+ The InDesign APIs support links to content within the same document or across different documents. This helps keep the assets and the document decoupled.
 
 To handle links, a temporary folder/directory, called the working directory, is created to process a request. All the input assets mentioned in the request are downloaded and kept in the working directory.
 
@@ -198,7 +199,7 @@ Links can work in two ways:
 
 - If you place the linked assets parallel to the target document, the links get resolved, and the assets will be picked.
 
-When documents contain custom links that InDesign does not understand, the custom URLs can be relinked to assets provided in the request. 
+When documents contain custom links that InDesign does not understand, the custom URLs can be relinked to assets provided in the request.
 
 ### Relink example
 
