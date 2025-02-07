@@ -478,7 +478,7 @@ module.exports = {
             path: "/indesign/api/rendition.md",
           },
           {
-            title: "Capabilities API",
+            title: "Custom Capabilities API",
             path: "/indesign/api/capabilities.md",
           },
         ],

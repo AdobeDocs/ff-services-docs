@@ -1,6 +1,6 @@
 ---
 title: Capabilities - InDesign API
-description: Use custom capability scripts.
+description: Submit and execute custom capability scripts.
 layout: none
 ---
 
