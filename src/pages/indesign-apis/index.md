@@ -1,10 +1,6 @@
 ---
 title: Adobe InDesign API Overview
 description: This is the overview page of Adobe InDesign API
-keywords:
-  
-contributors:
-  
 hideBreadcrumbNav: true
 ---
 
