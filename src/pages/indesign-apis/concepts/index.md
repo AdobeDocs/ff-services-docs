@@ -1,8 +1,6 @@
 ---
 title: Adobe InDesign API Key Concepts
 description: Learn important concepts for using InDesign APIs.
-keywords:
-contributors:
 ---
 
 # InDesign API Key Concepts
