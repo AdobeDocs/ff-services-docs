@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "description": "Firefly Service's RESTful InDesign APIs (beta) offer resources to automate tedious,  time-consuming design tasks through scalable cloud services,  encouraging more personalization at scale, creative automation,  and faster content delivery.  ",
+    "description": "Firefly Service's RESTful InDesign APIs offer resources to automate tedious,  time-consuming design tasks through scalable cloud services,  encouraging more personalization at scale, creative automation,  and faster content delivery.  ",
     "version": "0.1.0",
-    "title": "Firefly Services - InDesign APIs (beta)",
+    "title": "Firefly Services - InDesign APIs",
     "contact": {
       "email": "idservices@adobe.com"
     }
@@ -23,8 +23,8 @@
   ],
   "tags": [
     {
-      "name": "Capabilities API",
-      "description": "The Capabilities API allows you to submit custom capabilities  to do almost anything you can do in InDesign using a custom script. You can also check the status of an executed capability."
+      "name": "Custom Capabilities API (beta)",
+      "description": "The Custom Capabilities API allows you to submit custom capabilities  to do almost anything you can do in InDesign using a custom script. You can also check the status of an executed capability."
     }
   ],
   "paths": {
