@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "description": "Firefly Service's RESTful InDesign APIs offer resources to automate tedious,  time-consuming design tasks through scalable cloud services,  encouraging more personalization at scale, creative automation,  and faster content delivery.  ",
-    "version": "",
+    "version": "0.1.0",
     "title": "Firefly Services - InDesign APIs",
     "contact": {
       "email": "idservices@adobe.com"
@@ -24,7 +24,7 @@
   "tags": [
     {
       "name": "Rendition API",
-      "description": "The Rendition API creates a version of a file in a specified format (e.g., PNG, JPEG, or PDF)."
+      "description": "The Rendition API creates a version of a file in a specified format (e.g., PNG, JPG, or PDF)."
     }
   ],
   "paths": {
@@ -261,8 +261,7 @@
                 "description": "Although this is optional, IT IS RECOMMENDED to provide this information.",
                 "enum": [
                   "Azure",
-                  "Dropbox",
-                  "AWS"
+                  "Dropbox"
                 ]
               }
             }
