@@ -176,7 +176,7 @@ module.exports = {
               },
 
               {
-                title: "V2",
+                title: "V2 (deprecated)",
                 path: "/firefly-api/guides/api/image_generation/V2/",
               },
             ],
@@ -223,7 +223,7 @@ module.exports = {
                 path: "/firefly-api/guides/api/generative_expand/V3/",
               },
               {
-                title: "V1",
+                title: "V1 (deprecated)",
                 path: "/firefly-api/guides/api/generative_expand/V1/",
               },
             ],
@@ -241,7 +241,7 @@ module.exports = {
                 path: "/firefly-api/guides/api/generative_fill/V3/",
               },
               {
-                title: "V1",
+                title: "V1 (deprecated)",
                 path: "/firefly-api/guides/api/generative_fill/V1/",
               },
             ],
