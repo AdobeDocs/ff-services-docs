@@ -4,6 +4,7 @@
     "description": "Firefly Service's RESTful InDesign APIs offer resources to automate tedious,  time-consuming design tasks through scalable cloud services,  encouraging more personalization at scale, creative automation,  and faster content delivery.  ",
     "version": "",
     "title": "Firefly Services - InDesign APIs",
+    "termsOfService": "https://www.adobe.com/content/dam/cc/en/legal/terms/enterprise/pdfs/PSLT-AdobeCreativeAPI-WW-2024v2.pdf",
     "contact": {
       "email": "idservices@adobe.com"
     }
