@@ -134,6 +134,10 @@ module.exports = {
             title: "Style Presets",
             path: "/firefly-api/guides/concepts/style-presets/",
           },
+          {
+            title: "Custom Models",
+            path: "/firefly-api/guides/concepts/custom-models/",
+          },
         ],
       },
       {
@@ -143,6 +147,10 @@ module.exports = {
           {
             title: "Generate Image API Tutorial",
             path: "/firefly-api/guides/how-tos/firefly-generate-image-api-tutorial.md",
+          },
+          {
+            title: "Generate Image from Custom Model Tutorial",
+            path: "/firefly-api/guides/how-tos/cm-generate-image/",
           },
           {
             title: "Expand Image API Tutorial",
@@ -162,6 +170,10 @@ module.exports = {
         title: "API Reference",
         path: "/firefly-api/guides/api/image_generation/V3/",
         pages: [
+          {
+            title: "List Custom Models",
+            path: "/firefly-api/guides/api/list_custom_models",
+          },
           {
             title: "Generate Images",
             path: "/firefly-api/guides/api/image_generation/V3/",
