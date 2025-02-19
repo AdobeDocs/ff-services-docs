@@ -1,6 +1,6 @@
 ---
 title: Adobe InDesign API Overview
-description: This is the overview page of Adobe InDesign API
+description: This is the overview page of Adobe InDesign API.
 hideBreadcrumbNav: true
 ---
 
@@ -16,9 +16,32 @@ Unlock the potential of Adobe InDesign through easy-to-use RESTful APIs.
 
 InDesign APIs enable enterprises to automate tedious, time-consuming design tasks through scalable cloud services, driving personalization at scale, creative automation, and faster content delivery.
 
-The InDesign APIs currently offered are:
+## Discover
 
-- [Data Merge API](./api/datamerge.md) - Creates multiple document variations from CSV data and an InDesign file.
-- [Rendition API](./api/rendition.md) -  Creates renditions of a file in either PNG, JPG, or PDF format.
-- [Custom Capabilities API](./api/capabilities.md) - Perform almost any InDesign task using a custom script. With this API you can submit and execute custom capabilites. This is currently in beta.
-- [Status API](./api/status.md) - Retrieves the most recent status event of a capability execution job.
+<DiscoverBlock slots="heading, link, text"/>
+
+### API References
+
+[Data Merge API](./api/datamerge.md)
+
+Creates document variations from CSV data and an InDesign file.
+
+<DiscoverBlock slots="link, text"/>
+
+[Rendition API](./api/rendition.md)
+
+Creates renditions of a file in either PNG, JPG, or PDF format.
+
+<DiscoverBlock slots="link, text"/>
+
+[Custom Capabilities API](./api/capabilities.md)
+
+Perform almost any InDesign task using a custom script. With this API you can submit and execute custom capabilities. 
+
+This feature is currently in beta.
+
+<DiscoverBlock slots="link, text"/>
+
+[Status API](./api/status.md)
+
+Retrieves the most recent status event of a capability execution job.
