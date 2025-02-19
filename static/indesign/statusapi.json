@@ -25,7 +25,7 @@
     "tags": [
       {
         "name": "Job Status API",
-        "description": "The platform provides status on execution in the form of events. Each event corresponds to different stages of execution. Currently, these events are available by polling the status API. The status API url is available in the response of the execution request."
+        "description": "Get the job status of a custom capability execution job. Each call retrieves the most recent status event for the job and each event refers to a different stage of execution."
       }
     ],
     "paths": {
@@ -65,7 +65,7 @@
             {
               "name": "id",
               "in": "path",
-              "description": "The ID of the job you want to see the status of.",
+              "description": "The ID of the job you want to see the status of. This comes from the response of the executed job request.",
               "required": true,
               "schema": {
                 "type": "string"
