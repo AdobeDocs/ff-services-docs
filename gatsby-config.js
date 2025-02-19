@@ -481,6 +481,10 @@ module.exports = {
             title: "Custom Capabilities API",
             path: "/indesign-apis/api/capabilities.md",
           },
+          {
+            title: "Status API",
+            path: "/indesign-apis/api/status.md",
+          },
         ],
       },
       {
