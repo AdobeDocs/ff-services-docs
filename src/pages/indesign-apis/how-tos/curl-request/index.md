@@ -1,13 +1,11 @@
-# CURL
+---
+title: Quickstart for InDesign API
+description: cURL commands to make requests to InDesign APIs.
+---
 
-[CURL](https://developer.adobe.com/commerce/webapi/get-started/gs-curl/)
-is a command-line tool that lets you transmit HTTP requests and receive
-responses from the command line or a shell script. It is available for
-Linux distributions, Mac OS X, and Windows.
+# Quickstart for InDesign API
 
-InDesign 'APIs support OAuth Server-to-Server authentication. You can
-use the token generated in the above step to call InDesign 'APIs. 
-Here's a skeleton curl request to accessing the APIs:
+Here's a skeleton [cURL request](https://developer.adobe.com/commerce/webapi/get-started/gs-curl/) to use to access InDesign APIs:
 
 ```curl
     curl --location --request POST <API_ENDPINT> \
@@ -27,23 +25,10 @@ Here's a skeleton curl request to accessing the APIs:
     }
 ```
 
-As shown in the skeleton request above, the request has three main
-parts. Here's the information to understand these parts and their
-significance:
+The raw data for the request has three main
+parts:
 
-### Assets
-
-Specify input assets for the request to be processed successfully. More
-information can be found below.
-
-### Outputs 
-
-Specify the locations where the output assets should be uploaded. Learn
-more about input and output locations in InDesign API. Without an
-"outputs" parameter, the output assets are stored in a temporary
-repository, and a [pre-signed URL](#pre-signed-urls) will
-be shared for those assets, which will be valid for 24hrs.
-
-### Params 
-
-Specify information regarding what to do with the input assets.
+- **Assets** - Specify input assets for the request.
+- **Params** - Specify information regarding what to do with the input assets.
+- **Outputs** - Specify the locations where the output assets are uploaded.Without an `outputs` parameter, the output assets are stored in a temporary
+repository, and a [pre-signed URL](/indesign-apis/concepts/#pre-signed-urls) will be shared for those assets, which will be valid for 24hrs.
