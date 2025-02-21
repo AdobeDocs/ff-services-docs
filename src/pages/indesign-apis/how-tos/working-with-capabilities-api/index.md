@@ -1,59 +1,89 @@
-# Working with Capabilities API
+---
+title: Working with the Custom Capabilities API
+description: Quickstart cURL commands to use the Capabilities API for running custom scripts on InDesign documents.
+---
 
-As a developer, there will be times when you'd like to utilize more powers of InDesign using custom script. With our Capabilities API, one can run a [custom script](#curl-request) (registered using
-capabilities registration API) on any input document. Refer the [API Spec](https://adobedocs.github.io/indesign-api-docs/#/:~:text=POST-,/v3/capability,-Submit%20custom%20capability)
-for more details on API.
+# Working with the Custom Capabilities API
+
+With the Custom Capabilities API, register [custom capabilities that you've scripted](../writing-custom-scripts-for-capability-api%20/) with the API. Then use those custom capabilities on documents by referencing the `{CAPABILITY_ID}`.
+
+## Before you start
+
+- You'll need [a valid access token and client ID](../../concepts/#access-tokens).
+
+In the cURL commands, be sure to:
+
+-  Update the `Authorization` with the bearer access token.
+-  Update `x-api-key` with the client ID.
+-  Update `x-gw-ims-org-id` with your organization ID.
+  
+## Register a custom capability
 
 ![](./image4.png)
 
-Capability registration API -
+New custom capabilities get registered by making a POST call to the API.
 
-[https://indesign.adobe.io/v3/capability](https://indesign.adobe.io/v3/capability)
+### Quickstart
+
+Use this cURL command to register a custom capability.
+Be sure to update the `{YOUR_CUSTOM_SCRIPT_ZIP}` with the [path to your custom script](/how-tos/writing-custom-scripts-for-capability-api/).
 
 ```curl
 curl --request POST \
 --url https://indesign.adobe.io/v3/capability \
---header 'Authorization: Bearer <YOUR_OAUTH_TOKEN>' \
---header 'x-api-key: <YOUR_API_KEY>' \
+--header 'Authorization: Bearer {YOUR_OAUTH_TOKEN}' \
+--header 'x-api-key: {YOUR_API_KEY}' \
 --header 'Content-Type: multipart/form-data' \
---header 'x-gw-ims-org-id: <YOUR_ORG_ID>' \
---form file=@<YOUR_CUSTOM_SCRIPT_ZIP>
+--header 'x-gw-ims-org-id: {YOUR_ORG_ID}' \
+--form file=@{YOUR_CUSTOM_SCRIPT_ZIP}
 ```
 
-Response will look like: 
+In the response, you'll receive a `{CAPABILITY_ID}`.
+
+**Example response**
 
 ```json
 {
-  "url": "https://indesign.adobe.io/v3/a2fa0a44c6ea04bafcc15f878788ea46/sample-execution",
+  "url": "https://indesign.adobe.io/v3/{CAPABILITY_ID}/sample-execution",
   "capability": "sample-execution",
   "version": "1.0.0"
 }
 ```
+
+## Execute a custom capability
+
 ![](./image5.png)
 
-The ```URL``` is
-https://indesign.adobe.io/v3/a2fa0a44c6ea04bafcc15f878788ea46/sample-execution
-and `a2fa0a44c6ea04bafcc15f878788ea46`
-is the `{capability_id}`
+Assets specified in the execution request are downloaded on the
+local file system using the specified identifiers. The capability script
+should be authored to work against locally downloaded assets.
 
-Capability execution API
+The execution request can include a JSON dictionary as a parameter.
+The capability defines the parameters and passes as is
+to it during execution
 
-https://indesign.adobe.io/v3/{capability_id}/sample-execution
+The generated output uploads to the target location. If no location is provided,
+the assets upload to temporary storage.
 
-To run a capability/custom script on a document --
+Each execution request is an asynchronous operation for which the status can be
+fetched using the [Status API](../../api/status.md). A link with expiry is provided in the execution status.
+
+### Quickstart
+
+Use this cURL command to run a custom capability on a document.
 
 ```curl
 curl --request POST \
---url https://indesign.adobe.io/v3/<YOUR_CAPABILITY_ID>/sample-execution \
---header 'Authorization: Bearer <YOUR_OAUTH_TOKEN>' \
+--url https://indesign.adobe.io/v3/{CAPABILITY_ID}/sample-execution \
+--header 'Authorization: Bearer {YOUR_OAUTH_TOKEN}' \
 --header 'Content-Type: application/json' \
---header 'x-api-key: <YOUR_API_KEY>' \
---header 'x-gw-ims-org-id: <YOUR_ORG_ID>' \
+--header 'x-api-key: {YOUR_API_KEY}' \
+--header 'x-gw-ims-org-id: {YOUR_ORG_ID}' \
 --data-raw '{
   "assets": [
     {
       "source": {
-        "url": "<YOUR_PRE-SIGNED_URL>"
+        "url": "{YOUR_PRE-SIGNED_URL}"
       },
       "destination": "sample.indd"
     }
@@ -65,7 +95,9 @@ curl --request POST \
 }'
 
 ```
-Response-
+
+**Example response**
+
 ```json
 { 
 
@@ -75,19 +107,3 @@ Response-
 
 } 
 ```
-Each execution request is an Async operation for which the status can be
-fetched using the status API. More details are available in [API
-Spec](https://adobedocs.github.io/indesign-api-docs/#/:~:text=POST-,/v3/capability,-Submit%20custom%20capability) .
-
-All assets specified in the execution request are downloaded on the
-local file system using the specified identifiers. The capability script
-should be authored to work against locally downloaded assets.
-
-The execution request can include a parameter block in the form of a
-JSON dictionary. The capability defines the parameters and passes as is
-to it during execution. Optionally, an upload location can also be
-provided as part of the execution request.
-
-All generated output is uploaded to the provided target location. The
-generated output assets are uploaded to temporary storage if no location
-is provided. A link with expiry is provided in the execution status.
