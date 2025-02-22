@@ -1,38 +1,44 @@
-# Working with Data Merge API
-
-The Data Merge API involves two components: Data Merge and Data Merge Tags.
-
-## Data Merge
-
-[https://indesign.adobe.io/v3/merge-data](https://indesign.adobe.io/v3/merge-data)
-
-Data merge enables you to generate variations of a template document
-from data.
+---
+title: Working with the Data Merge API
+description: Quickstart cURL commands to use the Data Merge API.
+---
+# Working with the Data Merge API
 
 ![Data Merge](./image3.png)
 
+Data merge generates variations of a template document
+from data in a provided CSV file.
 
-The following example takes the ```Directory_Names.csv``` (UTF-16BE encoded)
-data and creates different variations of ```dataMergeTemplate.indd```. The
+The Data Merge API supports UTF-16BE encoding for CSV files, which is necessary for languages or characters requiring multi-byte representation. For plain English characters, the CSV will function correctly even without this encoding.
+
+The [Data Merge API](../../api/datamerge.md) includes two components to complete the task: the data merge and the data merge tags.
+
+## Quickstart
+
+The example below takes the data from `Directory_Names.csv` and creates different variations of `dataMergeTemplate.indd`. The
 output is a merged INDD file of all variations.
+
+### Merge data
+
+This cURL command merges the data (from `Directory_Names.csv` into `dataMergeTemplate.indd`).
 
 ```curl
 curl --location --request POST 'https://indesign.adobe.io/v3/merge-data' \
---header 'Authorization: Bearer <YOUR_OAUTH_TOKEN>' \
---header 'x-api-key: <YOUR_API_KEY>' \
+--header 'Authorization: Bearer {YOUR_OAUTH_TOKEN}' \
+--header 'x-api-key: {YOUR_API_KEY}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
   "assets": [
     {
       "source": {
-        "url": "<YOUR_PRE-SIGNED_URL>",
+        "url": "{PRE-SIGNED_URL}",
         "storageType": "Azure"
       },
       "destination": "dataMergeTemplate.indd"
     },
     {
       "source": {
-        "url": "<YOUR_PRE-SIGNED_URL>",
+        "url": "{PRE-SIGNED_URL}",
         "storageType": "Azure"
       },
       "destination": "Directory_Names.csv"
@@ -48,7 +54,7 @@ curl --location --request POST 'https://indesign.adobe.io/v3/merge-data' \
   "outputs": [
     {
       "destination": {
-        "url": "<YOUR_PUT-SIGNED_URL>"
+        "url": "{PUT-SIGNED_URL}"
       },
       "source": "outputfolder/merged.pdf"
     }
@@ -56,33 +62,27 @@ curl --location --request POST 'https://indesign.adobe.io/v3/merge-data' \
 }'
 ```
 
-##  Encoding CSV in Data Merge API
+### Retrieve data merge tags
 
-The Data Merge API supports UTF-16BE encoding for CSV files, which is necessary for languages or characters requiring multi-byte representation. For plain English characters, the CSV will function correctly even without this encoding.
-
-## Data Merge Tags
-
-[https://indesign.adobe.io/v3/merge-data-tags](https://indesign.adobe.io/v3/merge-data-tags)
-
-Retrieves the data merge tags from the document.
+This cURL command retrieves the data merge tags from the document.
 
 ```curl
 curl --location --request POST 'https://indesign.adobe.io/v3/merge-data-tags' \
---header 'Authorization: Bearer <YOUR_OAUTH_TOKEN>' \
---header 'x-api-key: <YOUR_API_KEY>' \
+--header 'Authorization: Bearer {YOUR_OAUTH_TOKEN}' \
+--header 'x-api-key: {YOUR_API_KEY}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
   "assets": [
     {
       "source": {
-        "url": "<YOUR_PRE-SIGNED_URL>",
+        "url": "{PRE-SIGNED_URL}",
         "storageType": "Azure"
       },
       "destination": "dataMergeTemplate.indd"
     },
     {
       "source": {
-        "url": "<YOUR_PRE-SIGNED_URL>",
+        "url": "{PRE-SIGNED_URL}",
         "storageType": "Azure"
       },
       "destination": "batang.ttc"
@@ -95,5 +95,3 @@ curl --location --request POST 'https://indesign.adobe.io/v3/merge-data-tags' \
   }
 }'
 ```
-
-
