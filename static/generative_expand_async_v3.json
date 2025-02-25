@@ -1597,7 +1597,7 @@
       }
     },
     "securitySchemes": {
-      "Authorization": {
+      "AccessToken": {
         "bearerFormat": "JWT",
         "scheme": "bearer",
         "type": "http"
