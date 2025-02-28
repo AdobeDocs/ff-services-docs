@@ -9,5 +9,4 @@ keywords:
 layout: none
 --- 
 
-
-<RedoclyAPIBlock src="/firefly-services/docs/audio-video/reframe-oas-v1.json"/>
+<RedoclyAPIBlock src="/firefly-services/docs/audio-video/reframe-oas-v1.json" width="600px" disableSidebar />
