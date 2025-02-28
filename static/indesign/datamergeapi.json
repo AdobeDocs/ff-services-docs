@@ -958,7 +958,7 @@
         }
       },
       "TooManyRequests": {
-        "description": "Too many requests - Rate limiting applied",
+        "description": "Too Many Requests",
         "content": {
           "application/json": {
             "schema": {

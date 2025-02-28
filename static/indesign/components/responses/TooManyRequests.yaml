@@ -1,5 +1,5 @@
 TooManyRequests:
-  description: Too many requests - rate limiting applied
+  description: Too Many Requests
   content:
     application/json:
       schema:
