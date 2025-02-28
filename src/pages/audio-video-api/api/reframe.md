@@ -10,4 +10,4 @@ layout: none
 --- 
 
 
-<RedoclyAPIBlock src="/video-reframe-api-beta/reframe-oas-v1.json"/>
+<RedoclyAPIBlock src="/audio-video/reframe-oas-v1.json"/>
