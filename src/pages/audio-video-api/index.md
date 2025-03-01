@@ -27,7 +27,7 @@ Reframe features include:
 
 ## Discover
 
-[Reframe API](./api/specification.md)
+[Reframe API](./api/reframe.md)
 
 Dive right into the API specification.
 
