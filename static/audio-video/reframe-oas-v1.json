@@ -22,7 +22,7 @@
     }
   ],
   "paths": {
-    "/beta/reframe": {
+    "/v1/reframe": {
       "post": {
         "summary": "Reframe input video",
         "description": "This endpoint enables you to reframe the input media. You can provide video input through a pre-signed URL to genreate reframed output video.",
@@ -173,7 +173,7 @@
                     "summary": "Response for Successful Job Submission",
                     "value": {
                       "jobId": "\u003CjobId\u003E",
-                      "statusUrl": "https://\u003CbaseUrl\u003E/beta/status/\u003CjobId\u003E"
+                      "statusUrl": "https://\u003CbaseUrl\u003E/v1/status/\u003CjobId\u003E"
                     }
                   }
                 }
@@ -393,7 +393,7 @@
         }
       }
     },
-    "/beta/status/{jobId}": {
+    "/v1/status/{jobId}": {
       "get": {
         "summary": "Get the result for a job",
         "description": "This endpoint retrieves the result of an asynchronous reframed job initiated using the `jobId` returned from the generate reframed video operation.",
