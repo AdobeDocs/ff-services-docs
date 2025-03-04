@@ -112,6 +112,12 @@ Unlock the potential of Photoshop in the cloud.
 
 <DiscoverBlock slots="link, text"/>
 
+[InDesign API](../indesign-apis/)
+
+Automate time-consuming design tasks with InDesign API.
+
+<DiscoverBlock slots="link, text"/>
+
 [Content Tagging API](https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html)
 
 Leverage Content Tagging API to craft personalized experiences.
