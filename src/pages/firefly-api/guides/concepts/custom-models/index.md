@@ -1,53 +1,44 @@
 ---
-title: Custom Models
-description: Use Custom Models to generate image variations that align with your brand
-keywords:
-
+title: Custom Models Overview
+description: Use Custom Models to generate image variations that align with your brand.
 contributors:
   - https://github.com/bishoysefin
+  - https://github.com/Aeabreu-hub
 hideBreadcrumbNav: true
 ---
 
 # Custom Models
 
-Use Firefly Custom Models to generate brand-aligned image variations at scale.
+Use Firefly's Custom Models API to generate brand-aligned image variations at scale. This page explains concepts relevant to custom models.
 
 ## Overview
 
-This documentation explains concepts relevant to the Adobe Firefely Custom Models API. With Custom Models, you can capture and replicate distinctive brand aesthetics, characters, objects, or compositional arrangements. Once trained, these models can be referenced when generating new images—helping you scale brand-consistent visuals while reducing manual effort.
+With custom models, you can capture and replicate distinctive brand aesthetics, characters, objects, or compositional arrangements. These models are trained and referenced when generating new images, helping to scale brand-consistent visuals.
 
-## Training Modes
+## Training modes
 
-Custom Models can be set to learn different aspects of visual design:
+Custom models can be set to learn different aspects of visual design:
 
-* **Subject Models:** Focus on representing specific characters, products, or objects. For example, if your brand features a mascot, a subject model ensures that this mascot is accurately depicted in any scenario.
+* **Subject Models:** These focus on representing specific characters, products, or objects.
+For example, a subject model ensures that your brand mascot is depicted accurately in any scenario.
 
-* **Style Models:** Emphasize aesthetic qualities like color palettes, patterns, brush stroke techniques, or illustrative cues. This ensures that all generated visuals share a consistent, recognizable style aligned with your brand’s look and feel.
+* **Style Models:** These emphasize aesthetic qualities like color palettes, patterns, brush stroke techniques, or illustrative cues, ensuring that all generated visuals share a consistent, recognizable style aligned with your brand's look and feel.
 
 ## Asset IDs
 
-Custom Models are stored as assets hosted securely by Adobe, enabling easy organization, versioning, and reuse. Each custom model is assigned a unique Asset ID. This identifier is key to:
+Custom models are assets hosted securely by Adobe, offering easy organization, versioning, and reuse. Each custom model has a unique asset ID.
 
-* **Referencing in Image Generation:** By providing the Asset ID in your API requests, you ensure that the generated images originate from the appropriate model’s learned characteristics.
-* **Version Control and Tracking:** Asset IDs enable you to manage multiple models, track updates, and maintain a clear record of various styles, subjects, or structures you’ve captured over time.
+Asset IDs allow you to manage multiple models by tracking updates and maintaining a clear record of styles, subjects, or structures captured in versions over time.
 
-## Performing CM Image Generation
+Provide the asset ID in your API requests so that the generated images include the appropriate model's learned characteristics.
 
-To perform CM inference using the `/v3/images/generate-async` endpoint, it is mandatory to include a header named `x-model-version`. This header specifies the model version that will be used for generating the image.
+## Performing CM image generation
 
-### Required Header
+Perform CM inference by using the `/v3/images/generate-async` endpoint and including the header `x-model-version`. This specifies the model version used for generating the image.
 
-* **Header Name:** `x-model-version`
-* **Value:** Specifies the version of the model to be used for image generation. Currently, the only supported value is `image3_custom`.
+Currently, the only supported value is `image3_custom`.
 
-
-### Supported Values
-
-| Model Version Value | Description                      |
-|---------------------|----------------------------------|
-| `image3_custom`     | Current supported model version. |
-
-### Example Request
+### Request examples
 
 <CodeBlock slots="heading, code" repeat="3" languages="bash, Python, JavaScript" />
 
