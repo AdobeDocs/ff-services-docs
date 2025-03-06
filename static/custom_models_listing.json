@@ -93,61 +93,85 @@
               }
             },
             "400": {
-              "description": "Bad Request: The request is invalid.",
+              "description": "Bad Request",
               "content": {
                 "application/json": {
                   "schema": {
                     "$ref": "#/components/schemas/ErrorResponse"
+                  },
+                  "example": {
+                    "reason": "Bad Request",
+                    "message": "The request is invalid."
                   }
                 }
               }
             },
             "401": {
-              "description": "Unauthorized: Authorization Token is not accepted.",
+              "description": "Unauthorized",
               "content": {
                 "application/json": {
                   "schema": {
                     "$ref": "#/components/schemas/ErrorResponse"
+                  },
+                  "example": {
+                    "reason": "Unauthorized",
+                    "message": "Authorization Token is not accepted."
                   }
                 }
               }
             },
             "403": {
-              "description": "Forbidden: API Key is not accepted.",
+              "description": "Forbidden",
               "content": {
                 "application/json": {
                   "schema": {
                     "$ref": "#/components/schemas/ErrorResponse"
+                  },
+                  "example": {
+                    "reason": "Forbidden",
+                    "message": "API Key is not accepted."
                   }
                 }
               }
             },
             "406": {
-              "description": "Not Acceptable: The requested format is not supported by this method.",
+              "description": "Not Acceptable",
               "content": {
                 "application/json": {
                   "schema": {
                     "$ref": "#/components/schemas/ErrorResponse"
+                  },
+                  "example": {
+                    "reason": "Not Acceptable",
+                    "message": "The requested format is not supported by this method."
                   }
                 }
               }
             },
             "500": {
-              "description": "Internal Server Error: A problem occurred on our server.",
+              "description": "Internal Server Error",
               "content": {
                 "application/json": {
                   "schema": {
                     "$ref": "#/components/schemas/ErrorResponse"
+                  },
+                  "example": {
+                    "reason": "Internal Server Error",
+                    "message": "A problem occurred on our server."
                   }
                 }
               }
             },
             "503": {
-              "description": "Service Unavailable: We are temporarily offline for maintenance. Try again later.",
+              "description": "Service Unavailable",
               "content": {
                 "application/json": {
                   "schema": {
                     "$ref": "#/components/schemas/ErrorResponse"
+                  },
+                  "example": {
+                    "reason": "Service Unavailable",
+                    "message": "We are temporarily offline for maintenance. Try again later."
                   }
                 }
               }
@@ -173,10 +197,12 @@
           "type": "object",
           "properties": {
             "reason": {
-              "type": "string"
+              "type": "string",
+              "description": "The type of error that occurred."
             },
             "message": {
-              "type": "string"
+              "type": "string",
+              "description": "A message describing the error."
             }
           },
           "xml": {
