@@ -22,7 +22,8 @@
           "tags": [
             "Custom Models Firefly 3P"
           ],
-          "description": "Retrieve custom models for a user",
+          "summary": "Retrieve custom models",
+          "description": "Retrieve the custom models for a user.",
           "operationId": "getCustomModels",
           "parameters": [
             {
@@ -44,7 +45,7 @@
             {
               "name": "sortBy",
               "in": "query",
-              "description": "Sorting option for the response list. Reverse sort with `-` (e.g. `-modified_date`). Multi-vector sort is enabled by comma separation (e.g. `name,-modified_date`). \n Possible Values: <ul><li><code>assetName</code></li><li><code>createdDate</code></li><li><code>modifiedDate</code></li></ul>",
+              "description": "Sorting option for the response list. Reverse sort with `-` (e.g., `-modified_date`). Multi-vector sort is enabled by comma separation (e.g., `name,-modified_date`). \n Possible Values: <ul><li><code>assetName</code></li><li><code>createdDate</code></li><li><code>modifiedDate</code></li></ul>",
               "schema": {
                 "type": "string",
                 "default": "-modifiedDate"
@@ -62,11 +63,11 @@
             {
               "name": "limit",
               "in": "query",
-              "maximum": 50,
-                "minimum": 1,
               "description": "The number of Custom Models to return for a paged response (1–10).",
               "schema": {
-                "type": "string"
+                "type": "string",
+                "maximum": 50,
+                "minimum": 1
               }
             },
             {
