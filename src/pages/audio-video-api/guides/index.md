@@ -28,7 +28,7 @@ In the command, be sure to:
 - Specify aspect ratios in width:height format (examples: "1:1", "9:16").
 
 ```shell
-curl --location 'https://audio-video-api.adobe.io/beta/reframe' \
+curl --location 'https://audio-video-api.adobe.io/v1/reframe' \
 --header 'Authorization: {ACCESS_TOKEN}' \
 --header 'x-api-key: {CLIENT_ID}' \
 --header 'Content-Type: application/json' \
@@ -184,7 +184,7 @@ Determine how the overlay should behave when the source media runs longer with:
 This is an example of an extended payload with an overlay configuration:  
 
 ```shell
-curl --location 'https://audio-video-api.adobe.io/beta/reframe' \
+curl --location 'https://audio-video-api.adobe.io/v1/reframe' \
 --header 'Authorization: {ACCESS_TOKEN}' \
 --header 'x-api-key: {CLIENT_ID}' \
 --header 'Content-Type: application/json' \
@@ -230,7 +230,7 @@ If successful, you'll see a response like:
 ```json
 {
   "jobId": "<jobId>",
-  "statusUrl": "https://<baseUrl>/beta/status/<jobId>"
+  "statusUrl": "https://<baseUrl>/v1/status/<jobId>"
 }
 ```
 
@@ -253,7 +253,7 @@ A successful response when the processing job is complete contains a secure link
 
 ```shell
 curl -X 'GET' \
-  'https://audio-video-api.adobe.io/beta/status/{jobId}' \
+  'https://audio-video-api.adobe.io/v1/status/{jobId}' \
   -H 'accept: application/json'
 ```
 
