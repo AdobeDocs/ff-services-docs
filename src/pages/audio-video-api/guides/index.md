@@ -22,7 +22,7 @@ In the command, be sure to:
 
 - Replace `bearer_token` with the access token generated during authentication.
 - Update `x-api-key` with your assigned API key/Client ID.
-- Set `mediaType` to your input media format.
+- Set `mediaType` to your input media format (for example: "video/mp4", "video/quicktime").
 - Include the pre-signed URL to the video you'd like to have reframed in `"url"`.
 - For multi-scene videos, enable scene transition handling by setting `sceneEditDetection: true`.
 - Specify aspect ratios in width:height format (examples: "1:1", "9:16").
@@ -53,29 +53,6 @@ curl --location 'https://audio-video-api.adobe.io/v1/reframe' \
 Overlays enable you to add assets as dynamic layers (e.g., GIFs, Animated PNGS, PNG) on top of the video, customized for positioning, size, timing, and behavior. To include overlays in your video processing workflow, extend the Reframe API payload by defining `overlays`. The `overlays` array defines how one or more overlay assets get applied.
 
 Each overlay object has customizable properties to adjust the result. For full details, see the [API Reference](/specification).
-
-```json
-  "overlays": [
-    {
-      "mediaType": "gif",
-      "source": {
-        "url": "<pre-signed overlay url>"
-      },
-      "startTime": "00:00:10:15",   // Start 10 seconds and 15 frames into the video
-      "duration": "00:00:05:00",    // Lasts for 5 seconds
-      "scale": {
-        "width": 400,
-        "height": 400
-      },
-      "position": {
-        "anchorPoint": "center",
-        "offsetX": 0,
-        "offsetY": 0
-      },
-      "repeat": "loop"
-    }
-  ],
-  ```
 
 ### Adjust overlay timing
 
@@ -198,7 +175,7 @@ curl --location 'https://audio-video-api.adobe.io/v1/reframe' \
   "sceneEditDetection": true,
   "overlays": [
     {
-      "mediaType": "gif",
+      "mediaType": "image/gif",
       "source": {
         "url": "<pre-signed overlay url>"
       },
@@ -225,6 +202,7 @@ curl --location 'https://audio-video-api.adobe.io/v1/reframe' \
   }
 }'
 ```
+
 If successful, you'll see a response like:
 
 ```json
@@ -252,9 +230,17 @@ To check the status of a reframe job, use the cURL command below.
 A successful response when the processing job is complete contains a secure link in the `url` field to download the reframed video output. Go to the URL in your browser to see the processed video featuring the new aspect ratio. 🎉
 
 ```shell
-curl -X 'GET' \
-  'https://audio-video-api.adobe.io/v1/status/{jobId}' \
-  -H 'accept: application/json'
+curl -X 'GET'
+'https://audio-video-api.adobe.io/v1/status/
+{jobId}
+'
+--header 'Authorization:
+{ACCESS_TOKEN}
+'
+--header 'x-api-key:
+{CLIENT_ID}
+'
+--header 'Content-Type: application/json'
 ```
 
 **Successful response for a running job**:
@@ -265,7 +251,6 @@ curl -X 'GET' \
     "status": "running",
     "percentCompleted": "23.0"
 }
- 
 ```
 
 **Successful response when the processing job is complete**:
