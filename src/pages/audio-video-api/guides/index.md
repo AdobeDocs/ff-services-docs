@@ -231,16 +231,10 @@ A successful response when the processing job is complete contains a secure link
 
 ```shell
 curl -X 'GET'
-'https://audio-video-api.adobe.io/v1/status/
-{jobId}
-'
---header 'Authorization:
-{ACCESS_TOKEN}
-'
---header 'x-api-key:
-{CLIENT_ID}
-'
---header 'Content-Type: application/json'
+'https://audio-video-api.adobe.io/v1/status/{jobId}' \
+-H 'Authorization:{ACCESS_TOKEN}' \
+-H 'x-api-key:{CLIENT_ID}' \
+-H 'Content-Type: application/json'
 ```
 
 **Successful response for a running job**:
