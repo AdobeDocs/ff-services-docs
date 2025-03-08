@@ -9,7 +9,7 @@ hideBreadcrumbNav: true
 
 # Custom Models Generate Image API Tutorial
 
-Learn how to generate images using a Firefly Custom Model.
+Learn to generate images using a Firefly Custom Model.
 
 ||
 | --- | --- |
@@ -17,28 +17,34 @@ Learn how to generate images using a Firefly Custom Model.
 
 ## Overview
 
-In this tutorial, let's imagine we work at a global fragrance company and are creating an on-brand marketing campaign for our new product line promoting Almond notes.
+In this tutorial you will:
 
-In the tutorial below, we will:
+- List custom models that are available.
+- Generate images using a specific custom model, with the custom parameters: prompt, style presets, and image size.
 
-* First, list custom models available
-* Next, Generate Images Using the chosen Custom Model with custom parameters such as prompt, style presets, and image size.
+Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump immediately to the full source code](#implementation-example) at the bottom of this webpage.
 
-Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump immediately to the full source code](#full-example) at the bottom of this webpage.
+## Introduction
 
-## Prerequisites
+Imagine you work at a global fragrance company and are creating an on-brand marketing campaign. This season introduced a new fad in the world of scent: almonds. The people want almond candles, almond soap, almond scrubs, and almond perfume. There's almond in every product in the new line. The pitch for this new trend with legumes is they're clean, natural, and (somehow) cozy, and comfortable.
+
+So, let's make some images.
+
+## Getting started
 
 ### Credentials
 
-If you don't already have a Firefly Services **Client ID** and **Client Secret**, retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
+1. Retrieve a Firefly Services **Client ID** and **Client Secret** from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview). **Securely store these credentials and never expose them in client-side or public code.**
 
-### Set Up Your Environment
+### Set up your environment
 
-Before we begin this tutorial, run the following in a secure terminal:
+Along with the cURL commands, this tutorial offers code samples in JavaScript and Python.
+
+1. Set up an environment by running the following in a secure terminal:
 
 <CodeBlock slots="heading, code" repeat="2" languages="Python, JavaScript" />
 
-#### JavaScript
+JavaScript
 
 ```bash
 mkdir cm-generate-image-api-tutorial
@@ -48,7 +54,7 @@ npm install axios qs
 touch index.js
 ```
 
-#### Python
+Python
 
 ```bash
 mkdir cm-generate-image-api-tutorial
@@ -57,16 +63,16 @@ python -m pip install requests
 touch main.py
 ```
 
-## Retrieve an Access Token
+### Retrieve an access token
 
-Open a secure terminal and `export` your **Client ID** and **Client Secret** as environment variables so that your later commands can access them:
+1. Open a secure terminal and `export` your Client ID and Client Secret as environment variables to use later.
 
 ```bash
-export CUSTOM_MODELS_CLIENT_ID=yourClientIdAsdf123
-export CUSTOM_MODELS_CLIENT_SECRET=yourClientSecretAsdf123
+export CUSTOM_MODELS_CLIENT_ID=<yourClientId>
+export CUSTOM_MODELS_CLIENT_SECRET=<yourClientSecret>
 ```
 
-Generate an access token:
+2. Generate an access token.
 
 <CodeBlock slots="heading, code" repeat="3" languages="bash, Python, JavaScript" />
 
@@ -137,19 +143,23 @@ The response will look like this:
 {"access_token":"yourAccessTokenAsdf123","token_type":"bearer","expires_in":86399}
 ```
 
-Export this access token so that the next script can conveniently access it:
+3. Export the access token to use later.
 
 ```bash
-export CUSTOM_MODELS_ACCESS_TOKEN=yourAccessTokenAsdf123
+export CUSTOM_MODELS_ACCESS_TOKEN=<yourAccessToken>
 ```
 
-## List Custom Models
+## Find a custom model
 
-In order to generate images with a custom model, you first need a Custom Model ID. Let's list all models available to use and select one for generating images
+Remember those pitch requirements? Clean, natural, cozy, and comfortable. So, all the images for our campaign should align with these characteristics.
+
+Do we have a custom model suitable for that? Let's check.
+
+1. List all the available models by calling the endpoint below.
 
 <CodeBlock slots="heading, code" repeat="3" languages="bash, Python, JavaScript" />
 
-#### cURL
+cURL
 
 ```bash
 curl --request GET 'https://firefly-api.adobe.io/v3/custom-models' \
@@ -159,7 +169,7 @@ curl --request GET 'https://firefly-api.adobe.io/v3/custom-models' \
 --header "Authorization: Bearer $CUSTOM_MODELS_ACCESS_TOKEN"
 ```
 
-#### Python
+Python
 
 ```python
 def list_custom_models(access_token):
@@ -180,7 +190,7 @@ def list_custom_models(access_token):
     return models_response
 ```
 
-#### JavaScript
+JavaScript
 
 ```js
 async function listCustomModels(accessToken) {
@@ -244,21 +254,24 @@ The response will look like this:
 }
 ```
 
-### Retrieve Custom Model ID
+It looks like we have a suitable model, a Warm Custom Model! Let's choose this model to generate our images.
 
-Now that we have listed the custom models available, let's store a Custom Model ID to be used to generate our images. The Custom Model ID can be found at the path `custom_models[n].assetId`
+2. To use a custom model, you'll need the custom model ID. Find the custom model ID in the response object, labeled `assetId`.
+3. Export this ID for use later.
 
 ```bash
-export $CUSTOM_MODEL_ID=urn:aaid:sc:VA6C2:bc1f46cd-be98-4a7b-9ffe-1111111111
+export CUSTOM_MODEL_ID=urn:aaid:sc:VA6C2:bc1f46cd-be98-4a7b-9ffe-1111111111
 ```
 
-## Generate Image
+## Generate your images
 
-Next, let's use the Custom Model ID to generate images with our custom model! **Important:** Remember to include the header `x-model-version: image3_custom` in your request, as this tells the system to use our custom model for image generation.
+Time to put the AI to work. Let's use the Custom Model ID to generate images with our custom model!
+
+1. Use Firefly's Generate Image API to generate product images. With our custom model to consider, include the header `x-model-version: image3_custom` in your request, as this tells the system to use our custom model for image generation.
 
 <CodeBlock slots="heading, code" repeat="3" languages="bash, Python, JavaScript" />
 
-#### cURL
+cURL
 
 ```bash
 curl --request POST 'https://firefly-api.adobe.io/v3/images/generate-async' \
@@ -284,7 +297,7 @@ curl --request POST 'https://firefly-api.adobe.io/v3/images/generate-async' \
   }"
 ```
 
-#### Python
+Python
 
 ```python
 def generate_images_with_custom_model(access_token, custom_model_id):
@@ -321,7 +334,7 @@ def generate_images_with_custom_model(access_token, custom_model_id):
 
 ```
 
-#### JavaScript
+JavaScript
 
 ```js
 async function generateImagesWithCustomModel(accessToken, customModelId) {
@@ -361,19 +374,19 @@ The response will look like:
 
 ```json
 {
-	"jobId": "urn:ff:jobs:eso85125:2dc3bd5f-1606-4658-8781-111111111",
-	"statusUrl": "https://firefly-stage-eso85125.adobe.io/v3/status/urn:ff:jobs:eso85125:2dc3bd5f-1606-4658-8781-111111111",
-	"cancelUrl": "https://firefly-stage-eso85125.adobe.io/v3/cancel/urn:ff:jobs:eso85125:2dc3bd5f-1606-4658-8781-111111111"
+  "jobId": "urn:ff:jobs:eso85125:2dc3bd5f-1606-4658-8781-111111111",
+  "statusUrl": "https://firefly-stage-eso85125.adobe.io/v3/status/urn:ff:jobs:eso85125:2dc3bd5f-1606-4658-8781-111111111",
+  "cancelUrl": "https://firefly-stage-eso85125.adobe.io/v3/cancel/urn:ff:jobs:eso85125:2dc3bd5f-1606-4658-8781-111111111"
 } 
 ```
 
-### Check Generation Status
+### Check the image generation status
 
-Next up, we will use the Get Status endpoint to monitor the job status until it completes.
+1. Use the Get Status endpoint to get the image generation job status.
 
 <CodeBlock slots="heading, code" repeat="3" languages="bash, Python, JavaScript" />
 
-#### cURL
+cURL
 
 ```bash
 curl --location 'https://firefly-stage-eso85121.adobe.io/jobs/result/urn:ff:jobs:eso85125:2dc3bd5f-1606-4658-8781-111111111' \
@@ -383,7 +396,7 @@ curl --location 'https://firefly-stage-eso85121.adobe.io/jobs/result/urn:ff:jobs
 --header "Authorization: Bearer $CUSTOM_MODELS_ACCESS_TOKEN" 
 ```
 
-#### Python
+Python
 
 ```python
 def check_job_status(status_url, access_token):
@@ -400,7 +413,7 @@ def check_job_status(status_url, access_token):
     return response.json()
 ```
 
-#### JavaScript
+JavaScript
 
 ```js
 async function checkJobStatus(status_url, accessToken) {
@@ -416,13 +429,21 @@ async function checkJobStatus(status_url, accessToken) {
 }
 ```
 
-## Full Example
+## Implementation example
 
-Review this tutorial's [prerequisites](#prerequisites) section to understand how to set up your environment prior to running this code. (Because this code is for educational purposes only, it is not production-ready and requires additional error handling, logging, security measures, and more before it can be used in a live application.)
+Here is a full implementation example.
+
+[Set up your environment](#set-up-your-environment) before running this code.
+
+<InlineAlert variant="warning" slots="header, text" />
+
+Example code is NOT production ready
+
+Because this code is for educational purposes only, it IS NOT production-ready and requires additional error handling, logging, and security measures before it can be used in a live application.
 
 <CodeBlock slots="heading, code" repeat="2" languages="Python, JavaScript" />
 
-#### Python
+Python
 
 ```python
 import os
@@ -557,7 +578,7 @@ if __name__ == '__main__':
     main()
 ```
 
-#### JavaScript
+JavaScript
 
 ```js
 const axios = require('axios');
@@ -699,6 +720,6 @@ async function checkJobStatus(statusUrl, accessToken) {
 
 ```
 
-## Deepen Your Understanding
+## Deepen your understanding
 
-Now that you have a working implementation of the Generate Image API, visit its [reference documentation](../../api/image_generation/V3/) to explore more advanced use cases for automating your workflows.
+Now that you have a working implementation, visit the [reference documentation for the Generate Image API](../../api/image_generation/V3/) to explore more advanced use cases and automate your workflows.
