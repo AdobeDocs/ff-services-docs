@@ -11,7 +11,7 @@ This quickstart page provides ready-to-use cURL commands and instructions for th
 
 ## Before you start
 
-- You'll need a valid access token and client ID. See the [Authentication Guide](../getting_started/index.md) for details.
+- You'll need a valid access token and client ID. See the [Authentication Guide](../getting_started/index.md) for details.
 - Upload your media files (audio or video) to [your storage location and generate a pre-signed URL](../getting_started/storage_solutions.md).
 
 ## Reframing and scene edit detection
@@ -52,7 +52,7 @@ curl --location 'https://audio-video-api.adobe.io/v1/reframe' \
 
 Overlays enable you to add assets as dynamic layers (e.g., GIFs, Animated PNGS, PNG) on top of the video, customized for positioning, size, timing, and behavior. To include overlays in your video processing workflow, extend the Reframe API payload by defining `overlays`. The `overlays` array defines how one or more overlay assets get applied.
 
-Each overlay object has customizable properties to adjust the result. For full details, see the [API Reference](/specification).
+Each overlay object has customizable properties to adjust the result. For full details, see the [API Reference](../api/reframe.md).
 
 ### Adjust overlay timing
 
@@ -221,7 +221,7 @@ If there's an error, you'll see something like:
 }
 ```
 
-For a full list of error codes, check the [API Reference](../api/specification.md).
+For a full list of error codes, check the [API Reference](../api/reframe.md).
 
 ## Check the job status
 
