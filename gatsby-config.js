@@ -35,11 +35,19 @@ module.exports = {
         path: "/lightroom/",
       },
       {
+        title: "InDesign API",
+        description: "Docs and references for InDesign API",
+        path: "/indesign-apis/",
+      },
+      {
         title: "Content Tagging API",
         description: "Docs and references for Content Tagging services",
         path: "https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html",
       },
     ],
+    ///////////////////////////////////////////////
+      // Firefly Services - specific left side nav
+      ///////////////////////////////////////////////
     subPages: [
       // Main Firefly Services docs - left side nav
       {
@@ -185,7 +193,7 @@ module.exports = {
               },
 
               {
-                title: "V2",
+                title: "V2 (deprecated)",
                 path: "/firefly-api/guides/api/image_generation/V2/",
               },
             ],
@@ -232,7 +240,7 @@ module.exports = {
                 path: "/firefly-api/guides/api/generative_expand/V3/",
               },
               {
-                title: "V1",
+                title: "V1 (deprecated)",
                 path: "/firefly-api/guides/api/generative_expand/V1/",
               },
             ],
@@ -250,7 +258,7 @@ module.exports = {
                 path: "/firefly-api/guides/api/generative_fill/V3/",
               },
               {
-                title: "V1",
+                title: "V1 (deprecated)",
                 path: "/firefly-api/guides/api/generative_fill/V1/",
               },
             ],
@@ -457,6 +465,43 @@ module.exports = {
             path: "/lightroom/api/lightroom_getStatus.md",
           },
         ],
+      },
+            ///////////////////////////////////////////////
+      // InDesign API-specific left side nav
+      ///////////////////////////////////////////////
+      {
+        title: "Overview",
+        path: "/indesign-apis/index.md",
+      },
+      {
+        title: "Concepts",
+        path: "/indesign-apis/concepts/index.md",
+      },
+      {
+        title: "API Reference",
+        path: "/indesign-apis/api/datamerge.md",
+        pages: [
+          {
+            title: "Data Merge API",
+            path: "/indesign-apis/api/datamerge.md",
+          },
+          {
+            title: "Rendition API ",
+            path: "/indesign-apis/api/rendition.md",
+          },
+          {
+            title: "Custom Capabilities API",
+            path: "/indesign-apis/api/capabilities.md",
+          },
+          {
+            title: "Status API",
+            path: "/indesign-apis/api/status.md",
+          },
+        ],
+      },
+      {
+        title: "Help",
+        path: "/indesign-apis/Help/index.md",
       },
       // END PS API left nav
       /////////////////////////////////////////////////////

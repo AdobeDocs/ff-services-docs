@@ -1615,9 +1615,9 @@
     },
     "securitySchemes": {
       "AccessToken": {
-          "bearerFormat": "JWT",
-          "scheme": "bearer",
-          "type": "http"
+        "bearerFormat": "JWT",
+        "scheme": "bearer",
+        "type": "http"
       },
       "X-Api-Key": {
           "type": "apiKey",
