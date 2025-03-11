@@ -48,7 +48,7 @@
               "schema": {
                 "type": "string",
                 "default": "modifiedDate",
-                "enum": [assetName, createdDate, modifiedDate]
+                "enum": ["assetName", "createdDate", "modifiedDate"]
               }
             },
             {
@@ -77,7 +77,7 @@
               "schema": {
                 "type": "string",
                 "default": "published",
-                "enum": [all, ready, published, unpublished, queued, training, failed, cancelled]
+                "enum": ["all", "ready", "published", "unpublished", "queued", "training", "failed", "cancelled"]
               }
             }
           ],
