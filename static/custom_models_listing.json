@@ -4,7 +4,7 @@
       "version": "V3",
       "title": "Firefly API",
       "description": "REST API for Adobe Firefly for enterprise use.",
-      "termsOfService": "https://www.adobe.com/content/dam/cc/en/legal/terms/enterprise/pdfs/PSLT-AdobeCreativeAPI-WW-2024v2.pdf",
+      "termsOfService": "https://www.adobe.com/content/dam/cc/en/legal/terms/enterprise/pdfs/PSLT-AdobeCreativeAPI-WW-2024v2.pdf"
   },
   "servers": [
       {
