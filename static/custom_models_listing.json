@@ -44,7 +44,7 @@
             {
               "name": "sortBy",
               "in": "query",
-              "description": "A sorting option for the response list. For a reverse sort, use `-` (e.g., `-modifiedDate`). For a multi-vector sort, use comma separation (e.g., `name,modifiedDate`).",
+              "description": "A sorting option for the response list. For a reverse sort, use `-` (e.g., `-modifiedDate`). For a multi-vector sort, use comma separation (e.g., `assetName,modifiedDate`).",
               "schema": {
                 "type": "string",
                 "default": "modifiedDate",
@@ -234,28 +234,33 @@
           "properties": {
             "version": {
               "type": "string",
-              "description": "Custom Model version"
+              "description": "Custom Model version."
             },
             "assetName": {
               "type": "string",
-              "description": "Custom Model name"
+              "description": "Custom Model name."
             },
             "size": {
               "type": "integer",
-              "description": "Storage used",
+              "description": "The storage amount used.",
               "format": "int64"
             },
             "etag": {
-              "type": "string"
+              "type": "string",
+              "description": "An identifier for the specific version of the asset."
             },
             "trainingMode": {
-              "type": "string"
+              "type": "string",
+              "enum": ["subject", "style"],
+              "description": "The [training mode of the model](../firefly-api-reference/custom-models.md#training-mode). When this is 'subject', the 'conceptId' must be mentioned in the prompt."
             },
             "assetId": {
-              "type": "string"
+              "type": "string",
+              "description": "A unique identifier for the asset."
             },
             "mediaType": {
-              "type": "string"
+              "type": "string",
+              "description": "The media type specific to the asset."
             },
             "createdDate": {
               "type": "string",
@@ -266,19 +271,25 @@
               "format": "date-time"
             },
             "publishedState": {
-              "type": "string"
+              "type": "string",
+              "enum": ["never", "published", "unpublished"],
+              "description": "Status for the asset. The 'unpublished' value applies when an asset is published and then subsequently revoked."
             },
             "baseModel": {
-              "$ref": "#/components/schemas/BaseModel"
+              "$ref": "#/components/schemas/BaseModel",
+              "description": "The underlying GenAI model used to train the Custom Model."
             },
             "samplePrompt": {
-              "type": "string"
+              "type": "string",
+              "description": "Example string provided by the custom model's trainer"
             },
             "displayName": {
-              "type": "string"
+              "type": "string",
+              "description": "The asset name provided by the user, mapped from the name of the training set library."
             },
             "conceptId": {
-              "type": "string"
+              "type": "string",
+              "description": "When 'trainingMode' is 'subject', this string specifies the subject for the prompt."
             }
           },
           "description": "Custom Model info"
