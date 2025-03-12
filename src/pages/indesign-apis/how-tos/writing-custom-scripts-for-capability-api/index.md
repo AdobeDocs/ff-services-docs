@@ -5,26 +5,17 @@ description: Writing Custom Scripts for Capability API.
 
 # Writing Custom Scripts for the Custom Capability API
 
-InDesign APIs expose a way for third-party developers to come on board and deploy their custom scripts as endpoints. The script writer can define the custom attributes and values that make sense for a particular endpoint. These can be done by [deploying the capability bundle](../../concepts/#capability-bundle-structure).
+Use this document to contruct the script files for the Custom Capability API.
 
-To run a script with InDesign APIs, the script must be compatible to run with InDesignServer. However, any script that can be run on InDesignServer can't be run as is.
+The script's author defines the custom attributes and values for a particular endpoint using *capability.js* [files in the capability bundle](../../concepts/#capability-bundle-structure). Refer to the examples below to construct your scripts.
 
-The execution of any script depends on the following attributes:
+## Including input in a custom script
 
-| Attribute | Input Request Mapping | Description |
-| --- | --- | --- |
-| assets | assets->destination field | This contains a list of input assets, like .indd, .pdf, .jpeg, etc. |
-| params | params | User input/arguments that are used inside script. |
-| jobID | Auto-generated | The job ID. |
-| workingFolder | Auto-generated | The working folder for the job. This is the base directory. Inside this directory, all the assets and scripts are downloaded. (e.g., c:\\baseFolder\assets). |
+### When no input is required
 
-## Accepting input in a custom script
+The system, by default, sends a string-type argument named `"params"`, which needs to be parsed inside the script to retrieve the values of the attributes.
 
-Case 1:
-
-The script doesn't require any input/argument.
-
-In this case, the system by default sends a string-type argument named `"parameters"` as follows:
+In this case the `"params"` attribute will be empty, since the script doesn't need an argument.
 
 ```json
 {
@@ -41,13 +32,11 @@ In this case, the system by default sends a string-type argument named `"parame
 }
 ```
 
-The JSON is received in the form of `"string"`, which needs to be parsed inside the script to retrieve the values of the attributes. In this case the `"params"` attribute will be empty, since the script doesn't need an argument.
+### When input is included in the request
 
-Case 2:
+The system, by default, sends a string-type argument named `"params"` which also includes input arguments `"arg1"` and `"arg2"`.
 
-In this case, the system, by default, sends a string-type argument named `"parameters"` which also includes input arguments `"arg1"` and `"arg2"`.
-
-To use the argument, `"parameters"` must be parsed and the value of `arg1` and `arg2` must be extracted.
+To use the argument, `"params"` must be parsed by the script and the value of `arg1` and `arg2` must be extracted.
 
 ```json
 {
@@ -57,8 +46,8 @@ To use the argument, `"parameters"` must be parsed and the value of `arg1` and 
         ...
     ],
     "params": {
-        "arg1": <data corresponding to argument1>,
-        "arg2": <data corresponding to argument2>,
+        "arg1": <data for argument 1>,
+        "arg2": <data for argument 2>,
         ...
     },
     "jobID": "0c531425-bc82-43c0-89b7-0e851cd56061",
@@ -66,7 +55,7 @@ To use the argument, `"parameters"` must be parsed and the value of `arg1` and 
 }
 ```
 
-In this case, you must tweak the existing scripts to accept the arguments correctly, as shown in the following examples.
+The existing scripts must be tweaked to accept the arguments correctly:
 
 **Previous existing script**
 
@@ -85,9 +74,11 @@ var arg2 = parameters['argument2']
 // Some processing
 ```
 
-For example, here's a sample input and sample script code to open a document and close a document:
+### Input examples
 
-**Sample input request body**
+For example, below is a sample input and sample script code to open a document and close a document:
+
+**Example input request body**
   
   ```json
   {
@@ -156,32 +147,33 @@ Anything outside of these attributes might be logged as data to be investigated.
 
 | Attribute | Description | Required |
 | --- | --- | --- |
-| dataURL | A relative path to the data file. It should be created inside the working folder. When there is no data to send, pass an empty string. | X |
-| status | Status of the execution. Can be `SUCCESS` or `FAILURE`. | X |
-| assetToBeUploaded | An array for assets that need to be uploaded. This can be empty. | X |
+| `dataURL` | A relative path to the JSON data file inside the working folder. When there is no data to send, pass an empty string. | X |
+| `status` | Status of the execution. Can be `SUCCESS` or `FAILURE`. | X |
+| `assetToBeUploaded` | An array for assets that need to be uploaded. Each asset is an object with a `path` and `data` attribute. The `path` is a relative link for the file to be uploaded. The `data` is the data in dictionary (object) format to be associated with this asset. This can be empty. | X |
 
 ```json
 {
     "status": "SUCCESS",
     "assetToBeUploaded": [
         {
-            "path": <Relative path of the file to be uploaded w.r.t working folder>,
-            "data": <Data in dictionary (object) format to be associated with this asset>
+            "path": <Relative path of the file to be uploaded>,
+            "data": <Data associated with this asset>
         }
     ],
-    "dataURL": <Relative path of JSON file w.r.t working folder>
+    "dataURL": <Relative path of the JSON data file>
 }
 ```
 
-#### Examples
+### Output examples
 
-In these examples, the data is shared in a JSON file, not directly. This is ideal for cases where the data becomes too big to send back.
+In these examples the data is shared in a JSON file, not directly. This is ideal for cases where the data becomes too big to send back.
 
 **Example without data and without any output file**
+
+This creates an object to be returned when the job is successful. The object should be stringified before returning.
   
 ```javascript
-/* Creates an object to be returned when the job is successful. The object should be stringified before returning. 
-*/
+
 function GetSuccessReturnObj() {
     var obj = {}
     
@@ -196,12 +188,11 @@ function GetSuccessReturnObj() {
 
 **Example with data and without any output file**
   
+  This creates an object to be returned when the job is successful. Data is written into a JSON file, which should be created in a working folder.
+  
+  The data in dictionary (object) format is to be returned. The object should be stringified before returning.
+  
 ```javascript
-/* Creates an object to be returned when the job is successful. Data is written into a JSON file, which should be created inside a working folder.
-    @param data: The data in dictionary (object) format is to be returned.
-    The object should be stringified before returning. 
-  */
-
 function GetSuccessReturnObj(data) {
   var obj = {}
   
@@ -226,12 +217,14 @@ function WriteToFile ( data ) {
 
 **Example with data and with the output file**
   
+  This creates an array of assets to be uploaded and sent back to the caller.
+  
+  - `assetPath`: The path of the file to be uploaded, relative to the working folder.
+  - `data`: The data in dictionary (object) format to be associated with this asset. (It is optional).
+  
+  This data will be provided to the user with an  `ASSET_UPLOAD_COMPLETED`  event.
+
 ```javascript
-/* Create an array of assets which is to be uploaded and sent back to the caller.
-    assetPath: Path of the file to be uploaded, relative to the working folder.
-    data: The data in dictionary (object) format to be associated with this asset. (It is optional)
-    This data will be provided to the user with ASSET_UPLOAD_COMPLETED  event. 
-*/
 
   var assets = []
   var assetToBeUploaded = {}
@@ -256,13 +249,13 @@ function WriteToFile ( data ) {
 
 ### If an execution fails
 
-When a script execution fails, the following attributes are expected to be returned as a JSON string.
+When a script execution fails, the following attributes are returned as a JSON string.
 
-| Attribute | Output Request Mapping | Meaning |
+| Attribute | Output Request Mapping | Required |
 | --- | --- | --- |
-| status | Status of execution. Will be `SUCCESS` or `FAILURE`. | Mandatory |
-| errorCode | The error code. | Optional |
-| errorString | A description of the error. | Optional |
+| `status` | Status of execution. Will be `SUCCESS` or `FAILURE`. | X |
+| `errorCode` | The error code. |  |
+| `errorString` | A description of the error. |  |
 
 ```json
 {
@@ -272,15 +265,14 @@ When a script execution fails, the following attributes are expected to be retur
 }
 ```
 
-Use the code block below as a starting point to create the returned object for failed cases:
+Use the code block below as a starting point to create the returned object for failed cases.
+
+- `errorCode`: Error code detail.
+- `errorString`: Description about the error.
+
+Returns the object as a JSON string.
 
 ```javascript
-/*  Creates JSON string that is returned in case the job has failed.
-@param errorCode: Error code detail.
-@param errorString: Description about the error.
-@return: json string.
-*/
-
 function GetFailureReturnObj(errorCode, errorString) {
     var obj = {}
     obj.status = 'FAILURE'

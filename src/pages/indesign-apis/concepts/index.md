@@ -154,13 +154,13 @@ The manifest file is a plain JSON file with the following structure:
 
 | Field | Type | Description | Required |
 |-------|------|-------------|----------|
-| manifestVersion | string | The version of the manifest file format. Currently, only 1.0.0 is supported. | X |
-| name | string | The name of the capability. The capability can be invoked using this. It should be between 4-255 characters. It must not have any white space. | X |
-| version | string | The version number of the capability, in x.y.z format. The version must be three segments and each version component must be between 0 and 99. | X |
-| host.app | string | The host application would be used to execute this capability. Currently, the only valid value is `indesign`. | X |
-| host.minVersion | string | The minimum required version of the host app that can run this plugin, in x.y format. The version number must be two segments. Typically, the minor segment will be always set to 0 (e.g., 17.0). | X |
-| host.maxVersion | string | The maximum version of the host app that can run this plugin. Use the same formatting as `host.minVersion`. |  |
-| apiEntryPoints | array | An array of `<EntryPointDefinition>` objects. Describes the API entry points for the capability. |  |
+| `manifestVersion` | string | The version of the manifest file format. Currently, only 1.0.0 is supported. | X |
+| `name` | string | The name of the capability. The capability can be invoked using this. It should be between 4-255 characters. It must not have any white space. | X |
+| `version` | string | The version number of the capability, in x.y.z format. The version must be three segments and each version component must be between 0 and 99. | X |
+| `host.app` | string | The host application would be used to execute this capability. Currently, the only valid value is `indesign`. | X |
+| `host.minVersion` | string | The minimum required version of the host app that can run this plugin, in x.y format. The version number must be two segments. Typically, the minor segment will be always set to 0 (e.g., 17.0). | X |
+| `host.maxVersion` | string | The maximum version of the host app that can run this plugin. Use the same formatting as `host.minVersion`. |  |
+| `apiEntryPoints` | array | An array of `<EntryPointDefinition>` objects. Describes the API entry points for the capability. |  |
 
 ### The `apiEntryPoints` field
 
@@ -168,15 +168,30 @@ In the manifest file, the `apiEntryPoints` attribute is an array of `EntryPointD
 
 |Field|Type|Description|Required|
 |---|---|---|---|
-|type|string|The type of entry point. Valid values are `capability`.|X|
-|path|string|The file path should be used based on the type. The default is to look for the files in the root directory of the ZIP file. However, this can also be any nested path in the ZIP file.|X|
-|language|string|The language of the script. It can be an extended script, UXP script, or JavaScript.||
+|`type`|string|The type of entry point. Valid values are `capability`.|X|
+|`path`|string|The file path should be used based on the type. The default is to look for the files in the root directory of the ZIP file. However, this can also be any nested path in the ZIP file.|X|
+|`language`|string|The language of the script. It can be an extended script, UXP script, or JavaScript.||
 
 - Each entry point specifies a capability script or a capability specification.
 - There can be only one entry of each type in the array.
 - The maximum size of the array is 3.
 
 There's no need to define an entry point if the default values are being used for them.
+
+### The `capability.js` file
+
+The script's author defines the custom attributes and values for a particular endpoint using *capability.js* files in the capability bundle.
+
+The execution of any script depends on the following attributes:
+
+| Attribute | Input Request Mapping | Description |
+| --- | --- | --- |
+| `assets` | assets->destination field | This contains a list of input assets, like .indd, .pdf, .jpeg, etc. |
+| `params` | params | User input/arguments that are used inside script. |
+| `jobID` | Auto-generated | The job ID. |
+| `workingFolder` | Auto-generated | The working folder for the job. This is the base directory. Inside this directory, all the assets and scripts are downloaded. (for example c:\\baseFolder\\assets). |
+
+For examples, see [Writing Custom Scripts for the Custom Capability API](../how-tos/writing-custom-scripts-for-capability-api/index.md).
 
 ### Zipping and updating a capability bundle
 
