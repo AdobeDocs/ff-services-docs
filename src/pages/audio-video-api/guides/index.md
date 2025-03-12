@@ -82,7 +82,7 @@ Use timecode format `HH:mm:SS:Frames`, where:
 Indicate the source and file type of the overlay asset with:
 
 - **`mediaType`** (required):  
-  Specifies the type of overlay. The allowed values are:   
+  Specifies the type of overlay. The allowed values are:
   - `"image/png"`  
   - `"image/gif"`  
 
