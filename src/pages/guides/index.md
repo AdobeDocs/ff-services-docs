@@ -112,6 +112,12 @@ Unlock the potential of Photoshop in the cloud.
 
 <DiscoverBlock slots="link, text"/>
 
+[Audio/Video API](../audio-video-api/)
+
+Programmatically reframe videos for use on different platforms.
+
+<DiscoverBlock slots="link, text"/>
+
 [InDesign API](../indesign-apis/)
 
 Automate time-consuming design tasks with InDesign API.

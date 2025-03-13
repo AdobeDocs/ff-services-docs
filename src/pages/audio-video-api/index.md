@@ -2,11 +2,11 @@
 
 # Video Reframing API
 
-Harness the power of the Reframe API to programmatically reframe videos for social media.
+Harness the power of the Reframe API to programmatically reframe videos for use on different platforms.
 
 ## Overview
 
-Say goodbye to the hassle of manually editing videos for use on different platforms! The Reframe API is a RESTful API that intelligently analyzes video content and dynamically adjusts frame composition to fit the aspect ratios you've specified.
+Say goodbye to the hassle of manually editing videos for use on social media and other platforms! The Reframe API is a RESTful API that intelligently analyzes video content and dynamically adjusts frame composition to fit the aspect ratios you've specified.
 
 <InlineAlert variant="info" slots="text"  />
 
@@ -35,5 +35,5 @@ Dive right into the API specification.
 
 ### Next steps
 
-* [Get authenticated](/getting_started/index.md)
-* [Quickstart](/guides/index.md)
+* [Get authenticated](./getting_started/index.md)
+* [Quickstart](./guides/index.md)
