@@ -5,7 +5,7 @@ description: Quickstart cURL commands to use the Capabilities API for running cu
 
 # Working with the Custom Capabilities API
 
-With the Custom Capabilities API, register [custom capabilities that you've scripted](../writing-custom-scripts-for-capability-api%20/) with the API. Then use those custom capabilities on documents by referencing the `{CAPABILITY_ID}`.
+With the Custom Capabilities API, register [custom capabilities that you've scripted](../writing-custom-scripts-for-capability-api/) with the API. Then use those custom capabilities on documents by referencing the `{CAPABILITY_ID}`.
 
 ## Before you start
 
