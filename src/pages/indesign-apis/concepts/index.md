@@ -305,3 +305,11 @@ Or, if the fonts are kept in some other folder (for example, `fontFolder`), plea
 ```
 
 When font directories are added, don't use them with InDesign documents because opening these files will create additional lock files and trigger recalculation of the font resources.
+
+## Using webhooks
+
+InDesign APIs events provide job processing details similar to
+those shown in the status calls of InDesign APIs. However, InDesign API events are more comprehensive.
+
+Please refer to the [InDesign APIs Webhooks](https://developer.adobe.com/events/docs/guides/using/indesign-apis/indesign-apis-events-data-stream-setup/)
+for a detailed guide on setting up webhooks.

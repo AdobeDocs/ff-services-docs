@@ -2,7 +2,7 @@
 title: Working with the Rendition API
 description: Quickstart cURL commands to use the Rendition API.
 ---
-# Working with the Rendition API 
+# Working with the Rendition API
 
 Create PDF, JPEG, or PNG renditions from a
 specific InDesign document using the Rendition API.
