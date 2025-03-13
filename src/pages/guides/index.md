@@ -124,6 +124,12 @@ Automate time-consuming design tasks with InDesign API.
 
 <DiscoverBlock slots="link, text"/>
 
+[ADLS API](https://developer.adobe.com/translate-lipsync/)
+
+Use ADLS to create audio or video dubs and transcripts.
+
+<DiscoverBlock slots="link, text"/>
+
 [Content Tagging API](https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html)
 
 Leverage Content Tagging API to craft personalized experiences.
