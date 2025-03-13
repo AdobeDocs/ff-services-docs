@@ -7,5 +7,5 @@ real-time, unlike the status calls, which only include `"not-started"`,
 `"running"`,`"completed"`, and `"failed"` statuses.
 
 Please refer to the [InDesign APIs
-Webhooks](https://developer.adobe.com/events/docs/guides/using/idcs/idcs-events-data-stream-setup/)
+Webhooks](https://developer.adobe.com/events/docs/guides/using/indesign-apis/indesign-apis-events-data-stream-setup/)
 for a detailed guide on setting up webhooks.

@@ -1,11 +1,25 @@
 # Logging
 
-Logging can be important for debugging your own scripts and to keep track of decisions made during a script execution. You can log the data during script execution in two ways:
+Logging can be important for debugging your own scripts and to keep track of decisions made during a script execution. You can log the data during script execution in two ways: collect logs in an array or log data in the application's log.
 
 ## Collect logs in an array
 
- Collecting all the logs in an array and then dumping them with a
-    function, similar to `WriteToFile`. Include the relative path to the list of assets to be uploaded.
+It's possible to collect logs in an array and then dump them with a
+function similar to `WriteToFile`.
+
+We've created a UTILS.jsx file that contains reusable utility functions. These functions help maintain clean, modular, and efficient code. Add the relative path to the list of assets to be uploaded. You can use UTILS.jsx functionality or create a similar one for your use case.
+
+```javascript
+//Logging Instructions
+
+UTILS.logFilePath='LogFile1.txt'
+UTILS.InitiateLogging() // Initialising logging. This will create an empty array to store logs.
+UTILS.OpenLogFileHandle() // Opening the file handle to create the log file.
+UTILS.AddAssetToBeUploaded(UTILS.logFilePath) // Adding the log file to the list of files to be uploaded.
+UTILS.Log('Sample Log 1') // Logging a sample log.
+UTILS.Log('Sample Log 2') // Logging a sample log. This automatically writes the log to the file, one line at a time.
+
+```
 
 ## Log data in the application's log
 
