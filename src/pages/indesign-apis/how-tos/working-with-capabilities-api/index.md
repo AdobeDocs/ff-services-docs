@@ -91,10 +91,19 @@ curl --request POST \
   "params": {
     "targetDocument": "sample.indd",
     "outputPath": "converted.idml"
-  }
+  },
 }'
-
 ```
+
+The raw data may include three
+parts:
+
+- **assets** - Input assets for the request.
+- **params** - Information about what to do with the input assets.
+- **outputs** - Specify locations where the output assets are uploaded. Without an `outputs` parameter, the output assets are stored in a temporary
+repository, and a [pre-signed URL](/indesign-apis/concepts/#pre-signed-urls) will be shared for those assets, which will be valid for 24hrs.
+
+Consult this skeleton [cURL request](https://developer.adobe.com/commerce/webapi/get-started/gs-curl/) for more details.
 
 **Example response**
 
