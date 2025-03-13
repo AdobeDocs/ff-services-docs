@@ -45,6 +45,11 @@ module.exports = {
         path: "/indesign-apis/",
       },
       {
+        title: "ADLS API",
+        description: "Docs and references for ADLS API",
+        path: "https://developer.adobe.com/translate-lipsync/",
+      },
+      {
         title: "Content Tagging API",
         description: "Docs and references for Content Tagging services",
         path: "https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html",
