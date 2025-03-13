@@ -25,10 +25,10 @@ Here's a skeleton [cURL request](https://developer.adobe.com/commerce/webapi/get
     }
 ```
 
-The raw data for the request has three main
+The raw data may include three
 parts:
 
-- **Assets** - Specify input assets for the request.
-- **Params** - Specify information regarding what to do with the input assets.
-- **Outputs** - Specify the locations where the output assets are uploaded.Without an `outputs` parameter, the output assets are stored in a temporary
+- **assets** - Specify input assets for the request.
+- **params** - Specify information regarding what to do with the input assets.
+- **outputs** - Specify the locations where the output assets are uploaded. Without an `outputs` parameter, the output assets are stored in a temporary
 repository, and a [pre-signed URL](/indesign-apis/concepts/#pre-signed-urls) will be shared for those assets, which will be valid for 24hrs.
