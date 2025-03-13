@@ -271,7 +271,7 @@ Custom fonts or user fonts can be provided as a regular asset.
 
 ### Best practices with fonts
 
-For fonts to be found by default, please place them in the "Document Fonts" folder parallel to the document that uses them. 
+For fonts to be found by default, please place them in the "Document Fonts" folder parallel to the document that uses them.
 
 By keeping the fonts in the "Document Fonts" folder parallel to indivdual documents, you can avoid adding any font directory and get a more optimized performance (see below).
 
