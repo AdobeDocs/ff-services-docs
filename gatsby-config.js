@@ -483,6 +483,40 @@ module.exports = {
         path: "/indesign-apis/concepts/index.md",
       },
       {
+        title: "How-tos",
+        path: "/indesign-apis/how-tos/logging/",
+        pages: [
+          {
+            title: "Logging",
+            path: "/indesign-apis/how-tos/logging/",
+          },
+          {
+            title: "Using Webhooks",
+            path: "/indesign-apis/how-tos/using-webhooks/",
+          },
+          {
+            title: "Working with Data Merge API",
+            path: "/indesign-apis/how-tos/working-with-datamerge-api/",
+          },
+          {
+            title: "Working with Rendition API",
+            path: "/indesign-apis/how-tos/working-with-rendition-api/",
+          },
+          {
+            title: "Working with Custom Capabilities API",
+            path: "/indesign-apis/how-tos/working-with-capabilities-api/",
+          },
+          {
+            title: "Writing Custom Scripts for Capability API",
+            path: "/indesign-apis/how-tos/writing-custom-scripts-for-capability-api/",
+          },
+          {
+            title: "Quickstart with cURL",
+            path: "/indesign-apis/how-tos/curl-request/",
+          }
+        ],
+      },
+      {
         title: "API Reference",
         path: "/indesign-apis/api/datamerge.md",
         pages: [

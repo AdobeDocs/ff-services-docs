@@ -25,7 +25,7 @@
     "tags": [
       {
         "name": "Job Status API",
-        "description": "Get the job status of a custom capability execution job. Each call retrieves the most recent status event for the job and each event refers to a different stage of execution."
+        "description": "Get the job status of a custom capability execution job. Each call retrieves the most recent status event for the job and each event refers to a different stage of execution.\n\n| Status | Description |\n|--------|-------------|\n| `not_started` | Generated at the creation of the job. |\n| `running` | Generated when execution begins (at app-engine). |\n| `succeeded` | Generated when execution of a capability is complete. |\n| `failed` | Generated if capability execution fails. |"
       }
     ],
     "paths": {
