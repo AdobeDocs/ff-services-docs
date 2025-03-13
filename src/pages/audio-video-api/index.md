@@ -35,5 +35,5 @@ Dive right into the API specification.
 
 ### Next steps
 
-* [Get authenticated](/getting_started/index.md)
-* [Quickstart](/guides/index.md)
+* [Get authenticated](./getting_started/index.md)
+* [Quickstart](./guides/index.md)
