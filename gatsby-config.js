@@ -45,8 +45,8 @@ module.exports = {
         path: "/indesign-apis/",
       },
       {
-        title: "ADLS API",
-        description: "Docs and references for ADLS API",
+        title: "TLS API",
+        description: "Docs and references for Translate and Lip Sync API",
         path: "https://developer.adobe.com/translate-lipsync/",
       },
       {
