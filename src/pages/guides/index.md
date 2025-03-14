@@ -124,9 +124,9 @@ Automate time-consuming design tasks with InDesign API.
 
 <DiscoverBlock slots="link, text"/>
 
-[ADLS API](https://developer.adobe.com/translate-lipsync/)
+[TLS API](https://developer.adobe.com/translate-lipsync/)
 
-Use ADLS to create audio or video dubs and transcripts.
+Use TLS to create audio or video dubs and transcripts.
 
 <DiscoverBlock slots="link, text"/>
 
