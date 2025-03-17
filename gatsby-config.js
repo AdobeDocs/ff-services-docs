@@ -496,10 +496,6 @@ module.exports = {
             path: "/indesign-apis/how-tos/logging/",
           },
           {
-            title: "Using Webhooks",
-            path: "/indesign-apis/how-tos/using-webhooks/",
-          },
-          {
             title: "Working with Data Merge API",
             path: "/indesign-apis/how-tos/working-with-datamerge-api/",
           },
@@ -515,10 +511,6 @@ module.exports = {
             title: "Writing Custom Scripts for Capability API",
             path: "/indesign-apis/how-tos/writing-custom-scripts-for-capability-api/",
           },
-          {
-            title: "Quickstart with cURL",
-            path: "/indesign-apis/how-tos/curl-request/",
-          }
         ],
       },
       {
