@@ -18,7 +18,7 @@ Any models shared at the organization level are also shared with individual proj
 
 <Media slots="video"/>
 
-[Share a custom model](https://youtu.be/7IQ4G5t6PPc)
+[Share a custom model](https://youtu.be/GVfZhapc178)
 
 ## To share the custom model
 
