@@ -1,18 +1,22 @@
 ---
-title: Share Custom Model Guide
-description: Learn how to share your custom model with your API key so they are available to use with the endpoint.
+title: Grant apps access to a Custom Model Guide
+description: Learn how to share your custom model with your technical account's API key so they are available to use with the endpoint.
 contributors:
   - https://github.com/aeabreu-hub
 hideBreadcrumbNav: true
 ---
 
-# Share a Custom Model Guide
+# Grant Applications Access to Your Custom Model Guide
 
-Use this guide to make a custom model available for use with the [List Custom Models](./api/list_custom_models/) API.
+Use this guide to give applications access to your custom models, 
+making them available for use with the [List Custom Models](./api/list_custom_models/) API
+and the [Text to Image](./api/image_generation/V3_Async/) API.
 
 ## Overview
 
-Once you've [trained a custom model](../concepts/custom-models), you need to share it with your API key to make that model accessible to the List Custom Models endpoint.
+Once you've [trained a custom model](../concepts/custom-models), you need to share it with your technical account so that the model is accessible to the List Custom Models endpoint.
+
+<InlineAlert variant="info" slots="text" />
 
 Any models shared at the organization level are also shared with individual projects.
 
@@ -33,9 +37,9 @@ Follow the steps below:
 ![Technical Account Email](./images/techAccountEmail.png)
 
 2. Copy the **Technical Account Email**.
+
+
 3. Navigate to the custom model itself in the [Firefly web UI](https://firefly.adobe.com/custom-models).
-
-
 4. Click the **"..."** button in the top right for more options, then click **Share**.
 5. In the modal window, paste the technical account email in the field for *Add people or groups*.
 
@@ -44,5 +48,10 @@ Follow the steps below:
 ![Invite to edit screenshot](./images/inviteToEditbutton.png)
 
 6. Click **Invite to edit**.
+
+<InlineAlert variant="help" slots="text" />
+
+The account may appear in the *Pending* state for sharing, but access
+to the custom model is granted.
 
 Now that you've shared your custom model it will be available through the API endpoint.

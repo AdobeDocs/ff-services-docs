@@ -176,7 +176,7 @@ module.exports = {
             path: "/firefly-api/guides/how-tos/firefly-fill-image-api-tutorial.md",
           },
           {
-            title: "Share a Custom Model",
+            title: "Grant Access to a Custom Model",
             path: "/firefly-api/guides/how-tos/cm-share-model/",
           },
           {
