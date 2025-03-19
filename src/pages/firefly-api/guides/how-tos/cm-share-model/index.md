@@ -8,13 +8,14 @@ hideBreadcrumbNav: true
 
 # Grant Applications Access to Your Custom Model Guide
 
-Use this guide to give applications access to your custom models, 
-making them available for use with the [List Custom Models](./api/list_custom_models/) API
-and the [Text to Image](./api/image_generation/V3_Async/) API.
+Use this guide to give applications access to your custom models,
+making them available for use with the [List Custom Models](../api/list_custom_models/) API
+and the [Text to Image](../api/image_generation/V3_Async/) API.
 
 ## Overview
 
-Once you've [trained a custom model](../concepts/custom-models), you need to share it with your technical account so that the model is accessible to the List Custom Models endpoint.
+Once you've [trained a custom model](../concepts/custom-models), you need to share it with your technical account
+so that the model is accessible to API endpoints.
 
 <InlineAlert variant="info" slots="text" />
 
