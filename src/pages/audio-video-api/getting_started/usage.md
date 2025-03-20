@@ -38,7 +38,7 @@ To ensure equitable peak performance, Adobe limits the volume, frequency, and co
 
 The rate of API requests are limited to:
 
-- Reframe Processing Endpoint (/reframe): Max of 5 requests per minute (150 per day).
+- Reframe Processing Endpoint (/reframe): Max of 2 requests per minute.
 - Status Check Endpoint (/status): Max of 100 requests per minute.
 
 You may encounter a HTTP 429 "Too Many Requests" error if your usage exceeds either the per minute, or per day limits.
