@@ -5,9 +5,9 @@ description: Writing Custom Scripts for Capability API.
 
 # Writing Custom Scripts for the Custom Capability API
 
-Use this document to contruct the script files for the Custom Capability API.
+Use this document to construct the script files for the Custom Capability API.
 
-The script's author defines the custom attributes and values for a particular endpoint using *capability.js* [files in the capability bundle](../../concepts/#capability-bundle-structure). Refer to the examples below to construct your scripts.
+The script's author defines the custom attributes and values for a particular endpoint using *capability.js* [files in the capability bundle](../../concepts/#Capability-bundle-structure). Refer to the examples below to construct your scripts.
 
 ## Including input in a custom script
 
@@ -220,7 +220,7 @@ function WriteToFile ( data ) {
   This creates an array of assets to be uploaded and sent back to the caller.
   
   - `assetPath`: The path of the file to be uploaded, relative to the working folder.
-  - `data`: The data in dictionary (object) format to be associated with this asset. (It is optional).
+  - `data`: The data in dictionary (object) format to be associated with this asset. (It's optional).
   
   This data will be provided to the user with an  `ASSET_UPLOAD_COMPLETED`  event.
 

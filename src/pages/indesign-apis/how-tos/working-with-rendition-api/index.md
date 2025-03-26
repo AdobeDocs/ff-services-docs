@@ -11,7 +11,7 @@ specific InDesign document using the Rendition API.
 
 Use the cURL command below to create a JPEG image from an InDesign document.
 
-Be sure to update the `{PRE-SIGNED_URL}` with [the pre-signed URL of the InDesign document](../../concepts/#pre-signed-urls).
+Be sure to update the `{PRE-SIGNED_URL}` with [the pre-signed URL of the InDesign document](../../concepts/#Pre-signed-URLs).
 
 ```curl
 curl --request POST \ 
