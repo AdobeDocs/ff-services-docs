@@ -41,7 +41,6 @@ Follow the steps below:
 
 2. Copy the **Technical Account Email**.
 
-
 3. Log in to your [Firefly account](https://firefly.adobe.com/) and [navigate to the custom model](https://firefly.adobe.com/custom-models) itself.
 4. Click the **"..."** button in the top right for more options, then click **Share**.
 5. In the modal window, paste the technical account email in the field for *Add people or groups*.
