@@ -44,7 +44,7 @@
             {
               "name": "sortBy",
               "in": "query",
-              "description": "A sorting option for the response list. For a reverse sort, use `-` (e.g., `-modifiedDate`). For a multi-vector sort, use comma separation (e.g., `assetName,modifiedDate`).",
+              "description": "A sorting option for the response list. For a reverse sort, use `-` (e.g., `-modifiedDate`). Multi-vector sorting is not currently supported.",
               "schema": {
                 "type": "string",
                 "default": "modifiedDate",

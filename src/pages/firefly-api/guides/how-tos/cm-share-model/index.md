@@ -13,9 +13,9 @@ making them available for use with API endpoints.
 
 ## Overview
 
-Once you've [trained a custom model](../../guides/concepts/custom-models), you need to share it with your technical account
-so that the model is accessible to the [List Custom Models](../../guides/api/list_custom_models/) API
-and the [Text to Image](../../guides/api/image_generation/V3_Async/) API.
+Once you've [trained a custom model](../../concepts/custom-models), you need to share it with your technical account
+so that the model is accessible to the [List Custom Models](../../api/list_custom_models/) API
+and the [Text to Image](../../api/image_generation/V3_Async/) API.
 
 <InlineAlert variant="info" slots="header, text" />
 
@@ -40,7 +40,6 @@ Follow the steps below:
 ![Technical Account Email](./images/techAccountEmail.png)
 
 2. Copy the **Technical Account Email**.
-
 
 3. Log in to your [Firefly account](https://firefly.adobe.com/) and [navigate to the custom model](https://firefly.adobe.com/custom-models) itself.
 4. Click the **"..."** button in the top right for more options, then click **Share**.
