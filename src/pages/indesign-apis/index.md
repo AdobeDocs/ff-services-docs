@@ -36,7 +36,7 @@ Creates renditions of a file in either PNG, JPG, or PDF format.
 
 [Custom Capabilities API][3]
 
-Perform almost any InDesign task using a custom script. With this API you can submit and execute custom capabilities. 
+Perform almost any InDesign task using a custom script. With this API you can submit and execute custom capabilities.
 
 This feature is currently in beta.
 
