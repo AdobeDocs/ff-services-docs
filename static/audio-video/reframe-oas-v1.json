@@ -1149,9 +1149,9 @@
       "Repeat": {
         "type": "string",
         "enum": [
-          "stopOnLastFrame",
+          "stop_on_last_frame",
           "loop",
-          "timeStretch"
+          "time_stretch"
         ],
         "description": "Defines the repeat behavior of the overlay."
       },

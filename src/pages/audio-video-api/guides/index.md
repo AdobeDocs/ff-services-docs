@@ -147,8 +147,8 @@ Determine how the overlay should behave when the source media runs longer with:
 
 - **`repeat`** (optional):
   - `"loop"`: The overlay loops continuously for the specified duration.
-  - `"stopOnLastFrame"`: The overlay GIF stops on the last frame.
-  - `"timeStretch"`: Timestretch the overlay to the remaining length of the video  
+  - `"stop_on_last_frame"`: The overlay GIF stops on the last frame.
+  - `"time_stretch"`: Stretch the time of the overlay to the remaining length of the video.  
 
 **Example**:  
 
