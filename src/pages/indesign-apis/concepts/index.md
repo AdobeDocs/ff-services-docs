@@ -20,10 +20,10 @@ Adobe's services.
 
 **You will need:**
 
-- An [Adobe Developer Console](https://developer.adobe.com/) account.
+- An [Adobe Developer Console][1] account.
 
-- A [project](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/) with Firefly API [OAuth Server-to-Server credentials set
-  up](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/).
+- A [project][2] with Firefly API [OAuth Server-to-Server credentials set
+  up][3].
 
 - Add and configure **InDesign API Firefly Services** to your new project.
 
@@ -33,7 +33,7 @@ Adobe's services.
 
 ### Access tokens
 
-You can [generate access tokens](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) either directly from the Developer Console UI or programmatically.
+You can [generate access tokens][4] either directly from the Developer Console UI or programmatically.
 
 ### Best practices
 
@@ -60,11 +60,11 @@ The platform supports multiple asset types for input. These asset types indicate
 
 InDesign APIs support the following input assets:
 
-- **AWS S3**: [Use a pre-signed GET/PUT/POST URL.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html)
+- **AWS S3**: [Use a pre-signed GET/PUT/POST URL.][5]
 
-- **Dropbox**: [Generate temporary upload/download links.](https://dropbox.github.io/dropbox-api-v2-explorer/)
+- **Dropbox**: [Generate temporary upload/download links.][6]
 
-- **Azure**: [Use a Shared Access Signature (SAS) in Azure Storage](https://learn.microsoft.com/en-us/azure/storage/) for GET/PUT/POST operations.
+- **Azure**: [Use a Shared Access Signature (SAS) in Azure Storage][7] for GET/PUT/POST operations.
 
 ```json
 "assets" :[
@@ -191,7 +191,7 @@ The execution of any script depends on the following attributes:
 | `jobID` | Auto-generated | The job ID. |
 | `workingFolder` | Auto-generated | The working folder for the job. This is the base directory. Inside this directory, all the assets and scripts are downloaded. (for example c:\\baseFolder\\assets). |
 
-For examples, see [Writing Custom Scripts for the Custom Capability API](../how-tos/writing-custom-scripts-for-capability-api/index.md).
+For examples, see [Writing Custom Scripts for the Custom Capability API][8].
 
 ### Zipping and updating a capability bundle
 
@@ -311,5 +311,15 @@ When font directories are added, don't use them with InDesign documents because 
 InDesign APIs events provide job processing details similar to
 those shown in the status calls of InDesign APIs. However, InDesign API events are more comprehensive.
 
-Please refer to the [InDesign APIs Webhooks](https://developer.adobe.com/events/docs/guides/using/indesign-apis/indesign-apis-events-data-stream-setup/)
+Please refer to the [InDesign APIs Webhooks][9]
 for a detailed guide on setting up webhooks.
+
+[1]: https://developer.adobe.com/
+[2]: https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/
+[3]: https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/
+[4]: https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview
+[5]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html
+[6]: https://dropbox.github.io/dropbox-api-v2-explorer/
+[7]: https://learn.microsoft.com/en-us/azure/storage/
+[8]: ../how-tos/writing-custom-scripts-for-capability-api/index.md
+[9]: https://developer.adobe.com/events/docs/guides/using/indesign-apis/indesign-apis-events-data-stream-setup/
