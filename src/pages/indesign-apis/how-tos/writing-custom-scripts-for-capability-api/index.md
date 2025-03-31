@@ -7,15 +7,15 @@ description: Writing Custom Scripts for Capability API.
 
 Use this document to construct the script files for the Custom Capability API.
 
-The script's author defines the custom attributes and values for a particular endpoint using *capability.js* [files in the capability bundle](../../concepts/#Capability-bundle-structure). Refer to the examples below to construct your scripts.
+The script's author defines the custom attributes and values for a particular endpoint using *capability.js* files in the capability bundle[1]. Refer to the examples below to construct your scripts.
 
 ## Including input in a custom script
 
 ### When no input is required
 
-The system, by default, sends a string-type argument named `"params"`, which needs to be parsed inside the script to retrieve the values of the attributes.
+The system, by default, sends a string-type argument named `"params"`, which needs to be parsed inside the script to retrieve the values of the attributes.
 
-In this case the `"params"` attribute will be empty, since the script doesn't need an argument.
+In this case the `"params"` attribute will be empty, since the script doesn't need an argument.
 
 ```json
 {
@@ -36,7 +36,7 @@ In this case the `"params"` attribute will be empty, since the script doesn't 
 
 The system, by default, sends a string-type argument named `"params"` which also includes input arguments `"arg1"` and `"arg2"`.
 
-To use the argument, `"params"` must be parsed by the script and the value of `arg1` and `arg2` must be extracted.
+To use the argument, `"params"` must be parsed by the script and the value of `arg1` and `arg2` must be extracted.
 
 ```json
 {
@@ -281,3 +281,5 @@ function GetFailureReturnObj(errorCode, errorString) {
     return JSON.stringify(obj)
 }
 ```
+
+[1]: ../../concepts/index.md#Capability-bundle-structure

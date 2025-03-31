@@ -5,11 +5,11 @@ description: Quickstart cURL commands to use the Capabilities API for running cu
 
 # Working with the Custom Capabilities API
 
-With the Custom Capabilities API, register [custom capabilities that you've scripted](../writing-custom-scripts-for-capability-api/) with the API. Then use those custom capabilities on documents by referencing the `{CAPABILITY_ID}`.
+With the Custom Capabilities API, register [custom capabilities that you've scripted][1] with the API. Then use those custom capabilities on documents by referencing the `{CAPABILITY_ID}`.
 
 ## Before you start
 
-- You'll need [a valid access token and client ID](../../concepts/#Access-tokens).
+- You'll need [a valid access token and client ID][2].
 
 In the cURL commands, be sure to:
 
@@ -26,7 +26,7 @@ New custom capabilities get registered by making a POST call to the API.
 ### Quickstart
 
 Use this cURL command to register a custom capability.
-Be sure to update the `{YOUR_CUSTOM_SCRIPT_ZIP}` with the [path to your custom script](/how-tos/writing-custom-scripts-for-capability-api/).
+Be sure to update the `{YOUR_CUSTOM_SCRIPT_ZIP}` with the [path to your custom script][3].
 
 ```curl
 curl --request POST \
@@ -66,7 +66,7 @@ The generated output uploads to the target location. If no location is provided,
 the assets upload to temporary storage.
 
 Each execution request is an asynchronous operation for which the status can be
-fetched using the [Status API](../../api/status.md). A link with expiry is provided in the execution status.
+fetched using the [Status API][4]. A link with expiry is provided in the execution status.
 
 ### Quickstart
 
@@ -101,9 +101,9 @@ parts:
 - **assets** - Input assets for the request.
 - **params** - Information about what to do with the input assets.
 - **outputs** - Specify locations where the output assets are uploaded. Without an `outputs` parameter, the output assets are stored in a temporary
-repository, and a [pre-signed URL](/indesign-apis/concepts/#Pre-signed-URLs) will be shared for those assets, which will be valid for 24hrs.
+repository, and a [pre-signed URL][5] will be shared for those assets, which will be valid for 24hrs.
 
-Consult this skeleton [cURL request](https://developer.adobe.com/commerce/webapi/get-started/gs-curl/) for more details.
+Consult this skeleton [cURL request][6] for more details.
 
 **Example response**
 
@@ -116,3 +116,10 @@ Consult this skeleton [cURL request](https://developer.adobe.com/commerce/webapi
 
 } 
 ```
+
+[1]: ../writing-custom-scripts-for-capability-api/
+[2]: ../../concepts/index.md#Access-tokens
+[3]: /how-tos/writing-custom-scripts-for-capability-api/
+[4]: ../../api/status.md
+[5]: ../../concepts/index.md#Pre-signed-URLs
+[6]: https://developer.adobe.com/commerce/webapi/get-started/gs-curl/
