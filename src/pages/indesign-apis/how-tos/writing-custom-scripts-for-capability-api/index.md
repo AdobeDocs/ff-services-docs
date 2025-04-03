@@ -283,11 +283,8 @@ function GetFailureReturnObj(errorCode, errorString) {
 ```
 ## Sample Scripts
 
-
 To help you get started with writing custom scripts for the Custom Capability API, we have created a collection of sample scripts. These scripts demonstrate various use cases and best practices for constructing capability bundles and handling input/output in your scripts. The repository includes scripts in both Extendscript and UXP formats.
 
 You can find the sample scripts on our GitHub repository: [Sample Scripts for Custom Capability API](https://github.com/AdobeDocs/indesign-api-docs/tree/main/SampleScripts).
 
 [1]: ../../concepts/index.md#Capability-bundle-structure
-
-
