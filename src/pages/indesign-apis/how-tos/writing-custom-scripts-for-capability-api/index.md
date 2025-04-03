@@ -281,6 +281,7 @@ function GetFailureReturnObj(errorCode, errorString) {
     return JSON.stringify(obj)
 }
 ```
+
 ## Sample Scripts
 
 To help you get started with writing custom scripts for the Custom Capability API, we have created a collection of sample scripts. These scripts demonstrate various use cases and best practices for constructing capability bundles and handling input/output in your scripts. The repository includes scripts in both Extendscript and UXP formats.
