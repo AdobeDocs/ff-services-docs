@@ -51,4 +51,4 @@ For more in-depth [instructions](https://github.com/adobe/aio-theme#getting-star
 
 ## Launching a deploy
 
-Deplyments are done by the FFS docs development team. Reach out to schedule content deployment for stage and production.
+Deployments are done by the FFS docs development team. Reach out to schedule content deployments to stage and production.
