@@ -1,4 +1,4 @@
-# Adobe Marketo API Documentation
+# Adobe Firefly Services API Documentation
 
 This repo contains Firefly Services API documentation.
 
