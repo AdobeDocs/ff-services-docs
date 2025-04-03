@@ -24,7 +24,7 @@
   ],
   "tags": [
     {
-      "name": "Custom Capabilities API (beta)",
+      "name": "Custom Capabilities API",
       "description": "The Custom Capabilities API allows you to submit custom capabilities to do almost anything you can do in InDesign using a custom script."
     }
   ],

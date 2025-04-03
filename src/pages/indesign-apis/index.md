@@ -38,8 +38,6 @@ Creates renditions of a file in either PNG, JPG, or PDF format.
 
 Perform almost any InDesign task using a custom script. With this API you can submit and execute custom capabilities.
 
-This feature is currently in beta.
-
 <DiscoverBlock slots="link, text"/>
 
 [Status API][4]

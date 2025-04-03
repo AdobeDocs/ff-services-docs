@@ -15,7 +15,7 @@ Be sure to update the `{PRE-SIGNED_URL}` with [the pre-signed URL of the InDesig
 
 ```curl
 curl --request POST \ 
-  --url https://indesign.adobe.io/v3 create-rendition \ 
+  --url https://indesign.adobe.io/v3/create-rendition \ 
   --header 'Authorization: bearer {YOUR_OAUTH_TOKEN}' \ 
   --header 'x-api-key: {YOUR_API_KEY}' \ 
   --header 'Content-Type: application/json' \ 
