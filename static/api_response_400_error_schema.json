@@ -20,7 +20,7 @@
     "code": {
       "type": "string",
       "format": "string",
-      "description": "A machine-readable error code",
+      "description": "A machine-readable error code test 123",
       "example": 400
     },
     "details": {
