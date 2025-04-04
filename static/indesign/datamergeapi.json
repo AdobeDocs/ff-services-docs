@@ -511,7 +511,8 @@
                       },
                       "linkImages": {
                         "description": "This applies to the images being brought in the document while merging. If true, this links images to the target document. If false, it embeds images in the target document.",
-                        "type": "boolean"
+                        "type": "boolean",
+                        "default": false
                       }
                     }
                   },
