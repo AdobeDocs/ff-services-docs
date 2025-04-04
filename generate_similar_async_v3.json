@@ -611,9 +611,10 @@
             "title": "Result"
           },
           "status": {
-            "description": "The status of the job. One of 'pending', 'running', 'completed', 'failed', 'canceled'.",
+            "description": "The status of the job.",
             "title": "Status of the job",
-            "type": "string"
+            "type": "string",
+            "enum": ["pending", "running", "succeeded", "failed", "canceled"]
           }
         },
         "required": [
