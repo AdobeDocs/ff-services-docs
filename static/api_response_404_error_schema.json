@@ -8,34 +8,32 @@
     "title": {
       "type": "string",
       "format": "string",
-      "description": "A short, human-readable summary of the problem",
-      "example": "Requested resource was not found"
+      "description": "A summary of the error.",
+      "example": "Unable to upload asset"
     },
     "type": {
       "type": "string",
       "format": "string",
-      "description": "A machine-readable error type",
-      "example": "ResourceNotFound"
+      "description": "The error type.",
+      "example": "FileOverwriteError"
     },
     "code": {
-      "type": "integer",
-      "format": "int",
-      "description": "A machine-readable error code",
-      "example": 404
+      "type": "string",
+      "format": "string",
+      "description": "The error code."
     },
     "details": {
       "type": "object",
-      "description": "Further descriptions of the exact error where details is substituted for a specific issue.",
+      "description": "Further details of the error.",
       "properties": {
         "name": {
           "type": "string",
-          "description": "Name for the detailed error.",
-          "example": "<path_to_invalid_file>"
+          "description": "The name for the detailed error.",
+          "example": "Asset Upload Error"
         },
         "reason": {
           "type": "string",
-          "description": "Details of error reason.",
-          "example": "Unable to access the input href"
+          "description": "An explanation of the error."
         }
       }
     }

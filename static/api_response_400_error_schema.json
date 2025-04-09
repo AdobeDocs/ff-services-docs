@@ -8,35 +8,34 @@
     "title": {
       "type": "string",
       "format": "string",
-      "description": "A short, human-readable summary of the problem",
+      "description": "A summary of the error.",
       "example": "InputValidationError"
     },
     "type": {
       "type": "string",
       "format": "string",
-      "description": "A machine-readable error type",
+      "description": "The error type.",
       "example": "InputValidationError"
     },
     "code": {
       "type": "string",
       "format": "string",
-      "description": "A machine-readable error code",
-      "example": 400
+      "description": "The error code.",
+      "example": "400"
     },
     "details": {
       "type": "object",
-      "description": "Further descriptions of the exact error where details is substituted for a specific issue.",
+      "description": "Further details of the error.",
       "properties": {
-        "allowedValues": {
+        "name": {
           "type": "string",
-          "description": "Name for the detailed error.",
+          "description": "The name for the detailed error.",
           "example": "adobe, external, dropbox, azure"
         },
         "reason": {
           "type": "string",
-          "description": "Details of error reason.",
-          "example": "should be equal to one of the allowed values."
-          }
+          "description": "An explanation of the error."
+        }
       }
     }
   }

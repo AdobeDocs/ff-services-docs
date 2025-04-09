@@ -2,7 +2,7 @@
   "openapi": "3.1",
   "info": {
     "title": "Photoshop API Reference",
-    "description": "API Reference",
+    "description": "This is a REST reference for the Adobe Photoshop API, integrated into Firefly Services.",
     "version": "1.0"
   },
   "servers": [
@@ -15,7 +15,7 @@
     "/pie/psdService/productCrop": {
       "post": {
         "summary": "Product Crop",
-        "description": "This endpoint indentifies the subject of the input file and automatically crops the image to keep the subject in the center. To check the status of this process, utilize the `Get Status` endpoint.",
+        "description": "This endpoint identifies the subject of the input file and automatically crops the image to keep the subject in the center. Check the status of this process with the `Get Status` endpoint.",
         "operationId": "productCrop",
         "parameters": [
           {
@@ -29,7 +29,7 @@
           },
           {
             "name": "x-api-key",
-            "description": "API key/client id",
+            "description": "API key/Client ID",
             "in": "header",
             "required": true,
             "schema": {
@@ -47,7 +47,7 @@
           },
           {
             "name": "x-gw-ims-org-id",
-            "description": "IMS organization ID. This needs to be sent only if it is desirable to receive the job status through Adobe I/O Events.",
+            "description": "The IMS organization ID. Send this to receive the job status through Adobe I/O Events.",
             "in": "header",
             "required": false,
             "schema": {
