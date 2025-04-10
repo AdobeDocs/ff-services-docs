@@ -12,7 +12,7 @@ For information on how to contribute and collaborate on the docs, see the [CONTR
 
 ## How to develop
 
-For local development, you'll need Yarn: 
+For local development, you'll need Yarn:
 
 ```shell
 $ yarn install
