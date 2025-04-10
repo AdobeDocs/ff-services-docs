@@ -8,11 +8,11 @@ The Slack channel [#ffs-dev-site](https://adobe.enterprise.slack.com/archives/C0
 
 ## For Contributors
 
-For information on how to contribute and collaborate on the docs, see the [CONTRIBUTING.md](.github/CONTRIBUTING.md).
+For information on how to contribute and collaborate on the docs, see the [CONTRIBUTING.md](/CONTRIBUTING/CONTRIBUTING.md).
 
 ## How to develop
 
-For local development, you'll need Yarn:
+For local development, you'll need Yarn: 
 
 ```shell
 $ yarn install

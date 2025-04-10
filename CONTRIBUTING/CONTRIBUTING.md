@@ -10,7 +10,7 @@ Start by filing an issue. You can use the button at the top of most document pag
 consensus around project direction and issue solutions within issue threads
 (when appropriate).
 
-![The button to Log and issue](./images/Log_an_issue.png)
+![The button to Log and issue](/CONTRIBUTING/images/Log_an_issue.png)
 
 ## Contributor License Agreement
 
