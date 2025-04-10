@@ -1,20 +1,16 @@
 # Contributing
 
-Thanks for choosing to contribute!
+The following are guidelines to follow when contributing to this project.
 
-The following are a set of guidelines to follow when contributing to this project.
+Thanks for choosing to contribute to the docs!
 
-## Code Of Conduct
+## Have Feedback?
 
-This project adheres to the Adobe [code of conduct](../CODE_OF_CONDUCT.md). By participating,
-you are expected to uphold this code. Please report unacceptable behavior to
-[Grp-opensourceoffice@adobe.com](mailto:Grp-opensourceoffice@adobe.com).
-
-## Have A Question?
-
-Start by filing an issue. The existing committers on this project work to reach
+Start by filing an issue. You can use the button at the top of most document pages. The existing committers on this project work to reach
 consensus around project direction and issue solutions within issue threads
 (when appropriate).
+
+![The button to Log and issue](./images/Log_an_issue.png)
 
 ## Contributor License Agreement
 
@@ -24,7 +20,15 @@ as part of the project. [Sign our CLA](https://opensource.adobe.com/cla.html). Y
 only need to submit an Adobe CLA one time, so if you have submitted one previously,
 you are good to go!
 
+## Code Of Conduct
+
+This project adheres to the [Adobe code of conduct](../CODE_OF_CONDUCT.md). By participating,
+you are expected to uphold this code. Please report unacceptable behavior to
+[Grp-opensourceoffice@adobe.com](mailto:Grp-opensourceoffice@adobe.com).
+
 ## Code Reviews
+
+Content owners are encouraged to make their contributions directly in GitHub.
 
 All submissions should come in the form of pull requests and need to be reviewed
 by project committers. Read [GitHub's pull request documentation](https://help.github.com/articles/about-pull-requests/)

@@ -6,6 +6,10 @@ This repo contains Firefly Services API documentation.
 
 The Slack channel [#ffs-dev-site](https://adobe.enterprise.slack.com/archives/C06N47SC1PE) is our main point of contact for help. Feel free to join the channel and ask any questions.
 
+## For Contributors
+
+For information on how to contribute and collaborate on the docs, see the [CONTRIBUTING.md](.github/CONTRIBUTING.md).
+
 ## How to develop
 
 For local development, you'll need Yarn:
