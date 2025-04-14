@@ -35,7 +35,7 @@ jobs:
       # Checkout the code base #
       ##########################
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           # Full git history is needed to get a proper list of changed files
           # within `super-linter`
@@ -50,7 +50,7 @@ jobs:
         # Use full version number to avoid cases when a next
         # released version is buggy
         # About slim image: https://github.com/github/super-linter#slim-image
-        uses: github/super-linter/slim@v4.10.1
+        uses: super-linter/super-linter/slim@v7.3.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BRANCH: main
@@ -58,7 +58,7 @@ jobs:
           VALIDATE_GITHUB_ACTIONS: true
 
       - name: Setup Node v16 for Yarn v3
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '16.15.0' # Current LTS version
 
