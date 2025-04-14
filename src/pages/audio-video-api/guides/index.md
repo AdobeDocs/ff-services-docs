@@ -14,30 +14,21 @@ This quickstart page provides ready-to-use cURL commands and instructions for th
 - You'll need a valid access token and client ID. See the [Authentication Guide](../getting_started/index.md) for details.
 - Upload your media files (audio or video) to [your storage location and generate a pre-signed URL](../getting_started/storage_solutions.md).
 
-## Reframing and scene edit detection
+## Use reframing and scene edit detection
 
-Use the cURL command example below to reframe your video. For best results, input video in 16:9 aspect ratio format.
-
-In the command, be sure to:
-
-- Replace `bearer_token` with the access token generated during authentication.
-- Update `x-api-key` with your assigned API key/Client ID.
-- Set `mediaType` to your input media format (for example: "video/mp4", "video/quicktime").
-- Include the pre-signed URL to the video you'd like to have reframed in `"url"`.
-- For multi-scene videos, enable scene transition handling by setting `sceneEditDetection: true`.
-- Specify aspect ratios in width:height format (examples: "1:1", "9:16").
+Use the cURL command example below to reframe your video. For best results, input video with a 16:9 aspect ratio format.
 
 ```shell
 curl --location 'https://audio-video-api.adobe.io/v1/reframe' \
---header 'Authorization: {ACCESS_TOKEN}' \
---header 'x-api-key: {CLIENT_ID}' \
+--header 'Authorization: ${ACCESS_TOKEN}' \
+--header 'x-api-key: ${CLIENT_ID}' \
 --header 'Content-Type: application/json' \
 --data '{
   "video": {
     "source": {
-      "url": {PRE_SIGNED_URL}
+      "url": <pre-signed URL>
     },  
-    "mediaType": {MEDIA_TYPE}
+    "mediaType": <media type>
   },
   "sceneEditDetection": true,
   "outputConfig": {
@@ -48,138 +39,49 @@ curl --location 'https://audio-video-api.adobe.io/v1/reframe' \
 }'
 ```
 
-## Adding video overlays
+In the command, be sure to:
 
-Overlays enable you to add assets as dynamic layers (e.g., GIFs, Animated PNGS, PNG) on top of the video, customized for positioning, size, timing, and behavior. To include overlays in your video processing workflow, extend the Reframe API payload by defining `overlays`. The `overlays` array defines how one or more overlay assets get applied.
+- Replace `bearer_token` with the access token generated during authentication.
+- Update `x-api-key` with your assigned API key/Client ID.
 
-Each overlay object has customizable properties to adjust the result. For full details, see the [API Reference](../api/reframe.md).
+### Provide the source
 
-### Adjust overlay timing
+- Set `mediaType` to match your input media format (for example: "video/mp4", "video/quicktime").
+- In `url`, include the pre-signed URL to the video you'd like to have reframed.
 
-Specify the timing of overlays with:
+### Adjust the output
 
-- **`startTime`** (optional):  
-  Timecode specifying when the overlay starts on the video.  
-- **`duration`** (optional):  
-  Timecode specifying how long the overlay remains visible.
+- For multi-scene videos, enable scene transition handling by setting `sceneEditDetection: true`.
+- Specify aspect ratios for the output in width:height format (examples: "1:1", "9:16").
 
-Use timecode format `HH:mm:SS:Frames`, where:
+For full details, [see the API Reference](../api/reframe.md).
 
-- HH: Hours (00–23)
-- MM: Minutes (00–59)
-- SS: Seconds (00–59)
-- Frames: The frame number within a second, based on the video's frames per second (FPS)
+## Add video overlays
 
-**Example**:  
+Overlays enable you to add assets as dynamic layers (for example: GIFs, animated PNGs, PNG) on top of a video, customized for positioning, size, timing, and behavior.
 
-```json
-"startTime": "00:00:05:10",  
-"duration": "00:00:10:00"
-```
-
-### Set the media type and source
-
-Indicate the source and file type of the overlay asset with:
-
-- **`mediaType`** (required):  
-  Specifies the type of overlay. The allowed values are:
-  - `"image/png"`  
-  - `"image/gif"`  
-
-- **`source.url`** (required):  
-  A pre-signed URL pointing to the overlay asset. The URL must be accessible and valid during the request.  
-
-**Example**:  
-
-```json
-"mediaType": "image/png",  
-"source": {  
-  "url": "<pre-signed overlay url>"  
-}
-```
-
-### Adjust overlay size and position
-
-Adjust the size and position of the overlay with:
-
-- **`scale`** (optional):  
-  Defines the dimensions of the overlay in pixels.  
-  - **`width`**: The width of the overlay.  
-  - **`height`**: The height of the overlay.  
-
-**Example**:  
-
-```json
-"scale": {  
-  "width": 300,  
-  "height": 300  
-}
-```
-
-### Adjust overlay position
-
-Specify the overlay's anchor point on the video and the offsets for precise placement with:
-
-- **`anchorPoint`** (required):  
-  Predefined anchor positions for placement:  
-  - `"top_left"`  
-  - `"top_right"`  
-  - `"center"`  
-  - `"bottom_left"`  
-  - `"bottom_right"`  
-
-- **`offsetX`** and **`offsetY`** (optional):  
-  Pixel offsets relative to the anchor position for fine-tuning placement.  
-
-**Example**:  
-
-```json
-"position": {  
-  "anchorPoint": "top_right",  
-  "offsetX": 50,  
-  "offsetY": 50  
-}
-```
-
-### Adjust overlay behavior
-
-Determine how the overlay should behave when the source media runs longer with:
-
-- **`repeat`** (optional):
-  - `"loop"`: The overlay loops continuously for the specified duration.
-  - `"stop_on_last_frame"`: The overlay GIF stops on the last frame.
-  - `"time_stretch"`: Stretch the time of the overlay to the remaining length of the video.  
-
-**Example**:  
-
-```json
-"repeat": "loop"
-```
-
-## Example payload with overlay configuration
-
-This is an example of an extended payload with an overlay configuration:  
+Use the cURL command example below to extend the Reframe API payload by defining `overlays`. The `overlays` array determines how one or more overlay assets are applied.
 
 ```shell
 curl --location 'https://audio-video-api.adobe.io/v1/reframe' \
---header 'Authorization: {ACCESS_TOKEN}' \
---header 'x-api-key: {CLIENT_ID}' \
+--header 'Authorization: ${ACCESS_TOKEN}' \
+--header 'x-api-key: ${CLIENT_ID}' \
 --header 'Content-Type: application/json' \
 --data '{
   "video": {
     "source": {
-      "url": "{PRE_SIGNED_URL}"
+      "url": "<pre-signed URL>"
     },
-    "mediaType": "video/mp4"
+    "mediaType": <media type>
   },
   "sceneEditDetection": true,
   "overlays": [
     {
-      "mediaType": "image/gif",
+      "mediaType": <overlay media type>,
       "source": {
-        "url": "<pre-signed overlay url>"
+        "url": "<pre-signed overlay URL>"
       },
-      "startTime": "00:00:10:15",   // Start 10 seconds and 15 frames into the video
+      "startTime": "00:00:10:15",   // Starts 10 seconds and 15 frames into the video
       "duration": "00:00:05:00",    // Lasts for 5 seconds
       "scale": {
         "width": 400,
@@ -203,12 +105,130 @@ curl --location 'https://audio-video-api.adobe.io/v1/reframe' \
 }'
 ```
 
+In the command, be sure to:
+
+- Replace `bearer_token` with the access token generated during authentication.
+- Update `x-api-key` with your assigned API key/Client ID.
+- [Include data for a reframed video source](#provide-the-source).
+
+Each overlay object has many customizable properties to adjust the result. For full details, [see the API Reference](../api/reframe.md).
+
+### Provide the overlay source
+
+Indicate the source and file type of the overlay asset in the `overlay` object:
+
+- **`mediaType`** (required):  
+  Specifies the media type of the overlay. Use:
+  - `"image/png"`  
+  - `"image/gif"`  
+
+- **`source.url`** (required):  
+  A pre-signed URL pointing to the overlay asset. The URL must be accessible and valid during the request.  
+
+**Example**:  
+
+```json
+"mediaType": "image/png",  
+"source": {  
+  "url": "<pre-signed overlay url>"  
+}
+```
+
+### Adjust overlay timing
+
+Specify the timing of overlays with:
+
+- **`startTime`**:  
+  Timecode specifying when the overlay starts on the video.  
+- **`duration`**:  
+  Timecode specifying how long the overlay remains visible.
+
+Use timecode format `HH:mm:SS:Frames`, where:
+
+- HH: Hours (00–23)
+- MM: Minutes (00–59)
+- SS: Seconds (00–59)
+- Frames: The frame number within a second, based on the video's frames per second (FPS)
+
+**Example**:  
+
+```json
+"startTime": "00:00:05:10",  
+"duration": "00:00:10:00"
+```
+
+### Adjust overlay size and position
+
+Adjust the size and position of the overlay with:
+
+- **`scale`**:  
+  Defines the dimensions of the overlay in pixels.  
+  - **`width`**:  
+  The width of the overlay.  
+  - **`height`**:  
+  The height of the overlay.  
+
+**Example**:  
+
+```json
+"scale": {  
+  "width": 300,  
+  "height": 300  
+}
+```
+
+### Adjust overlay position
+
+Specify the overlay's anchor point on the video and the offsets for precise placement with:
+
+- **`anchorPoint`** (required):  
+  Predefined anchor positions for placement. Use:  
+  - `"top_left"`  
+  - `"top_right"`  
+  - `"center"`  
+  - `"bottom_left"`  
+  - `"bottom_right"`  
+
+- **`offsetX`** and **`offsetY`**:  
+  Pixel offsets relative to the anchor position for fine-tuning placement.  
+
+**Example**:  
+
+```json
+"position": {  
+  "anchorPoint": "top_right",  
+  "offsetX": 50,  
+  "offsetY": 50  
+}
+```
+
+### Adjust overlay behavior
+
+Determine how the overlay should behave when the source media runs longer with:
+
+- **`repeat`**:  
+Use:
+  - `"loop"`  
+  The overlay loops continuously for the specified duration.
+  - `"stop_on_last_frame"`  
+  The overlay GIF stops on the last frame.
+  - `"time_stretch"`  
+  Stretch the time of the overlay to the remaining length of the video.  
+
+**Example**:  
+
+```json
+"repeat": "loop"
+```
+
+## The job response
+
 If successful, you'll see a response like:
 
 ```json
 {
-  "jobId": "<jobId>",
-  "statusUrl": "https://<baseUrl>/v1/status/<jobId>"
+  "jobId": "<job ID>",
+  "statusUrl": "https://<base URL>/v1/status/<job ID>"
 }
 ```
 
@@ -217,7 +237,7 @@ If there's an error, you'll see something like:
 ```json
 {
   "error_code": <error code>,
-  "message": <Message>
+  "message": <message>
 }
 ```
 
@@ -227,8 +247,6 @@ For a full list of error codes, check the [API Reference](../api/reframe.md).
 
 To check the status of a reframe job, use the cURL command below.
 
-A successful response when the processing job is complete contains a secure link in the `url` field to download the reframed video output. Go to the URL in your browser to see the processed video featuring the new aspect ratio. 🎉
-
 ```shell
 curl -X 'GET'
 'https://audio-video-api.adobe.io/v1/status/{jobId}' \
@@ -236,6 +254,8 @@ curl -X 'GET'
 -H 'x-api-key:{CLIENT_ID}' \
 -H 'Content-Type: application/json'
 ```
+
+A successful response when the processing job is complete contains a secure link in `url` to download the reframed video output. Go to the URL in your browser to see your new processed video. 🎉
 
 **Successful response for a running job**:
 
