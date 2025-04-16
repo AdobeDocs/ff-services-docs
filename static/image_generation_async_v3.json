@@ -20,6 +20,8 @@
     "/v3/images/generate-async": {
       "post": {
         "operationId": "generateImagesV3Async",
+        "summary": "Generate Images Async",
+        "description": "Generate images based on a text prompt. You may also include a reference image and Firefly will try to mimic the characteristics, such as color scheme, lighting, layout of objects in the image, etc.\n\nThis service is performed asynchronously, which means that a successful response returns a <code>jobID</code>. Use this ID with the Get Result endpoint to check the status of the job and get the processed image result or with the Cancel Job endpoint to cancel the job.",
         "parameters": [
           {
             "name": "x-model-version",
@@ -228,14 +230,14 @@
             },
             "description": "Internal Server Error"
           }
-        },
-  "summary": "Generate Images Async - Model 3",
-        "description": "Generate images based on your text prompt. When you make your request, you can also include an optional reference image and Firefly will try to mimic the layout and style, such as color scheme, lighting, layout of objects in the image and so on.\n\nPerforms this asynchronously, meaning you make your request and provide an image with your text prompt and on success, returns a <code>jobID</code>, status endpoint and endpoint to cancel the request. You can later poll the status endpoint to get updates on whether the job completes and to get the image."
+        }
       }
     },
     "/v3/status/{jobId}": {
       "get": {
         "operationId": "jobResultV3",
+        "summary": "Get Result - Async",
+        "description": "Get the result of the job.",
         "parameters": [
           {
             "description": "Unique identifier for the submitted job",
@@ -360,13 +362,14 @@
             },
             "description": "Validation Error"
           }
-        },
-        "summary": " Get Result - Async"
+        }
       }
     },
     "/v3/cancel/{jobId}": {
       "put": {
         "operationId": "cancelJobV3",
+        "summary": "Cancel Job - Async",
+        "description": "Cancel the asynchronous job.",
         "parameters": [
           {
             "description": "Unique identifier for the submitted job",
@@ -465,8 +468,7 @@
             },
             "description": "Validation Error"
           }
-        },
-        "summary": " Cancel Job - Async"
+        }
       }
     }
   },
