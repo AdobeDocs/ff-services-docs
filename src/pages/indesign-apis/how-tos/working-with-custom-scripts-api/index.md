@@ -30,7 +30,7 @@ Be sure to update the `{YOUR_CUSTOM_SCRIPT_ZIP}` with the [path to your custom s
 
 ```curl
 curl --request POST \
---url https://indesign.adobe.io/v3/capability \
+--url https://indesign.adobe.io/v3/scripts \
 --header 'Authorization: Bearer {YOUR_OAUTH_TOKEN}' \
 --header 'x-api-key: {YOUR_API_KEY}' \
 --header 'Content-Type: multipart/form-data' \

@@ -39,6 +39,6 @@ The Data Merge API supports UTF-16BE encoding for CSV files. This encoding is re
 
 ## Allowed origins and domains
 
-Only a specific set of origins/domains are supported. 
+Only a specific set of origins/domains are supported.
 
 Please reach out to Adobe in order to whitelist any alternative origins/domains you may be using.
