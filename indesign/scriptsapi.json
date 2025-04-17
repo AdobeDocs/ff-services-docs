@@ -1,0 +1,942 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "Firefly Service's RESTful InDesign APIs offer resources to automate tedious,  time-consuming design tasks through scalable cloud services,  encouraging more personalization at scale, creative automation,  and faster content delivery.  ",
+    "version": "",
+    "title": "Firefly Services - InDesign APIs",
+    "termsOfService": "https://www.adobe.com/content/dam/cc/en/legal/terms/enterprise/pdfs/PSLT-AdobeCreativeAPI-WW-2024v2.pdf",
+    "contact": {
+      "email": "idservices@adobe.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://indesign.adobe.io"
+    }
+  ],
+  "security": [
+    {
+      "ApiKeyAuth": []
+    },
+    {
+      "BearerAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Custom Scripts API",
+      "description": "The Custom Scripts API allows you to submit custom scripts to do almost anything you can do in InDesign through scripting."
+    }
+  ],
+  "paths": {
+    "/v3/scripts": {
+      "post": {
+        "summary": "Submit a Custom Script",
+        "description": "Submit the custom script bundle. This returns the URL for posting an execution request for the custom script.",
+        "parameters": [
+          {
+            "name": "x-gw-ims-org-id",
+            "in": "header",
+            "description": "This is the identifier for Adobe Identity Management Service (IMS) as defined in Adobe's developer console.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "The API key as defined in Adobe's developer console.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "The authorization token with bearer \"token_value\".",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/zip": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          },
+          "description": "The custom script bundle, in ZIP format. This package describes the script to the app engine.",
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Status of a job execution.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "capability": {
+                      "type": "string",
+                      "description": "The name of the custom script, as specified in the custom script manifest."
+                    },
+                    "version": {
+                      "type": "string",
+                      "description": "The version of the custom script, as specified in the custom script manifest."
+                    },
+                    "url": {
+                      "type": "string",
+                      "description": "The URL to submit an execution request for the custom script."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadParams"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/v3/{organization}/{scripts}": {
+      "post": {
+        "summary": "Submit a custom script execution request",
+        "description": "Submit an execution request for a custom script. Define the input assets and parameters the custom script will use when it is executed against the app engine.",
+        "parameters": [
+          {
+            "name": "x-gw-ims-org-id",
+            "in": "header",
+            "description": "This is the identifier for Adobe Identity Management Service (IMS) as defined in Adobe's developer console.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "The API key as defined in Adobe's developer console.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "The authorization token with bearer \"token_value\".",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "organization",
+            "in": "path",
+            "description": "The organization identifier, reported in the response to a custom script submit request.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "custom script",
+            "in": "path",
+            "description": "The name of the custom script, specified in the custom script manifest.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BaseJobRequestWithOutput"
+              }
+            }
+          },
+          "description": "This job request object specifies parameters for the execution of the custom script.",
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "$ref": "#/components/responses/Accepted"
+          },
+          "400": {
+            "$ref": "#/components/responses/BadParams"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key"
+      },
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "BaseEvent": {
+        "type": "object",
+        "description": "The job event response object.",
+        "properties": {
+          "jobId": {
+            "description": "The GUID for the job.",
+            "type": "string"
+          }
+        }
+      },
+      "notstartedEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseEvent"
+          },
+          {
+            "description": "The status when a job is in queued state.",
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "description": "The current state of the job.",
+                "enum": [
+                  "not_started"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "runningEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseEvent"
+          },
+          {
+            "description": "Job is in running state.",
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "description": "The current state of the job.",
+                "enum": [
+                  "running"
+                ]
+              },
+              "message": {
+                "type": "string",
+                "description": "A description of the current running state."
+              }
+            }
+          }
+        ]
+      },
+      "succeededEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseEvent"
+          },
+          {
+            "description": "The job has succeeded.",
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "description": "The current state of the job.",
+                "enum": [
+                  "succeeded"
+                ]
+              },
+              "data": {
+                "type": "object",
+                "description": "The output response from the current state of the job."
+              },
+              "dataURL": {
+                "type": "string",
+                "description": "The data returned from the execution of the custom script. If the data size is between 250 KB and 20 MB, it will be provided as a pre-signed URL. If it is larger than 20 MB, the job will fail."
+              },
+              "outputs": {
+                "type": "object",
+                "description": "A list of URLs for all the generated assets."
+              }
+            }
+          }
+        ]
+      },
+      "failedEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseEvent"
+          },
+          {
+            "description": "The job is in a failed state.",
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "description": "The current state of the job.",
+                "enum": [
+                  "failed"
+                ]
+              },
+              "error_code": {
+                "type": "string",
+                "description": "The error code for the failure."
+              },
+              "message": {
+                "type": "string",
+                "description": "The error message for the failure."
+              }
+            }
+          }
+        ]
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "error_code": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "message",
+          "error_code"
+        ]
+      },
+      "InputAsset": {
+        "type": "object",
+        "description": "The URL where the asset is to be fetched.",
+        "required": [
+          "source"
+        ],
+        "properties": {
+          "source": {
+            "type": "object",
+            "required": [
+              "url"
+            ],
+            "properties": {
+              "url": {
+                "type": "string",
+                "description": "URL of the asset."
+              },
+              "storageType": {
+                "type": "string",
+                "description": "This is an optional parameter, however IT IS RECOMMENDED to provide this information.",
+                "enum": [
+                  "Azure",
+                  "Dropbox"
+                ]
+              }
+            }
+          },
+          "destination": {
+            "type": "string",
+            "description": "This provides a path relative to a temporary base directory (working directory) where the resource would be downloaded. This would be used to identify the assets within the parameters. It cannot go up using '..' or '/'. Should be a valid file name."
+          }
+        }
+      },
+      "BaseJobRequest": {
+        "description": "The base job request for any job.",
+        "required": [
+          "assets"
+        ],
+        "properties": {
+          "assets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InputAsset"
+            },
+            "description": "Information about the assets, which will be used to process the job."
+          },
+          "params": {
+            "type": "object",
+            "properties": {
+              "generalSettings": {
+                "description": "The general settings.",
+                "type": "object",
+                "properties": {
+                  "fonts": {
+                    "description": "The font settings.",
+                    "type": "object",
+                    "properties": {
+                      "fontsDirectories": {
+                        "description": "This lists the font directories for the input InDesign documents. \"Document Fonts\" in parallel to the document will continue to work even without specifying them.  <br></br> If none are specified, a temporary base directory (working directory) will be considered as a font directory.",
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "description": "This provides a path to a directory relative to a temporary base directory (working directory) where the fonts can be found. It cannot go up using '..' or '/'. Should be a valid path. For specifying a working directory, mention '.'."
+                        }
+                      }
+                    }
+                  },
+                  "links": {
+                    "description": "Settings related to links.",
+                    "type": "object",
+                    "properties": {
+                      "replaceLinks": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "required": [
+                            "targetDocument",
+                            "mapping"
+                          ],
+                          "properties": {
+                            "targetDocument": {
+                              "description": "The document where the relinking is to be done.",
+                              "type": "string"
+                            },
+                            "mapping": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "required": [
+                                  "newAssetRelativePath"
+                                ],
+                                "properties": {
+                                  "currentURI": {
+                                    "type": "string",
+                                    "description": "The existing URI of the link that needs relinking. If multiple links with this URI are found, all will be relinked. If `linkID is provided, this attribute will be ignored. Either `currentURI` or `linkID` should be present."
+                                  },
+                                  "linkID": {
+                                    "type": "integer",
+                                    "description": "The ID of the link which is to be relinked. If `currentURI` is also provided, it will be ignored. Either `currentURI` or `linkID` should be present."
+                                  },
+                                  "newAssetRelativePath": {
+                                    "type": "string",
+                                    "description": "This provides a path relative to a temporary base directory (working directory) where the asset to be linked to can be found. It cannot go up using '..' or '/'. Should be a valid file name."
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "appLogs": {
+                    "description": "Describes parameters regarding application logs.",
+                    "type": "object",
+                    "properties": {
+                      "logsRelativePath": {
+                        "type": "string",
+                        "description": "This provides a path to a file, relative to the temporary base directory (working directory). This file is where the application's logs are to be dumped."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "OutputAsset": {
+        "description": "The URL where the output assets are to be posted after the job is processed.",
+        "type": "object",
+        "required": [
+          "destination",
+          "source"
+        ],
+        "properties": {
+          "destination": {
+            "type": "object",
+            "required": [
+              "url"
+            ],
+            "properties": {
+              "url": {
+                "type": "string",
+                "description": "The URL of the asset."
+              },
+              "storageType": {
+                "type": "string",
+                "description": "This is an optional parameter, however IT IS RECOMMENDED to provide this information.",
+                "enum": [
+                  "Azure",
+                  "Dropbox"
+                ]
+              }
+            }
+          },
+          "source": {
+            "type": "string",
+            "description": "This provides a path relative of the output where the resource would be generated. It cannot go up using '..' or '/'. Should be a valid file name."
+          }
+        }
+      },
+      "BaseJobRequestWithOutput": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseJobRequest"
+          },
+          {
+            "description": "The base job request for any job with the option to specify output URLs.",
+            "type": "object",
+            "properties": {
+              "outputs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/OutputAsset"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "responses": {
+      "BadParams": {
+        "description": "Bad Parameter",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        },
+        "headers": {
+          "Content-Type": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "The format of the content returned (e.g., `application/json`)."
+          },
+          "Content-Length": {
+            "schema": {
+              "type": "integer"
+            },
+            "description": "The length of the response content."
+          },
+          "Access-Control-Allow-Origin": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "The Cross Origin Resource Sharing (CORS) header."
+          },
+          "Access-Control-Allow-Methods": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "This indicates what HTTP methods are allowed."
+          },
+          "Access-Control-Allow-Headers": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "This indicates which HTTP headers can be used during the actual request."
+          },
+          "Access-Control-Allow-Credentials": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "This header is used by servers to indicate that the client shall share HTTP responses."
+          },
+          "Access-Control-Max-Age": {
+            "schema": {
+              "type": "integer"
+            },
+            "description": "This indicates how long the results of a preflight request can be cached."
+          }
+        }
+      },
+      "Unauthorized": {
+        "description": "Unauthorized",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        },
+        "headers": {
+          "Content-Type": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "The format of the content returned (e.g., `application/json`)."
+          },
+          "Content-Length": {
+            "schema": {
+              "type": "integer"
+            },
+            "description": "The length of the response content."
+          },
+          "Access-Control-Allow-Origin": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "The Cross Origin Resource Sharing (CORS) header."
+          },
+          "Access-Control-Allow-Methods": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "This indicates what HTTP methods are allowed."
+          },
+          "Access-Control-Allow-Headers": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "This indicates which HTTP headers can be used during the actual request."
+          },
+          "Access-Control-Allow-Credentials": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "This header is used by servers to indicate that the client shall share HTTP responses."
+          },
+          "Access-Control-Max-Age": {
+            "schema": {
+              "type": "integer"
+            },
+            "description": "This indicates how long the results of a preflight request can be cached."
+          }
+        }
+      },
+      "Forbidden": {
+        "description": "Forbidden",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        },
+        "headers": {
+          "Content-Type": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "The format of the content returned (e.g., `application/json`)."
+          },
+          "Content-Length": {
+            "schema": {
+              "type": "integer"
+            },
+            "description": "The length of the response content."
+          },
+          "Access-Control-Allow-Origin": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "The Cross Origin Resource Sharing (CORS) header."
+          },
+          "Access-Control-Allow-Methods": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "This indicates what HTTP methods are allowed."
+          },
+          "Access-Control-Allow-Headers": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "This indicates which HTTP headers can be used during the actual request."
+          },
+          "Access-Control-Allow-Credentials": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "This header is used by servers to indicate that the client shall share HTTP responses."
+          },
+          "Access-Control-Max-Age": {
+            "schema": {
+              "type": "integer"
+            },
+            "description": "This indicates how long the results of a preflight request can be cached."
+          }
+        }
+      },
+      "NotFound": {
+        "description": "Not Found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        },
+        "headers": {
+          "Content-Type": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "The format of the content returned (e.g., `application/json`)."
+          },
+          "Content-Length": {
+            "schema": {
+              "type": "integer"
+            },
+            "description": "The length of the response content."
+          },
+          "Access-Control-Allow-Origin": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "The Cross Origin Resource Sharing (CORS) header."
+          },
+          "Access-Control-Allow-Methods": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "This indicates what HTTP methods are allowed."
+          },
+          "Access-Control-Allow-Headers": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "This indicates which HTTP headers can be used during the actual request."
+          },
+          "Access-Control-Allow-Credentials": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "This header is used by servers to indicate that the client shall share HTTP responses."
+          },
+          "Access-Control-Max-Age": {
+            "schema": {
+              "type": "integer"
+            },
+            "description": "This indicates how long the results of a preflight request can be cached."
+          }
+        }
+      },
+      "InternalServerError": {
+        "description": "Internal Server Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        },
+        "headers": {
+          "Content-Type": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "The format of the content returned (e.g., `application/json`)."
+          },
+          "Content-Length": {
+            "schema": {
+              "type": "integer"
+            },
+            "description": "The length of the response content."
+          },
+          "Access-Control-Allow-Origin": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "The Cross Origin Resource Sharing (CORS) header."
+          },
+          "Access-Control-Allow-Methods": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "This indicates what HTTP methods are allowed."
+          },
+          "Access-Control-Allow-Headers": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "This indicates which HTTP headers can be used during the actual request."
+          },
+          "Access-Control-Allow-Credentials": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "This header is used by servers to indicate that the client shall share HTTP responses."
+          },
+          "Access-Control-Max-Age": {
+            "schema": {
+              "type": "integer"
+            },
+            "description": "This indicates how long the results of a preflight request can be cached."
+          }
+        }
+      },
+      "TooManyRequests": {
+        "description": "Too Many Requests",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        },
+        "headers": {
+          "Content-Type": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "The format of the content returned (e.g., `application/json`)."
+          },
+          "Content-Length": {
+            "schema": {
+              "type": "integer"
+            },
+            "description": "The length of the response content."
+          },
+          "Retry-After": {
+              "schema": {
+              "type": "integer"
+              },
+              "description": "The number of seconds until the user should try again."
+          },
+          "Access-Control-Allow-Origin": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "The Cross Origin Resource Sharing (CORS) header."
+          },
+          "Access-Control-Allow-Methods": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "This indicates what HTTP methods are allowed."
+          },
+          "Access-Control-Allow-Headers": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "This indicates which HTTP headers can be used during the actual request."
+          },
+          "Access-Control-Allow-Credentials": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "This header is used by servers to indicate that the client shall share HTTP responses."
+          },
+          "Access-Control-Max-Age": {
+            "schema": {
+              "type": "integer"
+            },
+            "description": "This indicates how long the results of a preflight request can be cached."
+          }
+        }
+      },
+      "Accepted": {
+        "description": "The job/custom script has been accepted for processing.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "jobId": {
+                  "type": "string",
+                  "description": "ID"
+                },
+                "statusUrl": {
+                  "type": "string",
+                  "description": "Status URL"
+                }
+              }
+            }
+          }
+        },
+        "headers": {
+          "link": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "status url for retry"
+          },
+          "retry-after": {
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Number of seconds until the user should try again"
+          },
+          "Content-Type": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Type of content returned e.g. application/json"
+          },
+          "Content-Length": {
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Length of response content"
+          },
+          "Access-Control-Allow-Origin": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Cross Origin Resource Sharing header"
+          },
+          "Access-Control-Allow-Methods": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Header indicates what HTTP methods are allowed"
+          },
+          "Access-Control-Allow-Headers": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Header indicate which HTTP headers can be used during the actual request"
+          },
+          "Access-Control-Allow-Credentials": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Header is used by servers to indicate that the client shall share HTTP responses"
+          },
+          "Access-Control-Max-Age": {
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Header indicates how long the results of a preflight request"
+          }
+        }
+      }
+    }
+  }
+}

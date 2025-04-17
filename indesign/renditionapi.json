@@ -517,7 +517,7 @@
     },
     "responses": {
       "Accepted": {
-        "description": "The job/capability has been accepted for processing.",
+        "description": "The job has been accepted for processing.",
         "content": {
           "application/json": {
             "schema": {
