@@ -1,11 +1,11 @@
 ---
-title: Working with the Custom Capabilities API
-description: Quickstart cURL commands to use the Capabilities API for running custom scripts on InDesign documents.
+title: Working with the Custom Scripts API
+description: Quickstart cURL commands to use the Custom Scripts API for running custom scripts on InDesign documents.
 ---
 
-# Working with the Custom Capabilities API
+# Working with the Custom Scripts API
 
-With the Custom Capabilities API, register [custom capabilities that you've scripted][1] with the API. Then use those custom capabilities on documents by referencing the `{CAPABILITY_ID}`.
+With the Custom Scripts API, register [custom scripts bundle that you've created][1] with the API. Then use those custom scripts on documents by referencing the `{SCRIPT_ID}`.
 
 ## Before you start
 
@@ -17,15 +17,15 @@ In the cURL commands, be sure to:
 -  Update `x-api-key` with the client ID.
 -  Update `x-gw-ims-org-id` with your organization ID.
   
-## Register a custom capability
+## Register a custom script
 
 ![](./image4.png)
 
-New custom capabilities get registered by making a POST call to the API.
+New custom scripts get registered by making a POST call to the API.
 
 ### Quickstart
 
-Use this cURL command to register a custom capability.
+Use this cURL command to register a custom script.
 Be sure to update the `{YOUR_CUSTOM_SCRIPT_ZIP}` with the [path to your custom script][3].
 
 ```curl
@@ -38,28 +38,28 @@ curl --request POST \
 --form file=@{YOUR_CUSTOM_SCRIPT_ZIP}
 ```
 
-In the response, you'll receive a `{CAPABILITY_ID}`.
+In the response, you'll receive a `{SCRIPT_ID}`.
 
 **Example response**
 
 ```json
 {
-  "url": "https://indesign.adobe.io/v3/{CAPABILITY_ID}/sample-execution",
+  "url": "https://indesign.adobe.io/v3/{SCRIPT_ID}/sample-execution",
   "capability": "sample-execution",
   "version": "1.0.0"
 }
 ```
 
-## Execute a custom capability
+## Execute a custom script
 
 ![](./image5.png)
 
 Assets specified in the execution request are downloaded on the
-local file system using the specified identifiers. The capability script
+local file system using the specified identifiers. The custom script
 should be authored to work against locally downloaded assets.
 
 The execution request can include a JSON dictionary as a parameter.
-The capability defines the parameters and passes as is
+The custom script defines the parameters and passes as is
 to it during execution
 
 The generated output uploads to the target location. If no location is provided,
@@ -70,11 +70,11 @@ fetched using the [Status API][4]. A link with expiry is provided in the executi
 
 ### Quickstart
 
-Use this cURL command to run a custom capability on a document.
+Use this cURL command to run a custom script on a document.
 
 ```curl
 curl --request POST \
---url https://indesign.adobe.io/v3/{CAPABILITY_ID}/sample-execution \
+--url https://indesign.adobe.io/v3/{SCRIPT_ID}/sample-execution \
 --header 'Authorization: Bearer {YOUR_OAUTH_TOKEN}' \
 --header 'Content-Type: application/json' \
 --header 'x-api-key: {YOUR_API_KEY}' \
@@ -117,9 +117,9 @@ Consult this skeleton [cURL request][6] for more details.
 } 
 ```
 
-[1]: ../writing-custom-scripts-for-capability-api/
+[1]: ../writing-scripts-for-custom-scripts-api/
 [2]: ../../concepts/index.md#Access-tokens
-[3]: /how-tos/writing-custom-scripts-for-capability-api/
+[3]: ../writing-scripts-for-custom-scripts-api/
 [4]: ../../api/status.md
 [5]: ../../concepts/index.md#Pre-signed-URLs
 [6]: https://developer.adobe.com/commerce/webapi/get-started/gs-curl/

@@ -25,7 +25,7 @@
     "tags": [
       {
         "name": "Job Status API",
-        "description": "Get the job status of a custom capability execution job. Each call retrieves the most recent status event for the job and each event refers to a different stage of execution.\n\n| Status | Description |\n|--------|-------------|\n| `not_started` | Generated at the creation of the job. |\n| `running` | Generated when execution begins (at app-engine). |\n| `succeeded` | Generated when execution of a capability is complete. |\n| `failed` | Generated if capability execution fails. |"
+        "description": "Get the job status of a custom script execution job. Each call retrieves the most recent status event for the job and each event refers to a different stage of execution.\n\n| Status | Description |\n|--------|-------------|\n| `not_started` | Generated at the creation of the job. |\n| `running` | Generated when execution begins (at app-engine). |\n| `succeeded` | Generated when execution of an API Job is complete. |\n| `failed` | Generated if an API Job execution fails. |"
       }
     ],
     "paths": {
@@ -33,7 +33,7 @@
         "get": {
           "operationId": "getJobStatus",
           "summary": "Get the status of a job",
-          "description": "Return the latest status of a custom capability job that has been executed.",
+          "description": "Return the latest status of a custom script job that has been executed.",
           "parameters": [
             {
               "name": "x-gw-ims-org-id",
@@ -74,7 +74,7 @@
           ],
           "responses": {
             "200": {
-              "description": "Status of a capability execution.",
+              "description": "Status of a API Job execution.",
               "content": {
                 "application/json": {
                   "schema": {
@@ -229,7 +229,7 @@
                 },
                 "dataURL": {
                   "type": "string",
-                  "description": "The data returned from the execution of the capability. If the data size is between 250 KB and 20 MB, it will be provided as a pre-signed URL. If it is larger than 20 MB, the job will fail."
+                  "description": "The data returned from the execution of the job. If the data size is between 250 KB and 20 MB, it will be provided as a pre-signed URL. If it is larger than 20 MB, the job will fail."
                 },
                 "outputs": {
                   "type": "object",
@@ -736,7 +736,7 @@
           }
         },
         "Accepted": {
-          "description": "The job/capability has been accepted for processing.",
+          "description": "The job has been accepted for processing.",
           "content": {
             "application/json": {
               "schema": {

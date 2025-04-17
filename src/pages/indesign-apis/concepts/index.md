@@ -108,34 +108,34 @@ platform can upload. You can provide this information in the `outputs` array wit
 
 Each storage provider may have its own requirements for creating PUT or POST pre-signed URLs. Please follow the documentation from the individual storage provider creating these URLs.
 
-## About custom capability bundles
+## About custom script bundles
 
-To script a custom capability to use with the Custom Capabilities API, you'll need to prepare a capability bundle, a ZIP file with a predefined structure.
+To create a script to use with the Custom Scripts API, you'll need to prepare a script bundle, a ZIP file with a predefined structure.
 
-### Capability bundle structure
+### Custom script bundle structure
 
-The structure for a simple capability bundle would look like this:
+The structure for a simple custom script bundle would look like this:
 
 ```plaintext
-capability-folder
+custom-script-folder
 |------ manifest.json
-|------ capability.js
+|------ script.js
 ```
 
 |File|Description|Required|
 |---|---|---|
-|manifest.json|The capability manifest. All the details of the capability are described in this file.|X|
-|capability.js|The primary executable for the capability. This script gets executed by the product script engine and, depending on the product script engine support, it can depend on other files in nested directories in the ZIP file.|X|
+|manifest.json|The custom script manifest. All the details of the script are described in this file.|X|
+|script.js|The primary executable for the script. This script gets executed by the product script engine and, depending on the product script engine support, it can depend on other files in nested directories in the ZIP file.|X|
 
-### Capability manifest
+### Custom Script manifest
 
 The manifest file is a plain JSON file with the following structure:
 
 ```json
 {
     "manifestVersion": "1.0.0",
-    "id": "<Unique ID for the capability>",
-    "name": "<Name of the capability>",
+    "id": "<Unique ID for the custom script>",
+    "name": "<Name of the custom script>",
     "version": "<x.y.z>",
     "host": {
         "app": "indesign",
@@ -145,7 +145,7 @@ The manifest file is a plain JSON file with the following structure:
     "apiEntryPoints": [
         {
             "type": "capability",
-            "path": "capability.js",
+            "path": "script.js",
             "language": "extendscript"
         }
     ]
@@ -155,12 +155,12 @@ The manifest file is a plain JSON file with the following structure:
 | Field | Type | Description | Required |
 |-------|------|-------------|----------|
 | `manifestVersion` | string | The version of the manifest file format. Currently, only 1.0.0 is supported. | X |
-| `name` | string | The name of the capability. The capability can be invoked using this. It should be between 4-255 characters. It must not have any white space. | X |
-| `version` | string | The version number of the capability, in x.y.z format. The version must be three segments and each version component must be between 0 and 99. | X |
-| `host.app` | string | The host application would be used to execute this capability. Currently, the only valid value is `indesign`. | X |
+| `name` | string | The name of the custom script. The custom script can be invoked using this. It should be between 4-255 characters. It must not have any white space. | X |
+| `version` | string | The version number of the custom script, in x.y.z format. The version must be three segments and each version component must be between 0 and 99. | X |
+| `host.app` | string | The host application would be used to execute this script. Currently, the only valid value is `indesign`. | X |
 | `host.minVersion` | string | The minimum required version of the host app that can run this plugin, in x.y format. The version number must be two segments. Typically, the minor segment will be always set to 0 (e.g., 17.0). | X |
 | `host.maxVersion` | string | The maximum version of the host app that can run this plugin. Use the same formatting as `host.minVersion`. |  |
-| `apiEntryPoints` | array | An array of `<EntryPointDefinition>` objects. Describes the API entry points for the capability. |  |
+| `apiEntryPoints` | array | An array of `<EntryPointDefinition>` objects. Describes the API entry points for the custom script. |  |
 
 ### The `apiEntryPoints` field
 
@@ -172,15 +172,15 @@ In the manifest file, the `apiEntryPoints` attribute is an array of `EntryPointD
 |`path`|string|The file path should be used based on the type. The default is to look for the files in the root directory of the ZIP file. However, this can also be any nested path in the ZIP file.|X|
 |`language`|string|The language of the script. It can be an extended script, UXP script, or JavaScript.||
 
-- Each entry point specifies a capability script or a capability specification.
+- Each entry point specifies a custom script or a custom script specification.
 - There can be only one entry of each type in the array.
 - The maximum size of the array is 3.
 
 There's no need to define an entry point if the default values are being used for them.
 
-### The `capability.js` file
+### The `script.js` file
 
-The script's author defines the custom attributes and values for a particular endpoint using *capability.js* files in the capability bundle.
+The script's author defines the custom attributes and values for a particular endpoint using *script.js* file in the custom script bundle.
 
 The execution of any script depends on the following attributes:
 
@@ -191,13 +191,13 @@ The execution of any script depends on the following attributes:
 | `jobID` | Auto-generated | The job ID. |
 | `workingFolder` | Auto-generated | The working folder for the job. This is the base directory. Inside this directory, all the assets and scripts are downloaded. (for example c:\\baseFolder\\assets). |
 
-For examples, see [Writing Custom Scripts for the Custom Capability API][8].
+For examples, see [Writing Scripts for the Custom Scripts API][8].
 
-### Zipping and updating a capability bundle
+### Zipping and updating a custom script bundle
 
 When zipping the files, don't place them inside a folder first. Instead, directly select the files and create the ZIP. This way when it's unzipped the files will appear directly instead of appearing inside a folder.
 
-The capability bundle can be updated by incrementing the version in the capability manifest. The updated ZIP bundle can be uploaded using the submission endpoint.
+The custom script bundle can be updated by incrementing the version in the script manifest. The updated ZIP bundle can be uploaded using the submission endpoint.
 
 ## InDesign links support
 
@@ -321,5 +321,5 @@ for a detailed guide on setting up webhooks.
 [5]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html
 [6]: https://dropbox.github.io/dropbox-api-v2-explorer/
 [7]: https://learn.microsoft.com/en-us/azure/storage/
-[8]: ../how-tos/writing-custom-scripts-for-capability-api/index.md
+[8]: ../how-tos/writing-scripts-for-custom-script-api/index.md
 [9]: https://developer.adobe.com/events/docs/guides/using/indesign-apis/indesign-apis-events-data-stream-setup/

@@ -1,6 +1,6 @@
 ---
 title: Status - InDesign API
-description: Retrieves the most recent status event of a capability execution job.
+description: Retrieves the most recent status event of an API execution job.
 layout: none
 ---
 
