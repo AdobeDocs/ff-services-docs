@@ -20,6 +20,8 @@
     "/v3/images/generate-similar-async": {
       "post": {
         "operationId": "generateSimilarImagesV3Async",
+        "summary": "Generate Similar Images Async - Model 3",
+        "description": "Generate similar images based on a reference image that you provide as a parameter.\n\nPerforms this asynchronously, meaning you make your request and provide an image with your text prompt and on success, returns a <code>jobID</code>, status endpoint and endpoint to cancel the request. You can later poll the status endpoint to get updates on whether the job completes and to get the image.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -216,14 +218,14 @@
             },
             "description": "Internal Server Error"
           }
-        },
-        "summary": "Generate Similar Images Async - Model 3",
-        "description": "Generate similar images based on a reference image that you provide as a parameter.\n\nPerforms this asynchronously, meaning you make your request and provide an image with your text prompt and on success, returns a <code>jobID</code>, status endpoint and endpoint to cancel the request. You can later poll the status endpoint to get updates on whether the job completes and to get the image."
+        }
       }
     },
     "/v3/status/{jobId}": {
       "get": {
         "operationId": "jobResultV3",
+        "summary": "Get Result - Async",
+        "description": "Get the result of a job that you submitted to the Generate Similar Images Async endpoint.",
         "parameters": [
           {
             "description": "Unique identifier for the submitted job",
@@ -348,13 +350,14 @@
             },
             "description": "Validation Error"
           }
-        },
-        "summary": " Get Result - Async"
+        }
       }
     },
     "/v3/cancel/{jobId}": {
       "put": {
         "operationId": "cancelJobV3",
+        "summary": "Cancel Job - Async",
+        "description": "Cancel a job that you submitted to the Generate Similar Images Async endpoint.",
         "parameters": [
           {
             "description": "Unique identifier for the submitted job",
@@ -453,8 +456,7 @@
             },
             "description": "Validation Error"
           }
-        },
-        "summary": " Cancel Job - Async"
+        }
       }
     }
   },
