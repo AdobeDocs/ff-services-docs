@@ -321,5 +321,5 @@ for a detailed guide on setting up webhooks.
 [5]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html
 [6]: https://dropbox.github.io/dropbox-api-v2-explorer/
 [7]: https://learn.microsoft.com/en-us/azure/storage/
-[8]: ../how-tos/writing-scripts-for-custom-script-api/index.md
+[8]: ../how-tos/writing-scripts-for-custom-scripts-api/index.md
 [9]: https://developer.adobe.com/events/docs/guides/using/indesign-apis/indesign-apis-events-data-stream-setup/
