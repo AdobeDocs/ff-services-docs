@@ -992,7 +992,7 @@
           },
           "customModelId": {
             "type": "string",
-            "description": "include the specific custom model ID when a custom model type is designated in the `x-model-version` header parameter."
+            "description": "Include the specific custom model ID when a custom model type is designated in the `x-model-version` header parameter."
           },
           "negativePrompt": {
             "description": "A negative prompt of things Firefly will try to avoid generating in the image.",
