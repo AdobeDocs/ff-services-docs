@@ -26,7 +26,7 @@
           {
             "name": "x-model-version",
             "in": "header",
-            "description": "Specify the Firefly model version to use for the image generation. When a custom model is used, a `customModelId` must also be passed in the request body.",
+            "description": "Specify the Firefly model version to use for the image generation.",
             "required": false,
             "schema": {
               "type": "string",
