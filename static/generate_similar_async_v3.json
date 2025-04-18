@@ -20,8 +20,21 @@
     "/v3/images/generate-similar-async": {
       "post": {
         "operationId": "generateSimilarImagesV3Async",
-        "summary": "Generate Similar Images Async - Model 3",
+        "summary": "Generate Similar Images Async",
         "description": "Generate similar images based on a reference image that you provide as a parameter.\n\nPerforms this asynchronously, meaning you make your request and provide an image with your text prompt and on success, returns a <code>jobID</code>, status endpoint and endpoint to cancel the request. You can later poll the status endpoint to get updates on whether the job completes and to get the image.",
+        "parameters": [
+          {
+            "name": "x-model-version",
+            "in": "header",
+            "description": "Specify the Firefly model version to use for the image generation. When a custom model is used, a `customModelId` must also be passed in the request body.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "image3",
+              "enum": ["image3", "image4_standard", "image4_ultra"]
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
