@@ -62,7 +62,7 @@
             "description": "Successful Response",
             "headers": {
               "Link": {
-                "description": "Links to check job status & cancel job",
+                "description": "Links to check the job status or cancel the job.",
                 "schema": {
                   "type": "string"
                 }
@@ -644,7 +644,7 @@
         "properties": {
           "source": {
             "$ref": "#/components/schemas/PublicBinaryInputV3",
-            "description": "Source image that Firefly expands, fills or uses to generate similar images",
+            "description": "Source image that Firefly expands, fills or uses to generate similar images"
           }
         },
         "required": [
@@ -657,7 +657,7 @@
         "properties": {
           "source": {
             "$ref": "#/components/schemas/PublicBinaryInputV3",
-            "description": "Original mask image.",
+            "description": "Original mask image."
           }
         },
         "required": [
@@ -816,11 +816,11 @@
         "properties": {
           "image": {
             "$ref": "#/components/schemas/InputImageV3",
-            "description": "The image to expand. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> </ul>",
+            "description": "The image to expand. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> </ul>"
           },
           "mask": {
             "$ref": "#/components/schemas/InputMaskV3",
-            "description": "Mask image which will be used to expand the given image.",
+            "description": "Mask image which will be used to expand the given image."
           },
           "numVariations": {
             "description": "Generate this number of variations. <code>numVariations</code> defaults to the number of seed images, or to 1 if you do not specify seeds.",
@@ -831,7 +831,7 @@
           },
           "placement": {
             "$ref": "#/components/schemas/Placement",
-            "description": "The position of the source image after Firefly resizes it. The value describes the horizontal and vertical placement and dimensions of the image in the output. Note you cannot use placement for source images when you also apply a mask image.",
+            "description": "The position of the source image after Firefly resizes it. The value describes the horizontal and vertical placement and dimensions of the image in the output. Note you cannot use placement for source images when you also apply a mask image."
           },
           "prompt": {
             "description": "An optional text prompt up to 1024 characters. The longer the prompt the better Firefly performs.",
@@ -884,7 +884,7 @@
           },
           "size": {
             "$ref": "#/components/schemas/Size",
-            "description": "When you provide size as input, this value is the same.",
+            "description": "When you provide size as input, this value is the same."
           }
         },
         "required": [
@@ -898,11 +898,11 @@
         "properties": {
           "image": {
             "$ref": "#/components/schemas/InputImageV3",
-            "description": "The image to expand. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> </ul>",
+            "description": "The image to expand. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> </ul>"
           },
           "mask": {
             "$ref": "#/components/schemas/InputMaskV3",
-            "description": "Required. Selected areas of a background image that Firefly uses to fill the source image.",
+            "description": "Required. Selected areas of a background image that Firefly uses to fill the source image."
           },
           "negativePrompt": {
             "description": "An optional text prompt up to 1024 characters. Avoid these characteristics in the generated image.",
@@ -974,7 +974,7 @@
           },
           "size": {
             "$ref": "#/components/schemas/Size",
-            "description": "When you provide size as input, this value is the same.",
+            "description": "When you provide size as input, this value is the same."
           }
         },
         "required": [
@@ -988,11 +988,11 @@
         "properties": {
           "contentClass": {
             "$ref": "#/components/schemas/ContentClassV3",
-            "description": "Specifies the style of a generated image to be photographic or like fine art.",
+            "description": "Directs the style of a generated image to be photographic or like fine art."
           },
           "customModelId": {
             "type": "string",
-            "description": "If a custom model is used in the `x-model-version` header parameter, image3_custom` in the headers.",
+            "description": "include the specific custom model ID when a custom model type is designated in the `x-model-version` header parameter."
           },
           "negativePrompt": {
             "description": "A negative prompt of things Firefly will try to avoid generating in the image.",
@@ -1035,7 +1035,7 @@
               "height": 2048,
               "width": 2048
             },
-            "description": "The desired width and height for the final image, in pixels. Supported sizes for the output images are: <ul> <li>Square (1:1) - width 2048px, height 2048px </li> <li>Square (1:1) - width 1024px, height 1024px </li> <li>Landscape (4:3)  - width 2304px, height 1792px </li> <li>Portrait (3:4)  - width 1792px, height 2304px</li> <li>Widescreen (16:9) - width 2688px, height 1536px </li> <li>(7:4)  - width 1344px, height 768px </li> <li>(9:7) - width 1152px, height 896px </li> <li>(7:9) - width 896px, height 1152px</li> </ul>",
+            "description": "The desired width and height for the final image, in pixels. Supported sizes for the output images are: <ul> <li>Square (1:1) - width 2048px, height 2048px </li> <li>Square (1:1) - width 1024px, height 1024px </li> <li>Landscape (4:3)  - width 2304px, height 1792px </li> <li>Portrait (3:4)  - width 1792px, height 2304px</li> <li>Widescreen (16:9) - width 2688px, height 1536px </li> <li>(7:4)  - width 1344px, height 768px </li> <li>(9:7) - width 1152px, height 896px </li> <li>(7:9) - width 896px, height 1152px</li> </ul>"
           },
           "structure": {
             "description": "An object with the reference image details for structure.",
@@ -1066,7 +1066,7 @@
         "properties": {
           "contentClass": {
             "$ref": "#/components/schemas/ContentClassV3",
-            "description": "Generate an image to being more photographic or more like art. Either <code>photo</code> or <code>art</code>.",
+            "description": "Generate an image to being more photographic or more like art. Either <code>photo</code> or <code>art</code>."
           },
           "outputs": {
             "description": "Each image ID.",
@@ -1105,11 +1105,11 @@
           },
           "image": {
             "$ref": "#/components/schemas/InputImageV3",
-            "description": "The image to expand. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> </ul>",
+            "description": "The image to expand. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> </ul>"
           },
           "mask": {
             "$ref": "#/components/schemas/BaseInputMaskV3",
-            "description": "Required. Selected areas of a background image that Firefly uses to fill the source image.",
+            "description": "Required. Selected areas of a background image that Firefly uses to fill the source image."
           },
           "numVariations": {
             "description": "Generate this number of variations. Defaults to the number of seed images, or to 1 if you do not specify seeds.",
@@ -1120,7 +1120,7 @@
           },
           "placement": {
             "$ref": "#/components/schemas/Placement",
-            "description": "The position of the source image after Firefly adjusts it. The value describes the horizontal and vertical placement and dimensions of the image in the output. Note you cannot use placement for source images when you also apply a mask image.",
+            "description": "The position of the source image after Firefly adjusts it. The value describes the horizontal and vertical placement and dimensions of the image in the output. Note you cannot use placement for source images when you also apply a mask image."
           },
           "prompt": {
             "description": "An optional text prompt up to 1024 characters. The longer the prompt the better Firefly performs.",
@@ -1180,7 +1180,7 @@
           },
           "size": {
             "$ref": "#/components/schemas/Size",
-            "description": "When you provide size as input, this value is the same.",
+            "description": "When you provide size as input, this value is the same."
           }
         },
         "required": [
@@ -1253,8 +1253,7 @@
           },
           "size": {
             "$ref": "#/components/schemas/Size",
-            "description": "When you provide size as input, this value is the same.",
-            "title": "The actual size used for the output"
+            "description": "When you provide size as input, this value is the same."
           }
         },
         "required": [
