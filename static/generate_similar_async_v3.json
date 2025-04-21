@@ -1217,14 +1217,14 @@
             "title": "The reference image"
           },
           "numVariations": {
-            "description": "Generate this number of variations. <code>numVariations</code> defaults to the number of seed images, or to 1 if you do not specify seeds.",
+            "description": "The number of variations to generate. `numVariations` defaults to the number of seed images, or to 1 if you do not specify seeds.",
             "maximum": 4,
             "minimum": 1,
             "title": "The number of variations",
             "type": "integer"
           },
           "seeds": {
-            "description": "Array of seed image IDs. These reference images help ensure consistent image generation across multiple API calls. If specified alongside with <code>numVariations</code>, the number of seeds must equal to <code>numVariations</code>.",
+            "description": "An array of seed image IDs. These reference images help ensure consistent image generation across multiple API calls. For example, use the same seed to generate a similar image in different styles. If specified along with `numVariations`, the number of seeds provided must equal `numVariations`.",
             "items": {
               "type": "integer"
             },
