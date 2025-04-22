@@ -37,6 +37,11 @@ module.exports = {
       {
         title: "Audio/Video API",
         description: "Docs and references for Audio/Video API",
+        path: "https://developer.adobe.com/audio-video-firefly-services/",
+      },
+      {
+        title: "Reframe API",
+        description: "Docs and references for Reframe API",
         path: "/audio-video-api/",
       },
       {
