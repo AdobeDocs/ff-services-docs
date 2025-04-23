@@ -363,12 +363,6 @@
               "description": "A hyphen-separated string combining the ISO 639-1 language code and the ISO 3166-1 region, such as \"en-US\". When a locale is set, the prompt will be biased to generate more relevant content for that region. The locale will be auto-detected if not specified based on the user's profile and Accept-Language header.",
               "default": "en-US"
             },
-            "tileable": {
-              "type": "boolean",
-              "title": "Output image tileability",
-              "description": "An image is tileable if it can be repeated infinitely in any direction without showing visible seams or edges.",
-              "default": false
-            },
             "structure": {
               "allOf": [
                 {
