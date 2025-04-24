@@ -202,7 +202,7 @@ module.exports = {
                 path: "/firefly-api/guides/api/image_generation/V3_Async/",
               },
               {
-                title: "V3",
+                title: "V3 (deprecated)",
                 path: "/firefly-api/guides/api/image_generation/V3/",
               },
 
@@ -221,7 +221,7 @@ module.exports = {
                 path: "/firefly-api/guides/api/generate-similar/V3_Async/",
               },
               {
-                title: "V3",
+                title: "V3 (deprecated)",
                 path: "/firefly-api/guides/api/generate-similar/V3/",
               },
             ],
@@ -235,7 +235,7 @@ module.exports = {
                 path: "/firefly-api/guides/api/generate-object-composite/V3_Async/",
               },
               {
-                title: "V3",
+                title: "V3 (deprecated)",
                 path: "/firefly-api/guides/api/generate-object-composite/V3/",
               },
             ],
@@ -250,7 +250,7 @@ module.exports = {
                 path: "/firefly-api/guides/api/generative_expand/V3_Async/",
               },
               {
-                title: "V3",
+                title: "V3 (deprecated)",
                 path: "/firefly-api/guides/api/generative_expand/V3/",
               },
               {
@@ -268,7 +268,7 @@ module.exports = {
                 path: "/firefly-api/guides/api/generative_fill/V3_Async/",
               },
               {
-                title: "V3",
+                title: "V3 (deprecated)",
                 path: "/firefly-api/guides/api/generative_fill/V3/",
               },
               {
@@ -508,12 +508,12 @@ module.exports = {
             path: "/indesign-apis/how-tos/working-with-rendition-api/",
           },
           {
-            title: "Working with Custom Capabilities API",
-            path: "/indesign-apis/how-tos/working-with-capabilities-api/",
+            title: "Working with Custom Scripts API",
+            path: "/indesign-apis/how-tos/working-with-custom-scripts-api/",
           },
           {
-            title: "Writing Custom Scripts for Capability API",
-            path: "/indesign-apis/how-tos/writing-custom-scripts-for-capability-api/",
+            title: "Writing scripts for Custom Scripts API",
+            path: "/indesign-apis/how-tos/writing-scripts-for-custom-scripts-api/",
           },
         ],
       },
@@ -530,8 +530,8 @@ module.exports = {
             path: "/indesign-apis/api/rendition.md",
           },
           {
-            title: "Custom Capabilities API",
-            path: "/indesign-apis/api/capabilities.md",
+            title: "Custom Scripts API",
+            path: "/indesign-apis/api/scripts.md",
           },
           {
             title: "Status API",

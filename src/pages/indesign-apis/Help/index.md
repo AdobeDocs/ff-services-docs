@@ -7,15 +7,27 @@ description: This is the help page for support and troubleshooting.
 
 Here you'll find InDesign API support information.
 
-## API known limitations
+## Supported Storage Types
 
-InDesign APIs currently only support these storage types for assets:
+InDesign APIs currently support the following storage types for assets:
 
-  - AWS S3
+- AWS S3
 
-  - Dropbox
+- Dropbox
 
-  - Azure
+- Azure
+
+## File Size Limit
+
+The maximum supported file size is 1GB.
+
+## Maximum Number of Assets in a Single Payload
+
+The maximum number of assets (input + output) that can be passed in a single payload is 99.
+
+## CSV Encoding Support
+
+The Data Merge API supports UTF-16BE encoding for CSV files. This encoding is required for languages or characters that need multi-byte representation. For plain English characters, the CSV will work correctly even without this encoding.
 
 ## API retry
 
@@ -27,6 +39,6 @@ InDesign APIs currently only support these storage types for assets:
 
 ## Allowed origins and domains
 
-Only a specific set of origins/domains are supported. 
+Only a specific set of origins/domains are supported.
 
 Please reach out to Adobe in order to whitelist any alternative origins/domains you may be using.

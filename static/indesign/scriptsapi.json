@@ -24,15 +24,15 @@
   ],
   "tags": [
     {
-      "name": "Custom Capabilities API",
-      "description": "The Custom Capabilities API allows you to submit custom capabilities to do almost anything you can do in InDesign using a custom script."
+      "name": "Custom Scripts API",
+      "description": "The Custom Scripts API allows you to submit custom scripts to do almost anything you can do in InDesign through scripting."
     }
   ],
   "paths": {
-    "/v3/capability": {
+    "/v3/scripts": {
       "post": {
-        "summary": "Submit a custom capability",
-        "description": "Submit the capability bundle. This returns the URL for posting an execution request for the capability.",
+        "summary": "Submit a Custom Script",
+        "description": "Submit the custom script bundle. This returns the URL for posting an execution request for the custom script.",
         "parameters": [
           {
             "name": "x-gw-ims-org-id",
@@ -70,27 +70,27 @@
               }
             }
           },
-          "description": "The capability bundle, in ZIP format. This package describes the capability to the app engine.",
+          "description": "The custom script bundle, in ZIP format. This package describes the script to the app engine.",
           "required": true
         },
         "responses": {
           "202": {
-            "description": "Status of a capability execution.",
+            "description": "Status of a job execution.",
             "content": {
               "application/json": {
                 "schema": {
                   "properties": {
                     "capability": {
                       "type": "string",
-                      "description": "The name of the capabilit, as specified in the capability manifest."
+                      "description": "The name of the custom script, as specified in the custom script manifest."
                     },
                     "version": {
                       "type": "string",
-                      "description": "The version of the capability, as specified in the capability manifest."
+                      "description": "The version of the custom script, as specified in the custom script manifest."
                     },
                     "url": {
                       "type": "string",
-                      "description": "The URL to submit an execution request for the capability."
+                      "description": "The URL to submit an execution request for the custom script."
                     }
                   }
                 }
@@ -118,10 +118,10 @@
         }
       }
     },
-    "/v3/{organization}/{capability}": {
+    "/v3/{organization}/{scripts}": {
       "post": {
-        "summary": "Submit a capability execution request",
-        "description": "Submit an execution request for a custom capability. Define the input assets and parameters the capability will use when it is executed against the app engine.",
+        "summary": "Submit a custom script execution request",
+        "description": "Submit an execution request for a custom script. Define the input assets and parameters the custom script will use when it is executed against the app engine.",
         "parameters": [
           {
             "name": "x-gw-ims-org-id",
@@ -153,16 +153,16 @@
           {
             "name": "organization",
             "in": "path",
-            "description": "The organization identifier, reported in the response to a capability submit request.",
+            "description": "The organization identifier, reported in the response to a custom script submit request.",
             "required": true,
             "schema": {
               "type": "string"
             }
           },
           {
-            "name": "capability",
+            "name": "custom script",
             "in": "path",
-            "description": "The name of the capability, specified in the capability manifest.",
+            "description": "The name of the custom script, specified in the custom script manifest.",
             "required": true,
             "schema": {
               "type": "string"
@@ -177,7 +177,7 @@
               }
             }
           },
-          "description": "This job request object specifies parameters for the execution of the capability.",
+          "description": "This job request object specifies parameters for the execution of the custom script.",
           "required": true
         },
         "responses": {
@@ -296,7 +296,7 @@
               },
               "dataURL": {
                 "type": "string",
-                "description": "The data returned from the execution of the capability. If the data size is between 250 KB and 20 MB, it will be provided as a pre-signed URL. If it is larger than 20 MB, the job will fail."
+                "description": "The data returned from the execution of the custom script. If the data size is between 250 KB and 20 MB, it will be provided as a pre-signed URL. If it is larger than 20 MB, the job will fail."
               },
               "outputs": {
                 "type": "object",
@@ -863,7 +863,7 @@
         }
       },
       "Accepted": {
-        "description": "The job/capability has been accepted for processing.",
+        "description": "The job/custom script has been accepted for processing.",
         "content": {
           "application/json": {
             "schema": {

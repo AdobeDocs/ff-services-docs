@@ -34,17 +34,17 @@ Creates renditions of a file in either PNG, JPG, or PDF format.
 
 <DiscoverBlock slots="link, text"/>
 
-[Custom Capabilities API][3]
+[Custom Scripts API][3]
 
-Perform almost any InDesign task using a custom script. With this API you can submit and execute custom capabilities.
+Perform almost any InDesign task using a custom script. With this API you can submit and execute custom scripts.
 
 <DiscoverBlock slots="link, text"/>
 
 [Status API][4]
 
-Retrieves the most recent status event of a capability execution job.
+Retrieves the most recent status event of an API execution job.
 
 [1]: ./api/datamerge.md
 [2]: ./api/rendition.md
-[3]: ./api/capabilities.md
+[3]: ./api/scripts.md
 [4]: ./api/status.md

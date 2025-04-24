@@ -1,13 +1,13 @@
 ---
-title: Writing Custom Scripts for Capability API
-description: Writing Custom Scripts for Capability API.
+title: Writing Scripts for Custom Scripts API
+description: Writing Scripts for Custom Scripts API.
 ---
 
-# Writing Custom Scripts for the Custom Capability API
+# Writing Scripts for the Custom Scripts API
 
-Use this document to construct the script files for the Custom Capability API.
+Use this document to construct the script files for the Custom Scripts API.
 
-The script's author defines the custom attributes and values for a particular endpoint using *capability.js* files in the capability bundle[1]. Refer to the examples below to construct your scripts.
+The script's author defines the custom attributes and values for a particular endpoint using *script.js* files in the custom script bundle[1]. Refer to the examples below to construct your scripts.
 
 ## Including input in a custom script
 
@@ -284,8 +284,8 @@ function GetFailureReturnObj(errorCode, errorString) {
 
 ## Sample Scripts
 
-To help you get started with writing custom scripts for the Custom Capability API, we have created a collection of sample scripts. These scripts demonstrate various use cases and best practices for constructing capability bundles and handling input/output in your scripts. The repository includes scripts in both Extendscript and UXP formats.
+To help you get started with writing custom scripts for the Custom Scripts API, we have created a collection of sample scripts. These scripts demonstrate various use cases and best practices for constructing custom script bundles and handling input/output in your scripts. The repository includes scripts in both Extendscript and UXP formats.
 
-You can find the sample scripts on our GitHub repository: [Sample Scripts for Custom Capability API](https://github.com/AdobeDocs/indesign-api-docs/tree/main/SampleScripts).
+You can find the sample scripts on our GitHub repository: [Sample Scripts for Custom Scripts API](https://github.com/AdobeDocs/indesign-api-docs/tree/main/SampleScripts).
 
-[1]: ../../concepts/index.md#Capability-bundle-structure
+[1]: ../../concepts/index.md#Custom-Script-bundle-structure
