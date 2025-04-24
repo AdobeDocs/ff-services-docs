@@ -31,6 +31,13 @@ hideBreadcrumbNav: true
 <!-- TODO: Update with latest prod details, elaborate on API descriptions -->
 # Changelog
 
+## April 2025
+
+**API updates**
+
+* Launch of Custom Models support: The Generate Images API [now supports custom models](../guides/custom-models/).
+* New Image Model 4: The Image Model 4 is now available for use with the [Generate Images](../api/image_generation/V3_Async/) and [Generate Similar Images](../api/generate-similar/V3_Async/) APIs.
+
 ## November 18, 2024
 
 ### API Services Update: General Availability
@@ -49,7 +56,7 @@ We are excited to announce that the following APIs are now generally available:
 
 We are excited to announce that the following APIs are now generally available and no longer only in preview:
 
-* [Generate Object Composite](../api/generate-object-composite/)
+* [Generate Object Composite](../api/generate-object-composite/V3_Async/)
 * [Expand Image](../api/generative_expand/V3/)
 * [Fill Image](../api/generative_fill/V3/)
 
