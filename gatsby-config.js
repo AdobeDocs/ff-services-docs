@@ -202,7 +202,7 @@ module.exports = {
                 path: "/firefly-api/guides/api/image_generation/V3_Async/",
               },
               {
-                title: "V3",
+                title: "V3 (deprecated)",
                 path: "/firefly-api/guides/api/image_generation/V3/",
               },
 
@@ -221,7 +221,7 @@ module.exports = {
                 path: "/firefly-api/guides/api/generate-similar/V3_Async/",
               },
               {
-                title: "V3",
+                title: "V3 (deprecated)",
                 path: "/firefly-api/guides/api/generate-similar/V3/",
               },
             ],
@@ -235,7 +235,7 @@ module.exports = {
                 path: "/firefly-api/guides/api/generate-object-composite/V3_Async/",
               },
               {
-                title: "V3",
+                title: "V3 (deprecated)",
                 path: "/firefly-api/guides/api/generate-object-composite/V3/",
               },
             ],
@@ -250,7 +250,7 @@ module.exports = {
                 path: "/firefly-api/guides/api/generative_expand/V3_Async/",
               },
               {
-                title: "V3",
+                title: "V3 (deprecated)",
                 path: "/firefly-api/guides/api/generative_expand/V3/",
               },
               {
@@ -268,7 +268,7 @@ module.exports = {
                 path: "/firefly-api/guides/api/generative_fill/V3_Async/",
               },
               {
-                title: "V3",
+                title: "V3 (deprecated)",
                 path: "/firefly-api/guides/api/generative_fill/V3/",
               },
               {
