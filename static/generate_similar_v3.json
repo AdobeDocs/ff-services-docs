@@ -21,6 +21,7 @@
         "post": {
             "summary": "Generate Similar Images - Model 3",
             "operationId": "generateSimilarImages",
+            "deprecated": true,
             "description": "Generate similar images based on a reference image that you provide as a parameter.",
             "requestBody": {
               "content": {
