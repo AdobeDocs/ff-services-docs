@@ -31,16 +31,21 @@ hideBreadcrumbNav: true
 <!-- TODO: Update with latest prod details, elaborate on API descriptions -->
 # Changelog
 
-## April 2025
+## April 20, 2025
+
+**API updates**
+
+* New Image Model 4: The Image Model 4 is now available for use with the [Generate Images](../api/image_generation/V3_Async/) and [Generate Similar Images](../api/generate-similar/V3_Async/) APIs.
+
+## March 11, 2025
 
 **API updates**
 
 * Launch of Custom Models support: The Generate Images API [now supports custom models](../guides/custom-models/).
-* New Image Model 4: The Image Model 4 is now available for use with the [Generate Images](../api/image_generation/V3_Async/) and [Generate Similar Images](../api/generate-similar/V3_Async/) APIs.
 
 ## November 18, 2024
 
-### API Services Update: General Availability
+### API services update: General availability
 
 We are excited to announce that the following APIs are now generally available:
 
@@ -52,7 +57,7 @@ We are excited to announce that the following APIs are now generally available:
 
 ## October 12, 2024
 
-### API Services Update: General Availability
+### API services update: General availability
 
 We are excited to announce that the following APIs are now generally available and no longer only in preview:
 
@@ -62,7 +67,7 @@ We are excited to announce that the following APIs are now generally available a
 
 ## July 23, 2024
 
-### API Services Update: General Availability
+### API services update: General availability
 
 We are excited to announce that the following APIs are now generally available and no longer in preview:
 
@@ -82,7 +87,7 @@ Updated guides:
 
 Create your first Firefly APIs implementation guide updated to use the new V3 version of the [Generate Images API](../api/image_generation/V3/).
 
-New Guides:
+New guides:
 
   * Firefly Image Model 3 (preview) - Overview
   * Using Content Class and Style Presets
