@@ -31,7 +31,7 @@ hideBreadcrumbNav: true
 <!-- TODO: Update with latest prod details, elaborate on API descriptions -->
 # Changelog
 
-## April 20, 2025
+## April 29, 2025
 
 **API updates**
 
