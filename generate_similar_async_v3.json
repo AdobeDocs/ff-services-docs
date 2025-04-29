@@ -20,6 +20,21 @@
     "/v3/images/generate-similar-async": {
       "post": {
         "operationId": "generateSimilarImagesV3Async",
+        "summary": "Generate Similar Images Async",
+        "description": "Generate similar images based on a reference image that you provide as a parameter.\n\nPerforms this asynchronously, meaning you make your request and provide an image with your text prompt and on success, returns a <code>jobID</code>, status endpoint and endpoint to cancel the request. You can later poll the status endpoint to get updates on whether the job completes and to get the image.",
+        "parameters": [
+          {
+            "name": "x-model-version",
+            "in": "header",
+            "description": "Specify the Firefly model version to use for the image generation.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "image3",
+              "enum": ["image3", "image4_standard", "image4_ultra"]
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -216,14 +231,14 @@
             },
             "description": "Internal Server Error"
           }
-        },
-        "summary": "Generate Similar Images Async - Model 3",
-        "description": "Generate similar images based on a reference image that you provide as a parameter.\n\nPerforms this asynchronously, meaning you make your request and provide an image with your text prompt and on success, returns a <code>jobID</code>, status endpoint and endpoint to cancel the request. You can later poll the status endpoint to get updates on whether the job completes and to get the image."
+        }
       }
     },
     "/v3/status/{jobId}": {
       "get": {
         "operationId": "jobResultV3",
+        "summary": "Get Result - Async",
+        "description": "Get the result of a job that you submitted to the Generate Similar Images Async endpoint.",
         "parameters": [
           {
             "description": "Unique identifier for the submitted job",
@@ -348,13 +363,14 @@
             },
             "description": "Validation Error"
           }
-        },
-        "summary": " Get Result - Async"
+        }
       }
     },
     "/v3/cancel/{jobId}": {
       "put": {
         "operationId": "cancelJobV3",
+        "summary": "Cancel Job - Async",
+        "description": "Cancel a job that you submitted to the Generate Similar Images Async endpoint.",
         "parameters": [
           {
             "description": "Unique identifier for the submitted job",
@@ -453,8 +469,7 @@
             },
             "description": "Validation Error"
           }
-        },
-        "summary": " Cancel Job - Async"
+        }
       }
     }
   },
@@ -1042,11 +1057,6 @@
           "style": {
             "$ref": "#/components/schemas/StylesV3"
           },
-          "tileable": {
-            "description": "Firefly generates an image that can be repeated infinitely in each direction without showing visible seams or edges.",
-            "title": "Indicates if Firefly can repeat an image",
-            "type": "boolean"
-          },
           "visualIntensity": {
             "description": "Adjusts the overall intensity of your photo's characteristic, such as contrast, shadow and hue.",
             "maximum": 10,
@@ -1202,14 +1212,14 @@
             "title": "The reference image"
           },
           "numVariations": {
-            "description": "Generate this number of variations. <code>numVariations</code> defaults to the number of seed images, or to 1 if you do not specify seeds.",
+            "description": "The number of variations to generate. `numVariations` defaults to the number of seed images, or to 1 if you do not specify seeds.",
             "maximum": 4,
             "minimum": 1,
             "title": "The number of variations",
             "type": "integer"
           },
           "seeds": {
-            "description": "Array of seed image IDs. These reference images help ensure consistent image generation across multiple API calls. If specified alongside with <code>numVariations</code>, the number of seeds must equal to <code>numVariations</code>.",
+            "description": "An array of seed image IDs. These reference images help ensure consistent image generation across multiple API calls. For example, use the same seed to generate a similar image in different styles. If specified along with `numVariations`, the number of seeds provided must equal `numVariations`.",
             "items": {
               "type": "integer"
             },
@@ -1229,13 +1239,8 @@
               "height": 2048,
               "width": 2048
             },
-            "description": "The desired width and height for the final image in pixels. The supported sizes for the output images are: <ul> <li>Square (1:1) - width 2048px, height 2048px </li> <li>Square (1:1) - width 1024px, height 1024px </li> <li>Landscape (4:3)  - width 2304px, height 1792px </li> <li>Portrait (3:4)  - width 1792px, height 2304px</li> <li>Widescreen (16:9) - width 2688px, height 1536px </li> <li>(7:4)  - width 1344px, height 768px </li> <li>(9:7) - width 1152px, height 896px </li> <li>(7:9) - width 896px, height 1152px</li> </ul>",
+            "description": "The desired width and height for the final image, in pixels. Supported sizes for the output images are: <ul> <li>Square (1:1) - width 2048px, height 2048px </li> <li>Square (1:1) - width 1024px, height 1024px </li> <li>Landscape (4:3)  - width 2304px, height 1792px </li> <li>Portrait (3:4)  - width 1792px, height 2304px</li> <li>Widescreen (16:9) - width 2688px, height 1536px </li> <li>Widescreen (16:9) - width 1344px, height 756px </li> <li>Widescreen (16:9) - width 2688px, height 1512px </li> <li>(7:4)  - width 1344px, height 768px </li> <li>(9:7) - width 1152px, height 896px </li> <li>(7:9) - width 896px, height 1152px</li> </ul>",
             "title": "The size"
-          },
-          "tileable": {
-            "description": "Firefly generates an image that can be repeated infinitely in each direction without showing visible seams or edges.",
-            "title": "Indicates if Firefly can repeat an image",
-            "type": "boolean"
           }
         },
         "required": [

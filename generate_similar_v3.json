@@ -21,6 +21,7 @@
         "post": {
             "summary": "Generate Similar Images - Model 3",
             "operationId": "generateSimilarImages",
+            "deprecated": true,
             "description": "Generate similar images based on a reference image that you provide as a parameter.",
             "requestBody": {
               "content": {
@@ -343,12 +344,6 @@
                 ],
                 "title": "Reference image",
                 "description": "Firefly will generate similar variations based on the reference input image. Supported formats are, image/jpeg, image/png, image/webp. "
-              },
-              "tileable": {
-                "type": "boolean",
-                "title": "Output image tileability",
-                "description": "An image is tileable if it can be repeated infinitely in any direction without showing visible seams or edges.",
-                "default": false          
               }
             },
             "type": "object",
