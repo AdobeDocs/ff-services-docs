@@ -41,7 +41,7 @@ hideBreadcrumbNav: true
 
 **API updates**
 
-* Launch of Custom Models support: The Generate Images API [now supports custom models](../guides/custom-models/).
+* Launch of Custom Models support: The Generate Images API [now supports custom models](../concepts/custom-models/index.md).
 
 ## November 18, 2024
 
