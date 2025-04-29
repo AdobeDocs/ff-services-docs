@@ -3,7 +3,7 @@
   "info": {
     "version": "V3",
     "title": "Firefly API",
-    "description": "REST API for Adobe Firefly for enterprise usage"
+    "description": "REST API for Adobe Firefly, for enterprise usage."
 },
 "servers": [
     {
@@ -20,15 +20,18 @@
     "/v3/images/generate-async": {
       "post": {
         "operationId": "generateImagesV3Async",
+        "summary": "Generate Images Async",
+        "description": "Generate images based on a text prompt. You may also include a reference image and Firefly will try to mimic the characteristics, such as color scheme, lighting, layout of objects in the image, etc.\n\nThis task is performed asynchronously, which means that a successful response returns a <code>jobID</code>. Use this ID with the Get Result endpoint to check the status of the job and get the processed image result or with the Cancel Job endpoint to cancel the job.",
         "parameters": [
           {
             "name": "x-model-version",
             "in": "header",
-            "description": "Use this header when the request body includes a customModelId. Must be set to `image3_custom`.",
+            "description": "Specify the Firefly model version to use for the image generation. When a custom model is used, a `customModelId` must also be passed in the request body.",
             "required": false,
             "schema": {
               "type": "string",
-              "enum": ["image3_custom"]
+              "default": "image3",
+              "enum": ["image3", "image3_custom", "image4_standard", "image4_ultra"]
             }
           }
         ],
@@ -59,7 +62,7 @@
             "description": "Successful Response",
             "headers": {
               "Link": {
-                "description": "Links to check job status & cancel job",
+                "description": "Links to check the job status or cancel the job.",
                 "schema": {
                   "type": "string"
                 }
@@ -106,9 +109,10 @@
             "description": "Forbidden",
             "headers": {
               "x-access-error": {
-                "description": "Indicates reason for unauthorized access. Possible values are:\n- quota_exhausted\n- user_non_entitled\n- user_profile_denied\n- invalid_ims_scope",
+                "description": "Indicates the reason access is not authorized.",
                 "schema": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": ["quota_exhausted", "user_non_entitled", "user_profile_denied", "invalid_ims_scope"]
                 }
               }
             }
@@ -228,14 +232,14 @@
             },
             "description": "Internal Server Error"
           }
-        },
-  "summary": "Generate Images Async - Model 3",
-        "description": "Generate images based on your text prompt. When you make your request, you can also include an optional reference image and Firefly will try to mimic the layout and style, such as color scheme, lighting, layout of objects in the image and so on.\n\nPerforms this asynchronously, meaning you make your request and provide an image with your text prompt and on success, returns a <code>jobID</code>, status endpoint and endpoint to cancel the request. You can later poll the status endpoint to get updates on whether the job completes and to get the image."
+        }
       }
     },
     "/v3/status/{jobId}": {
       "get": {
         "operationId": "jobResultV3",
+        "summary": "Get Result - Async",
+        "description": "Get the result of the job.",
         "parameters": [
           {
             "description": "Unique identifier for the submitted job",
@@ -360,13 +364,14 @@
             },
             "description": "Validation Error"
           }
-        },
-        "summary": " Get Result - Async"
+        }
       }
     },
     "/v3/cancel/{jobId}": {
       "put": {
         "operationId": "cancelJobV3",
+        "summary": "Cancel Job - Async",
+        "description": "Cancel the asynchronous job.",
         "parameters": [
           {
             "description": "Unique identifier for the submitted job",
@@ -465,8 +470,7 @@
             },
             "description": "Validation Error"
           }
-        },
-        "summary": " Cancel Job - Async"
+        }
       }
     }
   },
@@ -640,8 +644,7 @@
         "properties": {
           "source": {
             "$ref": "#/components/schemas/PublicBinaryInputV3",
-            "description": "Source image that Firefly expands, fills or uses to generate similar images",
-            "title": "Source image"
+            "description": "Source image that Firefly expands, fills or uses to generate similar images"
           }
         },
         "required": [
@@ -654,8 +657,7 @@
         "properties": {
           "source": {
             "$ref": "#/components/schemas/PublicBinaryInputV3",
-            "description": "Original mask image.",
-            "title": "Mask image"
+            "description": "Original mask image."
           }
         },
         "required": [
@@ -793,7 +795,6 @@
           "empty_input_body",
           "bad_request"
         ],
-        "title": "ColligoErrorCodeAsyncV3",
         "type": "string"
       },
       "ColliogAsyncStatusErrorCodeV3": {
@@ -801,7 +802,6 @@
         "enum": [
           "unknown_job_id"
         ],
-        "title": "ColliogAsyncStatusErrorCodeV3",
         "type": "string"
       },
       "ContentClassV3": {
@@ -810,20 +810,17 @@
           "photo",
           "art"
         ],
-        "title": "ContentClassV3",
         "type": "string"
       },
       "ExpandImageRequestV3": {
         "properties": {
           "image": {
             "$ref": "#/components/schemas/InputImageV3",
-            "description": "The image to expand. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> </ul>",
-            "title": "Input Image"
+            "description": "The image to expand. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> </ul>"
           },
           "mask": {
             "$ref": "#/components/schemas/InputMaskV3",
-            "description": "Mask image which will be used to expand the given image.",
-            "title": "Mask Image"
+            "description": "Mask image which will be used to expand the given image."
           },
           "numVariations": {
             "description": "Generate this number of variations. <code>numVariations</code> defaults to the number of seed images, or to 1 if you do not specify seeds.",
@@ -834,8 +831,7 @@
           },
           "placement": {
             "$ref": "#/components/schemas/Placement",
-            "description": "The position of the source image after Firefly resizes it. The value describes the horizontal and vertical placement and dimensions of the image in the output. Note you cannot use placement for source images when you also apply a mask image.",
-            "title": "Placement"
+            "description": "The position of the source image after Firefly resizes it. The value describes the horizontal and vertical placement and dimensions of the image in the output. Note you cannot use placement for source images when you also apply a mask image."
           },
           "prompt": {
             "description": "An optional text prompt up to 1024 characters. The longer the prompt the better Firefly performs.",
@@ -888,8 +884,7 @@
           },
           "size": {
             "$ref": "#/components/schemas/Size",
-            "description": "When you provide size as input, this value is the same.",
-            "title": "The actual size of the output"
+            "description": "When you provide size as input, this value is the same."
           }
         },
         "required": [
@@ -903,13 +898,11 @@
         "properties": {
           "image": {
             "$ref": "#/components/schemas/InputImageV3",
-            "description": "The image to expand. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> </ul>",
-            "title": "Input Image"
+            "description": "The image to expand. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> </ul>"
           },
           "mask": {
             "$ref": "#/components/schemas/InputMaskV3",
-            "description": "Required. Selected areas of a background image that Firefly uses to fill the source image.",
-            "title": "Mask Image"
+            "description": "Required. Selected areas of a background image that Firefly uses to fill the source image."
           },
           "negativePrompt": {
             "description": "An optional text prompt up to 1024 characters. Avoid these characteristics in the generated image.",
@@ -981,8 +974,7 @@
           },
           "size": {
             "$ref": "#/components/schemas/Size",
-            "description": "When you provide size as input, this value is the same.",
-            "title": "The actual size used for the outputs"
+            "description": "When you provide size as input, this value is the same."
           }
         },
         "required": [
@@ -996,47 +988,40 @@
         "properties": {
           "contentClass": {
             "$ref": "#/components/schemas/ContentClassV3",
-            "description": "Generate an image to being more photographic or more like art. Options include <code>photo</code> or <code>art</code>.",
-            "title": "The content class"
+            "description": "Directs the style of a generated image to be photographic or like fine art."
           },
           "customModelId": {
             "type": "string",
-            "description": "Optional. If present, you must include `x-model-version: image3_custom` in the headers.",
-            "title": "Custom Model asset identifier"
+            "description": "Include the specific custom model ID when a custom model type is designated in the `x-model-version` header parameter."
           },
           "negativePrompt": {
-            "description": "Firefly tries to avoid generating anything you specify in this text prompt.",
+            "description": "A negative prompt of things Firefly will try to avoid generating in the image.",
             "maxLength": 1024,
-            "title": "Avoid prompt",
             "type": "string"
           },
           "numVariations": {
-            "description": "Generate this number of variations. <code>numVariations</code> defaults to the number of seed images, or to 1 if you do not specify seeds.",
+            "description": "The number of variations to generate. <code>numVariations</code> defaults to the number of seed images, or to 1 if you do not specify `seeds`.",
             "maximum": 4,
             "minimum": 1,
-            "title": "The number of variations",
             "type": "integer"
           },
           "prompt": {
-            "description": "An optional text prompt up to 1024 characters. The longer the prompt the better Firefly performs.",
+            "description": "A text prompt to support the generation of an image. The longer the prompt the better Firefly performs.",
             "maxLength": 1024,
             "minLength": 1,
-            "title": "The prompt",
             "type": "string"
           },
           "promptBiasingLocaleCode": {
-            "description": "A hyphen-separated string combining the ISO 639-1 language code and the ISO 3166-1 region, such as en-US. When a locale is set, the prompt will be biased to generate more relevant content for that region. The locale will be auto-detected if not specified based on your profile and the accepted language header.",
-            "title": "The locale used for image generations",
+            "description": "A hyphen-separated string combining the ISO 639-1 language code and the ISO 3166-1 region (like en-US). When a locale is set, the prompt will be biased to generate more relevant content for that region. If not specified, the locale will be auto-detected based on your profile and the accepted language header.",
             "type": "string"
           },
           "seeds": {
-            "description": "Array of seed image IDs. These reference images help ensure consistent image generation across multiple API calls. For example, you can use the same seed to generate a similar image with different styles. If specified alongside with <code>numVariations</code>, the number of seeds must equal to <code>numVariations</code>.",
+            "description": "An array of seed image IDs. These reference images help ensure consistent image generation across multiple API calls. For example, use the same seed to generate a similar image in different styles. If specified along with <code>numVariations</code>, the number of seeds provided must equal <code>numVariations</code>.",
             "items": {
               "type": "integer"
             },
             "maxItems": 4,
             "minItems": 1,
-            "title": "The seed image for each variation",
             "type": "array",
             "uniqueItems": true
           },
@@ -1050,25 +1035,20 @@
               "height": 2048,
               "width": 2048
             },
-            "description": "The desired width and height for the final image in pixels. The supported sizes for the output images are: <ul> <li>Square (1:1) - width 2048px, height 2048px </li> <li>Square (1:1) - width 1024px, height 1024px </li> <li>Landscape (4:3)  - width 2304px, height 1792px </li> <li>Portrait (3:4)  - width 1792px, height 2304px</li> <li>Widescreen (16:9) - width 2688px, height 1536px </li> <li>(7:4)  - width 1344px, height 768px </li> <li>(9:7) - width 1152px, height 896px </li> <li>(7:9) - width 896px, height 1152px</li> </ul>",
-            "title": "The size"
+            "description": "The desired width and height for the final image, in pixels. Supported sizes for the output images with `image3` are: <ul> <li>Square (1:1) - width 2048px, height 2048px </li> <li>Square (1:1) - width 1024px, height 1024px </li> <li>Landscape (4:3)  - width 2304px, height 1792px </li> <li>Portrait (3:4)  - width 1792px, height 2304px</li>  <li>Widescreen (16:9) - width 2688px, height 1536px </li> <li>Widescreen (16:9) - width 2688px, height 1512px </li> <li>(7:4)  - width 1344px, height 768px </li> <li>(7:4)  - width 1344px, height 756px </li> <li>(9:7) - width 1152px, height 896px </li> <li>(7:9) - width 896px, height 1152px</li> </ul> Supported sizes for the output images with `image4` are: <ul> <li>(1:1) - width 2048px, height 2048px</li> <li>(4:3) - width 2304px, height 1792px</li> <li>(3:4) - width 1792px, height 2304px</li> <li>(16:9) - width 2688px, height 1536px</li> <li>(9:16) - width 1440px, height 2560px</li> </ul> "
           },
           "structure": {
+            "description": "An object with the reference image details for structure.",
             "$ref": "#/components/schemas/StructureReferenceV3"
           },
           "style": {
+            "description": "An object with the reference image details for style.",
             "$ref": "#/components/schemas/StylesV3"
           },
-          "tileable": {
-            "description": "Firefly generates an image that can be repeated infinitely in each direction without showing visible seams or edges.",
-            "title": "Indicates if Firefly can repeat an image",
-            "type": "boolean"
-          },
           "visualIntensity": {
-            "description": "Adjusts the overall intensity of your photo's characteristic, such as contrast, shadow and hue.",
+            "description": "Adjust the overall intensity of your photo's characteristics, such as contrast, shadow, and hue.",
             "maximum": 10,
             "minimum": 2,
-            "title": "Visual Intensity",
             "type": "integer"
           }
         },
@@ -1082,8 +1062,7 @@
         "properties": {
           "contentClass": {
             "$ref": "#/components/schemas/ContentClassV3",
-            "description": "Generate an image to being more photographic or more like art. Either <code>photo</code> or <code>art</code>.",
-            "title": "The detected content class"
+            "description": "Generate an image to being more photographic or more like art. Either <code>photo</code> or <code>art</code>."
           },
           "outputs": {
             "description": "Each image ID.",
@@ -1122,13 +1101,11 @@
           },
           "image": {
             "$ref": "#/components/schemas/InputImageV3",
-            "description": "The image to expand. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> </ul>",
-            "title": "Input Image"
+            "description": "The image to expand. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> </ul>"
           },
           "mask": {
             "$ref": "#/components/schemas/BaseInputMaskV3",
-            "description": "Required. Selected areas of a background image that Firefly uses to fill the source image.",
-            "title": "Mask of the object"
+            "description": "Required. Selected areas of a background image that Firefly uses to fill the source image."
           },
           "numVariations": {
             "description": "Generate this number of variations. Defaults to the number of seed images, or to 1 if you do not specify seeds.",
@@ -1139,8 +1116,7 @@
           },
           "placement": {
             "$ref": "#/components/schemas/Placement",
-            "description": "The position of the source image after Firefly adjusts it. The value describes the horizontal and vertical placement and dimensions of the image in the output. Note you cannot use placement for source images when you also apply a mask image.",
-            "title": "Object placement"
+            "description": "The position of the source image after Firefly adjusts it. The value describes the horizontal and vertical placement and dimensions of the image in the output. Note you cannot use placement for source images when you also apply a mask image."
           },
           "prompt": {
             "description": "An optional text prompt up to 1024 characters. The longer the prompt the better Firefly performs.",
@@ -1150,7 +1126,7 @@
             "type": "string"
           },
           "seeds": {
-            "description": "Array of seed image IDs. These reference images help ensure consistent image generation across multiple API calls. If specified alongside with <code>numVariations</code>, the number of seeds must equal to <code>numVariations</code>.",
+            "description": "Array of seed image IDs. These reference images help ensure consistent image generation across multiple API calls.\n\nIf specified alongside with <code>numVariations</code>, the number of seeds must equal to <code>numVariations</code>.",
             "items": {
               "type": "integer"
             },
@@ -1200,8 +1176,7 @@
           },
           "size": {
             "$ref": "#/components/schemas/Size",
-            "description": "When you provide size as input, this value is the same.",
-            "title": "The actual size used for the output"
+            "description": "When you provide size as input, this value is the same."
           }
         },
         "required": [
@@ -1215,11 +1190,11 @@
         "properties": {
           "image": {
             "$ref": "#/components/schemas/BaseInputImageV3",
-            "description": "Firefly will create similar variations. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> </ul>",
+            "description": "Firefly will create similar variations. You can either use a URL or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> </ul>",
             "title": "The reference image"
           },
           "numVariations": {
-            "description": "Generate this number of variations. <code>numVariations</code> defaults to the number of seed images, or to 1 if you do not specify seeds.",
+            "description": "Generate this number of variations. <code>numVariations</code> defaults to the number of seed images, or to 1 if you do not specify `seeds`.",
             "maximum": 4,
             "minimum": 1,
             "title": "The number of variations",
@@ -1248,11 +1223,6 @@
             },
             "description": "The desired width and height for the final image in pixels. The supported sizes for the output images are: <ul> <li>Square (1:1) - width 2048px, height 2048px </li> <li>Square (1:1) - width 1024px, height 1024px </li> <li>Landscape (4:3)  - width 2304px, height 1792px </li> <li>Portrait (3:4)  - width 1792px, height 2304px</li> <li>Widescreen (16:9) - width 2688px, height 1536px </li> <li>(7:4)  - width 1344px, height 768px </li> <li>(9:7) - width 1152px, height 896px </li> <li>(7:9) - width 896px, height 1152px</li> </ul>",
             "title": "The size"
-          },
-          "tileable": {
-            "description": "Firefly generates an image that can be repeated infinitely in each direction without showing visible seams or edges.",
-            "title": "Indicates if Firefly can repeat an image",
-            "type": "boolean"
           }
         },
         "required": [
@@ -1274,8 +1244,7 @@
           },
           "size": {
             "$ref": "#/components/schemas/Size",
-            "description": "When you provide size as input, this value is the same.",
-            "title": "The actual size used for the output"
+            "description": "When you provide size as input, this value is the same."
           }
         },
         "required": [
@@ -1431,13 +1400,13 @@
       "PublicBinaryInputV3": {
         "properties": {
           "uploadId": {
-            "description": "This is the uploadId from storage API response.",
+            "description": "The `uploadId` from the storage API response.",
             "format": "uuid4",
             "title": "The upload ID",
             "type": "string"
           },
           "url": {
-            "description": "Presigned URL of an uploaded file. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> </ul>",
+            "description": "The pre-signed URL of an uploaded file. You can either use a URL or an `uploadID` as the source for the image. Firefly only allows these listed domains in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> </ul>",
             "format": "uri",
             "maxLength": 2083,
             "minLength": 1,
@@ -1467,13 +1436,11 @@
           "height": {
             "maximum": 4096,
             "minimum": 1,
-            "title": "The height of the output image",
             "type": "integer"
           },
           "width": {
             "maximum": 4096,
             "minimum": 1,
-            "title": "The width of the output image",
             "type": "integer"
           }
         },
@@ -1481,7 +1448,6 @@
           "width",
           "height"
         ],
-        "title": "Size",
         "type": "object"
       },
       "StructureImageReferenceV3": {
@@ -1490,7 +1456,6 @@
             "$ref": "#/components/schemas/PublicBinaryInputV3"
           }
         },
-        "title": "StructureImageReferenceV3",
         "type": "object"
       },
       "StructureReferenceV3": {
@@ -1506,7 +1471,6 @@
             "type": "integer"
           }
         },
-        "title": "StructureReferenceV3",
         "type": "object"
       },
       "StylesImageReferenceV3": {
@@ -1515,7 +1479,6 @@
             "$ref": "#/components/schemas/PublicBinaryInputV3"
           }
         },
-        "title": "StylesImageReferenceV3",
         "type": "object"
       },
       "StylesV3": {
@@ -1524,23 +1487,20 @@
             "$ref": "#/components/schemas/StylesImageReferenceV3"
           },
           "presets": {
-            "description": "You can specify an ID for a style of image to generate",
+            "description": "The style presets. Specify an ID for a style of image to generate.",
             "items": {
               "type": "string"
             },
-            "title": "The style presets",
             "type": "array",
             "uniqueItems": true
           },
           "strength": {
-            "description": "How strictly Firefly should adhere to the style you provide.",
+            "description": "How strictly Firefly should adhere to the style you provide. 0 means no adherence. 100 means full adherence.",
             "exclusiveMinimum": 0,
             "maximum": 100,
-            "title": "The strength of the style",
             "type": "integer"
           }
         },
-        "title": "StylesV3",
         "type": "object"
       },
       "ValidationError": {
