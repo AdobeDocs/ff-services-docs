@@ -8,33 +8,40 @@ contributors:
   - https://github.com/archyposada
 hideBreadcrumbNav: true
 ---
-# Sample Code
+# Code Samples
 
-## Lightroom
+These code snippets are ready to copy  and use for tasks with the Lightroom API.
 
-### Apply Autotone to an image
+## Lightroom tasks
+
+These actions all initiate an asynchronous job and return a response containing the link to [poll for job status and results](#get-a-tasks-status-and-results).
+
+### Apply Auto Tone to an image
+
+Auto Tone is a feature that automatically adjusts the tonal range of an image, making shadows darker and highlights brighter.
 
 ```shell
 curl -X POST \
   https://image.adobe.io/lrService/autoTone \
-  -H "Authorization: Bearer $token"  \
-  -H "x-api-key: $apiKey" \
+  -H "Authorization: Bearer ${Token}"  \
+  -H "x-api-key: ${Api Key}" \
   -H "Content-Type: application/json" \
   -d '{
     "inputs": {
-        "href": "<SIGNED_GET_URL>",
+        "href": "<signed GET URL>",
         "storage": "<storage>"
     },
     "outputs": [
         {
-            "href": "<SIGNED_POST_URL>",
+            "href": "<signed POST URL>",
             "type": "<type>",
             "storage": "<storage>"
         }
     ]
 }'
 ```
-This initiates an asynchronous job and returns a request body containing the href to poll for job status.
+
+**Example response**
 
 ```json
 {
@@ -45,24 +52,25 @@ This initiates an asynchronous job and returns a request body containing the hre
     }
 }
 ```
-To verify the completion status of the task, utilize the `Get Status` API. Refer to [this link](../code-sample/index.md#poll-for-status-and-results) for an example demonstrating how to check the status.  
 
-### Autostraighten an image
+### Auto straighten an image
+
+Automatically straighten images by identifying and correcting skewed lines.
 
 ```shell
 curl -X POST \
   https://image.adobe.io/lrService/autoStraighten \
-  -H "Authorization: Bearer $token"  \
-  -H "x-api-key: $apiKey" \
+  -H "Authorization: Bearer ${Token}"  \
+  -H "x-api-key: ${Api Key}" \
   -H "Content-Type: application/json" \
   -d '{
     "inputs": {
-        "href": "<SIGNED_GET_URL>",
+        "href": "<signed GET URL>",
         "storage": "<storage>"
     },
     "outputs": [
         {
-            "href": "<SIGNED_POST_URL>",
+            "href": "<signed POST URL>",
             "type": "<type>",
             "storage": "<storage>"
         }
@@ -70,7 +78,7 @@ curl -X POST \
 }'
 ```
 
-This initiates an asynchronous job and returns a request body containing the href to poll for job status.
+**Example response**
 
 ```json
 {
@@ -82,25 +90,25 @@ This initiates an asynchronous job and returns a request body containing the hre
 }
 ```
 
-To verify the completion status of the task, utilize the `Get Status` API. Refer to [this link](../code-sample/index.md#poll-for-status-and-results) for an example demonstrating how to check the status.
-
 ### Apply presets to an image
+
+Apply presets to an image to quickly adjust its appearance.
 
 ```shell
 curl -X POST \
   https://image.adobe.io/lrService/presets \
-  -H "Authorization: Bearer $token"  \
-  -H "x-api-key: $apiKey" \
+  -H "Authorization: Bearer ${Token}"  \
+  -H "x-api-key: ${Api Key}" \
   -H "Content-Type: application/json" \
   -d '{
     "inputs": {
         "source": {
-            "href": "<SIGNED_GET_URL>",
+            "href": "<signed GET URL>",
             "storage": "<storage>"
         },
         "presets": [
             {
-                "href": "<SIGNED_GET_URL>",
+                "href": "<signed GET URL>",
                 "storage": "<storage>"
             },
             {
@@ -118,7 +126,9 @@ curl -X POST \
     ]
 }'
 ```
-This initiates an asynchronous job and returns a request body containing the href to poll for job status.
+
+**Example response**
+
 ```json
 {
     "_links": {
@@ -128,20 +138,21 @@ This initiates an asynchronous job and returns a request body containing the hre
     }
 }
 ```
-To verify the completion status of the task, utilize the `Get Status` API. Refer to [this link](../code-sample/index.md#poll-for-status-and-results) for an example demonstrating how to check the status.
 
 ### Apply edits to an image
+
+Perform image edits.
 
 ```shell
 curl -X POST \
   https://image.adobe.io/lrService/edit \
-  -H "Authorization: Bearer $token"  \
-  -H "x-api-key: $apiKey" \
+  -H "Authorization: Bearer ${Token}"  \
+  -H "x-api-key: ${Api Key}" \
   -H "Content-Type: application/json" \
   -d '{
     "inputs": {
         "source": {
-            "href": "<SIGNED_GET_URL>",
+            "href": "<signed GET URL>",
             "storage": "<storage>"
         }
     },
@@ -168,14 +179,16 @@ curl -X POST \
     },
     "outputs": [
         {
-            "href": "<SIGNED_POST_URL>",
+            "href": "<signed POST URL>",
             "type": "<type>",
             "storage": "<storage>"
         }
     ]
 }'
 ```
-This initiates an asynchronous job and returns a request body containing the href to poll for job status.
+
+**Example response**
+
 ```json
 {
     "_links": {
@@ -186,20 +199,20 @@ This initiates an asynchronous job and returns a request body containing the hre
 }
 ```
 
-To verify the completion status of the task, utilize the `Get Status` API. Refer to [this link](../code-sample/index.md#poll-for-status-and-results) for an example demonstrating how to check the status.
-
-### Apply xmp to an image
+### Apply XMP to an image
 
 ```shell
 curl -X POST \
   https://image.adobe.io/lrService/xmp \
-  -H "Authorization: Bearer $token"  \
-  -H "x-api-key: $apiKey" \
+  -H "Authorization: Bearer ${Token}"  \
+  -H "x-api-key: ${Api Key}" \
   -H "Content-Type: application/json" \
   -d '{
     "inputs": {
-        "href": "<SIGNED_GET_URL>",
-        "storage": "<storage>"
+        "source": {
+            "href": "<signed GET URL>",
+            "storage": "<storage>"
+        }
     },
     "options": {
         "xmp": "<xmp>",
@@ -207,14 +220,15 @@ curl -X POST \
     },
     "outputs": [
         {
-            "href": "<SIGNED_POST_URL>",
+            "href": "<signed POST URL>",
             "storage": "<storage>",
             "type": "<type>"
         }
     ]
 }'
 ```
-This initiates an asynchronous job and returns a request body containing the href to poll for job status.
+
+**Example response**
 
 ```json
 {
@@ -226,27 +240,27 @@ This initiates an asynchronous job and returns a request body containing the hre
 }
 ```
 
-To verify the completion status of the task, utilize the `Get Status` API. Refer to [this link](../code-sample/index.md#poll-for-status-and-results) for an example demonstrating how to check the status.
+## Get a task's status and results
 
-### Poll for status and results
+Use the Job ID with the `href` link that's returned in the response to poll for the status of a Lightroom API job.
 
-Use the JobID to poll on the href that is returned in the response from one of the Lightroom APIs.
-1. Upon successful job completion, the output file will be available at the specified output href.
-2. If the job failed due to an error, the `errorDetails` field in the response will contain the details of the failure.
+When a successful job completes, the output file is available at the `href` link in the response.
+
+If the job fails due to an error, the `errorDetails` field in the response will contain the details of the failure.
 
 ```shell
 curl -X GET \
   https://image.adobe.io/lrService/status/<jobId> \
-  -H "Authorization: Bearer $token"  \
-  -H "x-api-key: $apiKey" \
+  -H "Authorization: Bearer ${Token}"  \
+  -H "x-api-key: ${Api Key}" \
   -H "Content-Type: application/json" \
 ```
 
-And this will return a request body containing the job status for each requested output and eventually either errors or the hrefs to the requested outputs
+**Example response**
 
 ```json
 {
-  "jobId":"<jobId>",
+  "jobId":"<job ID>",
   "created":"2018-01-04T12:57:15.12345:Z",
   "modified":"2018-01-04T12:58:36.12345:Z",
   "outputs":[
@@ -270,27 +284,35 @@ And this will return a request body containing the job status for each requested
 }
 ```
 
-## Triggering an Event from the API's
-In order to start receiving the events in your Webhook Application, you will need to pass in your IMS ORG ID in a header: `x-gw-ims-org-id: <YOUR_IMS_ORG_ID>`, when you make an API call to initiate a job. Please have a look at the example below that demonstrates the usage of the new header and a sample event received for that job.
+## Triggering an event from the APIs
 
-### Auto tone an image through the Lightroom API
+To start receiving the events in your webhook application, pass your IMS organization ID in the header:
 
-#### Step 1: Initiate a job to auto tone an image
+```shell
+ -H 'x-gw-ims-org-id: ${IMS org ID}'  \
+ ```
+
+ The example below demonstrates using this header in an Auto Tone job and a sample event received for that job.
+
+### Step 1: Initiating the job
+
+This initiates the Auto Tone job using the header to trigger an event.
+
 ```shell
 curl -X POST \
   https://image.adobe.io/lrService/autoTone \
-  -H "Authorization: Bearer $token" \
+  -H "Authorization: Bearer ${Token}" \
   -H "Content-Type: application/json" \
-  -H "x-api-key: <YOUR_API_KEY>" \
-  -H 'x-gw-ims-org-id: <YOUR_IMS_ORG_ID>' \
+  -H "x-api-key: ${Api Key}" \
+  -H 'x-gw-ims-org-id: ${IMS org ID}' \
   -d '{
     "inputs": {
-      "href": "<SIGNED_GET_URL>",
+      "href": "<signed GET URL>",
       "storage": "<storage>"
     },
     "outputs": [
     {
-      "href": "<SIGNED_POST_URL>",
+      "href": "<signed POST URL>",
       "type": "<type>",
       "storage": "<storage>"
     }
@@ -298,7 +320,7 @@ curl -X POST \
 }'
 ```
 
-This initiates an asynchronous job and returns a request body containing the href to poll for job status.
+The asynchronous job returns a response containing the `href` to poll for the job status.
 
 ```json
 {
@@ -309,8 +331,11 @@ This initiates an asynchronous job and returns a request body containing the hre
     }
 }
 ```
-#### Step 2: Receive the Job's status on the Webhook application when the job is complete
-The value in the key `body` inside the event JSON contains the result of the job. Here is a sample event received from the job initiated above:
+
+### Step 2: Retrieve the job's status on the webhook application when the job is complete
+
+The `body` property in the `event` object contains the result of the job.
+
 ```json
 {
   "event_id": "7b59cc70-88d7-4895-b204-87f5350a0cce",
@@ -318,7 +343,7 @@ The value in the key `body` inside the event JSON contains the result of the job
     "header": {
       "msgType": "JOB_COMPLETION_STATUS",
       "msgId": "eb4a9211-eb8a-4e88-b853-b9c08ba47427",
-      "imsOrgId": "<YOUR_IMS_ORG_ID>",
+      "imsOrgId": "<IMS org ID>",
       "eventCode": "lightroom-job-status",
       "_pipelineMeta": {
         "pipelineMessageId": "1586290300876:944289:VA7_A1:149:0"
@@ -328,7 +353,7 @@ The value in the key `body` inside the event JSON contains the result of the job
         "runningSmartId": "psmart-yw6wosjksniuuathenny"
       },
       "_adobeio": {
-        "imsOrgId": "<YOUR_IMS_ORG_ID>",
+        "imsOrgId": "<IMS org ID>",
         "providerMetadata": "di_event_code",
         "eventCode": "lightroom-job-status"
       }
@@ -337,12 +362,12 @@ The value in the key `body` inside the event JSON contains the result of the job
       "jobId": "eb4a9211-eb8a-4e88-b853-b9c08ba47427",
       "outputs": [
         {
-          "input": "<SIGNED_GET_URL>",
+          "input": "<signed GET URL>",
           "status": "succeeded",
           "_links": {
             "self": [
               {
-                "href": "<SIGNED_POST_URL>",
+                "href": "<signed POST URL>",
                 "storage": "<storage>"
               }
             ]
