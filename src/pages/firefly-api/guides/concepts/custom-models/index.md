@@ -34,9 +34,7 @@ Provide the asset ID in your API requests so that the generated images include t
 
 ## Performing CM image generation
 
-Perform CM inference by using the `/v3/images/generate-async` endpoint and including the header `x-model-version`. This specifies the model version used for generating the image.
-
-Currently, the only supported value is `image3_custom`.
+Perform CM inference by using the `/v3/images/generate-async` endpoint and including the header `x-model-version`. This specifies the model version used for generating the image, such as `image3_custom`.
 
 ### Request examples
 
