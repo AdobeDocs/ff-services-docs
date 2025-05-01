@@ -13,11 +13,12 @@ Use Firefly's Custom Models API to generate brand-aligned image variations at sc
 
 ## Overview
 
-With custom models, you can capture and replicate distinctive brand aesthetics, characters, objects, or compositional arrangements. These models are trained and referenced when generating new images, helping to scale brand-consistent visuals.
+With custom models, you can capture and replicate distinctive brand aesthetics, characters, objects, or compositional arrangements.
+These models are trained and referenced when generating new images, helping to scale brand-consistent visuals.
 
 ## Training modes
 
-Custom models can be set to learn different aspects of visual design:
+Custom models are configured to learn different aspects of visual design:
 
 * **Subject Models:** These focus on representing specific characters, products, or objects.
 For example, a subject model ensures that your brand mascot is depicted accurately in any scenario.
@@ -28,17 +29,15 @@ For example, a subject model ensures that your brand mascot is depicted accurate
 
 Custom models are assets hosted securely by Adobe, offering easy organization, versioning, and reuse. Each custom model has a unique asset ID.
 
-Asset IDs allow you to manage multiple models by tracking updates and maintaining a clear record of styles, subjects, or structures captured in versions over time.
+With Asset IDs you can manage multiple models by tracking updates and maintaining a clear record of styles, subjects, or structures captured in versions over time.
 
 Provide the asset ID in your API requests so that the generated images include the appropriate model's learned characteristics.
 
-## Performing CM image generation
+## Image generation with a custom model
 
-Perform CM inference by using the `/v3/images/generate-async` endpoint and including the header `x-model-version`. This specifies the model version used for generating the image.
+Leverage a custom model to generate images by using the `/v3/images/generate-async` endpoint and including the header `x-model-version`. This specifies the model version used for generating the image.
 
-Currently, the only supported value is `image3_custom`.
-
-### Request examples
+### Example requests
 
 <CodeBlock slots="heading, code" repeat="3" languages="bash, Python, JavaScript" />
 
@@ -50,7 +49,7 @@ curl --request POST 'https://firefly-api.adobe.io/v3/images/generate-async' \
 ...
 --data "{
     \"prompt\": \"An almond seed in a warm setting\",
-    \"customModelId\": \"$CUSTOM_MODEL_ID\"
+    \"customModelId\": \"${CUSTOM_MODEL_ID}\"
   }"
 ```
 
@@ -60,8 +59,8 @@ curl --request POST 'https://firefly-api.adobe.io/v3/images/generate-async' \
 def generate_images_with_custom_model(access_token, custom_model_id):
     url = 'https://firefly-api.adobe.io/v3/images/generate-async'
     headers = {
-      'x-model-version':'image3_custom',
-      ...
+        'x-model-version':'image3_custom',
+        ...
     }
 
     data = {
@@ -85,10 +84,10 @@ async function generateImagesWithCustomModel(accessToken, customModelId) {
     method: "post",
     url: "https://firefly-api.adobe.io/v3/images/generate-async",
     headers: {
-    "x-model-version":"image3_custom",
-    ...
-  },
-  data: JSON.stringify({
+      "x-model-version":"image3_custom",
+      ...
+    },
+    data: JSON.stringify({
       "prompt": "An almond seed in a warm setting",
       "customModelId": customModelId
     })
