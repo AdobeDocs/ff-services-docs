@@ -118,6 +118,16 @@
             },
             "description": "Request Timeout"
           },
+          "413": {
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
           "415": {
             "content": {
               "application/json": {
