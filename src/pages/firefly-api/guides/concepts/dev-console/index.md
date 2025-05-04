@@ -1,4 +1,34 @@
----
+{
+    "size": {
+        "width": 2048,
+        "height": 2048
+    },
+    "outputs": [
+        {
+            "seed": 1779323515,
+            "image": {
+                "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/asdf-12345?lots=of&query=params..."
+            }
+        }
+    ],
+    "contentClass": "art"
+}
+2048https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/asdf-12345?lots=of&query=params1779323515https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/asdf-12345?lots=of&query=paramscurl --location 'https://firefly-api.adobe.io/v3/images/generate' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
+--header "Authorization: Bearer $FIREFLY_SERVICES_ACCESS_TOKEN" \
+--data '{
+    "prompt": "a realistic illustration of a cat coding"
+}'
+export FIREFLY_SERVICES_ACCESS_TOKEN=yourAccessTokenAsdf123
+https://firefly-api.adobe.io/v3/images/generate86399{"access_token":"yourAccessTokenAsdf123","token_type":"bearer","expires_in":86399}curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'grant_type=client_credentials' \
+--data-urlencode "client_id=$FIREFLY_SERVICES_CLIENT_ID" \
+--data-urlencode "client_secret=$FIREFLY_SERVICES_CLIENT_SECRET" \
+--data-urlencode 'scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
+https://ims-na1.adobelogin.com/ims/token/v3---
 title: Using Adobe Developer Console for Firefly API Authentication
 description: Learn how to use Adobe Developer Console to manage resources and credentials for authenticating with Adobe Firefly APIs.
 keywords:
