@@ -160,7 +160,7 @@
             }
           },
           {
-            "name": "custom script",
+            "name": "scripts",
             "in": "path",
             "description": "The name of the custom script, specified in the custom script manifest.",
             "required": true,
