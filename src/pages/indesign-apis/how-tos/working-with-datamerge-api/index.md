@@ -72,17 +72,19 @@ repository, and a [pre-signed URL](/indesign-apis/concepts/#pre-signed-urls) wil
 
 Consult this skeleton [cURL request](https://developer.adobe.com/commerce/webapi/get-started/gs-curl/) for more details.
 
-
 ### Output Path Variations in Data Merge API
 
 When using the Data Merge API, the output file paths are determined by the `outputFolderPath` and `outputFileBaseString` parameters in the request. Here are the different scenarios and their corresponding output paths:
 
 #### Case 1: Both Parameters Missing
+
 When neither `outputFolderPath` nor `outputFileBaseString` is provided:
+
 - Output is created in a temporary folder with a random number prefix (e.g. tmp0696)
 - The output filename is derived from the original template filename
 
 Example:
+
 - Source: `Template.indd`
 - Output: `tmp0696/Template-1.indd`
 - For multiple documents or PNG/JPEG outputs: 
@@ -92,11 +94,14 @@ Example:
   - `tmp0696/Template-2.png`
 
 #### Case 2: Only outputFileBaseString Provided
+
 When only `outputFileBaseString` is specified:
+
 - Output is created in a temporary folder with a random number prefix (e.g. tmp0696)
 - Filename uses the provided base string
 
 Example:
+
 - Source: `Template.indd`
 - `outputFileBaseString`: "MergedOutput"
 - Output: `tmp0696/MergedOutput-1.indd`
@@ -107,11 +112,14 @@ Example:
   - `tmp0696/MergedOutput-2.png`
 
 #### Case 3: Only outputFolderPath Provided
+
 When only `outputFolderPath` is specified:
+
 - Output is created in the specified folder
 - Filename is derived from the original template
 
 Example:
+
 - Source: `Template.indd`
 - `outputFolderPath`: "ResultFolder"
 - Output: `ResultFolder/Template-1.indd`
@@ -122,11 +130,14 @@ Example:
   - `ResultFolder/Template-2.png`
 
 #### Case 4: Both Parameters Provided
+
 When both parameters are specified:
+
 - Output is created in the specified folder
 - Filename uses the provided base string
 
 Example:
+
 - Source: `Template.indd`
 - `outputFileBaseString`: "MergedOutput"
 - `outputFolderPath`: "ResultFolder"
