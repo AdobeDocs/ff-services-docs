@@ -87,7 +87,7 @@ Example:
 
 - Source: `Template.indd`
 - Output: `tmp0696/Template-1.indd`
-- For multiple documents or PNG/JPEG outputs: 
+- For multiple documents or PNG/JPEG outputs:
   - `tmp0696/Template-1.indd`
   - `tmp0696/Template-2.indd`
   - `tmp0696/Template-1.png`
@@ -105,7 +105,7 @@ Example:
 - Source: `Template.indd`
 - `outputFileBaseString`: "MergedOutput"
 - Output: `tmp0696/MergedOutput-1.indd`
-- For multiple documents or PNG/JPEG outputs: 
+- For multiple documents or PNG/JPEG outputs:
   - `tmp0696/MergedOutput-1.indd`
   - `tmp0696/MergedOutput-2.indd`
   - `tmp0696/MergedOutput-1.png`
@@ -123,7 +123,7 @@ Example:
 - Source: `Template.indd`
 - `outputFolderPath`: "ResultFolder"
 - Output: `ResultFolder/Template-1.indd`
-- For multiple documents or PNG/JPEG outputs: 
+- For multiple documents or PNG/JPEG outputs:
   - `ResultFolder/Template-1.indd`
   - `ResultFolder/Template-2.indd`
   - `ResultFolder/Template-1.png`
@@ -142,7 +142,7 @@ Example:
 - `outputFileBaseString`: "MergedOutput"
 - `outputFolderPath`: "ResultFolder"
 - Output: `ResultFolder/MergedOutput-1.indd`
-- For multiple documents or PNG/JPEG outputs: 
+- For multiple documents or PNG/JPEG outputs:
   - `ResultFolder/MergedOutput-1.indd`
   - `ResultFolder/MergedOutput-2.indd`
   - `ResultFolder/MergedOutput-1.png`
