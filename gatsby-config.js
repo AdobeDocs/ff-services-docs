@@ -37,7 +37,7 @@ module.exports = {
       {
         title: "Audio/Video API",
         description: "Docs and references for Audio/Video API",
-        path: "https://developer.adobe.com/audio-video-firefly-services/",
+        path: "https://developer.adobe.com/audio-video-firefly-services/?aio_internal",
       },
       {
         title: "InDesign API",
@@ -47,7 +47,7 @@ module.exports = {
       {
         title: "TLS API",
         description: "Docs and references for Translate and Lip Sync API",
-        path: "https://developer.adobe.com/translate-lipsync/",
+        path: "https://developer.adobe.com/translate-lipsync/?aio_internal",
       },
       {
         title: "Content Tagging API",
