@@ -42,3 +42,15 @@ The Data Merge API supports UTF-16BE encoding for CSV files. This encoding is re
 Only a specific set of origins/domains are supported.
 
 Please reach out to Adobe in order to whitelist any alternative origins/domains you may be using.
+
+## Rate Limits
+
+To maintain API stability and fair usage across clients, the following limits are enforced:
+
+- Soft limit: 250 requests per minute across all endpoints. Once this limit is crossed, you may experience slower responses.
+
+- Hard limit: 350 requests per minute. Requests beyond this limit are rejected.
+
+## Custom Scripts API - ZIP File Size Limit
+
+For the Custom Scripts API, the maximum allowed size for a Custom Script ZIP upload is 5MB.
