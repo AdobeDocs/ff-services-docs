@@ -37,7 +37,7 @@ module.exports = {
       {
         title: "Audio/Video API",
         description: "Docs and references for Audio/Video API",
-        path: "/audio-video-api/",
+        path: "https://developer.adobe.com/audio-video-firefly-services/",
       },
       {
         title: "InDesign API",
