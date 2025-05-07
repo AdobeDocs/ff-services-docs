@@ -59,8 +59,8 @@ curl --request POST 'https://firefly-api.adobe.io/v3/images/generate-async' \
 def generate_images_with_custom_model(access_token, custom_model_id):
     url = 'https://firefly-api.adobe.io/v3/images/generate-async'
     headers = {
-        'x-model-version':'image3_custom',
-        ...
+      'x-model-version':'image3_custom',
+      ...
     }
 
     data = {
@@ -84,10 +84,10 @@ async function generateImagesWithCustomModel(accessToken, customModelId) {
     method: "post",
     url: "https://firefly-api.adobe.io/v3/images/generate-async",
     headers: {
-      "x-model-version":"image3_custom",
-      ...
-    },
-    data: JSON.stringify({
+    "x-model-version":"image3_custom",
+    ...
+  },
+  data: JSON.stringify({
       "prompt": "An almond seed in a warm setting",
       "customModelId": customModelId
     })

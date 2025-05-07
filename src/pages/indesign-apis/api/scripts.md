@@ -4,4 +4,4 @@ description: Submit and execute your own custom scripts.
 layout: none
 ---
 
-<RedoclyAPIBlock src="/firefly-services/docs/indesign/scriptsapi.json" width="600px" disableSidebar hideTryItPanel />
+<RedoclyAPIBlock src="/firefly-services/docs/indesign/scriptsapi.json" width="600px" disableSidebar hideTryItPanel scrollYOffset={64} generateCodeSamples="languages: [{lang: 'curl'}]" />
