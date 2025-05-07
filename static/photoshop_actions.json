@@ -139,13 +139,7 @@
           "500": {
             "description": "Internal Server Error"
           }
-        },
-        "x-codeSamples": [
-          {
-            "lang": "shell",
-            "source": "curl --request POST \\\n  --url https://image.adobe.io/pie/psdService/photoshopActions \\\n  --header 'Authorization: Bearer $token' \\\n  --header 'content-type: application/json' \\\n  --header 'x-api-key: $x-api-key' \\\n  --data '{\"inputs\":[{\"href\":\"get_presigned_url\",\"storage\":\"external\"}],\\\n \"options\":{\"actions\":[{\"href\":\"https://get-presigned-url.com/Oil-paint.atn\",\"storage\":\"string\"}]}\\\n \"outputs\":[{\"href\":\"https://put-presigned-url.com/output.jpg\",\"storage\":\"external\",\"type\":\"image/jpeg\"}]}'"
-          }
-        ]
+        }
       }
     }
   }

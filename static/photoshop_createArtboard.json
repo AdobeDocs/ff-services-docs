@@ -139,13 +139,7 @@
           "500": {
             "description": "Internal Server Error"
           }
-        },
-        "x-codeSamples": [
-          {
-            "lang": "shell",
-            "source": "curl --request POST \\\n  --url https://image.adobe.io/pie/psdService/artboardCreate \\\n  --header 'Authorization: Bearer $token' \\\n  --header 'content-type: application/json' \\\n  --header 'x-api-key: $x-api-key' \\\n  --data '{\"options\":{\"artboard\":[{\"href\":\"some_presigned_geturl\",\"storage\":\"external\"},\\\n {\"href\":\"some_presigned_geturl\",\"storage\":\"external\"}, {\"href\":\"some_presigned_geturl\",\"storage\":\"external\"}],\\\n \"outputs\":[{\"href\":\"some_presigned_puturl\",\"storage\":\"external\"}]}'"
-          }
-        ]
+        }
       }
     }
   }
