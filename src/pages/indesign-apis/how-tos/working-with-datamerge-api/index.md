@@ -81,17 +81,21 @@ When using the Data Merge API, the output file paths are determined by the `outp
 When neither `outputFolderPath` nor `outputFileBaseString` is provided:
 
 - Output is created in a temporary folder with a random number prefix (e.g. tmp0696)
-- The output filename is derived from the original template filename
+- The output filename is derived from the original document filename
 
 Example:
 
 - Source: `Template.indd`
-- Output: `tmp0696/Template-1.indd`
-- For multiple documents or PNG/JPEG outputs:
-  - `tmp0696/Template-1.indd`
-  - `tmp0696/Template-2.indd`
-  - `tmp0696/Template-1.png`
-  - `tmp0696/Template-2.png`
+- Output: `tmp0696/range1/Template.indd`
+- In case of multiple output documents/pdf:
+  - `tmp0696/range1/Template.indd`
+  - `tmp0696/range2/Template.indd`
+  - `tmp0696/range1/Template.pdf`
+  - `tmp0696/range2/Template.pdf`
+- For PNG/JPEG outputs:
+  - `tmp0696/range1/Template.png`
+  - `tmp0696/range1/Template2.png`
+  - `tmp0696/range1/Template3.png`
 
 #### Case 2: Only outputFileBaseString Provided
 
@@ -104,12 +108,16 @@ Example:
 
 - Source: `Template.indd`
 - `outputFileBaseString`: "MergedOutput"
-- Output: `tmp0696/MergedOutput-1.indd`
-- For multiple documents or PNG/JPEG outputs:
-  - `tmp0696/MergedOutput-1.indd`
-  - `tmp0696/MergedOutput-2.indd`
-  - `tmp0696/MergedOutput-1.png`
-  - `tmp0696/MergedOutput-2.png`
+- Output: `tmp0696/range1/MergedOutput.indd`
+- In case of multiple output documents/pdf:
+  - `tmp0696/range1/MergedOutput.indd`
+  - `tmp0696/range2/MergedOutput.indd`
+  - `tmp0696/range1/MergedOutput.pdf`
+  - `tmp0696/range2/MergedOutput.pdf`
+- For PNG/JPEG outputs:
+  - `tmp0696/range1/MergedOutput.png`
+  - `tmp0696/range1/MergedOutput2.png`
+  - `tmp0696/range1/MergedOutput3.png`
 
 #### Case 3: Only outputFolderPath Provided
 
@@ -122,12 +130,16 @@ Example:
 
 - Source: `Template.indd`
 - `outputFolderPath`: "ResultFolder"
-- Output: `ResultFolder/Template-1.indd`
-- For multiple documents or PNG/JPEG outputs:
-  - `ResultFolder/Template-1.indd`
-  - `ResultFolder/Template-2.indd`
-  - `ResultFolder/Template-1.png`
-  - `ResultFolder/Template-2.png`
+- Output: `ResultFolder/range1/Template.indd`
+- In case of multiple output documents/pdf:
+  - `ResultFolder/range1/Template.indd`
+  - `ResultFolder/range2/Template.indd`
+  - `ResultFolder/range1/Template.pdf`
+  - `ResultFolder/range2/Template.pdf`
+- For PNG/JPEG outputs:
+  - `ResultFolder/range1/Template.png`
+  - `ResultFolder/range1/Template2.png`
+  - `ResultFolder/range1/Template3.png`
 
 #### Case 4: Both Parameters Provided
 
@@ -141,14 +153,23 @@ Example:
 - Source: `Template.indd`
 - `outputFileBaseString`: "MergedOutput"
 - `outputFolderPath`: "ResultFolder"
-- Output: `ResultFolder/MergedOutput-1.indd`
-- For multiple documents or PNG/JPEG outputs:
-  - `ResultFolder/MergedOutput-1.indd`
-  - `ResultFolder/MergedOutput-2.indd`
-  - `ResultFolder/MergedOutput-1.png`
-  - `ResultFolder/MergedOutput-2.png`
+- Output: `ResultFolder/range1/MergedOutput.indd`
+- In case of multiple output documents/pdf:
+  - `ResultFolder/range1/MergedOutput.indd`
+  - `ResultFolder/range2/MergedOutput.indd`
+  - `ResultFolder/range1/MergedOutput.pdf`
+  - `ResultFolder/range2/MergedOutput.pdf`
+- For PNG/JPEG outputs:
+  - `ResultFolder/range1/MergedOutput.png`
+  - `ResultFolder/range1/MergedOutput2.png`
+  - `ResultFolder/range1/MergedOutput3.png`
 
-Note: When generating multiple documents or different output formats (PNG/JPEG), the numbering scheme (-1, -2, etc.) is automatically applied to maintain unique filenames.
+### Note: 
+- When generating multiple documents or different output formats (PNG/JPEG), a subfolder is created for each range, such as range1, range2, range3, etc., to maintain organized and unique filenames.
+- The rangeX subfolders (e.g. range1, range2, etc.) are created based on the `pagesPerDocument` value defined in the request. For example, if `pagesPerDocument` is set to 10 and the total number of records for the data merge is 20, then two folders—range1 and range2—will be generated. These will contain the output for record ranges 1–10 and 11–20, respectively. 
+- The number and type of output files within each rangeX folder depends on the selected `outputMediaType`:
+  - If `outputMediaType` is `application/x-indesign`, or `application/pdf`, each rangeX folder will contain one InDesign document/pdf.
+  - If `outputMediaType` is `image/png` or `image/jpeg`, each rangeX folder will contain multiple image files, corresponding to each record in that range (e.g., 10 images for 10 records).
 
 ### Retrieve data merge tags
 
