@@ -139,13 +139,7 @@
           "500": {
             "description": "Internal Server Error"
           }
-        },
-        "x-codeSamples": [
-          {
-            "lang": "shell",
-            "source": "curl --request POST \\\n  --url https://image.adobe.io/pie/psdService/text \\\n  --header 'Authorization: Bearer $token' \\\n  --header 'content-type: application/json' \\\n  --header 'x-api-key: $x-api-key' \\\n  --data ' \\\n {\"inputs\":[{\"href\":\"<path_to_input_psd>\",\"storage\":\"external\"}],\\\n \"options\":{\"fonts\":[{\"storage\":\"external\",\\\n \"href\":\"<path_to_font>\"}],\"layers\":[{\"name\":\"<name_of_text_layer_1_to_edit>\",\\\n \"text\":{\"orientation\":\"horizontal\",\"contents\":\"New text Contents 1\",\\\n \"antiAlias\":\"antiAliasSharp\",\\\n \"characterStyles\":[{\"autoKern\":\"metricsKern\",\\\n \"fontPostScriptName\":\"<font_postscript_name>\",\\\n \"fontCaps\":\"allCaps\",\"size\":25,\"leading\":20,\\\n \"tracking\":20,\"syntheticBold\":true,\"ligature\":true,\\\n \"syntheticItalic\":true,\\\n \"color\":{\"blue\":100,\"green\":200,\"red\":163}}],\\\n \"paragraphStyles\":[{\"align\":\"right\"}]}},{\"name\":\"<name_of_text_layer_2_to_edit>\",\\\n \"text\":{\"contents\":\"New text Contents 2\",\"characterStyles\":[{\"size\":45, \\\n \"stylisticAlternates\":true,\"leading\":100,\\\n \"tracking\":100,\"baseline\":\"subScript\",\\\n \"strikethrough\":true,\"underline\":true,\"verticalScale\":150,\\\n \"horizontalScale\":200,\"color\":{\"blue\":300,\"green\":100,\"red\":63}}]}}]},\\\n \"outputs\":[{\"href\":\"<path_to_output_psd>\",\"type\":\"vnd.adobe.photoshop\",\"storage\":\"external\"}]}'"
-          }
-        ]
+        }
       }
     }
   }
