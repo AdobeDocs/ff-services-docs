@@ -444,11 +444,13 @@
                   },
                   "recordRange": {
                     "description": "The ranges of records to process for this job. Value can be `All`, along with numeral ranges. For example, '1-2, 5'.",
-                    "type": "string"
+                    "type": "string",
+                    "default": "All"
                   },
                   "allowMultipleRecordsPerPage": {
                     "description": "If `true`, will show as many records as will fit on a page.",
-                    "type": "boolean"
+                    "type": "boolean",
+                    "default": false
                   },
                   "multipleRecordLayoutOptions": {
                     "description": "The options to be used when `allowMultipleRecordsPerPage` is set to `true`.",
@@ -457,6 +459,7 @@
                       "arrangeBy": {
                         "description": "The order that records will be arranged in the target document.\n* `rows_first` - Arranges records by row.\n* `columns_first` - Arranges records by column.\n",
                         "type": "string",
+                        "default": "rows_first",
                         "enum": [
                           "rows_first",
                           "columns_first"
@@ -494,11 +497,13 @@
                     "properties": {
                       "centerImage": {
                         "description": "If true, this centers the image in the frame while preserving the frame size as content size and proportions. If the content is larger than the frame, content around the edges is obscured by the bounding box of the frame. <br></br> This won't work when `fittingOption` is `Content_Aware_Fit`.",
-                        "type": "boolean"
+                        "type": "boolean",
+                        "default": false
                       },
                       "fittingOption": {
                         "description": "The method of fitting content in a frame.\n* `content_aware_fit` - Selects best crop region of the content for the frame based on Adobe Sensei. This preserves frame size but it might scale the content size. If this fitting is set, the `centerImage` property is turned-off.\n* `fill_proportional` - Resizes content to fill the frame while preserving the proportions of the content. If the content and frame have different proportions, some of the content is obscured by the bounding box of the frame.\n* `fit_content_to_frame` - Resizes content to fit the frame. Content that is a different size than the frame appears stretched or squeezed.\n* `fit_frame_to_content` - Resizes the frame so it fits the content.\n* `honor_existing_style` - Applies the frame fitting based on existing settings applied on the original frame.\n* `preserve_sizes` - Preserves the original sizes of the frame and the content. Content that is larger than the frame is obscured around the edges.\n* `proportional` - Resizes content to fit the frame while preserving content proportions. If the content and frame have different proportions, an empty space occurs in the frame.\n",
                         "type": "string",
+                        "default":"proportional",
                         "enum": [
                           "content_aware_fit",
                           "fill_proportional",
@@ -518,7 +523,8 @@
                   },
                   "pagesPerDocument": {
                     "description": "The maximum number of pages per document.",
-                    "type": "integer"
+                    "type": "integer",
+                    "default": "By default this would not be applicable."
                   },
                   "removeBlankLines": {
                     "description": "If true, removes blank lines caused by empty fields.",
@@ -532,11 +538,13 @@
                   },
                   "outputFileBaseString": {
                     "type": "string",
-                    "description": "The name of the output file."
+                    "description": "The name of the output file.",
+                    "default": "It is derived from the original document filename."
                   },
                   "outputFolderPath": {
                     "type": "string",
-                    "description": "The path of the output folder."
+                    "description": "The path of the output folder.",
+                    "default": "A unique temporary folder name would be created."
                   }
                 }
               }
