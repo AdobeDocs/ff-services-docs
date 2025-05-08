@@ -487,11 +487,13 @@
                   },
                   "outputFileBaseString": {
                     "type": "string",
-                    "description": "The name of the output file."
+                    "description": "The name of the output file.",
+                    "default": "It is derived from the original document filename."
                   },
                   "outputFolderPath": {
                     "type": "string",
-                    "description": "The path of the output folder."
+                    "description": "The path of the output folder.",
+                    "default": "A unique temporary folder name would be created."
                   }
                 }
               }
