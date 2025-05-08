@@ -5,7 +5,7 @@ description: Quickstart cURL commands to use the Custom Scripts API for running 
 
 # Working with the Custom Scripts API
 
-With the Custom Scripts API, register [custom scripts bundle that you've created][1] with the API. Then use those custom scripts on documents by referencing the `{SCRIPT_ID}`.
+With the Custom Scripts API, register [custom scripts bundle that you've created][1] with the API. Then use those custom scripts on documents by referencing the `{SCRIPT_ID}` and `{SCRIPT_NAME}`.
 
 ## Before you start
 
