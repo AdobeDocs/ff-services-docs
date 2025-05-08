@@ -164,7 +164,7 @@ Example:
   - `ResultFolder/range1/MergedOutput2.png`
   - `ResultFolder/range1/MergedOutput3.png`
 
-### Note: 
+#### Note: 
 - When generating multiple documents or different output formats (PNG/JPEG), a subfolder is created for each range, such as range1, range2, range3, etc., to maintain organized and unique filenames.
 - The rangeX subfolders (e.g. range1, range2, etc.) are created based on the `pagesPerDocument` value defined in the request. For example, if `pagesPerDocument` is set to 10 and the total number of records for the data merge is 20, then two folders—range1 and range2—will be generated. These will contain the output for record ranges 1–10 and 11–20, respectively. 
 - The number and type of output files within each rangeX folder depends on the selected `outputMediaType`:

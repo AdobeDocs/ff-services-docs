@@ -118,7 +118,7 @@
         }
       }
     },
-    "/v3/{organization}/{scripts}": {
+    "/v3/{script_id}/{script_name}": {
       "post": {
         "summary": "Submit a custom script execution request",
         "description": "Submit an execution request for a custom script. Define the input assets and parameters the custom script will use when it is executed against the app engine.",
@@ -151,16 +151,16 @@
             }
           },
           {
-            "name": "organization",
+            "name": "script_id",
             "in": "path",
-            "description": "The organization identifier, reported in the response to a custom script submit request.",
+            "description": "script_id as reported in the response to custom script submit request.",
             "required": true,
             "schema": {
               "type": "string"
             }
           },
           {
-            "name": "scripts",
+            "name": "script_name",
             "in": "path",
             "description": "The name of the custom script, specified in the custom script manifest.",
             "required": true,
