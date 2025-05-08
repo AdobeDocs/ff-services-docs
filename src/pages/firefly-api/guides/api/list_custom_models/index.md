@@ -11,4 +11,4 @@ keywords:
 layout: none
 ---
 
-<RedoclyAPIBlock src="/firefly-services/docs/custom_models_listing.json" width="600px" disableSidebar />
+<RedoclyAPIBlock src="/firefly-services/docs/custom_models_listing.json" width="600px" disableSidebar scrollYOffset={64} generateCodeSamples="languages: [{lang: 'curl'}]" />

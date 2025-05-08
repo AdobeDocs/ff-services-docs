@@ -9,4 +9,4 @@ keywords:
 layout: none
 --- 
 
-<RedoclyAPIBlock src="/firefly-services/docs/audio-video/reframe-oas-v1.json" width="600px" disableSidebar />
+<RedoclyAPIBlock src="/firefly-services/docs/audio-video/reframe-oas-v1.json" width="600px" disableSidebar scrollYOffset={64} generateCodeSamples="languages: [{lang: 'curl'}]" />

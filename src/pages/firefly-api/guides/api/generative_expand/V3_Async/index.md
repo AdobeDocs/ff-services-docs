@@ -11,4 +11,4 @@ keywords:
 layout: none
 ---
 
-<RedoclyAPIBlock src="/firefly-services/docs/generative_expand_async_v3.json" width="600px" disableSidebar />
+<RedoclyAPIBlock src="/firefly-services/docs/generative_expand_async_v3.json" width="600px" disableSidebar scrollYOffset={64} generateCodeSamples="languages: [{lang: 'curl'}]" />

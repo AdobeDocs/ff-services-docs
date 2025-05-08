@@ -139,15 +139,8 @@
           "500": {
             "description": "Internal Server Error"
           }
-        },
-        "x-codeSamples": [
-          {
-            "lang": "shell",
-            "source": "curl --request POST \\\n  --url https://image.adobe.io/lrService/autoTone \\\n  --header 'Authorization: Bearer $token' \\\n  --header 'content-type: application/json' \\\n  --header 'x-api-key: $x-api-key' \\\n  --data '{\"inputs\":{\"href\":\"string\",\"storage\":\"external\"},\"outputs\":[{\"href\":\"string\",\"storage\":\"external\",\"type\":\"image/jpeg\"}]}'"
-          }
-        ]
+        }
       }
     }
-
   }
 }

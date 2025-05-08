@@ -139,13 +139,7 @@
           "500": {
             "description": "Internal Server Error"
           }
-        },
-        "x-codeSamples": [
-          {
-            "lang": "shell",
-            "source": "curl --request POST \\\n  --url https://image.adobe.io/pie/psdService/smartObject \\\n  --header 'Authorization: Bearer $token' \\\n  --header 'content-type: application/json' \\\n  --header 'x-api-key: $x-api-key' \\\n  --data '{\"inputs\":[{\"href\":\"get_presigned_url\",\"storage\":\"external\"}],\\\n \"options\":{\"layers\":[{\"name\":\"New\",\\\n \"input\":{\"href\":\"get_presigned_url\",\"storage\":\"external\"},\\\n \"bounds\":{\"width\":602,\"height\":400}}]},\\\n \"outputs\":[{\"storage\":\"external\",\"href\":\"put_presigned_url\",\\\n \"type\":\"image/vnd.adobe.photoshop\"}]}'"
-          }
-        ]
+        }
       }
     }
   }
