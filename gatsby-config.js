@@ -45,11 +45,6 @@ module.exports = {
         path: "/indesign-apis/",
       },
       {
-        title: "TLS API",
-        description: "Docs and references for Translate and Lip Sync API",
-        path: "https://developer.adobe.com/translate-lipsync/?aio_internal",
-      },
-      {
         title: "Content Tagging API",
         description: "Docs and references for Content Tagging services",
         path: "https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html",
