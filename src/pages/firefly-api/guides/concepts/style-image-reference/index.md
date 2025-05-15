@@ -8,22 +8,23 @@ keywords:
   - Developer documentation
 contributors:
   - https://github.com/bishoysefin
+  - https://github.com/aeabreu-hub
 hideBreadcrumbNav: true
 ---
 
-# Style Image Reference
+# Style Reference Images
 
-Use Style Image Reference to generate images based on specific styles, colors, artistic methods, or mood.
+Use Style Reference to generate images based on specific styles, colors, artistic methods, or mood.
 
 ||
 | --- | --- |
-| ![mountain](../../images/style-image-reference-mountain.jpeg) <p style="text-align:center">Style Image Reference</p> | ![dog](../../images/style-image-reference-dog.jpeg) <p style="text-align:center">Generated Image</p>
+| ![mountain](../../images/style-image-reference-mountain.jpeg) <p style="text-align:center">Style Reference Image</p> | ![dog](../../images/style-image-reference-dog.jpeg) <p style="text-align:center">Generated Image</p>
 
 ## Prerequisites
 
 If you don't already have a Firefly **Client ID** and **Access Token**, learn how to retrieve them in the [Authentication Guide](../authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
 
-## Specifying Strength
+## Specifying strength
 
 To influence how impactful your reference image is during the image generation process, add a `strength` value between `1` and `100` to your style object. When "strength" is not specified, it defaults to a value of `50`.
 
