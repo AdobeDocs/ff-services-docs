@@ -11,59 +11,64 @@ contributors:
 hideBreadcrumbNav: true
 ---
 
-# Structure Image Reference
+# Structure Reference Images
 
-Use Structure Image Reference to generate images based on a specific outline and depth
+Use Structure Reference to generate images with structural similarities.
 
 ||
 | --- | --- |
-| ![mountain](../../images/structure-image-reference-mountain.jpeg) <p style="text-align:center">Structure Image Reference</p> | ![volcano](../../images/structure-image-reference-volcano.jpeg) <p style="text-align:center">Generated Image</p>
+| ![mountain](../../images/structure-image-reference-mountain.jpeg) <p style="text-align:center">Structure Reference Image</p> | ![volcano](../../images/structure-image-reference-volcano.jpeg) <p style="text-align:center">Generated Image</p>
 
-## Overview
+## Understanding Firefly's Structure Reference
 
-Use `structure.imageReference` with Firefly's [Generate Images API](../../api/image_generation/V3/) to generate images based on a specific outline and depth. This is helpful for when you have a scene where everything in it is placed correctly, but you want to generate a new image with a different details, style, or mood.
+Structure Reference uses a reference image to apply structural characteristics (like image outline and depth) to newly generated images with different details, styles, or moods. This feature, along with [Firefly's Style Reference](../style-image-reference/index.md), gives you more control of image generation beyond the text prompt.
 
-## Prerequisites
+Firefly's Image APIs implement this feature by using the `structure` parameter, with two properties:
 
-If you don't already have a Firefly  **Client ID** and **Access Token**, learn how to retrieve them in the [Authentication Guide](../authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
+* `strength`: A value between `1` and `100` that determines how closely the generated image resembles the reference image. When `strength` isn't specified, the default value is `50`.
+* `imageReference`: An object containing the source for the reference image.
 
-## Specifying Strength
+## Concepts in action
 
-To influence how impactful your reference image is during the image generation process, add a `strength` value between `1` and `100` to your structure object. When "strength" is not specified, it defaults to a value of `50`.
+<InlineAlert variant="warning" slots="header, text" />
 
-## Experience Structure Image Reference in Action
+Prerequisites
 
-First, open a secure terminal and `export` your **Client ID** and **Access Token** as environment variables:
+You'll need a Firefly **Client ID** and **Access Token** for this exercise. Learn how to retrieve them in the [Authentication Guide](../authentication/index.md). **Securely store these credentials and never expose them in client-side or public code.**
+
+### Specifying strength
+
+Use the `strength` value to influence the resemblance of a few generated images.
+
+1. First, let's use the reference image of the mountain from the example at the top of this page. Right-click the "Structure Reference Image" and save it to your desktop.
+
+2. Next, upload the saved image to Firefly's storage API. Be sure to edit the `--data-binary` path in the command below:
 
 ```bash
-export FIREFLY_SERVICES_CLIENT_ID=yourClientIdAsdf123
-export FIREFLY_SERVICES_ACCESS_TOKEN=yourAccessTokenAsdf123
+curl --location 'https://firefly-api.adobe.io/v2/storage/image' \
+--header 'Content-Type: image/webp' \
+--header 'Accept: application/json' \
+--header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
+--header "Authorization: Bearer $FIREFLY_SERVICES_ACCESS_TOKEN" \
+--data-binary '@/Users/<YOUR_MACHINE_USER_NAME>/Desktop/structure-image-reference-mountain.webp'
 ```
 
-Next, save the image of the mountain to your computer's Desktop.
-
-Next, upload your saved image to Firefly's storage API:
-
-```bash
-curl --location 'https://firefly-api.adobe.io/v2/storage/image' --header 'Content-Type: image/webp' --header 'Accept: application/json' --header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" --header "Authorization: Bearer $FIREFLY_SERVICES_ACCESS_TOKEN" --data-binary '@/Users/PLACEHOLDER_FOR_YOUR_MACHINE_USER_NAME/Desktop/structure-image-reference-mountain.webp'
-```
-
-You will receive a response that looks like this:
+The response will look like this:
 
 ```json
-{"images":[{"id":"0eb8584a-b850-4c4c-a234-185d6378ecb6"}]}
+{"images":[{"id":"0eb8584a-b850-4c4c-a234-185d6378ecb6"}]}  //Your images.id here will be unique
 ```
 
-Export it so that the next script can easily access it:
+3. Export the ID so that the next script can easily access it:
 
 ```bash
-export FIREFLY_UPLOAD_ID=asdf123YourUploadIdFromPreviousStep
+export FIREFLY_UPLOAD_ID=<YOUR_images.id>
 ```
 
-Finally, generate a new image based on the uploaded image:
+4. Generate a new image based on the uploaded image. We'll start with a `strength` value of `100`. Use this command with other values to see how the `strength` parameter influences the resemblance of the generated image.
 
 ```bash
-curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
+curl --location 'https://firefly-api.adobe.io/v3/images/generate-async' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
@@ -75,7 +80,7 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
     "strength": 100,
     "imageReference": {
       "source": {
-        "uploadId": "'$FIREFLY_UPLOAD_ID'"
+        "uploadId": "$FIREFLY_UPLOAD_ID"
       }
     }
   }
