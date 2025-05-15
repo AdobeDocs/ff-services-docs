@@ -25,40 +25,46 @@ keywords:
   - Firefly data
 contributors:
   - https://github.com/bishoysefin
+  - https://github.com/aeabreu-hub
 hideBreadcrumbNav: true
 ---
 
 # Understanding Firefly API Seeds
 
-Use seeds to generate images similar to one another across multiple HTTP requests
+Use seeds to generate similar AI images across multiple API requests.
+Learn about seeds and how they're used with Firefly AI.
 
 ||
 | --- | --- | --- |
-| ![original image](../../images/seed-concept-original-image.jpeg) <p style="text-align:center">Original Image</p> | ![same seed variation](../../images/seed-concept-same-seed-regeneration.jpeg) <p style="text-align:center">Same Seed Regeneration</p> | ![different seed variation](../../images/seed-concept-different-seed-regeneration.jpeg) <p style="text-align:center">Different Seed Regeneration</p>
+| ![original image](../../images/seed-concept-original-image.jpeg) <p style="text-align:center">Original Image</p> | ![same seed variation](../../images/seed-concept-same-seed-regeneration.jpeg) <p style="text-align:center">Same Seed Variation</p> | ![different seed variation](../../images/seed-concept-different-seed-regeneration.jpeg) <p style="text-align:center">Different Seed Variation</p>
 
-## Overview
+## About seeds
 
-Whenever Firefly generates an image, by default it begins the process by picking a random number called a `seed`. This random number contributes to what makes each image unique, which is great when you want to generate a wide variety of images
+Whenever Firefly AI generates an image it begins that process by picking a random number called a "seed". In the context of AI, the seed is a starting value or series of values for a random number generator (RNG) to help vary the generated results.
 
-However, there may be times when you want to generate images that are similar to one another across multiple HTTP requests. For example, when Firefly generates an image that you want to modify using Firefly's other options (such as style presets, reference images, etc.), use that image's `seed` in future HTTP requests to limit the randomness of future images and hone in on the image you want.
+Computer programs are completely deterministic, so they can't create true randomness. A random seed facilitates [pseudorandomness](https://en.wikipedia.org/wiki/Pseudorandomness) with AI so that generated images are different even when other parameters remain the same. Using the same seed, prompt, and other presets, would generate the same image every time.
 
-## Prerequisites
+When Firefly generates an image that you want to preserve and modify more precisely using Firefly's other image options (such as style presets, reference images, etc.), you'll use that image's seed to limit the variations and hone in on the image you want.
 
-If you don't already have a Firefly **Client ID** and **Access Token**, learn how to retrieve them in the [Authentication Guide](../authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
+## Concepts in action
 
-## Experience Seeds in Action
+<InlineAlert variant="warning" slots="header, text" />
 
-First, open a secure terminal and `export` your **Client ID** and **Access Token** as environment variables:
+Prerequisites
+
+You'll need a Firefly **Client ID** and **Access Token** for this exercise. Learn how to retrieve them in the [Authentication Guide](../authentication/index.md). **Securely store these credentials and never expose them in client-side or public code.**
+
+1. First, open a secure terminal and `export` your **Client ID** and **Access Token** as environment variables:
 
 ```bash
 export FIREFLY_SERVICES_CLIENT_ID=yourClientIdAsdf123
 export FIREFLY_SERVICES_ACCESS_TOKEN=yourAccessTokenAsdf123
 ```
 
-Next, run the following `curl` command to generate an image:
+2. Run the following command to generate an AI image:
 
 ```bash
-curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
+curl --location 'https://firefly-api.adobe.io/v3/images/generate-async' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
