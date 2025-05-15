@@ -54,6 +54,8 @@ Prerequisites
 
 You'll need a Firefly **Client ID** and **Access Token** for this exercise. Learn how to retrieve them in the [Authentication Guide](../authentication/index.md). **Securely store these credentials and never expose them in client-side or public code.**
 
+### Find the seed
+
 1. First, open a secure terminal and `export` your **Client ID** and **Access Token** as environment variables:
 
 ```bash
@@ -61,7 +63,7 @@ export FIREFLY_SERVICES_CLIENT_ID=yourClientIdAsdf123
 export FIREFLY_SERVICES_ACCESS_TOKEN=yourAccessTokenAsdf123
 ```
 
-2. Run the following command to generate an AI image:
+2. Run the following command to generate an AI image of a futuristic city with a unique seed:
 
 ```bash
 curl --location 'https://firefly-api.adobe.io/v3/images/generate-async' \
@@ -74,34 +76,68 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate-async' \
 }'
 ```
 
-The above request will return a response like this:
+The request returns a rapid response for the async job:
 
 ```json
-{
-    "size": {
-        "width": 2048,
-        "height": 2048
-    },
-    "outputs": [
-        {
-            "seed": 1842533538,
-            "image": {
-                "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/asdf-1234..."
+{   
+    "jobId":"<YOUR_JOB_ID>",
+    "statusUrl":"https://firefly-epo854211.adobe.io/v3/status/urn:ff:jobs:...",
+    "cancelUrl":"https://firefly-epo854211.adobe.io/v3/cancel/urn:ff:jobs:..."
+}
+```
+
+3. Use the `jobId` to check the status of the job:
+
+```bash
+curl -X GET "https://firefly-api.adobe.io/v3/status/<YOUR_JOB_ID>" \
+    -H "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
+    -H "Authorization: Bearer $FIREFLY_SERVICES_ACCESS_TOKEN" \
+    -H "Content-Type: application/json"
+```
+
+After Firefly successfully generates the image, the JSON response for the final status will contain the image seed in `outputs`, along with other details.
+
+Below is an example of our sample image response and the image it generated:
+
+```json
+{ 
+    "status": "succeeded", 
+    "jobId": "urn:ff:jobs:epo854211:783e1c22-5a15-4a01-ab2b-32966a06ce6c", 
+    "result": { 
+        "size": { 
+            "width": 2048, 
+            "height": 2048 
+        }, 
+        "outputs": [
+            { 
+                "seed": 1842533538, // Here is the seed for our generated image
+                "image": { 
+                    "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/asdf-1234..." 
+                } 
             }
-        }
-    ],
-    "contentClass": "photo"
+        ], 
+        "contentClass": "art" 
+    } 
 }
 ```
 
 ![a picture of a futuristic city 1](../../images/seedless-city-1.jpeg)
 
-Let's generate similar variations of this image by using its `seed` of `1842533538` in our next request. This allows us to use Firefly's other generation options such as style presets, size, reference images, and more, while keeping the image consistent with the previously generated image.
+### Generate a seed image
 
-Below, let's generate an image variation has "landscape photography" and "science fiction" [style presets](../style-presets/index.md) applied to it.
+Use Firefly's other image generation options (like style presets or size) while keeping the results consistent with the original generated image.
+Generate similar cityscapes by using its seed:
+
+```1842533538```
+
+||
+| --- | --- |
+| ![a picture of a futuristic city 1](../../images/seedless-city-1.jpeg) <p style="text-align:center">Original Image</p> | ![a variation of futuristic city 1](../../images/seeded-city-1.jpeg) <p style="text-align:center">Same Seed Image with Preset Variation</p>
+
+1. Use the command below to generate an image variation of our cityscape. This variation has "landscape photography" and "science fiction" [style presets](../style-presets/index.md) applied to it. Or include other options to experiment with new results.
 
 ```bash
-curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
+curl --location 'https://firefly-api.adobe.io/v3/images/generate-async' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
@@ -119,28 +155,23 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 }'
 ```
 
-Your response will look like this:
+The request returns a rapid response for the async job:
 
 ```json
-{
-    "size": {
-        "width": 2048,
-        "height": 2048
-    },
-    "outputs": [
-        {
-            "seed": 1842533538
-            "image": {
-                "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/dfgh-1234..."
-            }
-        }
-    ],
-    "contentClass": "art"
+{   
+    "jobId":"<YOUR_JOB_ID>",
+    "statusUrl":"https://firefly-epo854211.adobe.io/v3/status/urn:ff:jobs:...",
+    "cancelUrl":"https://firefly-epo854211.adobe.io/v3/cancel/urn:ff:jobs:..."
 }
 ```
 
-Notice below how many similarities there are between these two images that were generated from the same seed.
+2. Use the `jobId` to see the result:
 
-||
-| --- | --- |
-| ![a picture of a futuristic city 1](../../images/seedless-city-1.jpeg) <p style="text-align:center">Original Image</p> | ![a variation of futuristic city 1](../../images/seeded-city-1.jpeg) <p style="text-align:center">Same Seed Image Variation</p>
+```bash
+curl -X GET "https://firefly-api.adobe.io/v3/status/<YOUR_JOB_ID>" \
+    -H "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
+    -H "Authorization: Bearer $FIREFLY_SERVICES_ACCESS_TOKEN" \
+    -H "Content-Type: application/json"
+```
+
+The differences are obvious, but you'll also notice the similarities. Those characteristics come from the seed.
