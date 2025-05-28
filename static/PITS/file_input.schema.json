@@ -26,7 +26,7 @@
     },
     "input_objects_max_1": {
       "type": "array",
-      "description": "An object describing an input file. Currently supported filetypes include:`jpeg`, `png`, `psd`, `tiff`",
+      "description": "An object describing an input file. Currently supported filetypes include:`jpeg`, `png`, `psd`.",
       "maxItems": 1,
       "items": {
         "$ref": "#/definitions/input_object"
@@ -34,7 +34,7 @@
     },
     "input_objects_max_2": {
       "type": "array",
-      "description": "An object describing an input file. Currently supported filetypes include:`jpeg`, `png`, `psd`, `tiff`. First input contains before image and second input contains after image",
+      "description": "An object describing an input file. Currently supported filetypes include:`jpeg`, `png`, `psd`. First input contains before image and second input contains after image",
       "minItems": 2,
       "maxItems": 2,
       "items": {
@@ -66,7 +66,7 @@
     "input_object": {
       "type": "object",
       "minProperties": 1,
-      "description": "An object describing an input file. Currently supported filetypes include:`jpeg`, `png`, `psd`, `tiff`",
+      "description": "An object describing an input file. Currently supported filetypes include:`jpeg`, `png`, `psd`.",
       "required": [
         "href",
         "storage"

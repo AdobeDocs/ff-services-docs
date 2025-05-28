@@ -40,7 +40,7 @@
                 },
                 "input": {
                   "$ref": "file_input.schema.json#/definitions/input_object",
-                  "description": "An object describing the input file to add or replace for the Embedded Smart Object layer. Edited images are replaced for exact pixel size. Currently supported filetypes includes `png`,`jpeg`,`psd`,`svg`,`ai`,`pdf`."
+                  "description": "An object describing the input file to add or replace for the Embedded Smart Object layer. Edited images are replaced for exact pixel size. Currently supported filetypes includes `png`,`jpeg`,`psd`."
                 },
                 "bounds": {
                   "$ref": "bounds.schema.json#/definitions/bounds",
