@@ -25,7 +25,7 @@
     "tags": [
       {
         "name": "Job Status API",
-        "description": "Get the job status of a custom script execution job. Each call retrieves the most recent status event for the job and each event refers to a different stage of execution.\n\n| Status | Description |\n|--------|-------------|\n| `not_started` | Generated at the creation of the job. |\n| `running` | Generated when execution begins (at app-engine). |\n| `succeeded` | Generated when execution of an API Job is complete. |\n| `failed` | Generated if an API Job execution fails. |"
+        "description": "Get the job status of a custom script execution job. Each call retrieves the most recent status event for the job and each event refers to a different stage of execution.\\n\\n| Status | Description |\\n|--------|-------------|\\n| `not_started` | Generated at the creation of the job. |\\n| `running` | Generated when execution begins (at app-engine). |\\n| `succeeded` | Generated when execution of an API Job is complete. |\\n| `partial_success` | Generated when execution of an API Job is complete but some non-critical errors occurred. |\\n| `failed` | Generated if an API Job execution fails. |"
       }
     ],
     "paths": {
@@ -91,6 +91,9 @@
                       },
                       {
                         "$ref": "#/components/schemas/failedEvent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/partialSuccessEvent"
                       }
                     ]
                   }
@@ -255,13 +258,87 @@
                     "failed"
                   ]
                 },
-                "error_code": {
+                "errors": {
+                  "type": "array",
+                  "description": "A list of errors that caused the job to fail.",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "error_code": {
+                        "type": "string",
+                        "description": "The error code for the failure."
+                      },
+                      "message": {
+                        "type": "string",
+                        "description": "The error message for the failure"
+                      },
+                      "source": {
+                        "type": "string",
+                        "description": "The source file of the error, if applicable."
+                      },
+                      "url": {
+                        "type": "string",
+                        "description": "A URL related to an asset causing the failure(if any), if applicable."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "partialSuccessEvent": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/BaseEvent"
+            },
+            {
+              "description": "The job has succeeded with some non-critical errors.",
+              "type": "object",
+              "properties": {
+                "status": {
                   "type": "string",
-                  "description": "The error code for the failure."
+                  "description": "The current state of the job.",
+                  "enum": [
+                    "partial_success"
+                  ]
                 },
-                "message": {
+                "data": {
+                  "type": "object",
+                  "description": "The output response from the current state of the job."
+                },
+                "dataURL": {
                   "type": "string",
-                  "description": "The error message for the failure."
+                  "description": "The data returned from the execution of the job. If the data size is between 250 KB and 20 MB, it will be provided as a pre-signed URL. If it is larger than 20 MB, the job will fail."
+                },
+                "outputs": {
+                  "type": "object",
+                  "description": "A list of URLs for all the successfully generated assets."
+                },
+                "errors": {
+                  "type": "array",
+                  "description": "A list of errors that occurred during a partially successful job.",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "error_code": {
+                        "type": "string",
+                        "description": "The error code for the partial failure."
+                      },
+                      "message": {
+                        "type": "string",
+                        "description": "The error message for the partial failure"
+                      },
+                      "source": {
+                        "type": "string",
+                        "description": "The source file of the partial failure error, if applicable."
+                      },
+                      "url": {
+                        "type": "string",
+                        "description": "A URL related to an asset causing the partial failure(if any), if applicable."
+                      }
+                    }
+                  }
                 }
               }
             }
