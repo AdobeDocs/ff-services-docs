@@ -32,7 +32,7 @@ Firefly's Image APIs implement this feature by using the `structure` parameter, 
 
 <InlineAlert variant="warning" slots="header, text" />
 
-Prerequisites
+Before you start
 
 You'll need a Firefly **Client ID** and **Access Token** for this exercise. Learn how to retrieve them in the [Authentication Guide](../authentication/index.md). **Securely store these credentials and never expose them in client-side or public code.**
 
