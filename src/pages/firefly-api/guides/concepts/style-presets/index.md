@@ -136,7 +136,7 @@ export FIREFLY_SERVICES_ACCESS_TOKEN=yourAccessTokenAsdf123
 Next, run this command:
 
 ```bash
-curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
+curl --location 'https://firefly-api.adobe.io/v3/images/generate-async' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
@@ -157,7 +157,7 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 To influence how impactful your presets are on the image generation, add a `strength` value between `1` and `100` to your style object. When "strength" is not specified, it defaults to a value of `50`. Below we show how to set the "strength" value to `100` to make our style presets more pronounced:
 
 ```bash
-curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
+curl --location 'https://firefly-api.adobe.io/v3/images/generate-async' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
