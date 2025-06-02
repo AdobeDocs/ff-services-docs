@@ -45,9 +45,9 @@ export FIREFLY_SERVICES_CLIENT_ID=<your_client_id>
 export FIREFLY_SERVICES_ACCESS_TOKEN=<your_access_token>
 ```
 
-Next, save the image of the mountain to your computer's Desktop.
+2. Save the image of the mountain to your computer's desktop.
 
-Next, upload your saved image to Firefly's storage API:
+3. Upload your saved image to Firefly's storage API:
 
 ```bash
 curl --location 'https://firefly-api.adobe.io/v2/storage/image' --header 'Content-Type: image/webp' --header 'Accept: application/json' --header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" --header "Authorization: Bearer $FIREFLY_SERVICES_ACCESS_TOKEN" --data-binary '@/Users/<YOUR_MACHINE_USERNAME>/Desktop/style-image-reference-mountain.webp'
@@ -59,7 +59,7 @@ You'll receive a response that looks like this:
 {"images":[{"id":"0eb8584a-b850-4c4c-a234-185d6378ecb6"}]}
 ```
 
-Export it so that the next script can easily access it:
+Export the `id` so that the next script can access it:
 
 ```bash
 export FIREFLY_UPLOAD_ID=<your_upload_id>
@@ -68,7 +68,7 @@ export FIREFLY_UPLOAD_ID=<your_upload_id>
 Finally, generate a new image based on the uploaded image:
 
 ```bash
-curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
+curl --location 'https://firefly-api.adobe.io/v3/images/generate-async' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
