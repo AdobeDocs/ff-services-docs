@@ -29,59 +29,28 @@ hideBreadcrumbNav: true
 
 # Style Presets
 
-Use style presets to customize the look and feel of your generated images
+Use style presets to customize the look and feel of your generated images.
+
+## Understanding style presets
 
 ![a picture of a puppy dressed as a renaissance artist](../../images/puppy-renaissance-artist.jpeg)
 
-Use style `presets` with Firefly's [Generate Images API](../../api/image_generation/V3/) or [Generate Object Composite API](../../api/generate-object-composite/V3/) to give your generated images a specific visual style or mood.
+Firefly offers a collection of style presets to use with the [Generate Images API][1] that can give generated images a specific visual style or mood. By indicating these presets in the API request, you can have more control, beyond the prompt, to create image variations.
 
-## Prerequisites
+Style presets are included in the `presets` array in the of the Generate Images API request.
 
-If you don't already have a Firefly **Client ID** and **Access Token**, learn how to retrieve them in the [Authentication Guide](../authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
+<CodeBlock slots="heading, code" languages="JSON" />
 
-## Experience Style Presets in Action
+cURL parameter for presets
 
-First, open a secure terminal and `export` your **Client ID** and **Access Token** as environment variables:
-
-```bash
-export FIREFLY_SERVICES_CLIENT_ID=yourClientIdAsdf123
-export FIREFLY_SERVICES_ACCESS_TOKEN=yourAccessTokenAsdf123
-```
-
-Next, run this command:
-
-```bash
-curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
---header 'Content-Type: application/json' \
---header 'Accept: application/json' \
---header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
---header "Authorization: Bearer $FIREFLY_SERVICES_ACCESS_TOKEN" \
+```json
+// ... API request JSON ...
 --data '{
     "prompt": "a puppy dressed as a renaissance artist",
     "numVariations": 4,
     "style": {
-        "presets": [
-            "bw", "fantasy", "dramatic_light"
-        ]
-    }
-}'
-```
-
-### Specifying Style Strength
-
-To influence how impactful your presets are on the image generation, add a `strength` value between `1` and `100` to your style object. When "strength" is not specified, it defaults to a value of `50`. Below we show how to set the "strength" value to `100` to make our style presets more pronounced:
-
-```bash
-curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
---header 'Content-Type: application/json' \
---header 'Accept: application/json' \
---header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
---header "Authorization: Bearer $FIREFLY_SERVICES_ACCESS_TOKEN" \
---data '{
-    "prompt": "a puppy dressed as a renaissance artist",
-    "numVariations": 4,
-    "style": {
-        "presets": [
+        // array of style presets for image variations
+        "presets": [   
             "bw", "fantasy", "dramatic_light"
         ],
         "strength": 100
@@ -89,7 +58,9 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 }'
 ```
 
-## Style Presets
+## Style Presets examples
+
+Here are the style presets available and examples of the images they generate. Use these presets, in snake_case, in the API request.
 
 ||
 | --- | --- | --- |
@@ -144,3 +115,67 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
 | ![Pop art](../../images/styles/2x/Pop_art.png) <p style="text-align:center">pop_art</p> | ![Product photo](../../images/styles/2x/Product_photo.png) <p style="text-align:center">product_photo</p> | ![Psychedelic background](../../images/styles/2x/Psychedelic_background.png) <p style="text-align:center">psychedelic_background</p>
 | ![Psychedelic wonderland](../../images/styles/2x/Psychedelic_wonderland.png) <p style="text-align:center">psychedelic_wonderland</p> | ![Scandinavian](../../images/styles/2x/Scandinavian.png) <p style="text-align:center">scandinavian</p> | ![Splash images](../../images/styles/2x/Splash_images.png) <p style="text-align:center">splash_images</p>
 | ![Stamp](../../images/styles/2x/Stamp.png) <p style="text-align:center">stamp</p> | ![Trompe l'oeil](../../images/styles/2x/Trompe_loeil.png) <p style="text-align:center">trompe_loeil</p>
+
+## Concepts in action
+
+Let's use style presets to generate a few image variations.
+
+<InlineAlert variant="warning" slots="header, text" />
+
+Before you start
+
+You'll need a Firefly **Client ID** and **Access Token** for this exercise. Learn how to retrieve them in the [Authentication Guide][2]. **Securely store these credentials and never expose them in client-side or public code.**
+
+First, open a secure terminal and `export` your **Client ID** and **Access Token** as environment variables:
+
+```bash
+export FIREFLY_SERVICES_CLIENT_ID=yourClientIdAsdf123
+export FIREFLY_SERVICES_ACCESS_TOKEN=yourAccessTokenAsdf123
+```
+
+Next, run this command:
+
+```bash
+curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
+--header "Authorization: Bearer $FIREFLY_SERVICES_ACCESS_TOKEN" \
+--data '{
+    "prompt": "a puppy dressed as a renaissance artist",
+    "numVariations": 4,
+    "style": {
+        "presets": [
+            "bw", "fantasy", "dramatic_light"
+        ]
+    }
+}'
+```
+
+### Specifying Style Strength
+
+To influence how impactful your presets are on the image generation, add a `strength` value between `1` and `100` to your style object. When "strength" is not specified, it defaults to a value of `50`. Below we show how to set the "strength" value to `100` to make our style presets more pronounced:
+
+```bash
+curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
+--header "Authorization: Bearer $FIREFLY_SERVICES_ACCESS_TOKEN" \
+--data '{
+    "prompt": "a puppy dressed as a renaissance artist",
+    "numVariations": 4,
+    "style": {
+        "presets": [
+            "bw", "fantasy", "dramatic_light"
+        ],
+        "strength": 100
+    }
+}'
+```
+
+
+
+<!-- links -->
+[1]: ../../api/image_generation/V3/
+[2]: ../authentication/index.md
