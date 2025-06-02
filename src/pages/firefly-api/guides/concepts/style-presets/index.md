@@ -33,18 +33,16 @@ Use style presets to customize the look and feel of your generated images.
 
 ## Understanding style presets
 
-![a picture of a puppy dressed as a renaissance artist](../../images/puppy-renaissance-artist.jpeg)
+Firefly offers a collection of style presets to use with the [Generate Images API][1] that can give generated images a specific visual style or mood. By indicating these presets in the API request, you have more control, beyond the prompt, to create image variations.
 
-Firefly offers a collection of style presets to use with the [Generate Images API][1] that can give generated images a specific visual style or mood. By indicating these presets in the API request, you can have more control, beyond the prompt, to create image variations.
-
-Style presets are included in the `presets` array in the of the Generate Images API request.
+Style presets are defined in the `presets` array in the Generate Images API request. All presets in the array apply to the generated image. To influence the impact of the presets, add or adjust the `strength` value.
 
 <CodeBlock slots="heading, code" languages="JSON" />
 
-cURL parameter for presets
+Request parameter for presets
 
 ```json
-// ... API request JSON ...
+// ... API request cURL ...
 --data '{
     "prompt": "a puppy dressed as a renaissance artist",
     "numVariations": 4,
@@ -126,14 +124,14 @@ Before you start
 
 You'll need a Firefly **Client ID** and **Access Token** for this exercise. Learn how to retrieve them in the [Authentication Guide][2]. **Securely store these credentials and never expose them in client-side or public code.**
 
-First, open a secure terminal and `export` your **Client ID** and **Access Token** as environment variables:
+1. First, open a secure terminal and `export` your **Client ID** and **Access Token** as environment variables:
 
 ```bash
-export FIREFLY_SERVICES_CLIENT_ID=yourClientIdAsdf123
-export FIREFLY_SERVICES_ACCESS_TOKEN=yourAccessTokenAsdf123
+export FIREFLY_SERVICES_CLIENT_ID=<your_Client_ID>
+export FIREFLY_SERVICES_ACCESS_TOKEN=<your_Access_Token>
 ```
 
-Next, run this command:
+2. Next, make the request to the Generate Images API. We'll use a prompt for a Shakespearean puppy, and enter a few presets so that they apply together:
 
 ```bash
 curl --location 'https://firefly-api.adobe.io/v3/images/generate-async' \
@@ -152,30 +150,38 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate-async' \
 }'
 ```
 
-### Specifying Style Strength
+The request returns a rapid response for the asynchronous job:
 
-To influence how impactful your presets are on the image generation, add a `strength` value between `1` and `100` to your style object. When "strength" is not specified, it defaults to a value of `50`. Below we show how to set the "strength" value to `100` to make our style presets more pronounced:
-
-```bash
-curl --location 'https://firefly-api.adobe.io/v3/images/generate-async' \
---header 'Content-Type: application/json' \
---header 'Accept: application/json' \
---header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
---header "Authorization: Bearer $FIREFLY_SERVICES_ACCESS_TOKEN" \
---data '{
-    "prompt": "a puppy dressed as a renaissance artist",
-    "numVariations": 4,
-    "style": {
-        "presets": [
-            "bw", "fantasy", "dramatic_light"
-        ],
-        "strength": 100
-    }
-}'
+```json
+{   
+    "jobId":"<YOUR_JOB_ID>",
+    "statusUrl":"https://firefly-epo854211.adobe.io/v3/status/urn:ff:jobs:...",
+    "cancelUrl":"https://firefly-epo854211.adobe.io/v3/cancel/urn:ff:jobs:..."
+}
 ```
 
+3. Use the `jobId` to see the result:
 
+<InlineAlert variant="info" slots="header, text" />
+
+NOTE
+
+The `numVariations` value creates four generated images that will be easy to compare. Four URLs are returned in the response.
+
+```bash
+curl -X GET "https://firefly-api.adobe.io/v3/status/<YOUR_JOB_ID>" \
+    -H "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
+    -H "Authorization: Bearer $FIREFLY_SERVICES_ACCESS_TOKEN" \
+    -H "Content-Type: application/json"
+```
+
+You'll see results similar to our example below. Notice that all the defined presets were applied to the prompt for a renaissance puppy!
+
+**Sample Result**
+
+![A renaissance artist puppy generated with presets][3]
 
 <!-- links -->
 [1]: ../../api/image_generation/V3/
 [2]: ../authentication/index.md
+[3]: ../../images/puppy-renaissance-artist.jpeg
