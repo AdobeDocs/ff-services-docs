@@ -426,25 +426,43 @@ Before publishing or when I ask to "check the doc", ensure your documentation:
     - [ ] First word capitalized
     - [ ] All major words capitalized
     - [ ] Example: "Best Practices for Adobe Substance 3D API"
-  - [ ] H2-H6 (##-######): Sentence case
+  - [ ] H2-H5 (##-#####): Sentence case
+    - [ ] Check EVERY H2-H5 header in the document
     - [ ] Only first word capitalized
     - [ ] Proper nouns remain capitalized
     - [ ] No other words capitalized
-    - [ ] Examples:
+    - [ ] Common mistakes to check for:
+      - ❌ Title Case in H2-H5 (e.g., "Authentication Best Practices")
+      - ❌ Mixed Case (e.g., "Getting Started With The API")
+      - ❌ All lowercase (e.g., "getting started with the api")
+      - ❌ Inconsistent proper noun capitalization (e.g., "Using the adobe developer console")
+    - [ ] Examples of correct H2-H5 headers:
       - ✅ "Authentication best practices"
       - ✅ "Getting started with the API"
       - ✅ "Using the Adobe Developer Console"
-      - ❌ "Authentication Best Practices"
-      - ❌ "Getting Started With The API"
-  - [ ] H3-H4 specific checks
-    - [ ] Code block titles with `*filename*` preserve asterisks
-    - [ ] Response status indicators use plain parentheses
-    - [ ] Examples:
-      - ✅ "#### *payload.json*"
-      - ✅ "#### Response (succeeded)"
-      - ❌ "#### Response (*succeeded*)"
-      - ❌ "#### Upload Assets Request"
-      - ✅ "#### Upload assets request"
+      - ✅ "Setting up your credentials"
+      - ✅ "Working with the API"
+    - [ ] Special cases:
+      - [ ] Code block titles with `*filename*` preserve asterisks
+      - [ ] Response status indicators use plain parentheses
+      - [ ] Examples:
+        - ✅ "#### *payload.json*"
+        - ✅ "#### Response (succeeded)"
+        - ❌ "#### Response (*succeeded*)"
+        - ❌ "#### Upload Assets Request"
+        - ✅ "#### Upload assets request"
+
+- [ ] Placeholder text verification
+  - [ ] All placeholder values use snake_case
+  - [ ] All placeholders are wrapped in <> brackets
+  - [ ] No uppercase or mixed case in placeholders
+  - [ ] Examples:
+    - ✅ `<your_client_id>`
+    - ✅ `<your_access_token>`
+    - ✅ `<your_username>`
+    - ❌ `<YOUR_MACHINE_USERNAME>`
+    - ❌ `yourClientIdAsdf123`
+    - ❌ `PLACEHOLDER_FOR_YOUR_MACHINE_USER_NAME`
 
 - [ ] Spelling and grammar is correct
 - [ ] Uses appropriate contractions (Microsoft.Contractions)
