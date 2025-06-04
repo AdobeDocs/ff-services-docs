@@ -1055,6 +1055,11 @@
             "description": "An object with the reference image details for style.",
             "$ref": "#/components/schemas/StylesV3"
           },
+          "upsamplerType": {
+            "description": "Only supported with the model version `image4_custom`. Upsampling refines the image generation by removing distortions, smoothing textures, and sometimes adding details (like freckles to faces in close-up). The `low_creativity` setting will improve small details of the image without significantly changing the overall image.",
+            "enum": ["default", "low_creativity"],
+            "type": "string"
+          },
           "visualIntensity": {
             "description": "Adjust the overall intensity of your photo's characteristics, such as contrast, shadow, and hue.",
             "maximum": 10,
