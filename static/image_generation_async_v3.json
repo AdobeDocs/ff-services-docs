@@ -31,7 +31,7 @@
             "schema": {
               "type": "string",
               "default": "image3",
-              "enum": ["image3", "image3_custom", "image4_standard", "image4_ultra"]
+              "enum": ["image3", "image3_custom", "image4_standard", "image4_ultra", "image4_custom"]
             }
           }
         ],
