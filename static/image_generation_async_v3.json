@@ -1056,7 +1056,7 @@
             "$ref": "#/components/schemas/StylesV3"
           },
           "upsamplerType": {
-            "description": "Only supported with the model version `image4_custom`. Upsampling refines the image generation by removing distortions, smoothing textures, and sometimes adding details (like freckles to faces in close-up). The `low_creativity` setting will improve small details of the image without significantly changing the overall image.",
+            "description": "Only supported with the model version image4_custom. The default setting upscales image generations to 2k. The low_creativity setting refines the image generation by removing distortions, smoothing textures, and sometimes adding details (like freckles to faces in close-up) without significantly changing the overall image.",
             "enum": ["default", "low_creativity"],
             "type": "string"
           },
