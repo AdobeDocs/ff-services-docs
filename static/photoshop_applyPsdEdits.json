@@ -15,7 +15,7 @@
     "/pie/psdService/documentOperations": {
       "post": {
         "summary": "Apply PSD Edits",
-        "description": "Apply a variety of documeent and layer level edits. To check the status of this process, utilize the `Get Status` endpoint.",
+        "description": "Apply a variety of document and layer level edits. To check the status of this process, utilize the `Get Status` endpoint.",
         "operationId": "documentOperations",
         "parameters": [
           {
