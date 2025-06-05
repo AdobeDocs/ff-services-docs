@@ -1062,7 +1062,7 @@
             "type": "string"
           },
           "visualIntensity": {
-            "description": "Adjust the overall intensity of your photo's characteristics, such as contrast, shadow, and hue.",
+            "description": "Adjust the overall intensity of your photo's characteristics, such as contrast, shadow, and hue. This is not supported with the model version `image4_custom`.",
             "maximum": 10,
             "minimum": 2,
             "type": "integer"
