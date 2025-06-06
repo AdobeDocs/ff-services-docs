@@ -25,21 +25,21 @@ Generatively edit specific areas of an image with the [Fill Image API](../api/ge
 
 ## Overview
 
-In this tutorial, let's imagine we manage the website of a Fortune 100 company. We need to update thousands of employee photos on the website to have a consistent, tasteful, and professional look. With the Fill Image API, we will replace the backgrounds of the employee photos with a similar style, ensuring a cohesive online presence.
+In this tutorial, let's imagine we manage the website of a company and we need to update thousands of employee photos on the website to have a consistent, tasteful, and professional look. Using the Fill Image API, we'll replace the backgrounds of all the employee photos with a similar style.
 
-In this tutorial, we will:
+In this tutorial:
 
-* Upload employee images along with mask images to target each photo's background.
-* Write a prompt to describe the artwork we want to generate for the new backgrounds.
-* Use Firefly's Fill Image API to replace the backgrounds of the employee photos with stylistically consistent artwork.
+- Upload employee images along with their mask images to target each photo's background.
+- Write a prompt that generates the artwork for the new backgrounds.
+- Use the Fill Image API to replace the backgrounds of the employee photos with the new generated, consistent artwork.
 
-Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump immediately to the full source code](#full-example) at the bottom of this webpage.
+You may walk through this tutorial step-by-step or [jump immediately to the full source code](#full-example) to learn more.
 
 ## Prerequisites
 
-This tutorial assumes you possess a Firefly Services **Client ID** and **Client Secret**. If you don't have these credentials, learn how to get them at the [Adobe Developer Console](../concepts/dev-console) page.
+- You'll need a Firefly Services **Client ID** and **Client Secret**. To get these credentials, see the [Adobe Developer Console](../concepts/dev-console) page.
 
-### Set Up Your Environment
+### Set up your environment
 
 Before we begin this [Node.js](https://nodejs.org/en/download/package-manager) tutorial, run the following in a secure terminal:
 
@@ -54,22 +54,22 @@ npm install axios qs
 touch index.js
 ```
 
-### Download the Sample Images
+### Download the sample images
 
-Save each of the images below to your project folder.
+Save all four of the images below, two source images and two mask images, as PNG files to your project folder.
 
 ||
 | --- | --- |
-| ![source-person-photo-1](../images/source-person-photo-1.png) <p style="text-align:center">source-person-photo-1.webp</p> | ![mask-person-photo-1](../images/mask-person-photo-1.png) <p style="text-align:center">mask-person-photo-1.webp</p>
-| ![source-person-photo-2](../images/source-person-photo-2.png) <p style="text-align:center">source-person-photo-2.webp</p> | ![mask-person-photo-2](../images/mask-person-photo-2.png) <p style="text-align:center">mask-person-photo-2.webp</p>
+| ![source-person-photo-1](../images/source-person-photo-1.png) <p style="text-align:center">source-person-photo-1.png</p> | ![mask-person-photo-1](../images/mask-person-photo-1.png) <p style="text-align:center">mask-person-photo-1.png</p>
+| ![source-person-photo-2](../images/source-person-photo-2.png) <p style="text-align:center">source-person-photo-2.png</p> | ![mask-person-photo-2](../images/mask-person-photo-2.png) <p style="text-align:center">mask-person-photo-2.png</p>
 
 <InlineAlert variant="info" slots="text" />
 
-When creating your own applications, use the Photoshop API's [Create Mask](https://developer.adobe.com/firefly-services/docs/photoshop/api/photoshop_createMask/) endpoint to automate the creation masks for your own images.
+In your own applications, use [Photoshop Create Mask API](https://developer.adobe.com/firefly-services/docs/photoshop/api/photoshop_createMask/) to automate the creation of masks for your own images.
 
-## Upload the Images
+## Step 1 - Upload the images
 
-Let's begin by uploading both the source image and the mask image using Firefly's [Upload API](../api/upload_image/V2).
+Upload both the source image and the mask image using the [Upload API](../api/upload_image/V2):
 
 ```js
 const fs = require('fs');
@@ -98,17 +98,17 @@ async function uploadImage({ filePath, fileType, accessToken }) {
 }
 ```
 
-## Write a Background Prompt
+## Step 2 - Write a background prompt
 
-Let's next describe the new background we want for our photos. For a professional look, let's use a smooth gradient background with corporate blue tones.
+Now let's describe to the AI the new background we want for our photos. To get a professional look, let's use a smooth gradient background with corporate blue tones.
 
 ```js
 const backgroundPrompt = 'A professional background for corporate headshots, blending a smooth gradient in neutral tones (e.g., gray, beige, or light blue) with subtle abstract artistic elements. Include elegant geometric shapes, soft brushstroke patterns, or layered textures that provide a modern and sophisticated appearance without overpowering the subject. The abstract elements should create depth and interest while maintaining a clean, polished, and corporate-appropriate aesthetic.';
 ```
 
-## Replace the Backgrounds
+## Step 3 - Replace the backgrounds
 
-Below is a sample JavaScript function that calls the [Fill Image API](../api/generative_fill/V3).
+This JavaScript function calls the [Fill Image API](../api/generative_fill/V3):
 
 ```js
 async function genFill({ maskId, sourceId, prompt, accessToken }) {
@@ -140,9 +140,9 @@ async function genFill({ maskId, sourceId, prompt, accessToken }) {
 }
 ```
 
-## Generate New Backgrounds
+## Step 4 - Generate new backgrounds
 
-Next, process each employee photo and generate a new image with an updated background.
+Process each employee photo to generate a new image with an updated background:
 
 ```js
 async function updateEmployeePhotos() {
@@ -151,13 +151,13 @@ async function updateEmployeePhotos() {
   const employees = [
     {
       name: 'Jane Smith',
-      imagePath: './source-person-photo-1.webp',
-      maskPath: './mask-person-photo-1.webp',
+      imagePath: './source-person-photo-1.png',
+      maskPath: './mask-person-photo-1.png',
     },
     {
       name: 'John Doe',
-      imagePath: './source-person-photo-2.webp',
-      maskPath: './mask-person-photo-2.webp',
+      imagePath: './source-person-photo-2.png',
+      maskPath: './mask-person-photo-2.png',
     },
     // Add more employees as needed
   ];
@@ -165,10 +165,10 @@ async function updateEmployeePhotos() {
   for (const employee of employees) {
     try {
       // Upload the source and mask images
-      const sourceUploadResponse = await uploadImage(employee.imagePath, 'image/webp', accessToken);
+      const sourceUploadResponse = await uploadImage(employee.imagePath, 'image/png', accessToken);
       const sourceImageId = sourceUploadResponse.images[0].id;
 
-      const maskUploadResponse = await uploadImage(employee.maskPath, 'image/webp', accessToken);
+      const maskUploadResponse = await uploadImage(employee.maskPath, 'image/png', accessToken);
       const maskImageId = maskUploadResponse.images[0].id;
 
       // Generate the new image
@@ -192,9 +192,17 @@ async function updateEmployeePhotos() {
 | --- | --- |
 | ![result-person-photo-1](../images/result-person-photo-1.jpeg) | ![result-person-photo-2](../images/result-person-photo-2.jpeg)
 
-## Full Example
+## Full example
 
-Review this tutorial's [prerequisites](#prerequisites) section to understand how to set up your environment prior to running this code. (Because this code is for educational purposes only, it is not production-ready and requires additional error handling, logging, security measures, and more before it can be used in a live application.)
+Here is a full example that includes all the steps from this tutorial. If you haven't completed the steps above, review this [tutorial's prerequisites](#prerequisites) section before running this code.
+
+This tutorial was written in CommonJS. If you'd prefer to use ES6 modules, convert the code by changing the `require` statements to `import` statements and then changing the file name from `index.js` to `index.mjs`.
+
+ <InlineAlert variant="warning" slots="header, text" />
+
+ This code is for educational purposes only.
+
+ This code example IS NOT production-ready and shouldn't be used in a live application without additional error handling, logging, security measures.
 
 ```js
 const axios = require("axios");
@@ -208,13 +216,13 @@ const backgroundPrompt = 'A professional background for corporate headshots, ble
 const employees = [
   {
     name: "Jane Smith",
-    imagePath: "./source-person-photo-1.webp",
-    maskPath: "./mask-person-photo-1.webp",
+    imagePath: "./source-person-photo-1.png",
+    maskPath: "./mask-person-photo-1.png",
   },
   {
     name: "John Doe",
-    imagePath: "./source-person-photo-2.webp",
-    maskPath: "./mask-person-photo-2.webp",
+    imagePath: "./source-person-photo-2.png",
+    maskPath: "./mask-person-photo-2.png",
   },
   // Add more employees as needed
 ];
@@ -309,14 +317,14 @@ async function updateEmployeePhotos(accessToken) {
       // Upload the source and mask images
       const sourceUploadResponse = await uploadImage({
         filePath: employee.imagePath,
-        fileType: "image/webp",
+        fileType: "image/png",
         accessToken,
       });
       const sourceImageId = sourceUploadResponse.images[0].id;
 
       const maskUploadResponse = await uploadImage({
         filePath: employee.maskPath,
-        fileType: "image/webp",
+        fileType: "image/png",
         accessToken,
       });
       const maskImageId = maskUploadResponse.images[0].id;
@@ -342,8 +350,6 @@ async function updateEmployeePhotos(accessToken) {
 }
 ```
 
-We wrote this tutorial in CommmonJS in order to make it easy to get up and running with the code. If you'd prefer to use ES6 modules, convert the code by changing the `require` statements to `import` statements and then changing the file name from `index.js` to `index.mjs`.
+## Deepen your understanding
 
-## Deepen Your Understanding
-
-Now that you have a working implementation of the Fill Image API, visit its [reference documentation](../api/generative_fill/V3) to explore more advanced use cases for automating your workflows.
+Now that you have a working implementation of the Fill Image API, visit the [API reference documentation](../api/generative_fill/V3) with more technical details for advanced use cases.
