@@ -112,7 +112,7 @@ Unlock the potential of Photoshop in the cloud.
 
 <DiscoverBlock slots="link, text"/>
 
-[Audio/Video API](../audio-video-api/)
+[Audio/Video API](https://developer.adobe.com/audio-video-firefly-services/)
 
 Audio/Video APIs are a collection of resources that leverage Firefly Services' AI to create and customize audio and video content.
 
