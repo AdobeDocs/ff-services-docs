@@ -124,6 +124,12 @@ Automate time-consuming design tasks with InDesign API.
 
 <DiscoverBlock slots="link, text"/>
 
+[Substance 3D API](https://developer.adobe.com//firefly-services/docs/s3dapi/?aio_internal)
+
+Unlock generative AI for rendering and object composites.
+
+<DiscoverBlock slots="link, text"/>
+
 [Content Tagging API](https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html)
 
 Leverage Content Tagging API to craft personalized experiences.
