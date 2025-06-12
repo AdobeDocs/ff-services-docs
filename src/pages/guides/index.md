@@ -126,7 +126,7 @@ Automate time-consuming design tasks with InDesign API.
 
 [Substance 3D API](https://developer.adobe.com//firefly-services/docs/s3dapi/?aio_internal)
 
-Unlock generative AI for rendering and object composites.
+Unlock generative AI for object rendering and composites.
 
 <DiscoverBlock slots="link, text"/>
 
