@@ -114,19 +114,13 @@ Unlock the potential of Photoshop in the cloud.
 
 [Audio/Video API](../audio-video-api/)
 
-Programmatically reframe videos for use on different platforms.
+Audio/Video APIs are a collection of resources that leverage Firefly Services' AI to create and customize audio and video content.
 
 <DiscoverBlock slots="link, text"/>
 
 [InDesign API](../indesign-apis/)
 
 Automate time-consuming design tasks with InDesign API.
-
-<DiscoverBlock slots="link, text"/>
-
-[TLS API](https://developer.adobe.com/translate-lipsync/)
-
-Use TLS to create audio or video dubs and transcripts.
 
 <DiscoverBlock slots="link, text"/>
 
