@@ -47,7 +47,7 @@ module.exports = {
       {
         title: "Substance 3D API",
         description: "Unlock generative AI for rendering and object composites.",
-        path: "https://developer.adobe.com//firefly-services/docs/s3dapi/?aio_internal",
+        path: "https://developer.adobe.com/firefly-services/docs/s3dapi/?aio_internal",
       },
       {
         title: "Content Tagging API",
