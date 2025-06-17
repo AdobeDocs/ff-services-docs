@@ -7,7 +7,7 @@
   "properties": {
     "jobId": {
       "type": "string",
-      "description": "The job's id requested",
+      "description": "The ID of the job being requested.",
       "example": "f54e0fcb-260b-47c3-b520-de0d17dc2b67"
     },
     "outputs": {
@@ -17,12 +17,11 @@
         "properties": {
           "input": {
             "type": "string",
-            "description": "The original input href.",
-            "example": "presigned_GET_URL"
+            "description": "The original input href."
           },
           "status": {
             "type": "string",
-            "description": "The job status",
+            "description": "The job status.",
             "enum": [
               "pending",
               "starting",
@@ -35,12 +34,12 @@
           "created": {
             "type": "string",
             "format": "YYYY-DD-MMThh:mm:ss.mmmmmZ",
-            "description": "Created timestamp of the job."
+            "description": "Timestamp for when the job was created."
           },
           "modified": {
             "type": "string",
             "format": "YYYY-DD-MMThh:mm:ss.mmmmmZ",
-            "description": "Modified timestamp of the job."
+            "description": "Timestamp for when the job was last modified."
           },
           "_links": {
             "type": "object",
@@ -79,7 +78,7 @@
           "properties": {
             "href": {
               "type": "string",
-              "description": "Link that client can use to track status.",
+              "description": "A link that can be used to track status.",
               "example": "https://image.adobe.io/pie/psdService/status/f54e0fcb-260b-47c3-b520-de0d17dc2b67"
             }
           }
