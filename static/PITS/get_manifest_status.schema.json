@@ -7,7 +7,7 @@
   "properties": {
     "jobId": {
       "type": "string",
-      "description": "The job's id requested",
+      "description": "The ID of the job being requested.",
       "example": "f54e0fcb-260b-47c3-b520-de0d17dc2b67"
     },
     "outputs": {
@@ -34,13 +34,13 @@
           "created": {
             "type": "string",
             "format": "YYYY-DD-MMThh:mm:ss.mmmmmZ",
-            "description": "Created timestamp of the job.",
+            "description": "Timestamp for when the job was created.",
             "example": "2018-01-04T12:57:15.12345Z"
           },
           "modified": {
             "type": "string",
             "format": "YYYY-DD-MMThh:mm:ss.mmmmmZ",
-            "description": "Modified timestamp of the job.",
+            "description": "Timestamp for when the job was last modified.",
             "example": "2018-01-04T12:58:36.12345Z"
           },
           "document": {
@@ -48,37 +48,50 @@
             "properties": {
               "name": {
                 "type": "string",
-                "description": "Name of the input file",
+                "description": "The name of the input file.",
                 "example": "wine.psd"
               },
               "height": {
                 "type": "number",
-                "description": "In pixels",
+                "description": "Height, in pixels.",
                 "example" : 2100
               },
               "width": {
                 "type": "number",
-                "description": "In pixels",
+                "description": "Width, in pixels.",
                 "example" : 1500
               },
               "photoshopBuild": {
                 "type": "string",
-                "description": "The name of the application that created the PSD",
+                "description": "The name of the application that created the PSD.",
                 "example": "Adobe Photoshop CC 2019 (20180815.cyan.124 2018/08/15: 1186932)  (Macintosh)"
               },
               "imageMode": {
                 "type": "string",
                 "description": "The document's image mode.",
+                "enum": [
+                  "bitmap",
+                  "greyscale",
+                  "indexed",
+                  "rgb",
+                  "cmyk",
+                  "hsl",
+                  "hsb",
+                  "multichannel",
+                  "duotone",
+                  "lab",
+                  "xyz"
+                ],
                 "example" : "rgb"
               },
               "bitDepth": {
                 "type": "number",
-                "description": "The document's bit/channel depth. Allowed values `bitmap`, `greyscale`, `indexed`, `rgb`, `cmyk`, `hsl`, `hsb`, `multichannel`, `duotone`, `lab`, `xyz`",
-                "example" : "bitmap"
+                "description": "The document's bit/channel depth.",
+                "example" : 8
               },
               "iccProfileName": {
                 "type": "string",
-                "description": "icc profile",
+                "description": "The ICC profile name.",
                 "example" : "sRGB IEC61966-2.1"
               }
             }
