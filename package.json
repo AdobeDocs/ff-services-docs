@@ -12,7 +12,7 @@
     "url": "https://github.com/icaraps"
   },
   "dependencies": {
-    "@adobe/gatsby-theme-aio": "^4.14.14",
+    "@adobe/gatsby-theme-aio": "^4.15.1",
     "cis-lightroom-api": "github:adobedocs/cis-photoshop-api-docs#lr_docs",
     "cis-photoshop-api": "github:adobedocs/cis-photoshop-api-docs#sudipta/summitPS",
     "firefly-api-docs": "github:adobedocs/firefly-api-docs",
