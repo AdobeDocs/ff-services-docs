@@ -305,6 +305,10 @@ module.exports = {
             title: "Troubleshooting",
             path: "/firefly-api/guides/help/troubleshooting/",
           },
+          {
+            title: "Usage Notes",
+            path: "/firefly-api/guides/help/usage_notes/",
+          },
         ],
       },
       // END Firefly API left nav

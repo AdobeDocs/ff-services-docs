@@ -11,7 +11,7 @@ This document has details about what's currently supported, limitations, and wor
 
 These technical notes for usage apply to the Generate Video API.
 
-## Supported aspect ratios
+### Supported aspect ratios
 
 Videos can be generated with dimensions for these supported aspect ratios:
 
