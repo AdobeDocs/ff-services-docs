@@ -3,9 +3,13 @@ title: Technical Usage Notes
 description: Technical Usage Notes for Generate Video API.
 ---
 
-# Generate Video API Usage Notes
+# Firefly API Usage Notes
 
 This document has details about what's currently supported, limitations, and workarounds.
+
+## Generate Video API
+
+These technical notes for usage apply to the Generate Video API.
 
 ## Supported aspect ratios
 
