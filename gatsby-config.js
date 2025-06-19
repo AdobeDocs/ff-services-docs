@@ -287,6 +287,16 @@ module.exports = {
               },
             ],
           },
+          {
+            title: "Generate Video",
+            path: "/firefly-api/guides/api/generate_video/V1/",
+            pages: [
+              {
+                title: "V1",
+                path: "/firefly-api/guides/api/generate_video/V1/",
+              },
+            ],
+          },
         ],
       },
       {

@@ -1,6 +1,6 @@
 ---
 title: Generate Video - Adobe Firefly API
-description: Generate Video using Adobe Firefly API
+description: Generate video using Adobe Firefly API
 keywords:
   - Adobe Firefly Services
   - Firefly API
