@@ -1375,7 +1375,7 @@
             "example": [1842533538]
           },
           "sizes": {
-            "description": "The dimensions of the generated video. Review the usage notes for [supported aspect ratios](../getting_started/usage_notes/) and the sizes associated with them.",
+            "description": "The dimensions of the generated video. Review the usage notes for [supported aspect ratios](../firefly-api/guides/help/usage_notes/) and the sizes associated with them.",
             "items": {
               "$ref": "#/components/schemas/ClinetoSize"
             },
