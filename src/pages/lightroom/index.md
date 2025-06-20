@@ -12,7 +12,7 @@ keywords:
   - Lightroom API SDK
   - Lightroom Node.js SDK
   - Lightroom API tutorials
-  - Lightroom API How-to guides  
+  - Lightroom API How-to guides
   - Lightroom API code sample
   - Lightroom API Tutorials
   - Lightroom API Developer documentation
@@ -56,9 +56,9 @@ Get started with the Adobe Firefly Services.
 
 <DiscoverBlock slots="link, text"/>
 
-[Tutorials](../guides/tutorials/index.md) 
+[Tutorials](../guides/tutorials/index.md)
 
-Explore our tutorials page for comprehensive guidance.  
+Explore our tutorials page for comprehensive guidance.
 
 <DiscoverBlock slots="heading, link, text"/>
 
@@ -78,6 +78,6 @@ Unlock the potential of Photoshop in the cloud.
 
 [Content Tagging API](https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html)
 
-Leverage Content Tagging API to craft personalized experiences. 
+Leverage Content Tagging API to craft personalized experiences.
 
 <br/><br/><br/><br/>
