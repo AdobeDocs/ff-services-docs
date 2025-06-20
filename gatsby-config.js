@@ -289,11 +289,11 @@ module.exports = {
           },
           {
             title: "Generate Video",
-            path: "/firefly-api/guides/api/generate_video/V1/",
+            path: "/firefly-api/guides/api/generate_video/V3_Async/",
             pages: [
               {
-                title: "V1",
-                path: "/firefly-api/guides/api/generate_video/V1/",
+                title: "V3 async",
+                path: "/firefly-api/guides/api/generate_video/V3_Async/",
               },
             ],
           },
