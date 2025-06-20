@@ -3,73 +3,291 @@ description:
 globs: 
 alwaysApply: false
 ---
-# Documentation Linting Process
+# Documentation Linting Rules
 
-This rule defines the process for running and fixing linting issues in documentation files.
+## Overview
 
-## Process Steps
+This document outlines the linting rules and best practices for maintaining high-quality documentation in our project.
 
-1. Run the linter:
-   ```sh
-   yarn lint
-   ```
+## Linting Process
 
-2. Review the output for markdown linting errors. Common issues include:
-   - MD047/single-trailing-newline: Missing newline at end of file
-   - MD009/no-trailing-spaces: Trailing spaces in lines
-   - MD013/line-length: Lines exceeding maximum length
-   - MD041/first-line-heading: Missing heading at start of file
-   - MD022/headings: Headings not following sentence case
+### Running the Linter
 
-3. Fix identified issues:
-   - For missing newlines: Add a newline at the end of the file using:
-     ```sh
-     echo "" >> <file_path>
-     ```
-   - For trailing spaces: Remove trailing spaces using:
-     ```sh
-     sed -i '' 's/ $//' <file_path>
-     ```
-   - For heading case issues: Ensure headings follow sentence case (first word capitalized, rest lowercase)
-   - For line length issues: Break long lines at appropriate points
-   - For missing headings: Add appropriate heading at start of file
-
-4. Verify fixes:
-   ```sh
-   yarn lint
-   ```
-
-## Common Fixes
-
-### Adding Missing Newlines
-When a file is missing a newline at the end (MD047), use:
-```sh
-echo "" >> <file_path>
+```bash
+yarn lint
 ```
 
-### Removing Trailing Spaces
-When a file has trailing spaces (MD009), use:
-```sh
-sed -i '' 's/ $//' <file_path>
+The linter checks:
+- Markdown files (markdownlint)
+- YAML files (yamllint)
+- JSON files (jsonlint)
+- Security issues (gitleaks)
+
+### Common Error Types and Resolution
+
+#### 1. Trailing Spaces (MD009)
+**Error:** `MD009/no-trailing-spaces Trailing spaces [Expected: 0 or 2; Actual: 1]`
+
+**Resolution:**
+```bash
+# Remove trailing spaces from a specific file
+sed -i '' 's/ $//' path/to/file.md
+
+# Remove trailing spaces from all markdown files
+find . -name "*.md" -exec sed -i '' 's/ $//' {} \;
 ```
 
-### Fixing Multiple Issues
-To fix both trailing spaces and add a newline:
-```sh
-sed -i '' 's/ $//' <file_path> && echo "" >> <file_path>
+**Best Practice:** Always use an editor that shows trailing whitespace or configure your editor to automatically trim trailing spaces on save.
+
+#### 2. Missing Language Specification (MD040)
+**Error:** `MD040/fenced-code-language Fenced code blocks should have a language specified`
+
+**Resolution:**
+```markdown
+# ❌ Bad
+```
+some code here
 ```
 
-## Notes
+# ✅ Good
+```bash
+some code here
+```
 
-- The linter may show warnings in YAML files about missing document start markers (`---`) and line length. These are not critical errors.
-- Some files may have platform-specific warnings (e.g., platform mismatch) which can be safely ignored.
-- The linter exits with code 0 when `DISABLE_ERRORS` is set to true, even if there are warnings.
-- Always verify fixes by running the linter again after making changes.
+# ✅ Good for text content
+```text
+some text content
+```
+```
 
-## Checklist
+**Common Language Specifiers:**
+- `bash` - Shell commands
+- `json` - JSON data
+- `yaml` - YAML configuration
+- `python` - Python code
+- `javascript` - JavaScript code
+- `text` - Plain text content
+- `markdown` - Markdown content
 
-- [ ] Run `yarn lint`
-- [ ] Review and document all linting errors
-- [ ] Fix each identified issue
-- [ ] Run `yarn lint` again to verify fixes
-- [ ] Document any remaining warnings that are acceptable to ignore
+#### 3. Multiple Consecutive Blank Lines (MD012)
+**Error:** `MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]`
+
+**Resolution:**
+```bash
+# Remove duplicate blank lines
+sed -i '' '/^$/{N;/^\n$/d;}' path/to/file.md
+```
+
+**Best Practice:** Use exactly one blank line between sections, never more.
+
+#### 4. Unordered List Style (MD004)
+**Error:** `MD004/ul-style Unordered list style [Expected: asterisk; Actual: dash]`
+
+**Resolution:**
+```bash
+# Convert dashes to asterisks
+sed -i '' 's/^- /* /' path/to/file.md
+```
+
+**Best Practice:** Always use asterisks (`*`) for unordered lists, never dashes (`-`).
+
+#### 5. Lists Not Surrounded by Blank Lines (MD032)
+**Error:** `MD032/blanks-around-lists Lists should be surrounded by blank lines`
+
+**Resolution:**
+```markdown
+# ❌ Bad
+Some text here
+* Item 1
+* Item 2
+More text here
+
+# ✅ Good
+Some text here
+
+* Item 1
+* Item 2
+
+More text here
+```
+
+#### 6. Fenced Code Blocks Not Surrounded by Blank Lines (MD031)
+**Error:** `MD031/blanks-around-fences Fenced code blocks should be surrounded by blank lines`
+
+**Resolution:**
+```markdown
+# ❌ Bad
+Some text here
+```bash
+code here
+```
+More text here
+
+# ✅ Good
+Some text here
+
+```bash
+code here
+```
+
+More text here
+```
+
+#### 7. Headings Not Surrounded by Blank Lines (MD022)
+**Error:** `MD022/blanks-around-headings Headings should be surrounded by blank lines`
+
+**Resolution:**
+```markdown
+# ❌ Bad
+Some text here
+## Heading
+More text here
+
+# ✅ Good
+Some text here
+
+## Heading
+
+More text here
+```
+
+## Automated Fixes
+
+### Batch Fix Common Issues
+
+```bash
+# Fix trailing spaces in all markdown files
+find . -name "*.md" -exec sed -i '' 's/ $//' {} \;
+
+# Convert dashes to asterisks in all markdown files
+find . -name "*.md" -exec sed -i '' 's/^- /* /' {} \;
+
+# Remove duplicate blank lines in all markdown files
+find . -name "*.md" -exec sed -i '' '/^$/{N;/^\n$/d;}' {} \;
+```
+
+### Pre-commit Hooks
+
+Consider setting up pre-commit hooks to automatically fix common issues:
+
+```bash
+# Example pre-commit hook
+#!/bin/sh
+# Fix trailing spaces
+find . -name "*.md" -exec sed -i '' 's/ $//' {} \;
+# Convert dashes to asterisks
+find . -name "*.md" -exec sed -i '' 's/^- /* /' {} \;
+```
+
+## Editor Configuration
+
+### VS Code Settings
+
+Add to `.vscode/settings.json`:
+
+```json
+{
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "markdownlint.config": {
+    "MD009": false,
+    "MD004": { "style": "asterisk" }
+  }
+}
+```
+
+### Recommended Extensions
+
+- markdownlint (for VS Code)
+- Prettier (with markdown support)
+- Trailing Spaces (highlights trailing whitespace)
+
+## Quality Checklist
+
+Before committing documentation changes:
+
+- [ ] Run `yarn lint` and fix all errors
+- [ ] Check for trailing spaces
+- [ ] Verify code blocks have language specifications
+- [ ] Ensure lists use asterisks, not dashes
+- [ ] Confirm proper spacing around headings and lists
+- [ ] Validate that code blocks are properly surrounded by blank lines
+- [ ] Check for duplicate blank lines
+
+## Common Patterns
+
+### Code Block with Context
+
+```markdown
+Here's how to use the API:
+
+```bash
+curl -X POST https://api.example.com/endpoint \
+  -H "Content-Type: application/json" \
+  -d '{"key": "value"}'
+```
+
+The response will include...
+```
+
+### Lists with Proper Spacing
+
+```markdown
+The API supports the following features:
+
+* Feature 1 - Description of feature 1
+* Feature 2 - Description of feature 2
+* Feature 3 - Description of feature 3
+
+To get started, follow these steps:
+
+1. Step one
+2. Step two
+3. Step three
+```
+
+### Headings with Context
+
+```markdown
+## Overview
+
+This section provides an overview of the topic.
+
+## Getting Started
+
+Follow these steps to get started.
+
+### Prerequisites
+
+Make sure you have the following installed.
+```
+
+## Troubleshooting
+
+### Persistent Issues
+
+If certain files keep having the same issues:
+
+1. Check if the file is being auto-generated
+2. Verify editor settings are correct
+3. Consider adding the file to `.markdownlintignore` if appropriate
+4. Use `git blame` to identify who last modified the problematic sections
+
+### Performance Tips
+
+For large repositories:
+- Run linting on specific directories: `yarn lint src/pages/`
+- Use `--fix` flags when available
+- Consider running linting in parallel for large file sets
+
+## Integration with CI/CD
+
+Ensure your CI/CD pipeline includes:
+
+```yaml
+- name: Lint Documentation
+  run: yarn lint
+  continue-on-error: false
+```
+
+This ensures documentation quality is maintained across all changes.
