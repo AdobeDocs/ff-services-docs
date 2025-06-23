@@ -104,6 +104,14 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/JobError"
+                },
+                "examples": {
+                  "forbidden": {
+                    "value": {
+                      "error_code": "access_error",
+                      "message": "User is not entitled to perform the requested operation."
+                    }
+                  }
                 }
               }
             }
@@ -114,6 +122,14 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/JobError"
+                },
+                "examples": {
+                  "tooManyRequests": {
+                    "value": {
+                      "error_code": "rate_limited",
+                      "message": "Too many requests."
+                    }
+                  }
                 }
               }
             }
