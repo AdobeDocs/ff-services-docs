@@ -18,13 +18,13 @@
       "post": {
         "operationId": "removeBackground",
         "summary": "Remove background",
-        "description": "This endpoint allows you to remove background and generate mask from an image. The request is processed asynchronously and the status of the job can be checked using the status URL provided in the response.",
+        "description": "This endpoint allows you to remove the background from an image and generate a mask from an image. The request is processed asynchronously and the status of the job can be checked with the Get Status endpoint using the `statusUrl` provided in this API's response.",
         "x-ffs-async-job": true,
         "x-ffs-job-status-fetcher": "facadeJobStatus",
         "parameters": [
           {
             "name": "Authorization",
-            "description": "Bearer: ${Authorization Token}",
+            "description": "Bearer: ${Authorization_Token}",
             "in": "header",
             "required": true,
             "schema": {
@@ -91,7 +91,7 @@
             }
           },
           "404": {
-            "description": "Resource Not found.",
+            "description": "Resource Not Found.",
             "content": {
               "application/json": {
                 "schema": {
@@ -101,7 +101,7 @@
             }
           },
           "500": {
-            "description": "Internal server error.",
+            "description": "Internal Server Error.",
             "content": {
               "application/json": {
                 "schema": {
@@ -123,8 +123,7 @@
       },
       "Authorization": {
         "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
+        "scheme": "bearer"
       }
     },
     "schemas": {
