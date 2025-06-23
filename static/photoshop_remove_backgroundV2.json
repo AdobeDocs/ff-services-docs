@@ -24,7 +24,7 @@
         "parameters": [
           {
             "name": "Authorization",
-            "description": " The bearer token for the user. This is the Access Token.",
+            "description": " The bearer token for the user. This is the access token.",
             "in": "header",
             "required": true,
             "schema": {
