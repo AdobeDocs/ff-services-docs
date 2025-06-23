@@ -71,7 +71,7 @@
         },
         "responses": {
           "202": {
-            "description": "The request has been accepted and the job is in progress",
+            "description": "Accepted",
             "content": {
               "application/json": {
                 "schema": {
