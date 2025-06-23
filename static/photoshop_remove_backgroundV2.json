@@ -1,0 +1,1533 @@
+"openapi": "3.0.0",
+"paths": {
+  "/alpha/fill-masked-areas": {
+    "post": {
+      "operationId": "fillMaskedAreas",
+      "summary": "Fill masked areas",
+      "description": "This endpoint allows you to inpaint masked areas within an image. The API will remove the objects represented by these masks and inpaint the specified areas. Provide a list of masks corresponding to the regions you wish to modify.",
+      "x-ffs-async-job": true,
+      "x-ffs-job-status-fetcher": "facadeJobStatus",
+      "parameters": [],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/FillMaskedAreasRequest"
+            }
+          }
+        }
+      },
+      "responses": {
+        "202": {
+          "description": "The request has been accepted and the job is in progress.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobLinkResponse"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Resource Not found.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Internal server error.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/beta/fill-masked-areas": {
+    "post": {
+      "operationId": "fillMaskedAreas",
+      "summary": "Fill masked areas",
+      "description": "This endpoint allows you to inpaint masked areas within an image. The API will remove the objects represented by these masks and inpaint the specified areas. Provide a list of masks corresponding to the regions you wish to modify.",
+      "x-ffs-async-job": true,
+      "x-ffs-job-status-fetcher": "facadeJobStatus",
+      "parameters": [],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/FillMaskedAreasRequest"
+            }
+          }
+        }
+      },
+      "responses": {
+        "202": {
+          "description": "The request has been accepted and the job is in progress.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobLinkResponse"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Resource Not found.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Internal server error.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/alpha/mask-body-parts": {
+    "post": {
+      "operationId": "maskBodyParts",
+      "summary": "Generate human item masks",
+      "description": "This endpoint identifies and creates masks for various items on a human body, including sunglasses, hats, upper body dress, lower body dress, left arm, right arm, and more. The API processes an input image of a human and returns an array of masks corresponding to each detected item and body part.",
+      "x-ffs-async-job": true,
+      "x-ffs-job-status-fetcher": "facadeJobStatus",
+      "parameters": [],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/MaskBodyPartsRequest"
+            }
+          }
+        }
+      },
+      "responses": {
+        "202": {
+          "description": "The request has been accepted and the job is in progress.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobLinkResponse"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Resource not found.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Internal server error.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/beta/mask-body-parts": {
+    "post": {
+      "operationId": "maskBodyParts",
+      "summary": "Generate human item masks",
+      "description": "This endpoint identifies and creates masks for various items on a human body, including sunglasses, hats, upper body dress, lower body dress, left arm, right arm, and more. The API processes an input image of a human and returns an array of masks corresponding to each detected item and body part.",
+      "x-ffs-async-job": true,
+      "x-ffs-job-status-fetcher": "facadeJobStatus",
+      "parameters": [],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/MaskBodyPartsRequest"
+            }
+          }
+        }
+      },
+      "responses": {
+        "202": {
+          "description": "The request has been accepted and the job is in progress.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobLinkResponse"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Resource not found.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Internal server error.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/alpha/mask-objects": {
+    "post": {
+      "operationId": "maskObjects",
+      "summary": "Generate object and background masks",
+      "description": "Given an image, the API returns a list of semantic and background masks. It processes the image to generate semantic masks for the foreground objects and a list of background masks that segment the background elements of the image. Each mask includes a label and a URL pointing to the mask image.",
+      "x-ffs-async-job": true,
+      "x-ffs-job-status-fetcher": "facadeJobStatus",
+      "parameters": [],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/MaskObjectsRequest"
+            }
+          }
+        }
+      },
+      "responses": {
+        "202": {
+          "description": "The request has been accepted and the job is in progress.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobLinkResponse"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Resource not found.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Internal server error.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/beta/mask-objects": {
+    "post": {
+      "operationId": "maskObjects",
+      "summary": "Generate object and background masks",
+      "description": "Given an image, the API returns a list of semantic and background masks. It processes the image to generate semantic masks for the foreground objects and a list of background masks that segment the background elements of the image. Each mask includes a label and a URL pointing to the mask image.",
+      "x-ffs-async-job": true,
+      "x-ffs-job-status-fetcher": "facadeJobStatus",
+      "parameters": [],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/MaskObjectsRequest"
+            }
+          }
+        }
+      },
+      "responses": {
+        "202": {
+          "description": "The request has been accepted and the job is in progress.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobLinkResponse"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Resource not found.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Internal server error.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/alpha/refine-mask": {
+    "post": {
+      "operationId": "refineMask",
+      "summary": "Refine masks",
+      "description": "This endpoint processes an image based on a list of masks, performing a full refinement. It also offers the ability to colour-decontaminate the areas identified by these masks.",
+      "x-ffs-async-job": true,
+      "x-ffs-job-status-fetcher": "facadeJobStatus",
+      "parameters": [],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/RefineMaskRequest"
+            }
+          }
+        }
+      },
+      "responses": {
+        "202": {
+          "description": "The request has been accepted and the job is in progress.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobLinkResponse"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Resource not found.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Internal server error.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/beta/refine-mask": {
+    "post": {
+      "operationId": "refineMask",
+      "summary": "Refine masks",
+      "description": "This endpoint processes an image based on a list of masks, performing a full refinement. It also offers the ability to colour-decontaminate the areas identified by these masks.",
+      "x-ffs-async-job": true,
+      "x-ffs-job-status-fetcher": "facadeJobStatus",
+      "parameters": [],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/RefineMaskRequest"
+            }
+          }
+        }
+      },
+      "responses": {
+        "202": {
+          "description": "The request has been accepted and the job is in progress.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobLinkResponse"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Resource not found.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Internal server error.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/alpha/status/{jobId}": {
+    "get": {
+      "operationId": "facadeJobStatus",
+      "summary": "Retrieve job status",
+      "description": "Retrieve the status of a job by providing the job ID. The job ID can be obtained from the response of other APIs.",
+      "x-ffs-status-fetcher": true,
+      "x-ffs-job-name": "FacadeAsyncJob",
+      "parameters": [
+        {
+          "name": "jobId",
+          "required": true,
+          "in": "path",
+          "description": "Job ID",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Successful operation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/FillMaskedAreasJobApiResponse"
+                  },
+                  {
+                    "$ref": "#/components/schemas/MaskBodyPartsJobApiResponse"
+                  },
+                  {
+                    "$ref": "#/components/schemas/MaskObjectsJobApiResponse"
+                  },
+                  {
+                    "$ref": "#/components/schemas/RefineMaskJobApiResponse"
+                  },
+                  {
+                    "$ref": "#/components/schemas/JobStatusPollPayload"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Unknown job id",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Internal server error",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/beta/status/{jobId}": {
+    "get": {
+      "operationId": "facadeJobStatus",
+      "summary": "Retrieve job status",
+      "description": "Retrieve the status of a job by providing the job ID. The job ID can be obtained from the response of other APIs.",
+      "x-ffs-status-fetcher": true,
+      "x-ffs-job-name": "FacadeAsyncJob",
+      "parameters": [
+        {
+          "name": "jobId",
+          "required": true,
+          "in": "path",
+          "description": "Job ID",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Successful operation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/FillMaskedAreasJobApiResponse"
+                  },
+                  {
+                    "$ref": "#/components/schemas/MaskBodyPartsJobApiResponse"
+                  },
+                  {
+                    "$ref": "#/components/schemas/MaskObjectsJobApiResponse"
+                  },
+                  {
+                    "$ref": "#/components/schemas/RefineMaskJobApiResponse"
+                  },
+                  {
+                    "$ref": "#/components/schemas/JobStatusPollPayload"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Unknown job id",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Internal server error",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/alpha/remove-background": {
+    "post": {
+      "operationId": "removeBackground",
+      "summary": "Remove background",
+      "description": "This endpoint allows you to remove background and generate mask from an image. The request is processed asynchronously and the status of the job can be checked using the status URL provided in the response.",
+      "x-ffs-async-job": true,
+      "x-ffs-job-status-fetcher": "facadeJobStatus",
+      "parameters": [],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/PhotoroomRemoveBackgroundRequest"
+            }
+          }
+        }
+      },
+      "responses": {
+        "202": {
+          "description": "The request has been accepted and the job is in progress.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobLinkResponse"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Resource Not found.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Internal server error.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/beta/remove-background": {
+    "post": {
+      "operationId": "removeBackground",
+      "summary": "Remove background",
+      "description": "This endpoint allows you to remove background and generate mask from an image. The request is processed asynchronously and the status of the job can be checked using the status URL provided in the response.",
+      "x-ffs-async-job": true,
+      "x-ffs-job-status-fetcher": "facadeJobStatus",
+      "parameters": [],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/PhotoroomRemoveBackgroundRequest"
+            }
+          }
+        }
+      },
+      "responses": {
+        "202": {
+          "description": "The request has been accepted and the job is in progress.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobLinkResponse"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Resource Not found.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Internal server error.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobError"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+},
+"info": {
+  "title": "Photoshop API- Firefly Services",
+  "description": "Photoshop API- Firefly Services (alpha) to build advanced image manipulation applications with precise control over content and segmentation.",
+  "version": "alpha",
+  "contact": {}
+},
+"tags": [],
+"servers": [
+  {
+    "url": "https://photoshop-api-stage.adobe.io",
+    "description": "Stage endpoint"
+  },
+  {
+    "url": "https://photoshop-api.adobe.io",
+    "description": "Production endpoint"
+  }
+],
+"components": {
+  "securitySchemes": {
+    "apiKey": {
+      "type": "apiKey",
+      "name": "X-API-KEY",
+      "in": "header"
+    },
+    "Authorization": {
+      "type": "http",
+      "scheme": "bearer",
+      "bearerFormat": "JWT"
+    }
+  },
+  "schemas": {
+    "UrlResource": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "The URL of the resource. Only allow listed domains are allowed to be accepted as input URL in the request. The allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li><li><code>assets.frame.io</code></li><li><code>storage.googleapis.com</code></li></ul>"
+        }
+      },
+      "required": [
+        "url"
+      ]
+    },
+    "FillMaskedAreasInputImageMediaType": {
+      "type": "string",
+      "description": "The media type of the input image.",
+      "enum": [
+        "image/jpeg",
+        "image/png"
+      ]
+    },
+    "FillMaskedAreasInputImage": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "description": "The source of the input Image. Dimensions of image should not be greater than (4000px X 4000px). The image mediatype should be one of the [\"image/jpeg\", \"image/png\"].",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/UrlResource"
+            }
+          ]
+        },
+        "mediaType": {
+          "$ref": "#/components/schemas/FillMaskedAreasInputImageMediaType"
+        }
+      },
+      "required": [
+        "source"
+      ]
+    },
+    "FillMaskedAreasRequest": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "description": "The image to be processed.",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/FillMaskedAreasInputImage"
+            }
+          ]
+        },
+        "masks": {
+          "description": "The areas of the image represented by this list of masks will be inpainted.",
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/FillMaskedAreasInputImage"
+          }
+        }
+      },
+      "required": [
+        "image",
+        "masks"
+      ]
+    },
+    "JobLinkResponse": {
+      "type": "object",
+      "properties": {
+        "jobId": {
+          "type": "string",
+          "description": "jobId"
+        },
+        "statusUrl": {
+          "type": "string",
+          "description": "statusUrl"
+        }
+      },
+      "required": [
+        "jobId",
+        "statusUrl"
+      ]
+    },
+    "JobError": {
+      "type": "object",
+      "properties": {
+        "error_code": {
+          "type": "string",
+          "description": "The error code."
+        },
+        "message": {
+          "type": "string",
+          "description": "The error message."
+        },
+        "validation_errors": {
+          "description": "An array of various validation errors.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "error_code"
+      ]
+    },
+    "MaskBodyPartsImageMediaType": {
+      "type": "string",
+      "description": "The media type of the input image.",
+      "enum": [
+        "image/jpeg",
+        "image/png"
+      ]
+    },
+    "MaskBodyPartsInputImage": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "description": "The source of the input Image. Dimensions of image should not be greater than (4000px X 4000px). The image mediatype should be one of the [\"image/jpeg\", \"image/png\"].",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/UrlResource"
+            }
+          ]
+        },
+        "mediaType": {
+          "$ref": "#/components/schemas/MaskBodyPartsImageMediaType"
+        }
+      },
+      "required": [
+        "source"
+      ]
+    },
+    "MaskBodyPartsMaskMediaType": {
+      "type": "string",
+      "description": "The media type of the mask.",
+      "enum": [
+        "image/png"
+      ]
+    },
+    "MaskBodyPartsInputMask": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "description": "The URL of the mask. Dimensions of mask should not be greater than (4000px X 4000px). The mask mediatype should be one of the [\"image/png\"]",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/UrlResource"
+            }
+          ]
+        },
+        "mediaType": {
+          "$ref": "#/components/schemas/MaskBodyPartsMaskMediaType"
+        }
+      },
+      "required": [
+        "source"
+      ]
+    },
+    "MaskBodyPartsRequest": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "description": "Input Image.",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/MaskBodyPartsInputImage"
+            }
+          ]
+        },
+        "mask": {
+          "description": "Mask of the subject in the input image.",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/MaskBodyPartsInputMask"
+            }
+          ]
+        }
+      },
+      "required": [
+        "image",
+        "mask"
+      ]
+    },
+    "MaskObjectsInputImageMediaType": {
+      "type": "string",
+      "description": "The media type of the input image.",
+      "enum": [
+        "image/jpeg",
+        "image/png"
+      ]
+    },
+    "MaskObjectsInputImage": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "description": "The source of the input Image. Dimensions of image should not be greater than (4000px X 4000px). The image mediatype should be one of the [\"image/jpeg\", \"image/png\"].",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/UrlResource"
+            }
+          ]
+        },
+        "mediaType": {
+          "$ref": "#/components/schemas/MaskObjectsInputImageMediaType"
+        }
+      },
+      "required": [
+        "source"
+      ]
+    },
+    "MaskObjectsRequest": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "description": "The input image.",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/MaskObjectsInputImage"
+            }
+          ]
+        }
+      },
+      "required": [
+        "image"
+      ]
+    },
+    "RefineMaskImageMediaType": {
+      "type": "string",
+      "description": "The media type of the input image.",
+      "enum": [
+        "image/jpeg",
+        "image/png"
+      ]
+    },
+    "RefineMaskInputImage": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "description": "The source of the input Image. Dimensions of image should not be greater than (4000px X 4000px). The image mediatype should be one of the [\"image/jpeg\", \"image/png\"].",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/UrlResource"
+            }
+          ]
+        },
+        "mediaType": {
+          "$ref": "#/components/schemas/RefineMaskImageMediaType"
+        }
+      },
+      "required": [
+        "source"
+      ]
+    },
+    "RefineMaskRequest": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "description": "The input image.",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/RefineMaskInputImage"
+            }
+          ]
+        },
+        "mask": {
+          "description": "The mask in the input image that needs to be refined",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/RefineMaskInputImage"
+            }
+          ]
+        },
+        "colorDecontamination": {
+          "type": "boolean",
+          "description": "Apply color decontamination on the foreground. Returns RGBA image. Default is false",
+          "default": false
+        }
+      },
+      "required": [
+        "image",
+        "mask"
+      ]
+    },
+    "JobStatus": {
+      "type": "string",
+      "description": "status",
+      "enum": [
+        "not_started",
+        "running",
+        "failed",
+        "succeeded"
+      ]
+    },
+    "OutputImageDetails": {
+      "type": "object",
+      "properties": {
+        "destination": {
+          "description": "Details of the location where output image is located at.",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/UrlResource"
+            }
+          ]
+        },
+        "mediaType": {
+          "type": "string",
+          "description": "Media type of the output image.",
+          "enum": [
+            "image/jpeg",
+            "image/png"
+          ]
+        }
+      },
+      "required": [
+        "destination",
+        "mediaType"
+      ]
+    },
+    "FillMaskedAreasJobApiResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/components/schemas/JobStatus"
+        },
+        "jobId": {
+          "type": "string",
+          "description": "jobId"
+        },
+        "image": {
+          "description": "Output Image.",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OutputImageDetails"
+            }
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "jobId",
+        "image"
+      ]
+    },
+    "ImageBoundingBox": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "number",
+          "description": "The x coordinate of the upper-left corner of the bounding box. The origin (0,0) is at the upper-left corner of the image."
+        },
+        "y": {
+          "type": "number",
+          "description": "The y coordinate of the upper-left corner of the bounding box. The origin (0,0) is at the upper-left corner of the image."
+        },
+        "width": {
+          "type": "number",
+          "description": "The width of the bounding box, starting from the x coordinate."
+        },
+        "height": {
+          "type": "number",
+          "description": "The height of the bounding box, starting from the y coordinate."
+        }
+      },
+      "required": [
+        "x",
+        "y",
+        "width",
+        "height"
+      ]
+    },
+    "MaskBodyPartsOutputImage": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "The label of the identified body part."
+        },
+        "boundingBox": {
+          "description": "The bounding box of the identified body part.",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/ImageBoundingBox"
+            }
+          ]
+        },
+        "score": {
+          "type": "number",
+          "description": "The probability or confidence score of the match."
+        },
+        "destination": {
+          "description": "Details of the location where the mask of identified body part is located at.",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/UrlResource"
+            }
+          ]
+        },
+        "mediaType": {
+          "type": "string",
+          "description": "Media type of the mask of identified body part.",
+          "enum": [
+            "image/png"
+          ]
+        }
+      },
+      "required": [
+        "label",
+        "boundingBox",
+        "score",
+        "destination",
+        "mediaType"
+      ]
+    },
+    "MaskBodyPartsJobApiResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/components/schemas/JobStatus"
+        },
+        "jobId": {
+          "type": "string",
+          "description": "jobId"
+        },
+        "masks": {
+          "description": "An array of output image masks.",
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/MaskBodyPartsOutputImage"
+          }
+        }
+      },
+      "required": [
+        "status",
+        "jobId",
+        "masks"
+      ]
+    },
+    "MaskObjectsOutputImage": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "The label of the identified object or area of interest."
+        },
+        "boundingBox": {
+          "description": "The bounding box of the object or area of interest.",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/ImageBoundingBox"
+            }
+          ]
+        },
+        "score": {
+          "type": "number",
+          "description": "The probability or confidence score of the match."
+        },
+        "destination": {
+          "description": "Details of the location where the mask is located at.",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/UrlResource"
+            }
+          ]
+        },
+        "mediaType": {
+          "type": "string",
+          "description": "Media type of the mask.",
+          "enum": [
+            "image/png"
+          ]
+        }
+      },
+      "required": [
+        "label",
+        "boundingBox",
+        "score",
+        "destination",
+        "mediaType"
+      ]
+    },
+    "MaskObjectsJobApiResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/components/schemas/JobStatus"
+        },
+        "jobId": {
+          "type": "string",
+          "description": "jobId"
+        },
+        "semanticMasks": {
+          "description": "List of masks representing foreground objects.",
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/MaskObjectsOutputImage"
+          }
+        },
+        "backgroundMasks": {
+          "description": "List of masks representing background regions.",
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/MaskObjectsOutputImage"
+          }
+        }
+      },
+      "required": [
+        "status",
+        "jobId",
+        "semanticMasks",
+        "backgroundMasks"
+      ]
+    },
+    "RefineMaskOutputImage": {
+      "type": "object",
+      "properties": {
+        "destination": {
+          "description": "Details of the location where the refined mask or image is located at.",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/UrlResource"
+            }
+          ]
+        },
+        "mediaType": {
+          "type": "string",
+          "description": "Media type of the refined mask or image.",
+          "enum": [
+            "image/jpeg",
+            "image/png"
+          ]
+        },
+        "boundingBox": {
+          "description": "The bounding box of the refined mask or image.",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/ImageBoundingBox"
+            }
+          ]
+        }
+      },
+      "required": [
+        "destination",
+        "mediaType",
+        "boundingBox"
+      ]
+    },
+    "RefineMaskJobApiResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/components/schemas/JobStatus"
+        },
+        "jobId": {
+          "type": "string",
+          "description": "jobId"
+        },
+        "mask": {
+          "description": "The refined mask. This will only be attached to the response when mask is specified as an input. Only applicable when colorDecontamination is false.",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/RefineMaskOutputImage"
+            }
+          ]
+        },
+        "image": {
+          "description": "The image with color decontamination. This will only be attached to the response when mask is specified as an input. Only applicable when colorDecontamination is true.",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/RefineMaskOutputImage"
+            }
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "jobId"
+      ]
+    },
+    "JobStatusPollPayload": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/components/schemas/JobStatus"
+        },
+        "jobId": {
+          "type": "string",
+          "description": "jobId"
+        }
+      },
+      "required": [
+        "status",
+        "jobId"
+      ]
+    },
+    "PhotoroomRemoveBgInputImage": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "description": "The source of the input image. Dimensions of the image should not be greater than (6000px X 6000px). The image mediatype should be one of the [\"image/jpeg\", \"image/png\", \"image/webp\"].",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/UrlResource"
+            }
+          ]
+        }
+      },
+      "required": [
+        "source"
+      ]
+    },
+    "RemoveBgMode": {
+      "type": "string",
+      "description": "The mode of background removal.",
+      "enum": [
+        "cutout",
+        "mask"
+      ]
+    },
+    "PhotoroomRemoveBgOutputImageMediaType": {
+      "type": "string",
+      "description": "The media type of the output image.",
+      "enum": [
+        "image/jpeg",
+        "image/png",
+        "image/webp"
+      ]
+    },
+    "PhotoroomRemoveBgOutputImageOptions": {
+      "type": "object",
+      "properties": {
+        "mediaType": {
+          "$ref": "#/components/schemas/PhotoroomRemoveBgOutputImageMediaType"
+        }
+      }
+    },
+    "PhotoroomColor": {
+      "type": "object",
+      "properties": {
+        "red": {
+          "type": "number",
+          "description": "The red component of the color.",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "green": {
+          "type": "number",
+          "description": "The green component of the color.",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "blue": {
+          "type": "number",
+          "description": "The blue component of the color.",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "alpha": {
+          "type": "number",
+          "description": "The alpha component of the color.",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "required": [
+        "red",
+        "green",
+        "blue",
+        "alpha"
+      ]
+    },
+    "PhotoroomRemoveBackgroundRequest": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "description": "The image to be processed.",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/PhotoroomRemoveBgInputImage"
+            }
+          ]
+        },
+        "mode": {
+          "$ref": "#/components/schemas/RemoveBgMode"
+        },
+        "output": {
+          "description": "The options for the output image.",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/PhotoroomRemoveBgOutputImageOptions"
+            }
+          ]
+        },
+        "trim": {
+          "type": "boolean",
+          "description": "Whether to trim the image."
+        },
+        "backgroundColor": {
+          "description": "The background color.",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/PhotoroomColor"
+            }
+          ]
+        },
+        "colorDecontamination": {
+          "type": "number",
+          "description": "Whether to apply color decontamination to get clearer foreground, especially around the matting region. Value should be between 0 and 1, where 0 means apply color decontamination and 1 means do not apply color decontamination.",
+          "minimum": 0,
+          "maximum": 1,
+          "example": 0.25
+        }
+      },
+      "required": [
+        "image"
+      ]
+    }
+  }
+},
+"security": [
+  {
+    "apiKey": [],
+    "Authorization": []
+  }
+]
+},
