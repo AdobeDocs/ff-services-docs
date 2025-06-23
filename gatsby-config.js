@@ -421,7 +421,17 @@ module.exports = {
           },
           {
             title: "Remove Background",
-            path: "/photoshop/api/photoshop_removeBackground.md",
+            path: "/photoshop/api/photoshop_removeBackgroundV2.md",
+            pages: [
+              {
+                title: "V1 (deprecated)",
+                path: "/photoshop/api/photoshop_removeBackground.md",
+              },
+              {
+                title: "V2",
+                path: "/photoshop/api/photoshop_removeBackgroundV2.md",
+              },
+            ],
           },
           {
             title: "Replace Smart Object",
