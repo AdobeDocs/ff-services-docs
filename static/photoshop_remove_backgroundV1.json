@@ -1,0 +1,276 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Photoshop API- Firefly Services",
+    "description": "Photoshop API- Firefly Services (alpha) to build advanced image manipulation applications with precise control over content and segmentation.",
+    "version": "V1",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [
+    {
+      "url": "https://photoshop-api.adobe.io",
+      "description": "Production endpoint"
+    }
+  ],
+  "paths": {
+    "/beta/remove-background": {
+      "post": {
+        "operationId": "removeBackground",
+        "summary": "Remove background",
+        "description": "This endpoint allows you to remove background and generate mask from an image. The request is processed asynchronously and the status of the job can be checked using the status URL provided in the response.",
+        "x-ffs-async-job": true,
+        "x-ffs-job-status-fetcher": "facadeJobStatus",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PhotoroomRemoveBackgroundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "The request has been accepted and the job is in progress.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobLinkResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "apiKey": {
+        "type": "apiKey",
+        "name": "X-API-KEY",
+        "in": "header"
+      },
+      "Authorization": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "UrlResource": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The URL of the resource. Only allow listed domains are allowed to be accepted as input URL in the request. The allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li><li><code>assets.frame.io</code></li><li><code>storage.googleapis.com</code></li></ul>"
+          }
+        },
+        "required": [
+          "url"
+        ]
+      },
+      "PhotoroomRemoveBgInputImage": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "description": "The source of the input image. Dimensions of the image should not be greater than (6000px X 6000px). The image mediatype should be one of the [\"image/jpeg\", \"image/png\", \"image/webp\"].",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/UrlResource"
+              }
+            ]
+          }
+        },
+        "required": [
+          "source"
+        ]
+      },
+      "RemoveBgMode": {
+        "type": "string",
+        "description": "The mode of background removal.",
+        "enum": [
+          "cutout",
+          "mask"
+        ]
+      },
+      "PhotoroomRemoveBgOutputImageMediaType": {
+        "type": "string",
+        "description": "The media type of the output image.",
+        "enum": [
+          "image/jpeg",
+          "image/png",
+          "image/webp"
+        ]
+      },
+      "PhotoroomRemoveBgOutputImageOptions": {
+        "type": "object",
+        "properties": {
+          "mediaType": {
+            "$ref": "#/components/schemas/PhotoroomRemoveBgOutputImageMediaType"
+          }
+        }
+      },
+      "PhotoroomColor": {
+        "type": "object",
+        "properties": {
+          "red": {
+            "type": "number",
+            "description": "The red component of the color.",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "green": {
+            "type": "number",
+            "description": "The green component of the color.",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "blue": {
+            "type": "number",
+            "description": "The blue component of the color.",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "alpha": {
+            "type": "number",
+            "description": "The alpha component of the color.",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "required": [
+          "red",
+          "green",
+          "blue",
+          "alpha"
+        ]
+      },
+      "PhotoroomRemoveBackgroundRequest": {
+        "type": "object",
+        "properties": {
+          "image": {
+            "description": "The image to be processed.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PhotoroomRemoveBgInputImage"
+              }
+            ]
+          },
+          "mode": {
+            "$ref": "#/components/schemas/RemoveBgMode"
+          },
+          "output": {
+            "description": "The options for the output image.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PhotoroomRemoveBgOutputImageOptions"
+              }
+            ]
+          },
+          "trim": {
+            "type": "boolean",
+            "description": "Whether to trim the image."
+          },
+          "backgroundColor": {
+            "description": "The background color.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PhotoroomColor"
+              }
+            ]
+          },
+          "colorDecontamination": {
+            "type": "number",
+            "description": "Whether to apply color decontamination to get clearer foreground, especially around the matting region. Value should be between 0 and 1, where 0 means apply color decontamination and 1 means do not apply color decontamination.",
+            "minimum": 0,
+            "maximum": 1,
+            "example": 0.25
+          }
+        },
+        "required": [
+          "image"
+        ]
+      },
+      "JobLinkResponse": {
+        "type": "object",
+        "properties": {
+          "jobId": {
+            "type": "string",
+            "description": "jobId"
+          },
+          "statusUrl": {
+            "type": "string",
+            "description": "statusUrl"
+          }
+        },
+        "required": [
+          "jobId",
+          "statusUrl"
+        ]
+      },
+      "JobError": {
+        "type": "object",
+        "properties": {
+          "error_code": {
+            "type": "string",
+            "description": "The error code."
+          },
+          "message": {
+            "type": "string",
+            "description": "The error message."
+          },
+          "validation_errors": {
+            "description": "An array of various validation errors.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "error_code"
+        ]
+      }
+    }
+  },
+  "security": [
+    {
+      "apiKey": [],
+      "Authorization": []
+    }
+  ]
+}
