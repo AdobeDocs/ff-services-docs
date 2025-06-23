@@ -80,8 +80,26 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request",
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobError"
+                },
+                "examples": {
+                  "unauthorized": {
+                    "value": {
+                      "error_code": "unauthorized",
+                      "message": "User is not entitled to perform the requested operation."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
             "content": {
               "application/json": {
                 "schema": {
@@ -90,16 +108,13 @@
               }
             }
           },
-          "404": {
-            "description": "Resource Not Found",
+          "429": {
+            "description": "Too Many Requests",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/JobError"
                 }
-              }
-            }
-          },
           "500": {
             "description": "Internal Server Error",
             "content": {
