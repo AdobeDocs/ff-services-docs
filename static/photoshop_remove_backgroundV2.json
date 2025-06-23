@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Photoshop Remove Background API- Firefly Services",
+    "title": "Photoshop API Reference",
     "description": "Photoshop Remove Background API for Firefly Services.",
     "version": "V2",
     "contact": {}
