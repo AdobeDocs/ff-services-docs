@@ -47,7 +47,7 @@ The Firefly Services SDK is a comprehensive toolkit designed to streamline your 
 
 - Unified API Access: The SDK adheres to a consistent design pattern, enhancing developer comprehension and interaction with diverse product services.
 
-- TypeScript Support: Developed in TypeScript, the JS SDK enables developers to leverage TypeScript’s capabilities, such as static type-checking and code autocomplete.
+- TypeScript Support: Developed in TypeScript, the JS SDK enables developers to leverage TypeScript's capabilities, such as static type-checking and code autocomplete.
 
 - Common Utility Package: This API package offers a range of utility APIs, including authentication APIs, to facilitate interaction with various product services.
 
@@ -55,7 +55,7 @@ The Firefly Services SDK is a comprehensive toolkit designed to streamline your 
 
 ## Get started
 
-The SDK currently comprises of four main modules. 
+The SDK currently comprises of four main modules.
 
 - Common APIs
 - Firefly API

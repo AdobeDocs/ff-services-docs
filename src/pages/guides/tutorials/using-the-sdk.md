@@ -156,7 +156,7 @@ const resp = await firefly.generateImages({prompt:'a cat riding a unicorn headed
 
 As a reminder, the Firefly API can accept _many_ parameters, and they're all supported by the SDK, but in this case, you have passed just a prompt and the number of images required. The result of the SDK call is twofold - first a `result` JSON object that matches what the REST API returns, and secondly a set of `headers` you can inspect if needed.
 
-Here's the JSON returned in the `result` key:
+Here's an example of the JSON returned in the `result` key:
 
 ```json
 {
@@ -168,7 +168,7 @@ Here's the JSON returned in the `result` key:
                 {
                         "seed": 85987617,
                         "image": {
-                                "url": "https://pre-signed-firefly-stage.s3-accelerate.amazonaws.com/images/2df5e7ac-cd6a-42c1-b407-e9c316006a55?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA55EBG7KCZFCHQDZT%2F20240606%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240606T144529Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=cbcdb705aa5f2ceeefb524c31b96715381f1f8e5980126f5051b7b289bfc31e3"
+                                "url": "https://pre-signed-firefly-stage.s3-accelerate.amazonaws.com/images/2df5e7ac-cd6a-42c1-b407-e9c316006a55?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=EXAMPLEus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240606T144529Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=EXAMPLEadsfasdf"
                         }
                 }
         ],
