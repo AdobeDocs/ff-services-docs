@@ -140,6 +140,14 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/JobError"
+                },
+                "examples": {
+                  "runtime_error": {
+                    "value": {
+                      "error_code": "runtime_error",
+                      "message": "Internal Server Error."
+                    }
+                  }
                 }
               }
             }
