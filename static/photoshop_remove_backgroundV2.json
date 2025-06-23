@@ -18,7 +18,7 @@
       "post": {
         "operationId": "removeBackground",
         "summary": "Remove background",
-        "description": "This endpoint allows you to remove the background from an image and generate a mask from an image. The request is processed asynchronously and the status of the job can be checked with the Get Status endpoint using the `statusUrl` provided in this API's response.",
+        "description": "This endpoint allows you to remove the background from an image. The request is processed asynchronously and the status of the job can be checked with the Get Status endpoint using the `statusUrl` provided in this API's response.",
         "x-ffs-async-job": true,
         "x-ffs-job-status-fetcher": "facadeJobStatus",
         "parameters": [
