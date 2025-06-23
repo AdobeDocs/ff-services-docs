@@ -48,7 +48,7 @@ hideBreadcrumbNav: true
 
 # Getting Started with the Firefly Services SDK
 
-As a developer, you have the flexibility to choose how you want to integrate with Firefly Services, tailoring the experience to your specific needs and preferences. 
+As a developer, you have the flexibility to choose how you want to integrate with Firefly Services, tailoring the experience to your specific needs and preferences.
 
 ## Overview
 
@@ -59,7 +59,7 @@ Whether you prefer the direct control and language-specific implementations prov
 * __When to Use REST APIs__: If you need maximum flexibility, detailed control, and are working in a language other than JavaScript/TypeScript, direct REST API access might be the best choice for you.
 
 * __When to Use the Node SDK__: If you're working in a `Node.js` environment and want to simplify the integration process, reduce boilerplate code, and speed up development, the Node SDK is the way to go.
-By offering both direct REST API access and a Node SDK, Firefly Services ensures that you have the tools you need to build powerful integrations in the way that best suits your workflow. 
+By offering both direct REST API access and a Node SDK, Firefly Services ensures that you have the tools you need to build powerful integrations in the way that best suits your workflow.
 
 Let's explore what you need to get started with your first integration.
 
@@ -81,14 +81,14 @@ Before digging into the code, let's break down the process.
 
 ## Step 1: Add the SDK packages
 
-Let's begin by initializing a new `package.json` in your prompt with `npm init -y`. 
+Let's begin by initializing a new `package.json` in your prompt with `npm init -y`.
 
 Next, you need to add the SDK. As described in the SDK's [readme](https://git.corp.adobe.com/cc-apis/firefly-services-sdk-js/), there are four individual packages you _can_ install:
 
--   The `common APIs` package is required for authentication, you'll always need this.
--   A package for Firefly API.
--   A package for Photoshop API.
--   A package for Lightroom API.
+*   The `common APIs` package is required for authentication, you'll always need this.
+*   A package for Firefly API.
+*   A package for Photoshop API.
+*   A package for Lightroom API.
 
 For your needs, you only require the common and Firefly APIs. Install them like so:
 
@@ -156,7 +156,7 @@ const resp = await firefly.generateImages({prompt:'a cat riding a unicorn headed
 
 As a reminder, the Firefly API can accept _many_ parameters, and they're all supported by the SDK, but in this case, you have passed just a prompt and the number of images required. The result of the SDK call is twofold - first a `result` JSON object that matches what the REST API returns, and secondly a set of `headers` you can inspect if needed.
 
-Here's the JSON returned in the `result` key:
+Here's an example of the JSON returned in the `result` key:
 
 ```json
 {
@@ -168,7 +168,7 @@ Here's the JSON returned in the `result` key:
                 {
                         "seed": 85987617,
                         "image": {
-                                "url": "https://pre-signed-firefly-stage.s3-accelerate.amazonaws.com/images/2df5e7ac-cd6a-42c1-b407-e9c316006a55?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA55EBG7KCZFCHQDZT%2F20240606%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240606T144529Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=cbcdb705aa5f2ceeefb524c31b96715381f1f8e5980126f5051b7b289bfc31e3"
+                                "url": "https://pre-signed-firefly-stage.s3-accelerate.amazonaws.com/images/2df5e7ac-cd6a-42c1-b407-e9c316006a55?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=EXAMPLEus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240606T144529Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=EXAMPLEadsfasdf"
                         }
                 }
         ],
@@ -186,10 +186,10 @@ import { Readable } from 'stream';
 import { finished } from 'stream/promises';
 
 async function downloadFile(url, filePath) {
-	let res = await fetch(url);
-	const body = Readable.fromWeb(res.body);
-	const download_write_stream = fs.createWriteStream(filePath);
-	return await finished(body.pipe(download_write_stream));
+  let res = await fetch(url);
+  const body = Readable.fromWeb(res.body);
+  const download_write_stream = fs.createWriteStream(filePath);
+  return await finished(body.pipe(download_write_stream));
 }
 ```
 
@@ -203,10 +203,10 @@ import { finished } from 'stream/promises';
 import { FireflyClient } from '@adobe/firefly-apis';
 
 async function downloadFile(url, filePath) {
-	let res = await fetch(url);
-	const body = Readable.fromWeb(res.body);
-	const download_write_stream = fs.createWriteStream(filePath);
-	return await finished(body.pipe(download_write_stream));
+  let res = await fetch(url);
+  const body = Readable.fromWeb(res.body);
+  const download_write_stream = fs.createWriteStream(filePath);
+  return await finished(body.pipe(download_write_stream));
 }
 
 const authOptions = {
@@ -219,8 +219,8 @@ const firefly = await FireflyClient.createWithCredentials(process.env.CLIENT_ID,
 const resp = await firefly.generateImages({prompt:'a cat riding a unicorn headed into the sunset, dramatic pose', n:4});
 
 for(let output of resp.result.outputs) {
-	let fileName = `./${output.seed}.jpg`;
-	await downloadFile(output.image.url, fileName);
+  let fileName = `./${output.seed}.jpg`;
+  await downloadFile(output.image.url, fileName);
 }
 
 ```
@@ -247,11 +247,11 @@ The `upload` SDK method requires a Blob which is wrapped around a file read on
 
 ```json
 {
-	"images": [
-		{
-		"id": "9f54159b-f0e9-4696-b4f5-f543a3fb90c0"
-		}
-	]
+  "images": [
+    {
+    "id": "9f54159b-f0e9-4696-b4f5-f543a3fb90c0"
+    }
+  ]
 }
 ```
 

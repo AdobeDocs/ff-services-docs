@@ -31,17 +31,23 @@ hideBreadcrumbNav: true
 <!-- TODO: Update with latest prod details, elaborate on API descriptions -->
 # Changelog
 
+## June 19, 2025
+
+**API updates**
+
+* **Launch of Generate Video API**: Bring text, still shots, or illustrations to life by transforming them into live action clips. The [Generate Video API](../api/generate_video/V3_Async/) is now available for use.
+
 ## April 29, 2025
 
 **API updates**
 
-* New Image Model 4: The Image Model 4 is now available for use with the [Generate Images](../api/image_generation/V3_Async/) and [Generate Similar Images](../api/generate-similar/V3_Async/) APIs.
+* **New Image Model 4**: The Image Model 4 is now available for use with the [Generate Images](../api/image_generation/V3_Async/) and [Generate Similar Images](../api/generate-similar/V3_Async/) APIs.
 
 ## March 11, 2025
 
 **API updates**
 
-* Launch of Custom Models support: The Generate Images API [now supports custom models](../concepts/custom-models/index.md).
+* **Launch of Custom Models support**: The Generate Images API [now supports custom models](../concepts/custom-models/index.md).
 
 ## November 18, 2024
 

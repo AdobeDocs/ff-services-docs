@@ -54,7 +54,7 @@ Get started with the Adobe Firefly Services.
 
 <DiscoverBlock slots="link, text"/>
 
-[Tutorials](../guides/tutorials/index.md) 
+[Tutorials](../guides/tutorials/index.md)
 
 Explore our tutorials page for comprehensive guidance.  
 
@@ -76,6 +76,6 @@ Unlock the potential of Photoshop in the cloud.
 
 [Content Tagging API](https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html)
 
-Leverage Content Tagging APIs to craft personalized experiences. 
+Leverage Content Tagging APIs to craft personalized experiences.
 
 <br/><br/><br/><br/>

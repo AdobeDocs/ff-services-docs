@@ -287,6 +287,16 @@ module.exports = {
               },
             ],
           },
+          {
+            title: "Generate Video",
+            path: "/firefly-api/guides/api/generate_video/V3_Async/",
+            pages: [
+              {
+                title: "V3 async",
+                path: "/firefly-api/guides/api/generate_video/V3_Async/",
+              },
+            ],
+          },
         ],
       },
       {
@@ -304,6 +314,10 @@ module.exports = {
           {
             title: "Troubleshooting",
             path: "/firefly-api/guides/help/troubleshooting/",
+          },
+          {
+            title: "Usage Notes",
+            path: "/firefly-api/guides/help/usage_notes/",
           },
         ],
       },

@@ -13,6 +13,7 @@ hideBreadcrumbNav: true
 ---
 
 # Photoshop API Key Concepts
+
 If you're not already familiar with the Photoshop app, learn more about key features you can use in the app and then apply the API to create and enhance images.
 
 ## Layers and Target Layer
@@ -60,6 +61,3 @@ After we apply a mask, we see the earth and space background in the area that we
 ![alt image](./mask_applied.png?raw=true "Original Image")
 
 Similar to layers and selections, masks enable you to target parts of an image and perform adjustments. Unlike selections and layers, any enhancements apply to the mask itself, not the image being masked or the image exposed by the mask. With Photoshop API and image masks that you create in the Photoshop app, you can perform sophisticated image adjustments without deleting or permanently altering your source images. To learn more about masks in Photoshop, see [Photoshop, Mask Layers](https://helpx.adobe.com/photoshop/using/masking-layers.html).
-
-
-

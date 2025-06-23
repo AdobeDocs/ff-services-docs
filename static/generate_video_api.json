@@ -1,0 +1,2233 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Generate Video API",
+    "description": "Firefly Services Generate Video API allows you to use Firefly AI to generate videos from text.",
+    "version": "1.0.0",
+    "license": {
+      "name": "Firefly license",
+      "url": "https://www.adobe.com/content/dam/cc/en/legal/terms/enterprise/pdfs/PSLT-AdobeCreativeAPI-WW-2024v2.pdf"
+    }
+  },
+  "servers": [
+    {
+      "description": "Production endpoint",
+      "url": "https://firefly-api.adobe.io"
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": [],
+      "x-api-key": []
+    }
+  ],
+  "paths": {
+    "/v3/videos/generate": {
+      "post": {
+        "operationId": "generateVideoV3",
+        "summary": "Generate video from text",
+        "description": "Generate a video using a text prompt.",
+        "parameters": [
+          {
+            "name": "x-model-version",
+            "in": "header",
+            "description": "Specify the Firefly model version to use for the video generation.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "video1_standard",
+              "enum": ["video1_standard"]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenerateVideoRequestV3"
+              }
+            }
+          },
+          "required": true,
+          "description": "The request body for the video generation. Any of these listed properties can be individually omitted/empty, but some kind of parameter data is required."
+        },
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "jobId": "urn:ff:jobs:epo855230:eeb0be1f-c41f-4711-bdc1-08e66e89d96d",
+                  "statusUrl": "https://firefly-epo855230.adobe.io/v3/status/urn:ff:jobs:epo855230:eeb0be1f-c41f-4711-bdc1-08e66e89d96d",
+                  "cancelUrl": "https://firefly-epo855230.adobe.io/v3/cancel/urn:ff:jobs:epo855230:eeb0be1f-c41f-4711-bdc1-08e66e89d96d"
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "jobId": {
+                      "type": "string"
+                    },
+                    "statusUrl": {
+                      "type": "string"
+                    },
+                    "cancelUrl": {
+                      "type": "string"
+                    }
+                  },
+                  "required": ["jobId", "statusUrl", "cancelUrl"]
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "bad_request",
+                  "message": "Invalid request parameters",
+                  "validation_errors": [
+                    {
+                      "loc": ["body", "prompt"],
+                      "msg": "Field required",
+                      "type": "value_error.missing"
+                    }
+                  ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "access_error",
+                  "message": "Access denied"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "unknown_job_id",
+                  "message": "Job not found"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "timeout_error",
+                  "message": "Request timed out"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Request Timeout"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "job_cancel_failed",
+                  "message": "Failed to cancel job"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "410": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "job_timeout",
+                  "message": "Job execution timed out"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Gone"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "invalid_content_type",
+                  "message": "Unsupported media type"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "input_media_indecipherable",
+                  "message": "Input media could not be processed"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "backpressure_limited",
+                  "message": "Too many requests"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Too Many Requests"
+          },
+          "451": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "reference_image_unsafe_error",
+                  "message": "Reference image contains unsafe content"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Unavailable For Legal Reasons"
+          },
+          "499": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "cancelled_error",
+                  "message": "Request was cancelled"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Additional Response"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "session_data_not_recovered",
+                  "message": "Internal server error",
+                  "stack_trace": [
+                    "Error: Session data not recovered",
+                    "at processRequest (/app/handlers/video.js:123:45)",
+                    "at async handleRequest (/app/index.js:67:89)"
+                  ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "not_implemented",
+                  "message": "Feature not implemented"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Not Implemented"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "model_not_loaded",
+                  "message": "Service temporarily unavailable"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        }
+      }
+    },
+    "/v3/status/{job_urn_or_id}": {
+      "get": {
+        "operationId": "jobResultV3",
+        "summary": "Get job status and result",
+        "description": "After initiating an asyncronous job, use this endpoint to poll the status using the job URN or ID and retrieve the result when the job is complete. ",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "job_urn_or_id",
+            "required": true,
+            "schema": {
+              "title": "Job URN or ID",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "running_job": {
+                    "summary": "Running Job Response",
+                    "description": "Response when the job is still running",
+                    "value": {
+                      "status": "running",
+                      "jobId": "urn:ff:jobs:eso851213:3bfe0362-9778-423a-8090-67999293b9d3",
+                      "progress": 80
+                    }
+                  },
+                  "completed_job": {
+                    "summary": "Completed Job Response",
+                    "description": "Response when the job has completed successfully",
+                    "value": {
+                      "status": "succeeded",
+                      "jobId": "urn:ff:jobs:eso851213:3bfe0362-9778-423a-8090-67999293b9d3",
+                      "result": {
+                        "size": {
+                          "width": 720,
+                          "height": 720
+                        },
+                        "outputs": [
+                          {
+                            "seed": 646214641,
+                            "video": {
+                              "url": "https://pre-signed-firefly-stage.s3-accelerate.amazonaws.com/images/5193301c-823e-4728-8bf9-15ea82e60c3f?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=EXAMPLE%2F20250618%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250618T184001Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=1533114083da2bab81cc2bfdb881fde31993d5ab053cf234c9875b2fbbeef3a1"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/AsyncResponseV3"
+                    }
+                  ],
+                  "title": "Response Jobresultv3"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "bad_request"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "access_error"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "unknown_job_id"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "timeout_error"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Request Timeout"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "job_cancel_failed"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "410": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "job_timeout"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Gone"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "invalid_content_type"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "input_media_indecipherable"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "backpressure_limited"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Too Many Requests"
+          },
+          "451": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "reference_image_unsafe_error"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Unavailable For Legal Reasons"
+          },
+          "499": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "cancelled_error"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Additional Response"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "session_data_not_recovered"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "not_implemented"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Not Implemented"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "model_not_loaded"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        }
+      }
+    },
+    "/v3/cancel/{job_urn_or_id}": {
+      "put": {
+        "operationId": "cancelJobV3",
+        "summary": "Cancel a running job",
+        "description": "After initiating an asyncronous job, use this endpoint to cancel the job using the job URN or ID. ",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "job_urn_or_id",
+            "required": true,
+            "schema": {
+              "title": "Job Urn Or Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "bad_request"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "access_error"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "unknown_job_id"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "timeout_error"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Request Timeout"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "job_cancel_failed"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "410": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "job_timeout"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Gone"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "invalid_content_type"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "input_media_indecipherable"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "backpressure_limited"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Too Many Requests"
+          },
+          "451": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "reference_image_unsafe_error"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Unavailable For Legal Reasons"
+          },
+          "499": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "cancelled_error"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Additional Response"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "session_data_not_recovered"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "not_implemented"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Not Implemented"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error_code": "model_not_loaded"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      },
+      "x-api-key": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key",
+        "description": "IMS-issued API key."
+      }
+    },
+    "schemas": {
+      "AnchorPromptsKey": {
+        "properties": {
+          "anchor_prompt": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Anchor Prompt",
+            "type": "array"
+          }
+        },
+        "required": [
+          "anchor_prompt"
+        ],
+        "title": "AnchorPromptsKey",
+        "type": "object"
+      },
+      "ApiError": {
+        "description": "The error details within the error response.",
+        "properties": {
+          "error_code": {
+            "type": "string",
+            "description": "Indicates the type of error that occurred."
+          },
+          "message": {
+            "type": "string",
+            "description": "A human-readable error message."
+          },
+          "stack_trace": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Stack trace of the error for debugging purposes."
+          },
+          "validation_errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationErrorMessage"
+            },
+            "description": "Detailed validation error messages."
+          }
+        },
+        "required": [
+          "error_code"
+        ],
+        "type": "object"
+      },
+      "AssetUploadResponse": {
+        "properties": {
+          "assets": {
+            "items": {
+              "$ref": "#/components/schemas/PublicBinary-Output"
+            },
+            "minItems": 1,
+            "title": "The storage items for uploaded assets",
+            "type": "array"
+          }
+        },
+        "required": [
+          "assets"
+        ],
+        "title": "AssetUploadResponse",
+        "type": "object"
+      },
+      "AsyncTaskLink": {
+        "properties": {
+          "href": {
+            "title": "Href",
+            "type": "string"
+          }
+        },
+        "required": [
+          "href"
+        ],
+        "title": "AsyncTaskLink",
+        "type": "object"
+      },
+      "AsyncTaskLinkType": {
+        "enum": [
+          "cancel",
+          "result"
+        ],
+        "title": "AsyncTaskLinkType",
+        "type": "string"
+      },
+      "AsyncTaskResponse": {
+        "description": "Response type for async requests",
+        "properties": {
+          "links": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/AsyncTaskLink"
+            },
+            "title": "Links",
+            "type": "object"
+          },
+          "progress": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Progress"
+          }
+        },
+        "required": [
+          "links"
+        ],
+        "title": "AsyncTaskResponse",
+        "type": "object"
+      },
+      "Body_genExtendVideoV2": {
+        "properties": {
+          "files": {
+            "type": "array",
+            "items": {
+              "format": "binary",
+              "type": "string"
+            },
+            "description": "Files to be processed"
+          },
+          "request": {
+            "$ref": "#/components/schemas/ExtendVideoRequest"
+          }
+        },
+        "required": [
+          "request",
+          "files"
+        ],
+        "type": "object"
+      },
+      "Body_genExtendVideoV3": {
+        "properties": {
+          "files": {
+            "type": "array",
+            "items": {
+              "format": "binary",
+              "type": "string"
+            },
+            "description": "Files to be processed"
+          },
+          "request": {
+            "$ref": "#/components/schemas/ExtendVideoRequestV3"
+          }
+        },
+        "required": [
+          "request",
+          "files"
+        ],
+        "type": "object"
+      },
+      "Body_generateVideoV2": {
+        "properties": {
+          "files": {
+            "type": "array",
+            "items": {
+              "format": "binary",
+              "type": "string"
+            },
+            "description": "Files to be processed"
+          },
+          "request": {
+            "$ref": "#/components/schemas/GenerateVideoRequest"
+          }
+        },
+        "required": [
+          "request",
+          "files"
+        ],
+        "type": "object"
+      },
+      "Body_generateVideoV3": {
+        "properties": {
+          "files": {
+            "type": "array",
+            "items": {
+              "format": "binary",
+              "type": "string"
+            },
+            "description": "Files to be processed"
+          },
+          "request": {
+            "$ref": "#/components/schemas/GenerateVideoRequestV3"
+          }
+        },
+        "required": [
+          "request",
+          "files"
+        ],
+        "type": "object"
+      },
+      "Body_prompt_forge_filix_v2": {
+        "properties": {
+          "files": {
+            "type": "array",
+            "items": {
+              "format": "binary",
+              "type": "string"
+            },
+            "description": "Files to be processed"
+          },
+          "request": {
+            "$ref": "#/components/schemas/PromptForgeRequest"
+          }
+        },
+        "required": [
+          "request",
+          "files"
+        ],
+        "type": "object"
+      },
+      "CameraMotion": {
+        "enum": [
+          "camera pan left",
+          "camera pan right",
+          "camera zoom in",
+          "camera zoom out",
+          "camera tilt up",
+          "camera tilt down",
+          "camera locked down",
+          "camera handheld"
+        ],
+        "title": "CameraMotion",
+        "type": "string"
+      },
+      "ClinetoSize": {
+        "properties": {
+          "height": {
+            "maximum": 8192,
+            "minimum": 1,
+            "description": "The height of the output image.",
+            "type": "integer",
+            "example": 720
+          },
+          "width": {
+            "maximum": 8192,
+            "minimum": 1,
+            "description": "The width of the output image.",
+            "type": "integer",
+            "example": 720
+          }
+        },
+        "required": [
+          "width",
+          "height"
+        ],
+        "title": "ClinetoSize",
+        "type": "object"
+      },
+      "ClipRange": {
+        "properties": {
+          "end": {
+            "type": "number",
+            "description": "The time stamp of a clip end position, in seconds"
+          },
+          "start": {
+            "type": "number",
+            "description": "The time stamp of a clip start position, in seconds"
+          }
+        },
+        "type": "object"
+      },
+      "ControlData": {
+        "properties": {
+          "structureData": {
+            "$ref": "#/components/schemas/StructureReference",
+            "title": "The structure reference"
+          }
+        },
+        "title": "ControlData",
+        "type": "object"
+      },
+      "CreateSessionResponse": {
+        "properties": {
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          },
+          "sessionId": {
+            "title": "Sessionid",
+            "type": "string"
+          },
+          "ttlSeconds": {
+            "title": "Ttlseconds",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "sessionId",
+          "endpoint",
+          "ttlSeconds"
+        ],
+        "title": "CreateSessionResponse",
+        "type": "object"
+      },
+      "DebiasedPrompt": {
+        "properties": {
+          "debiased_prompt": {
+            "title": "Debiased Prompt",
+            "type": "string"
+          },
+          "seed": {
+            "title": "Seed",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "seed",
+          "debiased_prompt"
+        ],
+        "title": "DebiasedPrompt",
+        "type": "object"
+      },
+      "DeleteSessionResponse": {
+        "properties": {
+          "sessionId": {
+            "title": "Sessionid",
+            "type": "string"
+          }
+        },
+        "required": [
+          "sessionId"
+        ],
+        "title": "DeleteSessionResponse",
+        "type": "object"
+      },
+      "ExtendVideoRequest": {
+        "properties": {
+          "bitRateFactor": {
+            "description": "the constant rate factor for encoding video",
+            "title": "The constant rate factor for encoding video"
+          },
+          "modelVersion": {
+            "$ref": "#/components/schemas/VideoModelVersion",
+            "default": "video1_8_standard",
+            "description": "Model version to generate with. 'video1_8_standard' for the default model.",
+            "title": "Model Version"
+          },
+          "placement": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Placement"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "the place of reference range and the target range",
+            "title": "The place of reference range and the target range"
+          },
+          "seeds": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "integer"
+                },
+                "maxItems": 4,
+                "minItems": 1,
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "If specified alongside with n, the number of seeds must be the equal to n",
+            "title": "The seed of each variation"
+          },
+          "sizes": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ClinetoSize"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The size of the requested generations",
+            "title": "The size"
+          },
+          "video": {
+            "$ref": "#/components/schemas/InputVideo"
+          }
+        },
+        "required": [
+          "video"
+        ],
+        "title": "Extending video.",
+        "type": "object"
+      },
+      "ExtendVideoRequestV3": {
+        "properties": {
+          "bitRateFactor": {
+            "description": "The constant rate factor for encoding video. Can be omitted/empty.",
+            "title": "The constant rate factor for encoding video",
+            "maximum": 64,
+            "minimum": -1,
+            "type": "integer"
+          },
+          "placement": {
+            "$ref": "#/components/schemas/Placement",
+            "description": "The place of reference range and the target range. Can be omitted/empty.",
+            "title": "The place of reference range and the target range"
+          },
+          "seeds": {
+            "items": {
+              "type": "integer"
+            },
+            "maxItems": 4,
+            "minItems": 1,
+            "type": "array",
+            "description": "If specified alongside with n, the number of seeds must be the equal to n. Can be omitted/empty.",
+            "title": "The seed of each variation"
+          },
+          "sizes": {
+            "items": {
+              "$ref": "#/components/schemas/ClinetoSize"
+            },
+            "type": "array",
+            "description": "The size of the requested generations. Can be omitted/empty.",
+            "title": "The size"
+          },
+          "video": {
+            "$ref": "#/components/schemas/InputVideoV3"
+          }
+        },
+        "required": [
+          "video"
+        ],
+        "title": "Extending video.",
+        "type": "object"
+      },
+      "GenerateVideoRequest": {
+        "properties": {
+          "bitRateFactor": {
+            "anyOf": [
+              {
+                "maximum": 64,
+                "minimum": -1,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "the constant rate factor for encoding video",
+            "title": "The constant rate factor for encoding video"
+          },
+          "controlData": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ControlData"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The controls for the video",
+            "title": "The control data"
+          },
+          "image": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/InputImage"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The image conditions for the video",
+            "title": "The image conditions for the video"
+          },
+          "locale": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The locale will be used to generate content that is more relevant for user's country and language",
+            "title": "The locale used for image generations"
+          },
+          "modelVersion": {
+            "$ref": "#/components/schemas/VideoModelVersion",
+            "default": "video1_8_standard",
+            "description": "Model version to generate with. 'video1_8_standard' for the default model.",
+            "title": "Model Version"
+          },
+          "negativePrompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Inference will try to generate against this prompt",
+            "title": "Avoid prompt"
+          },
+          "output": {
+            "$ref": "#/components/schemas/VideoOutputSpec",
+            "default": {
+              "storeInputs": false
+            },
+            "description": "Output spec for the generated videos",
+            "title": "Output Spec"
+          },
+          "prompt": {
+            "anyOf": [
+              {
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The prompt used to generate the image. The longer the prompt - the better",
+            "title": "The prompt"
+          },
+          "seeds": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "integer"
+                },
+                "maxItems": 4,
+                "minItems": 1,
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "If specified alongside with n, the number of seeds must be the equal to n",
+            "title": "The seed of each variation"
+          },
+          "sizes": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ClinetoSize"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The size of the requested generations",
+            "title": "The size"
+          },
+          "videoSettings": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/VideoSettings"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "The camera and shot control"
+          }
+        },
+        "title": "Generating video from prompt",
+        "type": "object"
+      },
+      "GenerateVideoRequestV3": {
+        "properties": {
+          "bitRateFactor": {
+            "description": "The constant rate factor for encoding video. 0 indicates a lossless generation, with the highest quality and largest file size. 63 indicates the worst quality generation with the smallest file size. The suggested value range is 17-23. ",
+            "maximum": 63,
+            "minimum": 0,
+            "default": 18,
+            "type": "integer"
+          },
+          "image": {
+            "description": "The details of the image used as a keyframe for the generated video. Provided images are used as a first frame or final frame to guide the video generation.",
+            "$ref": "#/components/schemas/InputImageV3"
+          },
+          "negativePrompt": {
+            "description": "The API will try to generate against the characteristcs in this prompt.",
+            "type": "string",
+            "example": "NO people, NO trees."
+          },
+          "prompt": {
+            "description": "The prompt used to generate the image. The longer the prompt, the better.",
+            "type": "string",
+            "example": "A lone figure stands in the middle of a vast desert, looking up at the sky, with a sense of awe and wonder."
+          },
+          "seeds": {
+            "description": "The seed reference value. Currently only 1 seed is supported.",
+            "items": {
+              "type": "integer"
+            },
+            "maxItems": 1,
+            "minItems": 1,
+            "type": "array",
+            "example": [1842533538]
+          },
+          "sizes": {
+            "description": "The dimensions of the generated video. Review the usage notes for [supported aspect ratios](../firefly-api/guides/help/usage_notes/) and the sizes associated with them.",
+            "items": {
+              "$ref": "#/components/schemas/ClinetoSize"
+            },
+            "type": "array"
+          },
+          "videoSettings": {
+            "description": "The camera and shot control settings.",
+            "$ref": "#/components/schemas/VideoSettingsV3"
+          }
+        },
+        "title": "Generating video from prompt",
+        "type": "object"
+      },
+      "ImageCondition": {
+        "properties": {
+          "placement": {
+            "$ref": "#/components/schemas/PlacementStart",
+            "description": "The placement of the condition image",
+            "title": "The placement of the condition image"
+          },
+          "source": {
+            "$ref": "#/components/schemas/PublicBinary-Input",
+            "description": "The image of the condition",
+            "title": "The image of the condition"
+          }
+        },
+        "required": [
+          "source",
+          "placement"
+        ],
+        "title": "ImageCondition",
+        "type": "object"
+      },
+      "ImageConditionV3": {
+        "properties": {
+          "placement": {
+            "$ref": "#/components/schemas/PlacementStart",
+            "description": "Details about the timeline placement of the image."
+          },
+          "source": {
+            "$ref": "#/components/schemas/PublicBinaryInputV3",
+            "description": "The source details of the image."
+          }
+        },
+        "required": [
+          "source",
+          "placement"
+        ],
+        "title": "ImageConditionV3",
+        "type": "object"
+      },
+      "InputImage": {
+        "properties": {
+          "conditions": {
+            "default": [],
+            "description": "The image conditions for the video",
+            "items": {
+              "$ref": "#/components/schemas/ImageCondition"
+            },
+            "title": "The image conditions for the video",
+            "type": "array"
+          }
+        },
+        "title": "InputImage",
+        "type": "object"
+      },
+      "InputImageV3": {
+        "properties": {
+          "conditions": {
+            "default": [],
+            "description": "The details about the keyframe images used for the video generation.",
+            "items": {
+              "$ref": "#/components/schemas/ImageConditionV3"
+            },
+            "type": "array"
+          }
+        },
+        "title": "InputImageV3",
+        "type": "object"
+      },
+      "InputVideo": {
+        "properties": {
+          "source": {
+            "$ref": "#/components/schemas/PublicBinary-Input"
+          }
+        },
+        "required": [
+          "source"
+        ],
+        "title": "InputVideo",
+        "type": "object"
+      },
+      "InputVideoV3": {
+        "properties": {
+          "source": {
+            "$ref": "#/components/schemas/PublicBinaryInputV3"
+          }
+        },
+        "required": [
+          "source"
+        ],
+        "title": "InputVideoV3",
+        "type": "object"
+      },
+      "Placement": {
+        "properties": {
+          "inset": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ClipRange"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "the position of generated clip",
+            "title": "The position of generated clip"
+          },
+          "reference": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ClipRange"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "the clip used as condition",
+            "title": "The clip used as condition"
+          }
+        },
+        "title": "Placement",
+        "type": "object"
+      },
+      "PlacementStart": {
+        "properties": {
+          "position": {
+            "description": "The position of the image on the timeline for the generated video, 0 being the first frame and 1 being the last frame.",
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          }
+        },
+        "required": [
+          "position"
+        ],
+        "title": "PlacementStart",
+        "type": "object"
+      },
+      "PromptForgeErrors": {
+        "properties": {
+          "is_blocked_class_artist": {
+            "default": false,
+            "title": "Is Blocked Class Artist",
+            "type": "boolean"
+          },
+          "is_blocked_class_nsfw": {
+            "default": false,
+            "title": "Is Blocked Class Nsfw",
+            "type": "boolean"
+          },
+          "is_denied": {
+            "default": false,
+            "title": "Is Denied",
+            "type": "boolean"
+          },
+          "is_empty_prompt": {
+            "default": false,
+            "title": "Is Empty Prompt",
+            "type": "boolean"
+          },
+          "is_not_supported_language": {
+            "default": false,
+            "title": "Is Not Supported Language",
+            "type": "boolean"
+          },
+          "is_silent": {
+            "default": false,
+            "title": "Is Silent",
+            "type": "boolean"
+          }
+        },
+        "title": "PromptForgeErrors",
+        "type": "object"
+      },
+      "PromptForgeOutput": {
+        "properties": {
+          "debiased_prompt": {
+            "title": "Debiased Prompt",
+            "type": "string"
+          },
+          "debiased_prompts": {
+            "default": [],
+            "items": {
+              "$ref": "#/components/schemas/DebiasedPrompt"
+            },
+            "title": "Debiased Prompts",
+            "type": "array"
+          },
+          "expanded_prompts": {
+            "default": [],
+            "items": {
+              "type": "string"
+            },
+            "title": "Expanded Prompts",
+            "type": "array"
+          },
+          "output_prompt": {
+            "title": "Output Prompt",
+            "type": "string"
+          }
+        },
+        "required": [
+          "output_prompt",
+          "debiased_prompt"
+        ],
+        "title": "PromptForgeOutput",
+        "type": "object"
+      },
+      "PromptForgePipeline": {
+        "enum": [
+          "CME",
+          "CLIO",
+          "CLIO_NO_NSFW",
+          "DEV",
+          "PEOPLE_BANLIST",
+          "NO_PEOPLE_BANLIST",
+          "AUTOCOMPLETE",
+          "NSFW_CLASSIFIER",
+          "NSFW_PG13_CLASSIFIER",
+          "T2V_PROMPT_REWRITE"
+        ],
+        "title": "PromptForgePipeline",
+        "type": "string"
+      },
+      "PromptForgeRequest": {
+        "properties": {
+          "age_debias_enbaled": {
+            "default": false,
+            "title": "Age Debias Enbaled",
+            "type": "boolean"
+          },
+          "check_language": {
+            "default": false,
+            "title": "Check Language",
+            "type": "boolean"
+          },
+          "debias_enabled": {
+            "default": true,
+            "title": "Debias Enabled",
+            "type": "boolean"
+          },
+          "debug_enabled": {
+            "default": false,
+            "title": "Debug Enabled",
+            "type": "boolean"
+          },
+          "expansion_enabled": {
+            "default": true,
+            "title": "Expansion Enabled",
+            "type": "boolean"
+          },
+          "input_expanded": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Input Expanded"
+          },
+          "input_tag_people": {
+            "default": false,
+            "title": "Input Tag People",
+            "type": "boolean"
+          },
+          "lang": {
+            "title": "Lang",
+            "type": "string"
+          },
+          "pipeline": {
+            "$ref": "#/components/schemas/PromptForgePipeline"
+          },
+          "prompt": {
+            "title": "Prompt",
+            "type": "string"
+          },
+          "seeds": {
+            "items": {
+              "type": "integer"
+            },
+            "title": "Seeds",
+            "type": "array"
+          }
+        },
+        "required": [
+          "prompt",
+          "seeds",
+          "lang",
+          "pipeline"
+        ],
+        "title": "PromptForgeRequest",
+        "type": "object"
+      },
+      "PromptForgeResponse": {
+        "properties": {
+          "anchor_prompts": {
+            "items": {
+              "$ref": "#/components/schemas/AnchorPromptsKey"
+            },
+            "title": "Anchor Prompts",
+            "type": "array"
+          },
+          "atoms_ran": {
+            "items": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "title": "Atoms Ran",
+            "type": "array"
+          },
+          "contain_people": {
+            "items": {
+              "type": "boolean"
+            },
+            "title": "Contain People",
+            "type": "array"
+          },
+          "contain_rendering_text": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "boolean"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Contain Rendering Text"
+          },
+          "debug_output": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Debug Output"
+          },
+          "errors": {
+            "items": {
+              "$ref": "#/components/schemas/PromptForgeErrors"
+            },
+            "title": "Errors",
+            "type": "array"
+          },
+          "expandedOutput": {
+            "default": [],
+            "items": {
+              "type": "string"
+            },
+            "title": "Expandedoutput",
+            "type": "array"
+          },
+          "language_detected": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Language Detected",
+            "type": "array"
+          },
+          "output": {
+            "items": {
+              "$ref": "#/components/schemas/PromptForgeOutput"
+            },
+            "title": "Output",
+            "type": "array"
+          },
+          "pipeline": {
+            "items": {
+              "$ref": "#/components/schemas/PromptForgePipeline"
+            },
+            "title": "Pipeline",
+            "type": "array"
+          },
+          "reforged_prompts": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reforged Prompts"
+          }
+        },
+        "required": [
+          "output",
+          "errors",
+          "anchor_prompts",
+          "contain_people",
+          "language_detected",
+          "pipeline",
+          "atoms_ran"
+        ],
+        "title": "PromptForgeResponse",
+        "type": "object"
+      },
+      "PublicBinary-Input": {
+        "description": "In public HTTP APIs by convention we use this object to represent binary data (image, mesh, ...);\neven though for internal rquests we have different types.\n\nInputs (at least one should be provided):\n\n- id: If this object represents a file in our s3 temp storage system, the ID for that. This is usually\n  used when caller wants to send the image back to us.\n- presigned_url: If the object is stored as pre-signed URL.\n- creative_cloud_file_id: if the object is stored as as ACP file; id of the file.\n- name: This is used if the object is included in the request or response payload as form. This field will\n  be the name of the multi-part file. When accepting this file in the adapter, you don't need to use this field\n  directly, instead the _source (binary) and _mime_type (string) will be set for you.\n  When returning this type, tou don't need to set this field directly, instead set the bytes,\n  and the mime type, and inference platform takes care of converting to multi-part.\n    ```\n    binary = PublicBinary(); binary._source = ...;  binary._mime_type = ...\n    ```\n\nIt is also possible to set multiple fields; in case you want to return a file stored in various places\nto the user.",
+        "properties": {
+          "creativeCloudFileId": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Optional ID of the file in ACP. This has to be an ACP file assetID.",
+            "title": "ACP File ID"
+          },
+          "id": {
+            "anyOf": [
+              {
+                "format": "uuid4",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "This is coming from other outputs",
+            "title": "The internal id for a storage item"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "name of the item, e.g. for look up in multi part files"
+          },
+          "presignedUrl": {
+            "anyOf": [
+              {
+                "format": "uri",
+                "maxLength": 4096,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "This URL will expire in one hour",
+            "title": "The presigned url"
+          }
+        },
+        "title": "PublicBinary",
+        "type": "object"
+      },
+      "PublicBinary-Output": {
+        "description": "In public HTTP APIS by convention we use this object to represent binary data (image, mesh, ...);\neven though for internal rquests we have different types.\n\nInputs (at least one should be provided):\n\n- id: If this object represents a file in our s3 temp storage system, the ID for that. This is usually\n  used when caller wants to send the image back to us.\n- presigned_url: If the object is stored as pre-signed URL.\n- creative_cloud_file_id: if the object is stored as as ACP file; id of the file.\n- name: This is used if the object is included in the request or response payload as form. This field will\n  be the name of the multi-part file. When accepting this file in the adapter, you don't need to use this field\n  directly, instead the _source (binary) and _mime_type (string) will be set for you.\n  When returning this type, tou don't need to set this field directly, instead set the bytes,\n  and the mime type, and inference platform takes care of converting to multi-part.\n    ```\n    binary = PublicBinary(); binary._source = ...;  binary._mime_type = ...\n    ```\n\nIt is also possible to set multiple fields; in case you want to return a file stored in various places\nto the user.",
+        "properties": {
+          "creativeCloudFileId": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Optional ID of the file in ACP. This has to be an ACP file assetID.",
+            "title": "ACP File ID"
+          },
+          "id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "This is coming from other outputs",
+            "title": "The internal id for a storage item"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "name of the item, e.g. for look up in multi part files"
+          },
+          "presignedUrl": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "This URL will expire in one hour",
+            "title": "The presigned url"
+          }
+        },
+        "title": "PublicBinary",
+        "type": "object"
+      },
+      "PublicBinaryInputV3": {
+        "properties": {
+          "creativeCloudFileId": {
+            "type": "string",
+              "description": "The ID of the file in Adobe Creative Cloud. Has to be a Creative Cloud file asset ID."
+          },
+          "uploadId": {
+            "format": "uuid4",
+            "type": "string",
+            "description": "The internal ID for a storage item that is coming from other outputs."
+          },
+          "url": {
+            "format": "uri",
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string",
+            "description": "The pre-signed URL for the input file."
+          }
+        },
+        "title": "PublicBinaryInputV3",
+        "type": "object"
+      },
+      "ShotAngle": {
+        "enum": [
+          "aerial shot",
+          "eye_level shot",
+          "high angle shot",
+          "low angle shot",
+          "top-down shot"
+        ],
+        "title": "ShotAngle",
+        "type": "string"
+      },
+      "ShotSize": {
+        "enum": [
+          "close-up shot",
+          "extreme close-up",
+          "medium shot",
+          "long shot",
+          "extreme long shot"
+        ],
+        "title": "ShotSize",
+        "type": "string"
+      },
+      "StructureReference": {
+        "properties": {
+          "depthStrength": {
+            "default": 0.5,
+            "title": "The depth strength",
+            "type": "number"
+          },
+          "edgeStrength": {
+            "default": 0.5,
+            "title": "The edge strength",
+            "type": "number"
+          },
+          "referenceVideo": {
+            "$ref": "#/components/schemas/InputVideo",
+            "title": "The video reference"
+          }
+        },
+        "required": [
+          "referenceVideo"
+        ],
+        "title": "StructureReference",
+        "type": "object"
+      },
+      "ValidationErrorMessage": {
+        "properties": {
+          "ctx": {
+            "type": "object",
+            "description": "Additional context for the validation error."
+          },
+          "loc": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                { "type": "integer" },
+                { "type": "string" }
+              ]
+            },
+            "description": "Location of the validation error in the request."
+          },
+          "msg": {
+            "type": "string",
+            "description": "Validation error message."
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of validation error."
+          }
+        },
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "type": "object"
+      },
+      "VideoModelVersion": {
+        "enum": [
+          "video1.5",
+          "video1_8_standard"
+        ],
+        "title": "VideoModelVersion",
+        "type": "string"
+      },
+      "VideoOutputSpec": {
+        "properties": {
+          "storeInputs": {
+            "default": false,
+            "description": "If `true`, Firefly and ACPC will store the output as a DCX composite which contains the input recipe information along with output content. If `false`, it will store it as plain content.",
+            "title": "Store inputs",
+            "type": "boolean"
+          }
+        },
+        "title": "VideoOutputSpec",
+        "type": "object"
+      },
+      "VideoPromptStyle": {
+        "enum": [
+          "anime",
+          "3d",
+          "fantasy",
+          "cinematic",
+          "claymation",
+          "line art",
+          "stop motion",
+          "2d",
+          "vector art",
+          "black and white"
+        ],
+        "title": "VideoPromptStyle",
+        "type": "string"
+      },
+      "VideoSettings": {
+        "properties": {
+          "cameraMotion": {
+            "$ref": "#/components/schemas/CameraMotion",
+            "description": "The camera motion control"
+          },
+          "promptStyle": {
+            "$ref": "#/components/schemas/VideoPromptStyle",
+            "description": "The style of the generated video"
+          },
+          "shotAngle": {
+            "$ref": "#/components/schemas/ShotAngle",
+            "description": "The shot angle control"
+          },
+          "shotSize": {
+            "$ref": "#/components/schemas/ShotSize",
+            "description": "The shot size control"
+          }
+        },
+        "type": "object"
+      },
+      "VideoSettingsV3": {
+        "properties": {
+          "cameraMotion": {
+            "$ref": "#/components/schemas/CameraMotion",
+            "description": "The camera motion control."
+          },
+          "promptStyle": {
+            "$ref": "#/components/schemas/VideoPromptStyle",
+            "description": "The style of the generated video."
+          },
+          "shotAngle": {
+            "$ref": "#/components/schemas/ShotAngle",
+            "description": "The shot angle control."
+          },
+          "shotSize": {
+            "$ref": "#/components/schemas/ShotSize",
+            "description": "The shot size control."
+          }
+        },
+        "type": "object"
+      },
+      "VideoResult": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The pre-signed URL for the generated video file.",
+            "example": "https://pre-signed-firefly-stage.s3-accelerate.amazonaws.com/images/5193301c-823e-4728-8bf9-15ea82e60c3f?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=EXAMPLE%2F20250618%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250618T184001Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=1533114083da2bab81cc2bfdb881fde31993d5ab053cf234c9875b2fbbeef3a1"
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "title": "VideoResult",
+        "type": "object"
+      },
+      "VideoOutput": {
+        "properties": {
+          "seed": {
+            "type": "integer",
+            "description": "The seed value used for generating this video output.",
+            "example": 646214641
+          },
+          "video": {
+            "$ref": "#/components/schemas/VideoResult"
+          }
+        },
+        "required": [
+          "seed",
+          "video"
+        ],
+        "title": "VideoOutput",
+        "type": "object"
+      },
+      "AsyncResult": {
+        "properties": {
+          "size": {
+            "$ref": "#/components/schemas/ClinetoSize"
+          },
+          "outputs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VideoOutput"
+            },
+            "description": "Array of generated video outputs."
+          }
+        },
+        "required": [
+          "size",
+          "outputs"
+        ],
+        "title": "AsyncResult",
+        "type": "object"
+      },
+      "AsyncResponseV3": {
+        "properties": {
+          "cancelUrl": {
+            "title": "Cancelurl",
+            "description": "A URL to cancel the job.",
+            "example": "https://firefly-stage-eso851213.adobe.io/v3/cancel/urn:ff:jobs:eso851213:2667cdfe-302a-4c1c-b346-4e39870584f5"
+          },
+          "jobId": {
+            "title": "Jobid",
+            "description": "The ID for the asyncronous job.",
+            "example": "urn:ff:jobs:eso851213:2667cdfe-302a-4c1c-b346-4e39870584f5"
+          },
+          "progress": {
+            "description": "The progress of the running job. The value is the percentage of the job that has been completed.",
+            "type": "integer",
+            "example": 50
+          },
+          "result": {
+            "description": "The result of the completed job.",
+            "$ref": "#/components/schemas/AsyncResult"
+          },
+          "status": {
+            "title": "Status",
+            "description": "The status of the job.",
+            "example": "pending"
+          },
+          "statusUrl": {
+            "title": "Statusurl",
+            "description": "A URL to show the status of the current job.",
+            "example": "https://firefly-stage-eso851213.adobe.io/v3/status/urn:ff:jobs:eso851213:2667cdfe-302a-4c1c-b346-4e39870584f5"
+          }
+        },
+        "required": [
+          "jobId"
+        ],
+        "title": "AsyncResponseV3",
+        "type": "object"
+      },
+      "MessageResponseSchema": {
+        "description": "This is a schema for the final message response that is sent to the client after async job completed.\nIt is used in OpenAPI schema docs.\nThe actual response is of type starlette.types.Message",
+        "properties": {
+          "body": {
+            "description": "The body of the message",
+            "title": "Body"
+          },
+          "headers": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "The headers of the message",
+            "title": "Headers",
+            "type": "object"
+          },
+          "status": {
+            "description": "The status code of the message",
+            "title": "Status",
+            "type": "integer"
+          },
+          "status_text": {
+            "description": "The status text of the message",
+            "title": "Status Text",
+            "type": "string"
+          },
+          "type": {
+            "description": "The type of the message",
+            "title": "Type",
+            "type": "string"
+          },
+          "url": {
+            "description": "The url of the message",
+            "title": "Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "body",
+          "status",
+          "headers",
+          "type",
+          "url",
+          "status_text"
+        ],
+        "title": "MessageResponseSchema",
+        "type": "object"
+      }
+    }
+  }
+}

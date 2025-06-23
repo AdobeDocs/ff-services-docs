@@ -8,6 +8,7 @@ description: Learn about the available fonts in Photoshop Service.
 This is a list of all of the currently supported Postscript fonts for Photoshop API's. Additionally the user can use any fonts they are authorized to access via [Adobe Fonts](https://fonts.adobe.com/fonts). (Currently only available for OAuth tokens, service token support is forthcoming...)
 
 ### Photoshop CC
+
 |                           |
 |---------------------------------- |
 | AcuminVariableConcept             |

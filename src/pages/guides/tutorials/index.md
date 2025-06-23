@@ -44,7 +44,7 @@ hideBreadcrumbNav: true
 
 A collection of tutorials to help you use Adobe Firefly Services.
 
-Here, you will find a collection of comprehensive tutorials designed to help you harness the power of Adobe Firefly Services APIs. Whether you're a beginner looking to get started or an experienced developer seeking advanced techniques, our tutorials cover a wide range of topics to meet your needs. Dive in and discover how you can leverage Adobe Firefly Services APIs to create innovative and immersive experiences. 
+Here, you will find a collection of comprehensive tutorials designed to help you harness the power of Adobe Firefly Services APIs. Whether you're a beginner looking to get started or an experienced developer seeking advanced techniques, our tutorials cover a wide range of topics to meet your needs. Dive in and discover how you can leverage Adobe Firefly Services APIs to create innovative and immersive experiences.
 
 ## Discover
 
