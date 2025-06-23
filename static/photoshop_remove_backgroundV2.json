@@ -33,7 +33,7 @@
           },
           {
             "name": "x-api-key",
-            "description": "API key/Client ID",
+            "description": "The API key/Client ID.",
             "in": "header",
             "required": true,
             "schema": {
@@ -42,7 +42,7 @@
           },
           {
             "name": "Content-Type",
-            "description": "application/json",
+            "description": "This is the content type of the request. The value is `application/json`.",
             "in": "header",
             "required": true,
             "schema": {
