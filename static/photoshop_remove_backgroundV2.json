@@ -42,7 +42,7 @@
           },
           {
             "name": "Content-Type",
-            "description": "This is the content type of the request. The value is `application/json`.",
+            "description": "The content type of the request. The value is `application/json`.",
             "in": "header",
             "required": true,
             "schema": {
