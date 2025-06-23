@@ -106,7 +106,7 @@
                   "$ref": "#/components/schemas/JobError"
                 },
                 "examples": {
-                  "forbidden": {
+                  "access_error": {
                     "value": {
                       "error_code": "access_error",
                       "message": "User is not entitled to perform the requested operation."
@@ -124,7 +124,7 @@
                   "$ref": "#/components/schemas/JobError"
                 },
                 "examples": {
-                  "tooManyRequests": {
+                  "rate_limited": {
                     "value": {
                       "error_code": "rate_limited",
                       "message": "Too many requests."
