@@ -35,7 +35,7 @@ hideBreadcrumbNav: true
 
 **API updates**
 
-* **Launch of Generate Video API**: Bring text, still shots, or illustrations to life by transforming them into live action clips. The [Generate Video API](../api/generate_video/V1/) is now available for use.
+* **Launch of Generate Video API**: Bring text, still shots, or illustrations to life by transforming them into live action clips. The [Generate Video API](../api/generate_video/V3_Async/) is now available for use.
 
 ## April 29, 2025
 
