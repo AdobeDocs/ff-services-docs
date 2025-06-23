@@ -24,23 +24,25 @@
             "oneOf": [
               {
                 "required": [
-                  "id"
-                ]
-              },
-              {
-                "required": [
-                  "name"
-                ]
-              }
-            ],
-            "oneOf": [
-              {
-                "required": [
+                  "id",
                   "input"
                 ]
               },
               {
                 "required": [
+                  "id",
+                  "smartObject"
+                ]
+              },
+              {
+                "required": [
+                  "name",
+                  "input"
+                ]
+              },
+              {
+                "required": [
+                  "name",
                   "smartObject"
                 ]
               }
