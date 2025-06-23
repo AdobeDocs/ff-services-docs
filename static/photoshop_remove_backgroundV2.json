@@ -9,7 +9,7 @@
   "tags": [],
   "servers": [
     {
-      "url": "https://photoshop-api.adobe.io",
+      "url": "https://image.adobe.io",
       "description": "Production endpoint"
     }
   ],
@@ -21,7 +21,44 @@
         "description": "This endpoint allows you to remove background and generate mask from an image. The request is processed asynchronously and the status of the job can be checked using the status URL provided in the response.",
         "x-ffs-async-job": true,
         "x-ffs-job-status-fetcher": "facadeJobStatus",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "description": "Bearer: ${Authorization Token}",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "description": "API key/Client ID",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "description": "application/json",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-gw-ims-org-id",
+            "description": "The IMS organization ID. Send this to receive the job status through Adobe I/O Events.",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
