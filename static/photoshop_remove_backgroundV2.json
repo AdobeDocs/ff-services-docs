@@ -114,7 +114,10 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/JobError"
-                },
+                }
+              }
+            }
+          },
           "500": {
             "description": "Internal Server Error",
             "content": {
