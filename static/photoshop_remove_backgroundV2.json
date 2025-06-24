@@ -18,7 +18,7 @@
       "post": {
         "operationId": "removeBackground",
         "summary": "Remove background",
-        "description": "This endpoint allows you to remove the background from an image. The request is processed asynchronously and the status of the job can be checked with the Get Status endpoint using the `statusUrl` provided in this API's response.",
+        "description": "This endpoint allows you to remove the background from an image. The request is processed asynchronously and the status of the running job can be checked with the Get Status endpoint.",
         "x-ffs-async-job": true,
         "x-ffs-job-status-fetcher": "facadeJobStatus",
         "parameters": [
@@ -150,7 +150,7 @@
       "get": {
         "operationId": "facadeJobStatus",
         "summary": "Retrieve job status",
-        "description": "Retrieve the status of a running job by providing the job ID. The job ID is obtained from the response of the API call.",
+        "description": "Retrieve the status of a running job by providing the job ID. The job ID is obtained from the response of the asynchronous API call.",
         "x-ffs-status-fetcher": true,
         "x-ffs-job-name": "FacadeAsyncJob",
         "parameters": [
