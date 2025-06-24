@@ -14,7 +14,7 @@
     }
   ],
   "paths": {
-    "/beta/remove-background": {
+    "/v2/remove-background": {
       "post": {
         "operationId": "removeBackground",
         "summary": "Remove background",
@@ -139,6 +139,68 @@
                       "message": "Internal Server Error."
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/status/{jobId}": {
+      "get": {
+        "operationId": "facadeJobStatus",
+        "summary": "Retrieve job status",
+        "description": "Retrieve the status of a job by providing the job ID. The job ID can be obtained from the response of other APIs.",
+        "x-ffs-status-fetcher": true,
+        "x-ffs-job-name": "FacadeAsyncJob",
+        "parameters": [
+          {
+            "name": "jobId",
+            "required": true,
+            "in": "path",
+            "description": "Job ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobStatusPollPayload"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown job id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobError"
                 }
               }
             }
@@ -335,6 +397,32 @@
         },
         "required": [
           "error_code"
+        ]
+      },
+      "JobStatus": {
+        "type": "string",
+        "description": "status",
+        "enum": [
+          "not_started",
+          "running",
+          "failed",
+          "succeeded"
+        ]
+      },
+      "JobStatusPollPayload": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/JobStatus"
+          },
+          "jobId": {
+            "type": "string",
+            "description": "jobId"
+          }
+        },
+        "required": [
+          "status",
+          "jobId"
         ]
       }
     }
