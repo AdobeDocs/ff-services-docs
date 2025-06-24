@@ -65,11 +65,11 @@ If you are using a presigned url, put your file path within "":
 
 ```bash
   curl -X PUT "<Your file path>" -d <some-file.txt>
-  ``` 
+  ```
 
 ## Current Limitations
 
-There are a few limitations to the APIs you should be aware of ahead of time. 
+There are a few limitations to the APIs you should be aware of ahead of time.
 
 * Multi-part uploads and downloads are not yet supported.
 * All the endpoints only support a single file input.
