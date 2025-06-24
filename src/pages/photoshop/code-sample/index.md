@@ -1129,6 +1129,10 @@ Once the job is complete your successful `/status` response will look similar to
 }
 ```
 
+### Generate image mask
+
+The workflow is exactly the same as [creating Remove Background](../code-sample/index.md#remove-background) except you use the `/mask` endpoint.
+
 ## Customized Workflow
 
 ### Generate Remove Background result as Photoshop path
