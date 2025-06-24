@@ -23,6 +23,55 @@ The linter checks:
 - JSON files (jsonlint)
 - Security issues (gitleaks)
 
+### Link Validation
+
+After successful linting, validate all links in the documentation:
+
+```bash
+yarn test:links
+```
+
+The link validator checks:
+- Internal links (anchors, file references)
+- External links (URLs)
+- Relative path references
+- Broken or inaccessible links
+
+**Note:** Link validation should be run AFTER linting is successful, as it depends on properly formatted markdown files.
+
+#### Link Validation Errors and Resolution
+
+**Common Link Issues:**
+
+1. **Broken Internal Links**
+   - Missing anchor references
+   - Incorrect file paths
+   - Case sensitivity issues
+
+2. **Broken External Links**
+   - URLs that no longer exist
+   - Network connectivity issues
+   - Rate limiting from external sites
+
+3. **Relative Path Issues**
+   - Incorrect relative paths
+   - Missing files referenced in links
+
+**Resolution:**
+```bash
+# Run link validation to identify issues
+yarn test:links
+
+# Fix specific link issues manually
+# Common fixes:
+# - Update incorrect file paths
+# - Remove or replace broken external links
+# - Fix anchor references
+# - Update relative paths
+```
+
+**Best Practice:** Always run link validation before deploying documentation to ensure all links are functional.
+
 ### Common Error Types and Resolution
 
 #### 1. Trailing Spaces (MD009)
@@ -207,6 +256,7 @@ Add to `.vscode/settings.json`:
 Before committing documentation changes:
 
 - [ ] Run `yarn lint` and fix all errors
+- [ ] Run `yarn test:links` and fix all link issues
 - [ ] Check for trailing spaces
 - [ ] Verify code blocks have language specifications
 - [ ] Ensure lists use asterisks, not dashes
@@ -288,6 +338,10 @@ Ensure your CI/CD pipeline includes:
 - name: Lint Documentation
   run: yarn lint
   continue-on-error: false
+
+- name: Validate Links
+  run: yarn test:links
+  continue-on-error: false
 ```
 
-This ensures documentation quality is maintained across all changes.
+This ensures documentation quality and link integrity are maintained across all changes.
