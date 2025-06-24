@@ -48,15 +48,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "x-gw-ims-org-id",
-            "description": "The IMS organization ID. Send this to receive the job status through Adobe I/O Events.",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "requestBody": {
