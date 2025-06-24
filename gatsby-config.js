@@ -424,11 +424,11 @@ module.exports = {
             path: "/photoshop/api/photoshop_removeBackgroundV2.md",
             pages: [
               {
-                title: "V1 (deprecated)",
+                title: "V1",
                 path: "/photoshop/api/photoshop_removeBackground.md",
               },
               {
-                title: "V2",
+                title: "V2 (beta)",
                 path: "/photoshop/api/photoshop_removeBackgroundV2.md",
               },
             ],
