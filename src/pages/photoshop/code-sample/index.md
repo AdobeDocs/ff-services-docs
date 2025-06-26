@@ -687,7 +687,7 @@ Once your job completes successfully (no errors/failures reported), the status r
                 "width":252
               },
               "text": {
-                "content":"Reset your customers’ expectations.",
+                "content":"Reset your customers' expectations.",
                 "paragraphStyles":[
                   {   
                     "alignment":"left"
@@ -703,7 +703,7 @@ Once your job completes successfully (no errors/failures reported), the status r
               "id":412,
               "index":6,
               "locked":false,
-              "name":"Reset your customers’ expectations.",
+              "name":"Reset your customers' expectations.",
               "type":"textLayer",
               "visible":true
             },
@@ -1052,27 +1052,35 @@ First, be sure to follow the instructions in the [Getting Started](../../guides/
 
 ### Remove Background
 
-The `/cutout` api takes a single input image to generate your mask or remove background from. Using [Example.jpg](https://github.com/AdobeDocs/cis-photoshop-api-docs/blob/main/sample_files/Example.jpg), a typical curl call might look like this:
+The `/remove-background` API accepts a single input image and removes the background from it. Using [Example.jpg](https://github.com/AdobeDocs/cis-photoshop-api-docs/blob/main/sample_files/Example.jpg), a typical cURL call might look like this:
 
 ```shell
-curl -X POST \
-  https://image.adobe.io/sensei/cutout \
-  -H "Authorization: Bearer $token"  \
-  -H "x-api-key: $apiKey" \
-  -H "Content-Type: application/json" \
+curl -i -X POST \
+  https://image.adobe.io/beta/remove-background \
+  -H 'Authorization: Bearer <YOUR_TOKEN_HERE>' \
+  -H 'Content-Type: application/json' \
+  -H 'X-API-KEY: <YOUR_API_KEY_HERE>' \
+  -H 'x-api-key: string' \
+  -H 'x-gw-ims-org-id: string' \
   -d '{
-   "input":{
-      "storage":"<storage>",
-      "href":"<SIGNED_GET_URL>"
-   },
-   "output":{
-      "storage":"<storage>",
-      "href":"<SIGNED_POST_URL>",
-      "mask":{
-         "format":"soft"
+    "image": {
+      "source": {
+        "url": "string"
       }
-   }
-}'
+    },
+    "mode": "cutout",
+    "output": {
+      "mediaType": "image/jpeg"
+    },
+    "trim": false,
+    "backgroundColor": {
+      "red": 255,
+      "green": 255,
+      "blue": 255,
+      "alpha": 1
+    },
+    "colorDecontamination": 0
+  }'
 ```
 
 This initiates an asynchronous job and returns a response containing the href to poll for job status and the JSON manifest.
@@ -1087,7 +1095,7 @@ This initiates an asynchronous job and returns a response containing the href to
 }
 ```
 
-Using the job id returned from the previous call you can poll on the returned `/status` href to get the job status
+Using the job ID returned from the previous call you can poll on the returned `/status` href to get the job status
 
 ```shell
 curl -X GET \
@@ -1120,10 +1128,6 @@ Once the job is complete your successful `/status` response will look similar to
     }
 }
 ```
-
-### Generate image mask
-
-The workflow is exactly the same as [creating Remove Background](../code-sample/index.md#remove-background) except you use the `/mask` endpoint instead of `/cutout`.  
 
 ## Customized Workflow
 
