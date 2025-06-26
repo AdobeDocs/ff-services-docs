@@ -28,7 +28,7 @@ The Lightroom API works with any public or signed url. We have documented a few 
 * [Node.js](https://github.com/AdobeDocs/cis-photoshop-api-docs/tree/main/sample-code/storage-app/aws-s3/presignedURLs.js) <br />Please note that creating pre-signed urls for AWS S3 requires signature version S3V4, as demonstrated in the sample code.
 * [Python](https://github.com/AdobeDocs/cis-photoshop-api-docs/tree/main/sample-code/storage-app/azure/presignedURLs.py)
 
-We also have a python [application](https://github.com/AdobeDocs/cis-photoshop-api-docs/tree/main/sample-code/storage-app/aws-s3/example.py) that provides a working example of how to call our api using assets stored in AWS S3.
+We also have a python [application](https://github.com/AdobeDocs/cis-photoshop-api-docs/tree/main/sample-code/storage-app/aws-s3/example.py) that provides a working example of how to call our api using assets stored in AWS S3.  
 
 **Google Drive:** Signed GET/PUT URL. For more information on how to setup your Google drive account for access to creating a signed URL [here](https://www.labnol.org/google-api-service-account-220404). Here are some code samples for getting signed urls.
 
@@ -46,26 +46,26 @@ We also have a python [application](https://github.com/AdobeDocs/cis-photoshop-a
 Run the curl command below to see if your input file path is working:
 
 ```bash
-curl -X GET <Your file path> --output <some-file.jpg>
-```
+  curl -X GET <Your file path> --output <some-file.jpg>
+  ```
 
 If you are using a presigned url, put your file path within "":
 
 ```bash
-curl -X GET "<Your file path>" --output <some-file.jpg>
-```
+  curl -X GET "<Your file path>" --output <some-file.jpg>
+  ```
 
 Run the curl command below to see if your output file path is working:
 
 ```bash
-curl -X PUT <Your file path> -d <some-file.txt>
-```
+  curl -X PUT <Your file path> -d <some-file.txt>
+  ```
 
 If you are using a presigned url, put your file path within "":
 
 ```bash
-curl -X PUT "<Your file path>" -d <some-file.txt>
-```
+  curl -X PUT "<Your file path>" -d <some-file.txt>
+  ```
 
 ## Current Limitations
 

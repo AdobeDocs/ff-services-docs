@@ -14,8 +14,8 @@ This document outlines the linting rules and best practices for maintaining high
 ### Running the Linter
 
 ```bash
-yarn lint
-```
+   yarn lint
+   ```
 
 The linter checks:
 - Markdown files (markdownlint)
