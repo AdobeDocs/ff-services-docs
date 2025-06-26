@@ -1056,7 +1056,7 @@ The `/remove-background` API accepts a single input image and removes the backgr
 
 ```shell
 curl -i -X POST \
-  https://image.adobe.io/beta/remove-background \
+  https://image.adobe.io/v2/remove-background \
   -H 'Authorization: Bearer <YOUR_TOKEN_HERE>' \
   -H 'Content-Type: application/json' \
   -H 'X-API-KEY: <YOUR_API_KEY_HERE>' \
@@ -1128,6 +1128,10 @@ Once the job is complete your successful `/status` response will look similar to
     }
 }
 ```
+
+### Generate image mask
+
+The workflow is exactly the same as [creating Remove Background](../code-sample/index.md#remove-background) except you use the `/mask` endpoint.
 
 ## Customized Workflow
 
