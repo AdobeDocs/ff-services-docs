@@ -56,7 +56,7 @@ Any utility functions, such as the one handling authentication, are no different
 
 <Accordion>
 
-<AccordionItem header="AccordionItemWithDefaultIcon">
+<AccordionItem header="Full Implementation" isChevronIcon position="right" >
 
 ```js
 import fs from 'fs';
