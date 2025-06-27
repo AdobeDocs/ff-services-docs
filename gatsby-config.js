@@ -118,6 +118,10 @@ module.exports = {
             path: "/firefly-api/guides/concepts/authentication/",
           },
           {
+            title: "Asynchronous APIs",
+            path: "/firefly-api/guides/concepts/asynchronous-apis/",
+          },
+          {
             title: "Image Upload",
             path: "/firefly-api/guides/concepts/image-upload/",
           },
