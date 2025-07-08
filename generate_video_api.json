@@ -1354,11 +1354,6 @@
             "description": "The details of the image used as a keyframe for the generated video. Provided images are used as a first frame or final frame to guide the video generation.",
             "$ref": "#/components/schemas/InputImageV3"
           },
-          "negativePrompt": {
-            "description": "The API will try to generate against the characteristcs in this prompt.",
-            "type": "string",
-            "example": "NO people, NO trees."
-          },
           "prompt": {
             "description": "The prompt used to generate the image. The longer the prompt, the better.",
             "type": "string",
