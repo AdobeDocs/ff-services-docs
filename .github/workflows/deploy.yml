@@ -14,7 +14,7 @@ on:
       excludeSubfolder:
         description: "Exclude a subfolder from deletion"
         required: false
-        default: "s3dapi, photoshop"
+        default: "s3dapi"
       index-mode:
         description: 'Type of indexing. "index" to push to Algolia, "console" for dry run.'
         required: true
@@ -35,10 +35,10 @@ jobs:
       exclude_subfolder: ${{ github.event.inputs.excludeSubfolder }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Get pathPrefix
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         id: get_path_prefix
         with:
           script: |
@@ -84,10 +84,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Setup Node v16 for Yarn v3
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: "16.15.0" # Current LTS version
 
@@ -107,7 +107,7 @@ jobs:
           cmd: install
 
       - name: Gatsby Cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             public
@@ -189,10 +189,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Setup Node v16 for Yarn v3
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: "16.15.0" # Current LTS version
 
@@ -212,7 +212,7 @@ jobs:
           cmd: install
 
       - name: Gatsby Cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             public
