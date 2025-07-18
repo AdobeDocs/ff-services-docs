@@ -118,7 +118,7 @@
         }
       },
       "get": {
-        "summary": "List all registered custom scripts",
+        "summary": "List custom scripts API",
         "description": "Retrieves details of the latest version of all custom scripts registered by the customer. This includes version, script's download link, registration date, and script name. The response is paginated depending on list length.",
         "parameters": [
           {
@@ -277,7 +277,7 @@
     },
     "/v3/scripts/{script_name}": {
       "get": {
-        "summary": "Get details of a specific custom script",
+        "summary": "Get custom script details API",
         "description": "Retrieves details of a single custom script registered by the customer. This includes version, script's download link, registration date, and script name.",
         "parameters": [
           {
@@ -346,7 +346,7 @@
         }
       },
       "delete": {
-        "summary": "Delete a specific custom script",
+        "summary": "Delete custom script API",
         "description": "Deletes a single custom script registered by the customer. All versions of that script will be deleted.",
         "parameters": [
           {
