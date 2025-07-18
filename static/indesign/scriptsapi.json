@@ -116,6 +116,76 @@
             "$ref": "#/components/responses/InternalServerError"
           }
         }
+      },
+      "get": {
+        "summary": "List all registered custom scripts",
+        "description": "Retrieves details of the latest version of all custom scripts registered by the customer. This includes version, script's download link, registration date, and script name. The response is paginated depending on list length.",
+        "parameters": [
+          {
+            "name": "x-gw-ims-org-id",
+            "in": "header",
+            "description": "This is the identifier for Adobe Identity Management Service (IMS) as defined in Adobe's developer console.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "The API key as defined in Adobe's developer console.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "The authorization token with bearer \"token_value\".",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of registered custom scripts",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomScriptsListResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadParams"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
       }
     },
     "/v3/{script_id}/{script_name}": {
@@ -198,6 +268,139 @@
           },
           "429": {
             "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/v3/scripts/{script_name}": {
+      "get": {
+        "summary": "Get details of a specific custom script",
+        "description": "Retrieves details of a single custom script registered by the customer. This includes version, script's download link, registration date, and script name.",
+        "parameters": [
+          {
+            "name": "x-gw-ims-org-id",
+            "in": "header",
+            "description": "This is the identifier for Adobe Identity Management Service (IMS) as defined in Adobe's developer console.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "The API key as defined in Adobe's developer console.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "The authorization token with bearer \"token_value\".",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "script_name",
+            "in": "path",
+            "description": "Name of the custom script",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Details of the custom script",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomScriptDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadParams"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a specific custom script",
+        "description": "Deletes a single custom script registered by the customer. All versions of that script will be deleted.",
+        "parameters": [
+          {
+            "name": "x-gw-ims-org-id",
+            "in": "header",
+            "description": "This is the identifier for Adobe Identity Management Service (IMS) as defined in Adobe's developer console.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "The API key as defined in Adobe's developer console.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "The authorization token with bearer \"token_value\".",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "script_name",
+            "in": "path",
+            "description": "Name of the custom script to delete",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Script successfully deleted"
+          },
+          "400": {
+            "$ref": "#/components/responses/BadParams"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
           },
           "500": {
             "$ref": "#/components/responses/InternalServerError"
@@ -529,6 +732,60 @@
             }
           }
         ]
+      },
+      "CustomScriptsListResponse": {
+        "type": "object",
+        "description": "Response containing list of registered custom scripts",
+        "properties": {
+          "capabilities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomScriptDetails"
+            }
+          },
+          "paging": {
+            "type": "object",
+            "properties": {
+              "nextUrl": {
+                "type": "string",
+                "description": "URL for the next page of results",
+                "example": "https://indesign.adobe.io/api/v3/scripts?page=2"
+              }
+            }
+          }
+        }
+      },
+      "CustomScriptDetails": {
+        "type": "object",
+        "description": "Details of a custom script",
+        "properties": {
+          "version": {
+            "type": "string",
+            "description": "Version of the custom script",
+            "example": "1.0.2"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL that was generated during registration",
+            "example": "https://indesign.adobe.io/v3/634aaf2dd50c8d198/idml/export"
+          },
+          "downloadurl": {
+            "type": "string",
+            "description": "Pre-signed URL for downloading the script (valid for 30 minutes)",
+            "example": "https://example.com/download/script.zip"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Registration date of the script",
+            "example": "2025-07-03T08:44:26.051Z"
+          },
+          "scriptName": {
+            "type": "string",
+            "description": "Name of the custom script",
+            "example": "3p-testing/test1"
+          }
+        }
       }
     },
     "responses": {
