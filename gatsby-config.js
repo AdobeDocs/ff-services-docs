@@ -558,10 +558,6 @@ module.exports = {
             path: "/indesign-apis/api/scripts.md",
           },
           {
-            title: "Remap Links API",
-            path: "/indesign-apis/api/remaplinks.md",
-          },
-          {
             title: "Status API",
             path: "/indesign-apis/api/status.md",
           },
