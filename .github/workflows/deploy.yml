@@ -10,7 +10,7 @@ on:
       clean:
         description: "Clean cache (yes|no)"
         required: true
-        default: "no"
+        default: "yes"
       excludeSubfolder:
         description: "Exclude a subfolder from deletion"
         required: false
