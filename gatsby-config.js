@@ -27,7 +27,7 @@ module.exports = {
       {
         title: "Photoshop API",
         description: "Docs and references for Photoshop API",
-        path: "/photoshop/",
+        path: "https://developer.adobe.com/firefly-services/docs/photoshop/?aio_internal",
       },
       {
         title: "Lightroom API",
