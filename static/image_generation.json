@@ -435,8 +435,8 @@
                       "maxLength": 2083,
                       "minLength": 1,
                       "format": "uri",
-                      "title": "The presigned url",
-                      "description": "Reference to public or signed url of the input data.\n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
+                      "title": "The pre-signed URL",
+                      "description": "Reference to public or signed URL of the input data.\n<strong>Note</strong>: Only these listed domains are accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li><li><code>storage.googleapis.com</code></li></ul>"
                   }
               }
           },
