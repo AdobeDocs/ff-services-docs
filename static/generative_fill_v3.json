@@ -316,7 +316,7 @@
                   }
                 ],
                 "title": "Input Image",
-                "description": "Input image to fill with generative content. You can either use a <code>url</code> or an <code>uploadId</code> as the source for the uploaded image. Supported formats are, image/jpeg, image/png, image/webp.  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request. The allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li><li><code>storage.googleapis.com</code></li></ul>"
+                "description": "Input image to fill with generative content. Use a <code>url</code> or an <code>uploadId</code> as the source for the uploaded image. Supported formats are, image/jpeg, image/png, image/webp.  \n  <strong>Note</strong>: Only these listed domains are accepted in the request:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li><li><code>storage.googleapis.com</code></li></ul>"
               },
               "promptBiasingLocaleCode": {
                 "type": "string",
