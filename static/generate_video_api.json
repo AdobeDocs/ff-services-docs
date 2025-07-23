@@ -26,7 +26,7 @@
       "post": {
         "operationId": "generateVideoV3",
         "summary": "Generate video from text",
-        "description": "Generate a video using a text prompt.",
+        "description": "Generate a five second video using a text prompt.",
         "parameters": [
           {
             "name": "x-model-version",
