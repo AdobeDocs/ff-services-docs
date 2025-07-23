@@ -2137,16 +2137,6 @@
       },
       "InputImageV3": {
         "properties": {
-          "mask": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/PublicBinaryInputV3"
-              }
-            ],
-            "deprecated": true,
-            "description": "This is a deprecated property. Use <code>mask</code> instead.",
-            "title": "Deprecated mask image"
-          },
           "source": {
             "$ref": "#/components/schemas/PublicBinaryInputV3",
             "description": "Source image that Firefly expands, fills or uses to generate similar images",
