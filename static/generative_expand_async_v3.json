@@ -815,7 +815,7 @@
         "properties": {
           "image": {
             "$ref": "#/components/schemas/InputImageV3",
-            "description": "The image to expand. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> </ul>",
+            "description": "The image to expand. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> <li><code>storage.googleapis.com</code></li> </ul>",
             "title": "Input Image"
           },
           "mask": {
@@ -901,7 +901,7 @@
         "properties": {
           "image": {
             "$ref": "#/components/schemas/InputImageV3",
-            "description": "The image to expand. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> </ul>",
+            "description": "The image to expand. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> <li><code>storage.googleapis.com</code></li> </ul>",
             "title": "Input Image"
           },
           "mask": {
@@ -1110,7 +1110,7 @@
           },
           "image": {
             "$ref": "#/components/schemas/InputImageV3",
-            "description": "The image to expand. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> </ul>",
+            "description": "The image to expand. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> <li><code>storage.googleapis.com</code></li> </ul>",
             "title": "Input Image"
           },
           "mask": {
@@ -1203,7 +1203,7 @@
         "properties": {
           "image": {
             "$ref": "#/components/schemas/BaseInputImageV3",
-            "description": "Firefly will create similar variations. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> </ul>",
+            "description": "Firefly will create similar variations. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> <li><code>storage.googleapis.com</code></li> </ul>",
             "title": "The reference image"
           },
           "numVariations": {
@@ -1420,7 +1420,7 @@
             "type": "string"
           },
           "url": {
-            "description": "Presigned URL of an uploaded file. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> </ul>",
+            "description": "Presigned URL of an uploaded file. You can either use a url or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains as input URL in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> <li><code>storage.googleapis.com</code></li> </ul>",
             "format": "uri",
             "maxLength": 2083,
             "minLength": 1,

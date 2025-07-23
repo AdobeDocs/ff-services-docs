@@ -343,7 +343,7 @@
                   }
                 ],
                 "title": "Input Image",
-                "description": "An image of an object that needs to be rendered on a scene. You can either use a <code>url</code> or an <code>uploadId</code> as the source for the uploaded image. Supported formats are, image/jpeg, image/png, image/webp.  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request. The allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
+                "description": "An image of an object that needs to be rendered on a scene. You can either use a <code>url</code> or an <code>uploadId</code> as the source for the uploaded image. Supported formats are, image/jpeg, image/png, image/webp.  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request. The allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li><li><code>storage.googleapis.com</code></li></ul>"
               },
               "prompt": {
                 "type": "string",
@@ -631,7 +631,7 @@
                 }
             ],
             "title": "A style image reference",
-            "description": "Firefly will detect the style in the image and apply the same style in the generated image. Supported formats are, image/jpeg, image/png, image/webp.  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request. The allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
+            "description": "Firefly will detect the style in the image and apply the same style in the generated image. Supported formats are, image/jpeg, image/png, image/webp.  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request. The allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li><li><code>storage.googleapis.com</code></li></ul>"
         }
       },
     "type": "object",
