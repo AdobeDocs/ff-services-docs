@@ -106,7 +106,7 @@ Unlock the potential of Lightroom in the cloud.
 
 <DiscoverBlock slots="link, text"/>
 
-[Photoshop API](../photoshop/)
+[Photoshop API](https://developer.adobe.com/firefly-services/docs/photoshop/?aio_internal)
 
 Unlock the potential of Photoshop in the cloud.
 
