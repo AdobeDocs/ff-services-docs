@@ -370,7 +370,7 @@ async function generateImagesWithCustomModel(accessToken, customModelId) {
 }
 ```
 
-The response will look like:
+The response will look something like this:
 
 ```json
 {
@@ -382,7 +382,7 @@ The response will look like:
 
 ### Check the image generation status
 
-1. Use the Get Status endpoint to get the image generation job status.
+1. Use the Get Status endpoint to get the image generation job status. Here is an example of how to do this.
 
 <CodeBlock slots="heading, code" repeat="3" languages="bash, Python, JavaScript" />
 
