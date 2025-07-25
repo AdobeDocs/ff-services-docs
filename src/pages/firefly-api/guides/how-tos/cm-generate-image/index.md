@@ -374,9 +374,9 @@ The response will look like:
 
 ```json
 {
-  "jobId": "urn:ff:jobs:eso85125:2dc3bd5f-1606-4658-8781-111111111",
-  "statusUrl": "https://firefly-stage-eso85125.adobe.io/v3/status/urn:ff:jobs:eso85125:2dc3bd5f-1606-4658-8781-111111111",
-  "cancelUrl": "https://firefly-stage-eso85125.adobe.io/v3/cancel/urn:ff:jobs:eso85125:2dc3bd5f-1606-4658-8781-111111111"
+  "jobId": "urn:ff:jobs:EXAMPLE85125:2dc3bd5f-1606-4658-8781-111111111",
+  "statusUrl": "https://firefly-epo852211.adobe.io/v3/status/urn:ff:jobs:EXAMPLE85125:2dc3bd5f-1606-4658-8781-111111111",
+  "cancelUrl": "https://firefly-epo852211.adobe.io/v3/cancel/urn:ff:jobs:EXAMPLE85125:2dc3bd5f-1606-4658-8781-111111111"
 } 
 ```
 
@@ -389,7 +389,7 @@ The response will look like:
 cURL
 
 ```bash
-curl --location 'https://firefly-stage-eso85121.adobe.io/jobs/result/urn:ff:jobs:eso85125:2dc3bd5f-1606-4658-8781-111111111' \
+curl --location 'https://firefly-epo852211.adobe.io/v3/status/urn:ff:jobs:EXAMPLE85125:2dc3bd5f-1606-4658-8781-111111111' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header "x-api-key: $CUSTOM_MODELS_CLIENT_ID" \
@@ -431,9 +431,9 @@ async function checkJobStatus(status_url, accessToken) {
 
 ## Implementation example
 
-Here is a full implementation example.
+Review the full implementation example below to learn more.
 
-[Set up your environment](#set-up-your-environment) before running this code.
+You'll need to [set up your environment](#set-up-your-environment) before running this code.
 
 <InlineAlert variant="warning" slots="header, text" />
 
