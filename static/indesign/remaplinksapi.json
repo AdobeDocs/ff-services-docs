@@ -10,8 +10,8 @@
   },
   "tags": [
     {
-      "name": "remapLinks",
-      "description": "Remap Links API."
+      "name": "Remap Links API",
+      "description": ""
     }
   ],
   "security": [
@@ -95,114 +95,6 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
-          },
-          "500": {
-            "$ref": "#/components/responses/InternalServerError"
-          }
-        }
-      }
-    },
-    "/v3/status/{id}": {
-      "get": {
-        "summary": "Gets latest status for a job.",
-        "description": "Returns the latest status event of a API job execution.",
-        "parameters": [
-          {
-            "name": "x-gw-ims-org-id",
-            "in": "header",
-            "description": "Identifier for IMS organization as defined in Adobe's developer console. This is optional",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "API key as defined in Adobe's developer console",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "description": "Authorization token with bearer \"token_value\"",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "id",
-            "in": "path",
-            "description": "ID, for which the status has to be retrieved.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Status of an API job execution.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/notstartedEvent"
-                    },
-                    {
-                      "$ref": "#/components/schemas/runningEvent"
-                    },
-                    {
-                      "$ref": "#/components/schemas/succeededEvent"
-                    },
-                    {
-                      "$ref": "#/components/schemas/failedEvent"
-                    }
-                  ]
-                }
-              }
-            },
-            "headers": {
-              "retry-after": {
-                "schema": {
-                  "type": "integer"
-                },
-                "description": "Number of seconds until the user should try again"
-              },
-              "Content-Type": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Type of content returned e.g. application/json"
-              },
-              "Content-Length": {
-                "schema": {
-                  "type": "integer"
-                },
-                "description": "Length of response content"
-              }
-            }
-          },
-          "400": {
-            "$ref": "#/components/responses/BadParams"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          },
-          "403": {
-            "$ref": "#/components/responses/Forbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          },
-          "429": {
-            "$ref": "#/components/responses/TooManyRequests"
           },
           "500": {
             "$ref": "#/components/responses/InternalServerError"
