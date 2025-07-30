@@ -40,11 +40,18 @@ Perform almost any InDesign task using a custom script. With this API you can su
 
 <DiscoverBlock slots="link, text"/>
 
-[Status API][4]
+[Remap Links API][4]
+
+Remap file-based links to AEM URLs in InDesign documents.
+
+<DiscoverBlock slots="link, text"/>
+
+[Status API][5]
 
 Retrieves the most recent status event of an API execution job.
 
 [1]: ./api/datamerge.md
 [2]: ./api/rendition.md
 [3]: ./api/scripts.md
-[4]: ./api/status.md
+[4]: ./api/remaplinks.md
+[5]: ./api/status.md
