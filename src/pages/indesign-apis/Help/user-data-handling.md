@@ -33,4 +33,4 @@ This metadata is stored in the database.
 
 ## 5. Security Measures
 
-All data is stored and processed with appropriate security measures to prevent unauthorized access and ensure confidentiality. 
+All data is stored and processed with appropriate security measures to prevent unauthorized access and ensure confidentiality.
