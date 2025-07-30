@@ -1,11 +1,11 @@
 ---
-title: Help page for InDesign APIs
-description: This is the help page for support and troubleshooting.
+title: Support & Troubleshooting - InDesign API
+description: Support and troubleshooting information for InDesign APIs.
 ---
 
-# Troubleshooting and Support
+# Support & Troubleshooting
 
-Here you'll find InDesign API support information.
+Here you'll find InDesign API support information and troubleshooting guidance.
 
 ## Supported Storage Types
 
@@ -54,3 +54,9 @@ To maintain API stability and fair usage across clients, the following limits ar
 ## Custom Scripts API - ZIP File Size Limit
 
 For the Custom Scripts API, the maximum allowed size for a Custom Script ZIP upload is 5MB.
+
+## Additional Help Topics
+
+For information about data privacy, security, and compliance considerations, see [User Data Handling](./user-data-handling.md).
+
+For the latest updates, new features, and bug fixes, check our [Changelog](../changelog/index.md).

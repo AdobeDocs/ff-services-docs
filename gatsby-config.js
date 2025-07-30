@@ -570,6 +570,20 @@ module.exports = {
       {
         title: "Help",
         path: "/indesign-apis/Help/index.md",
+        pages: [
+          {
+            title: "Support & Troubleshooting",
+            path: "/indesign-apis/Help/index.md",
+          },
+          {
+            title: "User Data Handling",
+            path: "/indesign-apis/Help/user-data-handling.md",
+          },
+        ],
+      },
+      {
+        title: "Changelog",
+        path: "/indesign-apis/changelog/index.md",
       },
       ///////////////////////////////////////////////
 // Audio/Video API-specific left side nav  
