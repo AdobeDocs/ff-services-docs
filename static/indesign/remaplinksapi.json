@@ -25,9 +25,6 @@
   "paths": {
     "/v3/remap-links": {
       "post": {
-        "tags": [
-          "remapLinks"
-        ],
         "summary": "Remaps file-based links to AEM URLs in InDesign documents",
         "description": "Replaces existing file-based links in InDesign documents with AEM URLs. This is particularly useful for customers working with AEM using AEM Asset Link, as it allows designers to work with the output files post-generation by having direct links to AEM URLs.",
         "operationId": "remapLinks",
