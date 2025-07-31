@@ -25,7 +25,7 @@
     "tags": [
       {
         "name": "Job Status API",
-        "description": "Get the job status of a custom script execution job. Each call retrieves the most recent status event for the job and each event refers to a different stage of execution. `not_started` is generated at the creation of the job. `running` is generated when execution begins (at app-engine). `succeeded` is generated when execution of an API Job is complete. `partial_success` is generated when execution of an API Job is complete but some non-critical errors occurred. `failed` is generated if an API Job execution fails."
+        "description": "Get the  job status of a custom script execution job. Each call retrieves the most recent status event for the job and each event refers to a different stage of execution. `not_started` is generated at the creation of the job. `running` is generated when execution begins (at app-engine). `succeeded` is generated when execution of an API Job is complete. `partial_success` is generated when execution of an API Job is complete but some non-critical errors occurred. `failed` is generated if an API Job execution fails."
       }
     ],
     "paths": {
