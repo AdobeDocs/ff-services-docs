@@ -17,24 +17,24 @@ keywords:
 
 This page contains the release notes and version history for Adobe InDesign APIs. Stay updated with the latest features, improvements, and bug fixes.
 
-### August 4, 2025
+## August 4, 2025
 
-#### New features
+### New features
 
-**Remap Links API**
+*Remap Links API*
 
 - Added new `/v3/remap-links` endpoint for remapping file-based links to AEM links.
 - Supports batch link remapping operations. Ideal for customers working with AEM using Adobe Asset Link (AAL).
 - [Explore the API documentation][1]
 
-**Custom Scripts API enhancements**
+*Custom Scripts API enhancements*
 
 - **List Custom Scripts**: New `GET /v3/scripts` endpoint to retrieve all registered scripts.
 - **Get Script Details**: New `GET /v3/scripts/{script_name}` endpoint for individual script information.
 - **Delete Custom Scripts**: New `DELETE /v3/scripts/{script_name}` endpoint for script deletion management.
 - [Explore the API documentation][2]
 
-#### Documentation updates
+### Documentation updates
 
 - Added comprehensive [User data handling][3] documentation.
 - Enhanced API reference with detailed examples.
