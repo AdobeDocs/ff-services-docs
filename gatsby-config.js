@@ -512,6 +512,10 @@ module.exports = {
         path: "/indesign-apis/index.md",
       },
       {
+        title: "Technical Usage Notes",
+        path: "/indesign-apis/Help/index.md",
+      },
+      {
         title: "Concepts",
         path: "/indesign-apis/concepts/index.md",
       },
@@ -564,20 +568,6 @@ module.exports = {
           {
             title: "Status API",
             path: "/indesign-apis/api/status.md",
-          },
-        ],
-      },
-      {
-        title: "Help",
-        path: "/indesign-apis/Help/index.md",
-        pages: [
-          {
-            title: "Support & Troubleshooting",
-            path: "/indesign-apis/Help/index.md",
-          },
-          {
-            title: "User Data Handling",
-            path: "/indesign-apis/Help/user-data-handling.md",
           },
         ],
       },
