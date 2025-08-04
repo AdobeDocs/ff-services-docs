@@ -558,14 +558,28 @@ module.exports = {
             path: "/indesign-apis/api/scripts.md",
           },
           {
+            title: "Remap Links API",
+            path: "/indesign-apis/api/remaplinks.md",
+          },
+          {
             title: "Status API",
             path: "/indesign-apis/api/status.md",
           },
         ],
       },
       {
+        title: "Changelog",
+        path: "/indesign-apis/changelog/index.md",
+      },
+      {
         title: "Help",
-        path: "/indesign-apis/Help/index.md",
+        path: "/indesign-apis/help/usage_notes/",
+        pages: [
+          {
+            title: "Usage Notes",
+            path: "/indesign-apis/help/usage_notes/",
+          }
+        ]
       },
       ///////////////////////////////////////////////
 // Audio/Video API-specific left side nav  
