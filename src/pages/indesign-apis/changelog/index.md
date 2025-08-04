@@ -27,6 +27,6 @@ This page contains the release notes and version history for Adobe InDesign APIs
 
 ### Documentation Updates
 
-- Added comprehensive [User Data Handling](../Help/index.md#user-data-handling) documentation
+- Added comprehensive [User Data Handling](../usage-notes/index.md#user-data-handling) documentation
 - Enhanced API reference with detailed examples
 - Improved error code documentation and troubleshooting guides

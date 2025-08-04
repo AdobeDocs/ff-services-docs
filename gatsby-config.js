@@ -513,7 +513,7 @@ module.exports = {
       },
       {
         title: "Technical Usage Notes",
-        path: "/indesign-apis/Help/index.md",
+        path: "/indesign-apis/usage-notes/index.md",
       },
       {
         title: "Concepts",
