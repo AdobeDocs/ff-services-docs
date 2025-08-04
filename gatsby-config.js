@@ -512,10 +512,6 @@ module.exports = {
         path: "/indesign-apis/index.md",
       },
       {
-        title: "Technical Usage Notes",
-        path: "/indesign-apis/usage-notes/index.md",
-      },
-      {
         title: "Concepts",
         path: "/indesign-apis/concepts/index.md",
       },
@@ -574,6 +570,16 @@ module.exports = {
       {
         title: "Changelog",
         path: "/indesign-apis/changelog/index.md",
+      },
+      {
+        title: "Help",
+        path: "/indesign-apis/help/usage_notes/",
+        pages: [
+          {
+            title: "Usage Notes",
+            path: "/indesign-apis/help/usage_notes/",
+          }
+        ]
       },
       ///////////////////////////////////////////////
 // Audio/Video API-specific left side nav  

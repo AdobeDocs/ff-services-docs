@@ -99,4 +99,4 @@ This metadata is stored in the database.
 All data is stored and processed with appropriate security measures to prevent unauthorized access and ensure confidentiality.
 
 <!-- Links -->
-[1]: ../changelog/index.md
+[1]: ../../changelog/index.md
