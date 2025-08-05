@@ -1,17 +1,16 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "description": "Documentation for InDesign APIs - Firefly Services. This document provides a detailed specification of the various exposed APIs, that can be leveraged by developers.",
-    "version": "",
-    "title": "InDesign APIs - Firefly Services",
+    "description": "The Remap Links API allows you to replace file-based links in InDesign documents with AEM URLs. This is particularly useful for customers working with Adobe Experience Manager (AEM) using Adobe Asset Link, enabling designers to work with output files that have direct links to AEM URLs.",
+    "version": "3.0.0",
+    "title": "InDesign Remap Links API",
     "contact": {
       "email": "idservices@adobe.com"
     }
   },
-  "tags": [
+  "servers": [
     {
-      "name": "Remap Links API",
-      "description": ""
+      "url": "https://indesign.adobe.io"
     }
   ],
   "security": [
@@ -100,11 +99,6 @@
       }
     }
   },
-  "servers": [
-    {
-      "url": "https://indesign.adobe.io/"
-    }
-  ],
   "components": {
     "securitySchemes": {
       "ApiKeyAuth": {
