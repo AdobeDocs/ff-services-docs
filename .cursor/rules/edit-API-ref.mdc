@@ -213,22 +213,58 @@ Include these common error responses:
 - **Organize schemas alphabetically** or by functional groups
 - **Use consistent indentation** and formatting
 
-### Required Sections
+### OpenAPI Section Ordering Convention
+**Follow the standard OpenAPI 3.0 section order** to ensure consistency and readability:
+
 ```json
 {
-  "openapi": "3.0.3",
-  "info": { /* API metadata */ },
-  "servers": [ /* Server configurations */ },
-  "tags": [ /* Tag definitions */ ],
-  "paths": { /* Endpoint definitions */ },
-  "components": {
+  "openapi": "3.0.3",           // 1. OpenAPI version (always first)
+  "info": { /* API metadata */ }, // 2. API information
+  "servers": [ /* Server configurations */ ], // 3. Server definitions
+  "security": [ /* Global security */ ], // 4. Global security schemes
+  "tags": [ /* Tag definitions */ ], // 5. API grouping tags
+  "paths": { /* Endpoint definitions */ }, // 6. API endpoints
+  "components": { // 7. Reusable components (always last)
+    "securitySchemes": { /* Authentication */ },
     "schemas": { /* Data models */ },
     "headers": { /* Custom headers */ },
-    "securitySchemes": { /* Authentication */ }
-  },
-  "security": [ /* Global security */ ]
+    "responses": { /* Response definitions */ }
+  }
 }
 ```
+
+### Section Ordering Rules
+- **openapi**: Must be first (version declaration)
+- **info**: API metadata (title, description, version, contact)
+- **servers**: Server configurations and base URLs
+- **security**: Global authentication requirements
+- **tags**: API operation grouping and organization
+- **paths**: Endpoint definitions and operations
+- **components**: Reusable schemas, responses, and security schemes (always last)
+
+### Section Ordering Validation
+When reviewing API specifications, ensure sections follow this order:
+1. ✅ **openapi** (version) - Always first
+2. ✅ **info** (metadata) - API information
+3. ✅ **servers** (configurations) - Server definitions
+4. ✅ **security** (authentication) - Global security
+5. ✅ **tags** (grouping) - API organization
+6. ✅ **paths** (endpoints) - API operations
+7. ✅ **components** (schemas) - Reusable definitions (always last)
+
+### Common Ordering Issues to Fix
+- **servers section misplaced** - Should be after info, before security
+- **security section misplaced** - Should be after servers, before tags
+- **tags section misplaced** - Should be after security, before paths
+- **components section misplaced** - Should always be last
+- **Missing sections** - Ensure all required sections are present
+- **Extra sections** - Remove any non-standard sections
+
+### Ordering Benefits
+- **Improved readability** - Standard order helps developers navigate the spec
+- **Better tooling support** - Many OpenAPI tools expect this order
+- **Consistency** - Aligns with OpenAPI 3.0 specification standards
+- **Maintainability** - Easier to locate and update specific sections
 
 ## Quality Checks
 
@@ -242,6 +278,7 @@ Include these common error responses:
 7. **Review response descriptions** - ensure Title Case consistency (no periods)
 8. **Check for content formatting issues** - ensure complete sentences with periods for non-response descriptions
 9. **Verify grammar and spelling** - check for abbreviations and common errors
+10. **Validate section ordering** - ensure sections follow OpenAPI 3.0 convention (openapi → info → servers → security → tags → paths → components)
 
 ### Common Issues to Avoid
 - **Empty tag arrays** - assign appropriate tags or remove empty arrays
