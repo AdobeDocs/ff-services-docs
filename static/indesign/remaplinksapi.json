@@ -24,14 +24,14 @@
   "paths": {
     "/v3/remap-links": {
       "post": {
-        "summary": "Remaps file-based links to AEM URLs in InDesign documents",
-        "description": "Replaces existing file-based links in InDesign documents with AEM URLs. This is particularly useful for customers working with AEM using AEM Asset Link, as it allows designers to work with the output files post-generation by having direct links to AEM URLs.",
+        "summary": "Remap links",
+        "description": "This service replaces existing file-based links in InDesign documents with AEM URLs. This is particularly useful for customers working with AEM using AEM Asset Link, as it allows designers to work with the output files post-generation by having direct links to AEM URLs.",
         "operationId": "remapLinks",
         "parameters": [
           {
             "name": "x-gw-ims-org-id",
             "in": "header",
-            "description": "Identifier for IMS organization as defined in Adobe's developer console. This is optional",
+            "description": "Identifier for the IMS organization as defined in Adobe's developer console. This is optional.",
             "required": false,
             "schema": {
               "type": "string"
@@ -40,7 +40,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "API key as defined in Adobe's developer console",
+            "description": "API key as defined in Adobe's developer console.",
             "required": true,
             "schema": {
               "type": "string"
@@ -49,7 +49,7 @@
           {
             "name": "Authorization",
             "in": "header",
-            "description": "Authorization token with bearer \"token_value\"",
+            "description": "Authorization token with bearer `token_value`.",
             "required": true,
             "schema": {
               "type": "string"
@@ -58,7 +58,7 @@
           {
             "name": "x-aem-token",
             "in": "header",
-            "description": "Bearer token generated for AEM technical account without the bearer keyword",
+            "description": "Bearer token generated for the AEM technical account without the bearer keyword.",
             "required": true,
             "schema": {
               "type": "string"
