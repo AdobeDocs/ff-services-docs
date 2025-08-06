@@ -64,10 +64,11 @@ This rule provides comprehensive guidelines for editing and maintaining API refe
 ## Response Description Standards
 
 ### Formatting Requirements
-- **Use Title Case for all response descriptions** (e.g., "Success", "Internal Server Error")
+- **Use Title Case for all response descriptions** (e.g., "Success", "Internal Server Error") - **CRITICAL FOR READABILITY**
 - **Maintain consistency across all status codes** (2xx, 4xx, 5xx)
 - **Standardize common response descriptions** throughout the API
 - **No trailing periods** - response descriptions should not end with periods
+- **Professional appearance** - Title Case makes response descriptions more readable in Redocly documentation
 
 ### Response Description Examples
 ```json
@@ -343,6 +344,21 @@ When reviewing API specifications, ensure sections follow this order:
 - **Trailing space removal** - Clean formatting improves readability
 - **Complete sentence requirement** - All non-response descriptions should be complete sentences with periods
 - **Distinction between response and non-response descriptions** - Response descriptions use Title Case (no periods), while all other descriptions use complete sentences with periods
+
+### Lessons Learned from InDesign API Review Session
+- **OpenAPI section ordering** - Follow conventional order (openapi → info → servers → security → tags → paths → components) for better tooling support and readability
+- **Response description Title Case** - All response descriptions should use Title Case for better readability and professional appearance
+- **Header description formatting** - Response header descriptions need complete sentences with periods and proper grammar
+- **Grammar consistency** - Fix "indicate" vs "indicates" and other verb agreement issues
+- **Acronym standardization** - Use proper acronyms (e.g., "GUID" not "Guid", "URL" not "Url")
+- **Sentence completion** - Complete incomplete sentences (e.g., "Header indicates how long..." → "Header indicates how long the results of a preflight request can be cached.")
+- **Punctuation in examples** - Add proper punctuation to examples (e.g., "e.g." needs commas)
+- **Consistent terminology** - Use "Adobe Asset Link" consistently, not "AEM Asset Link"
+- **Property description clarity** - Improve vague descriptions (e.g., "ID" → "GUID ID for the job.")
+- **Systematic review approach** - Review all 8 sections systematically: Info, Path, Parameters, Request Body, Responses, Schemas, Properties, and Headers
+- **Comprehensive coverage** - Ensure all descriptions visible in Redocly documentation are reviewed and improved
+- **User preference integration** - Incorporate user corrections and preferences while maintaining consistency
+- **Batch processing efficiency** - Group similar corrections to reduce tool call overhead and improve efficiency
 
 ## Section-by-Section Review Process
 
