@@ -64,10 +64,11 @@ This rule provides comprehensive guidelines for editing and maintaining API refe
 ## Response Description Standards
 
 ### Formatting Requirements
-- **Use Title Case for all response descriptions** (e.g., "Success", "Internal Server Error")
+- **Use Title Case for all response descriptions** (e.g., "Success", "Internal Server Error") - **CRITICAL FOR READABILITY**
 - **Maintain consistency across all status codes** (2xx, 4xx, 5xx)
 - **Standardize common response descriptions** throughout the API
 - **No trailing periods** - response descriptions should not end with periods
+- **Professional appearance** - Title Case makes response descriptions more readable in Redocly documentation
 
 ### Response Description Examples
 ```json
@@ -213,22 +214,58 @@ Include these common error responses:
 - **Organize schemas alphabetically** or by functional groups
 - **Use consistent indentation** and formatting
 
-### Required Sections
+### OpenAPI Section Ordering Convention
+**Follow the standard OpenAPI 3.0 section order** to ensure consistency and readability:
+
 ```json
 {
-  "openapi": "3.0.3",
-  "info": { /* API metadata */ },
-  "servers": [ /* Server configurations */ },
-  "tags": [ /* Tag definitions */ ],
-  "paths": { /* Endpoint definitions */ },
-  "components": {
+  "openapi": "3.0.3",           // 1. OpenAPI version (always first)
+  "info": { /* API metadata */ }, // 2. API information
+  "servers": [ /* Server configurations */ ], // 3. Server definitions
+  "security": [ /* Global security */ ], // 4. Global security schemes
+  "tags": [ /* Tag definitions */ ], // 5. API grouping tags
+  "paths": { /* Endpoint definitions */ }, // 6. API endpoints
+  "components": { // 7. Reusable components (always last)
+    "securitySchemes": { /* Authentication */ },
     "schemas": { /* Data models */ },
     "headers": { /* Custom headers */ },
-    "securitySchemes": { /* Authentication */ }
-  },
-  "security": [ /* Global security */ ]
+    "responses": { /* Response definitions */ }
+  }
 }
 ```
+
+### Section Ordering Rules
+- **openapi**: Must be first (version declaration)
+- **info**: API metadata (title, description, version, contact)
+- **servers**: Server configurations and base URLs
+- **security**: Global authentication requirements
+- **tags**: API operation grouping and organization
+- **paths**: Endpoint definitions and operations
+- **components**: Reusable schemas, responses, and security schemes (always last)
+
+### Section Ordering Validation
+When reviewing API specifications, ensure sections follow this order:
+1. ✅ **openapi** (version) - Always first
+2. ✅ **info** (metadata) - API information
+3. ✅ **servers** (configurations) - Server definitions
+4. ✅ **security** (authentication) - Global security
+5. ✅ **tags** (grouping) - API organization
+6. ✅ **paths** (endpoints) - API operations
+7. ✅ **components** (schemas) - Reusable definitions (always last)
+
+### Common Ordering Issues to Fix
+- **servers section misplaced** - Should be after info, before security
+- **security section misplaced** - Should be after servers, before tags
+- **tags section misplaced** - Should be after security, before paths
+- **components section misplaced** - Should always be last
+- **Missing sections** - Ensure all required sections are present
+- **Extra sections** - Remove any non-standard sections
+
+### Ordering Benefits
+- **Improved readability** - Standard order helps developers navigate the spec
+- **Better tooling support** - Many OpenAPI tools expect this order
+- **Consistency** - Aligns with OpenAPI 3.0 specification standards
+- **Maintainability** - Easier to locate and update specific sections
 
 ## Quality Checks
 
@@ -242,6 +279,7 @@ Include these common error responses:
 7. **Review response descriptions** - ensure Title Case consistency (no periods)
 8. **Check for content formatting issues** - ensure complete sentences with periods for non-response descriptions
 9. **Verify grammar and spelling** - check for abbreviations and common errors
+10. **Validate section ordering** - ensure sections follow OpenAPI 3.0 convention (openapi → info → servers → security → tags → paths → components)
 
 ### Common Issues to Avoid
 - **Empty tag arrays** - assign appropriate tags or remove empty arrays
@@ -306,6 +344,21 @@ Include these common error responses:
 - **Trailing space removal** - Clean formatting improves readability
 - **Complete sentence requirement** - All non-response descriptions should be complete sentences with periods
 - **Distinction between response and non-response descriptions** - Response descriptions use Title Case (no periods), while all other descriptions use complete sentences with periods
+
+### Lessons Learned from InDesign API Review Session
+- **OpenAPI section ordering** - Follow conventional order (openapi → info → servers → security → tags → paths → components) for better tooling support and readability
+- **Response description Title Case** - All response descriptions should use Title Case for better readability and professional appearance
+- **Header description formatting** - Response header descriptions need complete sentences with periods and proper grammar
+- **Grammar consistency** - Fix "indicate" vs "indicates" and other verb agreement issues
+- **Acronym standardization** - Use proper acronyms (e.g., "GUID" not "Guid", "URL" not "Url")
+- **Sentence completion** - Complete incomplete sentences (e.g., "Header indicates how long..." → "Header indicates how long the results of a preflight request can be cached.")
+- **Punctuation in examples** - Add proper punctuation to examples (e.g., "e.g." needs commas)
+- **Consistent terminology** - Use "Adobe Asset Link" consistently, not "AEM Asset Link"
+- **Property description clarity** - Improve vague descriptions (e.g., "ID" → "GUID ID for the job.")
+- **Systematic review approach** - Review all 8 sections systematically: Info, Path, Parameters, Request Body, Responses, Schemas, Properties, and Headers
+- **Comprehensive coverage** - Ensure all descriptions visible in Redocly documentation are reviewed and improved
+- **User preference integration** - Incorporate user corrections and preferences while maintaining consistency
+- **Batch processing efficiency** - Group similar corrections to reduce tool call overhead and improve efficiency
 
 ## Section-by-Section Review Process
 
