@@ -125,7 +125,7 @@
                 },
                 "statusUrl": {
                   "type": "string",
-                  "description": "Status URL"
+                  "description": "Status URL for the job."
                 }
               }
             }
@@ -189,7 +189,7 @@
         }
       },
       "BadParams": {
-        "description": "Bad Parameter",
+        "description": "Bad parameter",
         "content": {
           "application/json": {
             "schema": {
@@ -537,7 +537,7 @@
       },
       "InputAsset": {
         "type": "object",
-        "description": "The Url, from where the asset is to be fetched.",
+        "description": "The URL where the asset will be found.",
         "required": [
           "source"
         ],
@@ -550,11 +550,11 @@
             "properties": {
               "url": {
                 "type": "string",
-                "description": "URL of the asset."
+                "description": "The URL of the asset."
               },
               "storageType": {
                 "type": "string",
-                "description": "This is optional parameter. It is recommended to provide this information.",
+                "description": "The storage type where the asset is located. This is an optional parameter, but it's recommended to provide this information.",
                 "enum": [
                   "Azure",
                   "Dropbox",
@@ -570,7 +570,7 @@
         }
       },
       "OutputAsset": {
-        "description": "The url, where the output assets are to be posted after the job processing.",
+        "description": "The URL where the output assets are posted after the job processing.",
         "type": "object",
         "required": [
           "destination",
@@ -585,11 +585,11 @@
             "properties": {
               "url": {
                 "type": "string",
-                "description": "URL of the asset."
+                "description": "The URL of the asset."
               },
               "storageType": {
                 "type": "string",
-                "description": "This is optional parameter. It is recommended to provide this information.",
+                "description": "The storage type where the asset is located. This is an optional parameter, but it's recommended to provide this information.",
                 "enum": [
                   "Azure",
                   "Dropbox",
@@ -600,7 +600,7 @@
           },
           "source": {
             "type": "string",
-            "description": "This provides a path relative of the output where resource would be generated. It cannot go up using '..' or '/'. Should be a valid file name."
+            "description": "A relative path to the output where the resource would be generated. The path cannot navigate up the directory tree using '..' or '/'. This should be a valid file name."
           }
         }
       },
@@ -609,7 +609,7 @@
         "description": "Base event response for any job.",
         "properties": {
           "jobId": {
-            "description": "Guid ID for the Job.",
+            "description": "GUID ID for the job.",
             "type": "string"
           }
         }
@@ -652,7 +652,7 @@
               },
               "message": {
                 "type": "string",
-                "description": "Description of current running state."
+                "description": "Description of the current running state."
               }
             }
           }
@@ -664,7 +664,7 @@
             "$ref": "#/components/schemas/BaseEvent"
           },
           {
-            "description": "Job is succeeded.",
+            "description": "Job has succeeded.",
             "type": "object",
             "properties": {
               "status": {
@@ -676,15 +676,15 @@
               },
               "data": {
                 "type": "object",
-                "description": "Output response from current state of the job."
+                "description": "Output response from the current state of the job."
               },
               "dataURL": {
                 "type": "string",
-                "description": "The data returned from execution of the job. If the data is more than 250 kB and less the 20 MB, it will be provided as a presigned URL. If it is more than 20 MB, the job will fail."
+                "description": "The data returned from execution of the job. If the data is more than 250 kB and less the 20 MB, it will be provided as a pre-signed URL. If it is more than 20 MB, the job will fail."
               },
               "outputs": {
                 "type": "object",
-                "description": "This contains list of URL for all the generated assets"
+                "description": "This contains a list of URLs for all the generated assets."
               }
             }
           }
@@ -712,11 +712,11 @@
               },
               "message": {
                 "type": "string",
-                "description": "Error message for failure"
+                "description": "Error message for failure."
               },
               "data": {
                 "type": "object",
-                "description": "Detailed error information"
+                "description": "Detailed error information."
               }
             }
           }
