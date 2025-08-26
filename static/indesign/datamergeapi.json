@@ -521,6 +521,68 @@
                       }
                     }
                   },
+                  "hyphenationSettings": {
+                    "description": "Hyphenation settings to control word breaking and hyphenation behavior during merge.",
+                    "type": "object",
+                    "properties": {
+                      "afterFirst": {
+                        "type": "integer",
+                        "description": "Minimum number of characters at the start of a word before a hyphen may be inserted."
+                      },
+                      "beforeLast": {
+                        "type": "integer",
+                        "description": "Minimum number of characters at the end of a word after a hyphen."
+                      },
+                      "wordsLongerThan": {
+                        "type": "integer",
+                        "description": "Minimum word length for hyphenation to apply."
+                      },
+                      "ladderLimit": {
+                        "type": "integer",
+                        "description": "Maximum allowed consecutive hyphenated lines."
+                      },
+                      "zone": {
+                        "type": "number",
+                        "description": "Whitespace ratio allowed at the end of a line before hyphenation begins (0–1)."
+                      },
+                      "capitalizedWords": {
+                        "type": "boolean",
+                        "description": "If true, allows hyphenation of capitalized words."
+                      },
+                      "lastWord": {
+                        "type": "boolean",
+                        "description": "If true, allows hyphenation of the last word in a paragraph."
+                      },
+                      "acrossColumns": {
+                        "type": "boolean",
+                        "description": "If true, allows hyphenation across columns."
+                      },
+                      "dictionarySettings": {
+                        "type": "array",
+                        "description": "Special hyphenation definitions by language.",
+                        "items": {
+                          "type": "object",
+                          "required": [
+                            "language",
+                            "wordList"
+                          ],
+                          "properties": {
+                            "language": {
+                              "type": "string",
+                              "description": "User dictionary language to which the wordList is added (e.g., 'English: USA')."
+                            },
+                            "wordList": {
+                              "type": "array",
+                              "description": "List of special hyphenation definitions (use ~ to mark break points, e.g., 'ex~ample'. Put '~' at the beginning of the word to exclude it from hyphenation ex: '~example').",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
                   "pagesPerDocument": {
                     "description": "The maximum number of pages per document.",
                     "type": "integer",
