@@ -1,17 +1,16 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "description": "Documentation for InDesign APIs - Firefly Services. This document provides a detailed specification of the various exposed APIs, that can be leveraged by developers.",
-    "version": "",
-    "title": "InDesign APIs - Firefly Services",
+    "description": "The Remap Links API allows you to replace file-based links in InDesign documents with AEM URLs. This is particularly useful for customers working with Adobe Experience Manager (AEM) using Adobe Asset Link, enabling designers to work with output files that have direct links to AEM URLs.",
+    "version": "3.0.0",
+    "title": "InDesign Remap Links API",
     "contact": {
       "email": "idservices@adobe.com"
     }
   },
-  "tags": [
+  "servers": [
     {
-      "name": "Remap Links API",
-      "description": ""
+      "url": "https://indesign.adobe.io"
     }
   ],
   "security": [
@@ -25,17 +24,14 @@
   "paths": {
     "/v3/remap-links": {
       "post": {
-        "tags": [
-          "remapLinks"
-        ],
-        "summary": "Remaps file-based links to AEM URLs in InDesign documents",
-        "description": "Replaces existing file-based links in InDesign documents with AEM URLs. This is particularly useful for customers working with AEM using AAL, as it allows designers to work with the output files post-generation by having direct links to AEM URLs.",
+        "summary": "Remap links",
+        "description": "This service replaces existing file-based links in InDesign documents with AEM URLs. This is particularly useful for customers working with AEM using AEM Asset Link, as it allows designers to work with the output files post-generation by having direct links to AEM URLs.",
         "operationId": "remapLinks",
         "parameters": [
           {
             "name": "x-gw-ims-org-id",
             "in": "header",
-            "description": "Identifier for IMS organization as defined in Adobe's developer console. This is optional",
+            "description": "Identifier for the IMS organization as defined in Adobe's developer console. This is optional.",
             "required": false,
             "schema": {
               "type": "string"
@@ -44,7 +40,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "API key as defined in Adobe's developer console",
+            "description": "API key as defined in Adobe's developer console.",
             "required": true,
             "schema": {
               "type": "string"
@@ -53,7 +49,7 @@
           {
             "name": "Authorization",
             "in": "header",
-            "description": "Authorization token with bearer \"token_value\"",
+            "description": "Authorization token with bearer `token_value`.",
             "required": true,
             "schema": {
               "type": "string"
@@ -62,7 +58,7 @@
           {
             "name": "x-aem-token",
             "in": "header",
-            "description": "Bearer token generated for AEM technical account without the bearer keyword",
+            "description": "Bearer token generated for the AEM technical account without the bearer keyword.",
             "required": true,
             "schema": {
               "type": "string"
@@ -103,11 +99,6 @@
       }
     }
   },
-  "servers": [
-    {
-      "url": "https://indesign.adobe.io/"
-    }
-  ],
   "components": {
     "securitySchemes": {
       "ApiKeyAuth": {
@@ -123,7 +114,7 @@
     },
     "responses": {
       "Accepted": {
-        "description": "The job has been accepted for processing.",
+        "description": "Accepted",
         "content": {
           "application/json": {
             "schema": {
@@ -134,7 +125,7 @@
                 },
                 "statusUrl": {
                   "type": "string",
-                  "description": "Status URL"
+                  "description": "Status URL for the job."
                 }
               }
             }
@@ -145,55 +136,55 @@
             "schema": {
               "type": "string"
             },
-            "description": "status url for retry"
+            "description": "Status URL for retry."
           },
           "retry-after": {
             "schema": {
               "type": "integer"
             },
-            "description": "Number of seconds until the user should try again"
+            "description": "Number of seconds until the user should try again."
           },
           "Content-Type": {
             "schema": {
               "type": "string"
             },
-            "description": "Type of content returned e.g. application/json"
+            "description": "Type of content returned, e.g., application/json."
           },
           "Content-Length": {
             "schema": {
               "type": "integer"
             },
-            "description": "Length of response content"
+            "description": "Length of response content."
           },
           "Access-Control-Allow-Origin": {
             "schema": {
               "type": "string"
             },
-            "description": "Cross Origin Resource Sharing header"
+            "description": "Cross Origin Resource Sharing header."
           },
           "Access-Control-Allow-Methods": {
             "schema": {
               "type": "string"
             },
-            "description": "Header indicates what HTTP methods are allowed"
+            "description": "Header indicates what HTTP methods are allowed."
           },
           "Access-Control-Allow-Headers": {
             "schema": {
               "type": "string"
             },
-            "description": "Header indicate which HTTP headers can be used during the actual request"
+            "description": "Header indicates which HTTP headers can be used during the actual request."
           },
           "Access-Control-Allow-Credentials": {
             "schema": {
               "type": "string"
             },
-            "description": "Header is used by servers to indicate that the client shall share HTTP responses"
+            "description": "Header is used by servers to indicate that the client shall share HTTP responses."
           },
           "Access-Control-Max-Age": {
             "schema": {
               "type": "integer"
             },
-            "description": "Header indicates how long the results of a preflight request"
+            "description": "Header indicates how long the results of a preflight request can be cached."
           }
         }
       },
@@ -211,43 +202,43 @@
             "schema": {
               "type": "string"
             },
-            "description": "Type of content returned e.g. application/json"
+            "description": "Type of content returned, e.g., application/json."
           },
           "Content-Length": {
             "schema": {
               "type": "integer"
             },
-            "description": "Length of response content"
+            "description": "Length of response content."
           },
           "Access-Control-Allow-Origin": {
             "schema": {
               "type": "string"
             },
-            "description": "Cross Origin Resource Sharing header"
+            "description": "Cross Origin Resource Sharing header."
           },
           "Access-Control-Allow-Methods": {
             "schema": {
               "type": "string"
             },
-            "description": "Header indicates what HTTP methods are allowed"
+            "description": "Header indicates what HTTP methods are allowed."
           },
           "Access-Control-Allow-Headers": {
             "schema": {
               "type": "string"
             },
-            "description": "Header indicate which HTTP headers can be used during the actual request"
+            "description": "Header indicates which HTTP headers can be used during the actual request."
           },
           "Access-Control-Allow-Credentials": {
             "schema": {
               "type": "string"
             },
-            "description": "Header is used by servers to indicate that the client shall share HTTP responses"
+            "description": "Header is used by servers to indicate that the client shall share HTTP responses."
           },
           "Access-Control-Max-Age": {
             "schema": {
               "type": "integer"
             },
-            "description": "Header indicates how long the results of a preflight request"
+            "description": "Header indicates how long the results of a preflight request can be cached."
           }
         }
       },
@@ -265,43 +256,43 @@
             "schema": {
               "type": "string"
             },
-            "description": "Type of content returned e.g. application/json"
+            "description": "Type of content returned, e.g., application/json."
           },
           "Content-Length": {
             "schema": {
               "type": "integer"
             },
-            "description": "Length of response content"
+            "description": "Length of response content."
           },
           "Access-Control-Allow-Origin": {
             "schema": {
               "type": "string"
             },
-            "description": "Cross Origin Resource Sharing header"
+            "description": "Cross Origin Resource Sharing header."
           },
           "Access-Control-Allow-Methods": {
             "schema": {
               "type": "string"
             },
-            "description": "Header indicates what HTTP methods are allowed"
+            "description": "Header indicates what HTTP methods are allowed."
           },
           "Access-Control-Allow-Headers": {
             "schema": {
               "type": "string"
             },
-            "description": "Header indicate which HTTP headers can be used during the actual request"
+            "description": "Header indicates which HTTP headers can be used during the actual request."
           },
           "Access-Control-Allow-Credentials": {
             "schema": {
               "type": "string"
             },
-            "description": "Header is used by servers to indicate that the client shall share HTTP responses"
+            "description": "Header is used by servers to indicate that the client shall share HTTP responses."
           },
           "Access-Control-Max-Age": {
             "schema": {
               "type": "integer"
             },
-            "description": "Header indicates how long the results of a preflight request"
+            "description": "Header indicates how long the results of a preflight request can be cached."
           }
         }
       },
@@ -319,48 +310,48 @@
             "schema": {
               "type": "string"
             },
-            "description": "Type of content returned e.g. application/json"
+            "description": "Type of content returned, e.g., application/json."
           },
           "Content-Length": {
             "schema": {
               "type": "integer"
             },
-            "description": "Length of response content"
+            "description": "Length of response content."
           },
           "Access-Control-Allow-Origin": {
             "schema": {
               "type": "string"
             },
-            "description": "Cross Origin Resource Sharing header"
+            "description": "Cross Origin Resource Sharing header."
           },
           "Access-Control-Allow-Methods": {
             "schema": {
               "type": "string"
             },
-            "description": "Header indicates what HTTP methods are allowed"
+            "description": "Header indicates what HTTP methods are allowed."
           },
           "Access-Control-Allow-Headers": {
             "schema": {
               "type": "string"
             },
-            "description": "Header indicate which HTTP headers can be used during the actual request"
+            "description": "Header indicates which HTTP headers can be used during the actual request."
           },
           "Access-Control-Allow-Credentials": {
             "schema": {
               "type": "string"
             },
-            "description": "Header is used by servers to indicate that the client shall share HTTP responses"
+            "description": "Header is used by servers to indicate that the client shall share HTTP responses."
           },
           "Access-Control-Max-Age": {
             "schema": {
               "type": "integer"
             },
-            "description": "Header indicates how long the results of a preflight request"
+            "description": "Header indicates how long the results of a preflight request can be cached."
           }
         }
       },
       "NotFound": {
-        "description": "Not found",
+        "description": "Not Found",
         "content": {
           "application/json": {
             "schema": {
@@ -373,48 +364,48 @@
             "schema": {
               "type": "string"
             },
-            "description": "Type of content returned e.g. application/json"
+            "description": "Type of content returned, e.g., application/json."
           },
           "Content-Length": {
             "schema": {
               "type": "integer"
             },
-            "description": "Length of response content"
+            "description": "Length of response content."
           },
           "Access-Control-Allow-Origin": {
             "schema": {
               "type": "string"
             },
-            "description": "Cross Origin Resource Sharing header"
+            "description": "Cross Origin Resource Sharing header."
           },
           "Access-Control-Allow-Methods": {
             "schema": {
               "type": "string"
             },
-            "description": "Header indicates what HTTP methods are allowed"
+            "description": "Header indicates what HTTP methods are allowed."
           },
           "Access-Control-Allow-Headers": {
             "schema": {
               "type": "string"
             },
-            "description": "Header indicate which HTTP headers can be used during the actual request"
+            "description": "Header indicates which HTTP headers can be used during the actual request."
           },
           "Access-Control-Allow-Credentials": {
             "schema": {
               "type": "string"
             },
-            "description": "Header is used by servers to indicate that the client shall share HTTP responses"
+            "description": "Header is used by servers to indicate that the client shall share HTTP responses."
           },
           "Access-Control-Max-Age": {
             "schema": {
               "type": "integer"
             },
-            "description": "Header indicates how long the results of a preflight request"
+            "description": "Header indicates how long the results of a preflight request can be cached."
           }
         }
       },
       "InternalServerError": {
-        "description": "Internal server error",
+        "description": "Internal Server Error",
         "content": {
           "application/json": {
             "schema": {
@@ -427,48 +418,48 @@
             "schema": {
               "type": "string"
             },
-            "description": "Type of content returned e.g. application/json"
+            "description": "Type of content returned, e.g., application/json."
           },
           "Content-Length": {
             "schema": {
               "type": "integer"
             },
-            "description": "Length of response content"
+            "description": "Length of response content."
           },
           "Access-Control-Allow-Origin": {
             "schema": {
               "type": "string"
             },
-            "description": "Cross Origin Resource Sharing header"
+            "description": "Cross Origin Resource Sharing header."
           },
           "Access-Control-Allow-Methods": {
             "schema": {
               "type": "string"
             },
-            "description": "Header indicates what HTTP methods are allowed"
+            "description": "Header indicates what HTTP methods are allowed."
           },
           "Access-Control-Allow-Headers": {
             "schema": {
               "type": "string"
             },
-            "description": "Header indicate which HTTP headers can be used during the actual request"
+            "description": "Header indicates which HTTP headers can be used during the actual request."
           },
           "Access-Control-Allow-Credentials": {
             "schema": {
               "type": "string"
             },
-            "description": "Header is used by servers to indicate that the client shall share HTTP responses"
+            "description": "Header is used by servers to indicate that the client shall share HTTP responses."
           },
           "Access-Control-Max-Age": {
             "schema": {
               "type": "integer"
             },
-            "description": "Header indicates how long the results of a preflight request"
+            "description": "Header indicates how long the results of a preflight request can be cached."
           }
         }
       },
       "TooManyRequests": {
-        "description": "Too many requests - rate limiting applied",
+        "description": "Too Many Requests - Rate Limiting Applied",
         "content": {
           "application/json": {
             "schema": {
@@ -481,13 +472,13 @@
             "schema": {
               "type": "string"
             },
-            "description": "Type of content returned e.g. application/json"
+            "description": "Type of content returned, e.g., application/json."
           },
           "Content-Length": {
             "schema": {
               "type": "integer"
             },
-            "description": "Length of response content"
+            "description": "Length of response content."
           },
           "Retry-After": {
             "schema": {
@@ -499,31 +490,31 @@
             "schema": {
               "type": "string"
             },
-            "description": "Cross Origin Resource Sharing header"
+            "description": "Cross Origin Resource Sharing header."
           },
           "Access-Control-Allow-Methods": {
             "schema": {
               "type": "string"
             },
-            "description": "Header indicates what HTTP methods are allowed"
+            "description": "Header indicates what HTTP methods are allowed."
           },
           "Access-Control-Allow-Headers": {
             "schema": {
               "type": "string"
             },
-            "description": "Header indicates which HTTP headers can be used during the actual request"
+            "description": "Header indicates which HTTP headers can be used during the actual request."
           },
           "Access-Control-Allow-Credentials": {
             "schema": {
               "type": "string"
             },
-            "description": "Header used by servers to indicate that the client shall share HTTP responses"
+            "description": "Header used by servers to indicate that the client shall share HTTP responses."
           },
           "Access-Control-Max-Age": {
             "schema": {
               "type": "integer"
             },
-            "description": "Header indicating how long the results of a preflight request can be cached"
+            "description": "Header indicating how long the results of a preflight request can be cached."
           }
         }
       }
@@ -546,7 +537,7 @@
       },
       "InputAsset": {
         "type": "object",
-        "description": "The Url, from where the asset is to be fetched.",
+        "description": "The URL where the asset will be found.",
         "required": [
           "source"
         ],
@@ -559,11 +550,11 @@
             "properties": {
               "url": {
                 "type": "string",
-                "description": "URL of the asset."
+                "description": "The URL of the asset."
               },
               "storageType": {
                 "type": "string",
-                "description": "This is optional parameter. It is recommended to provide this information.",
+                "description": "The storage type where the asset is located. This is an optional parameter, but it's recommended to provide this information.",
                 "enum": [
                   "Azure",
                   "Dropbox",
@@ -579,7 +570,7 @@
         }
       },
       "OutputAsset": {
-        "description": "The url, where the output assets are to be posted after the job processing.",
+        "description": "The URL where the output assets are posted after the job processing.",
         "type": "object",
         "required": [
           "destination",
@@ -594,11 +585,11 @@
             "properties": {
               "url": {
                 "type": "string",
-                "description": "URL of the asset."
+                "description": "The URL of the asset."
               },
               "storageType": {
                 "type": "string",
-                "description": "This is optional parameter. It is recommended to provide this information.",
+                "description": "The storage type where the asset is located. This is an optional parameter, but it's recommended to provide this information.",
                 "enum": [
                   "Azure",
                   "Dropbox",
@@ -609,7 +600,7 @@
           },
           "source": {
             "type": "string",
-            "description": "This provides a path relative of the output where resource would be generated. It cannot go up using '..' or '/'. Should be a valid file name."
+            "description": "A relative path to the output where the resource would be generated. The path cannot navigate up the directory tree using '..' or '/'. This should be a valid file name."
           }
         }
       },
@@ -618,7 +609,7 @@
         "description": "Base event response for any job.",
         "properties": {
           "jobId": {
-            "description": "Guid ID for the Job.",
+            "description": "GUID ID for the job.",
             "type": "string"
           }
         }
@@ -661,7 +652,7 @@
               },
               "message": {
                 "type": "string",
-                "description": "Description of current running state."
+                "description": "Description of the current running state."
               }
             }
           }
@@ -673,7 +664,7 @@
             "$ref": "#/components/schemas/BaseEvent"
           },
           {
-            "description": "Job is succeeded.",
+            "description": "Job has succeeded.",
             "type": "object",
             "properties": {
               "status": {
@@ -685,15 +676,15 @@
               },
               "data": {
                 "type": "object",
-                "description": "Output response from current state of the job."
+                "description": "Output response from the current state of the job."
               },
               "dataURL": {
                 "type": "string",
-                "description": "The data returned from execution of the job. If the data is more than 250 kB and less the 20 MB, it will be provided as a presigned URL. If it is more than 20 MB, the job will fail."
+                "description": "The data returned from execution of the job. If the data is more than 250 kB and less the 20 MB, it will be provided as a pre-signed URL. If it is more than 20 MB, the job will fail."
               },
               "outputs": {
                 "type": "object",
-                "description": "This contains list of URL for all the generated assets"
+                "description": "This contains a list of URLs for all the generated assets."
               }
             }
           }
@@ -721,11 +712,11 @@
               },
               "message": {
                 "type": "string",
-                "description": "Error message for failure"
+                "description": "Error message for failure."
               },
               "data": {
                 "type": "object",
-                "description": "Detailed error information"
+                "description": "Detailed error information."
               }
             }
           }

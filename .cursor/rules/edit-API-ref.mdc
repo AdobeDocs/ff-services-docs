@@ -1,0 +1,420 @@
+# API Reference Editing Guidelines
+
+This rule provides comprehensive guidelines for editing and maintaining API reference JSON files, particularly OpenAPI/Swagger specifications.
+
+## Tag Management
+
+### Tag Structure
+- **Use descriptive tag names** that clearly indicate the functionality
+- **Include tag descriptions** that explain what operations are grouped under each tag
+- **Follow consistent naming conventions** (e.g., "Remove background", "Masking")
+- **Avoid generic tags** like "API" or "Photoshop" - use specific functional tags instead
+
+### Tag Organization and Ordering
+- **Order tags logically** - place most commonly used or core functionality first
+- **Use "Common operations" or similar** for general/core endpoints that don't fit specialized categories
+- **Group related functionality** under descriptive tag names
+- **Ensure all endpoints have appropriate tags** - avoid empty tag arrays
+
+### Tag Examples
+```json
+"tags": [
+  {
+    "name": "Common operations",
+    "description": "General Photoshop API operations and utilities"
+  },
+  {
+    "name": "Masking",
+    "description": "Operations for creating and manipulating masks"
+  },
+  {
+    "name": "Remove background", 
+    "description": "AI-powered background removal and subject isolation operations"
+  }
+]
+```
+
+## Endpoint Summary Guidelines
+
+### Format Requirements
+- **Use sentence case**: First letter capitalized, rest lowercase
+- **No trailing periods**
+- **Remove "API" suffix** from summaries
+- **Correct spelling and grammar**
+- **Clear and descriptive** - should explain what the endpoint does
+- **Consistent version formatting** - use lowercase for version numbers (e.g., "v1", "v2")
+
+### Summary Examples
+```json
+// Good examples
+"summary": "Remove background v1"
+"summary": "Create mask"
+"summary": "Extract document manifest"
+"summary": "Apply photoshop edits"
+"summary": "Product crop"
+"summary": "Get status - v2"
+
+// Bad examples
+"summary": "Remove Background V1"  // Title case
+"summary": "Create Mask API."      // Has "API" and period
+"summary": "Prodct Crop"           // Spelling error
+"summary": "Get status - V2"       // Inconsistent version capitalization
+```
+
+## Response Description Standards
+
+### Formatting Requirements
+- **Use Title Case for all response descriptions** (e.g., "Success", "Internal Server Error") - **CRITICAL FOR READABILITY**
+- **Maintain consistency across all status codes** (2xx, 4xx, 5xx)
+- **Standardize common response descriptions** throughout the API
+- **No trailing periods** - response descriptions should not end with periods
+- **Professional appearance** - Title Case makes response descriptions more readable in Redocly documentation
+
+### Response Description Examples
+```json
+// Good examples - Title Case, no periods
+"description": "Success"
+"description": "Accepted"
+"description": "Unauthorized"
+"description": "Forbidden"
+"description": "Bad Request"
+"description": "Requested Resource Was Not Found"
+"description": "Too Many Requests"
+"description": "Internal Server Error"
+"description": "Input Validation Error"
+"description": "Trial Limit Exceeded Error"
+"description": "Asset Link Invalid"
+"description": "Unable To Upload Asset"
+
+// Bad examples - Inconsistent casing or periods
+"description": "success"           // Lowercase
+"description": "Internal server error"  // Mixed case
+"description": "Too many requests"      // Sentence case
+"description": "InputValidationError"   // No spaces
+"description": "Success."               // Has period
+```
+
+### Common Response Codes to Standardize
+- **200/202**: "Success", "Accepted"
+- **400**: "Bad Request", "Input Validation Error"
+- **401**: "Unauthorized"
+- **403**: "Forbidden"
+- **404**: "Requested Resource Was Not Found"
+- **429**: "Too Many Requests"
+- **500**: "Internal Server Error"
+
+## Content Quality and Consistency
+
+### Description Content Standards
+- **Complete sentences require periods** - all endpoint descriptions, parameter descriptions, and request body descriptions should be complete sentences with periods
+- **Remove trailing spaces** from all descriptions
+- **Fix spelling errors** (e.g., "returrn" → "return")
+- **Use consistent terminology** across similar endpoints
+- **Maintain professional tone** in all descriptions
+- **Fix grammar issues** (e.g., "eg" → "e.g.", "etc" → "etc.")
+
+### Parameter Description Standards
+- **Complete sentences with periods** - parameter descriptions should be complete sentences ending with periods
+- **Remove leading spaces** from parameter descriptions
+- **Use consistent formatting** for similar parameters
+- **Provide clear, actionable descriptions**
+
+### Request Body Description Standards
+- **Complete sentences with periods** - request body descriptions should be complete sentences ending with periods
+- **Clear and descriptive** - explain what the request body contains
+- **Consistent formatting** across similar endpoints
+
+### Content Review Checklist
+- [ ] All response descriptions use Title Case (no periods)
+- [ ] All non-response descriptions are complete sentences with periods
+- [ ] No trailing spaces in descriptions
+- [ ] No leading spaces in parameter descriptions
+- [ ] Spelling errors corrected
+- [ ] Grammar issues fixed (e.g., "eg" → "e.g.", "etc" → "etc.")
+- [ ] Consistent terminology used
+- [ ] All endpoints have appropriate tags
+- [ ] Summary formatting follows sentence case guidelines
+
+## Schema Management
+
+### Schema Naming
+- **Use descriptive, consistent naming** (e.g., `PhotoroomRemoveBackgroundRequest`)
+- **Follow camelCase** for property names
+- **Use clear, specific names** that indicate the purpose
+
+### Schema Organization
+- **Group related schemas** together in the components section
+- **Avoid duplicate schema definitions**
+- **Use proper references** with `$ref` syntax
+- **Include comprehensive descriptions** for complex schemas
+
+## Endpoint Structure
+
+### Required Elements
+- **Proper tags** assignment
+- **Clear summary** following guidelines
+- **Descriptive operationId** (camelCase)
+- **Comprehensive description** explaining functionality
+- **Complete request/response schemas**
+- **Proper error handling** with appropriate HTTP status codes
+
+### Authentication
+- **Include required authentication parameters** (Authorization, x-api-key)
+- **Document authentication requirements** clearly
+- **Use consistent parameter naming**
+
+## Error Handling
+
+### Standard Error Responses
+Include these common error responses:
+- **400** - Bad Request (Input Validation Error)
+- **401** - Unauthorized
+- **403** - Forbidden
+- **404** - Requested Resource Was Not Found
+- **429** - Too Many Requests
+- **500** - Internal Server Error
+
+### Error Schema Structure
+```json
+"JobError": {
+  "type": "object",
+  "properties": {
+    "error_code": {
+      "type": "string",
+      "description": "The error code"
+    },
+    "message": {
+      "type": "string", 
+      "description": "The error message"
+    }
+  }
+}
+```
+
+## Version Management
+
+### Endpoint Versioning
+- **Use clear version indicators** in summaries (e.g., "v1", "v2 (beta)")
+- **Maintain backward compatibility** when possible
+- **Document version differences** in descriptions
+- **Use consistent version formatting** (lowercase "v1", "v2")
+
+### Version Examples
+```json
+"summary": "Remove background v1"
+"summary": "Remove background v2 (beta)"
+"summary": "Get status - v2"
+```
+
+## File Organization
+
+### Structure Guidelines
+- **Maintain logical endpoint grouping** by functionality
+- **Keep related endpoints together** (e.g., main endpoint + status endpoint)
+- **Organize schemas alphabetically** or by functional groups
+- **Use consistent indentation** and formatting
+
+### OpenAPI Section Ordering Convention
+**Follow the standard OpenAPI 3.0 section order** to ensure consistency and readability:
+
+```json
+{
+  "openapi": "3.0.3",           // 1. OpenAPI version (always first)
+  "info": { /* API metadata */ }, // 2. API information
+  "servers": [ /* Server configurations */ ], // 3. Server definitions
+  "security": [ /* Global security */ ], // 4. Global security schemes
+  "tags": [ /* Tag definitions */ ], // 5. API grouping tags
+  "paths": { /* Endpoint definitions */ }, // 6. API endpoints
+  "components": { // 7. Reusable components (always last)
+    "securitySchemes": { /* Authentication */ },
+    "schemas": { /* Data models */ },
+    "headers": { /* Custom headers */ },
+    "responses": { /* Response definitions */ }
+  }
+}
+```
+
+### Section Ordering Rules
+- **openapi**: Must be first (version declaration)
+- **info**: API metadata (title, description, version, contact)
+- **servers**: Server configurations and base URLs
+- **security**: Global authentication requirements
+- **tags**: API operation grouping and organization
+- **paths**: Endpoint definitions and operations
+- **components**: Reusable schemas, responses, and security schemes (always last)
+
+### Section Ordering Validation
+When reviewing API specifications, ensure sections follow this order:
+1. ✅ **openapi** (version) - Always first
+2. ✅ **info** (metadata) - API information
+3. ✅ **servers** (configurations) - Server definitions
+4. ✅ **security** (authentication) - Global security
+5. ✅ **tags** (grouping) - API organization
+6. ✅ **paths** (endpoints) - API operations
+7. ✅ **components** (schemas) - Reusable definitions (always last)
+
+### Common Ordering Issues to Fix
+- **servers section misplaced** - Should be after info, before security
+- **security section misplaced** - Should be after servers, before tags
+- **tags section misplaced** - Should be after security, before paths
+- **components section misplaced** - Should always be last
+- **Missing sections** - Ensure all required sections are present
+- **Extra sections** - Remove any non-standard sections
+
+### Ordering Benefits
+- **Improved readability** - Standard order helps developers navigate the spec
+- **Better tooling support** - Many OpenAPI tools expect this order
+- **Consistency** - Aligns with OpenAPI 3.0 specification standards
+- **Maintainability** - Easier to locate and update specific sections
+
+## Quality Checks
+
+### Before Committing Changes
+1. **Validate JSON syntax** - ensure valid JSON structure
+2. **Check for duplicate schemas** - avoid naming conflicts
+3. **Verify all $ref references** - ensure they point to existing schemas
+4. **Review tag consistency** - ensure proper tagging across endpoints
+5. **Test summary formatting** - follow sentence case, no periods, no "API"
+6. **Validate OpenAPI specification** - use tools like Swagger Editor
+7. **Review response descriptions** - ensure Title Case consistency (no periods)
+8. **Check for content formatting issues** - ensure complete sentences with periods for non-response descriptions
+9. **Verify grammar and spelling** - check for abbreviations and common errors
+10. **Validate section ordering** - ensure sections follow OpenAPI 3.0 convention (openapi → info → servers → security → tags → paths → components)
+
+### Common Issues to Avoid
+- **Empty tag arrays** - assign appropriate tags or remove empty arrays
+- **Inconsistent naming** - use consistent patterns across similar endpoints
+- **Missing descriptions** - provide clear descriptions for all elements
+- **Incomplete error handling** - include appropriate error responses
+- **Spelling errors** - proofread all text content
+- **Inconsistent response description casing** - use Title Case for all responses (no periods)
+- **Incomplete sentences** - ensure all non-response descriptions are complete sentences with periods
+- **Mixed version formatting** - use consistent lowercase version numbers
+- **Grammar issues** - fix abbreviations like "eg" → "e.g." and "etc" → "etc."
+
+## Documentation Standards
+
+### Description Guidelines
+- **Use clear, concise language**
+- **Explain the purpose and functionality**
+- **Include usage examples** where helpful
+- **Document limitations or requirements**
+- **Reference related endpoints** when applicable
+- **Ensure complete sentences with periods** for all non-response descriptions
+- **Use consistent terminology**
+
+### Example Description
+```json
+"description": "This endpoint allows you to remove the background from an image. The request is processed asynchronously and the status of the running job can be checked with the Get Status endpoint."
+```
+
+## Best Practices
+
+### General Guidelines
+1. **Maintain consistency** across all endpoints
+2. **Follow OpenAPI 3.0 specification** standards
+3. **Use descriptive names** for all elements
+4. **Include comprehensive documentation**
+5. **Test the specification** with validation tools
+6. **Review changes** before committing
+7. **Keep schemas DRY** - avoid duplication
+8. **Use proper data types** and constraints
+9. **Standardize response descriptions** to Title Case (no periods)
+10. **Organize tags logically** with core operations first
+11. **Ensure complete sentences** for all non-response descriptions
+
+### Naming Conventions
+- **Endpoints**: Use descriptive paths (e.g., `/v2/remove-background`)
+- **Schemas**: Use PascalCase with descriptive names
+- **Properties**: Use camelCase
+- **Tags**: Use sentence case, descriptive names
+- **Summaries**: Use sentence case, no periods, no "API"
+- **Response descriptions**: Use Title Case, no periods
+- **Non-response descriptions**: Use complete sentences with periods
+- **Version numbers**: Use lowercase (v1, v2, v3)
+
+### Lessons Learned from Photoshop API Updates
+- **Tag organization matters** - "Common operations" provides clear categorization for core endpoints
+- **Response description consistency** - Title Case standardization improves readability (no periods)
+- **Content formatting** - Complete sentences with periods improve professionalism for non-response descriptions
+- **Version consistency** - Lowercase version numbers (v1, v2) are more readable
+- **Spelling accuracy** - Even minor typos (like "returrn") should be corrected
+- **Parameter description formatting** - Complete sentences with periods improve clarity
+- **Grammar precision** - Abbreviations like "eg" should be "e.g." and "etc" should be "etc."
+- **Trailing space removal** - Clean formatting improves readability
+- **Complete sentence requirement** - All non-response descriptions should be complete sentences with periods
+- **Distinction between response and non-response descriptions** - Response descriptions use Title Case (no periods), while all other descriptions use complete sentences with periods
+
+### Lessons Learned from InDesign API Review Session
+- **OpenAPI section ordering** - Follow conventional order (openapi → info → servers → security → tags → paths → components) for better tooling support and readability
+- **Response description Title Case** - All response descriptions should use Title Case for better readability and professional appearance
+- **Header description formatting** - Response header descriptions need complete sentences with periods and proper grammar
+- **Grammar consistency** - Fix "indicate" vs "indicates" and other verb agreement issues
+- **Acronym standardization** - Use proper acronyms (e.g., "GUID" not "Guid", "URL" not "Url")
+- **Sentence completion** - Complete incomplete sentences (e.g., "Header indicates how long..." → "Header indicates how long the results of a preflight request can be cached.")
+- **Punctuation in examples** - Add proper punctuation to examples (e.g., "e.g." needs commas)
+- **Consistent terminology** - Use "Adobe Asset Link" consistently, not "AEM Asset Link"
+- **Property description clarity** - Improve vague descriptions (e.g., "ID" → "GUID ID for the job.")
+- **Systematic review approach** - Review all 8 sections systematically: Info, Path, Parameters, Request Body, Responses, Schemas, Properties, and Headers
+- **Comprehensive coverage** - Ensure all descriptions visible in Redocly documentation are reviewed and improved
+- **User preference integration** - Incorporate user corrections and preferences while maintaining consistency
+- **Batch processing efficiency** - Group similar corrections to reduce tool call overhead and improve efficiency
+
+## Section-by-Section Review Process
+
+### Systematic Review Strategy
+- **Divide large files into logical sections** - group related schemas and endpoints together
+- **Review one section at a time** - focus on quality rather than speed
+- **Identify all issues before making changes** - create comprehensive lists of corrections needed
+- **Apply corrections systematically** - address each issue type in batches
+- **Verify changes after each section** - ensure no issues are missed
+
+### Section Organization Guidelines
+- **Group by functionality** - related schemas and endpoints should be reviewed together
+- **Logical progression** - start with core schemas, move to specialized ones
+- **Consistent scope** - each section should be manageable (typically 50-100 lines)
+- **Clear boundaries** - define section start/end points clearly
+
+### Quality Assurance Techniques
+- **Cross-reference against identified issues** - ensure all listed problems are addressed
+- **User feedback integration** - incorporate user preferences and corrections
+- **Preserve user improvements** - maintain any manual corrections made by users
+- **Verify against ruleset** - check that all changes align with established guidelines
+
+### Common Section Types
+1. **Core Schema Sections** - fundamental data models and properties
+2. **Endpoint Description Sections** - operation descriptions and parameters
+3. **Component Schema Sections** - reusable data structures
+4. **Options and Configuration Sections** - settings and preferences
+5. **Response and Status Sections** - job status and output schemas
+6. **Header and Security Sections** - authentication and metadata
+
+### User Preference Integration
+- **Document user preferences** - record specific phrasings and formatting choices
+- **Apply consistently** - use preferred descriptions across similar elements
+- **Maintain user corrections** - preserve any manual improvements made during review
+- **Consider context** - apply preferences appropriately based on element type
+
+### Error Prevention Strategies
+- **Unique string identification** - use sufficient context to avoid duplicate string issues
+- **Batch processing** - group similar corrections to reduce tool call overhead
+- **Verification steps** - confirm changes were applied correctly
+- **Rollback planning** - maintain ability to revert if needed
+
+### Review Completion Checklist
+- [ ] All identified issues addressed
+- [ ] User preferences applied consistently
+- [ ] No new issues introduced
+- [ ] Grammar and punctuation corrected
+- [ ] Capitalization standardized
+- [ ] Complete sentences with periods for non-response descriptions
+- [ ] Title Case maintained for response descriptions (no periods)
+- [ ] Technical terms properly capitalized
+- [ ] Trailing spaces removed
+- [ ] Section boundaries clearly defined
+
+---
+description: API Reference editing guidelines with lessons learned from Photoshop API updates
+globs: 
+alwaysApply: false
+---
