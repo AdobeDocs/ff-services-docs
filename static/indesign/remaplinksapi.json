@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "description": "The Remap Links API allows you to replace file-based links in InDesign documents with AEM URLs. This is particularly useful for customers working with Adobe Experience Manager (AEM) using Adobe Asset Link, enabling designers to work with output files that have direct links to AEM URLs.",
-    "version": "3.0.0",
+    "version": "",
     "title": "InDesign Remap Links API",
     "contact": {
       "email": "idservices@adobe.com"
