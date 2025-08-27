@@ -17,6 +17,8 @@ This document outlines the linting rules and best practices for maintaining high
    yarn lint
    ```
 
+This command requires Docker to be installed and running. If you find Docker is not running, you can start it by running `docker-compose up -d` in the root of the project.
+
 The linter checks:
 - Markdown files (markdownlint)
 - YAML files (yamllint)
