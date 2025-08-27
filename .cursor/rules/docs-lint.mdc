@@ -13,11 +13,38 @@ This document outlines the linting rules and best practices for maintaining high
 
 ### Running the Linter
 
-```bash
-   yarn lint
-   ```
+**⚠️ Prerequisite Check: Docker Availability**
 
-This command requires Docker to be installed and running. If you find Docker is not running, you can start it by running `docker-compose up -d` in the root of the project.
+Before running the linter, always check if Docker is running:
+
+```bash
+# Check Docker status
+docker info > /dev/null 2>&1
+
+# If the above command fails, Docker is not running
+if [ $? -ne 0 ]; then
+    echo "❌ Docker is not running!"
+    echo "Please start Docker Desktop and try again."
+    echo ""
+    read -p "Continue with manual linting fixes? (Y/N): " -n 1 -r
+    echo
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        echo "Exiting. Please start Docker and run 'yarn lint' again."
+        exit 1
+    fi
+    echo "Proceeding with manual linting fixes..."
+fi
+```
+
+**Then run the linter:**
+
+```bash
+yarn lint
+```
+
+**Note:** This command requires Docker to be installed and running. If Docker is not available, you can:
+1. Start Docker Desktop manually
+2. Or use the manual linting fixes described in the "Automated Fixes" section below
 
 The linter checks:
 - Markdown files (markdownlint)
