@@ -573,11 +573,11 @@ module.exports = {
       },
       {
         title: "Help",
-        path: "/indesign-apis/help-test/usage_notes/",
+        path: "/indesign-apis/help/usage_notes/",
         pages: [
           {
             title: "Usage Notes",
-            path: "/indesign-apis/help-test/usage_notes/",
+            path: "/indesign-apis/help/usage_notes/",
           }
         ]
       },

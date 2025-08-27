@@ -43,4 +43,4 @@ This page contains the release notes and version history for Adobe InDesign APIs
 <!-- Links -->
 [1]: ../api/remaplinks.md
 [2]: ../api/scripts.md
-[3]: ../help-test/usage_notes/index.md#user-data-handling
+[3]: ../help/usage_notes/index.md#user-data-handling
