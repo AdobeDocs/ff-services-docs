@@ -96,7 +96,7 @@
           ],
           "responses": {
             "200": {
-              "description": "Status of an API Job execution. If the number of output files exceeds the requested page size (default 10), the outputs are paginated. Use the `size` and `page` query parameters to page through outputs; `page` is zero-based.",
+              "description": "Status of an API Job execution.",
               "content": {
                 "application/json": {
                   "schema": {
