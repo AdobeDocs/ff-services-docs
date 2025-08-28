@@ -16,7 +16,7 @@ module.exports = {
   siteMetadata: {
     pages: [
       {
-        title: "Firefly Services",
+        title: "All Firefly Services",
         path: "/guides/",
       },
       {
