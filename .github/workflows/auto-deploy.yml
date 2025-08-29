@@ -3,7 +3,7 @@
   on:
     push:
       branches:
-        - patch/autoDeploy2
+        - main
   jobs:
     set-state:
       runs-on: ubuntu-latest
