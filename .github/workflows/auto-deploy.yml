@@ -1,5 +1,5 @@
 ---
-  name: Deployment
+  name: Auto Deployment
   on:
     push:
       branches:
@@ -7,13 +7,6 @@
   jobs:
     set-state:
       runs-on: ubuntu-latest
-      outputs:
-        deploy_prod: ${{ contains(github.event.inputs.env, 'prod') }}
-        deploy_dev: ${{ contains(github.event.inputs.env, 'dev') }}
-        clean_cache: ${{ contains(github.event.inputs.clean, 'yes') }}
-        path_prefix: ${{ steps.get_path_prefix.outputs.path_prefix }}
-        branch_short_ref: ${{ steps.get_branch.outputs.branch }}
-        exclude_subfolder: ${{ github.event.inputs.excludeSubfolder }}
       steps:
         - name: Checkout
           uses: actions/checkout@v4
@@ -30,7 +23,13 @@
           shell: bash
           run: echo "branch=${GITHUB_REF#refs/heads/}" >> "$GITHUB_OUTPUT"
           id: get_branch
-  
+      outputs:
+        deploy_prod: 'true'
+        deploy_dev: 'false'
+        clean_cache: 'yes'
+        path_prefix: ${{ steps.get_path_prefix.outputs.path_prefix }}
+        branch_short_ref: ${{ steps.get_branch.outputs.branch }}
+        exclude_subfolder: 'photoshop, audio-video-api, s3dapi, indesign-apis'
     echo-state:
       needs: [set-state]
       runs-on: ubuntu-latest
