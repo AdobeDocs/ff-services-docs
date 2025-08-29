@@ -1,0 +1,46 @@
+---
+  name: Deployment
+  on:
+    push:
+      branches:
+        - patch/autoDeploy2
+  jobs:
+    set-state:
+      runs-on: ubuntu-latest
+      outputs:
+        deploy_prod: ${{ contains(github.event.inputs.env, 'prod') }}
+        deploy_dev: ${{ contains(github.event.inputs.env, 'dev') }}
+        clean_cache: ${{ contains(github.event.inputs.clean, 'yes') }}
+        path_prefix: ${{ steps.get_path_prefix.outputs.path_prefix }}
+        branch_short_ref: ${{ steps.get_branch.outputs.branch }}
+        exclude_subfolder: ${{ github.event.inputs.excludeSubfolder }}
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+  
+        - name: Get pathPrefix
+          uses: actions/github-script@v7
+          id: get_path_prefix
+          with:
+            script: |
+              const script = require('./.github/scripts/get-path-prefix.js');
+              script({ core });
+            result-encoding: string
+        - name: Get branch name
+          shell: bash
+          run: echo "branch=${GITHUB_REF#refs/heads/}" >> "$GITHUB_OUTPUT"
+          id: get_branch
+  
+    echo-state:
+      needs: [set-state]
+      runs-on: ubuntu-latest
+      steps:
+        - run: echo "Deploy to dev - ${{ needs.set-state.outputs.deploy_dev }}"
+        - run: echo "Deploy to prod - ${{ needs.set-state.outputs.deploy_prod }}"
+        - run: echo "Clean cache - ${{ needs.set-state.outputs.clean_cache }}"
+        - run: echo "Repository org - ${{ github.event.repository.owner.login }}"
+        - run: echo "Repository name - ${{ github.event.repository.name }}"
+        - run: echo "Repository branch - ${{ needs.set-state.outputs.branch_short_ref }}"
+        - run: echo "Path prefix - ${{ needs.set-state.outputs.path_prefix }}"
+        - run: echo "Exclude subfolder - ${{ needs.set-state.outputs.exclude_subfolder }}"
+  
