@@ -1,5 +1,5 @@
 ---
-  name: Auto Deployment
+  name: Deployment (Auto)
   on:
     push:
       branches:

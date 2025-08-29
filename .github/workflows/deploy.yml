@@ -1,5 +1,5 @@
 ---
-name: Deployment
+name: Deployment (Manual)
 on:
   workflow_dispatch:
     inputs:
