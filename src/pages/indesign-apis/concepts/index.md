@@ -306,6 +306,22 @@ Or, if the fonts are kept in some other folder (for example, `fontFolder`), plea
 
 When font directories are added, don't use them with InDesign documents because opening these files will create additional lock files and trigger recalculation of the font resources.
 
+## Pagination
+
+Some list-style responses support pagination using the `page` and `size` query parameters. When multiple pages are available, the response includes a `paging` object with navigation URLs.
+
+For example in case of Pagination is status api, the response also includes:
+```json
+"paging": {
+  "prevUrl": "https://indesign.adobe.io/v3/status/<job_id>?size=10&page=0",
+  "nextUrl": "https://indesign.adobe.io/v3/status/<job_id>?size=10&page=2"
+}
+```
+
+- **prevUrl**: Present when a previous page exists.
+- **nextUrl**: Present when a next page exists.
+- If a direction is not applicable, its URL is omitted from the response.
+
 ## Using webhooks
 
 InDesign APIs events provide job processing details similar to
