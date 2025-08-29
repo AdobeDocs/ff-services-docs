@@ -46,7 +46,21 @@ Please reach out to Adobe to whitelist any alternative origins/domains you may b
 
 ## Supported storage types
 
-InDesign APIs currently support the following storage types for assets:
+InDesign APIs currently support the following storage types: 
+
+*Downloading the Input Assets*
+
+- AWS S3
+- Dropbox
+- Azure
+- Adobe Experience Manager (AEM)
+- Google Cloud Platform
+- Box.com
+
+
+InDesign APIs currently support the following storage types for 
+
+*Uploading the Output Assets*
 
 * AWS S3
 * Dropbox
