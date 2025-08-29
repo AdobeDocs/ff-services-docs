@@ -184,6 +184,72 @@
       }
     },
     "schemas": {
+      "HyphenationLanguage": {
+        "type": "string",
+        "description": "Supported hyphenation dictionary languages.",
+        "enum": [
+          "Arabic",
+          "Bengali (India)",
+          "Bulgarian",
+          "Burmese (Myanmar [Burma])",
+          "Catalan",
+          "Croatian",
+          "Czech",
+          "Danish",
+          "Dutch: 2005 Reform",
+          "Dutch: Old Rules",
+          "English: Canadian",
+          "English: UK",
+          "English: USA",
+          "English: USA Legal",
+          "English: USA Medical",
+          "Estonian",
+          "Finnish",
+          "French",
+          "French: Canadian",
+          "German: 1996 Reform",
+          "German: 2006 Reform",
+          "German: Austria 2006 Reform",
+          "German: Old Rules",
+          "German: Swiss",
+          "German: Swiss 2006 Reform",
+          "Greek",
+          "Gujarati (India)",
+          "Hebrew",
+          "Hindi (India)",
+          "Hungarian",
+          "Indonesian (Indonesia)",
+          "Italian",
+          "Kannada (India)",
+          "Khmer (Cambodia)",
+          "Lao (Laos)",
+          "Latvian",
+          "Lithuanian",
+          "Malayalam (India)",
+          "Marathi (India)",
+          "Norwegian: Bokmål",
+          "Norwegian: Nynorsk",
+          "Oriya (India)",
+          "Polish",
+          "Portuguese",
+          "Portuguese: Brazilian",
+          "Portuguese: Orthographic Agreement",
+          "Punjabi (India)",
+          "Romanian",
+          "Russian",
+          "Sinhala (Sri Lanka)",
+          "Slovak",
+          "Slovenian",
+          "Spanish",
+          "Swedish",
+          "Tamil (India)",
+          "Telugu (India)",
+          "Thai",
+          "Turkish",
+          "Ukrainian",
+          "Vietnamese"
+        ]
+      },
       "InputAsset": {
         "type": "object",
         "description": "The URL where the asset will be fetched.",
@@ -568,12 +634,11 @@
                           ],
                           "properties": {
                             "language": {
-                              "type": "string",
-                              "description": "User dictionary language to which the wordList is added (e.g., 'English: USA')."
+                              "$ref": "#/components/schemas/HyphenationLanguage"
                             },
                             "wordList": {
                               "type": "array",
-                              "description": "List of special hyphenation definitions (use ~ to mark break points, e.g., 'ex~ample'. Put '~' at the beginning of the word to exclude it from hyphenation ex: '~example').",
+                              "description": "List of special hyphenation definitions (use `~` to mark break points, e.g., `Know~how`, `check~in`. Put `~` at the beginning of the word to exclude it from hyphenation, e.g., `~Wallstreet`, `~Starbucks`).",
                               "items": {
                                 "type": "string"
                               }
