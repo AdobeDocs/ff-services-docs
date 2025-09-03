@@ -1,14 +1,36 @@
 ---
 title: Changelog - InDesign APIs
-description: Stay updated with the latest features, improvements, and bug fixes for Adobe InDesign APIs.
+description: >-
+  Stay updated with the latest features, improvements, and bug fixes for Adobe
+  InDesign APIs.
 hideBreadcrumbNav: true
 keywords:
+  - Adobe InDesign API
+  - InDesign automation
+  - document processing
+  - Data Merge API
+  - Rendition API
+  - Custom Scripts API
+  - Remap Links API
+  - REST API
+  - cloud services
+  - enterprise solutions
+  - design automation
+  - creative automation
+  - content delivery
+  - batch processing
   - InDesign API
-  - changelog
-  - release notes
-  - updates
-  - new features
-  - bug fixes
+og:
+  title: Changelog - InDesign APIs
+  description: >-
+    Stay updated with the latest features, improvements, and bug fixes for Adobe
+    InDesign APIs.
+twitter:
+  card: summary
+  title: Changelog - InDesign APIs
+  description: >-
+    Stay updated with the latest features, improvements, and bug fixes for Adobe
+    InDesign APIs.
 ---
 
 # Changelog

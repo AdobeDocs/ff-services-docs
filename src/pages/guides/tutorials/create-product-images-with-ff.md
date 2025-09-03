@@ -1,6 +1,8 @@
 ---
 title: Firefly Services - Tutorial
-description: Streamline your application integration with Firefly Services using our comprehensive SDK.
+description: >-
+  Streamline your application integration with Firefly Services using our
+  comprehensive SDK.
 keywords:
   - Adobe Firefly Services
   - Firefly guides
@@ -34,9 +36,20 @@ keywords:
   - Lightroom API
   - Content Tagging
 contributors:
-  - https://github.com/nimithajalal
-  - https://github.com/hollyschinsky
+  - 'https://github.com/nimithajalal'
+  - 'https://github.com/hollyschinsky'
 hideBreadcrumbNav: true
+og:
+  title: Firefly Services - Tutorial
+  description: >-
+    Streamline your application integration with Firefly Services using our
+    comprehensive SDK.
+twitter:
+  card: summary
+  title: Firefly Services - Tutorial
+  description: >-
+    Streamline your application integration with Firefly Services using our
+    comprehensive SDK.
 ---
 
 # Creating Product Images at Scale with Firefly Services

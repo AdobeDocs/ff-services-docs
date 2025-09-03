@@ -2,7 +2,27 @@
 title: Quickstart
 description: Quickstart guide for Lightroom API
 contributors:
-  - https://github.com/bishoysefin
+  - 'https://github.com/bishoysefin'
+keywords:
+  - Adobe Lightroom API
+  - photo editing API
+  - image enhancement
+  - preset application
+  - photo processing
+  - image optimization
+  - REST API
+  - batch editing
+  - cloud processing
+  - photo automation
+  - bulk editing
+  - preset management
+og:
+  title: Quickstart
+  description: Quickstart guide for Lightroom API
+twitter:
+  card: summary
+  title: Quickstart
+  description: Quickstart guide for Lightroom API
 ---
 
 # Quickstart Guide

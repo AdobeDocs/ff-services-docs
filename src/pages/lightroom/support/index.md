@@ -2,7 +2,27 @@
 title: Support
 description: Page for Support
 contributors:
-  - https://github.com/khound
+  - 'https://github.com/khound'
+keywords:
+  - Adobe Lightroom API
+  - photo editing API
+  - image enhancement
+  - preset application
+  - photo processing
+  - image optimization
+  - REST API
+  - batch editing
+  - cloud processing
+  - photo automation
+  - bulk editing
+  - preset management
+og:
+  title: Support
+  description: Page for Support
+twitter:
+  card: summary
+  title: Support
+  description: Page for Support
 ---
 
 ## Support Channel

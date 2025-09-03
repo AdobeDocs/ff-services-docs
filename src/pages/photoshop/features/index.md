@@ -2,12 +2,30 @@
 title: Adobe Photoshop API features
 description: Learn about the available features in Photoshop API.
 keywords:
+  - Adobe Photoshop API
+  - image editing API
+  - image automation
+  - Remove Background API
+  - image processing
+  - AI image editing
+  - REST API
+  - AI-powered
+  - batch processing
+  - background removal
+  - automatic masking
+  - transparent backgrounds
   - Adobe Photoshop API features
   - Photoshop API features
 contributors:
-  - https://github.com/archyposada
-   - https://github.com/khound
+  - 'https://github.com/archyposada - https://github.com/khound'
 hideBreadcrumbNav: true
+og:
+  title: Adobe Photoshop API features
+  description: Learn about the available features in Photoshop API.
+twitter:
+  card: summary
+  title: Adobe Photoshop API features
+  description: Learn about the available features in Photoshop API.
 ---
 
 # Supported Features

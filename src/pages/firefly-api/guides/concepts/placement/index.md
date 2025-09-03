@@ -1,6 +1,8 @@
 ---
 title: Using Placement in Adobe Firefly APIs for Image Positioning
-description: Learn how to control image positioning in Adobe Firefly APIs using the placement object, including alignment and inset options.
+description: >-
+  Learn how to control image positioning in Adobe Firefly APIs using the
+  placement object, including alignment and inset options.
 keywords:
   - Adobe Firefly APIs
   - Placement Object
@@ -23,8 +25,19 @@ keywords:
   - Image Generation
   - Output Customization
 contributors:
-  - https://github.com/bishoysefin
+  - 'https://github.com/bishoysefin'
 hideBreadcrumbNav: true
+og:
+  title: Using Placement in Adobe Firefly APIs for Image Positioning
+  description: >-
+    Learn how to control image positioning in Adobe Firefly APIs using the
+    placement object, including alignment and inset options.
+twitter:
+  card: summary
+  title: Using Placement in Adobe Firefly APIs for Image Positioning
+  description: >-
+    Learn how to control image positioning in Adobe Firefly APIs using the
+    placement object, including alignment and inset options.
 ---
 
 # Placement

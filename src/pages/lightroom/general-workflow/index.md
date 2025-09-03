@@ -2,11 +2,30 @@
 title: Adobe Lightroom API general workflow
 description: This page contains documentation on the Lightroom API
 keywords:
+  - Adobe Lightroom API
+  - photo editing API
+  - image enhancement
+  - preset application
+  - photo processing
+  - image optimization
+  - REST API
+  - batch editing
+  - cloud processing
+  - photo automation
+  - bulk editing
+  - preset management
   - Lightroom API General Workflow
 contributors:
-  - https://github.com/khound
-  - https://github.com/archyposada
+  - 'https://github.com/khound'
+  - 'https://github.com/archyposada'
 hideBreadcrumbNav: true
+og:
+  title: Adobe Lightroom API general workflow
+  description: This page contains documentation on the Lightroom API
+twitter:
+  card: summary
+  title: Adobe Lightroom API general workflow
+  description: This page contains documentation on the Lightroom API
 ---
 
 # General Workflow for Lightroom API

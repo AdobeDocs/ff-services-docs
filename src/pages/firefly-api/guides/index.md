@@ -33,8 +33,15 @@ keywords:
   - Authorization
   - Credentials
 contributors:
-  - https://github.com/bishoysefin
+  - 'https://github.com/bishoysefin'
 hideBreadcrumbNav: true
+og:
+  title: Quickstart
+  description: A quickstart guide to the Adobe Firefly API
+twitter:
+  card: summary
+  title: Quickstart
+  description: A quickstart guide to the Adobe Firefly API
 ---
 
 # Quickstart Guide

@@ -1,3 +1,17 @@
+---
+title: ''
+description: ''
+keywords:
+  - API documentation
+  - REST API
+og:
+  title: ''
+  description: ''
+twitter:
+  card: summary
+  title: ''
+  description: ''
+---
 <Hero slots="heading, text" background="rgb(233, 80, 80)"/>
 
 # Video Reframing API

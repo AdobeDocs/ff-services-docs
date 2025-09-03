@@ -15,8 +15,15 @@ keywords:
   - Generate Access Token
   - Authentication Best Practices
 contributors:
-  - https://github.com/bishoysefin
+  - 'https://github.com/bishoysefin'
 hideBreadcrumbNav: true
+og:
+  title: Authentication
+  description: Learn how to authenticate requests to Firefly APIs
+twitter:
+  card: summary
+  title: Authentication
+  description: Learn how to authenticate requests to Firefly APIs
 ---
 
 # Authentication

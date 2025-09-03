@@ -1,3 +1,27 @@
+---
+title: ''
+description: ''
+keywords:
+  - Adobe Firefly API
+  - generative AI
+  - AI image generation
+  - text-to-image
+  - image generation
+  - creative AI
+  - REST API
+  - AI models
+  - generative content
+  - AI art generation
+  - creative automation
+  - content creation
+og:
+  title: ''
+  description: ''
+twitter:
+  card: summary
+  title: ''
+  description: ''
+---
 # Terminology
 
 This section provides definitions and details for terms and parameters to be aware of when you use the [Firefly APIs](../api/image_generation/V3/) and documentation.

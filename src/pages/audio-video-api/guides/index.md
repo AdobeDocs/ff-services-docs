@@ -2,7 +2,17 @@
 title: Reframe API Quickstart
 description: This guide provides a quickstart for using the Reframe API.
 contributors:
-  - https://github.com/AEAbreu-hub
+  - 'https://github.com/AEAbreu-hub'
+keywords:
+  - API documentation
+  - REST API
+og:
+  title: Reframe API Quickstart
+  description: This guide provides a quickstart for using the Reframe API.
+twitter:
+  card: summary
+  title: Reframe API Quickstart
+  description: This guide provides a quickstart for using the Reframe API.
 ---
 
 # Reframe API Quickstart

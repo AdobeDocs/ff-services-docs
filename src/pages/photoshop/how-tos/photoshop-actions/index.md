@@ -2,11 +2,30 @@
 title: Adobe Photoshop API Actions
 description: Using Photoshop Actions with the API.
 keywords:
+  - Adobe Photoshop API
+  - image editing API
+  - image automation
+  - Remove Background API
+  - image processing
+  - AI image editing
+  - REST API
+  - AI-powered
+  - batch processing
+  - background removal
+  - automatic masking
+  - transparent backgrounds
   - Adobe Photoshop API actions actionJSON
 contributors:
-  - https://github.com/archyposada
-  - https://github.com/sushiriot
+  - 'https://github.com/archyposada'
+  - 'https://github.com/sushiriot'
 hideBreadcrumbNav: true
+og:
+  title: Adobe Photoshop API Actions
+  description: Using Photoshop Actions with the API.
+twitter:
+  card: summary
+  title: Adobe Photoshop API Actions
+  description: Using Photoshop Actions with the API.
 ---
 
 # Photoshop Actions and the API

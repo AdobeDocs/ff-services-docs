@@ -1,6 +1,8 @@
 ---
 title: Using Adobe Developer Console for Firefly API Authentication
-description: Learn how to use Adobe Developer Console to manage resources and credentials for authenticating with Adobe Firefly APIs.
+description: >-
+  Learn how to use Adobe Developer Console to manage resources and credentials
+  for authenticating with Adobe Firefly APIs.
 keywords:
   - Adobe Developer Console
   - Firefly API Authentication
@@ -23,8 +25,19 @@ keywords:
   - Token Management
   - Scope Limitation
 contributors:
-  - https://github.com/bishoysefin
+  - 'https://github.com/bishoysefin'
 hideBreadcrumbNav: true
+og:
+  title: Using Adobe Developer Console for Firefly API Authentication
+  description: >-
+    Learn how to use Adobe Developer Console to manage resources and credentials
+    for authenticating with Adobe Firefly APIs.
+twitter:
+  card: summary
+  title: Using Adobe Developer Console for Firefly API Authentication
+  description: >-
+    Learn how to use Adobe Developer Console to manage resources and credentials
+    for authenticating with Adobe Firefly APIs.
 ---
 
 # Adobe Developer Console

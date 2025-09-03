@@ -2,13 +2,35 @@
 title: Structure Image Reference - Adobe Firefly APIs
 description: A guide to using structure image reference with the Firefly Image Model APIs.
 keywords:
+  - Adobe Firefly API
+  - generative AI
+  - AI image generation
+  - text-to-image
+  - image generation
+  - creative AI
+  - REST API
+  - AI models
+  - generative content
+  - AI art generation
+  - creative automation
+  - content creation
   - Structure Image Reference
   - Adobe Firefly Services
   - Firefly API
-  - Developer documentation
 contributors:
-  - https://github.com/bishoysefin
+  - 'https://github.com/bishoysefin'
 hideBreadcrumbNav: true
+og:
+  title: Structure Image Reference - Adobe Firefly APIs
+  description: >-
+    A guide to using structure image reference with the Firefly Image Model
+    APIs.
+twitter:
+  card: summary
+  title: Structure Image Reference - Adobe Firefly APIs
+  description: >-
+    A guide to using structure image reference with the Firefly Image Model
+    APIs.
 ---
 
 # Structure Reference Images

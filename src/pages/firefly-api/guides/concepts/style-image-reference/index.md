@@ -2,14 +2,32 @@
 title: Style Image Reference - Adobe Firefly APIs
 description: A guide to using style image reference with the Firefly Image Model APIs.
 keywords:
+  - Adobe Firefly API
+  - generative AI
+  - AI image generation
+  - text-to-image
+  - image generation
+  - creative AI
+  - REST API
+  - AI models
+  - generative content
+  - AI art generation
+  - creative automation
+  - content creation
   - Style Image Reference
   - Adobe Firefly Services
   - Firefly API
-  - Developer documentation
 contributors:
-  - https://github.com/bishoysefin
-  - https://github.com/aeabreu-hub
+  - 'https://github.com/bishoysefin'
+  - 'https://github.com/aeabreu-hub'
 hideBreadcrumbNav: true
+og:
+  title: Style Image Reference - Adobe Firefly APIs
+  description: A guide to using style image reference with the Firefly Image Model APIs.
+twitter:
+  card: summary
+  title: Style Image Reference - Adobe Firefly APIs
+  description: A guide to using style image reference with the Firefly Image Model APIs.
 ---
 
 # Style Reference Images

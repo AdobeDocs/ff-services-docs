@@ -1,6 +1,26 @@
 ---
 title: Technical Usage Notes
 description: Technical Usage Notes for Generate Video API.
+keywords:
+  - Adobe Firefly API
+  - generative AI
+  - AI image generation
+  - text-to-image
+  - image generation
+  - creative AI
+  - REST API
+  - AI models
+  - generative content
+  - AI art generation
+  - creative automation
+  - content creation
+og:
+  title: Technical Usage Notes
+  description: Technical Usage Notes for Generate Video API.
+twitter:
+  card: summary
+  title: Technical Usage Notes
+  description: Technical Usage Notes for Generate Video API.
 ---
 
 # Firefly API Usage Notes

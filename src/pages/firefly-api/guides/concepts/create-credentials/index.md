@@ -2,18 +2,33 @@
 title: Create Credentials - Adobe Firefly API
 description: This guide explains how to create credentials for the Adobe Firefly API.
 keywords:
+  - Adobe Firefly API
+  - generative AI
+  - AI image generation
+  - text-to-image
+  - image generation
+  - creative AI
+  - REST API
+  - AI models
+  - generative content
+  - AI art generation
+  - creative automation
+  - content creation
   - Adobe Firefly Services
   - Create Credentials
   - Credentials
-  - Authentication
-  - Authorization
-  - Firefly API
-  - Developer documentation
 contributors:
-  - https://github.com/amandahuarng
-  - https://github.com/nimithajalal
-  - https://github.com/hollyschinsky
+  - 'https://github.com/amandahuarng'
+  - 'https://github.com/nimithajalal'
+  - 'https://github.com/hollyschinsky'
 hideBreadcrumbNav: true
+og:
+  title: Create Credentials - Adobe Firefly API
+  description: This guide explains how to create credentials for the Adobe Firefly API.
+twitter:
+  card: summary
+  title: Create Credentials - Adobe Firefly API
+  description: This guide explains how to create credentials for the Adobe Firefly API.
 ---
 
 # [Admins only] Get Credentials

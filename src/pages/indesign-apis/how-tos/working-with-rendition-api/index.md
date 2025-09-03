@@ -1,6 +1,34 @@
 ---
 title: Working with the Rendition API
-description: Quickstart cURL commands to use the Rendition API.
+description: >-
+  Quickstart cURL commands to use the Rendition API. for InDesign automation and
+  document processing.
+keywords:
+  - Adobe InDesign API
+  - InDesign automation
+  - document processing
+  - Data Merge API
+  - Rendition API
+  - Custom Scripts API
+  - Remap Links API
+  - REST API
+  - cloud services
+  - enterprise solutions
+  - design automation
+  - creative automation
+  - content delivery
+  - batch processing
+og:
+  title: Working with the Rendition API
+  description: >-
+    Quickstart cURL commands to use the Rendition API. for InDesign automation
+    and document processing.
+twitter:
+  card: summary
+  title: Working with the Rendition API
+  description: >-
+    Quickstart cURL commands to use the Rendition API. for InDesign automation
+    and document processing.
 ---
 # Working with the Rendition API
 

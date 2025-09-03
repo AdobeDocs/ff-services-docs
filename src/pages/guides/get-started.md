@@ -9,7 +9,7 @@ keywords:
   - Adobe Firefly
   - Getting started with Firefly
   - Overview
-  - Get Started 
+  - Get Started
   - Get Started with Adobe Firefly Services
   - Getting Started with Adobe Firefly Services
   - Quickstart
@@ -32,15 +32,22 @@ keywords:
   - Firefly example
   - Firefly content
   - Firefly generate
-  - How-to guides  
+  - How-to guides
   - Code sample
   - Tutorials
   - Steps
   - Step by step
 contributors:
-  - https://github.com/nimithajalal
-  - https://github.com/hollyschinsky
+  - 'https://github.com/nimithajalal'
+  - 'https://github.com/hollyschinsky'
 hideBreadcrumbNav: true
+og:
+  title: Firefly Services - Getting Started Guide
+  description: Get started building your first app with Firefly Services quickly.
+twitter:
+  card: summary
+  title: Firefly Services - Getting Started Guide
+  description: Get started building your first app with Firefly Services quickly.
 ---
 
 # Getting started with Adobe Firefly Services

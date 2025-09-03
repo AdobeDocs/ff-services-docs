@@ -1,15 +1,39 @@
 ---
 title: Adobe Photoshop API Key Concepts
-description: Learn about masks, selections and target layers
+description: >-
+  Learn about masks, selections and target layers for Photoshop image editing
+  and automation.
 keywords:
-  - Photoshop API 
+  - Adobe Photoshop API
+  - image editing API
+  - image automation
+  - Remove Background API
+  - image processing
+  - AI image editing
+  - REST API
+  - AI-powered
+  - batch processing
+  - background removal
+  - automatic masking
+  - transparent backgrounds
+  - Photoshop API
   - masks
   - selections
-  - layers
 contributors:
-  - https://github.com/sushiriot
-  - https://github.com/archyposada
+  - 'https://github.com/sushiriot'
+  - 'https://github.com/archyposada'
 hideBreadcrumbNav: true
+og:
+  title: Adobe Photoshop API Key Concepts
+  description: >-
+    Learn about masks, selections and target layers for Photoshop image editing
+    and automation.
+twitter:
+  card: summary
+  title: Adobe Photoshop API Key Concepts
+  description: >-
+    Learn about masks, selections and target layers for Photoshop image editing
+    and automation.
 ---
 
 # Photoshop API Key Concepts

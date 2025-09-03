@@ -1,6 +1,10 @@
 ---
 title: Firefly Generate Image API Tutorial - Adobe Firefly API
-description: Learn to become an advanced user of Firefly's Generate Image API. Generate a single image with a simple prompt, add aspect ratio, localized style, and style preset customizations, and generate localized images for multiple locations.
+description: >-
+  Learn to become an advanced user of Firefly's Generate Image API. Generate a
+  single image with a simple prompt, add aspect ratio, localized style, and
+  style preset customizations, and generate localized images for multiple
+  locations.
 keywords:
   - Adobe Firefly Services
   - Adobe Firefly Generate Image API
@@ -43,8 +47,23 @@ keywords:
   - Testing and debugging
   - Styles
 contributors:
-  - https://github.com/bishoysefin
+  - 'https://github.com/bishoysefin'
 hideBreadcrumbNav: true
+og:
+  title: Firefly Generate Image API Tutorial - Adobe Firefly API
+  description: >-
+    Learn to become an advanced user of Firefly's Generate Image API. Generate a
+    single image with a simple prompt, add aspect ratio, localized style, and
+    style preset customizations, and generate localized images for multiple
+    locations.
+twitter:
+  card: summary
+  title: Firefly Generate Image API Tutorial - Adobe Firefly API
+  description: >-
+    Learn to become an advanced user of Firefly's Generate Image API. Generate a
+    single image with a simple prompt, add aspect ratio, localized style, and
+    style preset customizations, and generate localized images for multiple
+    locations.
 ---
 
 # Firefly Generate Image API Tutorial

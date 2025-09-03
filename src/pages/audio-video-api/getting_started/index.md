@@ -2,7 +2,17 @@
 title: Reframe API Authentication
 description: Learn how to authenticate your requests to the Reframe API.
 contributors:
-  - https://github.com/AEAbreu-hub
+  - 'https://github.com/AEAbreu-hub'
+keywords:
+  - API documentation
+  - REST API
+og:
+  title: Reframe API Authentication
+  description: Learn how to authenticate your requests to the Reframe API.
+twitter:
+  card: summary
+  title: Reframe API Authentication
+  description: Learn how to authenticate your requests to the Reframe API.
 ---
 
 # Authentication

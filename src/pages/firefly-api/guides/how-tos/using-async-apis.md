@@ -15,9 +15,16 @@ keywords:
   - Text to image
   - Firefly endpoint
 contributors:
-  - https://github.com/cfjedimaster
-  - https://github.com/sushiriot
+  - 'https://github.com/cfjedimaster'
+  - 'https://github.com/sushiriot'
 hideBreadcrumbNav: true
+og:
+  title: Using the Firefly Asynchronous API
+  description: A guide to generating images the asynchronous version of Firefly APIs.
+twitter:
+  card: summary
+  title: Using the Firefly Asynchronous API
+  description: A guide to generating images the asynchronous version of Firefly APIs.
 ---
 
 # Using the Asynchronous Adobe Firefly APIs

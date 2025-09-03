@@ -1,8 +1,28 @@
 ---
-title: Quickstart
+title: Quickstart - Photoshop API
 description: Quickstart guide for Photoshop API
 contributors:
-  - https://github.com/bishoysefin
+  - 'https://github.com/bishoysefin'
+keywords:
+  - Adobe Photoshop API
+  - image editing API
+  - image automation
+  - Remove Background API
+  - image processing
+  - AI image editing
+  - REST API
+  - AI-powered
+  - batch processing
+  - background removal
+  - automatic masking
+  - transparent backgrounds
+og:
+  title: Quickstart - Photoshop API
+  description: Quickstart guide for Photoshop API
+twitter:
+  card: summary
+  title: Quickstart - Photoshop API
+  description: Quickstart guide for Photoshop API
 ---
 
 # Quickstart Guide

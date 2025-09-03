@@ -1,3 +1,29 @@
+---
+title: ' - InDesign API'
+description: ' for InDesign automation and document processing.'
+keywords:
+  - Adobe InDesign API
+  - InDesign automation
+  - document processing
+  - Data Merge API
+  - Rendition API
+  - Custom Scripts API
+  - Remap Links API
+  - REST API
+  - cloud services
+  - enterprise solutions
+  - design automation
+  - creative automation
+  - content delivery
+  - batch processing
+og:
+  title: ' - InDesign API'
+  description: ' for InDesign automation and document processing.'
+twitter:
+  card: summary
+  title: ' - InDesign API'
+  description: ' for InDesign automation and document processing.'
+---
 # Logging
 
 Logging can be important for debugging your own scripts and to keep track of decisions made during a script execution. You can log the data during script execution in two ways: collect logs in an array or log data in the application's log.

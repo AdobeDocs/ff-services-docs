@@ -2,11 +2,30 @@
 title: Adobe Photoshop API general workflow
 description: Learn the general workflow of the Photoshop API
 keywords:
+  - Adobe Photoshop API
+  - image editing API
+  - image automation
+  - Remove Background API
+  - image processing
+  - AI image editing
+  - REST API
+  - AI-powered
+  - batch processing
+  - background removal
+  - automatic masking
+  - transparent backgrounds
   - Photoshop API general workflow
 contributors:
-  - https://github.com/khound
-  - https://github.com/archyposada
+  - 'https://github.com/khound'
+  - 'https://github.com/archyposada'
 hideBreadcrumbNav: true
+og:
+  title: Adobe Photoshop API general workflow
+  description: Learn the general workflow of the Photoshop API
+twitter:
+  card: summary
+  title: Adobe Photoshop API general workflow
+  description: Learn the general workflow of the Photoshop API
 ---
 
 # General Workflow for Photoshop API
