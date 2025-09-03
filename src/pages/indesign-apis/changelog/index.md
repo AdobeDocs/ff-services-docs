@@ -17,16 +17,14 @@ keywords:
 
 This page contains the release notes and version history for Adobe InDesign APIs. Stay updated with the latest features, improvements, and bug fixes.
 
-## September 1, 2025
+## September 3, 2025
 
 ### Enhancements
 
 *Data Merge API*
 
-- Added `hyphenationSettings` to control hyphenation behavior in merged documents (includes `afterFirst`, `beforeLast`, `wordsLongerThan`, `ladderLimit`, `zone`, `capitalizedWords`, `lastWord`, `acrossColumns`).
-- Added per-language `dictionarySettings` for custom hyphenation definitions (e.g., `Know~how`, `check~in`. Put `~` at the beginning of the word to exclude it from hyphenation, e.g., `~Wallstreet`, `~Starbucks`).
-- [Explore the API documentation][4]
-- [See the how-to example][5]
+- Now manage hyphenation in merged documents with hyphenationSettings . Manage exclusion lists and fix break location using dictionarySettings. More details are available in [Data Merge API documentation][4] and [How-to example][5]
+
 
 ## August 4, 2025
 
