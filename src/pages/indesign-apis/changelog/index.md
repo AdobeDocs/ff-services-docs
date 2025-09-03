@@ -23,8 +23,7 @@ This page contains the release notes and version history for Adobe InDesign APIs
 
 *Data Merge API*
 
-- Now manage hyphenation in merged documents with hyphenationSettings . Manage exclusion lists and fix break location using dictionarySettings. More details are available in [Data Merge API documentation][4] and [How-to example][5]
-
+- Now manage hyphenation in merged documents with `hyphenationSettings`. Also, manage exclusion lists and fix break location using `dictionarySettings`. Details are available in [the Data Merge API documentation][4] and [How-to example.][5]
 
 ## August 4, 2025
 

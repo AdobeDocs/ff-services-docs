@@ -311,6 +311,7 @@ When font directories are added, don't use them with InDesign documents because 
 Some list-style responses support pagination using the `page` and `size` query parameters. When multiple pages are available, the response includes a `paging` object with navigation URLs.
 
 For example in case number of outputs is greater than 10 in case of status api execution, the response looks like this, including the pagination block :
+
 ```json
 {
 	"jobId": "b50a4f99-4e80-4194-ac2a-043aaddae4ad",
