@@ -2,7 +2,17 @@
 title: Quickstart
 description: Quickstart guide for Firefly Services APIs
 contributors:
-  - https://github.com/bishoysefin
+  - 'https://github.com/bishoysefin'
+keywords:
+  - API documentation
+  - REST API
+og:
+  title: Quickstart
+  description: Quickstart guide for Firefly Services APIs
+twitter:
+  card: summary
+  title: Quickstart
+  description: Quickstart guide for Firefly Services APIs
 ---
 
 # Quickstart Guide

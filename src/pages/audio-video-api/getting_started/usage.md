@@ -1,8 +1,24 @@
 ---
 title: Technical Usage Notes
-description: This documentation provides technical limitations and workarounds for the Video Reframe API.
+description: >-
+  This documentation provides technical limitations and workarounds for the
+  Video Reframe API.
 contributors:
-  - https://github.com/AEAbreu-hub
+  - 'https://github.com/AEAbreu-hub'
+keywords:
+  - API documentation
+  - REST API
+og:
+  title: Technical Usage Notes
+  description: >-
+    This documentation provides technical limitations and workarounds for the
+    Video Reframe API.
+twitter:
+  card: summary
+  title: Technical Usage Notes
+  description: >-
+    This documentation provides technical limitations and workarounds for the
+    Video Reframe API.
 ---
 
 # Technical Usage Notes

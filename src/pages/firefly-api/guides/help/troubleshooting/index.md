@@ -2,13 +2,31 @@
 title: Best Practices
 description: This guide explains troubleshooting for the Adobe Firefly API.
 keywords:
+  - Adobe Firefly API
+  - generative AI
+  - AI image generation
+  - text-to-image
+  - image generation
+  - creative AI
+  - REST API
+  - AI models
+  - generative content
+  - AI art generation
+  - creative automation
+  - content creation
   - Adobe Firefly Services
   - Firefly API
   - Integrating Firefly Services
-
 contributors:
-  - https://github.com/nimithajalal
+  - 'https://github.com/nimithajalal'
 hideBreadcrumbNav: true
+og:
+  title: Best Practices
+  description: This guide explains troubleshooting for the Adobe Firefly API.
+twitter:
+  card: summary
+  title: Best Practices
+  description: This guide explains troubleshooting for the Adobe Firefly API.
 ---
 
 # Firefly API Troubleshooting Guide

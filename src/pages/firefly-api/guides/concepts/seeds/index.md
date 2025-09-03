@@ -24,9 +24,16 @@ keywords:
   - Data integrity testing
   - Firefly data
 contributors:
-  - https://github.com/bishoysefin
-  - https://github.com/aeabreu-hub
+  - 'https://github.com/bishoysefin'
+  - 'https://github.com/aeabreu-hub'
 hideBreadcrumbNav: true
+og:
+  title: Seeds - Adobe Firefly API
+  description: This guide explains usage of Seeds in the Adobe Firefly API.
+twitter:
+  card: summary
+  title: Seeds - Adobe Firefly API
+  description: This guide explains usage of Seeds in the Adobe Firefly API.
 ---
 
 # Understanding Firefly API Seeds

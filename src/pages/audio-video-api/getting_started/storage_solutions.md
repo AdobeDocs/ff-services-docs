@@ -1,6 +1,22 @@
 ---
 title: Storage Solutions
-description: This page explains the storage solutions that are acceptable for use with video services.
+description: >-
+  This page explains the storage solutions that are acceptable for use with
+  video services.
+keywords:
+  - API documentation
+  - REST API
+og:
+  title: Storage Solutions
+  description: >-
+    This page explains the storage solutions that are acceptable for use with
+    video services.
+twitter:
+  card: summary
+  title: Storage Solutions
+  description: >-
+    This page explains the storage solutions that are acceptable for use with
+    video services.
 ---
 # Storage Solutions
 

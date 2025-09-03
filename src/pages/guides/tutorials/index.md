@@ -35,9 +35,16 @@ keywords:
   - Software development tutorials
   - Web development tutorials
 contributors:
-  - https://github.com/nimithajalal
-  - https://github.com/hollyschinsky
+  - 'https://github.com/nimithajalal'
+  - 'https://github.com/hollyschinsky'
 hideBreadcrumbNav: true
+og:
+  title: Firefly Services - Tutorials
+  description: Tutorials for using Adobe Firefly Services
+twitter:
+  card: summary
+  title: Firefly Services - Tutorials
+  description: Tutorials for using Adobe Firefly Services
 ---
 
 # Tutorials

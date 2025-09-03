@@ -1,12 +1,31 @@
 ---
-title: Adobe Lightroom API Features 
+title: Adobe Lightroom API Features
 description: Learn about the available features in Lightroom API.
-keywords: 
+keywords:
+  - Adobe Lightroom API
+  - photo editing API
+  - image enhancement
+  - preset application
+  - photo processing
+  - image optimization
+  - REST API
+  - batch editing
+  - cloud processing
+  - photo automation
+  - bulk editing
+  - preset management
   - Lightroom API features
 contributors:
-  - https://github.com/khound
-  - https://github.com/archyposada
+  - 'https://github.com/khound'
+  - 'https://github.com/archyposada'
 hideBreadcrumbNav: true
+og:
+  title: Adobe Lightroom API Features
+  description: Learn about the available features in Lightroom API.
+twitter:
+  card: summary
+  title: Adobe Lightroom API Features
+  description: Learn about the available features in Lightroom API.
 ---
 
 # Supported Features

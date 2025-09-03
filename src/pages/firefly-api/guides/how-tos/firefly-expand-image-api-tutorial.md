@@ -1,18 +1,38 @@
 ---
 title: Firefly Expand Image API Tutorial - Adobe Firefly API
-description: Learn to become an advanced user of Firefly's Expand Image API. Generate multiple variations of an image tailored for various social media platforms.
+description: >-
+  Learn to become an advanced user of Firefly's Expand Image API. Generate
+  multiple variations of an image tailored for various social media platforms.
 keywords:
+  - Adobe Firefly API
+  - generative AI
+  - AI image generation
+  - text-to-image
+  - image generation
+  - creative AI
+  - REST API
+  - AI models
+  - generative content
+  - AI art generation
+  - creative automation
+  - content creation
   - Adobe Firefly Services
   - Adobe Firefly Expand Image API
   - Adobe Firefly Expand Image API tutorial
-  - Firefly API
-  - Firefly Generative Expand
-  - Expand Images
-  - How-to guides
-  - Firefly endpoint
 contributors:
-  - https://github.com/bishoysefin
+  - 'https://github.com/bishoysefin'
 hideBreadcrumbNav: true
+og:
+  title: Firefly Expand Image API Tutorial - Adobe Firefly API
+  description: >-
+    Learn to become an advanced user of Firefly's Expand Image API. Generate
+    multiple variations of an image tailored for various social media platforms.
+twitter:
+  card: summary
+  title: Firefly Expand Image API Tutorial - Adobe Firefly API
+  description: >-
+    Learn to become an advanced user of Firefly's Expand Image API. Generate
+    multiple variations of an image tailored for various social media platforms.
 ---
 
 # Firefly Expand Image API Tutorial

@@ -28,11 +28,18 @@ keywords:
   - API Usage
   - API performance
 contributors:
-  - https://github.com/amandahuarng
-  - https://github.com/nimithajalal
-  - https://github.com/hollyschinsky
-  - https://github.com/bishoysefin
+  - 'https://github.com/amandahuarng'
+  - 'https://github.com/nimithajalal'
+  - 'https://github.com/hollyschinsky'
+  - 'https://github.com/bishoysefin'
 hideBreadcrumbNav: true
+og:
+  title: Rate Limits - Adobe Firefly API
+  description: This guide explains rate limiting for the Adobe Firefly API.
+twitter:
+  card: summary
+  title: Rate Limits - Adobe Firefly API
+  description: This guide explains rate limiting for the Adobe Firefly API.
 ---
 
 # Rate Limits

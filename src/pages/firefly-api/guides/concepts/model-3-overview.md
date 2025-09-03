@@ -1,3 +1,27 @@
+---
+title: ''
+description: ''
+keywords:
+  - Adobe Firefly API
+  - generative AI
+  - AI image generation
+  - text-to-image
+  - image generation
+  - creative AI
+  - REST API
+  - AI models
+  - generative content
+  - AI art generation
+  - creative automation
+  - content creation
+og:
+  title: ''
+  description: ''
+twitter:
+  card: summary
+  title: ''
+  description: ''
+---
 # Firefly Image 3 Model
 
 The Firefly Image 3 Model offers an improved generative Al image model for faster ideation and content creation.

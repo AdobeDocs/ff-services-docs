@@ -1,6 +1,8 @@
 ---
 title: Create Your First Firefly SDK Implementation - Adobe Firefly API
-description: This how-to guides you through the process of integrating Adobe's Firefly workflows into your applications.
+description: >-
+  This how-to guides you through the process of integrating Adobe's Firefly
+  workflows into your applications.
 keywords:
   - Adobe Firefly Services
   - Firefly API
@@ -41,9 +43,20 @@ keywords:
   - Testing and debugging
   - Styles
 contributors:
-  - https://github.com/nimithajalal
-  - https://github.com/cfjedimaster
+  - 'https://github.com/nimithajalal'
+  - 'https://github.com/cfjedimaster'
 hideBreadcrumbNav: true
+og:
+  title: Create Your First Firefly SDK Implementation - Adobe Firefly API
+  description: >-
+    This how-to guides you through the process of integrating Adobe's Firefly
+    workflows into your applications.
+twitter:
+  card: summary
+  title: Create Your First Firefly SDK Implementation - Adobe Firefly API
+  description: >-
+    This how-to guides you through the process of integrating Adobe's Firefly
+    workflows into your applications.
 ---
 
 # Getting Started with the Firefly Services SDK

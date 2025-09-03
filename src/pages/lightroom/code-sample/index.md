@@ -1,12 +1,31 @@
 ---
 title: Adobe Lightroom API Code Samples
-description: This page contains Code Samples for Lightroom API 
-keywords: 
+description: This page contains Code Samples for Lightroom API
+keywords:
+  - Adobe Lightroom API
+  - photo editing API
+  - image enhancement
+  - preset application
+  - photo processing
+  - image optimization
+  - REST API
+  - batch editing
+  - cloud processing
+  - photo automation
+  - bulk editing
+  - preset management
   - Lighgtroom API code sample
 contributors:
-  - https://github.com/khound
-  - https://github.com/archyposada
+  - 'https://github.com/khound'
+  - 'https://github.com/archyposada'
 hideBreadcrumbNav: true
+og:
+  title: Adobe Lightroom API Code Samples
+  description: This page contains Code Samples for Lightroom API
+twitter:
+  card: summary
+  title: Adobe Lightroom API Code Samples
+  description: This page contains Code Samples for Lightroom API
 ---
 # Code Samples
 

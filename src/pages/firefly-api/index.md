@@ -19,10 +19,17 @@ keywords:
   - Firefly API endpoints
   - Firefly authentication and authorization
 contributors:
-  - https://github.com/amandahuarng
-  - https://github.com/nimithajalal
-  - https://github.com/hollyschinsky
+  - 'https://github.com/amandahuarng'
+  - 'https://github.com/nimithajalal'
+  - 'https://github.com/hollyschinsky'
 hideBreadcrumbNav: true
+og:
+  title: Overview - Adobe Firefly API
+  description: An overview of the Adobe Firefly API
+twitter:
+  card: summary
+  title: Overview - Adobe Firefly API
+  description: An overview of the Adobe Firefly API
 ---
 
 <Hero slots="heading, text" background="rgb(233, 80, 80)"/>

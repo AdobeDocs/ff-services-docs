@@ -1,6 +1,8 @@
 ---
 title: Documentation - Adobe Firefly Services
-description: Developer documentation for Adobe Firefly Services. Includes getting started guides, tutorials and SDK details.
+description: >-
+  Developer documentation for Adobe Firefly Services. Includes getting started
+  guides, tutorials and SDK details.
 keywords:
   - Adobe Firefly Services
   - Firefly guides
@@ -23,7 +25,7 @@ keywords:
   - Firefly example
   - Firefly content
   - Firefly generate
-  - How-to guides  
+  - How-to guides
   - Code sample
   - Tutorials
   - Developer documentation
@@ -43,10 +45,21 @@ keywords:
   - Automate
   - Firefly endpoint
 contributors:
-  - https://github.com/nimithajalal
-  - https://github.com/hollyschinsky
-  - https://github.com/archyposada
+  - 'https://github.com/nimithajalal'
+  - 'https://github.com/hollyschinsky'
+  - 'https://github.com/archyposada'
 hideBreadcrumbNav: true
+og:
+  title: Documentation - Adobe Firefly Services
+  description: >-
+    Developer documentation for Adobe Firefly Services. Includes getting started
+    guides, tutorials and SDK details.
+twitter:
+  card: summary
+  title: Documentation - Adobe Firefly Services
+  description: >-
+    Developer documentation for Adobe Firefly Services. Includes getting started
+    guides, tutorials and SDK details.
 ---
 
 <Hero slots="heading, text" background="rgb(233, 80, 80)"/>

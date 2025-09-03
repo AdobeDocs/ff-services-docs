@@ -20,11 +20,18 @@ keywords:
   - Design tokens
   - CSS variables
 contributors:
-  - https://github.com/bishoysefin
-  - https://github.com/amandahuarng
-  - https://github.com/nimithajalal
-  - https://github.com/hollyschinsky
+  - 'https://github.com/bishoysefin'
+  - 'https://github.com/amandahuarng'
+  - 'https://github.com/nimithajalal'
+  - 'https://github.com/hollyschinsky'
 hideBreadcrumbNav: true
+og:
+  title: Style Presets - Adobe Firefly APIs
+  description: A guide to using style presets with the Firefly Image Model APIs.
+twitter:
+  card: summary
+  title: Style Presets - Adobe Firefly APIs
+  description: A guide to using style presets with the Firefly Image Model APIs.
 ---
 
 # Style Presets

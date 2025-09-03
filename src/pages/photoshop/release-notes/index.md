@@ -1,8 +1,28 @@
 ---
-title: Release Notes
-description: Page for Release Notes
+title: Release Notes - Photoshop API
+description: Page for Release Notes for Photoshop image editing and automation.
 contributors:
-  - https://github.com/khound
+  - 'https://github.com/khound'
+keywords:
+  - Adobe Photoshop API
+  - image editing API
+  - image automation
+  - Remove Background API
+  - image processing
+  - AI image editing
+  - REST API
+  - AI-powered
+  - batch processing
+  - background removal
+  - automatic masking
+  - transparent backgrounds
+og:
+  title: Release Notes - Photoshop API
+  description: Page for Release Notes for Photoshop image editing and automation.
+twitter:
+  card: summary
+  title: Release Notes - Photoshop API
+  description: Page for Release Notes for Photoshop image editing and automation.
 ---
 
 ## Release Notes

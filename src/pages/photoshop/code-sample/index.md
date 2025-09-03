@@ -1,6 +1,26 @@
 ---
-title: Code Examples
-description: Code Examples.
+title: Code Examples - Photoshop API
+description: Code Examples. for Photoshop image editing and automation.
+keywords:
+  - Adobe Photoshop API
+  - image editing API
+  - image automation
+  - Remove Background API
+  - image processing
+  - AI image editing
+  - REST API
+  - AI-powered
+  - batch processing
+  - background removal
+  - automatic masking
+  - transparent backgrounds
+og:
+  title: Code Examples - Photoshop API
+  description: Code Examples. for Photoshop image editing and automation.
+twitter:
+  card: summary
+  title: Code Examples - Photoshop API
+  description: Code Examples. for Photoshop image editing and automation.
 ---
 # Sample Code
 

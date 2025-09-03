@@ -1,9 +1,35 @@
 ---
 title: Grant apps access to a Custom Model Guide
-description: Learn how to share your custom model with your technical account's API key so they are available to use with the endpoint.
+description: >-
+  Learn how to share your custom model with your technical account's API key so
+  they are available to use with the endpoint.
 contributors:
-  - https://github.com/aeabreu-hub
+  - 'https://github.com/aeabreu-hub'
 hideBreadcrumbNav: true
+keywords:
+  - Adobe Firefly API
+  - generative AI
+  - AI image generation
+  - text-to-image
+  - image generation
+  - creative AI
+  - REST API
+  - AI models
+  - generative content
+  - AI art generation
+  - creative automation
+  - content creation
+og:
+  title: Grant apps access to a Custom Model Guide
+  description: >-
+    Learn how to share your custom model with your technical account's API key
+    so they are available to use with the endpoint.
+twitter:
+  card: summary
+  title: Grant apps access to a Custom Model Guide
+  description: >-
+    Learn how to share your custom model with your technical account's API key
+    so they are available to use with the endpoint.
 ---
 
 # Grant Applications Access to Your Custom Model Guide

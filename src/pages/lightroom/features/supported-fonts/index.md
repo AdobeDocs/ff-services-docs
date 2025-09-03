@@ -1,6 +1,26 @@
 ---
 title: Fonts in Photoshop Service
 description: Learn about the available fonts in Photoshop Service.
+keywords:
+  - Adobe Lightroom API
+  - photo editing API
+  - image enhancement
+  - preset application
+  - photo processing
+  - image optimization
+  - REST API
+  - batch editing
+  - cloud processing
+  - photo automation
+  - bulk editing
+  - preset management
+og:
+  title: Fonts in Photoshop Service
+  description: Learn about the available fonts in Photoshop Service.
+twitter:
+  card: summary
+  title: Fonts in Photoshop Service
+  description: Learn about the available fonts in Photoshop Service.
 ---
 
 ## Photoshop API Supported Fonts

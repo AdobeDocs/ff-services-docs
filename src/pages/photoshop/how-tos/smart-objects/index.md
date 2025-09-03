@@ -2,12 +2,31 @@
 title: Adobe Photoshop API and SmartObjects
 description: Learn about using SmartObjects with the Photoshop API.
 keywords:
+  - Adobe Photoshop API
+  - image editing API
+  - image automation
+  - Remove Background API
+  - image processing
+  - AI image editing
+  - REST API
+  - AI-powered
+  - batch processing
+  - background removal
+  - automatic masking
+  - transparent backgrounds
   - Adobe Photoshop API uses cases
   - Smart Objects
 contributors:
-  - https://github.com/archyposada
-  - https://github.com/sushiriot
+  - 'https://github.com/archyposada'
+  - 'https://github.com/sushiriot'
 hideBreadcrumbNav: true
+og:
+  title: Adobe Photoshop API and SmartObjects
+  description: Learn about using SmartObjects with the Photoshop API.
+twitter:
+  card: summary
+  title: Adobe Photoshop API and SmartObjects
+  description: Learn about using SmartObjects with the Photoshop API.
 ---
 
 # Smart Objects

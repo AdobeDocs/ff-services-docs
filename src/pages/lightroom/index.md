@@ -19,9 +19,16 @@ keywords:
   - Getting started with Lightroom API
   - Lightroom API reference
 contributors:
-  - https://github.com/khound
-  - https://github.com/archyposada
+  - 'https://github.com/khound'
+  - 'https://github.com/archyposada'
 hideBreadcrumbNav: true
+og:
+  title: Adobe Lightroom API Overview
+  description: This is the overview page of Adobe Lightroom API
+twitter:
+  card: summary
+  title: Adobe Lightroom API Overview
+  description: This is the overview page of Adobe Lightroom API
 ---
 
 <Hero slots="image, heading, text" background="rgb(64, 34, 138)"/>

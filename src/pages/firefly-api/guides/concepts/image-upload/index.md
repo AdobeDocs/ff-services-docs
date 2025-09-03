@@ -1,6 +1,8 @@
 ---
 title: Image Upload for Adobe Firefly APIs
-description: Learn how to upload and use images with Adobe Firefly APIs, including using the Upload Endpoint and pre-signed URLs.
+description: >-
+  Learn how to upload and use images with Adobe Firefly APIs, including using
+  the Upload Endpoint and pre-signed URLs.
 keywords:
   - Adobe Firefly APIs
   - Image Upload
@@ -26,8 +28,19 @@ keywords:
   - Developer Documentation
   - Best Practices
 contributors:
-  - https://github.com/bishoysefin
+  - 'https://github.com/bishoysefin'
 hideBreadcrumbNav: true
+og:
+  title: Image Upload for Adobe Firefly APIs
+  description: >-
+    Learn how to upload and use images with Adobe Firefly APIs, including using
+    the Upload Endpoint and pre-signed URLs.
+twitter:
+  card: summary
+  title: Image Upload for Adobe Firefly APIs
+  description: >-
+    Learn how to upload and use images with Adobe Firefly APIs, including using
+    the Upload Endpoint and pre-signed URLs.
 ---
 
 # Image Upload

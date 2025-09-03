@@ -1,10 +1,35 @@
 ---
 title: Custom Models Generate Image API Tutorial
-description: Learn how to list your custom models and then generate images using a selected custom model with the Firefly Generate Image API.
+description: >-
+  Learn how to list your custom models and then generate images using a selected
+  custom model with the Firefly Generate Image API.
 keywords:
+  - Adobe Firefly API
+  - generative AI
+  - AI image generation
+  - text-to-image
+  - image generation
+  - creative AI
+  - REST API
+  - AI models
+  - generative content
+  - AI art generation
+  - creative automation
+  - content creation
 contributors:
-  - https://github.com/bishoysefin
+  - 'https://github.com/bishoysefin'
 hideBreadcrumbNav: true
+og:
+  title: Custom Models Generate Image API Tutorial
+  description: >-
+    Learn how to list your custom models and then generate images using a
+    selected custom model with the Firefly Generate Image API.
+twitter:
+  card: summary
+  title: Custom Models Generate Image API Tutorial
+  description: >-
+    Learn how to list your custom models and then generate images using a
+    selected custom model with the Firefly Generate Image API.
 ---
 
 # Custom Models Generate Image API Tutorial

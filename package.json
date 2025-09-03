@@ -17,6 +17,7 @@
     "cis-photoshop-api": "github:adobedocs/cis-photoshop-api-docs#sudipta/summitPS",
     "firefly-api-docs": "github:adobedocs/firefly-api-docs",
     "gatsby": "4.22.0",
+    "gray-matter": "^4.0.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
@@ -39,7 +40,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test:links": "remark src/pages --quiet --frail",
-    "lint": "docker run --rm -e RUN_LOCAL=true --env-file '.github/super-linter.env' -v \"$PWD\":/tmp/lint github/super-linter:slim-v4.10.1"
+    "lint": "docker run --rm -e RUN_LOCAL=true --env-file '.github/super-linter.env' -v \"$PWD\":/tmp/lint github/super-linter:slim-v4.10.1",
+    "enhance-seo": "node scripts/enhance-seo.js"
   },
   "remarkConfig": {
     "plugins": [

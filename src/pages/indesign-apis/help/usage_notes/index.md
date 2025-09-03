@@ -1,13 +1,36 @@
 ---
-title: InDesign Technical Usage Notes
-description: A page with usage notes information about support, known limitations, and troubleshooting for InDesign APIs.
-hideBreadcrumbNav: true
+title: InDesign API Technical Usage Notes & Best Practices
+description: >-
+  Comprehensive guide to InDesign API limitations, rate limits, file sizes,
+  storage types, and troubleshooting. Learn best practices for InDesign
+  automation.
 keywords:
   - InDesign API
-  - technical notes
-  - usage guidelines
+  - Adobe InDesign API
+  - InDesign automation
+  - API rate limits
+  - file size limits
+  - storage types
   - troubleshooting
-  - limitations
+  - best practices
+  - technical documentation
+  - REST API
+  - cloud services
+  - document processing
+hideBreadcrumbNav: true
+og:
+  title: InDesign API Technical Usage Notes & Best Practices
+  description: >-
+    Comprehensive guide to InDesign API limitations, rate limits, file sizes,
+    storage types, and troubleshooting. Learn best practices for InDesign
+    automation.
+twitter:
+  card: summary
+  title: InDesign API Technical Usage Notes & Best Practices
+  description: >-
+    Comprehensive guide to InDesign API limitations, rate limits, file sizes,
+    storage types, and troubleshooting. Learn best practices for InDesign
+    automation.
 ---
 
 # Technical usage notes

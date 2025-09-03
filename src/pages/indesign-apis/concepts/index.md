@@ -1,6 +1,28 @@
 ---
 title: Adobe InDesign API Key Concepts
 description: Learn important concepts for using InDesign APIs.
+keywords:
+  - Adobe InDesign API
+  - InDesign automation
+  - document processing
+  - Data Merge API
+  - Rendition API
+  - Custom Scripts API
+  - Remap Links API
+  - REST API
+  - cloud services
+  - enterprise solutions
+  - design automation
+  - creative automation
+  - content delivery
+  - batch processing
+og:
+  title: Adobe InDesign API Key Concepts
+  description: Learn important concepts for using InDesign APIs.
+twitter:
+  card: summary
+  title: Adobe InDesign API Key Concepts
+  description: Learn important concepts for using InDesign APIs.
 ---
 
 # InDesign API Key Concepts

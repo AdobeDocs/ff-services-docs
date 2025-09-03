@@ -1,6 +1,34 @@
 ---
 title: Working with the Custom Scripts API
-description: Quickstart cURL commands to use the Custom Scripts API for running custom scripts on InDesign documents.
+description: >-
+  Quickstart cURL commands to use the Custom Scripts API for running custom
+  scripts on InDesign documents.
+keywords:
+  - Adobe InDesign API
+  - InDesign automation
+  - document processing
+  - Data Merge API
+  - Rendition API
+  - Custom Scripts API
+  - Remap Links API
+  - REST API
+  - cloud services
+  - enterprise solutions
+  - design automation
+  - creative automation
+  - content delivery
+  - batch processing
+og:
+  title: Working with the Custom Scripts API
+  description: >-
+    Quickstart cURL commands to use the Custom Scripts API for running custom
+    scripts on InDesign documents.
+twitter:
+  card: summary
+  title: Working with the Custom Scripts API
+  description: >-
+    Quickstart cURL commands to use the Custom Scripts API for running custom
+    scripts on InDesign documents.
 ---
 
 # Working with the Custom Scripts API

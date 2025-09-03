@@ -11,16 +11,23 @@ keywords:
   - Photoshop API SDK
   - Photoshop Node.js SDK
   - Photoshop API tutorials
-  - Photoshop API How-to guides  
+  - Photoshop API How-to guides
   - Photoshop API code sample
   - Photoshop API Tutorials
   - Photoshop API Developer documentation
   - Getting started with Photoshop API
   - Photoshop API reference
 contributors:
-  - https://github.com/khound
-  - https://github.com/archyposada
+  - 'https://github.com/khound'
+  - 'https://github.com/archyposada'
 hideBreadcrumbNav: true
+og:
+  title: Adobe Photoshop API Overview
+  description: This is the overview page of Adobe Photoshop API
+twitter:
+  card: summary
+  title: Adobe Photoshop API Overview
+  description: This is the overview page of Adobe Photoshop API
 ---
 
 <Hero slots="image, heading, text" background="rgb(64, 34, 138)"/>

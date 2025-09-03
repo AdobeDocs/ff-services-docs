@@ -23,10 +23,17 @@ keywords:
   - API endpoints
   - Authentication and authorization
 contributors:
-  - https://github.com/amandahuarng
-  - https://github.com/nimithajalal
-  - https://github.com/hollyschinsky
+  - 'https://github.com/amandahuarng'
+  - 'https://github.com/nimithajalal'
+  - 'https://github.com/hollyschinsky'
 hideBreadcrumbNav: true
+og:
+  title: Changelog - Adobe Firefly API
+  description: This is the changelog for Adobe Firefly API
+twitter:
+  card: summary
+  title: Changelog - Adobe Firefly API
+  description: This is the changelog for Adobe Firefly API
 ---
 <!-- TODO: Update with latest prod details, elaborate on API descriptions -->
 # Changelog
