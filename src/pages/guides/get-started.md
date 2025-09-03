@@ -183,7 +183,7 @@ Explore our Firefly Services SDK.
 
 <DiscoverBlock slots="link, text"/>
 
-[Photoshop API](../photoshop/)
+[Photoshop API](https://developer.adobe.com/firefly-services/docs/photoshop/api/?aio_internal)
 
 Unlock the potential of Photoshop API.
 

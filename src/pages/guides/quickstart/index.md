@@ -162,7 +162,7 @@ export FIREFLY_SERVICES_ACCESS_TOKEN=yourAccessTokenAsdf123
 
 ## Remove Background - Photoshop API
 
-Next, call the [Photoshop Remove Background API](../../photoshop/api/photoshop_removeBackground.md):
+Next, call the [Photoshop Remove Background API](https://developer.adobe.com/firefly-services/docs/photoshop/api/?aio_internal):
 
 <CodeBlock slots="heading, code" repeat="3" languages="bash, Python, JavaScript" />
 
@@ -269,7 +269,7 @@ The response will look like this:
 }
 ```
 
-Wait for a success status of this job. A sample of this is provided in the [Photoshop Quickstart Guide](../../photoshop/quickstart/index.md#get-status---mask).
+Wait for a success status of this job.
 
 ## Generate Object Composite - Firefly API
 

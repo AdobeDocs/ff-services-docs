@@ -87,7 +87,7 @@ Save all four of the images below, two source images and two mask images, as PNG
 
 <InlineAlert variant="info" slots="text" />
 
-In your own applications, use [Photoshop Create Mask API](https://developer.adobe.com/firefly-services/docs/photoshop/api/photoshop_createMask/) to automate the creation of masks for your own images.
+In your own applications, use [Photoshop Create Mask API](https://developer.adobe.com/firefly-services/docs/photoshop/api/?aio_internal) to automate the creation of masks for your own images.
 
 ## Step 1 - Upload the images
 
