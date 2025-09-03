@@ -77,7 +77,7 @@ Integrate generative AI into your creative workflows.
 
 <DiscoverBlock slots="link, text"/>
 
-[Photoshop API](../photoshop/api/photoshop_actionJSON.md)
+[Photoshop API](https://developer.adobe.com/firefly-services/docs/photoshop/api/?aio_internal)
 
 Unlock the potential of Photoshop in the cloud.
 

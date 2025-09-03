@@ -272,7 +272,7 @@ for product in products:
 
 For each product, we upload and create a link. As these methods just wrap calls to the Dropbox SDK we'll skip showing them here, but they are available in the full code below. Notice however we're storing the products in an `input` folder (beneath our base folder). To create the version without the background, we create a writeable link to the `knockout` folder.
 
-Now that we have our product in the cloud storage, a link to that product, and a way to write the output, we can call the Photoshop [Remove Background API](../../photoshop/api/photoshop_removeBackground.md). This is done in a utility method that accepts both links and credential information:
+Now that we have our product in the cloud storage, a link to that product, and a way to write the output, we can call the Photoshop [Remove Background API](https://developer.adobe.com/firefly-services/docs/photoshop/api/?aio_internal). This is done in a utility method that accepts both links and credential information:
 
 ```python
 def createRemoveBackgroundJob(input, output, id, token):
@@ -551,7 +551,7 @@ def createOutput(psd, koProduct, sizes, sizeUrls, outputs, text, id, token):
   return response.json()
 ```
 
-This is a reasonably hefty method. As a whole, this code wraps calls to the [Apply PSD Edits](../../photoshop/api/photoshop_applyPsdEdits.md) Photoshop API.
+This is a reasonably hefty method. As a whole, this code wraps calls to the [Apply PSD Edits](https://developer.adobe.com/firefly-services/docs/photoshop/api/?aio_internal) Photoshop API.
 
 It creates a reasonably large JSON object that includes information on the new images for backgrounds and products.
 

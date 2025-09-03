@@ -14,7 +14,6 @@
   "dependencies": {
     "@adobe/gatsby-theme-aio": "^4.15.3",
     "cis-lightroom-api": "github:adobedocs/cis-photoshop-api-docs#lr_docs",
-    "cis-photoshop-api": "github:adobedocs/cis-photoshop-api-docs#sudipta/summitPS",
     "firefly-api-docs": "github:adobedocs/firefly-api-docs",
     "gatsby": "4.22.0",
     "gray-matter": "^4.0.3",
@@ -31,9 +30,8 @@
     "dev": "NODE_OPTIONS=\"--max-old-space-size=12288 --expose-gc\" gatsby develop",
     "dev:https": "gatsby develop --https --host localhost.corp.adobe.com --port 9000",
     "_copy_firefly_docs": "rm -rf src/pages/firefly-api && cp -r node_modules/firefly-api-docs/src/pages src/pages/firefly-api && cp -r node_modules/firefly-api-docs/static/. ./static/",
-    "_copy_cis_photoshop_docs": "rm -rf src/pages/photoshop && cp -r node_modules/cis-photoshop-api/src/pages src/pages/photoshop && cp -r node_modules/cis-photoshop-api/static/. ./static/",
     "_copy_cis_lightroom_docs": "rm -rf src/pages/lightroom && cp -r node_modules/cis-lightroom-api/src/pages src/pages/lightroom && cp -r node_modules/cis-lightroom-api/static/. ./static/",
-    "_copy_docs": "npm run _copy_cis_photoshop_docs && npm run _copy_cis_lightroom_docs && npm run _copy_firefly_docs",
+    "_copy_docs": "npm run _copy_cis_lightroom_docs && npm run _copy_firefly_docs",
     "prepare-docs": "npm run _copy_docs",
     "prebuild": "npm run prepare-docs",
     "build": "gatsby build",
