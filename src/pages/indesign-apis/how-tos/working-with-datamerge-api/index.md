@@ -77,7 +77,27 @@ curl --location --request POST 'https://indesign.adobe.io/v3/merge-data' \
     "outputMediaType": "application/x-indesign",
     "outputFolderPath": {OUTPUT_FOLDER_PATH},
     "outputFileBaseString": "merged",
-    "dataSource": "Directory_Names.csv"
+    "dataSource": "Directory_Names.csv",
+    "hyphenationSettings": {
+      "afterFirst": 3,
+      "beforeLast": 3,
+      "wordsLongerThan": 6,
+      "ladderLimit": 2,
+      "zone": 0.15,
+      "capitalizedWords": false,
+      "lastWord": true,
+      "acrossColumns": false,
+      "dictionarySettings": [
+        {
+          "language": "English: USA",
+          "wordList": ["~word1", "ex~word2"]
+        },
+        {
+          "language": "English: UK",
+          "wordList": ["~word3", "~word4"]
+        }
+      ]
+    }
   },
   "outputs": [
     {

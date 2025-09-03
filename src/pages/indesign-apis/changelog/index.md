@@ -39,6 +39,14 @@ twitter:
 
 This page contains the release notes and version history for Adobe InDesign APIs. Stay updated with the latest features, improvements, and bug fixes.
 
+## September 3, 2025
+
+### Enhancements
+
+*Data Merge API*
+
+- Now manage hyphenation in merged documents with `hyphenationSettings`. Also, manage exclusion lists and fix break location using `dictionarySettings`. Details are available in [the Data Merge API documentation][4] and [How-to example.][5]
+
 ## August 4, 2025
 
 ### New features
@@ -66,3 +74,5 @@ This page contains the release notes and version history for Adobe InDesign APIs
 [1]: ../api/remaplinks.md
 [2]: ../api/scripts.md
 [3]: ../help/usage_notes/index.md#user-data-handling
+[4]: ../api/datamerge.md
+[5]: ../how-tos/working-with-datamerge-api/index.md

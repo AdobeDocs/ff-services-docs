@@ -328,6 +328,80 @@ Or, if the fonts are kept in some other folder (for example, `fontFolder`), plea
 
 When font directories are added, don't use them with InDesign documents because opening these files will create additional lock files and trigger recalculation of the font resources.
 
+## Pagination
+
+Some list-style responses support pagination using the `page` and `size` query parameters. When multiple pages are available, the response includes a `paging` object with navigation URLs.
+
+For example in case number of outputs is greater than 10 in case of status api execution, the response looks like this, including the pagination block :
+
+```json
+{
+	"jobId": "b50a4f99-4e80-4194-ac2a-043aaddae4ad",
+	"timestamp": "2025-08-29T16:31:27.741Z",
+	"status": "succeeded",
+	"data": {
+		"outputs": [
+			{
+				"renditions": [
+					{
+						"pageIndex": 1,
+						"path": [
+							"test/test.jpg"
+						]
+					},
+					{
+						"pageIndex": 2,
+						"path": [
+							"test/test2.jpg"
+						]
+					},
+					.
+                    .
+                    .
+					{
+						"pageIndex": 16,
+						"path": [
+							"test/test16.jpg"
+						]
+					}
+				],
+				"input": "test_16Pages.indd",
+			}
+		]
+	},
+	"outputs": [
+		{
+			"destination": {
+				"url": "<presignedURL>"
+			},
+			"source": "test\\test1.jpg"
+		},
+		{
+			"destination": {
+				"url": "<presignedURL>"
+			},
+			"source": "test\\test2.jpg"
+		},
+		.
+        .
+        .
+		{
+			"destination": {
+				"url": "<presignedURL>"
+			},
+			"source": "test\\test10.jpg"
+		}
+	],
+	"paging": {
+		"nextUrl": "https://indesign-stage.adobe.io/v3/status/b50a4f99-4e80-4194-ac2a-043aaddae4ad?size=10&page=1"
+	}
+}
+```
+
+- **prevUrl**: Present when a previous page exists.
+- **nextUrl**: Present when a next page exists.
+- If a direction is not applicable, its URL is omitted from the response.
+
 ## Using webhooks
 
 InDesign APIs events provide job processing details similar to
