@@ -582,54 +582,6 @@ module.exports = {
         ]
       },
       ///////////////////////////////////////////////
-// Audio/Video API-specific left side nav  
-///////////////////////////////////////////////
-{
-  title: "Overview",
-  path: "/audio-video-api/",
-},
-{
-  title: "Getting Started",
-  path: "/audio-video-api/getting_started/",
-  pages: [
-    {
-      title: "Authentication",
-      path: "/audio-video-api/getting_started/index.md",
-    },
-    {
-      title: "Storage Solutions", 
-      path: "/audio-video-api/getting_started/storage_solutions.md",
-    },
-    {
-      title: "Technical Usage Notes",
-      path: "/audio-video-api/getting_started/usage.md", 
-    }
-  ]
-},
-{
-  title: "Quickstart",
-  path: "/audio-video-api/guides/",
-},
-{
-  title: "API Reference",
-  path: "/audio-video-api/api/reframe.md",
-},
-      // END PS API left nav
-      /////////////////////////////////////////////////////
-      // TODO: Revisit including a file but one that's flattened, these roll to the API overview root
-      // menu
-      // {
-      //   title: 'Firefly API Overview',
-      //   path: '/firefly-api/',
-      //   pages: require("./reference-firefly.js"),
-      // },
-      //
-      // {
-      //   title: 'Photoshop API Overview',
-      //   path: '/photoshop/',
-      //   pages: require("./reference-photoshop.js"),
-      // },
-      /////////////////////////////////////////////////////
     ],
   },
   plugins: [`@adobe/gatsby-theme-aio`],
