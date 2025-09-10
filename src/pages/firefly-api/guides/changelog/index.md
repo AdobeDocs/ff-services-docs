@@ -38,6 +38,15 @@ twitter:
 <!-- TODO: Update with latest prod details, elaborate on API descriptions -->
 # Changelog
 
+## September 10, 2025
+
+**API updates**
+
+* **Removed deprecated APIs**: The following APIs are no longer available:
+  * Generate Images V2 API
+  * Expand Image V1 API
+  * Fill Image V1 API
+
 ## June 19, 2025
 
 **API updates**
@@ -114,7 +123,7 @@ New guides:
 
 ### Added
 
-Firefly [Generate Images API](../api/image_generation/V2/) now accepts `url` as source for `referenceImage`. Only allow listed domains are allowed to be accepted as input `url` in the request.
+Firefly Generate Images API now accepts `url` as source for `referenceImage`. Only allow listed domains are allowed to be accepted as input `url` in the request.
 
 The allow-listed domains are as follows:
 

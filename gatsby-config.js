@@ -205,11 +205,6 @@ module.exports = {
                 title: "V3 (deprecated)",
                 path: "/firefly-api/guides/api/image_generation/V3/",
               },
-
-              {
-                title: "V2 (deprecated)",
-                path: "/firefly-api/guides/api/image_generation/V2/",
-              },
             ],
           },
           {
@@ -240,7 +235,6 @@ module.exports = {
               },
             ],
           },
-
           {
             title: "Expand Image",
             path: "/firefly-api/guides/api/generative_expand/V3/",
@@ -252,10 +246,6 @@ module.exports = {
               {
                 title: "V3 (deprecated)",
                 path: "/firefly-api/guides/api/generative_expand/V3/",
-              },
-              {
-                title: "V1 (deprecated)",
-                path: "/firefly-api/guides/api/generative_expand/V1/",
               },
             ],
           },
@@ -270,10 +260,6 @@ module.exports = {
               {
                 title: "V3 (deprecated)",
                 path: "/firefly-api/guides/api/generative_fill/V3/",
-              },
-              {
-                title: "V1 (deprecated)",
-                path: "/firefly-api/guides/api/generative_fill/V1/",
               },
             ],
           },
@@ -322,135 +308,6 @@ module.exports = {
         ],
       },
       // END Firefly API left nav
-      ///////////////////////////////////////////////
-      // Photoshop API-specific left side nav
-      ///////////////////////////////////////////////
-      {
-        title: "Overview",
-        path: "/photoshop/",
-      },
-      {
-      title: 'Quickstart',
-      path: '/photoshop/quickstart/'
-      },
-      {
-        title: "Key Concepts",
-        path: "/photoshop/concepts/",
-      },
-      {
-        title: "How-Tos",
-        path: "/photoshop/how-tos/photoshop-actions/",
-        pages: [
-          {
-            title: "Photoshop Actions",
-            path: "/photoshop/how-tos/photoshop-actions/",
-          },
-          {
-            title: "Smart Objects",
-            path: "/photoshop/how-tos/smart-objects/",
-          },
-          {
-            title: "Text",
-            path: "/photoshop/how-tos/text/",
-          },
-        ],
-      },
-      {
-        title: "Features",
-        path: "/photoshop/features/",
-      },
-      {
-        title: "General Workflow",
-        path: "/photoshop/general-workflow/",
-      },
-      {
-        title: "Code Samples",
-        path: "/photoshop/code-sample/",
-      },
-      {
-        title: "API Reference",
-        path: "/photoshop/api/photoshop_actions.md",
-        pages: [
-          {
-            title: "Actions",
-            path: "/photoshop/api/photoshop_actions.md",
-          },
-          {
-            title: "Action JSON",
-            path: "/photoshop/api/photoshop_actionJSON.md",
-          },
-          {
-            title: "Apply PSD Edits",
-            path: "/photoshop/api/photoshop_applyPsdEdits.md",
-          },
-          {
-            title: "Create Action JSON",
-            path: "/photoshop/api/photoshop_createActionJson.md",
-          },
-          {
-            title: "Create Artboard",
-            path: "/photoshop/api/photoshop_createArtboard.md",
-          },
-          {
-            title: "Create Mask",
-            path: "/photoshop/api/photoshop_createMask.md",
-          },
-          {
-            title: "Create PSD",
-            path: "/photoshop/api/photoshop_createPsd.md",
-          },
-          {
-            title: "Create Rendition",
-            path: "/photoshop/api/photoshop_createRendition.md",
-          },
-          {
-            title: "Depth Blur",
-            path: "/photoshop/api/photoshop_depthBlur.md",
-          },
-          {
-            title: "Edit Text",
-            path: "/photoshop/api/photoshop_editText.md",
-          },
-          {
-            title: "Get Manifest",
-            path: "/photoshop/api/photoshop_getManifest.md",
-          },
-          {
-            title: "Product Crop",
-            path: "/photoshop/api/photoshop_productCrop.md",
-          },
-          {
-            title: "Remove Background",
-            path: "/photoshop/api/photoshop_removeBackgroundV2.md",
-            pages: [
-              {
-                title: "V1",
-                path: "/photoshop/api/photoshop_removeBackground.md",
-              },
-              {
-                title: "V2 (beta)",
-                path: "/photoshop/api/photoshop_removeBackgroundV2.md",
-              },
-            ],
-          },
-          {
-            title: "Replace Smart Object",
-            path: "/photoshop/api/photoshop_replaceSmartObject.md",
-          },
-          {
-            title: "Get Status - Manifest",
-            path: "/photoshop/api/photoshop_status_manifest.md",
-          },
-          {
-            title: "Get Status - Mask",
-            path: "/photoshop/api/photoshop_status_mask.md",
-          },
-          {
-            title: "Get Status",
-            path: "/photoshop/api/photoshop_status.md",
-          },
-        ],
-      },
       ///////////////////////////////////////////////
       // Lightroom API-specific left side nav
       ///////////////////////////////////////////////
