@@ -43,9 +43,9 @@ twitter:
 **API updates**
 
 * **Removed deprecated APIs**: The following APIs are no longer available:
-  * [Generate Images API](../api/image_generation/V2/)
-  * [Expand Image API](../api/generative_expand/V1/)
-  * [Fill Image API](../api/generative_fill/V1/)
+  * Generate Images V2 API
+  * Expand Image V1 API
+  * Fill Image V1 API
 
 ## June 19, 2025
 
