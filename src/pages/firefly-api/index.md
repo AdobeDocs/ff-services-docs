@@ -58,13 +58,13 @@ When generating content with the Adobe Firefly API, your output may be eligible 
 
 This documentation provides instructions for the Adobe Firefly API. Firefly is the natural extension of the technology Adobe has produced over the past 40 years, driven by the belief that people should be empowered to bring their ideas into the world precisely as they imagine them. Note that Firefly API is under limited availability. Contact your Adobe representative to get access to the API.
 
-Describe your creative vision in your own words and we will bring it to life, saving you time and effort. With Firefly, you can ideate, create, and communicate while significantly improving creative workflows using generative AI. You might have already tried out the Firefly web app, along with features powered by Firefly in Adobe’s flagship apps and Adobe Stock. And now it is available to you as an API. Integrate them with your workflow as it suits your needs.
+Describe your creative vision in your own words and we will bring it to life, saving you time and effort. With Firefly, you can ideate, create, and communicate while significantly improving creative workflows using generative AI. You might have already tried out the Firefly web app, along with features powered by Firefly in Adobe's flagship apps and Adobe Stock. And now it is available to you as an API. Integrate them with your workflow as it suits your needs.
 
-See Firefly APIs in action in the following tutorials:
+See Firefly APIs in action in these tutorials:
 
-- [Create personalized marketing assets](./guides/how-tos/firefly-generate-image-api-tutorial.md) with the [Firefly Generate Image API](./guides/api/image_generation/V3/index.md).
-- [Expand an image to optimal aspect ratios for different social media platform](./guides/how-tos/firefly-expand-image-api-tutorial.md) with the [Firefly Expand Image API](./guides/api/generative_expand/V3/index.md).
-- [Generate custom backgrounds](./guides/how-tos/firefly-fill-image-api-tutorial.md) with the [Firefly Generative Fill API](./guides/api/generative_fill/V3/index.md).
+- [Create personalized marketing assets](./guides/how-tos/firefly-generate-image-api-tutorial.md).
+- [Expand an image to optimal aspect ratios for different social media platform](./guides/how-tos/firefly-expand-image-api-tutorial.md).
+- [Generate custom backgrounds](./guides/how-tos/firefly-fill-image-api-tutorial.md).
 
 ## Discover
 
@@ -80,7 +80,7 @@ A quickstart guide to making your first successful Firefly API call.
 
 <!-- ### API References -->
 
-[Try the API](guides/api/image_generation/V3/)
+[Try the API](guides/api/image_generation/V3_Async/)
 
 Try the Adobe Firefly API. Explore, make calls, with full endpoint descriptions.
 
