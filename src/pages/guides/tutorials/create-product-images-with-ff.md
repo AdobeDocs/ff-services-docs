@@ -381,7 +381,7 @@ def textToImage(text, imageId, id, token):
   return response.json()["outputs"][0]["image"]["url"]
 ```
 
-This method is passed two main arguments (ignoring the credentials) - `text` and `imageId`, representing our prompt and reference image. You can see in `data` where these values are passed in. Finally, this is passed to the Firefly [Generate Images API](../../firefly-api/guides/api/image_generation/V3/) API endpoint. The result, in this case the URL of the image, is returned.
+This method is passed two main arguments (ignoring the credentials) - `text` and `imageId`, representing our prompt and reference image. You can see in `data` where these values are passed in. Finally, this is passed to the Firefly [Generate Images API](../../firefly-api/guides/api/image_generation/V3_Async/) API endpoint. The result, in this case the URL of the image, is returned.
 
 ### Expand images to desired sizes
 
@@ -437,7 +437,7 @@ def generativeExpand(imageUrl, size, id, token):
   return response.json()["outputs"][0]["image"]["url"]
 ```
 
-This method wraps the [Generative Expand API](../../firefly-api/guides/api/generative_expand/V3/). It needs both the image resource to expand (which we got from the initial Generate Image API prompt) and the desired size. In this case, we need a link to the result so the URL is returned.
+This method wraps the [Generative Expand API](../../firefly-api/guides/api/generative_expand/V3_Async/). It needs both the image resource to expand (which we got from the initial Generate Image API prompt) and the desired size. In this case, we need a link to the result so the URL is returned.
 As an example, given the prompt "placed on a futuristic table, blue orange and neon cyberpunk backgrounds, gradients, blurry background out of focus", the original Firefly generated image was expanded for all four sizes. Here are two examples:
 
 ![One example of the expanded image](../images/expand1.png)
