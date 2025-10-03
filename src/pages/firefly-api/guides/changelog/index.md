@@ -42,7 +42,7 @@ twitter:
 
 **API updates**
 
-* **Removed deprecated non-synchronous API references** The following non-synchronous APIs have been removed. Please use the async versions of these APIs instead:
+* **Removed deprecated non-synchronous API references** The following non-synchronous APIs are removed. Please use the async versions of these APIs instead:
   * Generate Images v3
   * Generate Similar Images v3
   * Generate Object Composite v3
@@ -54,9 +54,9 @@ twitter:
 **API updates**
 
 * **Removed deprecated APIs**: The following APIs are no longer available:
-  * Generate Images V2 API
-  * Expand Image V1 API
-  * Fill Image V1 API
+  * Generate Images v2 API
+  * Expand Image v1 API
+  * Fill Image v1 API
 
 ## June 19, 2025
 
