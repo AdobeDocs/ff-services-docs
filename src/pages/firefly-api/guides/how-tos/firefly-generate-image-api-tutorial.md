@@ -68,7 +68,7 @@ twitter:
 
 # Firefly Generate Image API Tutorial
 
-Create custom illustrations and photos with the [Generate Image API](../api/image_generation/V3/index.md)
+Create custom illustrations and photos with the [Generate Image API](../api/image_generation/V3_Async/index.md)
 
 ![paris tourism illustration](../images/gen-image-tutorial-hero.jpeg)
 
@@ -290,4 +290,4 @@ We wrote this tutorial in CommmonJS in order to make it easy to get up and runni
 
 ## Deepen Your Understanding
 
-Now that you have a working implementation of the Generate Image API, visit its [reference documentation](../api/image_generation/V3) to explore more advanced use cases for automating your workflows.
+Now that you have a working implementation of the Generate Image API, visit its [reference documentation](../api/image_generation/V3_Async/) to explore more advanced use cases for automating your workflows.
