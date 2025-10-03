@@ -187,7 +187,7 @@ module.exports = {
       },
       {
         title: "API Reference",
-        path: "/firefly-api/guides/api/image_generation/V3/",
+        path: "/firefly-api/guides/api/image_generation/V3_Async/",
         pages: [
           {
             title: "List Custom Models",
@@ -195,93 +195,31 @@ module.exports = {
           },
           {
             title: "Generate Images",
-            path: "/firefly-api/guides/api/image_generation/V3/",
-            pages: [
-              {
-                title: "V3 async",
-                path: "/firefly-api/guides/api/image_generation/V3_Async/",
-              },
-              {
-                title: "V3 (deprecated)",
-                path: "/firefly-api/guides/api/image_generation/V3/",
-              },
-            ],
+            path: "/firefly-api/guides/api/image_generation/V3_Async/",
           },
           {
             title: "Generate Similar Images",
-            path: "/firefly-api/guides/api/generate-similar/V3/",
-            pages: [
-              {
-                title: "V3 async",
-                path: "/firefly-api/guides/api/generate-similar/V3_Async/",
-              },
-              {
-                title: "V3 (deprecated)",
-                path: "/firefly-api/guides/api/generate-similar/V3/",
-              },
-            ],
+            path: "/firefly-api/guides/api/generate-similar/V3_Async/",
           },
           {
             title: "Generate Object Composite",
-            path: "/firefly-api/guides/api/generate-object-composite/V3/",
-            pages: [
-              {
-                title: "V3 async",
-                path: "/firefly-api/guides/api/generate-object-composite/V3_Async/",
-              },
-              {
-                title: "V3 (deprecated)",
-                path: "/firefly-api/guides/api/generate-object-composite/V3/",
-              },
-            ],
+            path: "/firefly-api/guides/api/generate-object-composite/V3_Async/",
           },
           {
             title: "Expand Image",
-            path: "/firefly-api/guides/api/generative_expand/V3/",
-            pages: [
-              {
-                title: "V3 async",
-                path: "/firefly-api/guides/api/generative_expand/V3_Async/",
-              },
-              {
-                title: "V3 (deprecated)",
-                path: "/firefly-api/guides/api/generative_expand/V3/",
-              },
-            ],
+            path: "/firefly-api/guides/api/generative_expand/V3_Async/",
           },
           {
             title: "Fill Image",
-            path: "/firefly-api/guides/api/generative_fill/V3/",
-            pages: [
-              {
-                title: "V3 async",
-                path: "/firefly-api/guides/api/generative_fill/V3_Async/",
-              },
-              {
-                title: "V3 (deprecated)",
-                path: "/firefly-api/guides/api/generative_fill/V3/",
-              },
-            ],
+            path: "/firefly-api/guides/api/generative_fill/V3_Async/",
           },
           {
             title: "Upload",
             path: "/firefly-api/guides/api/upload_image/V2/",
-            pages: [
-              {
-                title: "V2",
-                path: "/firefly-api/guides/api/upload_image/V2/",
-              },
-            ],
           },
           {
             title: "Generate Video",
             path: "/firefly-api/guides/api/generate_video/V3_Async/",
-            pages: [
-              {
-                title: "V3 async",
-                path: "/firefly-api/guides/api/generate_video/V3_Async/",
-              },
-            ],
           },
         ],
       },

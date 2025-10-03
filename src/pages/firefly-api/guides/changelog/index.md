@@ -38,14 +38,25 @@ twitter:
 <!-- TODO: Update with latest prod details, elaborate on API descriptions -->
 # Changelog
 
+## October 3, 2025
+
+**API updates**
+
+* **Removed deprecated non-synchronous API references** The following non-synchronous APIs are removed. Please use the async versions of these APIs instead:
+  * Generate Images v3
+  * Generate Similar Images v3
+  * Generate Object Composite v3
+  * Expand Image v3
+  * Fill Image v3
+
 ## September 10, 2025
 
 **API updates**
 
 * **Removed deprecated APIs**: The following APIs are no longer available:
-  * Generate Images V2 API
-  * Expand Image V1 API
-  * Fill Image V1 API
+  * Generate Images v2 API
+  * Expand Image v1 API
+  * Fill Image v1 API
 
 ## June 19, 2025
 
@@ -84,8 +95,8 @@ We are excited to announce that the following APIs are now generally available:
 We are excited to announce that the following APIs are now generally available and no longer only in preview:
 
 * [Generate Object Composite](../api/generate-object-composite/V3_Async/)
-* [Expand Image](../api/generative_expand/V3/)
-* [Fill Image](../api/generative_fill/V3/)
+* [Expand Image](../api/generative_expand/V3_Async/)
+* [Fill Image](../api/generative_fill/V3_Async/)
 
 ## July 23, 2024
 
@@ -93,8 +104,8 @@ We are excited to announce that the following APIs are now generally available a
 
 We are excited to announce that the following APIs are now generally available and no longer in preview:
 
-* [Generate Similar Images](../api/generate-similar/)
-* [Generate Images](../api/image_generation/V3/)
+* [Generate Similar Images](../api/generate-similar/V3_Async/)
+* [Generate Images](../api/image_generation/V3_Async/)
 
 ## June 18, 2024
 
@@ -103,11 +114,11 @@ We are excited to announce that the following APIs are now generally available a
 Firefly Image Model 3 (preview) APIs:
 
   * New API References added for the newly introduced [Generate Similar Images](../api/generate-similar/) and [Generate Object Composite](../api/generate-object-composite/) APIs.
-  * New V3 API References added for [Generate Images](../api/image_generation/V3/), [Expand Image](../api/generative_expand/V3/) and [Fill Image](../api/generative_fill/V3) with support for Firefly Image Model 3 (preview).
+  * New V3 API References added for [Generate Images](../api/image_generation/V3_Async/), [Expand Image](../api/generative_expand/V3_Async/) and [Fill Image](../api/generative_fill/V3_Async) with support for Firefly Image Model 3 (preview).
 
 Updated guides:
 
-Create your first Firefly APIs implementation guide updated to use the new V3 version of the [Generate Images API](../api/image_generation/V3/).
+Create your first Firefly APIs implementation guide updated to use the new V3 version of the [Generate Images API](../api/image_generation/V3_Async/).
 
 New guides:
 

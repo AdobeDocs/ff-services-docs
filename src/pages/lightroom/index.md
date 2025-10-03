@@ -71,7 +71,7 @@ Explore our tutorials page for comprehensive guidance.
 
 ### API References
 
-[Firefly APIs](../firefly-api/guides/api/generative_expand/V3/index.md)
+[Firefly APIs](../firefly-api/guides/api/generative_expand/V3_Async/index.md)
 
 Integrate generative AI into your creative workflows.
 
