@@ -27,7 +27,7 @@
   "scripts": {
     "start": "gatsby build && gatsby serve",
     "start:prefix": "gatsby build --prefix-paths && gatsby serve --prefix-paths",
-    "dev": "NODE_OPTIONS=\"--max-old-space-size=12288 --expose-gc\" gatsby develop",
+    "dev": "NODE_OPTIONS=\"--max-old-space-size=12288\" gatsby develop",
     "dev:https": "gatsby develop --https --host localhost.corp.adobe.com --port 9000",
     "_copy_firefly_docs": "rm -rf src/pages/firefly-api && cp -r node_modules/firefly-api-docs/src/pages src/pages/firefly-api && cp -r node_modules/firefly-api-docs/static/. ./static/",
     "_copy_cis_lightroom_docs": "rm -rf src/pages/lightroom && cp -r node_modules/cis-lightroom-api/src/pages src/pages/lightroom && cp -r node_modules/cis-lightroom-api/static/. ./static/",
