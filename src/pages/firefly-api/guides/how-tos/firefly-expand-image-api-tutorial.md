@@ -37,7 +37,7 @@ twitter:
 
 # Firefly Expand Image API Tutorial
 
-Generatively expand an image out beyond its edges with the [Expand Image API](../api/generative_expand/V3_Aync/)
+Generatively expand an image out beyond its edges with the [Expand Image API](../api/generative_expand/V3_Async/)
 
 ![wallet advertisement hero image](../images/expand-image-tutorial-hero-image.jpeg)
 
@@ -149,7 +149,7 @@ On success, the response looks similar to this:
 
 ## Generate Image Variations
 
-Next, let's create a function that generates images for each social media platform with Firefly's [Expand Image API](../api/generative_expand_/V3_Aync/). We use the `axios` library to make HTTPs requests:
+Next, let's create a function that generates images for each social media platform with Firefly's [Expand Image API](../api/generative_expand_/V3_Async/). We use the `axios` library to make HTTPs requests:
 
 ```js
 const axios = require('axios');
