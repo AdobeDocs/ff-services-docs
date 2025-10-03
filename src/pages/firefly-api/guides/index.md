@@ -171,14 +171,14 @@ export FIREFLY_SERVICES_ACCESS_TOKEN=yourAccessTokenAsdf123
 
 ## Generate an Image
 
-Next, call the [Firefly Generate Images API](./api/image_generation/V3/):
+Next, call the [Firefly Generate Images API](./api/image_generation/V3_Async/):
 
 <CodeBlock slots="heading, code" repeat="3" languages="bash, Python, JavaScript" />
 
 #### cURL
 
 ```bash
-curl --location 'https://firefly-api.adobe.io/v3/images/generate' \
+curl --location 'https://firefly-api.adobe.io/v3/images/generate-async' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
@@ -204,7 +204,7 @@ def generate_image(access_token):
     }
 
     response = requests.post(
-        'https://firefly-api.adobe.io/v3/images/generate',
+        'https://firefly-api.adobe.io/v3/images/generate-async',
         headers=headers,
         json=data
     )
@@ -231,7 +231,7 @@ async function generateImage(accessToken) {
 
   const config = {
     method: "post",
-    url: "https://firefly-api.adobe.io/v3/images/generate",
+    url: "https://firefly-api.adobe.io/v3/images/generate-async",
     headers: headers,
     data: data,
   };
@@ -318,7 +318,7 @@ def generate_image(access_token):
     }
 
     response = requests.post(
-        'https://firefly-api.adobe.io/v3/images/generate',
+        'https://firefly-api.adobe.io/v3/images/generate-async',
         headers=headers,
         json=data
     )
@@ -383,7 +383,7 @@ async function generateImage(accessToken) {
 
   const config = {
     method: 'post',
-    url: 'https://firefly-api.adobe.io/v3/images/generate',
+    url: 'https://firefly-api.adobe.io/v3/images/generate-async',
     headers: headers,
     data: data,
   };
