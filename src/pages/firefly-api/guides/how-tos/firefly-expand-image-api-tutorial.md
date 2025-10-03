@@ -149,7 +149,7 @@ On success, the response looks similar to this:
 
 ## Generate Image Variations
 
-Next, let's create a function that generates images for each social media platform with Firefly's [Expand Image API](../api/generative_expand_/V3_Async/). We use the `axios` library to make HTTPs requests:
+Next, let's create a function that generates images for each social media platform with Firefly's [Expand Image API](../api/generative_expand/V3_Async/). We use the `axios` library to make HTTPs requests:
 
 ```js
 const axios = require('axios');
@@ -164,7 +164,7 @@ async function genExpand({ imageId, width, height, accessToken }) {
 
   const config = {
     method: 'post',
-    url: 'https://firefly-api.adobe.io/v3/images/expand',
+    url: 'https://firefly-api.adobe.io/v3/images/expand-async',
     headers: {
       'X-Api-Key': process.env.FIREFLY_SERVICES_CLIENT_ID,
       'Authorization': `Bearer ${accessToken}`,
@@ -300,7 +300,7 @@ async function genExpand({ imageId, width, height, accessToken }) {
 
   const config = {
     method: "post",
-    url: "https://firefly-api.adobe.io/v3/images/expand",
+    url: "https://firefly-api.adobe.io/v3/images/expand-async",
     headers: {
       "X-Api-Key": process.env.FIREFLY_SERVICES_CLIENT_ID,
       Authorization: `Bearer ${accessToken}`,
