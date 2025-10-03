@@ -37,7 +37,7 @@ twitter:
 
 # Firefly Expand Image API Tutorial
 
-Generatively expand an image out beyond its edges with the [Expand Image API](../api/generative_expand/V3/)
+Generatively expand an image out beyond its edges with the [Expand Image API](../api/generative_expand/V3_Aync/)
 
 ![wallet advertisement hero image](../images/expand-image-tutorial-hero-image.jpeg)
 
@@ -49,7 +49,7 @@ Before diving into the code, let's preview the high-level steps:
 
 * **Define Target Dimensions:** Each social media platform has specific image size requirements. We define these dimensions for the platforms we plan to target.
 * **Upload Source Image:** Use Firefly's [Upload API](../api/upload_image/V2/) to upload your original image.
-* **Generate Image Variations:** Use Firefly's [Expand Image API](../api/generative_expand/V3/) to create resized variations of the image for each dimension.
+* **Generate Image Variations:** Use Firefly's [Expand Image API](../api/generative_expand/V3_Async/) to create resized variations of the image for each dimension.
 
 Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump immediately to the full source code](#full-example).
 
@@ -149,7 +149,7 @@ On success, the response looks similar to this:
 
 ## Generate Image Variations
 
-Next, let's create a function that generates images for each social media platform with Firefly's [Expand Image API](../api/generative_expand/V3/). We use the `axios` library to make HTTPs requests:
+Next, let's create a function that generates images for each social media platform with Firefly's [Expand Image API](../api/generative_expand_/V3_Aync/). We use the `axios` library to make HTTPs requests:
 
 ```js
 const axios = require('axios');
@@ -343,4 +343,4 @@ We wrote this tutorial in CommmonJS in order to make it easy to get up and runni
 
 ## Deepen Your Understanding
 
-Now that you completed this tutorial, visit its [API Reference](../api/generative_expand/V3) to explore more advanced use cases to automate image generation with Firefly.
+Now that you completed this tutorial, visit its [API Reference](../api/generative_expand/V3_Async/) to explore more advanced use cases to automate image generation with Firefly.
