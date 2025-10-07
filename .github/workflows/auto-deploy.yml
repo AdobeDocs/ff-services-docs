@@ -29,7 +29,7 @@
         clean_cache: 'true'
         path_prefix: ${{ steps.get_path_prefix.outputs.path_prefix }}
         branch_short_ref: ${{ steps.get_branch.outputs.branch }}
-        exclude_subfolder: 'photoshop, audio-video-api, s3dapi'
+        exclude_subfolder: 'photoshop, audio-video-api, s3dapi, indesign-apis'
     echo-state:
       needs: [set-state]
       runs-on: ubuntu-latest
