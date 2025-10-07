@@ -131,7 +131,7 @@ Audio/Video APIs are a collection of resources that leverage Firefly Services' A
 
 <DiscoverBlock slots="link, text"/>
 
-[InDesign API](../indesign-apis/)
+[InDesign API](https://developer.adobe.com/firefly-services/docs/indesign-apis/?aio_internal)
 
 Automate time-consuming design tasks with InDesign API.
 
