@@ -42,7 +42,7 @@ module.exports = {
       {
         title: "InDesign API",
         description: "Docs and references for InDesign API",
-        path: "/indesign-apis/",
+        path: "https://developer.adobe.com/firefly-services/docs/indesign-apis/?aio_internal",
       },
       {
         title: "Substance 3D API",
@@ -299,84 +299,6 @@ module.exports = {
           },
         ],
       },
-            ///////////////////////////////////////////////
-      // InDesign API-specific left side nav
-      ///////////////////////////////////////////////
-      {
-        title: "Overview",
-        path: "/indesign-apis/index.md",
-      },
-      {
-        title: "Concepts",
-        path: "/indesign-apis/concepts/index.md",
-      },
-      {
-        title: "How-tos",
-        path: "/indesign-apis/how-tos/logging/",
-        pages: [
-          {
-            title: "Logging",
-            path: "/indesign-apis/how-tos/logging/",
-          },
-          {
-            title: "Working with Data Merge API",
-            path: "/indesign-apis/how-tos/working-with-datamerge-api/",
-          },
-          {
-            title: "Working with Rendition API",
-            path: "/indesign-apis/how-tos/working-with-rendition-api/",
-          },
-          {
-            title: "Working with Custom Scripts API",
-            path: "/indesign-apis/how-tos/working-with-custom-scripts-api/",
-          },
-          {
-            title: "Writing scripts for Custom Scripts API",
-            path: "/indesign-apis/how-tos/writing-scripts-for-custom-scripts-api/",
-          },
-        ],
-      },
-      {
-        title: "API Reference",
-        path: "/indesign-apis/api/datamerge.md",
-        pages: [
-          {
-            title: "Data Merge API",
-            path: "/indesign-apis/api/datamerge.md",
-          },
-          {
-            title: "Rendition API ",
-            path: "/indesign-apis/api/rendition.md",
-          },
-          {
-            title: "Custom Scripts API",
-            path: "/indesign-apis/api/scripts.md",
-          },
-          {
-            title: "Remap Links API",
-            path: "/indesign-apis/api/remaplinks.md",
-          },
-          {
-            title: "Status API",
-            path: "/indesign-apis/api/status.md",
-          },
-        ],
-      },
-      {
-        title: "Changelog",
-        path: "/indesign-apis/changelog/index.md",
-      },
-      {
-        title: "Help",
-        path: "/indesign-apis/help/usage_notes/",
-        pages: [
-          {
-            title: "Usage Notes",
-            path: "/indesign-apis/help/usage_notes/",
-          }
-        ]
-      },
-      ///////////////////////////////////////////////
     ],
   },
   plugins: [`@adobe/gatsby-theme-aio`],
