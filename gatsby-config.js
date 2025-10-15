@@ -32,7 +32,7 @@ module.exports = {
       {
         title: "Lightroom API",
         description: "Docs and references for Lightroom API",
-        path: "/lightroom/",
+        path: "https://developer.adobe.com/firefly-services/docs/lightroom/?aio_internal",
       },
       {
         title: "Audio/Video API",
