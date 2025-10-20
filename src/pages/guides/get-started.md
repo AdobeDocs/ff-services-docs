@@ -1,6 +1,6 @@
 ---
-title: Firefly Services - Getting Started Guide
-description: Get started building your first app with Firefly Services quickly.
+title: Firefly Services - Getting Credentials Guide
+description: Explore how to get credentials for Firefly's services, get verified, and start building your first app.
 keywords:
   - Adobe Firefly Services
   - Firefly guides
@@ -10,8 +10,8 @@ keywords:
   - Getting started with Firefly
   - Overview
   - Get Started
-  - Get Started with Adobe Firefly Services
-  - Getting Started with Adobe Firefly Services
+  - Get Credentials with Adobe Firefly Services
+  - Getting Credentials with Adobe Firefly Services
   - Quickstart
   - Developer documentation
   - Firefly API documentation
@@ -62,7 +62,7 @@ Here are the steps to get started with the Firefly Services APIs. If you have al
 
 Enterprise customers must be assigned the _System Administrator_ or _Developer_ role in the Adobe Admin Console to access the Adobe Developer Console.
 
-* Identify an Adobe Admin in your Enterprise. This may be as simple as checking the notes in your Adobe account. Adobe’s Solution Consultants will also typically have an administrator contact for the organization.
+* Identify an Adobe Admin in your Enterprise. This may be as simple as checking the notes in your Adobe account. Adobe's Solution Consultants will also typically have an administrator contact for the organization.
 * Have the Admin set up either _System Administrator_ or _Developer_ roles for users who will need to generate API keys. Alternatively, ask your Admin to generate the keys if they feel elevating roles is too risky. If your Admin does this for you, skip to the [Make your first API Call](get-started.md#make-your-first-api-call) section.
 * If your Admin allows you to generate your API keys, the Admin will also need to assign Firefly - Firefly Services to you as a product in the Admin Console.
 
@@ -171,42 +171,3 @@ Note that your access token will expire every 24 hours and will need to be refre
 Now that you have obtained an Access Token and Client ID, you can utilize them to develop your application with Firefly services APIs.
 
 Explore our [tutorials](./tutorials/) for comprehensive guidance.
-
-## Explore more
-
-<!--
-<DiscoverBlock slots="link, text"/>
-[SDK](../guides/sdks/)
-
-Explore our Firefly Services SDK.
--->
-
-<DiscoverBlock slots="link, text"/>
-
-[Photoshop API](https://developer.adobe.com/firefly-services/docs/photoshop/api/?aio_internal)
-
-Unlock the potential of Photoshop API.
-
-<DiscoverBlock slots="link, text"/>
-
-[Lightroom API](../lightroom/)
-
-Unlock the potential of Lightroom API.
-
-<DiscoverBlock slots="link, text"/>
-
-[Firefly API](../firefly-api/)
-
-Integrate generative AI into your creative workflows.
-
-<DiscoverBlock slots="link, text"/>
-
-[Content Tagging API](https://experienceleague.adobe.com/en/docs/experience-platform/intelligent-services/content-commerce-ai/overview)
-
-Content Tagging APIs can help you deliver personalized experiences to your customers.
-
-<DiscoverBlock slots="link, text"/>
-
-[Tutorials](./tutorials/)
-
-Explore our tutorials page for comprehensive guidance.
