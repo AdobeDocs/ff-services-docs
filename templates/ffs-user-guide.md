@@ -7,7 +7,7 @@ keywords:
 
 # Using the {API or feature} API
 
-This guide provides ...{insert a brief description of the guide's purpose and audience}.
+This guide provides {...insert a brief description of the guide's purpose and audience}.
 
 ## Overview
 
@@ -48,11 +48,21 @@ This guide provides ...{insert a brief description of the guide's purpose and au
 
 ### {Subsection 1 title}
 
-{Describe the first step in the subsection. This can be a sub-task or additional information that helps the user complete the task.}
-
 {...}
 
 ## Implementation Example
+
+{If applicable, include an example implementation for a user to use as an example or links to GitHub repositories for reference.
+Include full implementation code in an <Accordion> block.
+
+<Accordion>
+<AccordionItem header="Implementation Example" isChevronIcon position="right" iconColor="#1473E6">
+
+{Implementation code}
+
+</AccordionItem>
+</Accordion>
+}
 
 <!-- Links -->
 [1]: {Link to the first reference}
