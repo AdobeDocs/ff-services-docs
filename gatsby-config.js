@@ -78,7 +78,7 @@ module.exports = {
           },
           {
             title: "Automate a Content Workflow",
-            path: "/guides/tutorials/automate-content-workflow-indesign.md",
+            path: "/guides/tutorials/automate-workflow.md",
           },
           {
             title: "Getting Started with the SDK",
