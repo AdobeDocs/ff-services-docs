@@ -113,7 +113,7 @@ Integrate generative AI into your creative workflows.
 
 <DiscoverBlock slots="link, text"/>
 
-[Lightroom API](../lightroom/)
+[Lightroom API](https://developer.adobe.com/firefly-services/docs/lightroom/?aio_internal)
 
 Unlock the potential of Lightroom in the cloud.
 

@@ -64,27 +64,3 @@ Here, you will find a collection of comprehensive tutorials designed to help you
 Get started with the Adobe Firefly services.
 
 <DiscoverBlock slots="heading, link, text"/>
-
-### API References
-
-[Firefly API](../../firefly-api/)
-
-Integrate generative AI into your creative workflows.
-
-<DiscoverBlock slots="link, text"/>
-
-[Photoshop API](https://developer.adobe.com/firefly-services/docs/photoshop/api/?aio_internal)
-
-Unlock the potential of Photoshop and cutting edge AI/ML services through an easy-to-use RESTful API.
-
-<DiscoverBlock slots="link, text"/>
-
-[Lightroom API](../../lightroom/)
-
-Unlock the potential of Photoshop and cutting edge AI/ML services through an easy-to-use RESTful API.
-
-<DiscoverBlock slots="link, text"/>
-
-[Content Tagging APIs](https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html)
-
-Content Tagging APIs extract intelligent features from your content, organize content flow, and deliver personalized experiences to your customers.
