@@ -32,7 +32,7 @@ module.exports = {
       {
         title: "Lightroom API",
         description: "Docs and references for Lightroom API",
-        path: "/lightroom/",
+        path: "https://developer.adobe.com/firefly-services/docs/lightroom/?aio_internal",
       },
       {
         title: "Audio/Video API",
@@ -249,56 +249,6 @@ module.exports = {
       ///////////////////////////////////////////////
       // Lightroom API-specific left side nav
       ///////////////////////////////////////////////
-      {
-        title: "Overview",
-        path: "/lightroom/",
-      },
-      {
-        title: 'Quickstart',
-        path: '/lightroom/quickstart/'
-      },
-      {
-        title: "General Workflow",
-        path: "/lightroom/general-workflow/",
-      },
-      {
-        title: "Features",
-        path: "/lightroom/features/",
-      },
-      {
-        title: "Code Samples",
-        path: "/lightroom/code-sample/",
-      },
-      {
-        title: "API Reference",
-        path: "/lightroom/api/lightroom_applyPresets.md",
-        pages: [
-          {
-            title: "Apply Presets",
-            path: "/lightroom/api/lightroom_applyPresets.md",
-          },
-          {
-            title: "Apply XMP",
-            path: "/lightroom/api/lightroom_applyXMP.md",
-          },
-          {
-            title: "Apply Edits",
-            path: "/lightroom/api/lightroom_edits.md",
-          },
-          {
-            title: "Auto Straighten",
-            path: "/lightroom/api/lightroom_autoStraighten.md",
-          },
-          {
-            title: "Auto Tone",
-            path: "/lightroom/api/lightroom_autoTone.md",
-          },
-          {
-            title: "Get Status",
-            path: "/lightroom/api/lightroom_getStatus.md",
-          },
-        ],
-      },
     ],
   },
   plugins: [`@adobe/gatsby-theme-aio`],
