@@ -65,10 +65,6 @@ module.exports = {
         path: "/guides/",
       },
       {
-        title: "Quickstart",
-        path: "/guides/quickstart"
-      },
-      {
         title: "Getting Credentials",
         path: "/guides/get-started.md",
       },
