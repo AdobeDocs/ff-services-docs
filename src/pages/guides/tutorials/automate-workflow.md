@@ -18,7 +18,7 @@ Automate a product content workflows with various Firefly Services APIs.
 
 ||
 | --- | --- |
-| ![a picture of a burger with a black background](../tutorials/original.jpeg) <p style="text-align:center">Original Image</p> | ![a picture of a burger with a fiery background and enhanced lighting](../tutorials/output.jpeg) <p style="text-align:center">Output Image</p> |
+| ![a picture of a burger with a black background](./images/original.jpeg) <p style="text-align:center">Original Image</p> | ![a picture of a burger with a fiery background and enhanced lighting](./images/output.jpeg) <p style="text-align:center">Output Image</p> |
 
 ## Overview
 
@@ -65,8 +65,8 @@ To interact with Adobe's Firefly Services APIs, you'll need to generate pre-sign
 
 In this tutorial, you will need:
 
-* A pre-signed URL with read access for the input image. Save this sample image to your cloud storage and generate a pre-signed URL: ![a picture of a burger with a black background](../tutorials/original.jpeg)
-* A pre-signed URL with read access for the style reference image below. Save this sample image to your cloud storage and generate a pre-signed URL: ![a styre reference of a burger with a fiery background](../tutorials/styleref.jpeg)
+* A pre-signed URL with read access for the input image. Save this sample image to your cloud storage and generate a pre-signed URL: ![a picture of a burger with a black background](./images/original.jpeg)
+* A pre-signed URL with read access for the style reference image below. Save this sample image to your cloud storage and generate a pre-signed URL: ![a styre reference of a burger with a fiery background](./images/styleref.jpeg)
 * A pre-signed URL with a read/write token for the modified image.
 
 Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump immediately to the full source code](#full-example).
