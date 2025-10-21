@@ -24,7 +24,7 @@ Your secure, server-side application retrieves an access token by making a reque
 This tutorial assumes you have worked with your Adobe representative and have the following:
 
 - An [Adobe Developer Console][2] account.
-- A [project][3] with Content Authenticity API [OAuth Server-to-Server credentials set up][4].
+- A [project][3] with {API or feature} API [OAuth Server-to-Server credentials set up][4].
 - Access to your **Client ID** and **Client Secret** from the [Adobe Developer Console project][5]. Securely store these credentials and never expose them in client-side or public code.
 
 ## Retrieve an access token
