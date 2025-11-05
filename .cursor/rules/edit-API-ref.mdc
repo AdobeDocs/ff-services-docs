@@ -148,6 +148,218 @@ This rule provides comprehensive guidelines for editing and maintaining API refe
 - **Use proper references** with `$ref` syntax
 - **Include comprehensive descriptions** for complex schemas
 
+### AnyOf Convention with Null
+The `anyOf` convention should **NOT** be used when the only alternative choice is `null`. This adds unnecessary complexity to the schema.
+
+#### Why This Matters
+- **Simplicity** - Optional fields should be represented by omitting them from the `required` array, not by using `anyOf` with null
+- **Readability** - Direct type declarations are clearer than wrapped anyOf structures
+- **Standards compliance** - OpenAPI best practices favor simple optional fields over nullable unions
+- **Documentation clarity** - Generates cleaner, more understandable API documentation
+
+#### How to Fix
+Remove the `anyOf` wrapper and use the direct type definition. Fields that are optional should simply not be included in the schema's `required` array.
+
+#### Examples
+
+**❌ Bad - Using anyOf with null:**
+```json
+"message": {
+  "title": "Message",
+  "anyOf": [
+    {
+      "type": "string"
+    },
+    {
+      "type": "null"
+    }
+  ]
+}
+```
+
+**✅ Good - Direct type definition:**
+```json
+"message": {
+  "title": "Message",
+  "type": "string"
+}
+```
+
+**❌ Bad - Using anyOf with complex type and null:**
+```json
+"validation_errors": {
+  "title": "Validation Errors",
+  "anyOf": [
+    {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ValidationErrorMessage"
+      }
+    },
+    {
+      "type": "null"
+    }
+  ]
+}
+```
+
+**✅ Good - Direct array definition:**
+```json
+"validation_errors": {
+  "title": "Validation Errors",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/ValidationErrorMessage"
+  }
+}
+```
+
+**❌ Bad - Unnecessary anyOf with single option:**
+```json
+"result": {
+  "title": "Result",
+  "description": "The result of the job, if the job has completed.",
+  "anyOf": [
+    {
+      "$ref": "#/components/schemas/GenerateObjectCompositeResponseV3"
+    }
+  ]
+}
+```
+
+**✅ Good - Direct schema reference:**
+```json
+"result": {
+  "$ref": "#/components/schemas/GenerateObjectCompositeResponseV3"
+}
+```
+
+#### Valid Uses of AnyOf
+The `anyOf` keyword should only be used when there are **legitimate alternative types** that are not null:
+
+**✅ Valid - Multiple type alternatives:**
+```json
+"loc": {
+  "type": "array",
+  "items": {
+    "anyOf": [
+      {
+        "type": "integer"
+      },
+      {
+        "type": "string"
+      }
+    ]
+  }
+}
+```
+
+**✅ Valid - Multiple schema alternatives:**
+```json
+"error_code": {
+  "anyOf": [
+    {
+      "type": "string"
+    },
+    {
+      "$ref": "#/components/schemas/ErrorCodeEnum1"
+    },
+    {
+      "$ref": "#/components/schemas/ErrorCodeEnum2"
+    }
+  ]
+}
+```
+
+#### Detection Pattern
+When reviewing API specifications, search for:
+- `"anyOf"` followed by exactly two options
+- One option being `{ "type": "null" }`
+- These should be simplified to the non-null type only
+
+### Title Property as Sibling to $ref
+The `title` property should **NOT** be used as a sibling to `$ref`. In OpenAPI 3.x, when using `$ref`, it replaces the entire object, and sibling properties like `title` are ignored by most tools and flagged as errors by linters.
+
+#### Why This Matters
+- **Ignored by tools** - Sibling properties to `$ref` don't appear in documentation
+- **Linter errors** - Strict validators flag these as specification violations
+- **Standards compliance** - Not part of the OpenAPI specification
+- **Cleaner specs** - Removes unnecessary clutter
+
+#### What to Keep vs Remove
+- **Remove:** `title` properties that are siblings to `$ref`
+- **Keep:** `description` properties (these DO display in Redocly and provide valuable context)
+- **Keep:** `deprecated`, `example`, and other metadata properties that tools may respect
+
+#### Examples
+
+**❌ Bad - Title as sibling to $ref:**
+```json
+"background": {
+  "$ref": "#/components/schemas/Background",
+  "title": "Background image",
+  "description": "The background scene and placement mask for object compositing."
+}
+```
+
+**✅ Good - Only description kept:**
+```json
+"background": {
+  "$ref": "#/components/schemas/Background",
+  "description": "The background scene and placement mask for object compositing."
+}
+```
+
+**❌ Bad - Title with $ref in allOf:**
+```json
+"size": {
+  "allOf": [
+    { "$ref": "#/components/schemas/Size" }
+  ],
+  "title": "The size",
+  "description": "The desired width and height for the final image."
+}
+```
+
+**✅ Good - Only description with $ref in allOf:**
+```json
+"size": {
+  "allOf": [
+    { "$ref": "#/components/schemas/Size" }
+  ],
+  "description": "The desired width and height for the final image."
+}
+```
+
+**✅ Good - Keep deprecated with description:**
+```json
+"mask": {
+  "allOf": [
+    { "$ref": "#/components/schemas/PublicBinaryInputV3" }
+  ],
+  "description": "This is a deprecated property. Use `mask` instead.",
+  "deprecated": true
+}
+```
+
+#### Where to Add Titles Instead
+If you need descriptive titles, add them to the **referenced schema definition** itself:
+
+```json
+"Background": {
+  "type": "object",
+  "title": "Background",
+  "description": "Defines the destination scene...",
+  "properties": { ... }
+}
+```
+
+#### Detection Pattern
+When reviewing API specifications, search for:
+- Properties with both `"$ref"` and `"title"` at the same level
+- These should have the `title` removed while keeping `description` if present
+- Use linters to identify "Property title is not allowed" warnings
+
 ## Endpoint Structure
 
 ### Required Elements
@@ -280,6 +492,8 @@ When reviewing API specifications, ensure sections follow this order:
 8. **Check for content formatting issues** - ensure complete sentences with periods for non-response descriptions
 9. **Verify grammar and spelling** - check for abbreviations and common errors
 10. **Validate section ordering** - ensure sections follow OpenAPI 3.0 convention (openapi → info → servers → security → tags → paths → components)
+11. **Check anyOf usage** - remove anyOf wrappers where the only alternative is null
+12. **Remove title siblings to $ref** - remove title properties that are siblings to $ref (keep descriptions)
 
 ### Common Issues to Avoid
 - **Empty tag arrays** - assign appropriate tags or remove empty arrays
@@ -291,6 +505,8 @@ When reviewing API specifications, ensure sections follow this order:
 - **Incomplete sentences** - ensure all non-response descriptions are complete sentences with periods
 - **Mixed version formatting** - use consistent lowercase version numbers
 - **Grammar issues** - fix abbreviations like "eg" → "e.g." and "etc" → "etc."
+- **Improper anyOf usage** - remove anyOf wrappers where the only alternative is null
+- **Title as sibling to $ref** - remove title properties that appear alongside $ref (keep descriptions)
 
 ## Documentation Standards
 
@@ -412,6 +628,8 @@ When reviewing API specifications, ensure sections follow this order:
 - [ ] Technical terms properly capitalized
 - [ ] Trailing spaces removed
 - [ ] Section boundaries clearly defined
+- [ ] AnyOf with only null alternatives removed and simplified
+- [ ] Title properties removed where they are siblings to $ref (descriptions kept)
 
 ---
 description: API Reference editing guidelines with lessons learned from Photoshop API updates
