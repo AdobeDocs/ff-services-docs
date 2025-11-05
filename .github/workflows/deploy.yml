@@ -17,13 +17,13 @@ on:
         required: false
         default: "photoshop, audio-video-api, s3dapi, indesign-apis, lightroom"
       index-mode:
-          description: 'Type of indexing. "index" to push to Algolia, "console" for dry run.'
-          required: true
-          default: "index"
-          type: choice
-          options:
-            - console
-            - index
+        description: 'Type of indexing. "index" to push to Algolia, "console" for dry run.'
+        required: true
+        default: "index"
+        type: choice
+        options:
+          - console
+          - index
 jobs:
   deployment:
     name: Deployment
