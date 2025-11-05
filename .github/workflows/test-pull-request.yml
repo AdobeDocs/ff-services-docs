@@ -66,6 +66,9 @@ jobs:
         run: |
           corepack enable
           corepack prepare yarn@3.2.1 --activate
+          
+      - name: Clean install artifacts
+        run: rm -rf node_modules .yarn/cache
 
       - name: Install dependencies
         run: yarn install
