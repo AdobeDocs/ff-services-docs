@@ -32,7 +32,7 @@ twitter:
   description: An overview of the Adobe Firefly API
 ---
 
-<Hero slots="image, heading, text" background="rgb(233, 80, 80)"/>
+<Hero slots="image, heading, text" background="rgb(100, 85, 175)"/>
 
 ![Firefly and photograph](./firefly-image-hero.jpg)
 
