@@ -62,7 +62,9 @@ twitter:
     guides, tutorials and SDK details.
 ---
 
-<Hero slots="heading, text" background="rgb(233, 80, 80)"/>
+<Hero slots="iamge, heading, text" background="rgb(233, 80, 80)"/>
+
+![Firefly and photograph](./firefly-services-hero1.png)
 
 # Adobe Firefly Services
 
