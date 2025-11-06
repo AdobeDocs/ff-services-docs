@@ -64,7 +64,7 @@ twitter:
 
 <Hero slots="image, heading, text" background="rgb(233, 80, 80)" theme="dark"/>
 
-![Firefly and photograph](./firefly-services-hero2.jpg)
+![Firefly and photograph](./firefly-services-hero.jpg)
 
 # Adobe Firefly Services
 
