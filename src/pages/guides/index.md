@@ -62,9 +62,9 @@ twitter:
     guides, tutorials and SDK details.
 ---
 
-<Hero slots="iamge, heading, text" background="rgb(233, 80, 80)"/>
+<Hero slots="image, heading, text" background="rgb(233, 80, 80)" theme="dark"/>
 
-![Firefly and photograph](./firefly-services-hero1.png)
+![Firefly and photograph](./firefly-services-hero2.jpg)
 
 # Adobe Firefly Services
 
@@ -72,13 +72,11 @@ Unleash boundless potential with Firefly Services advanced AI and Creative Cloud
 
 ## Overview
 
-Welcome to Firefly Services, your solution for seamless content generation at scale.
-
-Firefly Services includes Firefly APIs, Lightroom APIs, Photoshop APIs, and Content Tagging APIs.
+Welcome to Firefly Services, your solution for seamless content generation at scale. Firefly Services includes Firefly APIs, Lightroom APIs, Photoshop APIs, and Content Tagging APIs.
 
 These suites of APIs combine the power of Adobe's creative tools like Photoshop and Lightroom with cutting-edge AI/ML features like Content Tagging, Generative Fill, Text to Image, and more.
 
-With Firefly Services, you're not just creating – you're automating, scaling your content production, and harnessing the latest AI/ML technologies to supercharge your workflows.
+ With Firefly Services, you're not just creating – you're automating, scaling your content production, and harnessing the latest AI/ML technologies to supercharge your workflows.
 
 <br/><br/>
 <div style="display: flex; justify-content: center;"> <iframe width="560" height="315" src="https://adobe.ly/ffs-overview" title="Introduction to Adobe Express Add-ons" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> </div>
