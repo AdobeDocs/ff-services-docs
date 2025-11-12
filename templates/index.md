@@ -57,7 +57,7 @@ See the [ffs-user-guide.md](ffs-user-guide.md) template.
 
 Authentication pages explain how to authenticate requests to a specific API and are the typical content of the `index.md` file in the /getting-started/ folder.
 
-This template is detailed boilerplate content that includes what's typical for Firefly Services authentication through Developer Console.
+This template has boilerplate content that includes what's typical for Firefly Services authentication through the Adobe Developer Console.
 Be sure to update:
 
  - The title and description of the page
@@ -70,15 +70,16 @@ See the [ffs-auth-page.md](ffs-auth-page.md) template.
 ### Tutorial
 
 Tutorials are comprehensive guides that walk users through a specific task with a specific API or feature.
-Unlike guides, which  offer guidancew on individual tasks, tutorials provide a more comprehensive overview of the API or feature and the workflows that can be accomplished with it. Assets and media transformations should all be provided in detail so that the process of going through the content is educational rather than merely functional.
+Unlike guides, which offer guidance on individual tasks, tutorials are educational examples of workflows for an API or feature. Assets and media transformations should all be provided so that the process of going through the tutorial is educational rather than just functional.
 
 **Quickstart tutorial template**
 
-In Firefly Services, quickstart tutorials are common. They are a great way to get users up and running with a specific API or feature quickly.
+In Firefly Services, quickstart tutorials are common. They're a great way to get users up and running with a specific API or feature quickly.
 Consider including:
 
 - Environment setup and configuration
 - Credentials and API keys
 - Provide the media assets that will be used in the tutorial
 - Step-by-step instructions
+
 See the [ffs-tutorial-template.md](ffs-tutorial-template.md) template.
