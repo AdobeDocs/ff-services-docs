@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "version": "V3",
+    "version": "",
     "title": "Firefly API",
     "description": "REST API for Adobe Firefly, for enterprise usage."
 },
