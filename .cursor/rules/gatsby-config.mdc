@@ -22,7 +22,46 @@ pages: [
 - Used for main navigation bar items
 - Limited to 5-7 items for clean UX
 - Each item requires both `title` and `path`
-- No nesting allowed
+- No nesting allowed by default (but see Menus below)
+
+#### Top Navigation Dropdown Menus
+
+You can create dropdown menus in the Global Navigation (header bar) by using the `menu` field instead of `path`:
+
+```javascript
+pages: [
+  {
+    title: 'Adobe Analytics',
+    path: 'index.md'
+  },
+  {
+    title: 'Guides',
+    path: 'guides.md'
+  },
+  {
+    title: 'API Reference',
+    menu: [{
+      title: 'v2.0',
+      description: 'Version 2.0 of API', // optional
+      path: '2.0/api.index'
+    }, {
+      title: 'v1.4',
+      description: 'Version 1.4 of API', // optional
+      path: '1.4/api.index'
+    }]
+  }
+]
+```
+
+**Key Points:**
+- Use `menu` field instead of `path` to create a Global navigation dropdown
+- Each menu item requires `title` and `path`
+- `description` is optional but helpful for differentiating items
+- Common use cases:
+  - Multiple API versions
+  - Language or framework variations
+  - Related products or services
+  - Documentation sets
 
 ### 2. Side Navigation (`subPages` array)
 ```javascript
@@ -53,6 +92,69 @@ subPages: [
   }
 ]
 ```
+
+### 3. Hero Pages with Side Navigation
+
+**CRITICAL**: By default, Hero pages do NOT display side navigation in the `@adobe/gatsby-theme-aio` theme.
+
+**To enable side navigation on a Hero page:**
+
+1. **File Structure**: Place the `index.md` file in a **subdirectory** within `/src/pages/`, not at the root
+   - ❌ Wrong: `/src/pages/index.md` (root level - no sidenav)
+   - ✅ Correct: `/src/pages/about/index.md` (subdirectory - sidenav works)
+
+2. **Configuration**: The `subPages` array must match the subdirectory path
+   ```javascript
+   // Top nav
+   pages: [
+     {
+       title: 'About Photoshop API',
+       path: '/about/'  // Points to subdirectory
+     }
+   ]
+   
+   // Side nav
+   subPages: [
+     {
+       title: 'About Photoshop API',
+       path: '/about/',
+       header: true,
+       pages: [
+         {
+           title: 'Overview',
+           path: '/about/'  // The Hero page itself
+         },
+         {
+           title: 'Getting Started',
+           path: '/about/getting_started/',
+           header: true,
+           pages: [
+             // ... subsections
+           ]
+         }
+       ]
+     }
+   ]
+   ```
+
+3. **Hero Component**: The Hero component can remain in the markdown file as usual
+   ```markdown
+   ---
+   title: Page Title
+   description: Description
+   hideBreadcrumbNav: true
+   ---
+   
+   <Hero slots="image, heading, text"/>
+   
+   ![Hero image](./hero.png)
+   
+   # Heading
+   
+   Hero text content
+   ```
+
+**Result**: Both the Hero component AND the side navigation will display together.
 
 ## Common Patterns
 
@@ -235,6 +337,119 @@ subPages: [
 }
 ```
 
+### Top Navigation with Menu Dropdowns
+```javascript
+// Example: Multi-version API documentation
+module.exports = {
+  siteMetadata: {
+    pages: [
+      {
+        title: 'Overview',
+        path: '/'
+      },
+      {
+        title: 'Guides',
+        path: '/guides/'
+      },
+      {
+        title: 'API Reference',
+        menu: [
+          {
+            title: 'v3.0',
+            description: 'Latest version',
+            path: '/api/v3/'
+          },
+          {
+            title: 'v2.0',
+            description: 'Previous stable version',
+            path: '/api/v2/'
+          },
+          {
+            title: 'v1.4',
+            description: 'Legacy version',
+            path: '/api/v1.4/'
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+### Hero Page with Sidenav (Complete Example)
+```javascript
+// gatsby-config.js
+module.exports = {
+  siteMetadata: {
+    pages: [
+      {
+        title: 'About Photoshop API',
+        path: '/about/'
+      },
+      {
+        title: 'API Reference',
+        path: '/api/index.md'
+      }
+    ],
+    subPages: [
+      {
+        title: 'About Photoshop API',
+        path: '/about/',
+        header: true,
+        pages: [
+          {
+            title: 'Overview',
+            path: '/about/'
+          },
+          {
+            title: 'Getting Started',
+            path: '/about/getting_started/',
+            header: true,
+            pages: [
+              {
+                title: 'Authentication',
+                path: '/about/getting_started/'
+              },
+              {
+                title: 'Webhooks',
+                path: '/about/getting_started/webhooks/'
+              }
+            ]
+          },
+          {
+            title: 'Guides',
+            path: '/about/guides/',
+            header: true,
+            pages: [
+              {
+                title: 'Using these guides',
+                path: '/about/guides/'
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+**File structure:**
+```
+src/pages/
+├── about/
+│   ├── index.md           (Hero page with sidenav)
+│   ├── hero.png
+│   ├── getting_started/
+│   │   ├── index.md
+│   │   └── webhooks/
+│   │       └── index.md
+│   └── guides/
+│       └── index.md
+└── api/
+    └── index.md
+```
+
 ## Common Requests
 
 When modifying navigation, you can request:
@@ -245,6 +460,9 @@ When modifying navigation, you can request:
 5. "Move [page] to [section] dropdown"
 6. "Create a section title for [content]"
 7. "Convert [section] to a section title"
+8. "Add a sidenav to a Hero landing page"
+9. "Create a dropdown menu in the top navigation for API versions"
+10. "Add a menu dropdown to the header bar"
 
 ## Notes
 - All paths must be unique
