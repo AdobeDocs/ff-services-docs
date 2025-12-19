@@ -130,11 +130,11 @@ keywords:
 
 <Hero slots="heading, text"/>
 
-# <> API
+# [API Name] API
 
 [Brief API Description]
 
-## What is <> API?
+## What is [API Name] API?
 
 [Describe the new API]
 
