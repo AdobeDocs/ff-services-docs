@@ -70,7 +70,7 @@ const CONFIG = {
 const NEW_SITE_METADATA = `  siteMetadata: {
     pages: [
       {
-        title: 'Firefly Services',
+        title: 'All Firefly Services',
         path: 'https://developer.adobe.com/firefly-services/docs/guides/?aio_internal'
       },
       {
@@ -119,6 +119,41 @@ const NEW_SITE_METADATA = `  siteMetadata: {
       }
     ]
   }`;
+
+// Template for index.md page
+const INDEX_PAGE_TEMPLATE = `---
+title: Overview - <> API
+description: This is the overview page for Firefly's <>> API.
+keywords:
+
+---
+
+<Hero slots="heading, text"/>
+
+# <> API
+
+[Brief API Description]
+
+## What is <> API?
+
+[Describe the new API]
+
+## Discover
+
+<DiscoverBlock slots="heading, link, text"/>
+
+### Get Started
+
+[Authentication](guides/)
+
+Get started with API authentication.
+
+<DiscoverBlock slots="link, text"/>
+
+[Try the API](api/)
+
+See the full API details and schemas on the reference page.
+`;
 
 /**
  * Logs a message with color
@@ -281,6 +316,32 @@ ${NEW_SITE_METADATA},
 }
 
 /**
+ * Reformats the index.md page with the standard template
+ */
+function reformatIndexPage() {
+  const indexPath = 'src/pages/index.md';
+  
+  if (!fs.existsSync(indexPath)) {
+    log(`  ⊘ Index page not found: ${indexPath}`, 'yellow');
+    log(`  ✓ Creating new index page with template`, 'green');
+  } else {
+    log(`  ✓ Reformatting existing index page`, 'green');
+  }
+  
+  // Ensure the directory exists
+  const dirPath = path.dirname(indexPath);
+  if (!fs.existsSync(dirPath)) {
+    fs.mkdirSync(dirPath, { recursive: true });
+  }
+  
+  // Write the template
+  fs.writeFileSync(indexPath, INDEX_PAGE_TEMPLATE, 'utf8');
+  log(`  ✓ Updated ${indexPath} with standard template`, 'green');
+  
+  return true;
+}
+
+/**
  * Main execution function
  */
 function main() {
@@ -295,8 +356,14 @@ function main() {
     hasErrors = true;
   }
   
-  // Step 2: Remove placeholder files
-  logSection('2. Removing placeholder files and directories');
+  // Step 2: Reformat index.md page
+  logSection('2. Reformatting index.md page');
+  if (!reformatIndexPage()) {
+    hasErrors = true;
+  }
+  
+  // Step 3: Remove placeholder files
+  logSection('3. Removing placeholder files and directories');
   
   // Remove specific files/directories
   for (const filePath of CONFIG.filesToRemove) {
@@ -312,8 +379,8 @@ function main() {
     }
   }
   
-  // Step 3: Create new directory structure
-  logSection('3. Creating new directory structure');
+  // Step 4: Create new directory structure
+  logSection('4. Creating new directory structure');
   for (const dirConfig of CONFIG.directoriesToCreate) {
     createDirectoryWithIndex(dirConfig);
   }
@@ -329,8 +396,9 @@ function main() {
     log('\nNext steps:', 'cyan');
     log('  1. Review the updated gatsby-config.js');
     log('  2. Update "About <> API" title in gatsby-config.js with your API name');
-    log('  3. Add your API documentation to the appropriate directories');
-    log('  4. Run your build to verify everything works correctly\n');
+    log('  3. Update the index.md placeholders (<> API, descriptions) with your API details');
+    log('  4. Add your API documentation to the appropriate directories');
+    log('  5. Run your build to verify everything works correctly\n');
     process.exit(0);
   }
 }
@@ -340,5 +408,5 @@ if (require.main === module) {
   main();
 }
 
-module.exports = { transformGatsbyConfig, removeFileOrDirectory, createDirectoryWithIndex };
+module.exports = { transformGatsbyConfig, reformatIndexPage, removeFileOrDirectory, createDirectoryWithIndex };
 
