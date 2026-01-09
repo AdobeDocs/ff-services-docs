@@ -2,6 +2,17 @@
 title: Firefly API Documentation Support
 desctiprion: This is a support page that explains how to submit feedback, bugs, and be a contributor to Fireefly API documentation.
 keywords:
+  - Firefly API
+  - Adobe Firefly documentation
+  - Firefly API support
+  - Firefly API feedback
+  - Firefly API contributor
+  - Adobe developer help
+  - Submit Firefly bug
+  - Firefly API docs community
+  - Firefly docs improvement
+  - Report Firefly API issue
+
 
 ---
 # Firefly documentation support
