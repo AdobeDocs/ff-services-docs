@@ -28,4 +28,4 @@ The approved committers and owners on these repos work to reach consensus around
 
 We encourage experts to collaborate and contribute to the documentation.
 
-For information on how to contribute and collaborate on the docs, [see the CONTRIBUTING.md](../../../../CONTRIBUTING/CONTRIBUTING.md).
+For information on how to contribute and collaborate on the docs, [see the CONTRIBUTING README](../../../../CONTRIBUTING/CONTRIBUTING.md).
