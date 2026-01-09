@@ -22,10 +22,10 @@ All documentation feedback is welcome here. For technical support and software f
 Use the button at the top of most document pages to file an issue directly to the site account in Github.
 The approved committers and owners on these repos work to reach consensus around project direction and offer solutions within issue threads (when appropriate).
 
-![Log an issue button](/CONTRIBUTING/images/Log_an_issue.png)
+![Log an issue button](../../../../CONTRIBUTING/images/Log_an_issue.png)
 
 ## For contributors
 
 We encourage experts to collaborate and contribute to the documentation.
 
-For information on how to contribute and collaborate on the docs, [see the CONTRIBUTING.md](/CONTRIBUTING/CONTRIBUTING.md).
+For information on how to contribute and collaborate on the docs, [see the CONTRIBUTING.md](../../../../CONTRIBUTING/CONTRIBUTING.md).
