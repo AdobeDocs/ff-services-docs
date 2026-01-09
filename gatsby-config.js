@@ -86,6 +86,10 @@ module.exports = {
           },  
         ],
       },
+      {
+        title: "Support",
+        path: "/guides/support/",
+      },
       /*
       {
         title: "SDK",
