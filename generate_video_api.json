@@ -32,10 +32,9 @@
             "name": "x-model-version",
             "in": "header",
             "description": "Specify the Firefly model version to use for the video generation.",
-            "required": false,
+            "required": true,
             "schema": {
               "type": "string",
-              "default": "video1_standard",
               "enum": ["video1_standard"]
             }
           }
