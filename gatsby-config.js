@@ -22,7 +22,7 @@ module.exports = {
       {
         title: "Firefly API",
         description: "Docs and references for Firefly API",
-        path: "/firefly-api/",
+        path: "https://developer.adobe.com/firefly-services/docs/firefly-api/?aio_internal",
       },
       {
         title: "Photoshop API",

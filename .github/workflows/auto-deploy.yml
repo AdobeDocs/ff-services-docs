@@ -13,6 +13,6 @@ jobs:
     with:
       env: "prod"
       clean: true
-      excludeSubfolder: "photoshop, audio-video-api, s3dapi, indesign-apis, lightroom"
+      excludeSubfolder: "photoshop, audio-video-api, s3dapi, indesign-apis, lightroom, firefly-api"
       index-mode: "index"
       NODE_OPTIONS: "--max-old-space-size=8192"
