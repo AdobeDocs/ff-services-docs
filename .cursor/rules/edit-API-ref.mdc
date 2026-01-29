@@ -277,6 +277,142 @@ When reviewing API specifications, search for:
 - One option being `{ "type": "null" }`
 - These should be simplified to the non-null type only
 
+### Multi-Type Schema Simplification (OpenAPI 3.1)
+When using **OpenAPI 3.1**, verbose `anyOf` structures with multiple primitive types should be simplified using type arrays for better readability and maintainability.
+
+#### Why This Matters
+- **Improved readability** - Type arrays are more concise and easier to understand
+- **Better maintainability** - Fewer lines of code to manage
+- **Modern standards** - Aligns with OpenAPI 3.1 best practices
+- **Cleaner documentation** - Generates more readable API docs in Redocly
+
+#### When to Simplify
+Use type arrays instead of `anyOf` when defining a property that can be:
+- **Multiple primitive types** (string, number, boolean, null, array, object)
+- **Not** multiple schema references or complex combinations
+
+#### How to Simplify
+
+**❌ Bad - Verbose anyOf for multi-type properties:**
+```json
+"masks": {
+  "anyOf": [
+    {
+      "type": "string"
+    },
+    {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    {
+      "type": "null"
+    }
+  ],
+  "title": "Masks"
+}
+```
+
+**✅ Good - Simplified type array:**
+```json
+"masks": {
+  "type": ["string", "array", "null"],
+  "items": {
+    "type": "string"
+  },
+  "title": "Masks"
+}
+```
+
+**❌ Bad - Verbose anyOf without null:**
+```json
+"outputs": {
+  "anyOf": [
+    {
+      "type": "string"
+    },
+    {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  ],
+  "title": "Outputs"
+}
+```
+
+**✅ Good - Simplified type array:**
+```json
+"outputs": {
+  "type": ["string", "array"],
+  "items": {
+    "type": "string"
+  },
+  "title": "Outputs"
+}
+```
+
+#### Valid Uses of AnyOf (Do Not Simplify)
+Keep `anyOf` when dealing with:
+
+**✅ Valid - Multiple schema references:**
+```json
+"error_code": {
+  "anyOf": [
+    {
+      "$ref": "#/components/schemas/ErrorCodeEnum1"
+    },
+    {
+      "$ref": "#/components/schemas/ErrorCodeEnum2"
+    }
+  ]
+}
+```
+
+**✅ Valid - Mixed schema references and primitives:**
+```json
+"value": {
+  "anyOf": [
+    {
+      "type": "string"
+    },
+    {
+      "$ref": "#/components/schemas/ComplexType"
+    }
+  ]
+}
+```
+
+**✅ Valid - Complex type combinations with constraints:**
+```json
+"identifier": {
+  "anyOf": [
+    {
+      "type": "string",
+      "format": "uuid"
+    },
+    {
+      "type": "integer",
+      "minimum": 1
+    }
+  ]
+}
+```
+
+#### Detection Pattern
+When reviewing API specifications with OpenAPI 3.1, search for:
+- `anyOf` arrays containing only primitive type definitions
+- Multiple type objects without schema references or complex constraints
+- These should be simplified to type arrays
+
+#### Important Notes
+- This simplification **only applies to OpenAPI 3.1+**
+- OpenAPI 3.0 does not support type arrays with multiple values
+- Always verify your OpenAPI version before applying this pattern
+- The `items` property is still needed for array types
+
 ### Title Property as Sibling to $ref
 The `title` property should **NOT** be used as a sibling to `$ref`. In OpenAPI 3.x, when using `$ref`, it replaces the entire object, and sibling properties like `title` are ignored by most tools and flagged as errors by linters.
 
@@ -493,7 +629,8 @@ When reviewing API specifications, ensure sections follow this order:
 9. **Verify grammar and spelling** - check for abbreviations and common errors
 10. **Validate section ordering** - ensure sections follow OpenAPI 3.0 convention (openapi → info → servers → security → tags → paths → components)
 11. **Check anyOf usage** - remove anyOf wrappers where the only alternative is null
-12. **Remove title siblings to $ref** - remove title properties that are siblings to $ref (keep descriptions)
+12. **Simplify multi-type schemas** - for OpenAPI 3.1+, convert verbose anyOf structures with only primitive types to type arrays
+13. **Remove title siblings to $ref** - remove title properties that are siblings to $ref (keep descriptions)
 
 ### Common Issues to Avoid
 - **Empty tag arrays** - assign appropriate tags or remove empty arrays
@@ -506,6 +643,7 @@ When reviewing API specifications, ensure sections follow this order:
 - **Mixed version formatting** - use consistent lowercase version numbers
 - **Grammar issues** - fix abbreviations like "eg" → "e.g." and "etc" → "etc."
 - **Improper anyOf usage** - remove anyOf wrappers where the only alternative is null
+- **Verbose multi-type schemas** - for OpenAPI 3.1+, simplify anyOf with only primitive types to type arrays
 - **Title as sibling to $ref** - remove title properties that appear alongside $ref (keep descriptions)
 
 ## Documentation Standards
@@ -629,6 +767,7 @@ When reviewing API specifications, ensure sections follow this order:
 - [ ] Trailing spaces removed
 - [ ] Section boundaries clearly defined
 - [ ] AnyOf with only null alternatives removed and simplified
+- [ ] Multi-type schemas simplified to type arrays (OpenAPI 3.1+ only)
 - [ ] Title properties removed where they are siblings to $ref (descriptions kept)
 
 ---
