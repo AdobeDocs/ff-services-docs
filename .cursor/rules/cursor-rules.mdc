@@ -1,56 +1,63 @@
 ---
-description: 
+description: How to add or edit Cursor rules in our project
 globs: 
 alwaysApply: true
 ---
----
-description: How to add or edit Cursor rules in our project
-globs: 
-alwaysApply: false
----
 # Cursor Rules Location
 
-How to add new cursor rules to the project
+Purpose: define how to create new Cursor rules in this repo.
 
-1. Always place rule files in PROJECT_ROOT/.cursor/rules/:
-    ```
-    .cursor/rules/
-    ├── your-rule-name.mdc
-    ├── another-rule.mdc
-    └── ...
-    ```
+## Quick checklist (LLM)
 
-2. Follow the naming convention:
-    - Use kebab-case for filenames
-    - Always use .mdc extension
-    - Make names descriptive of the rule's purpose
+- [ ] File lives in `PROJECT_ROOT/.cursor/rules/`
+- [ ] Filename is kebab-case and ends with `.mdc`
+- [ ] Frontmatter contains `description`, `globs` (optional), `alwaysApply`
+- [ ] Rule has a clear title and concise instructions
 
-3. Directory structure:
-    ```
-    PROJECT_ROOT/
-    ├── .cursor/
-    │   └── rules/
-    │       ├── your-rule-name.mdc
-    │       └── ...
-    └── ...
-    ```
+## Where rules live
 
-4. Never place rule files:
-    - In the project root
-    - In subdirectories outside .cursor/rules
-    - In any other location
+Always place rule files in `PROJECT_ROOT/.cursor/rules/`:
 
-5. Cursor rules have the following structure:
+```text
+.cursor/rules/
+├── your-rule-name.mdc
+├── another-rule.mdc
+└── ...
+```
 
-````
+Never place rule files:
+
+- In the project root
+- In subdirectories outside `.cursor/rules`
+- In any other location
+
+## Naming conventions
+
+- Use kebab-case for filenames
+- Always use `.mdc` extension
+- Make names descriptive of the rule's purpose
+
+## Rule file template
+
+Each rule file follows this structure:
+
+### Metadata section
+
+````md
 ---
 description: Short description of the rule's purpose
-globs: optional/path/pattern/**/* 
+globs: optional/path/pattern/**/*
 alwaysApply: false
 ---
 # Rule Title
 
-Main content explaining the rule with markdown formatting.
+Main content explaining the rule with markdown formatting and establishing the context for the rule use-case.
+
+Include a numbered list of use cases or functions the rule is intended to perform so users understand the agent's purpose and how to use it.
+
+## Contents section
+
+Organize concepts with headings and subheadings in this order:
 
 1. Step-by-step instructions
 2. Code examples
@@ -69,3 +76,9 @@ function badExample() {
 }
 ```
 ````
+
+## Content guidance (LLM)
+
+- Prefer numbered steps for procedures and short bullets for constraints
+- Keep examples minimal and directly tied to the rule
+- Avoid duplicating guidance that exists in another rule file
