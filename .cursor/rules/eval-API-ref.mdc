@@ -1,3 +1,8 @@
+---
+description: How to edit API reference JSON files, particularly OpenAPI/Swagger specifications, for Firefly Services APIs
+globs: src/pages/**/*.json
+alwaysApply: true
+---
 # API Reference Editing Guidelines
 
 This rule provides comprehensive guidelines for editing and maintaining API reference JSON files, particularly OpenAPI/Swagger specifications.
