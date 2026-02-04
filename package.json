@@ -11,6 +11,9 @@
     "name": "Stephan Ringel",
     "url": "https://github.com/icaraps"
   },
+  "bin": {
+    "hubrules": "scripts/hubrules.js"
+  },
   "dependencies": {
     "@adobe/gatsby-theme-aio": "^4.15.5",
     "cis-lightroom-api": "github:adobedocs/cis-photoshop-api-docs#lr_docs",
