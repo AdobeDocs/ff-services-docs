@@ -87,6 +87,12 @@ Initialize a spoke repo with a link to this central hub repo (required once per 
 $ hubrules init --hub-url <git-url> [--branch main] [--path .hub-rules] [--force]
 ```
 
+Example to the Firefly Services hub:
+
+```shell
+$ hubrules init --hub-url https://github.com/AdobeDocs/ff-services-docs.git --branch main --path .hub-rules --force
+```
+
 List available hub rules:
 
 ```shell
