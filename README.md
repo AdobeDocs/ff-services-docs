@@ -87,22 +87,34 @@ Initialize a spoke repo with a link to this central hub repo (required once per 
 $ hubrules init --hub-url <git-url> [--branch main] [--path .hub-rules] [--force]
 ```
 
+Example to the Firefly Services hub:
+
+```shell
+$ hubrules init --hub-url https://github.com/AdobeDocs/ff-services-docs.git --branch main --path .hub-rules --force
+```
+
 List available hub rules:
 
 ```shell
 $ hubrules list
 ```
 
-Use a hub rule (creates a symlink in `.cursor/rules`):
+Use a hub rule (creates a symlink in `.cursor/rules` to the agent's rule file). Using the --all flag creates symlinks for all agent rules in the hub (opt-in bulk link):
 
 ```shell
-$ hubrules use <agent-name> [--force]
+$ hubrules use <agent-name> [--force] [--all]
 ```
 
 Remove a borrowed rule:
 
 ```shell
 $ hubrules remove <agent-name> [--force]
+```
+
+Remove all borrowed rules (opt-in bulk remove):
+
+```shell
+$ hubrules remove --all [--force]
 ```
 
 Show current borrowed rules:

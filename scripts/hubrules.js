@@ -86,8 +86,8 @@ function usage() {
 Usage:
   hubrules init --hub-url <url> [--branch <branch>] [--path <dir>]
   hubrules list
-  hubrules use <agent-name> [--force]
-  hubrules remove <agent-name> [--force]
+  hubrules use <agent-name> [--force] [--all]
+  hubrules remove <agent-name> [--force] [--all]
   hubrules status
 
 Notes:
@@ -170,73 +170,117 @@ function listCommand(repoRoot, config) {
 }
 
 function useCommand(repoRoot, config, agentName, options) {
-  const normalized = normalizeAgentName(agentName);
-  if (!normalized) {
-    throw new Error("Missing agent name.");
-  }
-
   const hubRulesPath = getHubRulesPath(repoRoot, config);
-  const hubFilePath = path.join(hubRulesPath, normalized);
-  if (!fs.existsSync(hubFilePath)) {
-    throw new Error(`Hub rule not found: ${normalized}`);
-  }
-
   const localRulesDir = path.join(repoRoot, ".cursor", "rules");
   fs.mkdirSync(localRulesDir, { recursive: true });
-  const localPath = path.join(localRulesDir, normalized);
-
-  if (fs.existsSync(localPath)) {
-    const stats = fs.lstatSync(localPath);
-    if (stats.isSymbolicLink()) {
-      const target = fs.readlinkSync(localPath);
-      if (path.resolve(localRulesDir, target) === hubFilePath) {
-        console.log(`Already linked: ${normalized}`);
-        return;
-      }
-    }
-    if (!options["--force"]) {
-      throw new Error(
-        `${normalized} already exists. Use --force to replace it.`
-      );
-    }
-    fs.rmSync(localPath, { force: true });
-  }
-
-  fs.symlinkSync(hubFilePath, localPath, "file");
-  config.tracked[normalized] = {
-    hubPath: path.relative(repoRoot, hubFilePath),
-    localPath: path.relative(repoRoot, localPath),
-    mode: "symlink",
-  };
-  saveConfig(repoRoot, config);
-  console.log(`Linked ${normalized}.`);
-}
-
-function removeCommand(repoRoot, config, agentName, options) {
+  const shouldUseAll = Boolean(options["--all"]);
   const normalized = normalizeAgentName(agentName);
-  if (!normalized) {
+  if (!normalized && !shouldUseAll) {
     throw new Error("Missing agent name.");
   }
 
-  const localPath = path.join(repoRoot, ".cursor", "rules", normalized);
-  if (!fs.existsSync(localPath)) {
-    console.log(`${normalized} is not present.`);
-    delete config.tracked[normalized];
-    saveConfig(repoRoot, config);
+  const candidates = shouldUseAll
+    ? fs.readdirSync(hubRulesPath).filter((file) => file.endsWith(".mdc"))
+    : [normalized];
+
+  if (candidates.length === 0) {
+    console.log("No hub rules found.");
     return;
   }
 
-  const stats = fs.lstatSync(localPath);
-  if (!stats.isSymbolicLink() && !options["--force"]) {
-    throw new Error(
-      `${normalized} is not a symlink. Use --force to remove anyway.`
-    );
+  let linked = 0;
+  candidates.forEach((file) => {
+    const hubFilePath = path.join(hubRulesPath, file);
+    if (!fs.existsSync(hubFilePath)) {
+      if (!shouldUseAll) {
+        throw new Error(`Hub rule not found: ${file}`);
+      }
+      return;
+    }
+
+    const localPath = path.join(localRulesDir, file);
+    if (fs.existsSync(localPath)) {
+      const stats = fs.lstatSync(localPath);
+      if (stats.isSymbolicLink()) {
+        const target = fs.readlinkSync(localPath);
+        if (path.resolve(localRulesDir, target) === hubFilePath) {
+          if (!shouldUseAll) {
+            console.log(`Already linked: ${file}`);
+          }
+          return;
+        }
+      }
+      if (!options["--force"]) {
+        if (!shouldUseAll) {
+          throw new Error(`${file} already exists. Use --force to replace it.`);
+        }
+        return;
+      }
+      fs.rmSync(localPath, { force: true });
+    }
+
+    fs.symlinkSync(hubFilePath, localPath, "file");
+    config.tracked[file] = {
+      hubPath: path.relative(repoRoot, hubFilePath),
+      localPath: path.relative(repoRoot, localPath),
+      mode: "symlink",
+    };
+    linked += 1;
+  });
+
+  saveConfig(repoRoot, config);
+  if (shouldUseAll) {
+    console.log(`Linked ${linked} hub rules.`);
+  } else {
+    console.log(`Linked ${normalized}.`);
+  }
+}
+
+function removeCommand(repoRoot, config, agentName, options) {
+  const shouldRemoveAll = Boolean(options["--all"]);
+  const normalized = normalizeAgentName(agentName);
+  if (!normalized && !shouldRemoveAll) {
+    throw new Error("Missing agent name.");
   }
 
-  fs.rmSync(localPath, { force: true });
-  delete config.tracked[normalized];
+  const candidates = shouldRemoveAll
+    ? Object.keys(config.tracked || {})
+    : [normalized];
+
+  if (candidates.length === 0) {
+    console.log("No borrowed hub rules.");
+    return;
+  }
+
+  let removed = 0;
+  candidates.forEach((file) => {
+    const localPath = path.join(repoRoot, ".cursor", "rules", file);
+    if (!fs.existsSync(localPath)) {
+      delete config.tracked[file];
+      return;
+    }
+
+    const stats = fs.lstatSync(localPath);
+    if (!stats.isSymbolicLink() && !options["--force"]) {
+      if (!shouldRemoveAll) {
+        throw new Error(
+          `${file} is not a symlink. Use --force to remove anyway.`
+        );
+      }
+      return;
+    }
+
+    fs.rmSync(localPath, { force: true });
+    delete config.tracked[file];
+    removed += 1;
+  });
+
   saveConfig(repoRoot, config);
-  console.log(`Removed ${normalized}.`);
+  if (shouldRemoveAll) {
+    console.log(`Removed ${removed} hub rules.`);
+  } else {
+    console.log(`Removed ${normalized}.`);
+  }
 }
 
 function statusCommand(config) {
