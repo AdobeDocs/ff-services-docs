@@ -99,16 +99,22 @@ List available hub rules:
 $ hubrules list
 ```
 
-Use a hub rule (creates a symlink in `.cursor/rules`):
+Use a hub rule (creates a symlink in `.cursor/rules` to the agent's rule file). Using the --all flag creates symlinks for all agent rules in the hub (opt-in bulk link):
 
 ```shell
-$ hubrules use <agent-name> [--force]
+$ hubrules use <agent-name> [--force] [--all]
 ```
 
 Remove a borrowed rule:
 
 ```shell
 $ hubrules remove <agent-name> [--force]
+```
+
+Remove all borrowed rules (opt-in bulk remove):
+
+```shell
+$ hubrules remove --all [--force]
 ```
 
 Show current borrowed rules:
