@@ -43,6 +43,15 @@ Uses for this agent:
 ## Metadata Validation
 
 - Validate page metadata against the authoring guidance: https://github.com/adobe/aio-theme?tab=readme-ov-file#metadata-with-front-matter
+- Example:
+---
+title: [Clear, Action-Oriented Title]
+description: [Concise description of the guide's purpose]
+hideBreadcrumbNav: true
+keywords:
+  - [Relevant keyword 1]
+  - [Relevant keyword 2]
+---
 
 ## Edit Policy
 
