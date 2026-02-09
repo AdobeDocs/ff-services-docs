@@ -26,12 +26,6 @@ Uses for this agent:
 - For edits: describe what you changed and why, then provide updated content.
 - Always call out missing TOC entries as highest severity.
 
-## Uses for this agent
-
-1. Evaluate the quality of the content in markdown files section by section.
-2. Edit formatting to comply with the standards in this ruleset.
-3. Format content pasted from other sources (Microsoft Loop, wikis, etc.) into Markdown.
-
 ## Writing Standards
 
 - The hierarchy of guidelines to adhere to is ALWAYS (1) conventions specified in this ruleset, (2) [Adobe standards conventions](#adobe-standards), (3) Microsoft Writing Style Guide.
@@ -41,7 +35,9 @@ Uses for this agent:
 
 ## Adobe standards
 
-- Refer to this editorial guidance for Adobe standards: https://developer-stage.adobe.com/dev-docs-reference/getting_started/dev-docs/best-practices/
+- Refer to this editorial guidance for Adobe standards: https://experienceleague.adobe.com/en/docs/authoring-guide/using/style-guide/basic-editorial-guidance
+- Use components for the theme where they improve readability and accessibility:  https://github.com/adobe/aio-theme?tab=readme-ov-file#writing-enhanced-markdown
+- Always use the inline alert component formatting for callout blocks (tips, notes, warnings, etc.): https://github.com/adobe/aio-theme?tab=readme-ov-file#inlinealert-block-updated-2022-06-08
 - Here is a correct reference microsite example: https://developer-stage.adobe.com/dev-docs-reference/blocks/
 
 ## Metadata Validation
