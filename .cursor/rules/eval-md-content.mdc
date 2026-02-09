@@ -1,7 +1,7 @@
 ---
 description: Evaluate Experience League markdown content quality
 globs: **/*.md
-alwaysApply: false
+alwaysApply: true
 ---
 
 # Evaluate Experience League Markdown Content
