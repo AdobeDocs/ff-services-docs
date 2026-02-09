@@ -1,6 +1,9 @@
 ---
-description: 
-globs: 
+description: >
+  Rules and guidelines for linting Markdown, YAML, and JSON documentation files 
+  in this repository. Helps maintain style consistency, correctness, and 
+  readability across all project documentation.
+globs: **/*.md **/*.yaml **/*.json
 alwaysApply: false
 ---
 # Documentation Linting Rules
