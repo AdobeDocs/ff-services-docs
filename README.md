@@ -61,7 +61,7 @@ To build and preview locally:
 
 ## AI Hub rules CLI (hubrules)
 
-Use the `hubrules` CLI to borrow Cursor rules from this central hub repo into any spoke repo. It clones the hub into `.hub-rules` and symlinks rules into `.cursor/rules`.
+Use the `hubrules` CLI to borrow Cursor rules from this central hub repo into any spoke repo. It clones the hub into `.hub-rules` using a sparse checkout of only `.cursor/rules`, and symlinks rules into `.cursor/rules`.
 
 ### Install
 

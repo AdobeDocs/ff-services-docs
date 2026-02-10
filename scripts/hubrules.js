@@ -130,9 +130,19 @@ function initCommand(repoRoot, options) {
   const hubPath = path.resolve(repoRoot, hubRepoPath);
   if (!fs.existsSync(hubPath)) {
     execGit(
-      ["clone", "--branch", hubBranch, "--single-branch", hubRepoUrl, hubPath],
+      [
+        "clone",
+        "--filter=blob:none",
+        "--sparse",
+        "--branch",
+        hubBranch,
+        "--single-branch",
+        hubRepoUrl,
+        hubPath,
+      ],
       repoRoot
     );
+    execGit(["sparse-checkout", "set", ".cursor/rules"], hubPath);
   } else if (!fs.existsSync(path.join(hubPath, ".git"))) {
     throw new Error(`${hubRepoPath} exists but is not a git repo.`);
   }
