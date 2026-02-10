@@ -93,10 +93,16 @@ Example to the Firefly Services hub:
 $ hubrules init --hub-url https://github.com/AdobeDocs/ff-services-docs.git --branch main --path .hub-rules --force
 ```
 
-List available hub rules:
+List available hub rules (fetches latest by default):
 
 ```shell
 $ hubrules list
+```
+
+List without fetching (offline):
+
+```shell
+$ hubrules list --no-fetch
 ```
 
 Use a hub rule (creates a symlink in `.cursor/rules` to the agent's rule file). Using the --all flag creates symlinks for all agent rules in the hub (opt-in bulk link):

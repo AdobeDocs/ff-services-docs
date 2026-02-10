@@ -85,7 +85,7 @@ function usage() {
 
 Usage:
   hubrules init --hub-url <url> [--branch <branch>] [--path <dir>]
-  hubrules list
+  hubrules list [--no-fetch]
   hubrules use <agent-name> [--force] [--all]
   hubrules remove <agent-name> [--force] [--all]
   hubrules status
@@ -109,6 +109,20 @@ function ensureConfig(repoRoot) {
 
 function getHubRulesPath(repoRoot, config) {
   return path.resolve(repoRoot, config.hubRepoPath, config.hubRulesDir);
+}
+
+function fetchHub(repoRoot, config, options) {
+  if (options["--no-fetch"]) {
+    return;
+  }
+  const hubPath = path.resolve(repoRoot, config.hubRepoPath);
+  try {
+    execGit(["pull", "--ff-only", "origin", config.hubBranch], hubPath);
+  } catch (error) {
+    console.error(
+      `Warning: failed to fetch hub rules (${error.message}). Running in offline mode.`
+    );
+  }
 }
 
 function initCommand(repoRoot, options) {
@@ -157,7 +171,8 @@ function initCommand(repoRoot, options) {
   console.log(`Initialized ${CONFIG_FILENAME}.`);
 }
 
-function listCommand(repoRoot, config) {
+function listCommand(repoRoot, config, options) {
+  fetchHub(repoRoot, config, options);
   const hubRulesPath = getHubRulesPath(repoRoot, config);
   if (!fs.existsSync(hubRulesPath)) {
     throw new Error(`Hub rules directory not found: ${hubRulesPath}`);
@@ -322,7 +337,7 @@ function main() {
         initCommand(repoRoot, options);
         break;
       case "list":
-        listCommand(repoRoot, ensureConfig(repoRoot));
+        listCommand(repoRoot, ensureConfig(repoRoot), options);
         break;
       case "use":
         useCommand(repoRoot, ensureConfig(repoRoot), args[1], options);
