@@ -612,6 +612,7 @@ Include these common error responses:
 - **Keep related endpoints together** (e.g., main endpoint + status endpoint)
 - **Organize schemas alphabetically** or by functional groups
 - **Use consistent indentation** and formatting
+- **Include `info.license`** when missing, using the Adobe Creative API License: https://www.adobe.com/content/dam/cc/en/legal/terms/enterprise/pdfs/PSLT-AdobeCreativeAPI-WW-2024v2.pdf
 
 ### OpenAPI Section Ordering Convention
 **Follow the standard OpenAPI 3.0 section order** to ensure consistency and readability:
@@ -619,7 +620,13 @@ Include these common error responses:
 ```json
 {
   "openapi": "3.0.3",           // 1. OpenAPI version (always first)
-  "info": { /* API metadata */ }, // 2. API information
+  "info": {
+    /* API metadata */
+    "license": {
+      "name": "Adobe Creative API License",
+      "url": "https://www.adobe.com/content/dam/cc/en/legal/terms/enterprise/pdfs/PSLT-AdobeCreativeAPI-WW-2024v2.pdf"
+    }
+  }, // 2. API information
   "servers": [ /* Server configurations */ ], // 3. Server definitions
   "security": [ /* Global security */ ], // 4. Global security schemes
   "tags": [ /* Tag definitions */ ], // 5. API grouping tags
@@ -635,7 +642,7 @@ Include these common error responses:
 
 ### Section Ordering Rules
 - **openapi**: Must be first (version declaration)
-- **info**: API metadata (title, description, version, contact)
+- **info**: API metadata (title, description, version, contact, license)
 - **servers**: Server configurations and base URLs
 - **security**: Global authentication requirements
 - **tags**: API operation grouping and organization
