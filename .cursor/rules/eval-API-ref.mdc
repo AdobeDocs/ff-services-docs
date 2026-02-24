@@ -108,6 +108,51 @@ This rule provides comprehensive guidelines for editing and maintaining API refe
 - **429**: "Too Many Requests"
 - **500**: "Internal Server Error"
 
+## Request and Response Examples (Redocly)
+
+### Example Value Guidance
+- **Prefer realistic dummy values** in both request and response examples so users can copy, tweak, and run.
+- **Use clear placeholder naming** (e.g., `your-data.csv`, `your-output.pdf`, `Replace with your asset URL`) to signal what to change.
+- **Avoid type placeholders** like `"string"` when you can provide a realistic example.
+- **Only use type placeholders** when no `example` or `examples` are provided and the doc is purely schema-generated.
+
+### Request Example Patterns
+```json
+// Good - realistic, copy-friendly
+"examples": {
+  "default": {
+    "summary": "Example request",
+    "value": {
+      "input": "https://storage.example.com/template.ai",
+      "output": "your-output.pdf",
+      "outputFormat": "application/pdf"
+    }
+  }
+}
+
+// Avoid - type placeholders
+"example": {
+  "input": "string",
+  "output": "string",
+  "outputFormat": "string"
+}
+```
+
+### Response Example Patterns
+```json
+// Good - realistic values that explain the shape
+"examples": {
+  "success": {
+    "summary": "Job accepted",
+    "value": {
+      "jobId": "ff7b0f8e-47f3-4d8f-9a8b-7a9f9b2f4c42",
+      "statusUrl": "https://api.example.com/v1/jobs/ff7b0f8e-47f3-4d8f-9a8b-7a9f9b2f4c42",
+      "status": "accepted"
+    }
+  }
+}
+```
+
 ## Content Quality and Consistency
 
 ### Description Content Standards
@@ -139,6 +184,7 @@ This rule provides comprehensive guidelines for editing and maintaining API refe
 - [ ] Consistent terminology used
 - [ ] All endpoints have appropriate tags
 - [ ] Summary formatting follows sentence case guidelines
+- [ ] Request and response examples use realistic dummy values
 
 ## Schema Management
 
