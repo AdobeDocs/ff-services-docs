@@ -112,9 +112,10 @@ This rule provides comprehensive guidelines for editing and maintaining API refe
 
 ### Example Value Guidance
 - **Prefer realistic dummy values** in both request and response examples so users can copy, tweak, and run.
-- **Use clear placeholder naming** (e.g., `your-data.csv`, `your-output.pdf`, `Replace with your asset URL`) to signal what to change.
+- **Use clear placeholder naming** when a dummy value isn't practical (e.g., `your-output.pdf`, `{your_asset_url}`). For placeholder tokens, **curly brackets are the recommended convention** (e.g., `{your_presigned_get_url}`)—they align with OpenAPI path parameter syntax and are widely recognized as "replace this."
 - **Avoid type placeholders** like `"string"` when you can provide a realistic example.
 - **Only use type placeholders** when no `example` or `examples` are provided and the doc is purely schema-generated.
+- **Prefer placeholder tokens over instructional sentences in example values.** Use a short placeholder (e.g., `{source_image_url}` or a realistic dummy URL) in the example value, and put the instruction ("Replace with your presigned GET URL for the source image.") in the parameter or request-body description so the example stays copy-paste friendly.
 
 ### Request Example Patterns
 ```json
