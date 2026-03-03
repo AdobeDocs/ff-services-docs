@@ -15,8 +15,8 @@ module.exports = {
 
   siteMetadata: {
     docs: {
-        title: 'Submit Feedback',
-        path: 'https://developer.adobe.com/firefly-services/docs/guides/support/'
+        title: 'Support',
+        path: 'https://airtable.com/appu5RTWgdM95jynx/pagyuT1qspNJcPU2E/form'
     },
     pages: [
       {
