@@ -29,6 +29,11 @@ module.exports = {
         path: "https://developer.adobe.com/firefly-services/docs/firefly-api/?aio_internal",
       },
       {
+        title: "Workflow Builder API",
+        description: "Docs and references for Workflow Builder API",
+        path: "https://developer.adobe.com/firefly-services/docs/workflow-builder-api/?aio_internal",
+      },
+      {
         title: "Photoshop API",
         description: "Docs and references for Photoshop API",
         path: "https://developer.adobe.com/firefly-services/docs/photoshop/?aio_internal",
