@@ -175,10 +175,6 @@ module.exports = {
             path: "/firefly-api/guides/how-tos/firefly-generate-image-api-tutorial.md",
           },
           {
-            title: "Generate Image from Custom Model Tutorial",
-            path: "/firefly-api/guides/how-tos/cm-generate-image/",
-          },
-          {
             title: "Expand Image API Tutorial",
             path: "/firefly-api/guides/how-tos/firefly-expand-image-api-tutorial.md",
           },
