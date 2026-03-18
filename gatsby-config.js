@@ -54,11 +54,6 @@ module.exports = {
         path: "https://developer.adobe.com/firefly-services/docs/s3dapi/?aio_internal",
       },
       {
-        title: "Illustrator API",
-        description: "Docs and references for Illustrator API",
-        path: "https://developer.adobe.com/firefly-services/docs/illustrator/?aio_internal",
-      },
-      {
         title: "Content Tagging API",
         description: "Docs and references for Content Tagging services",
         path: "https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html",
