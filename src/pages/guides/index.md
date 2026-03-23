@@ -141,6 +141,14 @@ Automate time-consuming design tasks with InDesign API.
 
 Unlock generative AI for object rendering and composites.
 
+<DiscoverBlock slots="link, text"/>
+
+[Illustrator API](https://developer.adobe.com/firefly-services/docs/illustrator/?aio_internal)
+
+Programmatically scale your artwork to use anywhere your audience is, from business cards to billboards or digital ads.
+
+<DiscoverBlock slots="link, text"/>
+
 [Content Tagging API](https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html)
 
 Leverage Content Tagging API to craft personalized experiences.
