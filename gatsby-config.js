@@ -90,14 +90,14 @@ module.exports = {
             path: "/guides/tutorials/automate-workflow.md",
           },
           {
-            title: "Getting Started with the SDK",
+            title: "Using the Firefly Services SDK",
             path: "/guides/tutorials/using-the-sdk.md",
-          },  
+          },
+          {
+            title: "Creating Product Images at Scale with Firefly Services",
+            path: "/guides/tutorials/create-product-images-with-ff.md",
+          },
         ],
-      },
-      {
-        title: "Support",
-        path: "/guides/support/",
       },
       /*
       {
