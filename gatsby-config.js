@@ -189,18 +189,6 @@ module.exports = {
             path: "/firefly-api/guides/api/list_custom_models",
           },
           {
-            title: "Generate Images",
-            path: "/firefly-api/guides/api/image_generation/V3_Async/",
-          },
-          {
-            title: "Generate Similar Images",
-            path: "/firefly-api/guides/api/generate-similar/V3_Async/",
-          },
-          {
-            title: "Test API",
-            path: "/firefly-api/guides/api/test_api",
-          },
-          {
             title: "Expand Image",
             path: "/firefly-api/guides/api/generative_expand/V3_Async/",
           },
