@@ -125,18 +125,6 @@ module.exports = {
             path: "/firefly-api/guides/concepts/dev-console/",
           },
           {
-            title: "Authentication",
-            path: "/firefly-api/guides/concepts/authentication/",
-          },
-          {
-            title: "Image Upload",
-            path: "/firefly-api/guides/concepts/image-upload/",
-          },
-          {
-            title: "Masking",
-            path: "/firefly-api/guides/concepts/masking/",
-          },
-          {
             title: "Placement",
             path: "/firefly-api/guides/concepts/placement/",
           },
@@ -209,8 +197,8 @@ module.exports = {
             path: "/firefly-api/guides/api/generate-similar/V3_Async/",
           },
           {
-            title: "Generate Object Composite",
-            path: "/firefly-api/guides/api/generate-object-composite/V3_Async/",
+            title: "Test API",
+            path: "/firefly-api/guides/api/test_api",
           },
           {
             title: "Expand Image",
