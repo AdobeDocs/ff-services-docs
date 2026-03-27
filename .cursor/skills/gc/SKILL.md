@@ -1,6 +1,6 @@
 ---
-name: gc-commit
-description: Stages all working-tree changes with git add -A, then commits with a message that follows the repository user’s Git commit rules (short imperative subject, blank line, body bullets with 📖/✏️). Use when the user invokes /gc, asks to “gc”, or asks to stage everything and commit with the project commit-message format.
+name: gc
+description: Stages all working-tree changes with git add -A, then commits with a message that follows the repository user’s Git commit rules (short imperative subject, blank line, body bullets with 📖/✏️). Use when the user invokes /gc or the gc skill, asks to “gc”, or asks to stage everything and commit with the project commit-message format.
 ---
 
 # `/gc` — Stage all and commit
@@ -11,7 +11,7 @@ Apply this skill only when the user clearly wants a full-repo stage-and-commit i
 
 Do not run if the user only asked for a message draft with no commit, or if they want to stage specific paths only—confirm scope first.
 
-For **review before commit** (proposed message, then user chooses commit or reject), use the **`gc-commit-review`** skill ([`/gc!`](../gc-commit-review/SKILL.md)) instead.
+For **review before commit** (proposed message, then user chooses commit or reject), use the **`gcam`** skill ([`/gcam`](../gcam/SKILL.md)) instead.
 
 ## Steps
 

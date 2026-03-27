@@ -1,15 +1,15 @@
 ---
-name: gc-commit-review
-description: Stages all changes with git add -A, drafts a commit message per the user’s Git commit rules, prints it for review, then waits: user may edit the message and choose (1) commit or (2) reject. Use when the user invokes /gc!, asks for stage-all with review before commit, or interactive commit with approve/reject.
+name: gcam
+description: "Stages all changes with git add -A, drafts a commit message per the user’s Git commit rules, prints it for review, then waits for the user to edit the message and choose (1) commit or (2) reject. Use when the user invokes /gcam or the gcam skill, asks for stage-all with review before commit, or interactive commit with approve/reject."
 ---
 
-# `/gc!` — Stage all, propose message, review, then commit or reject
+# `/gcam` — Stage all, propose message, review, then commit or reject
 
 ## When to run
 
-Apply when the user wants **staging plus a proposed commit message** but **no commit until they approve**—for example **`/gc!`**, “gc bang”, “stage all and let me edit the commit message”, or “propose a commit then I’ll choose commit or reject”.
+Apply when the user wants **staging plus a proposed commit message** but **no commit until they approve**—for example **`/gcam`**, “gcam”, “stage all and let me edit the commit message”, or “propose a commit then I’ll choose commit or reject”.
 
-Do **not** run when the user wants an immediate commit with no review—use the **`gc-commit`** skill (`/gc`) instead.
+Do **not** run when the user wants an immediate commit with no review—use the **`gc`** skill (`/gc`) instead.
 
 ## Steps (first message)
 
@@ -22,7 +22,7 @@ Do **not** run when the user wants an immediate commit with no review—use the 
 
 3. **Inspect the staged set** — Use `git status` and `git diff --cached` / `--stat` so the draft message matches what is staged.
 
-4. **Draft the commit message** using **User Rules → Git commit messages** (same rules as **`gc-commit`**: imperative ~50-character subject, blank line, body bullets with **📖** / **✏️**, ~72-character wrap). See [.cursor/skills/gc-commit/SKILL.md](../gc-commit/SKILL.md) for the full template and examples.
+4. **Draft the commit message** using **User Rules → Git commit messages** (same rules as **`gc`**: imperative ~50-character subject, blank line, body bullets with **📖** / **✏️**, ~72-character wrap). See [.cursor/skills/gc/SKILL.md](../gc/SKILL.md) for the full template and examples.
 
 5. **Present for review** — Output the message in a **single fenced code block** labeled clearly so the user can copy and edit it, for example:
    - **Proposed commit message** (copy/edit below)
@@ -34,7 +34,7 @@ Do **not** run when the user wants an immediate commit with no review—use the 
      - **`1`** or **`commit`** — Commit using the **final** message (your edited version if you sent one; otherwise the proposal).
      - **`2`** or **`reject`** — Do **not** commit. Staged files stay staged unless you ask to unstage.
 
-7. **If nothing is staged** after `git add -A`, say so and stop (same as **`gc-commit`**).
+7. **If nothing is staged** after `git add -A`, say so and stop (same as **`gc`**).
 
 ## Steps (user’s follow-up message)
 
@@ -60,5 +60,5 @@ Interpret the reply:
 
 | Command | Behavior |
 |---------|----------|
-| **`/gc`** (`gc-commit`) | Stage all → commit in one flow (no approval step). |
-| **`/gc!`** (this skill) | Stage all → propose message → user reviews → **1** commit or **2** reject. |
+| **`/gc`** (`gc`) | Stage all → commit in one flow (no approval step). |
+| **`/gcam`** (this skill, `gcam`) | Stage all → propose message → user reviews → **1** commit or **2** reject. |
