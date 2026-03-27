@@ -31,6 +31,10 @@ Never place rule files:
 - In subdirectories outside `.cursor/rules`
 - In any other location
 
+## Project Agent skills (optional)
+
+**Rules** (this folder) are always-on or glob-scoped instructions for the agent. **Skills** live under `PROJECT_ROOT/.cursor/skills/<skill-name>/SKILL.md` and describe fuller workflows (for example stage-all-and-commit). If you add a skill, consider a short companion rule or a line in this file so contributors know it exists. For Git helpers: **`/gc`** commits after staging; **`/gc!`** stages, proposes a message, and waits for commit vs reject—see [.cursor/rules/gc-commit-skill.mdc](gc-commit-skill.mdc), [.cursor/skills/gc-commit/SKILL.md](../skills/gc-commit/SKILL.md), and [.cursor/skills/gc-commit-review/SKILL.md](../skills/gc-commit-review/SKILL.md).
+
 ## Naming conventions
 
 - Use kebab-case for filenames
