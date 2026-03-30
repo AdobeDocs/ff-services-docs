@@ -16,6 +16,7 @@ Do **not** run when the user wants an immediate commit with no review—use the 
 1. **Repo root** — Run from the git root (`git rev-parse --show-toplevel` if needed).
 
 2. **Stage everything** — Run:
+
    ```bash
    git add -A
    ```

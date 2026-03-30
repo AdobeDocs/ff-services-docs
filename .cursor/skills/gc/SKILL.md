@@ -18,9 +18,11 @@ For **review before commit** (proposed message, then user chooses commit or reje
 1. **Confirm repo root** — Run commands from the workspace git root (the directory that contains `.git`). If unsure, run `git rev-parse --show-toplevel` and `cd` there.
 
 2. **Stage everything** — Run:
+
    ```bash
    git add -A
    ```
+
    This stages saved changes to tracked files, new files, and removals. Unsaved editor buffers are not in git until the user saves.
 
 3. **Inspect what will be committed** — Use `git status` and, if needed, `git diff --cached --stat` (or full `--cached`) so the message matches the actual change set.
@@ -28,9 +30,11 @@ For **review before commit** (proposed message, then user chooses commit or reje
 4. **Write the commit message** using the **User Rules → Git commit messages** format (see below). Base the subject and bullets on the staged diff, not on assumptions.
 
 5. **Commit** — Prefer a single commit with a multi-line message. For example, write the message to a file and commit:
+
    ```bash
    git commit -F /path/to/commit-msg.txt
    ```
+
    Or use multiple `-m` arguments: first `-m` for the subject line, second `-m` for the body (paragraph with bullet lines).
 
 6. **Report** — Show the user the short hash, subject line, and a one-line summary of what was committed.
@@ -59,7 +63,7 @@ Follow the user’s Git commit rules exactly:
 
 ### Template
 
-```
+```text
 <Imperative summary in ~50 characters or less>
 
 <Optional wrapped paragraph; bullets below.>
@@ -79,7 +83,7 @@ If the change is trivial (one kind of edit), a single bullet may be enough.
 
 **Small fix (body can be one bullet):**
 
-```
+```text
 Fix null check in status loader
 
 - ✏️ Guard against missing payload before mapping rows.
@@ -87,7 +91,7 @@ Fix null check in status loader
 
 **Mixed feature:**
 
-```
+```text
 Add export dialog for CSV results
 
 - 📖 Add ExportCsvDialog component and CSV helper.
