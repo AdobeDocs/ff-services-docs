@@ -1,0 +1,134 @@
+---
+alwaysApply: true
+---
+# Pull requests (PRs)
+
+When you draft or review a pull request title or description (for example in GitHub/GitLab or when asked in Agent chat), follow these conventions.
+
+## Deriving the Jira issue
+
+- **Source of truth:** Derive the Jira issue ID from the **current Git branch name** (for example a segment matching your project key pattern, such as `FFENT-8796`).
+- **If the branch name includes a Jira ID:** Use that ID in the PR title (see below) and link it in `# Context` → `## Jira`.
+- **If the branch name does not include a Jira ID:** Treat the PR as not associated with a ticket. **Omit** the Jira key from the PR title (do not invent a ticket). Still include `# Context` → `## Jira`, with the content exactly: `No ticket` (no link).
+
+## PR title
+
+**When the branch name includes a Jira issue ID**, include **both**:
+
+1. The **Jira issue ID** (e.g. `FFENT-8001`).
+2. The **commit type** (see list below), using this pattern:
+
+`{type}/{JIRA-ID}- {short task description}`
+
+Example:
+
+`feat/FFENT-8001- Add validation for numVariations in OCAPI request`
+
+Use a concise imperative-style description after the ID. Match the spacing pattern shown: type, slash, Jira key with trailing hyphen, space, then the description.
+
+**When the branch name does not include a Jira issue ID**, omit the ticket from the title and use:
+
+`{type}- {short task description}`
+
+Example:
+
+`docs- Refresh Object Composite API changelog`
+
+### Acceptable commit types (use exactly these labels before `/`)
+
+- **feat** — adds a new feature. When a new TOC item is added or the JIRA is connected to another `feat`- labeled Jira.
+- **fix** — fixes a bug
+- **refactor** — rewrites/restructures code without changing behavior
+- **perf** — improves performance (special refactor)
+- **style** — formatting/whitespace only; no meaning change. Only edits
+- **test** — adds or corrects tests
+- **docs** —  New content added. documentation only
+- **build** — build tools, CI, dependencies, project version, etc.
+- **ops** — infrastructure, deployment, backup, recovery, etc.
+- **chore** — miscellaneous (e.g. `.gitignore`)
+
+## PR body — required sections
+
+Use **exactly these top-level sections** (Markdown headings):
+
+### 1. `# Summary`
+
+Short overview of **what** changed and **why** (business or technical intent).
+
+### 2. `# Changes`
+
+Organize by **file**. For each touched file, use a level-2 heading with the path in backticks, then bullet points describing edits.
+
+Format:
+
+```markdown
+# Changes
+
+## `path/to/file.ext`
+* Concise bullet describing the change in that file.
+
+## `another/file.ts`
+* Another bullet for that file.
+```
+
+### 3. `# Context`
+
+Always include a **Jira** subsection under `# Context`.
+
+**When the branch name includes a Jira ID:** Use a clickable link to the issue (derive the key from the branch name).
+
+Format:
+
+```markdown
+# Context
+
+## Jira
+[FFENT-8796](https://jira.corp.adobe.com/browse/FFENT-8796)
+```
+
+Replace the key and URL with the actual ticket. If multiple tickets apply, list each on its own line in the same subsection.
+
+**When the branch name does not include a Jira ID:** Keep `## Jira` and use exactly:
+
+```markdown
+# Context
+
+## Jira
+No ticket
+```
+
+## Example (full PR description)
+
+```markdown
+# Summary
+Adds minimum and maximum constraints for numVariations in the Object Composite API v4 OpenAPI spec.
+
+# Changes
+
+## `static/object-composite-v4.json`
+* numVariations in OCAPIRequest now includes minimum: 1 and maximum: 3 to align with the allowed range (number of variations to generate).
+
+# Context
+
+## Jira
+[FFENT-8796](https://jira.corp.adobe.com/browse/FFENT-8796)
+```
+
+## Example (full PR description, branch without a Jira ID)
+
+**Title:** `docs- Refresh Object Composite API changelog`
+
+```markdown
+# Summary
+Refreshes the changelog for the Object Composite API.
+
+# Changes
+
+## `CHANGELOG.md`
+* Documents the latest OCAPI v4 constraint updates.
+
+# Context
+
+## Jira
+No ticket
+```

@@ -1,0 +1,44 @@
+---
+alwaysApply: true
+---
+# Git commit messages
+
+Always apply this rule. When you draft or generate a git commit message (for example in the Source Control commit box or when asked in Agent chat), follow this format.
+
+## Subject line (first line only)
+
+- Around **50 characters or fewer**.
+- Summarize the change in **imperative mood** (e.g. “Add…”, “Fix…”, “Refactor…”).
+
+## Blank line
+
+Leave one **blank line** after the subject before the body.
+
+## Body (detailed description)
+
+- Wrap lines at about **72 characters** (including the bullet prefix and space).
+- Use **bullet lines** for the explanation. Each bullet must start with exactly one of:
+  - **📖** — use when the change **adds** something new: new files, new sections, new features, new headers, net-new lines, or other greenfield content.
+  - **✏️** — use when the change **modifies** existing work: edits to existing lines, updates to existing sections, refactors of existing code, or changes to current content.
+
+Apply **📖** or **✏️** to every body bullet so it is clear what was introduced versus what was altered.
+
+## Template
+
+Fill in the placeholders (do not leave angle brackets in the final message):
+
+```
+<Summarize change(s) in around 50 characters or less>
+
+<More detailed explanatory description of the change wrapped into about 72
+characters with bullets. >
+```
+
+## Example
+
+```
+Add refresh token rotation to auth flow
+
+- 📖 Add refresh_tokens table and Alembic migration for schema v3.
+- ✏️ Update session middleware to rotate secrets and revoke old tokens.
+```
