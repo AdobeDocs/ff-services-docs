@@ -61,11 +61,6 @@ A mask is a grayscale overlay applied to an image. It determines which parts of 
 * **Black** areas are **protected**. No requested edits will apply to these regions.
 * **White** areas are **exposed**. Requested edits will apply only to these regions.
 
-### Example
-
-#### Original Image
-
-![a picture of a person with a green scenic background](../../images/masking-concept-original.jpg)
 
 #### Mask
 
@@ -93,3 +88,15 @@ The original mask above only allows edits to the park scenery. No edits will app
 The inverted mask above only allows edits to the person. No edits will apply to the park scenery.
 
 Inverting a mask is a quick way to reverse the selection of editable areas. This technique offers flexibility, allowing you to focus on different parts of the image as needed during the editing process.
+
+# Grayscale Overlay
+
+A grayscale overlay is a mask that is applied to an image to create a grayscale effect. It is a simple way to create a mask that is easy to understand and use.
+
+![a grayscale overlay of a person shape with a white background](../../images/masking-concept-grayscale-overlay.png)
+
+The grayscale overlay above is a mask that is applied to an image to create a grayscale effect. It is a simple way to create a mask that is easy to understand and use.
+
+## Example
+
+![a grayscale overlay of a person shape with a white background](../../images/masking-concept-grayscale-overlay.png)
