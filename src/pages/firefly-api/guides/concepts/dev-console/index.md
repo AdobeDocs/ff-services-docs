@@ -62,7 +62,7 @@ You will need:
 
 To generate an access token programatically, refer to the [Authentication guide](../authentication/index.md).
 
-## Best Practices
+## Best Practices for Using the Developer Console
 
 - **Token Management:** Access tokens are valid for 24 hours. Implement a mechanism to refresh tokens before they expire to maintain uninterrupted access.
 - **Scope Limitation:** Request only the scopes necessary for your application's functionality to adhere to the principle of least privilege.
