@@ -70,7 +70,9 @@ twitter:
 
 Unleash boundless potential with Firefly Services advanced AI and Creative Cloud APIs.
 
-## Overview
+<Media slots="video"/>
+
+<https://adobe.ly/ffs-overview">
 
 Welcome to Firefly Services, your solution for seamless content generation at scale. Firefly Services includes Firefly APIs, Lightroom APIs, Photoshop APIs, and Content Tagging APIs.
 
@@ -78,36 +80,13 @@ These suites of APIs combine the power of Adobe's creative tools like Photoshop 
 
  With Firefly Services, you're not just creating – you're automating, scaling your content production, and harnessing the latest AI/ML technologies to supercharge your workflows.
 
-<br/><br/>
-<div style="display: flex; justify-content: center;"> <iframe width="560" height="315" src="https://adobe.ly/ffs-overview" title="Introduction to Adobe Express Add-ons" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> </div>
-
-## Ready to get started?
-
-- Begin by navigating to the [Getting Started guide](./get-started.md) to get set up and obtain your credentials.
-
-- Next, visit our [Firefly API Quickstart guide](../firefly-api/guides/index.md) to begin interacting with Firefly Services.
-
 ## Discover
 
 <DiscoverBlock slots="heading, link, text"/>
 
-### Get Started
+### Adobe Firefly API Services
 
-[Firefly API Quickstart guide](../firefly-api/guides/index.md)
-
-Get started with the Adobe Firefly Services.
-
-<DiscoverBlock slots="link, text"/>
-
-[Firefly API Tutorials](../firefly-api/guides/how-tos/firefly-generate-image-api-tutorial.md)
-
-Explore our tutorials page for comprehensive guidance.
-
-<DiscoverBlock slots="heading, link, text"/>
-
-### API References
-
-[Firefly API](../firefly-api/)
+[Firefly API](https://developer.adobe.com/firefly-services/docs/firefly-api/?aio_internal)
 
 Integrate generative AI into your creative workflows.
 
