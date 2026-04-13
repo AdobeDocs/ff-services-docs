@@ -15,7 +15,7 @@
     "hubrules": "scripts/hubrules.js"
   },
   "dependencies": {
-    "@adobe/gatsby-theme-aio": "^4.15.5",
+    "@adobe/gatsby-theme-aio": "^4.15.6",
     "axios": "0.30.0",
     "cis-lightroom-api": "github:adobedocs/cis-photoshop-api-docs#lr_docs",
     "firefly-api-docs": "github:adobedocs/firefly-api-docs",
