@@ -1,6 +1,6 @@
 ---
-title: Firefly Services - Tutorials
-description: Tutorials for using Adobe Firefly Services
+title: Firefly Services Tutorials
+description: Tutorials for using Adobe Firefly Services APIs.
 keywords:
   - Adobe Firefly Services
   - Firefly guides
@@ -47,20 +47,14 @@ twitter:
   description: Tutorials for using Adobe Firefly Services
 ---
 
-# Tutorials
+# Adobe Firefly Tutorials
 
 A collection of tutorials to help you use Adobe Firefly Services.
 
-Here, you will find a collection of comprehensive tutorials designed to help you harness the power of Adobe Firefly Services APIs. Whether you're a beginner looking to get started or an experienced developer seeking advanced techniques, our tutorials cover a wide range of topics to meet your needs. Dive in and discover how you can leverage Adobe Firefly Services APIs to create innovative and immersive experiences.
+This collection of tutorials is designed to use a workflow-based approach to help you harness the power of Adobe Firefly Services APIs. Whether you're a beginner looking to get started or an experienced developer seeking advanced techniques, our tutorials can help you familiarize yourself with our API architecture, and begin to think about how muyltiple services can combine to create a complete workflow.
 
-## Discover
+Dive in and discover how you can leverage Adobe Firefly Services APIs to create innovative and immersive experiences:
 
-<DiscoverBlock width="100%" slots="heading, link, text"/>
-
-### Get Started
-
-[Getting Started Guide](../get-started.md)
-
-Get started with the Adobe Firefly services.
-
-<DiscoverBlock slots="heading, link, text"/>
+- [Creating Product Images at Scale](create-product-images-with-ff.md)
+- [Automate a Content Workflow](automate-workflow.md)
+- [Getting Started with the SDK](using-the-sdk.md)

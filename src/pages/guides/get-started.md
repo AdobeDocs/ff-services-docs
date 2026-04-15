@@ -54,10 +54,6 @@ twitter:
 
 The first step in accessing the Firefly Services API is getting authenticated. For that, you will need an access token and an API Key. The steps below will show you how to generate an access token and make your first API call.
 
-## Overview
-
-Here are the steps to get started with the Firefly Services APIs. If you have already received your credentials, jump straight to our [Firefly API Quickstart guide](../firefly-api/guides/index.md) to begin interacting with Firefly Services.
-
 ## Gaining access to the Adobe Developer Console
 
 Enterprise customers must be assigned the _System Administrator_ or _Developer_ role in the Adobe Admin Console to access the Adobe Developer Console.

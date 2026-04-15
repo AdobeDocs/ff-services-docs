@@ -1,7 +1,0 @@
-type: object
-description: Reference image
-properties:
-  id: 
-    type: string
-    description: ID associated with the asset (generate this ID using the upload API). Pre-signed URLs will be supported in the future.
-    example: STRING GENERATED WITH UPLOAD IMAGE API

@@ -270,7 +270,7 @@ Wait for a success status of this job.
 
 ## Generate Object Composite - Firefly API
 
-Next, call the [Firefly Generate Object Composite API](../../firefly-api/guides/api/generate-object-composite/V3_Async/):
+Next, call the [Firefly Generate Object Composite API](https://developer.adobe.com/firefly-services/docs/firefly-api/api/#operation/generateObjectCompositeV3Async):
 
 <CodeBlock slots="heading, code" repeat="3" languages="bash, Python, JavaScript" />
 
@@ -421,7 +421,7 @@ The response will look like this:
 }
 ```
 
-Wait for a success status of this job. A sample of this is provided in the [Firefly API Tutorials](../../firefly-api/guides/how-tos/using-async-apis.md#generating-images-with-the-async-api).
+Wait for a success status of this job.
 
 ## Auto Tone - Lightroom API
 
@@ -1048,4 +1048,4 @@ function extractJobId(response) {
 
 ## Deepen your understanding
 
-Dive deeper into Firefly Services by exploring our [Firefly API tutorials](../../firefly-api/guides/how-tos/firefly-generate-image-api-tutorial.md).
+Dive deeper into Firefly Services by exploring our [Firefly API task tutorials](https://developer.adobe.com/firefly-services/docs/firefly-api/guides/how-tos/firefly-generate-image-api-tutorial).

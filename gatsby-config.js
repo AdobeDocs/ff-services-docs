@@ -74,11 +74,15 @@ module.exports = {
         path: "/guides/",
       },
       {
-        title: "Getting Credentials",
+        title: "Getting credentials",
         path: "/guides/get-started.md",
       },
       {
-        title: "Tutorials",
+        title: "Support",
+        path: "/guides/support/",
+      },
+      {
+        title: "Firefly tutorials",
         path: "/guides/tutorials",
         pages: [
           {
@@ -95,167 +99,12 @@ module.exports = {
           },  
         ],
       },
-      {
-        title: "Support",
-        path: "/guides/support/",
-      },
       /*
       {
         title: "SDK",
         path: "/guides/sdks",
       },
       */
-      ///////////////////////////////////////////////
-      // Firefly API-specific left side nav
-      ///////////////////////////////////////////////
-      {
-        title: "Overview",
-        path: "/firefly-api/",
-      },
-      {
-        title: "Quickstart",
-        path: "/firefly-api/guides/",
-      },
-      {
-        title: "Concepts",
-        path: "/firefly-api/guides/concepts/authentication/",
-        pages: [
-          {
-            title: "Adobe Developer Console",
-            path: "/firefly-api/guides/concepts/dev-console/",
-          },
-          {
-            title: "Authentication",
-            path: "/firefly-api/guides/concepts/authentication/",
-          },
-          {
-            title: "Image Upload",
-            path: "/firefly-api/guides/concepts/image-upload/",
-          },
-          {
-            title: "Masking",
-            path: "/firefly-api/guides/concepts/masking/",
-          },
-          {
-            title: "Placement",
-            path: "/firefly-api/guides/concepts/placement/",
-          },
-          {
-            title: "Rate limits",
-            path: "/firefly-api/guides/concepts/rate-limits/",
-          },
-          {
-            title: "Seeds",
-            path: "/firefly-api/guides/concepts/seeds",
-          },
-          {
-            title: "Structure Image Reference",
-            path: "/firefly-api/guides/concepts/structure-image-reference/",
-          },
-          {
-            title: "Style Image Reference",
-            path: "/firefly-api/guides/concepts/style-image-reference/",
-          },
-          {
-            title: "Style Presets",
-            path: "/firefly-api/guides/concepts/style-presets/",
-          },
-          {
-            title: "Custom Models",
-            path: "/firefly-api/guides/concepts/custom-models/",
-          },
-        ],
-      },
-      {
-        title: "How-Tos",
-        path: "/firefly-api/guides/how-tos/firefly-generate-image-api-tutorial.md/",
-        pages: [
-          {
-            title: "Generate Image API Tutorial",
-            path: "/firefly-api/guides/how-tos/firefly-generate-image-api-tutorial.md",
-          },
-          {
-            title: "Expand Image API Tutorial",
-            path: "/firefly-api/guides/how-tos/firefly-expand-image-api-tutorial.md",
-          },
-          {
-            title: "Fill Image API Tutorial",
-            path: "/firefly-api/guides/how-tos/firefly-fill-image-api-tutorial.md",
-          },
-          {
-            title: "Grant Access to a Custom Model",
-            path: "/firefly-api/guides/how-tos/cm-share-model/",
-          },
-          {
-            title: "Using the Firefly Asynchronous APIs",
-            path: "/firefly-api/guides/how-tos/using-async-apis.md",
-          },
-        ],
-      },
-      {
-        title: "API Reference",
-        path: "/firefly-api/guides/api/image_generation/V3_Async/",
-        pages: [
-          {
-            title: "List Custom Models",
-            path: "/firefly-api/guides/api/list_custom_models",
-          },
-          {
-            title: "Generate Images",
-            path: "/firefly-api/guides/api/image_generation/V3_Async/",
-          },
-          {
-            title: "Generate Similar Images",
-            path: "/firefly-api/guides/api/generate-similar/V3_Async/",
-          },
-          {
-            title: "Generate Object Composite",
-            path: "/firefly-api/guides/api/generate-object-composite/V3_Async/",
-          },
-          {
-            title: "Expand Image",
-            path: "/firefly-api/guides/api/generative_expand/V3_Async/",
-          },
-          {
-            title: "Fill Image",
-            path: "/firefly-api/guides/api/generative_fill/V3_Async/",
-          },
-          {
-            title: "Upload",
-            path: "/firefly-api/guides/api/upload_image/V2/",
-          },
-          {
-            title: "Generate Video",
-            path: "/firefly-api/guides/api/generate_video/V3_Async/",
-          },
-        ],
-      },
-      {
-        title: "Changelog",
-        path: "/firefly-api/guides/changelog/",
-      },
-      {
-        title: "Help",
-        path: "/firefly-api/guides/help/best-practices/",
-        pages: [
-          {
-            title: "Best Practices",
-            path: "/firefly-api/guides/help/best-practices/",
-          },
-          {
-            title: "Troubleshooting",
-            path: "/firefly-api/guides/help/troubleshooting/",
-          },
-          {
-            title: "Usage Notes",
-            path: "/firefly-api/guides/help/usage_notes/",
-          },
-        ],
-      },
-      // END Firefly API left nav
-      ///////////////////////////////////////////////
-      // Lightroom API-specific left side nav
-      ///////////////////////////////////////////////
     ],
   },
   plugins: [`@adobe/gatsby-theme-aio`],

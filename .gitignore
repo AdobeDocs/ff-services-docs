@@ -7,6 +7,7 @@
 node_modules
 package.lock
 yarn-error.log
+.cursor-symlink-impl.log
 .pnp.*
 .yarn/*
 
