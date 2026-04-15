@@ -100,7 +100,7 @@ Click **Add to Project** to add more APIs to the product profile in the same pro
 
 ![Add to Project](../guides/images/add-to-proj.png)
 
-Repeat [Step 2](./get-started.md#step-2-add-api-to-your-project) until you have added all these APIs:
+Repeat [Step 2](get-started.md#step-2-add-api-to-your-project) until you have added all these APIs:
 
 * Firefly – Firefly Services
 * Lightroom - Firefly Services
@@ -166,4 +166,4 @@ Note that your access token will expire every 24 hours and will need to be refre
 
 Now that you have obtained an Access Token and Client ID, you can utilize them to develop your application with Firefly services APIs.
 
-Explore our [tutorials](./tutorials/) for comprehensive guidance.
+Explore our [tutorials](tutorials/index.md) for comprehensive guidance.
