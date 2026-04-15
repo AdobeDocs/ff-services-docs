@@ -1,8 +1,0 @@
-type: object
-properties:
-  message: 
-    type: string
-    description: Error message
-  error_code: 
-    type: string
-    description: Associated error code

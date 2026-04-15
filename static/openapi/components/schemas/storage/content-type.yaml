@@ -1,7 +1,0 @@
-in: header
-name: Content-Type
-required: true
-description: Identifier indicating what type of asset is being uploaded.
-schema:
-  type: string
-  enum: [image/png, image/webp, image/jpeg]

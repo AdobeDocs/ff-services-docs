@@ -1,8 +1,0 @@
-type: object
-description: Asset to be expanded
-properties:
-  id: 
-    type: string
-    description: ID associated with the asset that was uploaded to temp storage.
-    examples: 
-      - REPLACE WITH STRING ID GENERATED FROM UPLOAD IMAGE API

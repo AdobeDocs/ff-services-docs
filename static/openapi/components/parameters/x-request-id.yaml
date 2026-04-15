@@ -1,8 +1,0 @@
-in: header
-name: x-request-id
-required: false
-description: Optional unique identifier that can be attached to an API request.
-schema:
-  type: string
-  format: UUID
-  example: c6ecde5a-3235-4a0e-9c95-70a5aa516ace
