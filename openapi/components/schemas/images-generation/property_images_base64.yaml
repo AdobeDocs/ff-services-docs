@@ -1,9 +1,0 @@
-type: object
-description: List of base64 encoded images with details on the images such as the "seed" used to generate the image
-properties:
-  base64:
-    type: string
-    description: String representing base64 encoded image
-  seed:
-    type: integer
-    description: Seed used to generate the image

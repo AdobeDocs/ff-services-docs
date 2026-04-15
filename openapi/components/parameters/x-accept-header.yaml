@@ -1,9 +1,0 @@
-in: header
-name: Accept
-required: true
-style: simple
-description: Specifies the content type that the client expects to receive in response to the request.
-explode: false
-schema:
-  type: string
-  default: application/json
