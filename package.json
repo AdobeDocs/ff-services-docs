@@ -15,7 +15,7 @@
     "hubrules": "scripts/hubrules.js"
   },
   "dependencies": {
-    "@adobe/gatsby-theme-aio": "^4.15.5",
+    "@adobe/gatsby-theme-aio": "^4.15.6",
     "axios": "0.30.0",
     "gatsby": "4.22.0",
     "gray-matter": "^4.0.3",
