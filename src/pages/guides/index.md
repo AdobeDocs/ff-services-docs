@@ -62,7 +62,7 @@ twitter:
     guides, tutorials and SDK details.
 ---
 
-<Hero slots="image, heading, text" background="rgb(233, 80, 80)" theme="dark"/>
+<Superhero slots="image, heading, text" background="rgb(233, 80, 80)" theme="dark"/>
 
 ![Firefly and photograph](./firefly-services-hero.jpg)
 
