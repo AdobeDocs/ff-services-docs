@@ -16,6 +16,7 @@ keywords:
 
 Automates a product content workflows with various Firefly Services APIs.
 
+| | |
 | --- | --- |
 | ![a picture of a burger with a black background](./original.jpeg) Original Image | ![a picture of a burger with a fiery background and enhanced lighting](./output.jpeg) Output Image |
 
