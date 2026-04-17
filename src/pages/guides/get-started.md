@@ -145,8 +145,8 @@ Congratulations! You have just generated an access token.
 Once you have created your access token, you can follow the steps below to make your first API call.
 
 * Open your terminal and paste the code below.
-* Replace the variables <YOUR_ACCESS_TOKEN> with the token you generated on the Adobe Developer Console.
-* Replace <YOUR_CLIENT_ID>. You can find this on the [same page](get-started.md#api-key) you generated your token on.
+* Replace the variables `<YOUR_ACCESS_TOKEN>` with the token you generated on the Adobe Developer Console.
+* Replace `<YOUR_CLIENT_ID>`. You can find this on the [same page](get-started.md#api-key) you generated your token on.
 * Once all variables have been replaced you can run the command.
 
 ```bash
