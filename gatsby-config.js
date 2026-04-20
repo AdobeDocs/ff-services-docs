@@ -30,7 +30,7 @@ module.exports = {
       },
       {
         title: "Creative Production API",
-        description: "Docs and references for Workflow Builder API",
+        description: "Docs and references for Firefly Creative Production API",
         path: "https://developer.adobe.com/firefly-services/docs/workflow-builder-api/?aio_internal",
       },
       {
