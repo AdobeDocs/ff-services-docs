@@ -92,7 +92,7 @@ Integrate generative AI into your creative workflows.
 
 <DiscoverBlock slots="link, text"/>
 
-[Workflow Builder API](https://developer.adobe.com/firefly-services/docs/workflow-builder-api/?aio_internal)
+[Creative Production API](https://developer.adobe.com/firefly-services/docs/workflow-builder-api/?aio_internal)
 
 Run published workflows over many assets at scale with batch execution, progress tracking, and per-asset results.
 
