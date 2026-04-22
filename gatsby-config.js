@@ -83,20 +83,12 @@ module.exports = {
         path: "/guides/get-started.md",
       },
       {
-        title: "Support",
-        path: "/guides/support/",
-      },
-      {
         title: "Firefly tutorials",
         path: "/guides/tutorials",
         pages: [
           {
             title: "Creating Product Images at Scale",
             path: "/guides/tutorials/create-product-images-with-ff.md",
-          },
-          {
-            title: "Automate a Content Workflow",
-            path: "/guides/tutorials/automate-workflow.md",
           },
           {
             title: "Getting Started with the SDK",
