@@ -4,12 +4,6 @@ The following are guidelines to follow when contributing to this project.
 
 Thanks for choosing to contribute to the docs!
 
-## Have Feedback?
-
-Start by filing an issue. You can use the button at the top of most document pages. The existing committers on this project work to reach
-consensus around project direction and issue solutions within issue threads
-(when appropriate).
-
 ![The button to Log and issue](/CONTRIBUTING/images/Log_an_issue.png)
 
 ## Contributor License Agreement
@@ -58,7 +52,3 @@ be invited to the project. The existing committers employ an internal nomination
 process that must reach lazy consensus (silence is approval) before invitations
 are issued. If you feel you are qualified and want to get more deeply involved,
 feel free to reach out to existing committers to have a conversation about that.
-
-## Security Issues
-
-Security issues shouldn't be reported on this issue tracker. Instead, [file an issue to our security experts](https://helpx.adobe.com/security/alertus.html).
