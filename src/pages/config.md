@@ -4,6 +4,7 @@
 - pages:
     - [All Firefly Services](/guides/index.md)
     - [Firefly API](https://developer.adobe.com/firefly-services/docs/firefly-api/?aio_internal)
+    - [Creative Production API](https://developer.adobe.com/firefly-services/docs/workflow-builder-api/?aio_internal)
     - [Photoshop API](https://developer.adobe.com/firefly-services/docs/photoshop/?aio_internal)
     - [Lightroom API](https://developer.adobe.com/firefly-services/docs/lightroom/?aio_internal)
     - [Audio/Video API](https://developer.adobe.com/audio-video-firefly-services/?aio_internal)
