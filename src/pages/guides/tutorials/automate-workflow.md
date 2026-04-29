@@ -14,11 +14,11 @@ keywords:
 
 # Automate a content workflow tutorial
 
-Automate a product content workflows with various Firefly Services APIs.
+Automates a product content workflows with various Firefly Services APIs.
 
-||
+| | |
 | --- | --- |
-| ![a picture of a burger with a black background](./original.jpeg) <p style="text-align:center">Original Image</p> | ![a picture of a burger with a fiery background and enhanced lighting](./output.jpeg) <p style="text-align:center">Output Image</p> |
+| ![a picture of a burger with a black background](./original.jpeg) Original Image | ![a picture of a burger with a fiery background and enhanced lighting](./output.jpeg) Output Image |
 
 ## Overview
 

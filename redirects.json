@@ -1,0 +1,60 @@
+{
+  "total": 13,
+  "offset": 0,
+  "limit": 13,
+  "data": [
+    {
+      "Source": "/firefly-services/docs/guides",
+      "Destination": "/firefly-services/docs/guides/"
+    },
+    {
+      "Source": "/firefly-services/docs/guides/index",
+      "Destination": "/firefly-services/docs/guides/"
+    },
+    {
+      "Source": "/firefly-services/docs/guides/get-started/",
+      "Destination": "/firefly-services/docs/guides/get-started"
+    },
+    {
+      "Source": "/firefly-services/docs/guides/tutorials/using-the-sdk/",
+      "Destination": "/firefly-services/docs/guides/tutorials/using-the-sdk"
+    },
+    {
+      "Source": "/firefly-services/docs/guides/tutorials",
+      "Destination": "/firefly-services/docs/guides/tutorials/"
+    },
+    {
+      "Source": "/firefly-services/docs/guides/tutorials/index",
+      "Destination": "/firefly-services/docs/guides/tutorials/"
+    },
+    {
+      "Source": "/firefly-services/docs/guides/tutorials/create-product-images-with-ff/",
+      "Destination": "/firefly-services/docs/guides/tutorials/create-product-images-with-ff"
+    },
+    {
+      "Source": "/firefly-services/docs/guides/tutorials/automate-workflow/",
+      "Destination": "/firefly-services/docs/guides/tutorials/automate-workflow"
+    },
+    {
+      "Source": "/firefly-services/docs/guides/support",
+      "Destination": "/firefly-services/docs/guides/support/"
+    },
+    {
+      "Source": "/firefly-services/docs/guides/support/index",
+      "Destination": "/firefly-services/docs/guides/support/"
+    },
+    {
+      "Source": "/firefly-services/docs/guides/sdks",
+      "Destination": "/firefly-services/docs/guides/sdks/"
+    },
+    {
+      "Source": "/firefly-services/docs/guides/sdks/index",
+      "Destination": "/firefly-services/docs/guides/sdks/"
+    },
+    {
+      "Source": "/firefly-services/docs/guides/images/source_image",
+      "Destination": "/firefly-services/docs/guides/images/source-image"
+    }
+  ],
+  ":type": "sheet"
+}

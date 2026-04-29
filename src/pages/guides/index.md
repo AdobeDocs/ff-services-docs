@@ -62,7 +62,7 @@ twitter:
     guides, tutorials and SDK details.
 ---
 
-<Hero slots="image, heading, text" background="rgb(233, 80, 80)" theme="dark"/>
+<Superhero slots="image, heading, text" background="rgb(233, 80, 80)" theme="dark"/>
 
 ![Firefly and photograph](./firefly-services-hero.jpg)
 
@@ -70,9 +70,9 @@ twitter:
 
 Unleash boundless potential with Firefly Services advanced AI and Creative Cloud APIs.
 
-<Media slots="video"/>
+<Embed slots="video"/>
 
-<https://adobe.ly/ffs-overview">
+https://adobe.ly/ffs-overview"
 
 Welcome to Firefly Services, your solution for seamless content generation at scale. Firefly Services includes Firefly APIs, Lightroom APIs, Photoshop APIs, and Content Tagging APIs.
 
@@ -138,4 +138,4 @@ Programmatically scale your artwork to use anywhere your audience is, from busin
 
 Leverage Content Tagging API to craft personalized experiences.
 
-<br/><br/><br/><br/>
+\<br/\>\<br/\>\<br/\>\<br/\>
