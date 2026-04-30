@@ -40,25 +40,6 @@ Before we begin this tutorial, run the following in a secure terminal:
 
 <CodeBlock slots="heading, code" repeat="2" languages="Python, JavaScript" />
 
-#### JavaScript
-
-```bash
-mkdir firefly-services-content-workflow-tutorial
-cd firefly-services-content-workflow-tutorial
-npm init --y
-npm install axios qs
-touch index.js
-```
-
-#### Python
-
-```bash
-mkdir firefly-services-content-workflow-tutorial
-cd firefly-services-content-workflow-tutorial
-python -m pip install requests
-touch main.py
-```
-
 ### Pre-signed URLs
 
 To interact with Adobe's Firefly Services APIs, you'll need to generate pre-signed URLs. These URLs grant temporary access to your storage resources without exposing your credentials. For more details about pre-signed URLs, see [AWS Sharing objects with presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html), or [Azure Storage resources using shared access signatures](https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview).
@@ -70,6 +51,28 @@ In this tutorial, you will need:
 * A pre-signed URL with a read/write token for the modified image.
 
 Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump immediately to the full source code](#full-example).
+
+## Test content
+
+This cob=n
+
+```bash
+curl --location 'https://image.adobe.io/sensei/cutout' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
+--header "Authorization: Bearer $FIREFLY_SERVICES_ACCESS_TOKEN" \
+--data '{
+    "input":{
+      "href":"https://your-storage-bucket-name.blob.core.windows.net:443/container/input.jpeg?sv...&query=params...",
+      "storage":"azure"
+    },
+    "output":{
+      "href":"https://your-storage-bucket-name.blob.core.windows.net:443/container/output.jpeg?sv...&query=params...",
+      "storage":"azure"
+    }
+  }'
+```
 
 ## Retrieve an access token
 
