@@ -98,6 +98,12 @@ Run published workflows over many assets at scale with batch execution, progress
 
 <DiscoverBlock slots="link, text"/>
 
+[Express API](https://developer.adobe.com/firefly-services/docs/express-api/?aio_internal)
+
+Effortlessly create and customize mixed-media designs with on-brand precision.
+
+<DiscoverBlock slots="link, text"/>
+
 [Lightroom API](https://developer.adobe.com/firefly-services/docs/lightroom/?aio_internal)
 
 Unlock the potential of Lightroom in the cloud.
