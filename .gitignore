@@ -1,3 +1,5 @@
+# .gitignore
+
 .editorconfig
 .idea
 .DS_Store
@@ -5,7 +7,7 @@
 
 # npm yarn
 node_modules
-package.lock
+package-lock.json
 yarn-error.log
 .cursor-symlink-impl.log
 .pnp.*
@@ -32,3 +34,14 @@ cypress/screenshots
 
 # lerna
 lerna-debug.log
+
+# Added by update-bot
+.vscode
+.history
+.actrc
+.secrets
+local-test.yml
+.yalc
+yalc.lock
+linter-output.txt
+linter-report.txt
