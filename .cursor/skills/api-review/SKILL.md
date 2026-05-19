@@ -1,14 +1,14 @@
 ---
-name: review-api
-description: Catalogs user-readable OpenAPI text in ref-numbered tables with possible issues and proposed content. Read-only unless user asks to update specific refs. Use when the user invokes /review-api or asks to review API descriptions.
+name: api-review
+description: Catalogs user-readable OpenAPI text in ref-numbered tables with possible issues and proposed content. Read-only unless user asks to update specific refs. Use when the user invokes /api-review or asks to review API descriptions.
 ---
 
-# `/review-api` — Description catalog
+# `/api-review` — Description catalog
 
 ## When to run
 
-- User invokes `/review-api`, "review API descriptions", or "catalog schema descriptions".
-- **Do not edit the JSON** unless the user later asks to `update refs N,M,…` (that is not `/fix-api`).
+- User invokes `/api-review`, "review API descriptions", or "catalog schema descriptions".
+- **Do not edit the JSON** unless the user later asks to `update refs N,M,…` (that is not `/api-fix`).
 
 ## Steps
 
@@ -41,8 +41,8 @@ description: Catalogs user-readable OpenAPI text in ref-numbered tables with pos
 
 5. **Footer**
    - Total ref count
-   - *Lint → `/fix-api`. Copy → **Proposed content** or `update refs 3, 7, 12` (not `/fix-api`).*
+   - *Lint → `/api-fix`. Copy → **Proposed content** or `update refs 3, 7, 12` (not `/api-fix`).*
 
 ## Batch follow-up
 
-- `update refs 3, 7, 12` — Apply **Proposed content** at **Location** paths; preserve meaning. Not `/fix-api`.
+- `update refs 3, 7, 12` — Apply **Proposed content** at **Location** paths; preserve meaning. Not `/api-fix`.

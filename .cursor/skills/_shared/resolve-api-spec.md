@@ -1,6 +1,6 @@
 # Resolve OpenAPI spec path
 
-Use this procedure for `/eval-api`, `/review-api`, and `/fix-api`. **Do not** default to `petstore.json` or create placeholder specs.
+Use this procedure for `/api-eval`, `/api-review`, and `/api-fix`. **Do not** default to `petstore.json` or create placeholder specs.
 
 ## Resolution order
 

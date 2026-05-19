@@ -1,5 +1,5 @@
 ---
-description: Deprecated — use api-ref-router and modular api-ref-* rules with eval-api skill
+description: Deprecated — use api-ref-router and modular api-ref-* rules with api-eval skill
 globs: static/**/*.json
 alwaysApply: false
 ---
@@ -12,9 +12,9 @@ This monolith rule was split for efficiency. Use instead:
 
 | Command | Purpose |
 |---------|---------|
-| `/eval-api` | Audit: Redocly lint + OpenAPI version + FFS style guide + copy rules |
-| `/review-api` | Catalog descriptions (ref tables with proposed content) |
-| `/fix-api` | Fix **Redocly lint errors only** |
+| `/api-eval` | Audit: Redocly lint + OpenAPI version + FFS style guide + copy rules |
+| `/api-review` | Catalog descriptions (ref tables with proposed content) |
+| `/api-fix` | Fix **Redocly lint errors only** |
 
 See [api-ref-skills.mdc](api-ref-skills.mdc) and [.cursor/skills/](../skills/).
 

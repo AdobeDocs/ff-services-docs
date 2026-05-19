@@ -1,5 +1,5 @@
 ---
-description: Route OpenAPI JSON work to eval-api, review-api, or fix-api skills
+description: Route OpenAPI JSON work to api-eval, api-review, or api-fix skills
 globs: static/**/*.json
 alwaysApply: false
 ---
@@ -12,9 +12,9 @@ When editing or reviewing OpenAPI JSON under `static/`, use the right skill. Loa
 
 | User intent | Skill | Edits? |
 |-------------|-------|--------|
-| `/eval-api`, evaluate, audit | [eval-api](../skills/eval-api/SKILL.md) | No — findings only |
-| `/review-api`, catalog descriptions | [review-api](../skills/review-api/SKILL.md) | No — tables for manual review |
-| `/fix-api`, fix lint errors | [fix-api](../skills/fix-api/SKILL.md) | Yes — **Redocly lint only** |
+| `/api-eval`, evaluate, audit | [api-eval](../skills/api-eval/SKILL.md) | No — findings only |
+| `/api-review`, catalog descriptions | [api-review](../skills/api-review/SKILL.md) | No — tables for manual review |
+| `/api-fix`, fix lint errors | [api-fix](../skills/api-fix/SKILL.md) | Yes — **Redocly lint only** |
 
 Resolve the spec path with [_shared/resolve-api-spec.md](../skills/_shared/resolve-api-spec.md). Do **not** assume `petstore.json`.
 
@@ -30,6 +30,6 @@ Resolve the spec path with [_shared/resolve-api-spec.md](../skills/_shared/resol
 - `api-ref-schema.mdc` — anyOf, type arrays, $ref/title
 - `api-ref-examples.mdc` — Redocly examples
 - `api-ref-tags-errors.mdc` — tags, errors, auth
-- `api-ref-ffs-styleguide.mdc` — Firefly Services API Style Guide (eval-api only)
+- `api-ref-ffs-styleguide.mdc` — Firefly Services API Style Guide (api-eval only)
 
 Legacy monolith: `eval-API-ref.mdc` (deprecated stub).

@@ -1,20 +1,20 @@
 ---
-description: Points to /eval-api, /review-api, and /fix-api skills for OpenAPI JSON in static/
+description: Points to /api-eval, /api-review, and /api-fix skills for OpenAPI JSON in static/
 globs: static/**/*.json
 alwaysApply: false
 ---
 
-# API spec skills (`/eval-api`, `/review-api`, `/fix-api`)
+# API spec skills (`/api-eval`, `/api-review`, `/api-fix`)
 
 Agent skills for OpenAPI JSON under `static/`. Resolve the spec path with [_shared/resolve-api-spec.md](../skills/_shared/resolve-api-spec.md) — **no** `petstore.json` default.
 
 | Command | Skill | Edits? |
 |---------|-------|--------|
-| **`/eval-api`** | [eval-api/SKILL.md](../skills/eval-api/SKILL.md) | No — audit findings |
-| **`/review-api`** | [review-api/SKILL.md](../skills/review-api/SKILL.md) | No — description catalog tables |
-| **`/fix-api`** | [fix-api/SKILL.md](../skills/fix-api/SKILL.md) | Yes — Redocly lint fixes only |
+| **`/api-eval`** | [api-eval/SKILL.md](../skills/api-eval/SKILL.md) | No — audit findings |
+| **`/api-review`** | [api-review/SKILL.md](../skills/api-review/SKILL.md) | No — description catalog tables |
+| **`/api-fix`** | [api-fix/SKILL.md](../skills/api-fix/SKILL.md) | Yes — Redocly lint fixes only |
 
-**Agent:** [api-spec-reviewer.md](../agents/api-spec-reviewer.md) — runs lint + fix-api after OpenAPI edits.
+**Agent:** [api-spec-reviewer.md](../agents/api-spec-reviewer.md) — runs lint + api-fix after OpenAPI edits.
 
 **Lint:** `npm run lint:openapi -- static/your-spec.json` · `npm run lint:openapi:all`
 

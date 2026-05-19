@@ -1,4 +1,4 @@
-# fix-api — Redocly reference
+# api-fix — Redocly reference
 
 ## Commands
 
@@ -18,8 +18,8 @@ Config: [redocly.yaml](../../../redocly.yaml) at repo root (`extends: recommende
 | Spec structure | Fix per rule message only — do not reorder sections unless lint requires it |
 | Invalid media type / schema | Align `content` and schema per Redocly message |
 
-## Not in fix-api scope
+## Not in api-fix scope
 
-- FFS style guide (eval-api)
-- Description punctuation, public-facing text (review-api / manual edit)
+- FFS style guide (api-eval)
+- Description punctuation, public-facing text (api-review / manual edit)
 - Adding `info.license` unless lint flags missing license

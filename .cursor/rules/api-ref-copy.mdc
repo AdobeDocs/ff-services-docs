@@ -39,4 +39,4 @@ User-visible strings must not contain internal-only information.
 
 **Allowed:** Public product names, customer error codes, placeholders (`{your_api_key}`), standard field names (`jobId`).
 
-Flag violations as **high** severity in eval/review output. `/fix-api` does **not** auto-fix copy — use `/review-api` or explicit ref-based edits.
+Flag violations as **high** severity in eval/review output. `/api-fix` does **not** auto-fix copy — use `/api-review` or explicit ref-based edits.

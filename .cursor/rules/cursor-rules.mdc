@@ -36,7 +36,7 @@ Never place rule files:
 **Rules** (this folder) are always-on or glob-scoped instructions for the agent. **Skills** live under `PROJECT_ROOT/.cursor/skills/<skill-name>/SKILL.md` and describe fuller workflows (for example stage-all-and-commit). If you add a skill, consider a short companion rule or a line in this file so contributors know it exists.
 
 - **Git:** **`/gc`** · **`/gcam`** — [.cursor/rules/gc-commit-skill.mdc](gc-commit-skill.mdc), [.cursor/skills/gc/SKILL.md](../skills/gc/SKILL.md), [.cursor/skills/gcam/SKILL.md](../skills/gcam/SKILL.md)
-- **OpenAPI JSON (`static/`):** **`/eval-api`** · **`/review-api`** · **`/fix-api`** — [.cursor/rules/api-ref-skills.mdc](api-ref-skills.mdc); agent [.cursor/agents/api-spec-reviewer.md](../agents/api-spec-reviewer.md)
+- **OpenAPI JSON (`static/`):** **`/api-eval`** · **`/api-review`** · **`/api-fix`** — [.cursor/rules/api-ref-skills.mdc](api-ref-skills.mdc); agent [.cursor/agents/api-spec-reviewer.md](../agents/api-spec-reviewer.md)
 
 ## Naming conventions
 

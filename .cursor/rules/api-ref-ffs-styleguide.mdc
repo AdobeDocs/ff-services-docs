@@ -1,5 +1,5 @@
 ---
-description: Firefly Services API Style Guide checkpoints for eval-api (not fix-api)
+description: Firefly Services API Style Guide checkpoints for api-eval (not api-fix)
 globs: static/**/*.json
 alwaysApply: false
 ---
@@ -8,9 +8,9 @@ alwaysApply: false
 
 **Wiki:** [Firefly Services API Style Guide](https://wiki.corp.adobe.com/display/GenAI/Firefly+Services+API+Style+Guide)
 
-Use with `/eval-api` only. `/fix-api` does **not** apply these unless Redocly flags them.
+Use with `/api-eval` only. `/api-fix` does **not** apply these unless Redocly flags them.
 
-**Offline checklist:** [.cursor/skills/eval-api/ffs-styleguide-checklist.md](../skills/eval-api/ffs-styleguide-checklist.md)
+**Offline checklist:** [.cursor/skills/api-eval/ffs-styleguide-checklist.md](../skills/api-eval/ffs-styleguide-checklist.md)
 
 ## Scope
 

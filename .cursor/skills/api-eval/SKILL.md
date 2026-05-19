@@ -1,13 +1,13 @@
 ---
-name: eval-api
-description: Audits an OpenAPI JSON spec (Redocly lint, OpenAPI version, FFS style guide, copy rules). Read-only — no file edits. Use when the user invokes /eval-api or asks to evaluate or audit an API spec.
+name: api-eval
+description: Audits an OpenAPI JSON spec (Redocly lint, OpenAPI version, FFS style guide, copy rules). Read-only — no file edits. Use when the user invokes /api-eval or asks to evaluate or audit an API spec.
 ---
 
-# `/eval-api` — Audit OpenAPI spec
+# `/api-eval` — Audit OpenAPI spec
 
 ## When to run
 
-- User invokes `/eval-api`, "evaluate API spec", or "audit OpenAPI".
+- User invokes `/api-eval`, "evaluate API spec", or "audit OpenAPI".
 - **Do not edit files.** Findings only.
 
 ## Steps
@@ -18,7 +18,7 @@ description: Audits an OpenAPI JSON spec (Redocly lint, OpenAPI version, FFS sty
    ```bash
    npm run lint:openapi -- <resolved-path>
    ```
-   List every error/warning with path/line. Tag each as **`fix-api-eligible`** (`→ fix with /fix-api`).
+   List every error/warning with path/line. Tag each as **`api-fix-eligible`** (`→ fix with /api-fix`).
 
 3. **Layer 2 — OpenAPI version** — Read `openapi` field. Audit 3.0 vs 3.1 rules per [api-ref-schema.mdc](../../rules/api-ref-schema.mdc) ($ref, type arrays, anyOf/null). Flag issues lint may miss.
 
@@ -28,11 +28,11 @@ description: Audits an OpenAPI JSON spec (Redocly lint, OpenAPI version, FFS sty
 
 6. **Output format**
    - **Summary** — counts by layer and severity
-   - **Redocly lint** — numbered list (`fix-api-eligible`)
+   - **Redocly lint** — numbered list (`api-fix-eligible`)
    - **OpenAPI version** — findings
    - **FFS style guide** — findings (wiki section if helpful)
-   - **Documentation / copy** — findings; suggest `/review-api` for full catalog
-   - Reminder: `/fix-api` = lint only; copy/style = `/review-api` or `update refs N,M,…`
+   - **Documentation / copy** — findings; suggest `/api-review` for full catalog
+   - Reminder: `/api-fix` = lint only; copy/style = `/api-review` or `update refs N,M,…`
 
 ## Severity
 
