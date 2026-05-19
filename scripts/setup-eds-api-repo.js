@@ -99,7 +99,7 @@ keywords:
 
 ---
 
-<Hero slots="heading, text"/>
+<Superhero slots="heading, text"/>
 
 # [API Name] API
 
