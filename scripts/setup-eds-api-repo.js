@@ -99,7 +99,7 @@ keywords:
 
 ---
 
-<Superhero slots="heading, text"/>
+<Hero slots="heading, text"/>
 
 # [API Name] API
 
@@ -115,13 +115,13 @@ keywords:
 
 ### Get Started
 
-[Authentication](guides/)
+[Authentication](getting-started/index.md)
 
 Get started with API authentication.
 
 <DiscoverBlock slots="link, text"/>
 
-[Try the API](api/)
+[Try the API](api/index.md)
 
 See the full API details and schemas on the reference page.
 `;

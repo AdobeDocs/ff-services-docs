@@ -1,6 +1,6 @@
 ---
-title: {API or feature} Authentication
-description: Learn how to set up and authenticate a project to use {API or feature} API.
+title: <> API or feature Authentication
+description: Learn how to set up and authenticate a project to use <> API or feature API.
 hideBreadcrumbNav: true
 keywords:
 - authentication
@@ -11,11 +11,11 @@ keywords:
 ---
 # Authentication
 
-Learn how to authenticate requests to {API or feature} API.
+Learn how to authenticate requests to <> API or feature API.
 
 ## Overview
 
-Every request made to {API or feature} API must include an encrypted access token.
+Every request made to <> API or feature API must include an encrypted access token.
 
 Your secure, server-side application retrieves an access token by making a request to the [Adobe Identity Management System (IMS)][1] with your **Client ID** and **Client Secret**.
 
@@ -24,7 +24,7 @@ Your secure, server-side application retrieves an access token by making a reque
 This tutorial assumes you have worked with your Adobe representative and have the following:
 
 - An [Adobe Developer Console][2] account.
-- A [project][3] with {API or feature} API [OAuth Server-to-Server credentials set up][4].
+- A [project][3] with <> API or feature API [OAuth Server-to-Server credentials set up][4].
 - Access to your **Client ID** and **Client Secret** from the [Adobe Developer Console project][5]. Securely store these credentials and never expose them in client-side or public code.
 
 ## Retrieve an access token
@@ -69,9 +69,8 @@ A temporary access token validates calls to the API. You can [generate an access
 
 ## Make your first API call
 
-{If applicable, include a verification call to the specific API.}
+[If applicable, include a verification call to the specific API.]
 
-<!-- Links -->
 [1]: https://www.adobe.com/content/dam/cc/en/trust-center/ungated/whitepapers/corporate/adobe-identity-management-services-security-overview.pdf
 [2]: https://developer.adobe.com/
 [3]: https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/
