@@ -75,7 +75,7 @@ const NEW_CONFIG_BODY = `- pages:
       - [Creative Production API](https://developer.adobe.com/firefly-services/docs/workflow-builder-api/?aio_internal) Docs and references for Firefly Creative Production API.
       - [Express API](https://developer.adobe.com/firefly-services/docs/express-api/?aio_internal) Docs and references for Express API.
       - [Content Tagging API](https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html) Docs and references for Content Tagging services.
-    - [About <> API](/index.md)
+    - [About the API](/index.md)
     - [Getting Started](/getting-started/index.md)
     - [Guides](/guides/index.md)
     - [API Reference](/api/index.md)
