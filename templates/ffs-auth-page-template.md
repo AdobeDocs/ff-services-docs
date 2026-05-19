@@ -69,9 +69,8 @@ A temporary access token validates calls to the API. You can [generate an access
 
 ## Make your first API call
 
-{If applicable, include a verification call to the specific API.}
+[If applicable, include a verification call to the specific API.]
 
-<!-- Links -->
 [1]: https://www.adobe.com/content/dam/cc/en/trust-center/ungated/whitepapers/corporate/adobe-identity-management-services-security-overview.pdf
 [2]: https://developer.adobe.com/
 [3]: https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/
