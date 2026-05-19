@@ -1,0 +1,10 @@
+# Redocly CLI config for OpenAPI specs under static/
+# Usage: npm run lint:openapi -- static/your-spec.json
+#        npm run lint:openapi:all
+
+extends:
+  - recommended
+
+apis:
+  static@latest:
+    root: static/
