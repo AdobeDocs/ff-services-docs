@@ -81,7 +81,7 @@ const NEW_CONFIG_BODY = `- pages:
     - [API Reference](/api/index.md)
 
 - buttons:
-    - [Support](https://airtable.com/appu5RTWgdM95jynx/pagyuT1qspNJcPU2E/form)
+    - [Support](https://airtable.com/<airtable-form-url>)
     - [Console](https://developer.adobe.com/console/) consoleId
 
 - subPages:
