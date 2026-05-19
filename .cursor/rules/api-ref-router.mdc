@@ -14,7 +14,7 @@ When editing or reviewing OpenAPI JSON under `static/`, use the right skill. Loa
 |-------------|-------|--------|
 | `/api-eval`, evaluate, audit | [api-eval](../skills/api-eval/SKILL.md) | No — findings only |
 | `/api-review`, catalog descriptions | [api-review](../skills/api-review/SKILL.md) | No — tables for manual review |
-| `/api-fix`, fix lint errors | [api-fix](../skills/api-fix/SKILL.md) | Yes — **Redocly lint only** |
+| `/api-fix`, fix lint or structure | [api-fix](../skills/api-fix/SKILL.md) | Yes — **lint + api-ref-structure** |
 
 Resolve the spec path with [_shared/resolve-api-spec.md](../skills/_shared/resolve-api-spec.md). Do **not** assume `petstore.json`.
 

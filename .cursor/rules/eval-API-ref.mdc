@@ -14,7 +14,7 @@ This monolith rule was split for efficiency. Use instead:
 |---------|---------|
 | `/api-eval` | Audit: Redocly lint + OpenAPI version + FFS style guide + copy rules |
 | `/api-review` | Catalog descriptions (ref tables with proposed content) |
-| `/api-fix` | Fix **Redocly lint errors only** |
+| `/api-fix` | Fix **Redocly lint** and **structure** (`api-ref-structure.mdc`) |
 
 See [api-ref-skills.mdc](api-ref-skills.mdc) and [.cursor/skills/](../skills/).
 

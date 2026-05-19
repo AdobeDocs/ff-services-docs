@@ -12,7 +12,7 @@ For OpenAPI JSON under `static/` in spoke repos (product-specific filenames, not
 |---------|---------|
 | `/api-eval` | Audit: Redocly lint + OpenAPI version + [FFS API Style Guide](https://wiki.corp.adobe.com/display/GenAI/Firefly+Services+API+Style+Guide) + copy rules (no edits) |
 | `/api-review` | Catalog descriptions in ref-numbered tables with proposed fixes (no edits) |
-| `/api-fix` | Fix **Redocly lint errors only** |
+| `/api-fix` | Fix **Redocly lint** and **api-ref-structure** issues |
 
 Lint: `npm run lint:openapi -- static/your-spec.json` · `npm run lint:openapi:all`
 

@@ -12,7 +12,7 @@ Related wiki pages:
 
 ## Eval layers
 
-1. Redocly lint (`npm run lint:openapi -- <path>`) — mark `api-fix-eligible`
+1. Redocly lint + structure (`api-ref-structure.mdc`) — mark `api-fix-eligible`
 2. OpenAPI version validity (3.0 vs 3.1)
 3. FFS style guide (this checklist)
 4. Doc modular rules (`api-ref-copy`, examples, tags)

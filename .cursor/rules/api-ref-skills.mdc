@@ -12,7 +12,7 @@ Agent skills for OpenAPI JSON under `static/`. Resolve the spec path with [_shar
 |---------|-------|--------|
 | **`/api-eval`** | [api-eval/SKILL.md](../skills/api-eval/SKILL.md) | No — audit findings |
 | **`/api-review`** | [api-review/SKILL.md](../skills/api-review/SKILL.md) | No — description catalog tables |
-| **`/api-fix`** | [api-fix/SKILL.md](../skills/api-fix/SKILL.md) | Yes — Redocly lint fixes only |
+| **`/api-fix`** | [api-fix/SKILL.md](../skills/api-fix/SKILL.md) | Yes — Redocly lint + structure fixes |
 
 **Agent:** [api-spec-reviewer.md](../agents/api-spec-reviewer.md) — runs lint + api-fix after OpenAPI edits.
 
