@@ -1,0 +1,21 @@
+---
+description: Points to /eval-api, /review-api, and /fix-api skills for OpenAPI JSON in static/
+globs: static/**/*.json
+alwaysApply: false
+---
+
+# API spec skills (`/eval-api`, `/review-api`, `/fix-api`)
+
+Agent skills for OpenAPI JSON under `static/`. Resolve the spec path with [_shared/resolve-api-spec.md](../skills/_shared/resolve-api-spec.md) — **no** `petstore.json` default.
+
+| Command | Skill | Edits? |
+|---------|-------|--------|
+| **`/eval-api`** | [eval-api/SKILL.md](../skills/eval-api/SKILL.md) | No — audit findings |
+| **`/review-api`** | [review-api/SKILL.md](../skills/review-api/SKILL.md) | No — description catalog tables |
+| **`/fix-api`** | [fix-api/SKILL.md](../skills/fix-api/SKILL.md) | Yes — Redocly lint fixes only |
+
+**Agent:** [api-spec-reviewer.md](../agents/api-spec-reviewer.md) — runs lint + fix-api after OpenAPI edits.
+
+**Lint:** `npm run lint:openapi -- static/your-spec.json` · `npm run lint:openapi:all`
+
+**FFS style guide wiki:** [Firefly Services API Style Guide](https://wiki.corp.adobe.com/display/GenAI/Firefly+Services+API+Style+Guide)

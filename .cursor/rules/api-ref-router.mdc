@@ -1,0 +1,35 @@
+---
+description: Route OpenAPI JSON work to eval-api, review-api, or fix-api skills
+globs: static/**/*.json
+alwaysApply: false
+---
+
+# API reference router
+
+When editing or reviewing OpenAPI JSON under `static/`, use the right skill. Load modular rules only when needed.
+
+## Task routing
+
+| User intent | Skill | Edits? |
+|-------------|-------|--------|
+| `/eval-api`, evaluate, audit | [eval-api](../skills/eval-api/SKILL.md) | No — findings only |
+| `/review-api`, catalog descriptions | [review-api](../skills/review-api/SKILL.md) | No — tables for manual review |
+| `/fix-api`, fix lint errors | [fix-api](../skills/fix-api/SKILL.md) | Yes — **Redocly lint only** |
+
+Resolve the spec path with [_shared/resolve-api-spec.md](../skills/_shared/resolve-api-spec.md). Do **not** assume `petstore.json`.
+
+## Non-negotiable description rule
+
+- **HTTP response `description`** (status lines): Title Case, **no** trailing period (e.g. `Internal Server Error`).
+- **All other descriptions** (operations, parameters, schemas, headers): complete sentences **with** periods.
+
+## Modular rules (load on demand)
+
+- `api-ref-structure.mdc` — section order, license, JSON/$ref
+- `api-ref-copy.mdc` — summaries, punctuation, public-facing text
+- `api-ref-schema.mdc` — anyOf, type arrays, $ref/title
+- `api-ref-examples.mdc` — Redocly examples
+- `api-ref-tags-errors.mdc` — tags, errors, auth
+- `api-ref-ffs-styleguide.mdc` — Firefly Services API Style Guide (eval-api only)
+
+Legacy monolith: `eval-API-ref.mdc` (deprecated stub).

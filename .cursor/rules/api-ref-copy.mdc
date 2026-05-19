@@ -1,0 +1,42 @@
+---
+description: Summaries, descriptions, punctuation, and public-facing copy for OpenAPI specs
+globs: static/**/*.json
+alwaysApply: false
+---
+
+# API reference — copy and descriptions
+
+## Response descriptions (HTTP status lines)
+
+- **Title Case**, no trailing period.
+- Standardize: `Success`, `Accepted`, `Bad Request`, `Unauthorized`, `Forbidden`, `Requested Resource Was Not Found`, `Too Many Requests`, `Internal Server Error`, `Input Validation Error`.
+
+## All other descriptions
+
+- Complete sentences with periods (operations, parameters, request bodies, schemas, headers).
+- No trailing or leading spaces on parameter descriptions.
+- Fix spelling and grammar (`eg` → `e.g.`, `etc.` → `etc.`).
+- Proper acronyms: GUID, URL (not Guid, Url).
+- Consistent terminology (e.g. Adobe Asset Link).
+
+## Summaries
+
+- Sentence case; no trailing period; no `API` suffix.
+- Lowercase version labels: `v1`, `v2` (not `V1`).
+- Clear, descriptive; `operationId` in camelCase.
+
+## Public-facing text
+
+User-visible strings must not contain internal-only information.
+
+**Scan:** `info`, `tags`, operation summaries/descriptions, parameters, schemas, examples (prose), enum descriptions.
+
+**Do not allow:**
+
+- Jira or ticket keys (e.g. `FFENT-8796`, `PROJ-123`)
+- Internal codenames, internal service names, corp-only wiki URLs
+- Authoring TODOs tied to tickets (e.g. `TODO: fix after FFENT-…`)
+
+**Allowed:** Public product names, customer error codes, placeholders (`{your_api_key}`), standard field names (`jobId`).
+
+Flag violations as **high** severity in eval/review output. `/fix-api` does **not** auto-fix copy — use `/review-api` or explicit ref-based edits.
