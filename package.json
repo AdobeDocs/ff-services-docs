@@ -1,14 +1,17 @@
 {
-  "name": "dev-site-documentation-template",
+  "name": "ff-services-docs",
   "version": "1.0.0",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AdobeDocs/dev-site-documentation-template"
+    "url": "https://github.com/AdobeDocs/ff-services-docs"
   },
   "author": {
     "name": "Tim Kim",
     "url": "https://github.com/timkim"
+  },
+  "engines": {
+    "node": "^24.11.0"
   },
   "scripts": {
     "dev": "npx --yes --prefer-online github:AdobeDocs/adp-devsite-utils dev",
@@ -27,8 +30,5 @@
     "redirectCheck:prod": "npx --yes --prefer-online github:AdobeDocs/adp-devsite-utils redirectChecker prod --verbose",
     "lint:openapi": "npx --yes @redocly/cli@latest lint",
     "lint:openapi:all": "sh -c 'if find static -name \"*.json\" -print -quit 2>/dev/null | grep -q .; then npx --yes @redocly/cli@latest lint static/; else echo \"No OpenAPI JSON files under static/\"; fi'"
-  },
-  "engines": {
-    "node": "^24.11.0"
   }
 }
