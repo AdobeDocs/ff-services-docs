@@ -2,7 +2,7 @@
   "version": "mohxki3f",
   "releaseTag": "rules-2026.04.28.1777338695005",
   "generated": "2026-04-28T01:11:35.067Z",
-  "lastUpdated": "2026-05-04T20:21:41.457Z",
+  "lastUpdated": "2026-06-09T18:03:38.886Z",
   "lastUpdateReleaseTag": "rules-2026.04.28.1777338695005",
   "installedDomains": [
     "security-global",
@@ -80,10 +80,22 @@
     "security-lang/security-lang-node.mdc": {
       "sha256": "9019cc2470bbfc6d01c5c34aff42498a91b59ca9766a34a79de1ebe93cc6c587",
       "domain": "security-lang"
+    },
+    "security-lang/security-lang-python.mdc": {
+      "sha256": "ed404b0b4c21e1ffd4cd9bd28222ac29f68027cdba2e767a9ca1ca13872141b4",
+      "domain": "security-lang"
+    },
+    "security-lang/security-lang-c.mdc": {
+      "sha256": "96c7a93ca810550cad2e84aa9ff360d63d4fa8eb48eb849070e1b19ff9d0e2e3",
+      "domain": "security-lang"
+    },
+    "security-lang/security-lang-cpp.mdc": {
+      "sha256": "133472889ee8070bc0d022525974df629ee7cb3c3b118c1e1eef640dda51567e",
+      "domain": "security-lang"
     }
   },
   "stats": {
-    "totalFiles": 18,
+    "totalFiles": 21,
     "missingFiles": 0,
     "domains": 2
   }
