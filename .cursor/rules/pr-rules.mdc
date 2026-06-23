@@ -1,10 +1,10 @@
 ---
-description: PR title, body, and post-create Jira comment conventions for this repo
+description: PR title, body, and Jira-link conventions for this repo
 alwaysApply: true
 ---
 # Pull requests (PRs)
 
-When you draft, review, or **create** a pull request title or description (for example in GitHub/GitLab or when asked in Agent chat), follow these conventions.
+When you draft or review a pull request title or description (for example in GitHub/GitLab or when asked in Agent chat), follow these conventions.
 
 ## Deriving the Jira issue
 
@@ -40,13 +40,17 @@ Example:
 - **feat** — adds a new feature. When a new TOC item is added or the JIRA is connected to another `feat`- labeled Jira.
 - **fix** — fixes a bug
 - **refactor** — rewrites/restructures code without changing behavior
-- **perf** — improves performance (special refactor)
-- **style** — formatting/whitespace only; no meaning change. Only edits
+- **perf** — improves code performance (special refactor)
+- **style** — formatting/whitespace changes or refactoring the content architecture; no meaning change. Only edits
 - **test** — adds or corrects tests
-- **docs** —  New content added. documentation only
+- **docs** — new content added; documentation only
 - **build** — build tools, CI, dependencies, project version, etc.
 - **ops** — infrastructure, deployment, backup, recovery, etc.
 - **chore** — miscellaneous (e.g. `.gitignore`)
+
+## Link in Jira
+
+When a Jira ticket has been identified for the work, add a comment that includes the PR link once it has been created.
 
 ## PR body — required sections
 
@@ -97,25 +101,6 @@ Replace the key and URL with the actual ticket. If multiple tickets apply, list 
 ## Jira
 No ticket
 ```
-
-## Creating a PR — workflow
-
-When the user asks you to **create** a pull request, run this sequence:
-
-1. Inspect branch state (`git status`, diffs vs base, commit history) and draft the title and body using the conventions above.
-2. Push the branch to the remote with `-u` when it is not already published.
-3. Create the PR with `gh pr create` (HEREDOC body). Return the PR URL to the user.
-4. **Comment on linked Jira ticket(s)** — final step; do not skip when a ticket applies:
-   - **When** the branch name includes a Jira issue ID (or the PR `# Context` → `## Jira` section links one or more tickets): add a comment on **each** linked ticket with the PR URL.
-   - **When** `## Jira` is `No ticket`: skip this step.
-   - **Comment body** (one line; adjust only the PR URL):
-
-     ```text
-     Pull request: https://github.com/<org>/<repo>/pull/<number>
-     ```
-
-   - Prefer the **Jira MCP server** (`user-jira`) to post the comment when it is available and authenticated.
-   - If Jira MCP is unavailable or the comment fails, tell the user which ticket(s) still need the PR link and include the URL so they can add it manually.
 
 ## Example (full PR description)
 
